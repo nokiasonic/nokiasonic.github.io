@@ -17,6 +17,10 @@
 
 <p>详见: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>博客</category>
+      </categories>
       <tags>
         <tag>Hexo</tag>
       </tags>
@@ -33,6 +37,9 @@
 </blockquote>
 <h2 id="本站用途"><a href="#本站用途" class="headerlink" title="本站用途"></a>本站用途</h2><p>这是个人用来学习研究金融工程，机器学习的小窝，</p>
 ]]></content>
+      <categories>
+        <category>美好生活</category>
+      </categories>
       <tags>
         <tag>随笔</tag>
       </tags>
