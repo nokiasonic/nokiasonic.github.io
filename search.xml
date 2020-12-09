@@ -45,6 +45,162 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo美化表格</title>
+    <url>/2020/12/09/Hexo%E7%BE%8E%E5%8C%96%E8%A1%A8%E6%A0%BC/</url>
+    <content><![CDATA[<p>通过jupyter notebook导出的markdown文件中的表格过于丑陋，遂尝试对生成的表格内容进行美化。</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="创建自定义的CSS文件"><a href="#创建自定义的CSS文件" class="headerlink" title="创建自定义的CSS文件"></a>创建自定义的CSS文件</h3><p>在<code>themes/next/source/css/main.styl</code>中添加一行内容。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">@import <span class="string">&quot;_custom/custom&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后在<code>themes/next/source/css</code>目录下创建<code>_custom</code>文件夹。再进入该文件夹创建名为custom.styl的文件， 用它来配置自己需要的CSS样式。</p>
+<h3 id="基本样式"><a href="#基本样式" class="headerlink" title="基本样式"></a>基本样式</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">table</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>; <span class="comment">/*表格宽度*/</span></span><br><span class="line">    <span class="attribute">max-width</span>: <span class="number">65em</span>; <span class="comment">/*表格最大宽度，避免表格过宽*/</span></span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#dedede</span>; <span class="comment">/*表格外边框设置*/</span></span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">15px</span> auto; <span class="comment">/*外边距*/</span></span><br><span class="line">    <span class="attribute">border-collapse</span>: collapse; <span class="comment">/*使用单一线条的边框*/</span></span><br><span class="line">    <span class="attribute">empty-cells</span>: show; <span class="comment">/*单元格无内容依旧绘制边框*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">th</span>,</span><br><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">td</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">25px</span>; <span class="comment">/*统一每一行的默认高度*/</span></span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">10px</span>;  <span class="comment">/*行内字符大小*/</span></span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#dedede</span>; <span class="comment">/*内部边框样式*/</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">10px</span>; <span class="comment">/*内边距*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="表头样式"><a href="#表头样式" class="headerlink" title="表头样式"></a>表头样式</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">th</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">10px</span>;  <span class="comment">/*表头字符大小*/</span></span><br><span class="line">    <span class="attribute">font-weight</span>: bold; <span class="comment">/*加粗*/</span></span><br><span class="line">    <span class="attribute">text-align</span>: center <span class="meta">!important</span>; <span class="comment">/*内容居中，加上 !important 避免被 Markdown 样式覆盖*/</span></span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">158</span>,<span class="number">188</span>,<span class="number">226</span>,<span class="number">0.2</span>); <span class="comment">/*背景色*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>open</th>
+<th>high</th>
+<th>low</th>
+<th>close</th>
+<th>volume</th>
+<th>amount</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>date</td>
+<td>code</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2020-11-16</td>
+<td>000001</td>
+<td>17.08</td>
+<td>17.43</td>
+<td>16.90</td>
+<td>17.37</td>
+<td>759856.0</td>
+<td>1.308190e+09</td>
+</tr>
+<tr>
+<td></td>
+<td>000002</td>
+<td>29.39</td>
+<td>29.50</td>
+<td>29.00</td>
+<td>29.20</td>
+<td>516576.0</td>
+<td>1.509810e+09</td>
+</tr>
+<tr>
+<td></td>
+<td>000004</td>
+<td>31.15</td>
+<td>31.46</td>
+<td>30.11</td>
+<td>30.61</td>
+<td>72456.0</td>
+<td>2.223127e+08</td>
+</tr>
+<tr>
+<td></td>
+<td>000005</td>
+<td>2.68</td>
+<td>2.70</td>
+<td>2.65</td>
+<td>2.69</td>
+<td>64372.0</td>
+<td>1.725762e+07</td>
+</tr>
+<tr>
+<td></td>
+<td>000006</td>
+<td>5.66</td>
+<td>5.74</td>
+<td>5.62</td>
+<td>5.72</td>
+<td>98253.0</td>
+<td>5.592563e+07</td>
+</tr>
+<tr>
+<td></td>
+<td>000007</td>
+<td>9.42</td>
+<td>9.42</td>
+<td>9.18</td>
+<td>9.20</td>
+<td>22567.0</td>
+<td>2.094628e+07</td>
+</tr>
+<tr>
+<td></td>
+<td>000008</td>
+<td>2.72</td>
+<td>2.74</td>
+<td>2.70</td>
+<td>2.73</td>
+<td>171930.0</td>
+<td>4.678304e+07</td>
+</tr>
+<tr>
+<td></td>
+<td>000009</td>
+<td>7.71</td>
+<td>7.88</td>
+<td>7.66</td>
+<td>7.82</td>
+<td>320180.0</td>
+<td>2.492149e+08</td>
+</tr>
+<tr>
+<td></td>
+<td>000010</td>
+<td>4.19</td>
+<td>4.27</td>
+<td>4.10</td>
+<td>4.24</td>
+<td>71661.0</td>
+<td>3.004320e+07</td>
+</tr>
+<tr>
+<td></td>
+<td>000011</td>
+<td>13.76</td>
+<td>14.40</td>
+<td>13.58</td>
+<td>14.39</td>
+<td>105639.0</td>
+<td>1.489735e+08</td>
+</tr>
+</tbody></table>
+<p>参考：</p>
+<ol>
+<li><p><a href="https://hexo.imydl.tech/archives/6742.html">Hexo下表格的美化和优化</a></p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/6c1651fe5374">完美解决：Hexo Next主题本地可预览CSS，但部署到网站CSS失效问题！</a></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何用pandas高速处理数据</title>
     <url>/2020/12/08/%E5%A6%82%E4%BD%95%E7%94%A8pandas%E9%AB%98%E9%80%9F%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE/</url>
     <content><![CDATA[<h2 id="创建Dataframe数据"><a href="#创建Dataframe数据" class="headerlink" title="创建Dataframe数据"></a>创建Dataframe数据</h2><p>使用QA创建了一个包含6列和61006行的Dataframe。它包含了2020年11月16日至12月4日的OHLC和成交量数据。</p>
@@ -184,7 +340,6 @@
   </tbody>
 </table>
 </div>
-
 
 
 <p>显示dataframe的内存占用情况。</p>
