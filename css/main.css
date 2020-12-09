@@ -975,7 +975,7 @@ pre .javascript .function {
 }
 .brand {
   border-bottom: none;
-  color: var(--brand-color);
+  color: #fc6423 !important;
   display: inline-block;
   line-height: 1.375em;
   padding: 0 40px;
@@ -1168,7 +1168,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #47ffaa;
+  background: #fff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2335,7 +2335,7 @@ hr {
 }
 .logo-line-before i,
 .logo-line-after i {
-  background: var(--brand-color);
+  background: #fc6423 !important;
   display: block;
   height: 2px;
   position: relative;
