@@ -32,8 +32,10 @@
 <meta property="og:image" content="https://gitee.com/nokiasonic/pic/raw/master/img/20201211120224.png">
 <meta property="og:image" content="https://gitee.com/nokiasonic/pic/raw/master/img/20201211120336.png">
 <meta property="og:image" content="https://gitee.com/nokiasonic/pic/raw/master/img/20201211123228.png">
+<meta property="og:image" content="https://gitee.com/nokiasonic/pic/raw/master/img/20201211165800.png">
+<meta property="og:image" content="https://gitee.com/nokiasonic/pic/raw/master/img/20201211170036.png">
 <meta property="article:published_time" content="2020-12-10T02:51:24.000Z">
-<meta property="article:modified_time" content="2020-12-11T04:33:01.572Z">
+<meta property="article:modified_time" content="2020-12-11T09:22:18.018Z">
 <meta property="article:author" content="Jun Lv">
 <meta property="article:tag" content="Valine">
 <meta name="twitter:card" content="summary">
@@ -226,7 +228,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-11 12:33:01" itemprop="dateModified" datetime="2020-12-11T12:33:01+08:00">2020-12-11</time>
+                <time title="修改时间：2020-12-11 17:22:18" itemprop="dateModified" datetime="2020-12-11T17:22:18+08:00">2020-12-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -307,6 +309,77 @@
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">valine:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">appid:</span> <span class="comment"># Your leancloud application appid</span></span><br><span class="line">  <span class="attr">appkey:</span> <span class="comment"># Your leancloud application appkey</span></span><br><span class="line">  <span class="attr">notify:</span> <span class="literal">false</span> <span class="comment"># Mail notifier</span></span><br><span class="line">  <span class="attr">verify:</span> <span class="literal">false</span> <span class="comment"># Verification code</span></span><br><span class="line">  <span class="attr">placeholder:</span> <span class="string">Just</span> <span class="string">go</span> <span class="string">go</span> <span class="comment"># Comment box placeholder</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">mm</span> <span class="comment"># Gravatar style</span></span><br><span class="line">  <span class="attr">guest_info:</span> <span class="string">nick,mail,link</span> <span class="comment"># Custom comment header</span></span><br><span class="line">  <span class="attr">pageSize:</span> <span class="number">10</span> <span class="comment"># Pagination size</span></span><br><span class="line">  <span class="attr">language:</span> <span class="comment"># Language, available values: en, zh-cn</span></span><br><span class="line">  <span class="attr">visitor:</span> <span class="literal">false</span> <span class="comment"># Article reading statistic</span></span><br><span class="line">  <span class="attr">comment_count:</span> <span class="literal">true</span> <span class="comment"># If false, comment count will only be displayed in post page, not in home page</span></span><br><span class="line">  <span class="attr">recordIP:</span> <span class="literal">false</span> <span class="comment"># Whether to record the commenter IP</span></span><br><span class="line">  <span class="attr">serverURLs:</span> <span class="comment"># When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)</span></span><br><span class="line">  <span class="comment">#post_meta_order: 0</span></span><br></pre></td></tr></table></figure>
 
 <p>appid及appkey就填写我们从LeanClound那里获得的信息。</p>
+<h2 id="利用Valine-Admin进行评论管理"><a href="#利用Valine-Admin进行评论管理" class="headerlink" title="利用Valine Admin进行评论管理"></a>利用Valine Admin进行评论管理</h2><p>Valine Admin 是Valine的扩展和增强，主要实现评论邮件通知、评论管理、垃圾评论过滤等功能。支持完全自定义的邮件通知模板，基于 Akismet API 实现准确的垃圾评论过滤。</p>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><ol>
+<li>在 <a target="_blank" rel="noopener" href="https://leancloud.cn/dashboard/#/apps">Leancloud</a> 云引擎部署界面，填写代码库并保存：<a target="_blank" rel="noopener" href="https://github.com/DesertsP/Valine-Admin.git">https://github.com/DesertsP/Valine-Admin.git</a></li>
+</ol>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211165800.png"></p>
+<ol start="2">
+<li><p>在 <a target="_blank" rel="noopener" href="https://leancloud.cn/dashboard/#/apps">Leancloud</a> 云引擎设置界面，设置环境变量以及 Web 二级域名。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211170036.png"></p>
+</li>
+<li><p>环境变量说明</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="left">变量</th>
+<th align="left">示例</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">SITE_NAME</td>
+<td align="left">Deserts</td>
+<td align="left">[必填]博客名称</td>
+</tr>
+<tr>
+<td align="left">SITE_URL</td>
+<td align="left"><a href="https://nokiasonic.github.io/">https://nokiasonic.github.io</a></td>
+<td align="left">[必填]首页地址</td>
+</tr>
+<tr>
+<td align="left">SMTP_SERVICE</td>
+<td align="left"></td>
+<td align="left">[新版支持]邮件服务提供商，支持 QQ、163、126、Gmail 以及 更多</td>
+</tr>
+<tr>
+<td align="left">SMTP_USER</td>
+<td align="left"><a href="mailto:&#120;&#x78;&#120;&#x78;&#120;&#64;&#104;&#x6f;&#116;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#x6d;">&#120;&#x78;&#120;&#x78;&#120;&#64;&#104;&#x6f;&#116;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#x6d;</a></td>
+<td align="left">[必填] SMTP 登录用户, 这个在注册访问管理员注册页面<code>https://nokiasonic.github.io/sign-up</code>，会用作注册管理员登录信息。</td>
+</tr>
+<tr>
+<td align="left">SMTP_PASS</td>
+<td align="left">ccxxxxxxxxch</td>
+<td align="left">[必填] SMTP 登录密码（QQ邮箱需要获取独立密码）</td>
+</tr>
+<tr>
+<td align="left">SENDER_NAME</td>
+<td align="left">nokiasonic</td>
+<td align="left">[必填]发件人</td>
+</tr>
+<tr>
+<td align="left">SENDER_EMAIL</td>
+<td align="left"><a href="mailto:&#x78;&#x78;&#120;&#120;&#x78;&#x40;&#104;&#x6f;&#x74;&#x6d;&#97;&#x69;&#108;&#46;&#99;&#x6f;&#109;">&#x78;&#x78;&#120;&#120;&#x78;&#x40;&#104;&#x6f;&#x74;&#x6d;&#97;&#x69;&#108;&#46;&#99;&#x6f;&#109;</a></td>
+<td align="left">[必填]发件邮箱</td>
+</tr>
+<tr>
+<td align="left">ADMIN_URL</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://xxx.avosapps.us/">https://xxx.avosapps.us</a></td>
+<td align="left">[建议] Web 主机二级域名，用于自动唤醒</td>
+</tr>
+<tr>
+<td align="left">BLOGGER_EMAIL</td>
+<td align="left"><a href="mailto:&#120;&#120;&#x78;&#120;&#x78;&#x40;&#104;&#x6f;&#x74;&#109;&#97;&#x69;&#x6c;&#x2e;&#99;&#111;&#x6d;">&#120;&#120;&#x78;&#120;&#x78;&#x40;&#104;&#x6f;&#x74;&#109;&#97;&#x69;&#x6c;&#x2e;&#99;&#111;&#x6d;</a></td>
+<td align="left">[可选]博主通知收件地址，默认使用 SENDER_EMAIL</td>
+</tr>
+<tr>
+<td align="left">AKISMET_KEY</td>
+<td align="left">xxxxxxxxxxxx</td>
+<td align="left">[可选] Akismet Key 用于垃圾评论检测，设为 MANUAL_REVIEW 开启人工审核，留空不使用反垃圾</td>
+</tr>
+</tbody></table>
 
     </div>
 
@@ -391,7 +464,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E5%86%8CLeanClound-%E8%8E%B7%E5%8F%96APP-ID-%E5%92%8C-APP-Key"><span class="nav-number">1.</span> <span class="nav-text">注册LeanClound,获取APP ID 和 APP Key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8Hexo-Next%E4%B8%BB%E9%A2%98%E4%B8%AD%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">在Hexo Next主题中配置</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E5%86%8CLeanClound-%E8%8E%B7%E5%8F%96APP-ID-%E5%92%8C-APP-Key"><span class="nav-number">1.</span> <span class="nav-text">注册LeanClound,获取APP ID 和 APP Key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8Hexo-Next%E4%B8%BB%E9%A2%98%E4%B8%AD%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">在Hexo Next主题中配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A9%E7%94%A8Valine-Admin%E8%BF%9B%E8%A1%8C%E8%AF%84%E8%AE%BA%E7%AE%A1%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">利用Valine Admin进行评论管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2"><span class="nav-number">3.1.</span> <span class="nav-text">部署</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

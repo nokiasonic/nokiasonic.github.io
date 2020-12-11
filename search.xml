@@ -238,6 +238,77 @@
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">valine:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">appid:</span> <span class="comment"># Your leancloud application appid</span></span><br><span class="line">  <span class="attr">appkey:</span> <span class="comment"># Your leancloud application appkey</span></span><br><span class="line">  <span class="attr">notify:</span> <span class="literal">false</span> <span class="comment"># Mail notifier</span></span><br><span class="line">  <span class="attr">verify:</span> <span class="literal">false</span> <span class="comment"># Verification code</span></span><br><span class="line">  <span class="attr">placeholder:</span> <span class="string">Just</span> <span class="string">go</span> <span class="string">go</span> <span class="comment"># Comment box placeholder</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">mm</span> <span class="comment"># Gravatar style</span></span><br><span class="line">  <span class="attr">guest_info:</span> <span class="string">nick,mail,link</span> <span class="comment"># Custom comment header</span></span><br><span class="line">  <span class="attr">pageSize:</span> <span class="number">10</span> <span class="comment"># Pagination size</span></span><br><span class="line">  <span class="attr">language:</span> <span class="comment"># Language, available values: en, zh-cn</span></span><br><span class="line">  <span class="attr">visitor:</span> <span class="literal">false</span> <span class="comment"># Article reading statistic</span></span><br><span class="line">  <span class="attr">comment_count:</span> <span class="literal">true</span> <span class="comment"># If false, comment count will only be displayed in post page, not in home page</span></span><br><span class="line">  <span class="attr">recordIP:</span> <span class="literal">false</span> <span class="comment"># Whether to record the commenter IP</span></span><br><span class="line">  <span class="attr">serverURLs:</span> <span class="comment"># When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)</span></span><br><span class="line">  <span class="comment">#post_meta_order: 0</span></span><br></pre></td></tr></table></figure>
 
 <p>appid及appkey就填写我们从LeanClound那里获得的信息。</p>
+<h2 id="利用Valine-Admin进行评论管理"><a href="#利用Valine-Admin进行评论管理" class="headerlink" title="利用Valine Admin进行评论管理"></a>利用Valine Admin进行评论管理</h2><p>Valine Admin 是Valine的扩展和增强，主要实现评论邮件通知、评论管理、垃圾评论过滤等功能。支持完全自定义的邮件通知模板，基于 Akismet API 实现准确的垃圾评论过滤。</p>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><ol>
+<li>在 <a href="https://leancloud.cn/dashboard/#/apps">Leancloud</a> 云引擎部署界面，填写代码库并保存：<a href="https://github.com/DesertsP/Valine-Admin.git">https://github.com/DesertsP/Valine-Admin.git</a></li>
+</ol>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211165800.png"></p>
+<ol start="2">
+<li><p>在 <a href="https://leancloud.cn/dashboard/#/apps">Leancloud</a> 云引擎设置界面，设置环境变量以及 Web 二级域名。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211170036.png"></p>
+</li>
+<li><p>环境变量说明</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="left">变量</th>
+<th align="left">示例</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">SITE_NAME</td>
+<td align="left">Deserts</td>
+<td align="left">[必填]博客名称</td>
+</tr>
+<tr>
+<td align="left">SITE_URL</td>
+<td align="left"><a href="https://nokiasonic.github.io/">https://nokiasonic.github.io</a></td>
+<td align="left">[必填]首页地址</td>
+</tr>
+<tr>
+<td align="left">SMTP_SERVICE</td>
+<td align="left"></td>
+<td align="left">[新版支持]邮件服务提供商，支持 QQ、163、126、Gmail 以及 更多</td>
+</tr>
+<tr>
+<td align="left">SMTP_USER</td>
+<td align="left"><a href="mailto:&#120;&#x78;&#120;&#x78;&#120;&#64;&#104;&#x6f;&#116;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#x6d;">&#120;&#x78;&#120;&#x78;&#120;&#64;&#104;&#x6f;&#116;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#x6d;</a></td>
+<td align="left">[必填] SMTP 登录用户, 这个在注册访问管理员注册页面<code>https://nokiasonic.github.io/sign-up</code>，会用作注册管理员登录信息。</td>
+</tr>
+<tr>
+<td align="left">SMTP_PASS</td>
+<td align="left">ccxxxxxxxxch</td>
+<td align="left">[必填] SMTP 登录密码（QQ邮箱需要获取独立密码）</td>
+</tr>
+<tr>
+<td align="left">SENDER_NAME</td>
+<td align="left">nokiasonic</td>
+<td align="left">[必填]发件人</td>
+</tr>
+<tr>
+<td align="left">SENDER_EMAIL</td>
+<td align="left"><a href="mailto:&#x78;&#x78;&#120;&#120;&#x78;&#x40;&#104;&#x6f;&#x74;&#x6d;&#97;&#x69;&#108;&#46;&#99;&#x6f;&#109;">&#x78;&#x78;&#120;&#120;&#x78;&#x40;&#104;&#x6f;&#x74;&#x6d;&#97;&#x69;&#108;&#46;&#99;&#x6f;&#109;</a></td>
+<td align="left">[必填]发件邮箱</td>
+</tr>
+<tr>
+<td align="left">ADMIN_URL</td>
+<td align="left"><a href="https://xxx.avosapps.us/">https://xxx.avosapps.us</a></td>
+<td align="left">[建议] Web 主机二级域名，用于自动唤醒</td>
+</tr>
+<tr>
+<td align="left">BLOGGER_EMAIL</td>
+<td align="left"><a href="mailto:&#120;&#120;&#x78;&#120;&#x78;&#x40;&#104;&#x6f;&#x74;&#109;&#97;&#x69;&#x6c;&#x2e;&#99;&#111;&#x6d;">&#120;&#120;&#x78;&#120;&#x78;&#x40;&#104;&#x6f;&#x74;&#109;&#97;&#x69;&#x6c;&#x2e;&#99;&#111;&#x6d;</a></td>
+<td align="left">[可选]博主通知收件地址，默认使用 SENDER_EMAIL</td>
+</tr>
+<tr>
+<td align="left">AKISMET_KEY</td>
+<td align="left">xxxxxxxxxxxx</td>
+<td align="left">[可选] Akismet Key 用于垃圾评论检测，设为 MANUAL_REVIEW 开启人工审核，留空不使用反垃圾</td>
+</tr>
+</tbody></table>
 ]]></content>
       <categories>
         <category>技术笔记</category>
