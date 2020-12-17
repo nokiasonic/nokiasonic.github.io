@@ -209,7 +209,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-12-17 15:23:57 / 修改时间：17:07:24" itemprop="dateCreated datePublished" datetime="2020-12-17T15:23:57+08:00">2020-12-17</time>
+              <time title="创建时间：2020-12-17 15:23:57 / 修改时间：17:15:44" itemprop="dateCreated datePublished" datetime="2020-12-17T15:23:57+08:00">2020-12-17</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -302,7 +302,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-12-17 12:51:24 / 修改时间：16:37:54" itemprop="dateCreated datePublished" datetime="2020-12-17T12:51:24+08:00">2020-12-17</time>
+              <time title="创建时间：2020-12-17 12:51:24 / 修改时间：18:00:54" itemprop="dateCreated datePublished" datetime="2020-12-17T12:51:24+08:00">2020-12-17</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -346,7 +346,7 @@
           <h1 id="基本概念">基本概念</h1>
 <h2 id="标量向量矩阵和张量">标量、向量、矩阵和张量</h2>
 <p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/scalar-vector-matrix-tensor.png" style="zoom:25%;float:left" /><br />
-<br/> <br/> <br/></p>
+<br/> <br/></p>
 <p>• <code>标量（scalar）</code>：一个标量就是一个单独的数，它不同于线性代数中研究的其他大部分对象（通常是多个数的数组）。<br />
 • <code>向量（vector）</code>：一个向量是一列数。这些数是有序排列的。<br />
 • <code>矩阵（matrix）</code>：矩阵是一个二维数组，其中的每一个元素被两个索引（而非一个）所确定。<br />
@@ -355,28 +355,29 @@
 <p><code>转置（transpose）</code>是矩阵的重要操作之一。矩阵的转置是以对角线为轴的镜像，这条从左上角到右下角的对角线被称为 主对角线（main diagonal）。</p>
 <p>向量可以看作只有一列的矩阵。对应地，向量的转置可以看作是只有一行的矩阵。<br />
 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/vector-transposition.png" align=left style="zoom:35%" ><br />
-<br/> 方阵的转置<br />
+<br/> <br/> 方阵的转置<br />
 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/square-matrix-transposition.png" style="zoom:25%;float:left" /><br />
-<br/> 非方阵的转置<br />
+<br/> <br/> 非方阵的转置<br />
 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/non-squared-matrix-transposition.png" style="zoom:25%;float:left"/><br />
-<br/> <br/> 上标 <span class="math inline">\(^\text{T}\)</span>用来表述转置矩阵</p>
-<p>$ {A}= \begin{bmatrix} A_{1,1} &amp; A_{1,2} \ A_{2,1} &amp; A_{2,2} \ A_{3,1} &amp; A_{3,2} \end{bmatrix} $ 的转置矩阵为：</p>
-<p>$ {A}^{}= \begin{bmatrix} A_{1,1} &amp; A_{2,1} &amp; A_{3,1} \ A_{1,2} &amp; A_{2,2} &amp; A_{3,2} \end{bmatrix} $<br />
-<br/> <img src="https://gitee.com/nokiasonic/pic/raw/master/img/dimensions-transposition-matrix.png" style="zoom:25%;float:left"/> 矩阵的形状 (<span class="math inline">\(m \times n\)</span>) 在转置后变为 (<span class="math inline">\(n \times m\)</span>).</p>
+<br/> <br/> <br/> 上标 <span class="math inline">\(^\text{T}\)</span>用来表述转置矩阵</p>
+<p><span class="math inline">\({A}= \begin{bmatrix} A_{1,1} &amp; A_{1,2} \\ A_{2,1} &amp; A_{2,2} \\ A_{3,1} &amp; A_{3,2} \end{bmatrix}\)</span> 的转置矩阵为：</p>
+<p><span class="math inline">\({A}^{\text{T}}= \begin{bmatrix} A_{1,1} &amp; A_{2,1} &amp; A_{3,1} \\ A_{1,2} &amp; A_{2,2} &amp; A_{3,2} \end{bmatrix}\)</span><br />
+<br/> <img src="https://gitee.com/nokiasonic/pic/raw/master/img/dimensions-transposition-matrix.png" style="zoom:25%;float:left"/> <br/> 矩阵的形状 (<span class="math inline">\(m \times n\)</span>) 在转置后变为 (<span class="math inline">\(n \times m\)</span>).</p>
 <p><br/></p>
 <h2 id="线性方程组">线性方程组</h2>
 <p>对于一个线性方程组</p>
 <p><span class="math inline">\(\large \begin{equation} \left\{ \begin{aligned} x_1+x_2=2\\ x_1-x_2=4\\ \end{aligned} \right. \end{equation}\)</span></p>
 <p>这里有两个方程和两个变量，一般可以得到唯一解或无穷多解。利用线性代数可以对其进行简洁地表示和运算。线性代数的运算离不开矩阵，矩阵是按照长方阵列排列的实数或复数集合。例如存在矩阵</p>
-<p>$ A=, X=, b=. $</p>
+<p><span class="math inline">\(\large  A=\left[  \begin{matrix}  1 &amp; 1 \\  1 &amp; -1 \\  \end{matrix}  \right], X=\left[  \begin{matrix}  x_1 \\  x_2 \\  \end{matrix}  \right], b=\left[  \begin{matrix}  2 \\  4 \\  \end{matrix}  \right]\)</span></p>
 <p>这样，上述线性方程组可记为<span class="math inline">\(AX=b\)</span>.</p>
-<p>即： $ =$</p>
+<p>即： <span class="math inline">\(\large \left[  \begin{matrix}  1 &amp; 1 \\  1 &amp; -1 \\  \end{matrix}  \right]\left[  \begin{matrix}  x_1 \\  x_2 \\  \end{matrix}  \right]=\left[  \begin{matrix}  2 \\  4 \\  \end{matrix}  \right]\)</span></p>
 <p>假想<br />
-$ =$</p>
-<p>得： $ =$</p>
+<span class="math inline">\(\large \frac{1}{\left[  \begin{matrix}  1 &amp; 1 \\  1 &amp; -1 \\  \end{matrix}  \right]}\left[  \begin{matrix}  1 &amp; 1 \\  1 &amp; -1 \\  \end{matrix}  \right]\left[  \begin{matrix}  x_1 \\  x_2 \\  \end{matrix}  \right]=\frac{1}{\left[  \begin{matrix}  1 &amp; 1 \\  1 &amp; -1 \\  \end{matrix}  \right]}\left[  \begin{matrix}  2 \\  4 \\  \end{matrix}  \right]\)</span></p>
+<p>得： <span class="math inline">\(\large \left[  \begin{matrix}  x_1 \\  x_2 \\  \end{matrix}  \right]=\frac{1}{\left[  \begin{matrix}  1 &amp; 1 \\  1 &amp; -1 \\  \end{matrix}  \right]}\left[  \begin{matrix}  2 \\  4 \\  \end{matrix}  \right]\)</span></p>
 <h2 id="示例">示例</h2>
-<p>在Python中，使用numpy库可以方便的进行矩阵操作。<br />
-### 使用numpy来创建向量(vector) $ {x} =\begin{bmatrix} x_1 \ x_2 \ \ x_n \end{bmatrix} $</p>
+<p>在Python中，使用numpy库可以方便的进行矩阵操作。</p>
+<h3 id="使用numpy来创建向量vector">使用numpy来创建向量(vector)</h3>
+<p><span class="math inline">\({x} =\begin{bmatrix} x_1 \\ x_2 \\ \cdots \\ x_n \end{bmatrix}\)</span></p>
 <h4 id="创建指定长度及数值的向量">创建指定长度及数值的向量</h4>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">x = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line">x</span><br></pre></td></tr></table></figure>
 <pre><code>array([1, 2, 3, 4])</code></pre>
@@ -384,15 +385,15 @@ $ =$</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = np.random.randint(<span class="number">1</span>,<span class="number">10</span>,size=<span class="number">10</span>)</span><br><span class="line">x</span><br></pre></td></tr></table></figure>
 <pre><code>array([8, 2, 2, 6, 5, 7, 5, 4, 4, 4])</code></pre>
 <h3 id="使用numpy来创建矩阵matrix">使用numpy来创建矩阵(matrix)</h3>
-<p>$ {A}= \begin{bmatrix} A_{1,1} &amp; A_{1,2} &amp; &amp; A_{1,n} \ A_{2,1} &amp; A_{2,2} &amp; &amp; A_{2,n} \ &amp; &amp; &amp; \ A_{m,1} &amp; A_{m,2} &amp; &amp; A_{m,n} \end{bmatrix} $</p>
+<p><span class="math inline">\({A}= \begin{bmatrix} A_{1,1} &amp; A_{1,2} &amp; \cdots &amp; A_{1,n} \\ A_{2,1} &amp; A_{2,2} &amp; \cdots &amp; A_{2,n} \\ \cdots &amp; \cdots &amp; \cdots &amp; \cdots \\ A_{m,1} &amp; A_{m,2} &amp; \cdots &amp; A_{m,n} \end{bmatrix}\)</span></p>
 <h4 id="创建指定长度及数值的矩阵">创建指定长度及数值的矩阵</h4>
-<p>例如：3x2的矩阵</p>
+<p>例如：<span class="math inline">\(3 \times 2\)</span> 的矩阵</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A = np.array([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>], [<span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line">A</span><br></pre></td></tr></table></figure>
 <pre><code>array([[1, 2],
        [3, 4],
        [5, 6]])</code></pre>
 <h4 id="创建指定长度及随机数值的矩阵">创建指定长度及随机数值的矩阵</h4>
-<p>例如：3x2的矩阵</p>
+<p>例如：<span class="math inline">\(3 \times 2\)</span> 的矩阵</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A = np.random.randint(<span class="number">1</span>,<span class="number">10</span>,size=(<span class="number">3</span>,<span class="number">2</span>))</span><br><span class="line">A</span><br></pre></td></tr></table></figure>
 <pre><code>array([[6, 5],
        [7, 5],
@@ -413,7 +414,7 @@ $ =$</p>
 <p><span class="math inline">\(\large \begin{equation} \left\{ \begin{aligned} x_1+x_2=2\\ x_1-x_2=4\\ \end{aligned} \right. \end{equation}\)</span></p>
 <p>的解。</p>
 <p><strong>分析</strong>：如章节1.3中所述。<br />
-$ A=, X=, b=. $</p>
+<span class="math inline">\(\large  A=\left[  \begin{matrix}  1 &amp; 1 \\  1 &amp; -1 \\  \end{matrix}  \right], X=\left[  \begin{matrix}  x_1 \\  x_2 \\  \end{matrix}  \right], b=\left[  \begin{matrix}  2 \\  4 \\  \end{matrix}  \right].\)</span></p>
 <p>这样，上述线性方程组可记为<span class="math inline">\(AX=b\)</span>.<br />
 则：<span class="math inline">\(X=\large\frac{1}{A}b\)</span></p>
 <p>即：<span class="math inline">\(\large \left[  \begin{matrix}  x_1 \\  x_2 \\  \end{matrix}  \right]=\frac{1}{\left[  \begin{matrix}  1 &amp; 1 \\  1 &amp; -1 \\  \end{matrix}  \right]}\left[  \begin{matrix}  2 \\  4 \\  \end{matrix}  \right]\)</span></p>
@@ -470,7 +471,7 @@ $ A=, X=, b=. $</p>
 <h1 id="线性回归模型求解模拟">线性回归模型求解模拟</h1>
 <p><code>statsmodels</code>是Python中一个强大的统计分析包，包含了回归分析、时间序列分析、假设检验等等的功能，当需要在Python中进行回归分析时，就可以导入statsmodels。</p>
 <p><code>statsmodels.regression.linear_model</code>里有回归函数<code>statsmodels.OLS</code>，它的输入参数有<code>(endog, exog, missing, hasconst)</code>。一般只考虑前两个输入，其中，<code>endog</code>是回归中的因变量<span class="math inline">\(Y\)</span>，是一个<span class="math inline">\(n\)</span>维的向量；<code>exog</code>是回归中的自变量<span class="math inline">\(X_1,X_2,...,X_P\)</span>，由于statsmodels.OLS不会假设回归模型有常数项，所以我们应该假设模型是</p>
-<p>$ y_t=<em>0X</em>{0t}+<em>1X</em>{1t}+<em>2X</em>{2t}+...+<em>pX</em>{pt}+,t=1,2,...,n $</p>
+<p><span class="math inline">\(\large y_t=\beta_0X_{0t}+\beta_1X_{1t}+\beta_2X_{2t}+...+\beta_pX_{pt}+\mu,t=1,2,...,n\)</span></p>
 <p>其中，对所有<span class="math inline">\(t=1,2,...,n\)</span>，令<span class="math inline">\(X_{0t}=1\)</span>。因此，exog的输入是一个<span class="math inline">\(n\times (p+1)\)</span>的向量。</p>
 <p>statsmodels.OLS的输出结果是statsmodels.regression.linear_model.OLS类，并没有进行任何运算。在OLS的模型之上调用拟合函数 fit()，才进行回归运算，并且得到statsmodels.regression.linear_model.RegressionResultsWrapper，它包含了这组数据进行回归拟合的结果摘要。调用params可以查看计算出的回归系数<span class="math inline">\(\beta_0,\beta_1,...,\beta_p\)</span>。 下面将分连续变量和离散变量两种情况来模拟求解线性回归模型。</p>
 <h1 id="参考">参考</h1>
