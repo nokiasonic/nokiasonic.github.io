@@ -1,17 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hexo Next主题标题颜色设置</title>
-    <url>/2020/12/10/Hexo-Next%E4%B8%BB%E9%A2%98%E6%A0%87%E9%A2%98%E9%A2%9C%E8%89%B2%E8%AE%BE%E7%BD%AE/</url>
-    <content><![CDATA[<p>主题采用的是Next的Mist。 不太喜欢全部都是黑灰白色的主基调，希望将标题来点明亮的颜色。以下来介绍具体的配置方法。</p>
+    <title>欢迎来到我的博客</title>
+    <url>/2020/11/19/hello-world/</url>
+    <content><![CDATA[<h2 id="橘子的博客终于开通了">橘子的博客终于开通了</h2>
+<p>一直偷懒，最近终于良心发现，总觉以前的光阴虚度，不想未来同样蹉跎岁月，自当奋起，希望能记录下未来成长过程中的点点滴滴想法和经验。</p>
+<p>借词聊表胸怀</p>
+<blockquote>
+<p><font color=green><strong>江城子·密州出猎</strong></font><br />
+<font color=blue><strong>宋 苏轼</strong></font></p>
+<p>老夫聊发少年狂， 左牵黄，右擎苍， 锦帽貂裘，千骑卷平冈。 为报倾城随太守，亲射虎，看孙郎。</p>
+<p>酒酣胸胆尚开张， 鬓微霜，又何妨! 持节云中，何日遣冯唐? 会挽雕弓如满月，西北望，射天狼。</p>
+</blockquote>
+<h2 id="本站用途">本站用途</h2>
+<p>这是个人用来学习研究金融工程，机器学习的小窝，</p>
+]]></content>
+      <categories>
+        <category>美好生活</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】Next主题更好地支持LaTeX数学公式</title>
+    <url>/2020/12/17/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%9B%B4%E5%A5%BD%E5%9C%B0%E6%94%AF%E6%8C%81LaTeX%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</url>
+    <content><![CDATA[<p>在Typora中可以正常显示的<span class="math inline">\(L^AT_EX\)</span>数学公式，在Hexo NexT主题下却渲染得不是太理想。我们去最新的<a href="https://theme-next.js.org/docs/third-party-services/math-equations.html">NexT官方文档</a>里看看如何解决吧！</p>
 <a id="more"></a>
-
-<h2 id="更改标题配色"><a href="#更改标题配色" class="headerlink" title="更改标题配色"></a>更改标题配色</h2><p>找到<code>\themes\next\source\css\_common\outline\header\site-meta.styl</code>文件。编辑修改<code>.brand&#123;&#125;</code>里<code>color</code>参数配置</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.brand</span> &#123;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">//  color: var(--brand-color);</span><br><span class="line">  <span class="selector-tag">color</span>: <span class="selector-id">#fc6423</span> !<span class="selector-tag">important</span>;</span><br><span class="line">  <span class="selector-tag">display</span>: <span class="selector-tag">inline-block</span>;</span><br><span class="line">  line-height: $font-size-title;</span><br><span class="line">  <span class="selector-tag">padding</span>: 0 40<span class="selector-tag">px</span>;</span><br><span class="line">  <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line"></span><br><span class="line">  &amp;<span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">var</span>(--brand-hover-color);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="更改标题上下横线配色"><a href="#更改标题上下横线配色" class="headerlink" title="更改标题上下横线配色"></a>更改标题上下横线配色</h2><p>找到<code>\themes\next\source\css\_schemes\Mist\_header.styl</code>。编辑修改<code>i&#123;&#125;</code>里的<code>background</code>参数配置</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"> <span class="selector-tag">i</span> &#123;</span><br><span class="line">   //background: var(--brand-color);</span><br><span class="line"><span class="selector-tag">background</span>: <span class="selector-id">#fc6423</span> !<span class="selector-tag">important</span>;</span><br><span class="line">   <span class="selector-tag">display</span>: <span class="selector-tag">block</span>;</span><br><span class="line">   <span class="selector-tag">height</span>: 2<span class="selector-tag">px</span>;</span><br><span class="line">   <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
+<h2 id="实施步骤">实施步骤</h2>
+<p>NexT主题现在提供两种数学公式的渲染方式 <a href="https://www.mathjax.org/">MathJax</a> 及 <a href="https://katex.org/">KaTeX</a>。其中<code>katex</code>的速度更快，但是对于<span class="math inline">\(L^AT_EX\)</span>的支持有一定的限制。所以除非你的博客数量实在是过于庞大，不然就可以直接使用<code>mathjax</code>。</p>
+<p>使用<code>mathjax</code>，可以选择多种渲染引擎，但推荐使用</p>
+<ul>
+<li><a href="https://github.com/wzpan/hexo-renderer-pandoc">hexo-renderer-pandoc</a></li>
+</ul>
+<p>使用其它诸如<a href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a>之类的引擎（这是Hexo默认首先用来渲染MarkDown的），然后再交给<code>mathjax</code>渲染。<code>hexo-renderer-marked</code>会把一些特殊的MarkDown符号转换为相应的html标签，比如在MarkDown语法中，下划线 _ 代表斜体，会被转化为&lt; em&gt;标签，\也会被转义成一个。而类<span class="math inline">\(L^AT_EX\)</span>格式书写的数学公式下划线 _ 表示角标，\表示公式换行，有特殊的含义，所以<code>mathjax</code>引擎在渲染数学公式的时候就会无法正常渲染。</p>
+<h3 id="安装pandoc">安装pandoc</h3>
+<p><a href="https://github.com/jgm/pandoc/blob/master/INSTALL.md">安装文档</a>及<a href="https://github.com/jgm/pandoc/releases/latest">下载链接</a>]，因为在安装<code>Anaconda</code>时已经含有pandoc。这里不再单独进行安装。</p>
+<h3 id="配置next">配置NexT</h3>
+<ol type="1">
+<li>首先，在NexT主题配置文件中将<code>mathjax</code>设为渲染引擎</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li>然后，卸载最初的<code>hexo-renderer-marked</code>引擎并安装<code>hexo-renderer-pandoc</code>。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm un hexo-renderer-marked</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm i hexo-renderer-pandoc</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201217170659.png" /></p>
 ]]></content>
       <categories>
         <category>技术笔记</category>
@@ -22,22 +56,42 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo常用操作指令</title>
-    <url>/2020/11/20/Hexo%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4/</url>
+    <title>【Hexo】Next主题标题颜色设置</title>
+    <url>/2020/12/10/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%A0%87%E9%A2%98%E9%A2%9C%E8%89%B2%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<p>主题采用的是Next的Mist。 不太喜欢全部都是黑灰白色的主基调，希望将标题来点明亮的颜色。以下来介绍具体的配置方法。</p>
+<a id="more"></a>
+<h2 id="更改标题配色">更改标题配色</h2>
+<p>找到<code>\themes\next\source\css\_common\outline\header\site-meta.styl</code>文件。编辑修改<code>.brand&#123;&#125;</code>里<code>color</code>参数配置</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.brand</span> &#123;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">//  color: var(--brand-color);</span><br><span class="line">  <span class="selector-tag">color</span>: <span class="selector-id">#fc6423</span> !<span class="selector-tag">important</span>;</span><br><span class="line">  <span class="selector-tag">display</span>: <span class="selector-tag">inline-block</span>;</span><br><span class="line">  line-height: $font-size-title;</span><br><span class="line">  <span class="selector-tag">padding</span>: 0 40<span class="selector-tag">px</span>;</span><br><span class="line">  <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line"></span><br><span class="line">  &amp;<span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">var</span>(--brand-hover-color);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="更改标题上下横线配色">更改标题上下横线配色</h2>
+<p>找到<code>\themes\next\source\css\_schemes\Mist\_header.styl</code>。编辑修改<code>i&#123;&#125;</code>里的<code>background</code>参数配置</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"> <span class="selector-tag">i</span> &#123;</span><br><span class="line">   //background: var(--brand-color);</span><br><span class="line"><span class="selector-tag">background</span>: <span class="selector-id">#fc6423</span> !<span class="selector-tag">important</span>;</span><br><span class="line">   <span class="selector-tag">display</span>: <span class="selector-tag">block</span>;</span><br><span class="line">   <span class="selector-tag">height</span>: 2<span class="selector-tag">px</span>;</span><br><span class="line">   <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】常用操作指令</title>
+    <url>/2020/11/20/%E3%80%90Hexo%E3%80%91%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4/</url>
     <content><![CDATA[<p>欢迎使用 <a href="https://hexo.io/">Hexo</a>! 有关hexo的详细说明参见 <a href="https://hexo.io/docs/">documentation</a> 。 相关的问题解决参见 <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> 。</p>
 <a id="more"></a>
-
-<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><h3 id="创建新贴"><a href="#创建新贴" class="headerlink" title="创建新贴"></a>创建新贴</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
+<h2 id="快速入门">快速入门</h2>
+<h3 id="创建新贴">创建新贴</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 <p>详见: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="启动本地服务"><a href="#启动本地服务" class="headerlink" title="启动本地服务"></a>启动本地服务</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
+<h3 id="启动本地服务">启动本地服务</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 <p>详见: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="生成静态页面"><a href="#生成静态页面" class="headerlink" title="生成静态页面"></a>生成静态页面</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
+<h3 id="生成静态页面">生成静态页面</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 <p>详见: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="部署到远程"><a href="#部署到远程" class="headerlink" title="部署到远程"></a>部署到远程</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
+<h3 id="部署到远程">部署到远程</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>详见: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
       <categories>
@@ -49,26 +103,23 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo美化表格</title>
-    <url>/2020/12/09/Hexo%E7%BE%8E%E5%8C%96%E8%A1%A8%E6%A0%BC/</url>
+    <title>【Hexo】美化表格</title>
+    <url>/2020/12/09/%E3%80%90Hexo%E3%80%91%E7%BE%8E%E5%8C%96%E8%A1%A8%E6%A0%BC/</url>
     <content><![CDATA[<p>通过jupyter notebook导出的markdown文件中的表格过于丑陋，遂尝试对生成的表格内容进行美化。</p>
 <a id="more"></a>
-
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="创建自定义的CSS文件"><a href="#创建自定义的CSS文件" class="headerlink" title="创建自定义的CSS文件"></a>创建自定义的CSS文件</h3><p>在<code>themes/next/source/css/main.styl</code>中添加一行内容。</p>
+<h2 id="步骤">步骤</h2>
+<h3 id="创建自定义的css文件">创建自定义的CSS文件</h3>
+<p>在<code>themes/next/source/css/main.styl</code>中添加一行内容。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">@import <span class="string">&quot;_custom/custom&quot;</span></span><br></pre></td></tr></table></figure>
-
 <p>然后在<code>themes/next/source/css</code>目录下创建<code>_custom</code>文件夹。再进入该文件夹创建名为custom.styl的文件， 用它来配置自己需要的CSS样式。</p>
-<h3 id="基本样式"><a href="#基本样式" class="headerlink" title="基本样式"></a>基本样式</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">table</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>; <span class="comment">/*表格宽度*/</span></span><br><span class="line">    <span class="attribute">max-width</span>: <span class="number">65em</span>; <span class="comment">/*表格最大宽度，避免表格过宽*/</span></span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#dedede</span>; <span class="comment">/*表格外边框设置*/</span></span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">15px</span> auto; <span class="comment">/*外边距*/</span></span><br><span class="line">    <span class="attribute">border-collapse</span>: collapse; <span class="comment">/*使用单一线条的边框*/</span></span><br><span class="line">    <span class="attribute">empty-cells</span>: show; <span class="comment">/*单元格无内容依旧绘制边框*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">th</span>,</span><br><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">td</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">25px</span>; <span class="comment">/*统一每一行的默认高度*/</span></span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">10px</span>;  <span class="comment">/*行内字符大小*/</span></span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#dedede</span>; <span class="comment">/*内部边框样式*/</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">10px</span>; <span class="comment">/*内边距*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="表头样式"><a href="#表头样式" class="headerlink" title="表头样式"></a>表头样式</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">th</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">10px</span>;  <span class="comment">/*表头字符大小*/</span></span><br><span class="line">    <span class="attribute">font-weight</span>: bold; <span class="comment">/*加粗*/</span></span><br><span class="line">    <span class="attribute">text-align</span>: center <span class="meta">!important</span>; <span class="comment">/*内容居中，加上 !important 避免被 Markdown 样式覆盖*/</span></span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">158</span>,<span class="number">188</span>,<span class="number">226</span>,<span class="number">0.2</span>); <span class="comment">/*背景色*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><table>
+<h3 id="基本样式">基本样式</h3>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">table</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>; <span class="comment">/*表格宽度*/</span></span><br><span class="line">    <span class="attribute">max-width</span>: <span class="number">65em</span>; <span class="comment">/*表格最大宽度，避免表格过宽*/</span></span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#dedede</span>; <span class="comment">/*表格外边框设置*/</span></span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">15px</span> auto; <span class="comment">/*外边距*/</span></span><br><span class="line">    <span class="attribute">border-collapse</span>: collapse; <span class="comment">/*使用单一线条的边框*/</span></span><br><span class="line">    <span class="attribute">empty-cells</span>: show; <span class="comment">/*单元格无内容依旧绘制边框*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">th</span>,</span><br><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">td</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">25px</span>; <span class="comment">/*统一每一行的默认高度*/</span></span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">10px</span>;  <span class="comment">/*行内字符大小*/</span></span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#dedede</span>; <span class="comment">/*内部边框样式*/</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">10px</span>; <span class="comment">/*内边距*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="表头样式">表头样式</h3>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">th</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">10px</span>;  <span class="comment">/*表头字符大小*/</span></span><br><span class="line">    <span class="attribute">font-weight</span>: bold; <span class="comment">/*加粗*/</span></span><br><span class="line">    <span class="attribute">text-align</span>: center <span class="meta">!important</span>; <span class="comment">/*内容居中，加上 !important 避免被 Markdown 样式覆盖*/</span></span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">158</span>,<span class="number">188</span>,<span class="number">226</span>,<span class="number">0.2</span>); <span class="comment">/*背景色*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="示例">示例</h3>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th></th>
 <th>open</th>
@@ -79,7 +130,8 @@
 <th>amount</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>date</td>
 <td>code</td>
 <td></td>
@@ -89,7 +141,7 @@
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>2020-11-16</td>
 <td>000001</td>
 <td>17.08</td>
@@ -99,7 +151,7 @@
 <td>759856.0</td>
 <td>1.308190e+09</td>
 </tr>
-<tr>
+<tr class="odd">
 <td></td>
 <td>000002</td>
 <td>29.39</td>
@@ -109,7 +161,7 @@
 <td>516576.0</td>
 <td>1.509810e+09</td>
 </tr>
-<tr>
+<tr class="even">
 <td></td>
 <td>000004</td>
 <td>31.15</td>
@@ -119,7 +171,7 @@
 <td>72456.0</td>
 <td>2.223127e+08</td>
 </tr>
-<tr>
+<tr class="odd">
 <td></td>
 <td>000005</td>
 <td>2.68</td>
@@ -129,7 +181,7 @@
 <td>64372.0</td>
 <td>1.725762e+07</td>
 </tr>
-<tr>
+<tr class="even">
 <td></td>
 <td>000006</td>
 <td>5.66</td>
@@ -139,7 +191,7 @@
 <td>98253.0</td>
 <td>5.592563e+07</td>
 </tr>
-<tr>
+<tr class="odd">
 <td></td>
 <td>000007</td>
 <td>9.42</td>
@@ -149,7 +201,7 @@
 <td>22567.0</td>
 <td>2.094628e+07</td>
 </tr>
-<tr>
+<tr class="even">
 <td></td>
 <td>000008</td>
 <td>2.72</td>
@@ -159,7 +211,7 @@
 <td>171930.0</td>
 <td>4.678304e+07</td>
 </tr>
-<tr>
+<tr class="odd">
 <td></td>
 <td>000009</td>
 <td>7.71</td>
@@ -169,7 +221,7 @@
 <td>320180.0</td>
 <td>2.492149e+08</td>
 </tr>
-<tr>
+<tr class="even">
 <td></td>
 <td>000010</td>
 <td>4.19</td>
@@ -179,7 +231,7 @@
 <td>71661.0</td>
 <td>3.004320e+07</td>
 </tr>
-<tr>
+<tr class="odd">
 <td></td>
 <td>000011</td>
 <td>13.76</td>
@@ -189,13 +241,12 @@
 <td>105639.0</td>
 <td>1.489735e+08</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>参考：</p>
-<ol>
-<li><p><a href="https://hexo.imydl.tech/archives/6742.html">Hexo下表格的美化和优化</a></p>
-</li>
-<li><p><a href="https://www.jianshu.com/p/6c1651fe5374">完美解决：Hexo Next主题本地可预览CSS，但部署到网站CSS失效问题！</a></p>
-</li>
+<ol type="1">
+<li><p><a href="https://hexo.imydl.tech/archives/6742.html">Hexo下表格的美化和优化</a></p></li>
+<li><p><a href="https://www.jianshu.com/p/6c1651fe5374">完美解决：Hexo Next主题本地可预览CSS，但部署到网站CSS失效问题！</a></p></li>
 </ol>
 ]]></content>
       <categories>
@@ -207,148 +258,21 @@
       </tags>
   </entry>
   <entry>
-    <title>欢迎来到我的博客</title>
-    <url>/2020/11/19/hello-world/</url>
-    <content><![CDATA[<h2 id="橘子的博客终于开通了"><a href="#橘子的博客终于开通了" class="headerlink" title="橘子的博客终于开通了"></a>橘子的博客终于开通了</h2><p>一直偷懒，最近终于良心发现，总觉以前的光阴虚度，不想未来同样蹉跎岁月，自当奋起，希望能记录下未来成长过程中的点点滴滴想法和经验。</p>
-<p>借词聊表胸怀</p>
-<blockquote>
-<p><font color=lightgreen><strong>江城子·密州出猎</strong></font><br><font color=lightblue><strong>宋    苏轼</strong></font>     </p>
-<p>老夫聊发少年狂，<br>左牵黄，右擎苍，<br>锦帽貂裘，千骑卷平冈。<br>为报倾城随太守，亲射虎，看孙郎。</p>
-<p>酒酣胸胆尚开张，<br>鬓微霜，又何妨!<br>持节云中，何日遣冯唐?<br>会挽雕弓如满月，西北望，射天狼。</p>
-</blockquote>
-<h2 id="本站用途"><a href="#本站用途" class="headerlink" title="本站用途"></a>本站用途</h2><p>这是个人用来学习研究金融工程，机器学习的小窝，</p>
-]]></content>
-      <categories>
-        <category>美好生活</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>为博客文章增加Valine评论系统</title>
-    <url>/2020/12/10/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E5%A2%9E%E5%8A%A0Valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<p>目前常用的评论系统有以下这些：</p>
-<ul>
-<li><p>Github大礼包：<a href="https://link.zhihu.com/?target=https://github.com/iissnan/hexo-theme-next/issues/1604">gitment</a>， <a href="https://link.zhihu.com/?target=https://github.com/iissnan/hexo-theme-next/pull/2037">gitalk</a><strong>（推荐），</strong><a href="https://link.zhihu.com/?target=https://www.vincentqin.tech/2016/08/09/build-a-website-using-hexo/%23%E5%A2%9E%E5%8A%A0Gitter">gitter</a><strong>（推荐）;</strong> 三个都支持<strong>Markdown；</strong></p>
-</li>
-<li><p>基于leancloud的无后端评论系统：<a href="https://link.zhihu.com/?target=https://valine.js.org/%23/">Valine</a><strong>（推荐，</strong>支持<strong>Markdown）；</strong></p>
-</li>
-<li><p>国外的有几个：<a href="https://link.zhihu.com/?target=http://www.disqus.com/">disqus</a>(漂亮，但需翻墙)，<a href="https://link.zhihu.com/?target=https://www.hypercomments.com/">hypercomments</a><strong>（推荐，</strong>不支持<strong>Markdown）。</strong></p>
-</li>
-</ul>
-<p>来试试如何用Valine搭建评论系统吧。</p>
-<a id="more"></a>
-
-<h2 id="注册LeanClound-获取APP-ID-和-APP-Key"><a href="#注册LeanClound-获取APP-ID-和-APP-Key" class="headerlink" title="注册LeanClound,获取APP ID 和 APP Key"></a>注册LeanClound,获取APP ID 和 APP Key</h2><p>Valine 是基于 <a href="https://leancloud.cn/">LeanCloud</a> 作为数据存储的，所以需要注册一个账号，在注册完成后，需要创建应用。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211115602.png"></p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211115809.png"></p>
-<p>点击<code>存储</code>设置，查看是否有<code>Comment</code>和 <code>Counter</code>，没有则创建，权限设为无限制。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211120224.png"></p>
-<p>在<code>安全中心</code>里将除<code>数据存储</code>之外的服务全部关闭。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211120336.png"></p>
-<p>最后点击<code>应用 Keys</code> 取得我们 <code>AppKey</code> 和 <code>App id</code></p>
-<h2 id="在Hexo-Next主题中配置"><a href="#在Hexo-Next主题中配置" class="headerlink" title="在Hexo Next主题中配置"></a>在Hexo Next主题中配置</h2><p>首先打开 <a href="https://www.jsdelivr.com/package/npm/valine">https://www.jsdelivr.com/package/npm/valine</a> 获取最新的 valine.min.js 的cdn地址：</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211123228.png"></p>
-<p>修改博客项目目录下的<code>_config.next.yml</code>文件：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Valine</span></span><br><span class="line"><span class="comment"># valine: //cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js</span></span><br><span class="line"><span class="comment"># valine: //cdnjs.cloudflare.com/ajax/libs/valine/1.3.10/Valine.min.js</span></span><br><span class="line"><span class="string">valine:https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js</span></span><br></pre></td></tr></table></figure>
-
-<p>以及</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">valine:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">appid:</span> <span class="comment"># Your leancloud application appid</span></span><br><span class="line">  <span class="attr">appkey:</span> <span class="comment"># Your leancloud application appkey</span></span><br><span class="line">  <span class="attr">notify:</span> <span class="literal">false</span> <span class="comment"># Mail notifier</span></span><br><span class="line">  <span class="attr">verify:</span> <span class="literal">false</span> <span class="comment"># Verification code</span></span><br><span class="line">  <span class="attr">placeholder:</span> <span class="string">Just</span> <span class="string">go</span> <span class="string">go</span> <span class="comment"># Comment box placeholder</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">mm</span> <span class="comment"># Gravatar style</span></span><br><span class="line">  <span class="attr">guest_info:</span> <span class="string">nick,mail,link</span> <span class="comment"># Custom comment header</span></span><br><span class="line">  <span class="attr">pageSize:</span> <span class="number">10</span> <span class="comment"># Pagination size</span></span><br><span class="line">  <span class="attr">language:</span> <span class="comment"># Language, available values: en, zh-cn</span></span><br><span class="line">  <span class="attr">visitor:</span> <span class="literal">false</span> <span class="comment"># Article reading statistic</span></span><br><span class="line">  <span class="attr">comment_count:</span> <span class="literal">true</span> <span class="comment"># If false, comment count will only be displayed in post page, not in home page</span></span><br><span class="line">  <span class="attr">recordIP:</span> <span class="literal">false</span> <span class="comment"># Whether to record the commenter IP</span></span><br><span class="line">  <span class="attr">serverURLs:</span> <span class="comment"># When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)</span></span><br><span class="line">  <span class="comment">#post_meta_order: 0</span></span><br></pre></td></tr></table></figure>
-
-<p>appid及appkey就填写我们从LeanClound那里获得的信息。</p>
-<h2 id="利用Valine-Admin进行评论管理"><a href="#利用Valine-Admin进行评论管理" class="headerlink" title="利用Valine Admin进行评论管理"></a>利用Valine Admin进行评论管理</h2><p>Valine Admin 是Valine的扩展和增强，主要实现评论邮件通知、评论管理、垃圾评论过滤等功能。支持完全自定义的邮件通知模板，基于 Akismet API 实现准确的垃圾评论过滤。</p>
-<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><ol>
-<li>在 <a href="https://leancloud.cn/dashboard/#/apps">Leancloud</a> 云引擎部署界面，填写代码库并保存：<a href="https://github.com/DesertsP/Valine-Admin.git">https://github.com/DesertsP/Valine-Admin.git</a></li>
-</ol>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211165800.png"></p>
-<ol start="2">
-<li><p>在 <a href="https://leancloud.cn/dashboard/#/apps">Leancloud</a> 云引擎设置界面，设置环境变量以及 Web 二级域名。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211170036.png"></p>
-</li>
-<li><p>环境变量说明</p>
-</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th align="left">变量</th>
-<th align="left">示例</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">SITE_NAME</td>
-<td align="left">Deserts</td>
-<td align="left">[必填]博客名称</td>
-</tr>
-<tr>
-<td align="left">SITE_URL</td>
-<td align="left"><a href="https://nokiasonic.github.io/">https://nokiasonic.github.io</a></td>
-<td align="left">[必填]首页地址</td>
-</tr>
-<tr>
-<td align="left">SMTP_SERVICE</td>
-<td align="left"></td>
-<td align="left">[新版支持]邮件服务提供商，支持 QQ、163、126、Gmail 以及 更多</td>
-</tr>
-<tr>
-<td align="left">SMTP_USER</td>
-<td align="left"><a href="mailto:&#x78;&#120;&#x78;&#x78;&#x78;&#x40;&#104;&#111;&#116;&#x6d;&#97;&#105;&#x6c;&#x2e;&#x63;&#x6f;&#109;">&#x78;&#120;&#x78;&#x78;&#x78;&#x40;&#104;&#111;&#116;&#x6d;&#97;&#105;&#x6c;&#x2e;&#x63;&#x6f;&#109;</a></td>
-<td align="left">[必填] SMTP 登录用户, 这个在注册访问管理员注册页面<code>https://nokiasonic.github.io/sign-up</code>，会用作注册管理员登录信息。</td>
-</tr>
-<tr>
-<td align="left">SMTP_PASS</td>
-<td align="left">ccxxxxxxxxch</td>
-<td align="left">[必填] SMTP 登录密码（QQ邮箱需要获取独立密码）</td>
-</tr>
-<tr>
-<td align="left">SENDER_NAME</td>
-<td align="left">nokiasonic</td>
-<td align="left">[必填]发件人</td>
-</tr>
-<tr>
-<td align="left">SENDER_EMAIL</td>
-<td align="left"><a href="mailto:&#120;&#x78;&#120;&#120;&#x78;&#64;&#104;&#x6f;&#116;&#109;&#97;&#x69;&#108;&#46;&#x63;&#111;&#x6d;">&#120;&#x78;&#120;&#120;&#x78;&#64;&#104;&#x6f;&#116;&#109;&#97;&#x69;&#108;&#46;&#x63;&#111;&#x6d;</a></td>
-<td align="left">[必填]发件邮箱</td>
-</tr>
-<tr>
-<td align="left">ADMIN_URL</td>
-<td align="left"><a href="https://xxx.avosapps.us/">https://xxx.avosapps.us</a></td>
-<td align="left">[建议] Web 主机二级域名，用于自动唤醒</td>
-</tr>
-<tr>
-<td align="left">BLOGGER_EMAIL</td>
-<td align="left"><a href="mailto:&#120;&#x78;&#x78;&#x78;&#x78;&#x40;&#x68;&#111;&#x74;&#109;&#97;&#105;&#108;&#x2e;&#x63;&#111;&#109;">&#120;&#x78;&#x78;&#x78;&#x78;&#x40;&#x68;&#111;&#x74;&#109;&#97;&#105;&#108;&#x2e;&#x63;&#111;&#109;</a></td>
-<td align="left">[可选]博主通知收件地址，默认使用 SENDER_EMAIL</td>
-</tr>
-<tr>
-<td align="left">AKISMET_KEY</td>
-<td align="left">xxxxxxxxxxxx</td>
-<td align="left">[可选] Akismet Key 用于垃圾评论检测，设为 MANUAL_REVIEW 开启人工审核，留空不使用反垃圾</td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>美好生活</category>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>Valine</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用github/gitee来作为图床系统</title>
     <url>/2020/12/10/%E4%BD%BF%E7%94%A8github%E5%8F%8Agitee%E6%9D%A5%E4%BD%9C%E4%B8%BA%E5%9B%BE%E5%BA%8A%E7%B3%BB%E7%BB%9F/</url>
     <content><![CDATA[<p>日常进行博客及其它文章或笔记的写作时，经常需要在文章内容里插入图片。 当文档需要发布或存储到云服务器上时，就需要考虑将引用的图片放置到图床系统中。下面讲述下利用github或gitee来搭建图床系统的方法。</p>
 <a id="more"></a>
-
-<h2 id="一、利用github来建立图床"><a href="#一、利用github来建立图床" class="headerlink" title="一、利用github来建立图床"></a>一、利用github来建立图床</h2><h3 id="建立Github图床仓库"><a href="#建立Github图床仓库" class="headerlink" title="建立Github图床仓库"></a>建立Github图床仓库</h3><p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113510.png"></p>
-<h3 id="设置Token"><a href="#设置Token" class="headerlink" title="设置Token"></a>设置Token</h3><p>进入全局设置，点击<code>Developer Settings</code> -&gt; <code>Personal access tokens</code>，选择<code>Generate new token</code></p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113538.png"></p>
-<h3 id="设置PicGO客户端"><a href="#设置PicGO客户端" class="headerlink" title="设置PicGO客户端"></a>设置PicGO客户端</h3><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p><a href="https://github.com/Molunerfinn/PicGo/releases">PicGo的可执行文件下载地址</a></p>
-<h4 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h4><p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113630.png"></p>
+<h2 id="一利用github来建立图床">一、利用github来建立图床</h2>
+<h3 id="建立github图床仓库">建立Github图床仓库</h3>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113510.png" /></p>
+<h3 id="设置token">设置Token</h3>
+<p>进入全局设置，点击<code>Developer Settings</code> -&gt; <code>Personal access tokens</code>，选择<code>Generate new token</code></p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113538.png" /></p>
+<h3 id="设置picgo客户端">设置PicGO客户端</h3>
+<h4 id="下载">下载</h4>
+<p><a href="https://github.com/Molunerfinn/PicGo/releases">PicGo的可执行文件下载地址</a></p>
+<h4 id="设置">设置</h4>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113630.png" /></p>
 <ul>
 <li>仓库名：按照“账户名/仓库名”的格式填写；</li>
 <li>分支名：统一填写为<code>main</code>；</li>
@@ -356,16 +280,24 @@
 <li>存储路径：若设置为img/，则会在repository下创建一个“img”文件夹；</li>
 <li>自定义域名：在上传图片后成功后，PicGo会将“自定义域名+上传的图片名”生成的访问链接，放到剪切板。这里约定遵循如下的格式：<code>域名/用户名/仓库名/分支名。</code></li>
 </ul>
-<h4 id="上传图片"><a href="#上传图片" class="headerlink" title="上传图片"></a>上传图片</h4><p>在picgo上传区，可以直接上传剪贴板上的图片或保存成文件上传。这里不再说明。</p>
-<hr>
+<h4 id="上传图片">上传图片</h4>
+<p>在picgo上传区，可以直接上传剪贴板上的图片或保存成文件上传。这里不再说明。</p>
+<hr />
 <p>因为github显示图片相当不稳定。 所以可以使用gitee来替代它作为图床的托管仓库。</p>
-<h2 id="二、利用gitee来建立图床"><a href="#二、利用gitee来建立图床" class="headerlink" title="二、利用gitee来建立图床"></a>二、利用gitee来建立图床</h2><h3 id="在gitee中创建仓库"><a href="#在gitee中创建仓库" class="headerlink" title="在gitee中创建仓库"></a>在gitee中创建仓库</h3><p>按照常规创建仓库的方式创建一个专门用于图床的仓库</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113253.png"></p>
-<h3 id="获取token"><a href="#获取token" class="headerlink" title="获取token"></a>获取token</h3><p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113315.png"></p>
-<h3 id="在PicGO中安装gitee插件"><a href="#在PicGO中安装gitee插件" class="headerlink" title="在PicGO中安装gitee插件"></a>在PicGO中安装gitee插件</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211111817.png"></p>
-<h4 id="配置插件"><a href="#配置插件" class="headerlink" title="配置插件"></a>配置插件</h4><p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211112516.png"></p>
+<h2 id="二利用gitee来建立图床">二、利用gitee来建立图床</h2>
+<h3 id="在gitee中创建仓库">在gitee中创建仓库</h3>
+<p>按照常规创建仓库的方式创建一个专门用于图床的仓库</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113253.png" /></p>
+<h3 id="获取token">获取token</h3>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113315.png" /></p>
+<h3 id="在picgo中安装gitee插件">在PicGO中安装gitee插件</h3>
+<h4 id="安装">安装</h4>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211111817.png" /></p>
+<h4 id="配置插件">配置插件</h4>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211112516.png" /></p>
 <p>这里需要注意的是repo的名字中大小写字母需要完全一致且是repo仓库路径。否则会报404错误。</p>
-<h4 id="上传图片-1"><a href="#上传图片-1" class="headerlink" title="上传图片"></a>上传图片</h4><p>至此，图床系统搭建完成，可以愉快地写作了。</p>
+<h4 id="上传图片-1">上传图片</h4>
+<p>至此，图床系统搭建完成，可以愉快地写作了。</p>
 ]]></content>
       <categories>
         <category>技术笔记</category>
@@ -379,14 +311,278 @@
       </tags>
   </entry>
   <entry>
+    <title>为博客文章增加Valine评论系统</title>
+    <url>/2020/12/10/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E5%A2%9E%E5%8A%A0Valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<p>目前常用的评论系统有以下这些：</p>
+<ul>
+<li><p>Github大礼包：<a href="https://link.zhihu.com/?target=https%3A//github.com/iissnan/hexo-theme-next/issues/1604">gitment</a>， <a href="https://link.zhihu.com/?target=https%3A//github.com/iissnan/hexo-theme-next/pull/2037">gitalk</a><strong>（推荐），</strong><a href="https://link.zhihu.com/?target=https%3A//www.vincentqin.tech/2016/08/09/build-a-website-using-hexo/%23%E5%A2%9E%E5%8A%A0Gitter">gitter</a><strong>（推荐）;</strong> 三个都支持<strong>Markdown；</strong></p></li>
+<li><p>基于leancloud的无后端评论系统：<a href="https://link.zhihu.com/?target=https%3A//valine.js.org/%23/">Valine</a><strong>（推荐，</strong>支持<strong>Markdown）；</strong></p></li>
+<li><p>国外的有几个：<a href="https://link.zhihu.com/?target=http%3A//www.disqus.com/">disqus</a>(漂亮，但需翻墙)，<a href="https://link.zhihu.com/?target=https%3A//www.hypercomments.com/">hypercomments</a><strong>（推荐，</strong>不支持<strong>Markdown）。</strong></p></li>
+</ul>
+<p>来试试如何用Valine搭建评论系统吧。</p>
+<a id="more"></a>
+<h2 id="注册leanclound获取app-id-和-app-key">注册LeanClound,获取APP ID 和 APP Key</h2>
+<p>Valine 是基于 <a href="https://leancloud.cn/">LeanCloud</a> 作为数据存储的，所以需要注册一个账号，在注册完成后，需要创建应用。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211115602.png" /></p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211115809.png" /></p>
+<p>点击<code>存储</code>设置，查看是否有<code>Comment</code>和 <code>Counter</code>，没有则创建，权限设为无限制。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211120224.png" /></p>
+<p>在<code>安全中心</code>里将除<code>数据存储</code>之外的服务全部关闭。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211120336.png" /></p>
+<p>最后点击<code>应用 Keys</code> 取得我们 <code>AppKey</code> 和 <code>App id</code></p>
+<h2 id="在hexo-next主题中配置">在Hexo Next主题中配置</h2>
+<p>首先打开 https://www.jsdelivr.com/package/npm/valine 获取最新的 valine.min.js 的cdn地址：</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211123228.png" /></p>
+<p>修改博客项目目录下的<code>_config.next.yml</code>文件：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Valine</span></span><br><span class="line"><span class="comment"># valine: //cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js</span></span><br><span class="line"><span class="comment"># valine: //cdnjs.cloudflare.com/ajax/libs/valine/1.3.10/Valine.min.js</span></span><br><span class="line"><span class="string">valine:https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js</span></span><br></pre></td></tr></table></figure>
+<p>以及</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">valine:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">appid:</span> <span class="comment"># Your leancloud application appid</span></span><br><span class="line">  <span class="attr">appkey:</span> <span class="comment"># Your leancloud application appkey</span></span><br><span class="line">  <span class="attr">notify:</span> <span class="literal">false</span> <span class="comment"># Mail notifier</span></span><br><span class="line">  <span class="attr">verify:</span> <span class="literal">false</span> <span class="comment"># Verification code</span></span><br><span class="line">  <span class="attr">placeholder:</span> <span class="string">Just</span> <span class="string">go</span> <span class="string">go</span> <span class="comment"># Comment box placeholder</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">mm</span> <span class="comment"># Gravatar style</span></span><br><span class="line">  <span class="attr">guest_info:</span> <span class="string">nick,mail,link</span> <span class="comment"># Custom comment header</span></span><br><span class="line">  <span class="attr">pageSize:</span> <span class="number">10</span> <span class="comment"># Pagination size</span></span><br><span class="line">  <span class="attr">language:</span> <span class="comment"># Language, available values: en, zh-cn</span></span><br><span class="line">  <span class="attr">visitor:</span> <span class="literal">false</span> <span class="comment"># Article reading statistic</span></span><br><span class="line">  <span class="attr">comment_count:</span> <span class="literal">true</span> <span class="comment"># If false, comment count will only be displayed in post page, not in home page</span></span><br><span class="line">  <span class="attr">recordIP:</span> <span class="literal">false</span> <span class="comment"># Whether to record the commenter IP</span></span><br><span class="line">  <span class="attr">serverURLs:</span> <span class="comment"># When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)</span></span><br><span class="line">  <span class="comment">#post_meta_order: 0</span></span><br></pre></td></tr></table></figure>
+<p>appid及appkey就填写我们从LeanClound那里获得的信息。</p>
+<h2 id="利用valine-admin进行评论管理">利用Valine Admin进行评论管理</h2>
+<p>Valine Admin 是Valine的扩展和增强，主要实现评论邮件通知、评论管理、垃圾评论过滤等功能。支持完全自定义的邮件通知模板，基于 Akismet API 实现准确的垃圾评论过滤。</p>
+<h3 id="部署">部署</h3>
+<ol type="1">
+<li>在 <a href="https://leancloud.cn/dashboard/#/apps">Leancloud</a> 云引擎部署界面，填写代码库并保存：https://github.com/DesertsP/Valine-Admin.git</li>
+</ol>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211165800.png" /></p>
+<ol start="2" type="1">
+<li><p>在 <a href="https://leancloud.cn/dashboard/#/apps">Leancloud</a> 云引擎设置界面，设置环境变量以及 Web 二级域名。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211170036.png" /></p></li>
+<li><p>环境变量说明</p></li>
+</ol>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 27%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">变量</th>
+<th style="text-align: left;">示例</th>
+<th style="text-align: left;">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">SITE_NAME</td>
+<td style="text-align: left;">Deserts</td>
+<td style="text-align: left;">[必填]博客名称</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SITE_URL</td>
+<td style="text-align: left;">https://nokiasonic.github.io</td>
+<td style="text-align: left;">[必填]首页地址</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SMTP_SERVICE</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">[新版支持]邮件服务提供商，支持 QQ、163、126、Gmail 以及 更多</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SMTP_USER</td>
+<td style="text-align: left;">xxxxx@hotmail.com</td>
+<td style="text-align: left;">[必填] SMTP 登录用户, 这个在注册访问管理员注册页面<code>https://nokiasonic.github.io/sign-up</code>，会用作注册管理员登录信息。</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SMTP_PASS</td>
+<td style="text-align: left;">ccxxxxxxxxch</td>
+<td style="text-align: left;">[必填] SMTP 登录密码（QQ邮箱需要获取独立密码）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SENDER_NAME</td>
+<td style="text-align: left;">nokiasonic</td>
+<td style="text-align: left;">[必填]发件人</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SENDER_EMAIL</td>
+<td style="text-align: left;">xxxxx@hotmail.com</td>
+<td style="text-align: left;">[必填]发件邮箱</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ADMIN_URL</td>
+<td style="text-align: left;">https://xxx.avosapps.us</td>
+<td style="text-align: left;">[建议] Web 主机二级域名，用于自动唤醒</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BLOGGER_EMAIL</td>
+<td style="text-align: left;">xxxxx@hotmail.com</td>
+<td style="text-align: left;">[可选]博主通知收件地址，默认使用 SENDER_EMAIL</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AKISMET_KEY</td>
+<td style="text-align: left;">xxxxxxxxxxxx</td>
+<td style="text-align: left;">[可选] Akismet Key 用于垃圾评论检测，设为 MANUAL_REVIEW 开启人工审核，留空不使用反垃圾</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>美好生活</category>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>Valine</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>线性代数在量化投资分析中的应用</title>
+    <url>/2020/12/17/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9C%A8%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%88%86%E6%9E%90%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="基本概念">基本概念</h1>
+<h2 id="标量向量矩阵和张量">标量、向量、矩阵和张量</h2>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/scalar-vector-matrix-tensor.png" style="zoom:25%;float:left" /><br />
+<br/> <br/> <br/></p>
+<p>• <code>标量（scalar）</code>：一个标量就是一个单独的数，它不同于线性代数中研究的其他大部分对象（通常是多个数的数组）。<br />
+• <code>向量（vector）</code>：一个向量是一列数。这些数是有序排列的。<br />
+• <code>矩阵（matrix）</code>：矩阵是一个二维数组，其中的每一个元素被两个索引（而非一个）所确定。<br />
+• <code>张量（tensor）</code>：在某些情况下，我们会讨论坐标超过两维的数组。一般地，一个数组中的元素分布在若干维坐标的规则网格中，我们称之为张量。</p>
+<h2 id="转置">转置</h2>
+<p><code>转置（transpose）</code>是矩阵的重要操作之一。矩阵的转置是以对角线为轴的镜像，这条从左上角到右下角的对角线被称为 主对角线（main diagonal）。</p>
+<p>向量可以看作只有一列的矩阵。对应地，向量的转置可以看作是只有一行的矩阵。<br />
+<img src="https://gitee.com/nokiasonic/pic/raw/master/img/vector-transposition.png" align=left style="zoom:35%" ><br />
+<br/> 方阵的转置<br />
+<img src="https://gitee.com/nokiasonic/pic/raw/master/img/square-matrix-transposition.png" style="zoom:25%;float:left" /><br />
+<br/> 非方阵的转置<br />
+<img src="https://gitee.com/nokiasonic/pic/raw/master/img/non-squared-matrix-transposition.png" style="zoom:25%;float:left"/><br />
+<br/> <br/> 上标 <span class="math inline">\(^\text{T}\)</span>用来表述转置矩阵</p>
+<p>$ {A}= \begin{bmatrix} A_{1,1} &amp; A_{1,2} \ A_{2,1} &amp; A_{2,2} \ A_{3,1} &amp; A_{3,2} \end{bmatrix} $ 的转置矩阵为：</p>
+<p>$ {A}^{}= \begin{bmatrix} A_{1,1} &amp; A_{2,1} &amp; A_{3,1} \ A_{1,2} &amp; A_{2,2} &amp; A_{3,2} \end{bmatrix} $<br />
+<br/> <img src="https://gitee.com/nokiasonic/pic/raw/master/img/dimensions-transposition-matrix.png" style="zoom:25%;float:left"/> 矩阵的形状 (<span class="math inline">\(m \times n\)</span>) 在转置后变为 (<span class="math inline">\(n \times m\)</span>).</p>
+<p><br/></p>
+<h2 id="线性方程组">线性方程组</h2>
+<p>对于一个线性方程组</p>
+<p><span class="math inline">\(\large \begin{equation} \left\{ \begin{aligned} x_1+x_2=2\\ x_1-x_2=4\\ \end{aligned} \right. \end{equation}\)</span></p>
+<p>这里有两个方程和两个变量，一般可以得到唯一解或无穷多解。利用线性代数可以对其进行简洁地表示和运算。线性代数的运算离不开矩阵，矩阵是按照长方阵列排列的实数或复数集合。例如存在矩阵</p>
+<p>$ A=, X=, b=. $</p>
+<p>这样，上述线性方程组可记为<span class="math inline">\(AX=b\)</span>.</p>
+<p>即： $ =$</p>
+<p>假想<br />
+$ =$</p>
+<p>得： $ =$</p>
+<h2 id="示例">示例</h2>
+<p>在Python中，使用numpy库可以方便的进行矩阵操作。<br />
+### 使用numpy来创建向量(vector) $ {x} =\begin{bmatrix} x_1 \ x_2 \ \ x_n \end{bmatrix} $</p>
+<h4 id="创建指定长度及数值的向量">创建指定长度及数值的向量</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">x = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line">x</span><br></pre></td></tr></table></figure>
+<pre><code>array([1, 2, 3, 4])</code></pre>
+<h4 id="创建指定长度及随机数值的向量">创建指定长度及随机数值的向量</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = np.random.randint(<span class="number">1</span>,<span class="number">10</span>,size=<span class="number">10</span>)</span><br><span class="line">x</span><br></pre></td></tr></table></figure>
+<pre><code>array([8, 2, 2, 6, 5, 7, 5, 4, 4, 4])</code></pre>
+<h3 id="使用numpy来创建矩阵matrix">使用numpy来创建矩阵(matrix)</h3>
+<p>$ {A}= \begin{bmatrix} A_{1,1} &amp; A_{1,2} &amp; &amp; A_{1,n} \ A_{2,1} &amp; A_{2,2} &amp; &amp; A_{2,n} \ &amp; &amp; &amp; \ A_{m,1} &amp; A_{m,2} &amp; &amp; A_{m,n} \end{bmatrix} $</p>
+<h4 id="创建指定长度及数值的矩阵">创建指定长度及数值的矩阵</h4>
+<p>例如：3x2的矩阵</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A = np.array([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>], [<span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line">A</span><br></pre></td></tr></table></figure>
+<pre><code>array([[1, 2],
+       [3, 4],
+       [5, 6]])</code></pre>
+<h4 id="创建指定长度及随机数值的矩阵">创建指定长度及随机数值的矩阵</h4>
+<p>例如：3x2的矩阵</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A = np.random.randint(<span class="number">1</span>,<span class="number">10</span>,size=(<span class="number">3</span>,<span class="number">2</span>))</span><br><span class="line">A</span><br></pre></td></tr></table></figure>
+<pre><code>array([[6, 5],
+       [7, 5],
+       [7, 6]])</code></pre>
+<h3 id="利用numpy来进行矩阵转置">利用numpy来进行矩阵转置</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A = np.array([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>], [<span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line">A</span><br></pre></td></tr></table></figure>
+<pre><code>array([[1, 2],
+       [3, 4],
+       [5, 6]])</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A_t = A.T</span><br><span class="line">A_t</span><br></pre></td></tr></table></figure>
+<pre><code>array([[1, 3, 5],
+       [2, 4, 6]])</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(A.shape)</span><br><span class="line">print(A_t.shape)</span><br></pre></td></tr></table></figure>
+<pre><code>(3, 2)
+(2, 3)</code></pre>
+<h3 id="求解线性方程组">求解线性方程组</h3>
+<p>求二元一次线性方程组</p>
+<p><span class="math inline">\(\large \begin{equation} \left\{ \begin{aligned} x_1+x_2=2\\ x_1-x_2=4\\ \end{aligned} \right. \end{equation}\)</span></p>
+<p>的解。</p>
+<p><strong>分析</strong>：如章节1.3中所述。<br />
+$ A=, X=, b=. $</p>
+<p>这样，上述线性方程组可记为<span class="math inline">\(AX=b\)</span>.<br />
+则：<span class="math inline">\(X=\large\frac{1}{A}b\)</span></p>
+<p>即：<span class="math inline">\(\large \left[  \begin{matrix}  x_1 \\  x_2 \\  \end{matrix}  \right]=\frac{1}{\left[  \begin{matrix}  1 &amp; 1 \\  1 &amp; -1 \\  \end{matrix}  \right]}\left[  \begin{matrix}  2 \\  4 \\  \end{matrix}  \right]\)</span></p>
+<p>说明：<br />
+<span class="math inline">\({A}\)</span>的逆矩阵表述为<span class="math inline">\({A}^{-1}\)</span>. 逆矩阵满足如一条件。</p>
+<p><span class="math inline">\({A}^{-1}{A}={I}_n\)</span></p>
+<p>NumPy 提供了线性代数函数库 <strong>linalg</strong>，该库包含了线性代数所需的所有功能，可以看看下面的说明：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">函数</th>
+<th style="text-align: left;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>dot</code></td>
+<td style="text-align: left;">两个数组的点积，即元素对应相乘。</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>vdot</code></td>
+<td style="text-align: left;">两个向量的点积</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>inner</code></td>
+<td style="text-align: left;">两个数组的内积</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>matmul</code></td>
+<td style="text-align: left;">两个数组的矩阵积</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>determinant</code></td>
+<td style="text-align: left;">数组的行列式</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>solve</code></td>
+<td style="text-align: left;">求解线性矩阵方程</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>inv</code></td>
+<td style="text-align: left;">计算矩阵的乘法逆矩阵</td>
+</tr>
+</tbody>
+</table>
+<p>计算过程如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建矩阵A, 这里用了两种方法，实际中A1 =A2</span></span><br><span class="line">A1 = np.mat(<span class="string">&#x27;1 1;1 -1&#x27;</span>)</span><br><span class="line">A2 = np.array([[<span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>,-<span class="number">1</span>]])</span><br><span class="line">b = np.array([<span class="number">2</span>,<span class="number">4</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#用solve函数求解线性方程</span></span><br><span class="line">X1 = np.linalg.solve(A1,b)</span><br><span class="line">X2 = np.linalg.solve(A2,b)</span><br><span class="line">print(X1)</span><br><span class="line">print(X2)</span><br></pre></td></tr></table></figure>
+<pre><code>[ 3. -1.]
+[ 3. -1.]</code></pre>
+<p>此外，也可利用先求A的逆矩阵，然后和b进行点积求解。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A = np.array([[<span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>,-<span class="number">1</span>]])</span><br><span class="line">b = np.array([<span class="number">2</span>,<span class="number">4</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#使用点积的两种方式</span></span><br><span class="line">X1 = (np.linalg.inv(A)).dot(b)</span><br><span class="line">X2 = np.dot(np.linalg.inv(A),b)</span><br><span class="line">print(X1)</span><br><span class="line">print(X2)</span><br></pre></td></tr></table></figure>
+<pre><code>[ 3. -1.]
+[ 3. -1.]</code></pre>
+<h1 id="线性回归模型求解模拟">线性回归模型求解模拟</h1>
+<p><code>statsmodels</code>是Python中一个强大的统计分析包，包含了回归分析、时间序列分析、假设检验等等的功能，当需要在Python中进行回归分析时，就可以导入statsmodels。</p>
+<p><code>statsmodels.regression.linear_model</code>里有回归函数<code>statsmodels.OLS</code>，它的输入参数有<code>(endog, exog, missing, hasconst)</code>。一般只考虑前两个输入，其中，<code>endog</code>是回归中的因变量<span class="math inline">\(Y\)</span>，是一个<span class="math inline">\(n\)</span>维的向量；<code>exog</code>是回归中的自变量<span class="math inline">\(X_1,X_2,...,X_P\)</span>，由于statsmodels.OLS不会假设回归模型有常数项，所以我们应该假设模型是</p>
+<p>$ y_t=<em>0X</em>{0t}+<em>1X</em>{1t}+<em>2X</em>{2t}+...+<em>pX</em>{pt}+,t=1,2,...,n $</p>
+<p>其中，对所有<span class="math inline">\(t=1,2,...,n\)</span>，令<span class="math inline">\(X_{0t}=1\)</span>。因此，exog的输入是一个<span class="math inline">\(n\times (p+1)\)</span>的向量。</p>
+<p>statsmodels.OLS的输出结果是statsmodels.regression.linear_model.OLS类，并没有进行任何运算。在OLS的模型之上调用拟合函数 fit()，才进行回归运算，并且得到statsmodels.regression.linear_model.RegressionResultsWrapper，它包含了这组数据进行回归拟合的结果摘要。调用params可以查看计算出的回归系数<span class="math inline">\(\beta_0,\beta_1,...,\beta_p\)</span>。 下面将分连续变量和离散变量两种情况来模拟求解线性回归模型。</p>
+<h1 id="参考">参考</h1>
+<ol type="1">
+<li><a href="https://hadrienj.github.io/posts/Deep-Learning-Book-Series-Introduction/">Deep Learning Book Series · Introduction</a><br />
+</li>
+<li><a href="https://zhuanlan.zhihu.com/p/65259880">Numpy中矩阵计算模块linalg的常用函数</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>理化投资</category>
+      </categories>
+      <tags>
+        <tag>线性代数</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何用pandas高速处理数据</title>
     <url>/2020/12/08/%E5%A6%82%E4%BD%95%E7%94%A8pandas%E9%AB%98%E9%80%9F%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE/</url>
     <content><![CDATA[<p>因为需要对大量数据进行处理，有必要探讨比较下怎么操作具有较高的性能。</p>
 <a id="more"></a>
-
-<h2 id="创建Dataframe数据"><a href="#创建Dataframe数据" class="headerlink" title="创建Dataframe数据"></a>创建Dataframe数据</h2><p>使用QA创建了一个包含6列和61006行的Dataframe。它包含了2020年11月16日至12月4日的OHLC和成交量数据。</p>
+<h2 id="创建dataframe数据">创建Dataframe数据</h2>
+<p>使用QA创建了一个包含6列和61006行的Dataframe。它包含了2020年11月16日至12月4日的OHLC和成交量数据。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> QUANTAXIS <span class="keyword">as</span> QA</span><br><span class="line"></span><br><span class="line">code = QA.QA_fetch_stock_list_adv().code.tolist()</span><br><span class="line">daydata = QA.QA_fetch_stock_day_adv(code, <span class="string">&#x27;2020-11-16&#x27;</span>, <span class="string">&#x27;2020-12-04&#x27;</span>)</span><br><span class="line">df = daydata.data</span><br><span class="line">print(df.shape)</span><br><span class="line">df.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-
 <pre><code>you are using non-interactive mdoel quantaxis
 (61001, 6)</code></pre>
 <div>
@@ -395,906 +591,1987 @@
         vertical-align: middle;
     }
 
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;</code></pre>
-<p></style></p>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>open</th>
-      <th>high</th>
-      <th>low</th>
-      <th>close</th>
-      <th>volume</th>
-      <th>amount</th>
-    </tr>
-    <tr>
-      <th>date</th>
-      <th>code</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="10" valign="top">2020-11-16</th>
-      <th>000001</th>
-      <td>17.08</td>
-      <td>17.43</td>
-      <td>16.90</td>
-      <td>17.37</td>
-      <td>759856.0</td>
-      <td>1.308190e+09</td>
-    </tr>
-    <tr>
-      <th>000002</th>
-      <td>29.39</td>
-      <td>29.50</td>
-      <td>29.00</td>
-      <td>29.20</td>
-      <td>516576.0</td>
-      <td>1.509810e+09</td>
-    </tr>
-    <tr>
-      <th>000004</th>
-      <td>31.15</td>
-      <td>31.46</td>
-      <td>30.11</td>
-      <td>30.61</td>
-      <td>72456.0</td>
-      <td>2.223127e+08</td>
-    </tr>
-    <tr>
-      <th>000005</th>
-      <td>2.68</td>
-      <td>2.70</td>
-      <td>2.65</td>
-      <td>2.69</td>
-      <td>64372.0</td>
-      <td>1.725762e+07</td>
-    </tr>
-    <tr>
-      <th>000006</th>
-      <td>5.66</td>
-      <td>5.74</td>
-      <td>5.62</td>
-      <td>5.72</td>
-      <td>98253.0</td>
-      <td>5.592563e+07</td>
-    </tr>
-    <tr>
-      <th>000007</th>
-      <td>9.42</td>
-      <td>9.42</td>
-      <td>9.18</td>
-      <td>9.20</td>
-      <td>22567.0</td>
-      <td>2.094628e+07</td>
-    </tr>
-    <tr>
-      <th>000008</th>
-      <td>2.72</td>
-      <td>2.74</td>
-      <td>2.70</td>
-      <td>2.73</td>
-      <td>171930.0</td>
-      <td>4.678304e+07</td>
-    </tr>
-    <tr>
-      <th>000009</th>
-      <td>7.71</td>
-      <td>7.88</td>
-      <td>7.66</td>
-      <td>7.82</td>
-      <td>320180.0</td>
-      <td>2.492149e+08</td>
-    </tr>
-    <tr>
-      <th>000010</th>
-      <td>4.19</td>
-      <td>4.27</td>
-      <td>4.10</td>
-      <td>4.24</td>
-      <td>71661.0</td>
-      <td>3.004320e+07</td>
-    </tr>
-    <tr>
-      <th>000011</th>
-      <td>13.76</td>
-      <td>14.40</td>
-      <td>13.58</td>
-      <td>14.39</td>
-      <td>105639.0</td>
-      <td>1.489735e+08</td>
-    </tr>
-  </tbody>
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+open
+</th>
+<th>
+high
+</th>
+<th>
+low
+</th>
+<th>
+close
+</th>
+<th>
+volume
+</th>
+<th>
+amount
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="10" valign="top">
+2020-11-16
+</th>
+<th>
+000001
+</th>
+<td>
+17.08
+</td>
+<td>
+17.43
+</td>
+<td>
+16.90
+</td>
+<td>
+17.37
+</td>
+<td>
+759856.0
+</td>
+<td>
+1.308190e+09
+</td>
+</tr>
+<tr>
+<th>
+000002
+</th>
+<td>
+29.39
+</td>
+<td>
+29.50
+</td>
+<td>
+29.00
+</td>
+<td>
+29.20
+</td>
+<td>
+516576.0
+</td>
+<td>
+1.509810e+09
+</td>
+</tr>
+<tr>
+<th>
+000004
+</th>
+<td>
+31.15
+</td>
+<td>
+31.46
+</td>
+<td>
+30.11
+</td>
+<td>
+30.61
+</td>
+<td>
+72456.0
+</td>
+<td>
+2.223127e+08
+</td>
+</tr>
+<tr>
+<th>
+000005
+</th>
+<td>
+2.68
+</td>
+<td>
+2.70
+</td>
+<td>
+2.65
+</td>
+<td>
+2.69
+</td>
+<td>
+64372.0
+</td>
+<td>
+1.725762e+07
+</td>
+</tr>
+<tr>
+<th>
+000006
+</th>
+<td>
+5.66
+</td>
+<td>
+5.74
+</td>
+<td>
+5.62
+</td>
+<td>
+5.72
+</td>
+<td>
+98253.0
+</td>
+<td>
+5.592563e+07
+</td>
+</tr>
+<tr>
+<th>
+000007
+</th>
+<td>
+9.42
+</td>
+<td>
+9.42
+</td>
+<td>
+9.18
+</td>
+<td>
+9.20
+</td>
+<td>
+22567.0
+</td>
+<td>
+2.094628e+07
+</td>
+</tr>
+<tr>
+<th>
+000008
+</th>
+<td>
+2.72
+</td>
+<td>
+2.74
+</td>
+<td>
+2.70
+</td>
+<td>
+2.73
+</td>
+<td>
+171930.0
+</td>
+<td>
+4.678304e+07
+</td>
+</tr>
+<tr>
+<th>
+000009
+</th>
+<td>
+7.71
+</td>
+<td>
+7.88
+</td>
+<td>
+7.66
+</td>
+<td>
+7.82
+</td>
+<td>
+320180.0
+</td>
+<td>
+2.492149e+08
+</td>
+</tr>
+<tr>
+<th>
+000010
+</th>
+<td>
+4.19
+</td>
+<td>
+4.27
+</td>
+<td>
+4.10
+</td>
+<td>
+4.24
+</td>
+<td>
+71661.0
+</td>
+<td>
+3.004320e+07
+</td>
+</tr>
+<tr>
+<th>
+000011
+</th>
+<td>
+13.76
+</td>
+<td>
+14.40
+</td>
+<td>
+13.58
+</td>
+<td>
+14.39
+</td>
+<td>
+105639.0
+</td>
+<td>
+1.489735e+08
+</td>
+</tr>
+</tbody>
 </table>
 </div>
-
-
 <p>显示dataframe的内存占用情况。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.info(memory_usage = <span class="string">&#x27;deep&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-MultiIndex: 61001 entries, (2020-11-16 00:00:00, 000001) to (2020-12-04 00:00:00, 689009)
-Data columns (total 6 columns):
-open      61001 non-null float64
-high      61001 non-null float64
-low       61001 non-null float64
-close     61001 non-null float64
-volume    61001 non-null float64
-amount    61001 non-null float64
-dtypes: float64(6)
-memory usage: 3.2 MB</code></pre>
+<p>&lt;class 'pandas.core.frame.DataFrame'&gt; MultiIndex: 61001 entries, (2020-11-16 00:00:00, 000001) to (2020-12-04 00:00:00, 689009) Data columns (total 6 columns): open 61001 non-null float64 high 61001 non-null float64 low 61001 non-null float64 close 61001 non-null float64 volume 61001 non-null float64 amount 61001 non-null float64 dtypes: float64(6) memory usage: 3.2 MB</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">%%time</span><br><span class="line"></span><br><span class="line">df1 = df</span><br><span class="line">col_name = df1.columns.tolist()</span><br><span class="line">col_name.insert(<span class="number">6</span>,<span class="string">&#x27;status&#x27;</span>)</span><br><span class="line">df1 = df1.reindex(columns=col_name)</span><br><span class="line">df1.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>CPU times: user 1.72 ms, sys: 1.99 ms, total: 3.71 ms
-Wall time: 3.21 ms</code></pre>
+<p>CPU times: user 1.72 ms, sys: 1.99 ms, total: 3.71 ms Wall time: 3.21 ms</p>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
 
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;</code></pre>
-<p></style></p>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>open</th>
-      <th>high</th>
-      <th>low</th>
-      <th>close</th>
-      <th>volume</th>
-      <th>amount</th>
-      <th>status</th>
-    </tr>
-    <tr>
-      <th>date</th>
-      <th>code</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="10" valign="top">2020-11-16</th>
-      <th>000001</th>
-      <td>17.08</td>
-      <td>17.43</td>
-      <td>16.90</td>
-      <td>17.37</td>
-      <td>759856.0</td>
-      <td>1.308190e+09</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>000002</th>
-      <td>29.39</td>
-      <td>29.50</td>
-      <td>29.00</td>
-      <td>29.20</td>
-      <td>516576.0</td>
-      <td>1.509810e+09</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>000004</th>
-      <td>31.15</td>
-      <td>31.46</td>
-      <td>30.11</td>
-      <td>30.61</td>
-      <td>72456.0</td>
-      <td>2.223127e+08</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>000005</th>
-      <td>2.68</td>
-      <td>2.70</td>
-      <td>2.65</td>
-      <td>2.69</td>
-      <td>64372.0</td>
-      <td>1.725762e+07</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>000006</th>
-      <td>5.66</td>
-      <td>5.74</td>
-      <td>5.62</td>
-      <td>5.72</td>
-      <td>98253.0</td>
-      <td>5.592563e+07</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>000007</th>
-      <td>9.42</td>
-      <td>9.42</td>
-      <td>9.18</td>
-      <td>9.20</td>
-      <td>22567.0</td>
-      <td>2.094628e+07</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>000008</th>
-      <td>2.72</td>
-      <td>2.74</td>
-      <td>2.70</td>
-      <td>2.73</td>
-      <td>171930.0</td>
-      <td>4.678304e+07</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>000009</th>
-      <td>7.71</td>
-      <td>7.88</td>
-      <td>7.66</td>
-      <td>7.82</td>
-      <td>320180.0</td>
-      <td>2.492149e+08</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>000010</th>
-      <td>4.19</td>
-      <td>4.27</td>
-      <td>4.10</td>
-      <td>4.24</td>
-      <td>71661.0</td>
-      <td>3.004320e+07</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>000011</th>
-      <td>13.76</td>
-      <td>14.40</td>
-      <td>13.58</td>
-      <td>14.39</td>
-      <td>105639.0</td>
-      <td>1.489735e+08</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+open
+</th>
+<th>
+high
+</th>
+<th>
+low
+</th>
+<th>
+close
+</th>
+<th>
+volume
+</th>
+<th>
+amount
+</th>
+<th>
+status
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="10" valign="top">
+2020-11-16
+</th>
+<th>
+000001
+</th>
+<td>
+17.08
+</td>
+<td>
+17.43
+</td>
+<td>
+16.90
+</td>
+<td>
+17.37
+</td>
+<td>
+759856.0
+</td>
+<td>
+1.308190e+09
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+000002
+</th>
+<td>
+29.39
+</td>
+<td>
+29.50
+</td>
+<td>
+29.00
+</td>
+<td>
+29.20
+</td>
+<td>
+516576.0
+</td>
+<td>
+1.509810e+09
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+000004
+</th>
+<td>
+31.15
+</td>
+<td>
+31.46
+</td>
+<td>
+30.11
+</td>
+<td>
+30.61
+</td>
+<td>
+72456.0
+</td>
+<td>
+2.223127e+08
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+000005
+</th>
+<td>
+2.68
+</td>
+<td>
+2.70
+</td>
+<td>
+2.65
+</td>
+<td>
+2.69
+</td>
+<td>
+64372.0
+</td>
+<td>
+1.725762e+07
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+000006
+</th>
+<td>
+5.66
+</td>
+<td>
+5.74
+</td>
+<td>
+5.62
+</td>
+<td>
+5.72
+</td>
+<td>
+98253.0
+</td>
+<td>
+5.592563e+07
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+000007
+</th>
+<td>
+9.42
+</td>
+<td>
+9.42
+</td>
+<td>
+9.18
+</td>
+<td>
+9.20
+</td>
+<td>
+22567.0
+</td>
+<td>
+2.094628e+07
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+000008
+</th>
+<td>
+2.72
+</td>
+<td>
+2.74
+</td>
+<td>
+2.70
+</td>
+<td>
+2.73
+</td>
+<td>
+171930.0
+</td>
+<td>
+4.678304e+07
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+000009
+</th>
+<td>
+7.71
+</td>
+<td>
+7.88
+</td>
+<td>
+7.66
+</td>
+<td>
+7.82
+</td>
+<td>
+320180.0
+</td>
+<td>
+2.492149e+08
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+000010
+</th>
+<td>
+4.19
+</td>
+<td>
+4.27
+</td>
+<td>
+4.10
+</td>
+<td>
+4.24
+</td>
+<td>
+71661.0
+</td>
+<td>
+3.004320e+07
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+000011
+</th>
+<td>
+13.76
+</td>
+<td>
+14.40
+</td>
+<td>
+13.58
+</td>
+<td>
+14.39
+</td>
+<td>
+105639.0
+</td>
+<td>
+1.489735e+08
+</td>
+<td>
+NaN
+</td>
+</tr>
+</tbody>
 </table>
 </div>
-
-
-
-<h2 id="效率测试"><a href="#效率测试" class="headerlink" title="效率测试"></a>效率测试</h2><h3 id="测试1：使用下标循环"><a href="#测试1：使用下标循环" class="headerlink" title="测试1：使用下标循环"></a>测试1：使用下标循环</h3><p>下标循环是通过循环一个下标数列，通过iloc去不断获取数据。</p>
+<h2 id="效率测试">效率测试</h2>
+<h3 id="测试1使用下标循环">测试1：使用下标循环</h3>
+<p>下标循环是通过循环一个下标数列，通过iloc去不断获取数据。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">%%time</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(df1)):</span><br><span class="line">    <span class="keyword">if</span> (df1.iloc[i][<span class="string">&#x27;close&#x27;</span>] - df1.iloc[i][<span class="string">&#x27;open&#x27;</span>]) &gt;=<span class="number">0</span>:</span><br><span class="line">        df1.iloc[i][<span class="string">&#x27;status&#x27;</span>] = <span class="number">1</span>        </span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        df1.iloc[i][<span class="string">&#x27;status&#x27;</span>] = -<span class="number">1</span>   </span><br><span class="line">df1.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>CPU times: user 33.6 s, sys: 136 ms, total: 33.8 s
-Wall time: 34.1 s</code></pre>
+<p>CPU times: user 33.6 s, sys: 136 ms, total: 33.8 s Wall time: 34.1 s</p>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
 
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;</code></pre>
-<p></style></p>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>open</th>
-      <th>high</th>
-      <th>low</th>
-      <th>close</th>
-      <th>volume</th>
-      <th>amount</th>
-      <th>status</th>
-    </tr>
-    <tr>
-      <th>date</th>
-      <th>code</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="10" valign="top">2020-11-16</th>
-      <th>000001</th>
-      <td>17.08</td>
-      <td>17.43</td>
-      <td>16.90</td>
-      <td>17.37</td>
-      <td>759856.0</td>
-      <td>1.308190e+09</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>000002</th>
-      <td>29.39</td>
-      <td>29.50</td>
-      <td>29.00</td>
-      <td>29.20</td>
-      <td>516576.0</td>
-      <td>1.509810e+09</td>
-      <td>-1.0</td>
-    </tr>
-    <tr>
-      <th>000004</th>
-      <td>31.15</td>
-      <td>31.46</td>
-      <td>30.11</td>
-      <td>30.61</td>
-      <td>72456.0</td>
-      <td>2.223127e+08</td>
-      <td>-1.0</td>
-    </tr>
-    <tr>
-      <th>000005</th>
-      <td>2.68</td>
-      <td>2.70</td>
-      <td>2.65</td>
-      <td>2.69</td>
-      <td>64372.0</td>
-      <td>1.725762e+07</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>000006</th>
-      <td>5.66</td>
-      <td>5.74</td>
-      <td>5.62</td>
-      <td>5.72</td>
-      <td>98253.0</td>
-      <td>5.592563e+07</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>000007</th>
-      <td>9.42</td>
-      <td>9.42</td>
-      <td>9.18</td>
-      <td>9.20</td>
-      <td>22567.0</td>
-      <td>2.094628e+07</td>
-      <td>-1.0</td>
-    </tr>
-    <tr>
-      <th>000008</th>
-      <td>2.72</td>
-      <td>2.74</td>
-      <td>2.70</td>
-      <td>2.73</td>
-      <td>171930.0</td>
-      <td>4.678304e+07</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>000009</th>
-      <td>7.71</td>
-      <td>7.88</td>
-      <td>7.66</td>
-      <td>7.82</td>
-      <td>320180.0</td>
-      <td>2.492149e+08</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>000010</th>
-      <td>4.19</td>
-      <td>4.27</td>
-      <td>4.10</td>
-      <td>4.24</td>
-      <td>71661.0</td>
-      <td>3.004320e+07</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>000011</th>
-      <td>13.76</td>
-      <td>14.40</td>
-      <td>13.58</td>
-      <td>14.39</td>
-      <td>105639.0</td>
-      <td>1.489735e+08</td>
-      <td>1.0</td>
-    </tr>
-  </tbody>
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+open
+</th>
+<th>
+high
+</th>
+<th>
+low
+</th>
+<th>
+close
+</th>
+<th>
+volume
+</th>
+<th>
+amount
+</th>
+<th>
+status
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="10" valign="top">
+2020-11-16
+</th>
+<th>
+000001
+</th>
+<td>
+17.08
+</td>
+<td>
+17.43
+</td>
+<td>
+16.90
+</td>
+<td>
+17.37
+</td>
+<td>
+759856.0
+</td>
+<td>
+1.308190e+09
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+000002
+</th>
+<td>
+29.39
+</td>
+<td>
+29.50
+</td>
+<td>
+29.00
+</td>
+<td>
+29.20
+</td>
+<td>
+516576.0
+</td>
+<td>
+1.509810e+09
+</td>
+<td>
+-1.0
+</td>
+</tr>
+<tr>
+<th>
+000004
+</th>
+<td>
+31.15
+</td>
+<td>
+31.46
+</td>
+<td>
+30.11
+</td>
+<td>
+30.61
+</td>
+<td>
+72456.0
+</td>
+<td>
+2.223127e+08
+</td>
+<td>
+-1.0
+</td>
+</tr>
+<tr>
+<th>
+000005
+</th>
+<td>
+2.68
+</td>
+<td>
+2.70
+</td>
+<td>
+2.65
+</td>
+<td>
+2.69
+</td>
+<td>
+64372.0
+</td>
+<td>
+1.725762e+07
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+000006
+</th>
+<td>
+5.66
+</td>
+<td>
+5.74
+</td>
+<td>
+5.62
+</td>
+<td>
+5.72
+</td>
+<td>
+98253.0
+</td>
+<td>
+5.592563e+07
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+000007
+</th>
+<td>
+9.42
+</td>
+<td>
+9.42
+</td>
+<td>
+9.18
+</td>
+<td>
+9.20
+</td>
+<td>
+22567.0
+</td>
+<td>
+2.094628e+07
+</td>
+<td>
+-1.0
+</td>
+</tr>
+<tr>
+<th>
+000008
+</th>
+<td>
+2.72
+</td>
+<td>
+2.74
+</td>
+<td>
+2.70
+</td>
+<td>
+2.73
+</td>
+<td>
+171930.0
+</td>
+<td>
+4.678304e+07
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+000009
+</th>
+<td>
+7.71
+</td>
+<td>
+7.88
+</td>
+<td>
+7.66
+</td>
+<td>
+7.82
+</td>
+<td>
+320180.0
+</td>
+<td>
+2.492149e+08
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+000010
+</th>
+<td>
+4.19
+</td>
+<td>
+4.27
+</td>
+<td>
+4.10
+</td>
+<td>
+4.24
+</td>
+<td>
+71661.0
+</td>
+<td>
+3.004320e+07
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+000011
+</th>
+<td>
+13.76
+</td>
+<td>
+14.40
+</td>
+<td>
+13.58
+</td>
+<td>
+14.39
+</td>
+<td>
+105639.0
+</td>
+<td>
+1.489735e+08
+</td>
+<td>
+1.0
+</td>
+</tr>
+</tbody>
 </table>
 </div>
-
-
-
-<h3 id="测试2：Iterrows循环"><a href="#测试2：Iterrows循环" class="headerlink" title="测试2：Iterrows循环"></a>测试2：Iterrows循环</h3><p>该循环方式是通过iterrows进行循环，ind和row分别代表了每一行的index和内容。测试例子大概需要s，比起下标循环速度提升了321倍。</p>
+<h3 id="测试2iterrows循环">测试2：Iterrows循环</h3>
+<p>该循环方式是通过iterrows进行循环，ind和row分别代表了每一行的index和内容。测试例子大概需要s，比起下标循环速度提升了321倍。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">%%time</span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> ind, row <span class="keyword">in</span> df1.iterrows():</span><br><span class="line">    <span class="keyword">if</span> row[<span class="string">&#x27;close&#x27;</span>] - row[<span class="string">&#x27;open&#x27;</span>] &gt;=<span class="number">0</span>:</span><br><span class="line">        df1.iloc[i][<span class="string">&#x27;status&#x27;</span>] = <span class="number">1</span>     </span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        df1.iloc[i][<span class="string">&#x27;status&#x27;</span>] = -<span class="number">1</span>  </span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line">df1.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>CPU times: user 18.5 s, sys: 82.7 ms, total: 18.6 s
-Wall time: 18.8 s</code></pre>
+<p>CPU times: user 18.5 s, sys: 82.7 ms, total: 18.6 s Wall time: 18.8 s</p>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
 
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;</code></pre>
-<p></style></p>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>open</th>
-      <th>high</th>
-      <th>low</th>
-      <th>close</th>
-      <th>volume</th>
-      <th>amount</th>
-      <th>status</th>
-    </tr>
-    <tr>
-      <th>date</th>
-      <th>code</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="10" valign="top">2020-11-16</th>
-      <th>000001</th>
-      <td>17.08</td>
-      <td>17.43</td>
-      <td>16.90</td>
-      <td>17.37</td>
-      <td>759856.0</td>
-      <td>1.308190e+09</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>000002</th>
-      <td>29.39</td>
-      <td>29.50</td>
-      <td>29.00</td>
-      <td>29.20</td>
-      <td>516576.0</td>
-      <td>1.509810e+09</td>
-      <td>-1.0</td>
-    </tr>
-    <tr>
-      <th>000004</th>
-      <td>31.15</td>
-      <td>31.46</td>
-      <td>30.11</td>
-      <td>30.61</td>
-      <td>72456.0</td>
-      <td>2.223127e+08</td>
-      <td>-1.0</td>
-    </tr>
-    <tr>
-      <th>000005</th>
-      <td>2.68</td>
-      <td>2.70</td>
-      <td>2.65</td>
-      <td>2.69</td>
-      <td>64372.0</td>
-      <td>1.725762e+07</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>000006</th>
-      <td>5.66</td>
-      <td>5.74</td>
-      <td>5.62</td>
-      <td>5.72</td>
-      <td>98253.0</td>
-      <td>5.592563e+07</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>000007</th>
-      <td>9.42</td>
-      <td>9.42</td>
-      <td>9.18</td>
-      <td>9.20</td>
-      <td>22567.0</td>
-      <td>2.094628e+07</td>
-      <td>-1.0</td>
-    </tr>
-    <tr>
-      <th>000008</th>
-      <td>2.72</td>
-      <td>2.74</td>
-      <td>2.70</td>
-      <td>2.73</td>
-      <td>171930.0</td>
-      <td>4.678304e+07</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>000009</th>
-      <td>7.71</td>
-      <td>7.88</td>
-      <td>7.66</td>
-      <td>7.82</td>
-      <td>320180.0</td>
-      <td>2.492149e+08</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>000010</th>
-      <td>4.19</td>
-      <td>4.27</td>
-      <td>4.10</td>
-      <td>4.24</td>
-      <td>71661.0</td>
-      <td>3.004320e+07</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>000011</th>
-      <td>13.76</td>
-      <td>14.40</td>
-      <td>13.58</td>
-      <td>14.39</td>
-      <td>105639.0</td>
-      <td>1.489735e+08</td>
-      <td>1.0</td>
-    </tr>
-  </tbody>
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+open
+</th>
+<th>
+high
+</th>
+<th>
+low
+</th>
+<th>
+close
+</th>
+<th>
+volume
+</th>
+<th>
+amount
+</th>
+<th>
+status
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="10" valign="top">
+2020-11-16
+</th>
+<th>
+000001
+</th>
+<td>
+17.08
+</td>
+<td>
+17.43
+</td>
+<td>
+16.90
+</td>
+<td>
+17.37
+</td>
+<td>
+759856.0
+</td>
+<td>
+1.308190e+09
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+000002
+</th>
+<td>
+29.39
+</td>
+<td>
+29.50
+</td>
+<td>
+29.00
+</td>
+<td>
+29.20
+</td>
+<td>
+516576.0
+</td>
+<td>
+1.509810e+09
+</td>
+<td>
+-1.0
+</td>
+</tr>
+<tr>
+<th>
+000004
+</th>
+<td>
+31.15
+</td>
+<td>
+31.46
+</td>
+<td>
+30.11
+</td>
+<td>
+30.61
+</td>
+<td>
+72456.0
+</td>
+<td>
+2.223127e+08
+</td>
+<td>
+-1.0
+</td>
+</tr>
+<tr>
+<th>
+000005
+</th>
+<td>
+2.68
+</td>
+<td>
+2.70
+</td>
+<td>
+2.65
+</td>
+<td>
+2.69
+</td>
+<td>
+64372.0
+</td>
+<td>
+1.725762e+07
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+000006
+</th>
+<td>
+5.66
+</td>
+<td>
+5.74
+</td>
+<td>
+5.62
+</td>
+<td>
+5.72
+</td>
+<td>
+98253.0
+</td>
+<td>
+5.592563e+07
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+000007
+</th>
+<td>
+9.42
+</td>
+<td>
+9.42
+</td>
+<td>
+9.18
+</td>
+<td>
+9.20
+</td>
+<td>
+22567.0
+</td>
+<td>
+2.094628e+07
+</td>
+<td>
+-1.0
+</td>
+</tr>
+<tr>
+<th>
+000008
+</th>
+<td>
+2.72
+</td>
+<td>
+2.74
+</td>
+<td>
+2.70
+</td>
+<td>
+2.73
+</td>
+<td>
+171930.0
+</td>
+<td>
+4.678304e+07
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+000009
+</th>
+<td>
+7.71
+</td>
+<td>
+7.88
+</td>
+<td>
+7.66
+</td>
+<td>
+7.82
+</td>
+<td>
+320180.0
+</td>
+<td>
+2.492149e+08
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+000010
+</th>
+<td>
+4.19
+</td>
+<td>
+4.27
+</td>
+<td>
+4.10
+</td>
+<td>
+4.24
+</td>
+<td>
+71661.0
+</td>
+<td>
+3.004320e+07
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+000011
+</th>
+<td>
+13.76
+</td>
+<td>
+14.40
+</td>
+<td>
+13.58
+</td>
+<td>
+14.39
+</td>
+<td>
+105639.0
+</td>
+<td>
+1.489735e+08
+</td>
+<td>
+1.0
+</td>
+</tr>
+</tbody>
 </table>
 </div>
-
-
-
-<h3 id="测试3：Apply循环"><a href="#测试3：Apply循环" class="headerlink" title="测试3：Apply循环"></a>测试3：Apply循环</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">%%time</span><br><span class="line"></span><br><span class="line">df1[<span class="string">&#x27;status&#x27;</span>] = (df1[<span class="string">&#x27;close&#x27;</span>]-df[<span class="string">&#x27;open&#x27;</span>]).apply(<span class="keyword">lambda</span> x: <span class="number">1</span> <span class="keyword">if</span> x &gt;=<span class="number">0</span> <span class="keyword">else</span> -<span class="number">1</span>)</span><br><span class="line">df1.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>CPU times: user 23.8 ms, sys: 1.99 ms, total: 25.8 ms
-Wall time: 35.6 ms</code></pre>
+<h3 id="测试3apply循环">测试3：Apply循环</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">%%time</span><br><span class="line"></span><br><span class="line">df1[<span class="string">&#x27;status&#x27;</span>] = (df1[<span class="string">&#x27;close&#x27;</span>]-df[<span class="string">&#x27;open&#x27;</span>]).apply(<span class="keyword">lambda</span> x: <span class="number">1</span> <span class="keyword">if</span> x &gt;=<span class="number">0</span> <span class="keyword">else</span> -<span class="number">1</span>)</span><br><span class="line">df1.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<p>CPU times: user 23.8 ms, sys: 1.99 ms, total: 25.8 ms Wall time: 35.6 ms</p>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
 
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;</code></pre>
-<p></style></p>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>open</th>
-      <th>high</th>
-      <th>low</th>
-      <th>close</th>
-      <th>volume</th>
-      <th>amount</th>
-      <th>status</th>
-    </tr>
-    <tr>
-      <th>date</th>
-      <th>code</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="10" valign="top">2020-11-16</th>
-      <th>000001</th>
-      <td>17.08</td>
-      <td>17.43</td>
-      <td>16.90</td>
-      <td>17.37</td>
-      <td>759856.0</td>
-      <td>1.308190e+09</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>000002</th>
-      <td>29.39</td>
-      <td>29.50</td>
-      <td>29.00</td>
-      <td>29.20</td>
-      <td>516576.0</td>
-      <td>1.509810e+09</td>
-      <td>-1</td>
-    </tr>
-    <tr>
-      <th>000004</th>
-      <td>31.15</td>
-      <td>31.46</td>
-      <td>30.11</td>
-      <td>30.61</td>
-      <td>72456.0</td>
-      <td>2.223127e+08</td>
-      <td>-1</td>
-    </tr>
-    <tr>
-      <th>000005</th>
-      <td>2.68</td>
-      <td>2.70</td>
-      <td>2.65</td>
-      <td>2.69</td>
-      <td>64372.0</td>
-      <td>1.725762e+07</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>000006</th>
-      <td>5.66</td>
-      <td>5.74</td>
-      <td>5.62</td>
-      <td>5.72</td>
-      <td>98253.0</td>
-      <td>5.592563e+07</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>000007</th>
-      <td>9.42</td>
-      <td>9.42</td>
-      <td>9.18</td>
-      <td>9.20</td>
-      <td>22567.0</td>
-      <td>2.094628e+07</td>
-      <td>-1</td>
-    </tr>
-    <tr>
-      <th>000008</th>
-      <td>2.72</td>
-      <td>2.74</td>
-      <td>2.70</td>
-      <td>2.73</td>
-      <td>171930.0</td>
-      <td>4.678304e+07</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>000009</th>
-      <td>7.71</td>
-      <td>7.88</td>
-      <td>7.66</td>
-      <td>7.82</td>
-      <td>320180.0</td>
-      <td>2.492149e+08</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>000010</th>
-      <td>4.19</td>
-      <td>4.27</td>
-      <td>4.10</td>
-      <td>4.24</td>
-      <td>71661.0</td>
-      <td>3.004320e+07</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>000011</th>
-      <td>13.76</td>
-      <td>14.40</td>
-      <td>13.58</td>
-      <td>14.39</td>
-      <td>105639.0</td>
-      <td>1.489735e+08</td>
-      <td>1</td>
-    </tr>
-  </tbody>
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+open
+</th>
+<th>
+high
+</th>
+<th>
+low
+</th>
+<th>
+close
+</th>
+<th>
+volume
+</th>
+<th>
+amount
+</th>
+<th>
+status
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="10" valign="top">
+2020-11-16
+</th>
+<th>
+000001
+</th>
+<td>
+17.08
+</td>
+<td>
+17.43
+</td>
+<td>
+16.90
+</td>
+<td>
+17.37
+</td>
+<td>
+759856.0
+</td>
+<td>
+1.308190e+09
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+000002
+</th>
+<td>
+29.39
+</td>
+<td>
+29.50
+</td>
+<td>
+29.00
+</td>
+<td>
+29.20
+</td>
+<td>
+516576.0
+</td>
+<td>
+1.509810e+09
+</td>
+<td>
+-1
+</td>
+</tr>
+<tr>
+<th>
+000004
+</th>
+<td>
+31.15
+</td>
+<td>
+31.46
+</td>
+<td>
+30.11
+</td>
+<td>
+30.61
+</td>
+<td>
+72456.0
+</td>
+<td>
+2.223127e+08
+</td>
+<td>
+-1
+</td>
+</tr>
+<tr>
+<th>
+000005
+</th>
+<td>
+2.68
+</td>
+<td>
+2.70
+</td>
+<td>
+2.65
+</td>
+<td>
+2.69
+</td>
+<td>
+64372.0
+</td>
+<td>
+1.725762e+07
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+000006
+</th>
+<td>
+5.66
+</td>
+<td>
+5.74
+</td>
+<td>
+5.62
+</td>
+<td>
+5.72
+</td>
+<td>
+98253.0
+</td>
+<td>
+5.592563e+07
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+000007
+</th>
+<td>
+9.42
+</td>
+<td>
+9.42
+</td>
+<td>
+9.18
+</td>
+<td>
+9.20
+</td>
+<td>
+22567.0
+</td>
+<td>
+2.094628e+07
+</td>
+<td>
+-1
+</td>
+</tr>
+<tr>
+<th>
+000008
+</th>
+<td>
+2.72
+</td>
+<td>
+2.74
+</td>
+<td>
+2.70
+</td>
+<td>
+2.73
+</td>
+<td>
+171930.0
+</td>
+<td>
+4.678304e+07
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+000009
+</th>
+<td>
+7.71
+</td>
+<td>
+7.88
+</td>
+<td>
+7.66
+</td>
+<td>
+7.82
+</td>
+<td>
+320180.0
+</td>
+<td>
+2.492149e+08
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+000010
+</th>
+<td>
+4.19
+</td>
+<td>
+4.27
+</td>
+<td>
+4.10
+</td>
+<td>
+4.24
+</td>
+<td>
+71661.0
+</td>
+<td>
+3.004320e+07
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+000011
+</th>
+<td>
+13.76
+</td>
+<td>
+14.40
+</td>
+<td>
+13.58
+</td>
+<td>
+14.39
+</td>
+<td>
+105639.0
+</td>
+<td>
+1.489735e+08
+</td>
+<td>
+1
+</td>
+</tr>
+</tbody>
 </table>
 </div>
-
-
-
-<h3 id="测试4：numpy内置向量化函数"><a href="#测试4：numpy内置向量化函数" class="headerlink" title="测试4：numpy内置向量化函数"></a>测试4：numpy内置向量化函数</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">%%time</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">df1[<span class="string">&#x27;status&#x27;</span>] = np.where((df1.close -  df1.<span class="built_in">open</span>)&gt;=<span class="number">0</span>, <span class="number">1</span>, -<span class="number">1</span>)</span><br><span class="line">df1.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>CPU times: user 1.74 ms, sys: 2.99 ms, total: 4.72 ms
-Wall time: 10.4 ms</code></pre>
+<h3 id="测试4numpy内置向量化函数">测试4：numpy内置向量化函数</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">%%time</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">df1[<span class="string">&#x27;status&#x27;</span>] = np.where((df1.close -  df1.<span class="built_in">open</span>)&gt;=<span class="number">0</span>, <span class="number">1</span>, -<span class="number">1</span>)</span><br><span class="line">df1.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<p>CPU times: user 1.74 ms, sys: 2.99 ms, total: 4.72 ms Wall time: 10.4 ms</p>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
 
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;</code></pre>
-<p></style></p>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>open</th>
-      <th>high</th>
-      <th>low</th>
-      <th>close</th>
-      <th>volume</th>
-      <th>amount</th>
-      <th>status</th>
-    </tr>
-    <tr>
-      <th>date</th>
-      <th>code</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="10" valign="top">2020-11-16</th>
-      <th>000001</th>
-      <td>17.08</td>
-      <td>17.43</td>
-      <td>16.90</td>
-      <td>17.37</td>
-      <td>759856.0</td>
-      <td>1.308190e+09</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>000002</th>
-      <td>29.39</td>
-      <td>29.50</td>
-      <td>29.00</td>
-      <td>29.20</td>
-      <td>516576.0</td>
-      <td>1.509810e+09</td>
-      <td>-1</td>
-    </tr>
-    <tr>
-      <th>000004</th>
-      <td>31.15</td>
-      <td>31.46</td>
-      <td>30.11</td>
-      <td>30.61</td>
-      <td>72456.0</td>
-      <td>2.223127e+08</td>
-      <td>-1</td>
-    </tr>
-    <tr>
-      <th>000005</th>
-      <td>2.68</td>
-      <td>2.70</td>
-      <td>2.65</td>
-      <td>2.69</td>
-      <td>64372.0</td>
-      <td>1.725762e+07</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>000006</th>
-      <td>5.66</td>
-      <td>5.74</td>
-      <td>5.62</td>
-      <td>5.72</td>
-      <td>98253.0</td>
-      <td>5.592563e+07</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>000007</th>
-      <td>9.42</td>
-      <td>9.42</td>
-      <td>9.18</td>
-      <td>9.20</td>
-      <td>22567.0</td>
-      <td>2.094628e+07</td>
-      <td>-1</td>
-    </tr>
-    <tr>
-      <th>000008</th>
-      <td>2.72</td>
-      <td>2.74</td>
-      <td>2.70</td>
-      <td>2.73</td>
-      <td>171930.0</td>
-      <td>4.678304e+07</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>000009</th>
-      <td>7.71</td>
-      <td>7.88</td>
-      <td>7.66</td>
-      <td>7.82</td>
-      <td>320180.0</td>
-      <td>2.492149e+08</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>000010</th>
-      <td>4.19</td>
-      <td>4.27</td>
-      <td>4.10</td>
-      <td>4.24</td>
-      <td>71661.0</td>
-      <td>3.004320e+07</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>000011</th>
-      <td>13.76</td>
-      <td>14.40</td>
-      <td>13.58</td>
-      <td>14.39</td>
-      <td>105639.0</td>
-      <td>1.489735e+08</td>
-      <td>1</td>
-    </tr>
-  </tbody>
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+open
+</th>
+<th>
+high
+</th>
+<th>
+low
+</th>
+<th>
+close
+</th>
+<th>
+volume
+</th>
+<th>
+amount
+</th>
+<th>
+status
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="10" valign="top">
+2020-11-16
+</th>
+<th>
+000001
+</th>
+<td>
+17.08
+</td>
+<td>
+17.43
+</td>
+<td>
+16.90
+</td>
+<td>
+17.37
+</td>
+<td>
+759856.0
+</td>
+<td>
+1.308190e+09
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+000002
+</th>
+<td>
+29.39
+</td>
+<td>
+29.50
+</td>
+<td>
+29.00
+</td>
+<td>
+29.20
+</td>
+<td>
+516576.0
+</td>
+<td>
+1.509810e+09
+</td>
+<td>
+-1
+</td>
+</tr>
+<tr>
+<th>
+000004
+</th>
+<td>
+31.15
+</td>
+<td>
+31.46
+</td>
+<td>
+30.11
+</td>
+<td>
+30.61
+</td>
+<td>
+72456.0
+</td>
+<td>
+2.223127e+08
+</td>
+<td>
+-1
+</td>
+</tr>
+<tr>
+<th>
+000005
+</th>
+<td>
+2.68
+</td>
+<td>
+2.70
+</td>
+<td>
+2.65
+</td>
+<td>
+2.69
+</td>
+<td>
+64372.0
+</td>
+<td>
+1.725762e+07
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+000006
+</th>
+<td>
+5.66
+</td>
+<td>
+5.74
+</td>
+<td>
+5.62
+</td>
+<td>
+5.72
+</td>
+<td>
+98253.0
+</td>
+<td>
+5.592563e+07
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+000007
+</th>
+<td>
+9.42
+</td>
+<td>
+9.42
+</td>
+<td>
+9.18
+</td>
+<td>
+9.20
+</td>
+<td>
+22567.0
+</td>
+<td>
+2.094628e+07
+</td>
+<td>
+-1
+</td>
+</tr>
+<tr>
+<th>
+000008
+</th>
+<td>
+2.72
+</td>
+<td>
+2.74
+</td>
+<td>
+2.70
+</td>
+<td>
+2.73
+</td>
+<td>
+171930.0
+</td>
+<td>
+4.678304e+07
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+000009
+</th>
+<td>
+7.71
+</td>
+<td>
+7.88
+</td>
+<td>
+7.66
+</td>
+<td>
+7.82
+</td>
+<td>
+320180.0
+</td>
+<td>
+2.492149e+08
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+000010
+</th>
+<td>
+4.19
+</td>
+<td>
+4.27
+</td>
+<td>
+4.10
+</td>
+<td>
+4.24
+</td>
+<td>
+71661.0
+</td>
+<td>
+3.004320e+07
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+000011
+</th>
+<td>
+13.76
+</td>
+<td>
+14.40
+</td>
+<td>
+13.58
+</td>
+<td>
+14.39
+</td>
+<td>
+105639.0
+</td>
+<td>
+1.489735e+08
+</td>
+<td>
+1
+</td>
+</tr>
+</tbody>
 </table>
 </div>
-
-
-
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p><code>for</code>循环及向量化的使用对性能有着较大的影响：<br>1、如果确定需要使用循环，则应始终选择apply方法。<br>2、否则，vectorization总是更好的，因为它更快！</p>
+<h2 id="结论">结论</h2>
+<p><code>for</code>循环及向量化的使用对性能有着较大的影响：<br />
+1、如果确定需要使用循环，则应始终选择apply方法。<br />
+2、否则，vectorization总是更好的，因为它更快！</p>
 ]]></content>
       <categories>
         <category>技术笔记</category>

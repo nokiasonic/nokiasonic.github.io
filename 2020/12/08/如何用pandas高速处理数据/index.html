@@ -271,10 +271,9 @@
       
         <p>因为需要对大量数据进行处理，有必要探讨比较下怎么操作具有较高的性能。</p>
 <a id="more"></a>
-
-<h2 id="创建Dataframe数据"><a href="#创建Dataframe数据" class="headerlink" title="创建Dataframe数据"></a>创建Dataframe数据</h2><p>使用QA创建了一个包含6列和61006行的Dataframe。它包含了2020年11月16日至12月4日的OHLC和成交量数据。</p>
+<h2 id="创建dataframe数据">创建Dataframe数据</h2>
+<p>使用QA创建了一个包含6列和61006行的Dataframe。它包含了2020年11月16日至12月4日的OHLC和成交量数据。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> QUANTAXIS <span class="keyword">as</span> QA</span><br><span class="line"></span><br><span class="line">code = QA.QA_fetch_stock_list_adv().code.tolist()</span><br><span class="line">daydata = QA.QA_fetch_stock_day_adv(code, <span class="string">&#x27;2020-11-16&#x27;</span>, <span class="string">&#x27;2020-12-04&#x27;</span>)</span><br><span class="line">df = daydata.data</span><br><span class="line">print(df.shape)</span><br><span class="line">df.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-
 <pre><code>you are using non-interactive mdoel quantaxis
 (61001, 6)</code></pre>
 <div>
@@ -283,906 +282,1987 @@
         vertical-align: middle;
     }
 
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;</code></pre>
-<p></style></p>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>open</th>
-      <th>high</th>
-      <th>low</th>
-      <th>close</th>
-      <th>volume</th>
-      <th>amount</th>
-    </tr>
-    <tr>
-      <th>date</th>
-      <th>code</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="10" valign="top">2020-11-16</th>
-      <th>000001</th>
-      <td>17.08</td>
-      <td>17.43</td>
-      <td>16.90</td>
-      <td>17.37</td>
-      <td>759856.0</td>
-      <td>1.308190e+09</td>
-    </tr>
-    <tr>
-      <th>000002</th>
-      <td>29.39</td>
-      <td>29.50</td>
-      <td>29.00</td>
-      <td>29.20</td>
-      <td>516576.0</td>
-      <td>1.509810e+09</td>
-    </tr>
-    <tr>
-      <th>000004</th>
-      <td>31.15</td>
-      <td>31.46</td>
-      <td>30.11</td>
-      <td>30.61</td>
-      <td>72456.0</td>
-      <td>2.223127e+08</td>
-    </tr>
-    <tr>
-      <th>000005</th>
-      <td>2.68</td>
-      <td>2.70</td>
-      <td>2.65</td>
-      <td>2.69</td>
-      <td>64372.0</td>
-      <td>1.725762e+07</td>
-    </tr>
-    <tr>
-      <th>000006</th>
-      <td>5.66</td>
-      <td>5.74</td>
-      <td>5.62</td>
-      <td>5.72</td>
-      <td>98253.0</td>
-      <td>5.592563e+07</td>
-    </tr>
-    <tr>
-      <th>000007</th>
-      <td>9.42</td>
-      <td>9.42</td>
-      <td>9.18</td>
-      <td>9.20</td>
-      <td>22567.0</td>
-      <td>2.094628e+07</td>
-    </tr>
-    <tr>
-      <th>000008</th>
-      <td>2.72</td>
-      <td>2.74</td>
-      <td>2.70</td>
-      <td>2.73</td>
-      <td>171930.0</td>
-      <td>4.678304e+07</td>
-    </tr>
-    <tr>
-      <th>000009</th>
-      <td>7.71</td>
-      <td>7.88</td>
-      <td>7.66</td>
-      <td>7.82</td>
-      <td>320180.0</td>
-      <td>2.492149e+08</td>
-    </tr>
-    <tr>
-      <th>000010</th>
-      <td>4.19</td>
-      <td>4.27</td>
-      <td>4.10</td>
-      <td>4.24</td>
-      <td>71661.0</td>
-      <td>3.004320e+07</td>
-    </tr>
-    <tr>
-      <th>000011</th>
-      <td>13.76</td>
-      <td>14.40</td>
-      <td>13.58</td>
-      <td>14.39</td>
-      <td>105639.0</td>
-      <td>1.489735e+08</td>
-    </tr>
-  </tbody>
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+open
+</th>
+<th>
+high
+</th>
+<th>
+low
+</th>
+<th>
+close
+</th>
+<th>
+volume
+</th>
+<th>
+amount
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="10" valign="top">
+2020-11-16
+</th>
+<th>
+000001
+</th>
+<td>
+17.08
+</td>
+<td>
+17.43
+</td>
+<td>
+16.90
+</td>
+<td>
+17.37
+</td>
+<td>
+759856.0
+</td>
+<td>
+1.308190e+09
+</td>
+</tr>
+<tr>
+<th>
+000002
+</th>
+<td>
+29.39
+</td>
+<td>
+29.50
+</td>
+<td>
+29.00
+</td>
+<td>
+29.20
+</td>
+<td>
+516576.0
+</td>
+<td>
+1.509810e+09
+</td>
+</tr>
+<tr>
+<th>
+000004
+</th>
+<td>
+31.15
+</td>
+<td>
+31.46
+</td>
+<td>
+30.11
+</td>
+<td>
+30.61
+</td>
+<td>
+72456.0
+</td>
+<td>
+2.223127e+08
+</td>
+</tr>
+<tr>
+<th>
+000005
+</th>
+<td>
+2.68
+</td>
+<td>
+2.70
+</td>
+<td>
+2.65
+</td>
+<td>
+2.69
+</td>
+<td>
+64372.0
+</td>
+<td>
+1.725762e+07
+</td>
+</tr>
+<tr>
+<th>
+000006
+</th>
+<td>
+5.66
+</td>
+<td>
+5.74
+</td>
+<td>
+5.62
+</td>
+<td>
+5.72
+</td>
+<td>
+98253.0
+</td>
+<td>
+5.592563e+07
+</td>
+</tr>
+<tr>
+<th>
+000007
+</th>
+<td>
+9.42
+</td>
+<td>
+9.42
+</td>
+<td>
+9.18
+</td>
+<td>
+9.20
+</td>
+<td>
+22567.0
+</td>
+<td>
+2.094628e+07
+</td>
+</tr>
+<tr>
+<th>
+000008
+</th>
+<td>
+2.72
+</td>
+<td>
+2.74
+</td>
+<td>
+2.70
+</td>
+<td>
+2.73
+</td>
+<td>
+171930.0
+</td>
+<td>
+4.678304e+07
+</td>
+</tr>
+<tr>
+<th>
+000009
+</th>
+<td>
+7.71
+</td>
+<td>
+7.88
+</td>
+<td>
+7.66
+</td>
+<td>
+7.82
+</td>
+<td>
+320180.0
+</td>
+<td>
+2.492149e+08
+</td>
+</tr>
+<tr>
+<th>
+000010
+</th>
+<td>
+4.19
+</td>
+<td>
+4.27
+</td>
+<td>
+4.10
+</td>
+<td>
+4.24
+</td>
+<td>
+71661.0
+</td>
+<td>
+3.004320e+07
+</td>
+</tr>
+<tr>
+<th>
+000011
+</th>
+<td>
+13.76
+</td>
+<td>
+14.40
+</td>
+<td>
+13.58
+</td>
+<td>
+14.39
+</td>
+<td>
+105639.0
+</td>
+<td>
+1.489735e+08
+</td>
+</tr>
+</tbody>
 </table>
 </div>
-
-
 <p>显示dataframe的内存占用情况。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.info(memory_usage = <span class="string">&#x27;deep&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-MultiIndex: 61001 entries, (2020-11-16 00:00:00, 000001) to (2020-12-04 00:00:00, 689009)
-Data columns (total 6 columns):
-open      61001 non-null float64
-high      61001 non-null float64
-low       61001 non-null float64
-close     61001 non-null float64
-volume    61001 non-null float64
-amount    61001 non-null float64
-dtypes: float64(6)
-memory usage: 3.2 MB</code></pre>
+<p>&lt;class 'pandas.core.frame.DataFrame'&gt; MultiIndex: 61001 entries, (2020-11-16 00:00:00, 000001) to (2020-12-04 00:00:00, 689009) Data columns (total 6 columns): open 61001 non-null float64 high 61001 non-null float64 low 61001 non-null float64 close 61001 non-null float64 volume 61001 non-null float64 amount 61001 non-null float64 dtypes: float64(6) memory usage: 3.2 MB</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line"></span><br><span class="line">df1 = df</span><br><span class="line">col_name = df1.columns.tolist()</span><br><span class="line">col_name.insert(<span class="number">6</span>,<span class="string">&#x27;status&#x27;</span>)</span><br><span class="line">df1 = df1.reindex(columns=col_name)</span><br><span class="line">df1.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>CPU times: user 1.72 ms, sys: 1.99 ms, total: 3.71 ms
-Wall time: 3.21 ms</code></pre>
+<p>CPU times: user 1.72 ms, sys: 1.99 ms, total: 3.71 ms Wall time: 3.21 ms</p>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
 
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;</code></pre>
-<p></style></p>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>open</th>
-      <th>high</th>
-      <th>low</th>
-      <th>close</th>
-      <th>volume</th>
-      <th>amount</th>
-      <th>status</th>
-    </tr>
-    <tr>
-      <th>date</th>
-      <th>code</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="10" valign="top">2020-11-16</th>
-      <th>000001</th>
-      <td>17.08</td>
-      <td>17.43</td>
-      <td>16.90</td>
-      <td>17.37</td>
-      <td>759856.0</td>
-      <td>1.308190e+09</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>000002</th>
-      <td>29.39</td>
-      <td>29.50</td>
-      <td>29.00</td>
-      <td>29.20</td>
-      <td>516576.0</td>
-      <td>1.509810e+09</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>000004</th>
-      <td>31.15</td>
-      <td>31.46</td>
-      <td>30.11</td>
-      <td>30.61</td>
-      <td>72456.0</td>
-      <td>2.223127e+08</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>000005</th>
-      <td>2.68</td>
-      <td>2.70</td>
-      <td>2.65</td>
-      <td>2.69</td>
-      <td>64372.0</td>
-      <td>1.725762e+07</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>000006</th>
-      <td>5.66</td>
-      <td>5.74</td>
-      <td>5.62</td>
-      <td>5.72</td>
-      <td>98253.0</td>
-      <td>5.592563e+07</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>000007</th>
-      <td>9.42</td>
-      <td>9.42</td>
-      <td>9.18</td>
-      <td>9.20</td>
-      <td>22567.0</td>
-      <td>2.094628e+07</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>000008</th>
-      <td>2.72</td>
-      <td>2.74</td>
-      <td>2.70</td>
-      <td>2.73</td>
-      <td>171930.0</td>
-      <td>4.678304e+07</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>000009</th>
-      <td>7.71</td>
-      <td>7.88</td>
-      <td>7.66</td>
-      <td>7.82</td>
-      <td>320180.0</td>
-      <td>2.492149e+08</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>000010</th>
-      <td>4.19</td>
-      <td>4.27</td>
-      <td>4.10</td>
-      <td>4.24</td>
-      <td>71661.0</td>
-      <td>3.004320e+07</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>000011</th>
-      <td>13.76</td>
-      <td>14.40</td>
-      <td>13.58</td>
-      <td>14.39</td>
-      <td>105639.0</td>
-      <td>1.489735e+08</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+open
+</th>
+<th>
+high
+</th>
+<th>
+low
+</th>
+<th>
+close
+</th>
+<th>
+volume
+</th>
+<th>
+amount
+</th>
+<th>
+status
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="10" valign="top">
+2020-11-16
+</th>
+<th>
+000001
+</th>
+<td>
+17.08
+</td>
+<td>
+17.43
+</td>
+<td>
+16.90
+</td>
+<td>
+17.37
+</td>
+<td>
+759856.0
+</td>
+<td>
+1.308190e+09
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+000002
+</th>
+<td>
+29.39
+</td>
+<td>
+29.50
+</td>
+<td>
+29.00
+</td>
+<td>
+29.20
+</td>
+<td>
+516576.0
+</td>
+<td>
+1.509810e+09
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+000004
+</th>
+<td>
+31.15
+</td>
+<td>
+31.46
+</td>
+<td>
+30.11
+</td>
+<td>
+30.61
+</td>
+<td>
+72456.0
+</td>
+<td>
+2.223127e+08
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+000005
+</th>
+<td>
+2.68
+</td>
+<td>
+2.70
+</td>
+<td>
+2.65
+</td>
+<td>
+2.69
+</td>
+<td>
+64372.0
+</td>
+<td>
+1.725762e+07
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+000006
+</th>
+<td>
+5.66
+</td>
+<td>
+5.74
+</td>
+<td>
+5.62
+</td>
+<td>
+5.72
+</td>
+<td>
+98253.0
+</td>
+<td>
+5.592563e+07
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+000007
+</th>
+<td>
+9.42
+</td>
+<td>
+9.42
+</td>
+<td>
+9.18
+</td>
+<td>
+9.20
+</td>
+<td>
+22567.0
+</td>
+<td>
+2.094628e+07
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+000008
+</th>
+<td>
+2.72
+</td>
+<td>
+2.74
+</td>
+<td>
+2.70
+</td>
+<td>
+2.73
+</td>
+<td>
+171930.0
+</td>
+<td>
+4.678304e+07
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+000009
+</th>
+<td>
+7.71
+</td>
+<td>
+7.88
+</td>
+<td>
+7.66
+</td>
+<td>
+7.82
+</td>
+<td>
+320180.0
+</td>
+<td>
+2.492149e+08
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+000010
+</th>
+<td>
+4.19
+</td>
+<td>
+4.27
+</td>
+<td>
+4.10
+</td>
+<td>
+4.24
+</td>
+<td>
+71661.0
+</td>
+<td>
+3.004320e+07
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+000011
+</th>
+<td>
+13.76
+</td>
+<td>
+14.40
+</td>
+<td>
+13.58
+</td>
+<td>
+14.39
+</td>
+<td>
+105639.0
+</td>
+<td>
+1.489735e+08
+</td>
+<td>
+NaN
+</td>
+</tr>
+</tbody>
 </table>
 </div>
-
-
-
-<h2 id="效率测试"><a href="#效率测试" class="headerlink" title="效率测试"></a>效率测试</h2><h3 id="测试1：使用下标循环"><a href="#测试1：使用下标循环" class="headerlink" title="测试1：使用下标循环"></a>测试1：使用下标循环</h3><p>下标循环是通过循环一个下标数列，通过iloc去不断获取数据。</p>
+<h2 id="效率测试">效率测试</h2>
+<h3 id="测试1使用下标循环">测试1：使用下标循环</h3>
+<p>下标循环是通过循环一个下标数列，通过iloc去不断获取数据。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(df1)):</span><br><span class="line">    <span class="keyword">if</span> (df1.iloc[i][<span class="string">&#x27;close&#x27;</span>] - df1.iloc[i][<span class="string">&#x27;open&#x27;</span>]) &gt;=<span class="number">0</span>:</span><br><span class="line">        df1.iloc[i][<span class="string">&#x27;status&#x27;</span>] = <span class="number">1</span>        </span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        df1.iloc[i][<span class="string">&#x27;status&#x27;</span>] = -<span class="number">1</span>   </span><br><span class="line">df1.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>CPU times: user 33.6 s, sys: 136 ms, total: 33.8 s
-Wall time: 34.1 s</code></pre>
+<p>CPU times: user 33.6 s, sys: 136 ms, total: 33.8 s Wall time: 34.1 s</p>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
 
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;</code></pre>
-<p></style></p>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>open</th>
-      <th>high</th>
-      <th>low</th>
-      <th>close</th>
-      <th>volume</th>
-      <th>amount</th>
-      <th>status</th>
-    </tr>
-    <tr>
-      <th>date</th>
-      <th>code</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="10" valign="top">2020-11-16</th>
-      <th>000001</th>
-      <td>17.08</td>
-      <td>17.43</td>
-      <td>16.90</td>
-      <td>17.37</td>
-      <td>759856.0</td>
-      <td>1.308190e+09</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>000002</th>
-      <td>29.39</td>
-      <td>29.50</td>
-      <td>29.00</td>
-      <td>29.20</td>
-      <td>516576.0</td>
-      <td>1.509810e+09</td>
-      <td>-1.0</td>
-    </tr>
-    <tr>
-      <th>000004</th>
-      <td>31.15</td>
-      <td>31.46</td>
-      <td>30.11</td>
-      <td>30.61</td>
-      <td>72456.0</td>
-      <td>2.223127e+08</td>
-      <td>-1.0</td>
-    </tr>
-    <tr>
-      <th>000005</th>
-      <td>2.68</td>
-      <td>2.70</td>
-      <td>2.65</td>
-      <td>2.69</td>
-      <td>64372.0</td>
-      <td>1.725762e+07</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>000006</th>
-      <td>5.66</td>
-      <td>5.74</td>
-      <td>5.62</td>
-      <td>5.72</td>
-      <td>98253.0</td>
-      <td>5.592563e+07</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>000007</th>
-      <td>9.42</td>
-      <td>9.42</td>
-      <td>9.18</td>
-      <td>9.20</td>
-      <td>22567.0</td>
-      <td>2.094628e+07</td>
-      <td>-1.0</td>
-    </tr>
-    <tr>
-      <th>000008</th>
-      <td>2.72</td>
-      <td>2.74</td>
-      <td>2.70</td>
-      <td>2.73</td>
-      <td>171930.0</td>
-      <td>4.678304e+07</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>000009</th>
-      <td>7.71</td>
-      <td>7.88</td>
-      <td>7.66</td>
-      <td>7.82</td>
-      <td>320180.0</td>
-      <td>2.492149e+08</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>000010</th>
-      <td>4.19</td>
-      <td>4.27</td>
-      <td>4.10</td>
-      <td>4.24</td>
-      <td>71661.0</td>
-      <td>3.004320e+07</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>000011</th>
-      <td>13.76</td>
-      <td>14.40</td>
-      <td>13.58</td>
-      <td>14.39</td>
-      <td>105639.0</td>
-      <td>1.489735e+08</td>
-      <td>1.0</td>
-    </tr>
-  </tbody>
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+open
+</th>
+<th>
+high
+</th>
+<th>
+low
+</th>
+<th>
+close
+</th>
+<th>
+volume
+</th>
+<th>
+amount
+</th>
+<th>
+status
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="10" valign="top">
+2020-11-16
+</th>
+<th>
+000001
+</th>
+<td>
+17.08
+</td>
+<td>
+17.43
+</td>
+<td>
+16.90
+</td>
+<td>
+17.37
+</td>
+<td>
+759856.0
+</td>
+<td>
+1.308190e+09
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+000002
+</th>
+<td>
+29.39
+</td>
+<td>
+29.50
+</td>
+<td>
+29.00
+</td>
+<td>
+29.20
+</td>
+<td>
+516576.0
+</td>
+<td>
+1.509810e+09
+</td>
+<td>
+-1.0
+</td>
+</tr>
+<tr>
+<th>
+000004
+</th>
+<td>
+31.15
+</td>
+<td>
+31.46
+</td>
+<td>
+30.11
+</td>
+<td>
+30.61
+</td>
+<td>
+72456.0
+</td>
+<td>
+2.223127e+08
+</td>
+<td>
+-1.0
+</td>
+</tr>
+<tr>
+<th>
+000005
+</th>
+<td>
+2.68
+</td>
+<td>
+2.70
+</td>
+<td>
+2.65
+</td>
+<td>
+2.69
+</td>
+<td>
+64372.0
+</td>
+<td>
+1.725762e+07
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+000006
+</th>
+<td>
+5.66
+</td>
+<td>
+5.74
+</td>
+<td>
+5.62
+</td>
+<td>
+5.72
+</td>
+<td>
+98253.0
+</td>
+<td>
+5.592563e+07
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+000007
+</th>
+<td>
+9.42
+</td>
+<td>
+9.42
+</td>
+<td>
+9.18
+</td>
+<td>
+9.20
+</td>
+<td>
+22567.0
+</td>
+<td>
+2.094628e+07
+</td>
+<td>
+-1.0
+</td>
+</tr>
+<tr>
+<th>
+000008
+</th>
+<td>
+2.72
+</td>
+<td>
+2.74
+</td>
+<td>
+2.70
+</td>
+<td>
+2.73
+</td>
+<td>
+171930.0
+</td>
+<td>
+4.678304e+07
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+000009
+</th>
+<td>
+7.71
+</td>
+<td>
+7.88
+</td>
+<td>
+7.66
+</td>
+<td>
+7.82
+</td>
+<td>
+320180.0
+</td>
+<td>
+2.492149e+08
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+000010
+</th>
+<td>
+4.19
+</td>
+<td>
+4.27
+</td>
+<td>
+4.10
+</td>
+<td>
+4.24
+</td>
+<td>
+71661.0
+</td>
+<td>
+3.004320e+07
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+000011
+</th>
+<td>
+13.76
+</td>
+<td>
+14.40
+</td>
+<td>
+13.58
+</td>
+<td>
+14.39
+</td>
+<td>
+105639.0
+</td>
+<td>
+1.489735e+08
+</td>
+<td>
+1.0
+</td>
+</tr>
+</tbody>
 </table>
 </div>
-
-
-
-<h3 id="测试2：Iterrows循环"><a href="#测试2：Iterrows循环" class="headerlink" title="测试2：Iterrows循环"></a>测试2：Iterrows循环</h3><p>该循环方式是通过iterrows进行循环，ind和row分别代表了每一行的index和内容。测试例子大概需要s，比起下标循环速度提升了321倍。</p>
+<h3 id="测试2iterrows循环">测试2：Iterrows循环</h3>
+<p>该循环方式是通过iterrows进行循环，ind和row分别代表了每一行的index和内容。测试例子大概需要s，比起下标循环速度提升了321倍。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> ind, row <span class="keyword">in</span> df1.iterrows():</span><br><span class="line">    <span class="keyword">if</span> row[<span class="string">&#x27;close&#x27;</span>] - row[<span class="string">&#x27;open&#x27;</span>] &gt;=<span class="number">0</span>:</span><br><span class="line">        df1.iloc[i][<span class="string">&#x27;status&#x27;</span>] = <span class="number">1</span>     </span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        df1.iloc[i][<span class="string">&#x27;status&#x27;</span>] = -<span class="number">1</span>  </span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line">df1.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>CPU times: user 18.5 s, sys: 82.7 ms, total: 18.6 s
-Wall time: 18.8 s</code></pre>
+<p>CPU times: user 18.5 s, sys: 82.7 ms, total: 18.6 s Wall time: 18.8 s</p>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
 
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;</code></pre>
-<p></style></p>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>open</th>
-      <th>high</th>
-      <th>low</th>
-      <th>close</th>
-      <th>volume</th>
-      <th>amount</th>
-      <th>status</th>
-    </tr>
-    <tr>
-      <th>date</th>
-      <th>code</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="10" valign="top">2020-11-16</th>
-      <th>000001</th>
-      <td>17.08</td>
-      <td>17.43</td>
-      <td>16.90</td>
-      <td>17.37</td>
-      <td>759856.0</td>
-      <td>1.308190e+09</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>000002</th>
-      <td>29.39</td>
-      <td>29.50</td>
-      <td>29.00</td>
-      <td>29.20</td>
-      <td>516576.0</td>
-      <td>1.509810e+09</td>
-      <td>-1.0</td>
-    </tr>
-    <tr>
-      <th>000004</th>
-      <td>31.15</td>
-      <td>31.46</td>
-      <td>30.11</td>
-      <td>30.61</td>
-      <td>72456.0</td>
-      <td>2.223127e+08</td>
-      <td>-1.0</td>
-    </tr>
-    <tr>
-      <th>000005</th>
-      <td>2.68</td>
-      <td>2.70</td>
-      <td>2.65</td>
-      <td>2.69</td>
-      <td>64372.0</td>
-      <td>1.725762e+07</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>000006</th>
-      <td>5.66</td>
-      <td>5.74</td>
-      <td>5.62</td>
-      <td>5.72</td>
-      <td>98253.0</td>
-      <td>5.592563e+07</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>000007</th>
-      <td>9.42</td>
-      <td>9.42</td>
-      <td>9.18</td>
-      <td>9.20</td>
-      <td>22567.0</td>
-      <td>2.094628e+07</td>
-      <td>-1.0</td>
-    </tr>
-    <tr>
-      <th>000008</th>
-      <td>2.72</td>
-      <td>2.74</td>
-      <td>2.70</td>
-      <td>2.73</td>
-      <td>171930.0</td>
-      <td>4.678304e+07</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>000009</th>
-      <td>7.71</td>
-      <td>7.88</td>
-      <td>7.66</td>
-      <td>7.82</td>
-      <td>320180.0</td>
-      <td>2.492149e+08</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>000010</th>
-      <td>4.19</td>
-      <td>4.27</td>
-      <td>4.10</td>
-      <td>4.24</td>
-      <td>71661.0</td>
-      <td>3.004320e+07</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>000011</th>
-      <td>13.76</td>
-      <td>14.40</td>
-      <td>13.58</td>
-      <td>14.39</td>
-      <td>105639.0</td>
-      <td>1.489735e+08</td>
-      <td>1.0</td>
-    </tr>
-  </tbody>
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+open
+</th>
+<th>
+high
+</th>
+<th>
+low
+</th>
+<th>
+close
+</th>
+<th>
+volume
+</th>
+<th>
+amount
+</th>
+<th>
+status
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="10" valign="top">
+2020-11-16
+</th>
+<th>
+000001
+</th>
+<td>
+17.08
+</td>
+<td>
+17.43
+</td>
+<td>
+16.90
+</td>
+<td>
+17.37
+</td>
+<td>
+759856.0
+</td>
+<td>
+1.308190e+09
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+000002
+</th>
+<td>
+29.39
+</td>
+<td>
+29.50
+</td>
+<td>
+29.00
+</td>
+<td>
+29.20
+</td>
+<td>
+516576.0
+</td>
+<td>
+1.509810e+09
+</td>
+<td>
+-1.0
+</td>
+</tr>
+<tr>
+<th>
+000004
+</th>
+<td>
+31.15
+</td>
+<td>
+31.46
+</td>
+<td>
+30.11
+</td>
+<td>
+30.61
+</td>
+<td>
+72456.0
+</td>
+<td>
+2.223127e+08
+</td>
+<td>
+-1.0
+</td>
+</tr>
+<tr>
+<th>
+000005
+</th>
+<td>
+2.68
+</td>
+<td>
+2.70
+</td>
+<td>
+2.65
+</td>
+<td>
+2.69
+</td>
+<td>
+64372.0
+</td>
+<td>
+1.725762e+07
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+000006
+</th>
+<td>
+5.66
+</td>
+<td>
+5.74
+</td>
+<td>
+5.62
+</td>
+<td>
+5.72
+</td>
+<td>
+98253.0
+</td>
+<td>
+5.592563e+07
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+000007
+</th>
+<td>
+9.42
+</td>
+<td>
+9.42
+</td>
+<td>
+9.18
+</td>
+<td>
+9.20
+</td>
+<td>
+22567.0
+</td>
+<td>
+2.094628e+07
+</td>
+<td>
+-1.0
+</td>
+</tr>
+<tr>
+<th>
+000008
+</th>
+<td>
+2.72
+</td>
+<td>
+2.74
+</td>
+<td>
+2.70
+</td>
+<td>
+2.73
+</td>
+<td>
+171930.0
+</td>
+<td>
+4.678304e+07
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+000009
+</th>
+<td>
+7.71
+</td>
+<td>
+7.88
+</td>
+<td>
+7.66
+</td>
+<td>
+7.82
+</td>
+<td>
+320180.0
+</td>
+<td>
+2.492149e+08
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+000010
+</th>
+<td>
+4.19
+</td>
+<td>
+4.27
+</td>
+<td>
+4.10
+</td>
+<td>
+4.24
+</td>
+<td>
+71661.0
+</td>
+<td>
+3.004320e+07
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+000011
+</th>
+<td>
+13.76
+</td>
+<td>
+14.40
+</td>
+<td>
+13.58
+</td>
+<td>
+14.39
+</td>
+<td>
+105639.0
+</td>
+<td>
+1.489735e+08
+</td>
+<td>
+1.0
+</td>
+</tr>
+</tbody>
 </table>
 </div>
-
-
-
-<h3 id="测试3：Apply循环"><a href="#测试3：Apply循环" class="headerlink" title="测试3：Apply循环"></a>测试3：Apply循环</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line"></span><br><span class="line">df1[<span class="string">&#x27;status&#x27;</span>] = (df1[<span class="string">&#x27;close&#x27;</span>]-df[<span class="string">&#x27;open&#x27;</span>]).apply(<span class="keyword">lambda</span> x: <span class="number">1</span> <span class="keyword">if</span> x &gt;=<span class="number">0</span> <span class="keyword">else</span> -<span class="number">1</span>)</span><br><span class="line">df1.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>CPU times: user 23.8 ms, sys: 1.99 ms, total: 25.8 ms
-Wall time: 35.6 ms</code></pre>
+<h3 id="测试3apply循环">测试3：Apply循环</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line"></span><br><span class="line">df1[<span class="string">&#x27;status&#x27;</span>] = (df1[<span class="string">&#x27;close&#x27;</span>]-df[<span class="string">&#x27;open&#x27;</span>]).apply(<span class="keyword">lambda</span> x: <span class="number">1</span> <span class="keyword">if</span> x &gt;=<span class="number">0</span> <span class="keyword">else</span> -<span class="number">1</span>)</span><br><span class="line">df1.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<p>CPU times: user 23.8 ms, sys: 1.99 ms, total: 25.8 ms Wall time: 35.6 ms</p>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
 
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;</code></pre>
-<p></style></p>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>open</th>
-      <th>high</th>
-      <th>low</th>
-      <th>close</th>
-      <th>volume</th>
-      <th>amount</th>
-      <th>status</th>
-    </tr>
-    <tr>
-      <th>date</th>
-      <th>code</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="10" valign="top">2020-11-16</th>
-      <th>000001</th>
-      <td>17.08</td>
-      <td>17.43</td>
-      <td>16.90</td>
-      <td>17.37</td>
-      <td>759856.0</td>
-      <td>1.308190e+09</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>000002</th>
-      <td>29.39</td>
-      <td>29.50</td>
-      <td>29.00</td>
-      <td>29.20</td>
-      <td>516576.0</td>
-      <td>1.509810e+09</td>
-      <td>-1</td>
-    </tr>
-    <tr>
-      <th>000004</th>
-      <td>31.15</td>
-      <td>31.46</td>
-      <td>30.11</td>
-      <td>30.61</td>
-      <td>72456.0</td>
-      <td>2.223127e+08</td>
-      <td>-1</td>
-    </tr>
-    <tr>
-      <th>000005</th>
-      <td>2.68</td>
-      <td>2.70</td>
-      <td>2.65</td>
-      <td>2.69</td>
-      <td>64372.0</td>
-      <td>1.725762e+07</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>000006</th>
-      <td>5.66</td>
-      <td>5.74</td>
-      <td>5.62</td>
-      <td>5.72</td>
-      <td>98253.0</td>
-      <td>5.592563e+07</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>000007</th>
-      <td>9.42</td>
-      <td>9.42</td>
-      <td>9.18</td>
-      <td>9.20</td>
-      <td>22567.0</td>
-      <td>2.094628e+07</td>
-      <td>-1</td>
-    </tr>
-    <tr>
-      <th>000008</th>
-      <td>2.72</td>
-      <td>2.74</td>
-      <td>2.70</td>
-      <td>2.73</td>
-      <td>171930.0</td>
-      <td>4.678304e+07</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>000009</th>
-      <td>7.71</td>
-      <td>7.88</td>
-      <td>7.66</td>
-      <td>7.82</td>
-      <td>320180.0</td>
-      <td>2.492149e+08</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>000010</th>
-      <td>4.19</td>
-      <td>4.27</td>
-      <td>4.10</td>
-      <td>4.24</td>
-      <td>71661.0</td>
-      <td>3.004320e+07</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>000011</th>
-      <td>13.76</td>
-      <td>14.40</td>
-      <td>13.58</td>
-      <td>14.39</td>
-      <td>105639.0</td>
-      <td>1.489735e+08</td>
-      <td>1</td>
-    </tr>
-  </tbody>
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+open
+</th>
+<th>
+high
+</th>
+<th>
+low
+</th>
+<th>
+close
+</th>
+<th>
+volume
+</th>
+<th>
+amount
+</th>
+<th>
+status
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="10" valign="top">
+2020-11-16
+</th>
+<th>
+000001
+</th>
+<td>
+17.08
+</td>
+<td>
+17.43
+</td>
+<td>
+16.90
+</td>
+<td>
+17.37
+</td>
+<td>
+759856.0
+</td>
+<td>
+1.308190e+09
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+000002
+</th>
+<td>
+29.39
+</td>
+<td>
+29.50
+</td>
+<td>
+29.00
+</td>
+<td>
+29.20
+</td>
+<td>
+516576.0
+</td>
+<td>
+1.509810e+09
+</td>
+<td>
+-1
+</td>
+</tr>
+<tr>
+<th>
+000004
+</th>
+<td>
+31.15
+</td>
+<td>
+31.46
+</td>
+<td>
+30.11
+</td>
+<td>
+30.61
+</td>
+<td>
+72456.0
+</td>
+<td>
+2.223127e+08
+</td>
+<td>
+-1
+</td>
+</tr>
+<tr>
+<th>
+000005
+</th>
+<td>
+2.68
+</td>
+<td>
+2.70
+</td>
+<td>
+2.65
+</td>
+<td>
+2.69
+</td>
+<td>
+64372.0
+</td>
+<td>
+1.725762e+07
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+000006
+</th>
+<td>
+5.66
+</td>
+<td>
+5.74
+</td>
+<td>
+5.62
+</td>
+<td>
+5.72
+</td>
+<td>
+98253.0
+</td>
+<td>
+5.592563e+07
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+000007
+</th>
+<td>
+9.42
+</td>
+<td>
+9.42
+</td>
+<td>
+9.18
+</td>
+<td>
+9.20
+</td>
+<td>
+22567.0
+</td>
+<td>
+2.094628e+07
+</td>
+<td>
+-1
+</td>
+</tr>
+<tr>
+<th>
+000008
+</th>
+<td>
+2.72
+</td>
+<td>
+2.74
+</td>
+<td>
+2.70
+</td>
+<td>
+2.73
+</td>
+<td>
+171930.0
+</td>
+<td>
+4.678304e+07
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+000009
+</th>
+<td>
+7.71
+</td>
+<td>
+7.88
+</td>
+<td>
+7.66
+</td>
+<td>
+7.82
+</td>
+<td>
+320180.0
+</td>
+<td>
+2.492149e+08
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+000010
+</th>
+<td>
+4.19
+</td>
+<td>
+4.27
+</td>
+<td>
+4.10
+</td>
+<td>
+4.24
+</td>
+<td>
+71661.0
+</td>
+<td>
+3.004320e+07
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+000011
+</th>
+<td>
+13.76
+</td>
+<td>
+14.40
+</td>
+<td>
+13.58
+</td>
+<td>
+14.39
+</td>
+<td>
+105639.0
+</td>
+<td>
+1.489735e+08
+</td>
+<td>
+1
+</td>
+</tr>
+</tbody>
 </table>
 </div>
-
-
-
-<h3 id="测试4：numpy内置向量化函数"><a href="#测试4：numpy内置向量化函数" class="headerlink" title="测试4：numpy内置向量化函数"></a>测试4：numpy内置向量化函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">df1[<span class="string">&#x27;status&#x27;</span>] = np.where((df1.close -  df1.<span class="built_in">open</span>)&gt;=<span class="number">0</span>, <span class="number">1</span>, -<span class="number">1</span>)</span><br><span class="line">df1.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>CPU times: user 1.74 ms, sys: 2.99 ms, total: 4.72 ms
-Wall time: 10.4 ms</code></pre>
+<h3 id="测试4numpy内置向量化函数">测试4：numpy内置向量化函数</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">df1[<span class="string">&#x27;status&#x27;</span>] = np.where((df1.close -  df1.<span class="built_in">open</span>)&gt;=<span class="number">0</span>, <span class="number">1</span>, -<span class="number">1</span>)</span><br><span class="line">df1.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<p>CPU times: user 1.74 ms, sys: 2.99 ms, total: 4.72 ms Wall time: 10.4 ms</p>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
 
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;</code></pre>
-<p></style></p>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>open</th>
-      <th>high</th>
-      <th>low</th>
-      <th>close</th>
-      <th>volume</th>
-      <th>amount</th>
-      <th>status</th>
-    </tr>
-    <tr>
-      <th>date</th>
-      <th>code</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="10" valign="top">2020-11-16</th>
-      <th>000001</th>
-      <td>17.08</td>
-      <td>17.43</td>
-      <td>16.90</td>
-      <td>17.37</td>
-      <td>759856.0</td>
-      <td>1.308190e+09</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>000002</th>
-      <td>29.39</td>
-      <td>29.50</td>
-      <td>29.00</td>
-      <td>29.20</td>
-      <td>516576.0</td>
-      <td>1.509810e+09</td>
-      <td>-1</td>
-    </tr>
-    <tr>
-      <th>000004</th>
-      <td>31.15</td>
-      <td>31.46</td>
-      <td>30.11</td>
-      <td>30.61</td>
-      <td>72456.0</td>
-      <td>2.223127e+08</td>
-      <td>-1</td>
-    </tr>
-    <tr>
-      <th>000005</th>
-      <td>2.68</td>
-      <td>2.70</td>
-      <td>2.65</td>
-      <td>2.69</td>
-      <td>64372.0</td>
-      <td>1.725762e+07</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>000006</th>
-      <td>5.66</td>
-      <td>5.74</td>
-      <td>5.62</td>
-      <td>5.72</td>
-      <td>98253.0</td>
-      <td>5.592563e+07</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>000007</th>
-      <td>9.42</td>
-      <td>9.42</td>
-      <td>9.18</td>
-      <td>9.20</td>
-      <td>22567.0</td>
-      <td>2.094628e+07</td>
-      <td>-1</td>
-    </tr>
-    <tr>
-      <th>000008</th>
-      <td>2.72</td>
-      <td>2.74</td>
-      <td>2.70</td>
-      <td>2.73</td>
-      <td>171930.0</td>
-      <td>4.678304e+07</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>000009</th>
-      <td>7.71</td>
-      <td>7.88</td>
-      <td>7.66</td>
-      <td>7.82</td>
-      <td>320180.0</td>
-      <td>2.492149e+08</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>000010</th>
-      <td>4.19</td>
-      <td>4.27</td>
-      <td>4.10</td>
-      <td>4.24</td>
-      <td>71661.0</td>
-      <td>3.004320e+07</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>000011</th>
-      <td>13.76</td>
-      <td>14.40</td>
-      <td>13.58</td>
-      <td>14.39</td>
-      <td>105639.0</td>
-      <td>1.489735e+08</td>
-      <td>1</td>
-    </tr>
-  </tbody>
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+open
+</th>
+<th>
+high
+</th>
+<th>
+low
+</th>
+<th>
+close
+</th>
+<th>
+volume
+</th>
+<th>
+amount
+</th>
+<th>
+status
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="10" valign="top">
+2020-11-16
+</th>
+<th>
+000001
+</th>
+<td>
+17.08
+</td>
+<td>
+17.43
+</td>
+<td>
+16.90
+</td>
+<td>
+17.37
+</td>
+<td>
+759856.0
+</td>
+<td>
+1.308190e+09
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+000002
+</th>
+<td>
+29.39
+</td>
+<td>
+29.50
+</td>
+<td>
+29.00
+</td>
+<td>
+29.20
+</td>
+<td>
+516576.0
+</td>
+<td>
+1.509810e+09
+</td>
+<td>
+-1
+</td>
+</tr>
+<tr>
+<th>
+000004
+</th>
+<td>
+31.15
+</td>
+<td>
+31.46
+</td>
+<td>
+30.11
+</td>
+<td>
+30.61
+</td>
+<td>
+72456.0
+</td>
+<td>
+2.223127e+08
+</td>
+<td>
+-1
+</td>
+</tr>
+<tr>
+<th>
+000005
+</th>
+<td>
+2.68
+</td>
+<td>
+2.70
+</td>
+<td>
+2.65
+</td>
+<td>
+2.69
+</td>
+<td>
+64372.0
+</td>
+<td>
+1.725762e+07
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+000006
+</th>
+<td>
+5.66
+</td>
+<td>
+5.74
+</td>
+<td>
+5.62
+</td>
+<td>
+5.72
+</td>
+<td>
+98253.0
+</td>
+<td>
+5.592563e+07
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+000007
+</th>
+<td>
+9.42
+</td>
+<td>
+9.42
+</td>
+<td>
+9.18
+</td>
+<td>
+9.20
+</td>
+<td>
+22567.0
+</td>
+<td>
+2.094628e+07
+</td>
+<td>
+-1
+</td>
+</tr>
+<tr>
+<th>
+000008
+</th>
+<td>
+2.72
+</td>
+<td>
+2.74
+</td>
+<td>
+2.70
+</td>
+<td>
+2.73
+</td>
+<td>
+171930.0
+</td>
+<td>
+4.678304e+07
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+000009
+</th>
+<td>
+7.71
+</td>
+<td>
+7.88
+</td>
+<td>
+7.66
+</td>
+<td>
+7.82
+</td>
+<td>
+320180.0
+</td>
+<td>
+2.492149e+08
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+000010
+</th>
+<td>
+4.19
+</td>
+<td>
+4.27
+</td>
+<td>
+4.10
+</td>
+<td>
+4.24
+</td>
+<td>
+71661.0
+</td>
+<td>
+3.004320e+07
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+000011
+</th>
+<td>
+13.76
+</td>
+<td>
+14.40
+</td>
+<td>
+13.58
+</td>
+<td>
+14.39
+</td>
+<td>
+105639.0
+</td>
+<td>
+1.489735e+08
+</td>
+<td>
+1
+</td>
+</tr>
+</tbody>
 </table>
 </div>
-
-
-
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p><code>for</code>循环及向量化的使用对性能有着较大的影响：<br>1、如果确定需要使用循环，则应始终选择apply方法。<br>2、否则，vectorization总是更好的，因为它更快！</p>
+<h2 id="结论">结论</h2>
+<p><code>for</code>循环及向量化的使用对性能有着较大的影响：<br />
+1、如果确定需要使用循环，则应始终选择apply方法。<br />
+2、否则，vectorization总是更好的，因为它更快！</p>
 
     </div>
 
@@ -1202,12 +2282,12 @@ Wall time: 10.4 ms</code></pre>
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/11/20/Hexo%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4/" rel="prev" title="Hexo常用操作指令">
-      <i class="fa fa-chevron-left"></i> Hexo常用操作指令
+    <a href="/2020/11/20/%E3%80%90Hexo%E3%80%91%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4/" rel="prev" title="【Hexo】常用操作指令">
+      <i class="fa fa-chevron-left"></i> 【Hexo】常用操作指令
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/12/09/Hexo%E7%BE%8E%E5%8C%96%E8%A1%A8%E6%A0%BC/" rel="next" title="Hexo美化表格">
-      Hexo美化表格 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/12/09/%E3%80%90Hexo%E3%80%91%E7%BE%8E%E5%8C%96%E8%A1%A8%E6%A0%BC/" rel="next" title="【Hexo】美化表格">
+      【Hexo】美化表格 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -1268,7 +2348,7 @@ Wall time: 10.4 ms</code></pre>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BADataframe%E6%95%B0%E6%8D%AE"><span class="nav-number">1.</span> <span class="nav-text">创建Dataframe数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%88%E7%8E%87%E6%B5%8B%E8%AF%95"><span class="nav-number">2.</span> <span class="nav-text">效率测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%951%EF%BC%9A%E4%BD%BF%E7%94%A8%E4%B8%8B%E6%A0%87%E5%BE%AA%E7%8E%AF"><span class="nav-number">2.1.</span> <span class="nav-text">测试1：使用下标循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%952%EF%BC%9AIterrows%E5%BE%AA%E7%8E%AF"><span class="nav-number">2.2.</span> <span class="nav-text">测试2：Iterrows循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%953%EF%BC%9AApply%E5%BE%AA%E7%8E%AF"><span class="nav-number">2.3.</span> <span class="nav-text">测试3：Apply循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%954%EF%BC%9Anumpy%E5%86%85%E7%BD%AE%E5%90%91%E9%87%8F%E5%8C%96%E5%87%BD%E6%95%B0"><span class="nav-number">2.4.</span> <span class="nav-text">测试4：numpy内置向量化函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="nav-number">3.</span> <span class="nav-text">结论</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAdataframe%E6%95%B0%E6%8D%AE"><span class="nav-number">1.</span> <span class="nav-text">创建Dataframe数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%88%E7%8E%87%E6%B5%8B%E8%AF%95"><span class="nav-number">2.</span> <span class="nav-text">效率测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%951%E4%BD%BF%E7%94%A8%E4%B8%8B%E6%A0%87%E5%BE%AA%E7%8E%AF"><span class="nav-number">2.1.</span> <span class="nav-text">测试1：使用下标循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%952iterrows%E5%BE%AA%E7%8E%AF"><span class="nav-number">2.2.</span> <span class="nav-text">测试2：Iterrows循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%953apply%E5%BE%AA%E7%8E%AF"><span class="nav-number">2.3.</span> <span class="nav-text">测试3：Apply循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%954numpy%E5%86%85%E7%BD%AE%E5%90%91%E9%87%8F%E5%8C%96%E5%87%BD%E6%95%B0"><span class="nav-number">2.4.</span> <span class="nav-text">测试4：numpy内置向量化函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="nav-number">3.</span> <span class="nav-text">结论</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -1284,20 +2364,20 @@ Wall time: 10.4 ms</code></pre>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1403,6 +2483,8 @@ Wall time: 10.4 ms</code></pre>
 
 
 
+
+  
 
   
 

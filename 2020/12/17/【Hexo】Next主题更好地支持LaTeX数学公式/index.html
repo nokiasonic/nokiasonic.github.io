@@ -20,20 +20,22 @@
     var CONFIG = {"hostname":"nokiasonic.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="通过jupyter notebook导出的markdown文件中的表格过于丑陋，遂尝试对生成的表格内容进行美化。">
+  <meta name="description" content="在Typora中可以正常显示的\(L^AT_EX\)数学公式，在Hexo NexT主题下却渲染得不是太理想。我们去最新的NexT官方文档里看看如何解决吧！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo美化表格">
-<meta property="og:url" content="https://nokiasonic.github.io/2020/12/09/Hexo%E7%BE%8E%E5%8C%96%E8%A1%A8%E6%A0%BC/index.html">
+<meta property="og:title" content="【Hexo】Next主题更好地支持LaTeX数学公式">
+<meta property="og:url" content="https://nokiasonic.github.io/2020/12/17/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%9B%B4%E5%A5%BD%E5%9C%B0%E6%94%AF%E6%8C%81LaTeX%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/index.html">
 <meta property="og:site_name" content="橘子树下">
-<meta property="og:description" content="通过jupyter notebook导出的markdown文件中的表格过于丑陋，遂尝试对生成的表格内容进行美化。">
+<meta property="og:description" content="在Typora中可以正常显示的\(L^AT_EX\)数学公式，在Hexo NexT主题下却渲染得不是太理想。我们去最新的NexT官方文档里看看如何解决吧！">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-12-09T11:45:24.000Z">
-<meta property="article:modified_time" content="2020-12-10T02:39:34.562Z">
+<meta property="og:image" content="https://gitee.com/nokiasonic/pic/raw/master/img/20201217170659.png">
+<meta property="article:published_time" content="2020-12-17T07:23:57.000Z">
+<meta property="article:modified_time" content="2020-12-17T09:07:24.938Z">
 <meta property="article:author" content="Jun Lv">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/nokiasonic/pic/raw/master/img/20201217170659.png">
 
-<link rel="canonical" href="https://nokiasonic.github.io/2020/12/09/Hexo%E7%BE%8E%E5%8C%96%E8%A1%A8%E6%A0%BC/">
+<link rel="canonical" href="https://nokiasonic.github.io/2020/12/17/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%9B%B4%E5%A5%BD%E5%9C%B0%E6%94%AF%E6%8C%81LaTeX%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/">
 
 
 <script id="page-configurations">
@@ -46,7 +48,7 @@
   };
 </script>
 
-  <title>Hexo美化表格 | 橘子树下</title>
+  <title>【Hexo】Next主题更好地支持LaTeX数学公式 | 橘子树下</title>
   
 
 
@@ -190,7 +192,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2020/12/09/Hexo%E7%BE%8E%E5%8C%96%E8%A1%A8%E6%A0%BC/">
+    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2020/12/17/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%9B%B4%E5%A5%BD%E5%9C%B0%E6%94%AF%E6%8C%81LaTeX%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -203,7 +205,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hexo美化表格
+          【Hexo】Next主题更好地支持LaTeX数学公式
         </h1>
 
         <div class="post-meta">
@@ -212,16 +214,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-12-09 19:45:24" itemprop="dateCreated datePublished" datetime="2020-12-09T19:45:24+08:00">2020-12-09</time>
+              <time title="创建时间：2020-12-17 15:23:57 / 修改时间：17:07:24" itemprop="dateCreated datePublished" datetime="2020-12-17T15:23:57+08:00">2020-12-17</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-10 10:39:34" itemprop="dateModified" datetime="2020-12-10T10:39:34+08:00">2020-12-10</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -252,8 +248,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/12/09/Hexo%E7%BE%8E%E5%8C%96%E8%A1%A8%E6%A0%BC/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/09/Hexo%E7%BE%8E%E5%8C%96%E8%A1%A8%E6%A0%BC/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/12/17/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%9B%B4%E5%A5%BD%E5%9C%B0%E6%94%AF%E6%8C%81LaTeX%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/17/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%9B%B4%E5%A5%BD%E5%9C%B0%E6%94%AF%E6%8C%81LaTeX%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -268,152 +264,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>通过jupyter notebook导出的markdown文件中的表格过于丑陋，遂尝试对生成的表格内容进行美化。</p>
+        <p>在Typora中可以正常显示的<span class="math inline">\(L^AT_EX\)</span>数学公式，在Hexo NexT主题下却渲染得不是太理想。我们去最新的<a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/third-party-services/math-equations.html">NexT官方文档</a>里看看如何解决吧！</p>
 <a id="more"></a>
-
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="创建自定义的CSS文件"><a href="#创建自定义的CSS文件" class="headerlink" title="创建自定义的CSS文件"></a>创建自定义的CSS文件</h3><p>在<code>themes/next/source/css/main.styl</code>中添加一行内容。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@import <span class="string">&quot;_custom/custom&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>然后在<code>themes/next/source/css</code>目录下创建<code>_custom</code>文件夹。再进入该文件夹创建名为custom.styl的文件， 用它来配置自己需要的CSS样式。</p>
-<h3 id="基本样式"><a href="#基本样式" class="headerlink" title="基本样式"></a>基本样式</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">table</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>; <span class="comment">/*表格宽度*/</span></span><br><span class="line">    <span class="attribute">max-width</span>: <span class="number">65em</span>; <span class="comment">/*表格最大宽度，避免表格过宽*/</span></span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#dedede</span>; <span class="comment">/*表格外边框设置*/</span></span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">15px</span> auto; <span class="comment">/*外边距*/</span></span><br><span class="line">    <span class="attribute">border-collapse</span>: collapse; <span class="comment">/*使用单一线条的边框*/</span></span><br><span class="line">    <span class="attribute">empty-cells</span>: show; <span class="comment">/*单元格无内容依旧绘制边框*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">th</span>,</span><br><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">td</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">25px</span>; <span class="comment">/*统一每一行的默认高度*/</span></span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">10px</span>;  <span class="comment">/*行内字符大小*/</span></span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#dedede</span>; <span class="comment">/*内部边框样式*/</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">10px</span>; <span class="comment">/*内边距*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="表头样式"><a href="#表头样式" class="headerlink" title="表头样式"></a>表头样式</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">th</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">10px</span>;  <span class="comment">/*表头字符大小*/</span></span><br><span class="line">    <span class="attribute">font-weight</span>: bold; <span class="comment">/*加粗*/</span></span><br><span class="line">    <span class="attribute">text-align</span>: center <span class="meta">!important</span>; <span class="comment">/*内容居中，加上 !important 避免被 Markdown 样式覆盖*/</span></span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">158</span>,<span class="number">188</span>,<span class="number">226</span>,<span class="number">0.2</span>); <span class="comment">/*背景色*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th>open</th>
-<th>high</th>
-<th>low</th>
-<th>close</th>
-<th>volume</th>
-<th>amount</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>date</td>
-<td>code</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>2020-11-16</td>
-<td>000001</td>
-<td>17.08</td>
-<td>17.43</td>
-<td>16.90</td>
-<td>17.37</td>
-<td>759856.0</td>
-<td>1.308190e+09</td>
-</tr>
-<tr>
-<td></td>
-<td>000002</td>
-<td>29.39</td>
-<td>29.50</td>
-<td>29.00</td>
-<td>29.20</td>
-<td>516576.0</td>
-<td>1.509810e+09</td>
-</tr>
-<tr>
-<td></td>
-<td>000004</td>
-<td>31.15</td>
-<td>31.46</td>
-<td>30.11</td>
-<td>30.61</td>
-<td>72456.0</td>
-<td>2.223127e+08</td>
-</tr>
-<tr>
-<td></td>
-<td>000005</td>
-<td>2.68</td>
-<td>2.70</td>
-<td>2.65</td>
-<td>2.69</td>
-<td>64372.0</td>
-<td>1.725762e+07</td>
-</tr>
-<tr>
-<td></td>
-<td>000006</td>
-<td>5.66</td>
-<td>5.74</td>
-<td>5.62</td>
-<td>5.72</td>
-<td>98253.0</td>
-<td>5.592563e+07</td>
-</tr>
-<tr>
-<td></td>
-<td>000007</td>
-<td>9.42</td>
-<td>9.42</td>
-<td>9.18</td>
-<td>9.20</td>
-<td>22567.0</td>
-<td>2.094628e+07</td>
-</tr>
-<tr>
-<td></td>
-<td>000008</td>
-<td>2.72</td>
-<td>2.74</td>
-<td>2.70</td>
-<td>2.73</td>
-<td>171930.0</td>
-<td>4.678304e+07</td>
-</tr>
-<tr>
-<td></td>
-<td>000009</td>
-<td>7.71</td>
-<td>7.88</td>
-<td>7.66</td>
-<td>7.82</td>
-<td>320180.0</td>
-<td>2.492149e+08</td>
-</tr>
-<tr>
-<td></td>
-<td>000010</td>
-<td>4.19</td>
-<td>4.27</td>
-<td>4.10</td>
-<td>4.24</td>
-<td>71661.0</td>
-<td>3.004320e+07</td>
-</tr>
-<tr>
-<td></td>
-<td>000011</td>
-<td>13.76</td>
-<td>14.40</td>
-<td>13.58</td>
-<td>14.39</td>
-<td>105639.0</td>
-<td>1.489735e+08</td>
-</tr>
-</tbody></table>
-<p>参考：</p>
-<ol>
-<li><p><a target="_blank" rel="noopener" href="https://hexo.imydl.tech/archives/6742.html">Hexo下表格的美化和优化</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/6c1651fe5374">完美解决：Hexo Next主题本地可预览CSS，但部署到网站CSS失效问题！</a></p>
-</li>
+<h2 id="实施步骤">实施步骤</h2>
+<p>NexT主题现在提供两种数学公式的渲染方式 <a target="_blank" rel="noopener" href="https://www.mathjax.org/">MathJax</a> 及 <a target="_blank" rel="noopener" href="https://katex.org/">KaTeX</a>。其中<code>katex</code>的速度更快，但是对于<span class="math inline">\(L^AT_EX\)</span>的支持有一定的限制。所以除非你的博客数量实在是过于庞大，不然就可以直接使用<code>mathjax</code>。</p>
+<p>使用<code>mathjax</code>，可以选择多种渲染引擎，但推荐使用</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-renderer-pandoc">hexo-renderer-pandoc</a></li>
+</ul>
+<p>使用其它诸如<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a>之类的引擎（这是Hexo默认首先用来渲染MarkDown的），然后再交给<code>mathjax</code>渲染。<code>hexo-renderer-marked</code>会把一些特殊的MarkDown符号转换为相应的html标签，比如在MarkDown语法中，下划线 _ 代表斜体，会被转化为&lt; em&gt;标签，\也会被转义成一个。而类<span class="math inline">\(L^AT_EX\)</span>格式书写的数学公式下划线 _ 表示角标，\表示公式换行，有特殊的含义，所以<code>mathjax</code>引擎在渲染数学公式的时候就会无法正常渲染。</p>
+<h3 id="安装pandoc">安装pandoc</h3>
+<p><a target="_blank" rel="noopener" href="https://github.com/jgm/pandoc/blob/master/INSTALL.md">安装文档</a>及<a target="_blank" rel="noopener" href="https://github.com/jgm/pandoc/releases/latest">下载链接</a>]，因为在安装<code>Anaconda</code>时已经含有pandoc。这里不再单独进行安装。</p>
+<h3 id="配置next">配置NexT</h3>
+<ol type="1">
+<li>首先，在NexT主题配置文件中将<code>mathjax</code>设为渲染引擎</li>
 </ol>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li>然后，卸载最初的<code>hexo-renderer-marked</code>引擎并安装<code>hexo-renderer-pandoc</code>。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm un hexo-renderer-marked</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm i hexo-renderer-pandoc</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201217170659.png" /></p>
 
     </div>
 
@@ -432,13 +303,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/12/08/%E5%A6%82%E4%BD%95%E7%94%A8pandas%E9%AB%98%E9%80%9F%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE/" rel="prev" title="如何用pandas高速处理数据">
-      <i class="fa fa-chevron-left"></i> 如何用pandas高速处理数据
+    <a href="/2020/12/17/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9C%A8%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%88%86%E6%9E%90%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/" rel="prev" title="线性代数在量化投资分析中的应用">
+      <i class="fa fa-chevron-left"></i> 线性代数在量化投资分析中的应用
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/12/10/Hexo-Next%E4%B8%BB%E9%A2%98%E6%A0%87%E9%A2%98%E9%A2%9C%E8%89%B2%E8%AE%BE%E7%BD%AE/" rel="next" title="Hexo Next主题标题颜色设置">
-      Hexo Next主题标题颜色设置 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -498,7 +366,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.</span> <span class="nav-text">步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84CSS%E6%96%87%E4%BB%B6"><span class="nav-number">1.1.</span> <span class="nav-text">创建自定义的CSS文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A0%B7%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">基本样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E5%A4%B4%E6%A0%B7%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">表头样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">1.4.</span> <span class="nav-text">示例</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%96%BD%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.</span> <span class="nav-text">实施步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85pandoc"><span class="nav-number">1.1.</span> <span class="nav-text">安装pandoc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEnext"><span class="nav-number">1.2.</span> <span class="nav-text">配置NexT</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -514,20 +382,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -635,6 +503,61 @@
 
 
   
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
