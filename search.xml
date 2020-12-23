@@ -110,26 +110,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】Next主题标题颜色设置</title>
-    <url>/2020/12/10/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%A0%87%E9%A2%98%E9%A2%9C%E8%89%B2%E8%AE%BE%E7%BD%AE/</url>
-    <content><![CDATA[<p>主题采用的是Next的Mist。 不太喜欢全部都是黑灰白色的主基调，希望将标题来点明亮的颜色。以下来介绍具体的配置方法。</p>
-<a id="more"></a>
-<h2 id="更改标题配色">更改标题配色</h2>
-<p>找到<code>\themes\next\source\css\_common\outline\header\site-meta.styl</code>文件。编辑修改<code>.brand&#123;&#125;</code>里<code>color</code>参数配置</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.brand</span> &#123;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">//  color: var(--brand-color);</span><br><span class="line">  <span class="selector-tag">color</span>: <span class="selector-id">#fc6423</span> !<span class="selector-tag">important</span>;</span><br><span class="line">  <span class="selector-tag">display</span>: <span class="selector-tag">inline-block</span>;</span><br><span class="line">  line-height: $font-size-title;</span><br><span class="line">  <span class="selector-tag">padding</span>: 0 40<span class="selector-tag">px</span>;</span><br><span class="line">  <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line"></span><br><span class="line">  &amp;<span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">var</span>(--brand-hover-color);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="更改标题上下横线配色">更改标题上下横线配色</h2>
-<p>找到<code>\themes\next\source\css\_schemes\Mist\_header.styl</code>。编辑修改<code>i&#123;&#125;</code>里的<code>background</code>参数配置</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"> <span class="selector-tag">i</span> &#123;</span><br><span class="line">   //background: var(--brand-color);</span><br><span class="line"><span class="selector-tag">background</span>: <span class="selector-id">#fc6423</span> !<span class="selector-tag">important</span>;</span><br><span class="line">   <span class="selector-tag">display</span>: <span class="selector-tag">block</span>;</span><br><span class="line">   <span class="selector-tag">height</span>: 2<span class="selector-tag">px</span>;</span><br><span class="line">   <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【Hexo】常用操作指令</title>
     <url>/2020/11/20/%E3%80%90Hexo%E3%80%91%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4/</url>
     <content><![CDATA[<p>欢迎使用 <a href="https://hexo.io/">Hexo</a>! 有关hexo的详细说明参见 <a href="https://hexo.io/docs/">documentation</a> 。 相关的问题解决参见 <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> 。</p>
@@ -154,6 +134,142 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】Next主题标题颜色设置</title>
+    <url>/2020/12/10/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%A0%87%E9%A2%98%E9%A2%9C%E8%89%B2%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<p>主题采用的是Next的Mist。 不太喜欢全部都是黑灰白色的主基调，希望将标题来点明亮的颜色。以下来介绍具体的配置方法。</p>
+<a id="more"></a>
+<h2 id="更改标题配色">更改标题配色</h2>
+<p>找到<code>\themes\next\source\css\_common\outline\header\site-meta.styl</code>文件。编辑修改<code>.brand&#123;&#125;</code>里<code>color</code>参数配置</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.brand</span> &#123;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">//  color: var(--brand-color);</span><br><span class="line">  <span class="selector-tag">color</span>: <span class="selector-id">#fc6423</span> !<span class="selector-tag">important</span>;</span><br><span class="line">  <span class="selector-tag">display</span>: <span class="selector-tag">inline-block</span>;</span><br><span class="line">  line-height: $font-size-title;</span><br><span class="line">  <span class="selector-tag">padding</span>: 0 40<span class="selector-tag">px</span>;</span><br><span class="line">  <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line"></span><br><span class="line">  &amp;<span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">var</span>(--brand-hover-color);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="更改标题上下横线配色">更改标题上下横线配色</h2>
+<p>找到<code>\themes\next\source\css\_schemes\Mist\_header.styl</code>。编辑修改<code>i&#123;&#125;</code>里的<code>background</code>参数配置</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"> <span class="selector-tag">i</span> &#123;</span><br><span class="line">   //background: var(--brand-color);</span><br><span class="line"><span class="selector-tag">background</span>: <span class="selector-id">#fc6423</span> !<span class="selector-tag">important</span>;</span><br><span class="line">   <span class="selector-tag">display</span>: <span class="selector-tag">block</span>;</span><br><span class="line">   <span class="selector-tag">height</span>: 2<span class="selector-tag">px</span>;</span><br><span class="line">   <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>为博客文章增加Valine评论系统</title>
+    <url>/2020/12/10/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E5%A2%9E%E5%8A%A0Valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<p>目前常用的评论系统有以下这些：</p>
+<ul>
+<li><p>Github大礼包：<a href="https://link.zhihu.com/?target=https%3A//github.com/iissnan/hexo-theme-next/issues/1604">gitment</a>， <a href="https://link.zhihu.com/?target=https%3A//github.com/iissnan/hexo-theme-next/pull/2037">gitalk</a><strong>（推荐），</strong><a href="https://link.zhihu.com/?target=https%3A//www.vincentqin.tech/2016/08/09/build-a-website-using-hexo/%23%E5%A2%9E%E5%8A%A0Gitter">gitter</a><strong>（推荐）;</strong> 三个都支持<strong>Markdown；</strong></p></li>
+<li><p>基于leancloud的无后端评论系统：<a href="https://link.zhihu.com/?target=https%3A//valine.js.org/%23/">Valine</a><strong>（推荐，</strong>支持<strong>Markdown）；</strong></p></li>
+<li><p>国外的有几个：<a href="https://link.zhihu.com/?target=http%3A//www.disqus.com/">disqus</a>(漂亮，但需翻墙)，<a href="https://link.zhihu.com/?target=https%3A//www.hypercomments.com/">hypercomments</a><strong>（推荐，</strong>不支持<strong>Markdown）。</strong></p></li>
+</ul>
+<p>来试试如何用Valine搭建评论系统吧。</p>
+<a id="more"></a>
+<h2 id="注册leanclound获取app-id-和-app-key">注册LeanClound,获取APP ID 和 APP Key</h2>
+<p>Valine 是基于 <a href="https://leancloud.cn/">LeanCloud</a> 作为数据存储的，所以需要注册一个账号，在注册完成后，需要创建应用。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211115602.png" /></p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211115809.png" /></p>
+<p>点击<code>存储</code>设置，查看是否有<code>Comment</code>和 <code>Counter</code>，没有则创建，权限设为无限制。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211120224.png" /></p>
+<p>在<code>安全中心</code>里将除<code>数据存储</code>之外的服务全部关闭。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211120336.png" /></p>
+<p>最后点击<code>应用 Keys</code> 取得我们 <code>AppKey</code> 和 <code>App id</code></p>
+<h2 id="在hexo-next主题中配置">在Hexo Next主题中配置</h2>
+<p>首先打开 https://www.jsdelivr.com/package/npm/valine 获取最新的 valine.min.js 的cdn地址：</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211123228.png" /></p>
+<p>修改博客项目目录下的<code>_config.next.yml</code>文件：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Valine</span></span><br><span class="line"><span class="comment"># valine: //cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js</span></span><br><span class="line"><span class="comment"># valine: //cdnjs.cloudflare.com/ajax/libs/valine/1.3.10/Valine.min.js</span></span><br><span class="line"><span class="string">valine:https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js</span></span><br></pre></td></tr></table></figure>
+<p>以及</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">valine:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">appid:</span> <span class="comment"># Your leancloud application appid</span></span><br><span class="line">  <span class="attr">appkey:</span> <span class="comment"># Your leancloud application appkey</span></span><br><span class="line">  <span class="attr">notify:</span> <span class="literal">false</span> <span class="comment"># Mail notifier</span></span><br><span class="line">  <span class="attr">verify:</span> <span class="literal">false</span> <span class="comment"># Verification code</span></span><br><span class="line">  <span class="attr">placeholder:</span> <span class="string">Just</span> <span class="string">go</span> <span class="string">go</span> <span class="comment"># Comment box placeholder</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">mm</span> <span class="comment"># Gravatar style</span></span><br><span class="line">  <span class="attr">guest_info:</span> <span class="string">nick,mail,link</span> <span class="comment"># Custom comment header</span></span><br><span class="line">  <span class="attr">pageSize:</span> <span class="number">10</span> <span class="comment"># Pagination size</span></span><br><span class="line">  <span class="attr">language:</span> <span class="comment"># Language, available values: en, zh-cn</span></span><br><span class="line">  <span class="attr">visitor:</span> <span class="literal">false</span> <span class="comment"># Article reading statistic</span></span><br><span class="line">  <span class="attr">comment_count:</span> <span class="literal">true</span> <span class="comment"># If false, comment count will only be displayed in post page, not in home page</span></span><br><span class="line">  <span class="attr">recordIP:</span> <span class="literal">false</span> <span class="comment"># Whether to record the commenter IP</span></span><br><span class="line">  <span class="attr">serverURLs:</span> <span class="comment"># When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)</span></span><br><span class="line">  <span class="comment">#post_meta_order: 0</span></span><br></pre></td></tr></table></figure>
+<p>appid及appkey就填写我们从LeanClound那里获得的信息。</p>
+<h2 id="利用valine-admin进行评论管理">利用Valine Admin进行评论管理</h2>
+<p>Valine Admin 是Valine的扩展和增强，主要实现评论邮件通知、评论管理、垃圾评论过滤等功能。支持完全自定义的邮件通知模板，基于 Akismet API 实现准确的垃圾评论过滤。</p>
+<h3 id="部署">部署</h3>
+<ol type="1">
+<li>在 <a href="https://leancloud.cn/dashboard/#/apps">Leancloud</a> 云引擎部署界面，填写代码库并保存：https://github.com/DesertsP/Valine-Admin.git</li>
+</ol>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211165800.png" /></p>
+<ol start="2" type="1">
+<li><p>在 <a href="https://leancloud.cn/dashboard/#/apps">Leancloud</a> 云引擎设置界面，设置环境变量以及 Web 二级域名。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211170036.png" /></p></li>
+<li><p>环境变量说明</p></li>
+</ol>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 27%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">变量</th>
+<th style="text-align: left;">示例</th>
+<th style="text-align: left;">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">SITE_NAME</td>
+<td style="text-align: left;">Deserts</td>
+<td style="text-align: left;">[必填]博客名称</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SITE_URL</td>
+<td style="text-align: left;">https://nokiasonic.github.io</td>
+<td style="text-align: left;">[必填]首页地址</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SMTP_SERVICE</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">[新版支持]邮件服务提供商，支持 QQ、163、126、Gmail 以及 更多</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SMTP_USER</td>
+<td style="text-align: left;">xxxxx@hotmail.com</td>
+<td style="text-align: left;">[必填] SMTP 登录用户, 这个在注册访问管理员注册页面<code>https://nokiasonic.github.io/sign-up</code>，会用作注册管理员登录信息。</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SMTP_PASS</td>
+<td style="text-align: left;">ccxxxxxxxxch</td>
+<td style="text-align: left;">[必填] SMTP 登录密码（QQ邮箱需要获取独立密码）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SENDER_NAME</td>
+<td style="text-align: left;">nokiasonic</td>
+<td style="text-align: left;">[必填]发件人</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SENDER_EMAIL</td>
+<td style="text-align: left;">xxxxx@hotmail.com</td>
+<td style="text-align: left;">[必填]发件邮箱</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ADMIN_URL</td>
+<td style="text-align: left;">https://xxx.avosapps.us</td>
+<td style="text-align: left;">[建议] Web 主机二级域名，用于自动唤醒</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BLOGGER_EMAIL</td>
+<td style="text-align: left;">xxxxx@hotmail.com</td>
+<td style="text-align: left;">[可选]博主通知收件地址，默认使用 SENDER_EMAIL</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AKISMET_KEY</td>
+<td style="text-align: left;">xxxxxxxxxxxx</td>
+<td style="text-align: left;">[可选] Akismet Key 用于垃圾评论检测，设为 MANUAL_REVIEW 开启人工审核，留空不使用反垃圾</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>美好生活</category>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>Valine</tag>
       </tags>
   </entry>
   <entry>
@@ -309,122 +425,6 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>为博客文章增加Valine评论系统</title>
-    <url>/2020/12/10/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E5%A2%9E%E5%8A%A0Valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<p>目前常用的评论系统有以下这些：</p>
-<ul>
-<li><p>Github大礼包：<a href="https://link.zhihu.com/?target=https%3A//github.com/iissnan/hexo-theme-next/issues/1604">gitment</a>， <a href="https://link.zhihu.com/?target=https%3A//github.com/iissnan/hexo-theme-next/pull/2037">gitalk</a><strong>（推荐），</strong><a href="https://link.zhihu.com/?target=https%3A//www.vincentqin.tech/2016/08/09/build-a-website-using-hexo/%23%E5%A2%9E%E5%8A%A0Gitter">gitter</a><strong>（推荐）;</strong> 三个都支持<strong>Markdown；</strong></p></li>
-<li><p>基于leancloud的无后端评论系统：<a href="https://link.zhihu.com/?target=https%3A//valine.js.org/%23/">Valine</a><strong>（推荐，</strong>支持<strong>Markdown）；</strong></p></li>
-<li><p>国外的有几个：<a href="https://link.zhihu.com/?target=http%3A//www.disqus.com/">disqus</a>(漂亮，但需翻墙)，<a href="https://link.zhihu.com/?target=https%3A//www.hypercomments.com/">hypercomments</a><strong>（推荐，</strong>不支持<strong>Markdown）。</strong></p></li>
-</ul>
-<p>来试试如何用Valine搭建评论系统吧。</p>
-<a id="more"></a>
-<h2 id="注册leanclound获取app-id-和-app-key">注册LeanClound,获取APP ID 和 APP Key</h2>
-<p>Valine 是基于 <a href="https://leancloud.cn/">LeanCloud</a> 作为数据存储的，所以需要注册一个账号，在注册完成后，需要创建应用。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211115602.png" /></p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211115809.png" /></p>
-<p>点击<code>存储</code>设置，查看是否有<code>Comment</code>和 <code>Counter</code>，没有则创建，权限设为无限制。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211120224.png" /></p>
-<p>在<code>安全中心</code>里将除<code>数据存储</code>之外的服务全部关闭。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211120336.png" /></p>
-<p>最后点击<code>应用 Keys</code> 取得我们 <code>AppKey</code> 和 <code>App id</code></p>
-<h2 id="在hexo-next主题中配置">在Hexo Next主题中配置</h2>
-<p>首先打开 https://www.jsdelivr.com/package/npm/valine 获取最新的 valine.min.js 的cdn地址：</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211123228.png" /></p>
-<p>修改博客项目目录下的<code>_config.next.yml</code>文件：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Valine</span></span><br><span class="line"><span class="comment"># valine: //cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js</span></span><br><span class="line"><span class="comment"># valine: //cdnjs.cloudflare.com/ajax/libs/valine/1.3.10/Valine.min.js</span></span><br><span class="line"><span class="string">valine:https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js</span></span><br></pre></td></tr></table></figure>
-<p>以及</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">valine:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">appid:</span> <span class="comment"># Your leancloud application appid</span></span><br><span class="line">  <span class="attr">appkey:</span> <span class="comment"># Your leancloud application appkey</span></span><br><span class="line">  <span class="attr">notify:</span> <span class="literal">false</span> <span class="comment"># Mail notifier</span></span><br><span class="line">  <span class="attr">verify:</span> <span class="literal">false</span> <span class="comment"># Verification code</span></span><br><span class="line">  <span class="attr">placeholder:</span> <span class="string">Just</span> <span class="string">go</span> <span class="string">go</span> <span class="comment"># Comment box placeholder</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">mm</span> <span class="comment"># Gravatar style</span></span><br><span class="line">  <span class="attr">guest_info:</span> <span class="string">nick,mail,link</span> <span class="comment"># Custom comment header</span></span><br><span class="line">  <span class="attr">pageSize:</span> <span class="number">10</span> <span class="comment"># Pagination size</span></span><br><span class="line">  <span class="attr">language:</span> <span class="comment"># Language, available values: en, zh-cn</span></span><br><span class="line">  <span class="attr">visitor:</span> <span class="literal">false</span> <span class="comment"># Article reading statistic</span></span><br><span class="line">  <span class="attr">comment_count:</span> <span class="literal">true</span> <span class="comment"># If false, comment count will only be displayed in post page, not in home page</span></span><br><span class="line">  <span class="attr">recordIP:</span> <span class="literal">false</span> <span class="comment"># Whether to record the commenter IP</span></span><br><span class="line">  <span class="attr">serverURLs:</span> <span class="comment"># When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)</span></span><br><span class="line">  <span class="comment">#post_meta_order: 0</span></span><br></pre></td></tr></table></figure>
-<p>appid及appkey就填写我们从LeanClound那里获得的信息。</p>
-<h2 id="利用valine-admin进行评论管理">利用Valine Admin进行评论管理</h2>
-<p>Valine Admin 是Valine的扩展和增强，主要实现评论邮件通知、评论管理、垃圾评论过滤等功能。支持完全自定义的邮件通知模板，基于 Akismet API 实现准确的垃圾评论过滤。</p>
-<h3 id="部署">部署</h3>
-<ol type="1">
-<li>在 <a href="https://leancloud.cn/dashboard/#/apps">Leancloud</a> 云引擎部署界面，填写代码库并保存：https://github.com/DesertsP/Valine-Admin.git</li>
-</ol>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211165800.png" /></p>
-<ol start="2" type="1">
-<li><p>在 <a href="https://leancloud.cn/dashboard/#/apps">Leancloud</a> 云引擎设置界面，设置环境变量以及 Web 二级域名。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211170036.png" /></p></li>
-<li><p>环境变量说明</p></li>
-</ol>
-<table>
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 27%" />
-<col style="width: 59%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">变量</th>
-<th style="text-align: left;">示例</th>
-<th style="text-align: left;">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">SITE_NAME</td>
-<td style="text-align: left;">Deserts</td>
-<td style="text-align: left;">[必填]博客名称</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">SITE_URL</td>
-<td style="text-align: left;">https://nokiasonic.github.io</td>
-<td style="text-align: left;">[必填]首页地址</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">SMTP_SERVICE</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">[新版支持]邮件服务提供商，支持 QQ、163、126、Gmail 以及 更多</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">SMTP_USER</td>
-<td style="text-align: left;">xxxxx@hotmail.com</td>
-<td style="text-align: left;">[必填] SMTP 登录用户, 这个在注册访问管理员注册页面<code>https://nokiasonic.github.io/sign-up</code>，会用作注册管理员登录信息。</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">SMTP_PASS</td>
-<td style="text-align: left;">ccxxxxxxxxch</td>
-<td style="text-align: left;">[必填] SMTP 登录密码（QQ邮箱需要获取独立密码）</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">SENDER_NAME</td>
-<td style="text-align: left;">nokiasonic</td>
-<td style="text-align: left;">[必填]发件人</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">SENDER_EMAIL</td>
-<td style="text-align: left;">xxxxx@hotmail.com</td>
-<td style="text-align: left;">[必填]发件邮箱</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">ADMIN_URL</td>
-<td style="text-align: left;">https://xxx.avosapps.us</td>
-<td style="text-align: left;">[建议] Web 主机二级域名，用于自动唤醒</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">BLOGGER_EMAIL</td>
-<td style="text-align: left;">xxxxx@hotmail.com</td>
-<td style="text-align: left;">[可选]博主通知收件地址，默认使用 SENDER_EMAIL</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">AKISMET_KEY</td>
-<td style="text-align: left;">xxxxxxxxxxxx</td>
-<td style="text-align: left;">[可选] Akismet Key 用于垃圾评论检测，设为 MANUAL_REVIEW 开启人工审核，留空不使用反垃圾</td>
-</tr>
-</tbody>
-</table>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>美好生活</category>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>Valine</tag>
       </tags>
   </entry>
   <entry>
