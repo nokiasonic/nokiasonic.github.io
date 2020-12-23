@@ -1,26 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>【Hexo】Next主题标题颜色设置</title>
-    <url>/2020/12/10/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%A0%87%E9%A2%98%E9%A2%9C%E8%89%B2%E8%AE%BE%E7%BD%AE/</url>
-    <content><![CDATA[<p>主题采用的是Next的Mist。 不太喜欢全部都是黑灰白色的主基调，希望将标题来点明亮的颜色。以下来介绍具体的配置方法。</p>
-<a id="more"></a>
-<h2 id="更改标题配色">更改标题配色</h2>
-<p>找到<code>\themes\next\source\css\_common\outline\header\site-meta.styl</code>文件。编辑修改<code>.brand&#123;&#125;</code>里<code>color</code>参数配置</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.brand</span> &#123;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">//  color: var(--brand-color);</span><br><span class="line">  <span class="selector-tag">color</span>: <span class="selector-id">#fc6423</span> !<span class="selector-tag">important</span>;</span><br><span class="line">  <span class="selector-tag">display</span>: <span class="selector-tag">inline-block</span>;</span><br><span class="line">  line-height: $font-size-title;</span><br><span class="line">  <span class="selector-tag">padding</span>: 0 40<span class="selector-tag">px</span>;</span><br><span class="line">  <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line"></span><br><span class="line">  &amp;<span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">var</span>(--brand-hover-color);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="更改标题上下横线配色">更改标题上下横线配色</h2>
-<p>找到<code>\themes\next\source\css\_schemes\Mist\_header.styl</code>。编辑修改<code>i&#123;&#125;</code>里的<code>background</code>参数配置</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"> <span class="selector-tag">i</span> &#123;</span><br><span class="line">   //background: var(--brand-color);</span><br><span class="line"><span class="selector-tag">background</span>: <span class="selector-id">#fc6423</span> !<span class="selector-tag">important</span>;</span><br><span class="line">   <span class="selector-tag">display</span>: <span class="selector-tag">block</span>;</span><br><span class="line">   <span class="selector-tag">height</span>: 2<span class="selector-tag">px</span>;</span><br><span class="line">   <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>欢迎来到我的博客</title>
     <url>/2020/11/19/hello-world/</url>
     <content><![CDATA[<h2 id="橘子的博客终于开通了">橘子的博客终于开通了</h2>
@@ -43,6 +23,55 @@
       </tags>
   </entry>
   <entry>
+    <title>docker创建的vhdx文件无法移动或删除</title>
+    <url>/2020/12/23/docker%E5%88%9B%E5%BB%BA%E7%9A%84vhdx%E6%96%87%E4%BB%B6%E6%97%A0%E6%B3%95%E7%A7%BB%E5%8A%A8%E6%88%96%E5%88%A0%E9%99%A4/</url>
+    <content><![CDATA[<p>操作系统为win10 professional,由于开始使用docker时没有及时调整img存放的位置，导致C盘空间被耗尽。所以决定迁移img至数据盘。但在通过dockerdeskto setting更改存储位置时，发生了异常，没有完全执行成功。初次重启后无法正常启动docker。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201223092440.png" /></p>
+<p>再次重启后发现原有的vhdx文件没有被迁移至指定的位置， 且无法拷贝，移动或删除，提示无管理员权限。</p>
+<a id="more"></a>
+<p>处理过程如下：</p>
+<ol type="1">
+<li>开启本机Administrator账户：</li>
+</ol>
+<p>​ 快捷键Win + X, 计算机管理 - 系统工具 - 本地用户和组 - 用户， 右键选择"Administrator"属性，取消勾选“账户已禁用”，重启计算机， 然后选择Administrator账号登录即可。</p>
+<p>​ 但是在尝试拷贝及移动vhdx文件时，仍然提示权限不够。没有解决该问题</p>
+<ol start="2" type="1">
+<li><p>恢复docker desktop为出厂设置</p>
+<p>点击右上“troubleshooting”图标，选择恢复出厂设置</p></li>
+</ol>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201223094101.png" /></p>
+<p>重启后， docker及内部的容器都运行正常，再次尝试改变存储位置。这次运行成功， vhdx文件正常迁移到设定目标位置，且 docker及内部的容器都运行正常。问题得以解决，判断是首次操作时出现异常，导致文件迁移未完成且处于死锁状态。</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>hyper-v</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】Next主题标题颜色设置</title>
+    <url>/2020/12/10/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%A0%87%E9%A2%98%E9%A2%9C%E8%89%B2%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<p>主题采用的是Next的Mist。 不太喜欢全部都是黑灰白色的主基调，希望将标题来点明亮的颜色。以下来介绍具体的配置方法。</p>
+<a id="more"></a>
+<h2 id="更改标题配色">更改标题配色</h2>
+<p>找到<code>\themes\next\source\css\_common\outline\header\site-meta.styl</code>文件。编辑修改<code>.brand&#123;&#125;</code>里<code>color</code>参数配置</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.brand</span> &#123;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">//  color: var(--brand-color);</span><br><span class="line">  <span class="selector-tag">color</span>: <span class="selector-id">#fc6423</span> !<span class="selector-tag">important</span>;</span><br><span class="line">  <span class="selector-tag">display</span>: <span class="selector-tag">inline-block</span>;</span><br><span class="line">  line-height: $font-size-title;</span><br><span class="line">  <span class="selector-tag">padding</span>: 0 40<span class="selector-tag">px</span>;</span><br><span class="line">  <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line"></span><br><span class="line">  &amp;<span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">var</span>(--brand-hover-color);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="更改标题上下横线配色">更改标题上下横线配色</h2>
+<p>找到<code>\themes\next\source\css\_schemes\Mist\_header.styl</code>。编辑修改<code>i&#123;&#125;</code>里的<code>background</code>参数配置</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"> <span class="selector-tag">i</span> &#123;</span><br><span class="line">   //background: var(--brand-color);</span><br><span class="line"><span class="selector-tag">background</span>: <span class="selector-id">#fc6423</span> !<span class="selector-tag">important</span>;</span><br><span class="line">   <span class="selector-tag">display</span>: <span class="selector-tag">block</span>;</span><br><span class="line">   <span class="selector-tag">height</span>: 2<span class="selector-tag">px</span>;</span><br><span class="line">   <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【Hexo】常用操作指令</title>
     <url>/2020/11/20/%E3%80%90Hexo%E3%80%91%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4/</url>
     <content><![CDATA[<p>欢迎使用 <a href="https://hexo.io/">Hexo</a>! 有关hexo的详细说明参见 <a href="https://hexo.io/docs/">documentation</a> 。 相关的问题解决参见 <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> 。</p>
@@ -60,43 +89,6 @@
 <h3 id="部署到远程">部署到远程</h3>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>详见: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Hexo】Next主题更好地支持LaTeX数学公式</title>
-    <url>/2020/12/17/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%9B%B4%E5%A5%BD%E5%9C%B0%E6%94%AF%E6%8C%81LaTeX%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</url>
-    <content><![CDATA[<p>在Typora中可以正常显示的<span class="math inline">\(L^AT_EX\)</span>数学公式，在Hexo NexT主题下却渲染得不是太理想。我们去最新的<a href="https://theme-next.js.org/docs/third-party-services/math-equations.html">NexT官方文档</a>里看看如何解决吧！</p>
-<a id="more"></a>
-<h2 id="实施步骤">实施步骤</h2>
-<p>NexT主题现在提供两种数学公式的渲染方式 <a href="https://www.mathjax.org/">MathJax</a> 及 <a href="https://katex.org/">KaTeX</a>。其中<code>katex</code>的速度更快，但是对于<span class="math inline">\(L^AT_EX\)</span>的支持有一定的限制。所以除非你的博客数量实在是过于庞大，不然就可以直接使用<code>mathjax</code>。</p>
-<p>使用<code>mathjax</code>，可以选择多种渲染引擎，但推荐使用</p>
-<ul>
-<li><a href="https://github.com/wzpan/hexo-renderer-pandoc">hexo-renderer-pandoc</a></li>
-</ul>
-<p>使用其它诸如<a href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a>之类的引擎（这是Hexo默认首先用来渲染MarkDown的），然后再交给<code>mathjax</code>渲染。<code>hexo-renderer-marked</code>会把一些特殊的MarkDown符号转换为相应的html标签，比如在MarkDown语法中，下划线 _ 代表斜体，会被转化为&lt; em&gt;标签，\也会被转义成一个。而类<span class="math inline">\(L^AT_EX\)</span>格式书写的数学公式下划线 _ 表示角标，\表示公式换行，有特殊的含义，所以<code>mathjax</code>引擎在渲染数学公式的时候就会无法正常渲染。</p>
-<h3 id="安装pandoc">安装pandoc</h3>
-<p><a href="https://github.com/jgm/pandoc/blob/master/INSTALL.md">安装文档</a>及<a href="https://github.com/jgm/pandoc/releases/latest">下载链接</a>]，因为在安装<code>Anaconda</code>时已经含有pandoc。这里不再单独进行安装。</p>
-<h3 id="配置next">配置NexT</h3>
-<ol type="1">
-<li>首先，在NexT主题配置文件中将<code>mathjax</code>设为渲染引擎</li>
-</ol>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<ol start="2" type="1">
-<li>然后，卸载最初的<code>hexo-renderer-marked</code>引擎并安装<code>hexo-renderer-pandoc</code>。</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm un hexo-renderer-marked</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm i hexo-renderer-pandoc</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201217170659.png" /></p>
-<ol start="3" type="1">
-<li>在更换完渲染引擎后，执行一下<code>hexo clean</code>，然后再进行部署或启动本地服务器来验证渲染是否工作正常。</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo clean &amp;&amp; hexo g -d</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> or hexo clean &amp;&amp; hexo s</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>技术笔记</category>
@@ -262,6 +254,96 @@
       </tags>
   </entry>
   <entry>
+    <title>【Hexo】Next主题更好地支持LaTeX数学公式</title>
+    <url>/2020/12/17/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%9B%B4%E5%A5%BD%E5%9C%B0%E6%94%AF%E6%8C%81LaTeX%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</url>
+    <content><![CDATA[<p>在Typora中可以正常显示的<span class="math inline">\(L^AT_EX\)</span>数学公式，在Hexo NexT主题下却渲染得不是太理想。我们去最新的<a href="https://theme-next.js.org/docs/third-party-services/math-equations.html">NexT官方文档</a>里看看如何解决吧！</p>
+<a id="more"></a>
+<h2 id="实施步骤">实施步骤</h2>
+<p>NexT主题现在提供两种数学公式的渲染方式 <a href="https://www.mathjax.org/">MathJax</a> 及 <a href="https://katex.org/">KaTeX</a>。其中<code>katex</code>的速度更快，但是对于<span class="math inline">\(L^AT_EX\)</span>的支持有一定的限制。所以除非你的博客数量实在是过于庞大，不然就可以直接使用<code>mathjax</code>。</p>
+<p>使用<code>mathjax</code>，可以选择多种渲染引擎，但推荐使用</p>
+<ul>
+<li><a href="https://github.com/wzpan/hexo-renderer-pandoc">hexo-renderer-pandoc</a></li>
+</ul>
+<p>使用其它诸如<a href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a>之类的引擎（这是Hexo默认首先用来渲染MarkDown的），然后再交给<code>mathjax</code>渲染。<code>hexo-renderer-marked</code>会把一些特殊的MarkDown符号转换为相应的html标签，比如在MarkDown语法中，下划线 _ 代表斜体，会被转化为&lt; em&gt;标签，\也会被转义成一个。而类<span class="math inline">\(L^AT_EX\)</span>格式书写的数学公式下划线 _ 表示角标，\表示公式换行，有特殊的含义，所以<code>mathjax</code>引擎在渲染数学公式的时候就会无法正常渲染。</p>
+<h3 id="安装pandoc">安装pandoc</h3>
+<p><a href="https://github.com/jgm/pandoc/blob/master/INSTALL.md">安装文档</a>及<a href="https://github.com/jgm/pandoc/releases/latest">下载链接</a>]，因为在安装<code>Anaconda</code>时已经含有pandoc。这里不再单独进行安装。</p>
+<h3 id="配置next">配置NexT</h3>
+<ol type="1">
+<li>首先，在NexT主题配置文件中将<code>mathjax</code>设为渲染引擎</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li>然后，卸载最初的<code>hexo-renderer-marked</code>引擎并安装<code>hexo-renderer-pandoc</code>。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm un hexo-renderer-marked</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm i hexo-renderer-pandoc</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201217170659.png" /></p>
+<ol start="3" type="1">
+<li>在更换完渲染引擎后，执行一下<code>hexo clean</code>，然后再进行部署或启动本地服务器来验证渲染是否工作正常。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo clean &amp;&amp; hexo g -d</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> or hexo clean &amp;&amp; hexo s</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用github/gitee来作为图床系统</title>
+    <url>/2020/12/10/%E4%BD%BF%E7%94%A8github%E5%8F%8Agitee%E6%9D%A5%E4%BD%9C%E4%B8%BA%E5%9B%BE%E5%BA%8A%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<p>日常进行博客及其它文章或笔记的写作时，经常需要在文章内容里插入图片。 当文档需要发布或存储到云服务器上时，就需要考虑将引用的图片放置到图床系统中。下面讲述下利用github或gitee来搭建图床系统的方法。</p>
+<a id="more"></a>
+<h2 id="一利用github来建立图床">一、利用github来建立图床</h2>
+<h3 id="建立github图床仓库">建立Github图床仓库</h3>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113510.png" /></p>
+<h3 id="设置token">设置Token</h3>
+<p>进入全局设置，点击<code>Developer Settings</code> -&gt; <code>Personal access tokens</code>，选择<code>Generate new token</code></p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113538.png" /></p>
+<h3 id="设置picgo客户端">设置PicGO客户端</h3>
+<h4 id="下载">下载</h4>
+<p><a href="https://github.com/Molunerfinn/PicGo/releases">PicGo的可执行文件下载地址</a></p>
+<h4 id="设置">设置</h4>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113630.png" /></p>
+<ul>
+<li>仓库名：按照“账户名/仓库名”的格式填写；</li>
+<li>分支名：统一填写为<code>main</code>；</li>
+<li>Tocken：将之前的Github的Token黏贴在这里；</li>
+<li>存储路径：若设置为img/，则会在repository下创建一个“img”文件夹；</li>
+<li>自定义域名：在上传图片后成功后，PicGo会将“自定义域名+上传的图片名”生成的访问链接，放到剪切板。这里约定遵循如下的格式：<code>域名/用户名/仓库名/分支名。</code></li>
+</ul>
+<h4 id="上传图片">上传图片</h4>
+<p>在picgo上传区，可以直接上传剪贴板上的图片或保存成文件上传。这里不再说明。</p>
+<hr />
+<p>因为github显示图片相当不稳定。 所以可以使用gitee来替代它作为图床的托管仓库。</p>
+<h2 id="二利用gitee来建立图床">二、利用gitee来建立图床</h2>
+<h3 id="在gitee中创建仓库">在gitee中创建仓库</h3>
+<p>按照常规创建仓库的方式创建一个专门用于图床的仓库</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113253.png" /></p>
+<h3 id="获取token">获取token</h3>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113315.png" /></p>
+<h3 id="在picgo中安装gitee插件">在PicGO中安装gitee插件</h3>
+<h4 id="安装">安装</h4>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211111817.png" /></p>
+<h4 id="配置插件">配置插件</h4>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211112516.png" /></p>
+<p>这里需要注意的是repo的名字中大小写字母需要完全一致且是repo仓库路径。否则会报404错误。</p>
+<h4 id="上传图片-1">上传图片</h4>
+<p>至此，图床系统搭建完成，可以愉快地写作了。</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>美好生活</category>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+        <tag>gitee</tag>
+        <tag>picgo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>为博客文章增加Valine评论系统</title>
     <url>/2020/12/10/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E5%A2%9E%E5%8A%A0Valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</url>
     <content><![CDATA[<p>目前常用的评论系统有以下这些：</p>
@@ -378,59 +460,6 @@
       </tags>
   </entry>
   <entry>
-    <title>使用github/gitee来作为图床系统</title>
-    <url>/2020/12/10/%E4%BD%BF%E7%94%A8github%E5%8F%8Agitee%E6%9D%A5%E4%BD%9C%E4%B8%BA%E5%9B%BE%E5%BA%8A%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<p>日常进行博客及其它文章或笔记的写作时，经常需要在文章内容里插入图片。 当文档需要发布或存储到云服务器上时，就需要考虑将引用的图片放置到图床系统中。下面讲述下利用github或gitee来搭建图床系统的方法。</p>
-<a id="more"></a>
-<h2 id="一利用github来建立图床">一、利用github来建立图床</h2>
-<h3 id="建立github图床仓库">建立Github图床仓库</h3>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113510.png" /></p>
-<h3 id="设置token">设置Token</h3>
-<p>进入全局设置，点击<code>Developer Settings</code> -&gt; <code>Personal access tokens</code>，选择<code>Generate new token</code></p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113538.png" /></p>
-<h3 id="设置picgo客户端">设置PicGO客户端</h3>
-<h4 id="下载">下载</h4>
-<p><a href="https://github.com/Molunerfinn/PicGo/releases">PicGo的可执行文件下载地址</a></p>
-<h4 id="设置">设置</h4>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113630.png" /></p>
-<ul>
-<li>仓库名：按照“账户名/仓库名”的格式填写；</li>
-<li>分支名：统一填写为<code>main</code>；</li>
-<li>Tocken：将之前的Github的Token黏贴在这里；</li>
-<li>存储路径：若设置为img/，则会在repository下创建一个“img”文件夹；</li>
-<li>自定义域名：在上传图片后成功后，PicGo会将“自定义域名+上传的图片名”生成的访问链接，放到剪切板。这里约定遵循如下的格式：<code>域名/用户名/仓库名/分支名。</code></li>
-</ul>
-<h4 id="上传图片">上传图片</h4>
-<p>在picgo上传区，可以直接上传剪贴板上的图片或保存成文件上传。这里不再说明。</p>
-<hr />
-<p>因为github显示图片相当不稳定。 所以可以使用gitee来替代它作为图床的托管仓库。</p>
-<h2 id="二利用gitee来建立图床">二、利用gitee来建立图床</h2>
-<h3 id="在gitee中创建仓库">在gitee中创建仓库</h3>
-<p>按照常规创建仓库的方式创建一个专门用于图床的仓库</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113253.png" /></p>
-<h3 id="获取token">获取token</h3>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113315.png" /></p>
-<h3 id="在picgo中安装gitee插件">在PicGO中安装gitee插件</h3>
-<h4 id="安装">安装</h4>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211111817.png" /></p>
-<h4 id="配置插件">配置插件</h4>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211112516.png" /></p>
-<p>这里需要注意的是repo的名字中大小写字母需要完全一致且是repo仓库路径。否则会报404错误。</p>
-<h4 id="上传图片-1">上传图片</h4>
-<p>至此，图床系统搭建完成，可以愉快地写作了。</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>美好生活</category>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>github</tag>
-        <tag>gitee</tag>
-        <tag>picgo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>线性代数在量化投资分析中的应用</title>
     <url>/2020/12/17/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9C%A8%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%88%86%E6%9E%90%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</url>
     <content><![CDATA[<h1 id="基本概念">基本概念</h1>
@@ -441,6 +470,7 @@
 • <code>向量（vector）</code>：一个向量是一列数。这些数是有序排列的。<br />
 • <code>矩阵（matrix）</code>：矩阵是一个二维数组，其中的每一个元素被两个索引（而非一个）所确定。<br />
 • <code>张量（tensor）</code>：在某些情况下，我们会讨论坐标超过两维的数组。一般地，一个数组中的元素分布在若干维坐标的规则网格中，我们称之为张量。</p>
+<a id="more"></a>
 <h2 id="转置">转置</h2>
 <p><code>转置（transpose）</code>是矩阵的重要操作之一。矩阵的转置是以对角线为轴的镜像，这条从左上角到右下角的对角线被称为 主对角线（main diagonal）。</p>
 <p>向量可以看作只有一列的矩阵。对应地，向量的转置可以看作是只有一行的矩阵。<br />
@@ -558,6 +588,17 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A = np.array([[<span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>,-<span class="number">1</span>]])</span><br><span class="line">b = np.array([<span class="number">2</span>,<span class="number">4</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#使用点积的两种方式</span></span><br><span class="line">X1 = (np.linalg.inv(A)).dot(b)</span><br><span class="line">X2 = np.dot(np.linalg.inv(A),b)</span><br><span class="line">print(X1)</span><br><span class="line">print(X2)</span><br></pre></td></tr></table></figure>
 <pre><code>[ 3. -1.]
 [ 3. -1.]</code></pre>
+<h1 id="线性回归模型简介">线性回归模型简介</h1>
+<p>假设被解释变量<span class="math inline">\(y\)</span>与多个解释变量<span class="math inline">\(X_1,X_2,...,X_p\)</span>之间具有线性关系，则记为</p>
+<p><span class="math inline">\(\large y=\beta_0+\beta_1X_1+\beta_2X_2+...+\beta_pX_p+\mu\)</span></p>
+<p>称之为多元线性回归模型，其中<span class="math inline">\(\beta_0,\beta_1,...,\beta_p\)</span>为<span class="math inline">\(p+1\)</span>个未知参数，<span class="math inline">\(\mu\)</span>为随机扰动项，表示除<span class="math inline">\(X_1,X_2,...,X_p\)</span>以外影响<span class="math inline">\(y\)</span>的所有非观测因素，并假设<span class="math inline">\(\mu\sim N(0,\sigma^2)\)</span>。</p>
+<p>假设有<span class="math inline">\(n\)</span>组观测数据<span class="math inline">\(y_i,X_{1i},X_{2i},...,X_{pi},i=1,2,...,n\)</span>，则存在线性方程组</p>
+<p><span class="math inline">\(\large \begin{equation} \left\{ \begin{aligned} y_1=\beta_0+\beta_1X_{11}+\beta_2X_{21}+...+\beta_pX_{p1}+\mu_1\\ y_2=\beta_0+\beta_1X_{12}+\beta_2X_{22}+...+\beta_pX_{p2}+\mu_2\\ \vdots\\ y_n=\beta_0+\beta_1X_{1n}+\beta_2X_{2n}+...+\beta_pX_{pn}+\mu_n\\ \end{aligned} \right. \end{equation}\)</span></p>
+<p>若记</p>
+<p><span class="math inline">\(Y=(y_1,y_2,...,y_n)^\tau， X=\left[  \begin{matrix}  1&amp;X_{11} &amp; X_{21}&amp;...&amp;X_{p1} \\  1&amp;X_{12} &amp; X_{22}&amp;...&amp;X_{p2} \\  \vdots &amp; \vdots&amp;\ddots\\  1&amp;X_{1n} &amp; X_{2n}&amp;...&amp;X_{pn} \\  \end{matrix}  \right]，\beta=(\beta_1,\beta_2,...,\beta_n)^\tau，\mu=(\mu_1,\mu_2,...,\mu_n)^\tau\)</span> 则线性方程组可表示为</p>
+<p><span class="math inline">\(\large Y=X\beta+\mu\)</span></p>
+<p>通过参数估计方法，可以得到未知参数<span class="math inline">\(\beta\)</span>的估计值。参见<a href="https://zhuanlan.zhihu.com/p/91095053">计量经济学：多元线性回归的最小二乘估计</a></p>
+<p><span class="math inline">\(\large \hat{\beta}=(X^\tau X)^{-1}X^\tau Y\)</span></p>
 <h1 id="线性回归模型求解模拟">线性回归模型求解模拟</h1>
 <p><code>statsmodels</code>是Python中一个强大的统计分析包，包含了回归分析、时间序列分析、假设检验等等的功能，当需要在Python中进行回归分析时，就可以导入statsmodels。</p>
 <p><code>statsmodels.regression.linear_model</code>里有回归函数<code>statsmodels.OLS</code>，它的输入参数有<code>(endog, exog, missing, hasconst)</code>。一般只考虑前两个输入，其中，<code>endog</code>是回归中的因变量<span class="math inline">\(Y\)</span>，是一个<span class="math inline">\(n\)</span>维的向量；<code>exog</code>是回归中的自变量<span class="math inline">\(X_1,X_2,...,X_P\)</span>，由于statsmodels.OLS不会假设回归模型有常数项，所以我们应该假设模型是</p>
@@ -573,7 +614,7 @@
 ]]></content>
       <categories>
         <category>技术笔记</category>
-        <category>理化投资</category>
+        <category>量化投资</category>
       </categories>
       <tags>
         <tag>线性代数</tag>
@@ -890,9 +931,20 @@ code
 </div>
 <p>显示dataframe的内存占用情况。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.info(memory_usage = <span class="string">&#x27;deep&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p>&lt;class 'pandas.core.frame.DataFrame'&gt; MultiIndex: 61001 entries, (2020-11-16 00:00:00, 000001) to (2020-12-04 00:00:00, 689009) Data columns (total 6 columns): open 61001 non-null float64 high 61001 non-null float64 low 61001 non-null float64 close 61001 non-null float64 volume 61001 non-null float64 amount 61001 non-null float64 dtypes: float64(6) memory usage: 3.2 MB</p>
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+MultiIndex: 61001 entries, (2020-11-16 00:00:00, 000001) to (2020-12-04 00:00:00, 689009)
+Data columns (total 6 columns):
+open      61001 non-null float64
+high      61001 non-null float64
+low       61001 non-null float64
+close     61001 non-null float64
+volume    61001 non-null float64
+amount    61001 non-null float64
+dtypes: float64(6)
+memory usage: 3.2 MB</code></pre>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">%%time</span><br><span class="line"></span><br><span class="line">df1 = df</span><br><span class="line">col_name = df1.columns.tolist()</span><br><span class="line">col_name.insert(<span class="number">6</span>,<span class="string">&#x27;status&#x27;</span>)</span><br><span class="line">df1 = df1.reindex(columns=col_name)</span><br><span class="line">df1.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<p>CPU times: user 1.72 ms, sys: 1.99 ms, total: 3.71 ms Wall time: 3.21 ms</p>
+<pre><code>CPU times: user 1.72 ms, sys: 1.99 ms, total: 3.71 ms
+Wall time: 3.21 ms</code></pre>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1230,7 +1282,8 @@ NaN
 <h3 id="测试1使用下标循环">测试1：使用下标循环</h3>
 <p>下标循环是通过循环一个下标数列，通过iloc去不断获取数据。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">%%time</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(df1)):</span><br><span class="line">    <span class="keyword">if</span> (df1.iloc[i][<span class="string">&#x27;close&#x27;</span>] - df1.iloc[i][<span class="string">&#x27;open&#x27;</span>]) &gt;=<span class="number">0</span>:</span><br><span class="line">        df1.iloc[i][<span class="string">&#x27;status&#x27;</span>] = <span class="number">1</span>        </span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        df1.iloc[i][<span class="string">&#x27;status&#x27;</span>] = -<span class="number">1</span>   </span><br><span class="line">df1.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<p>CPU times: user 33.6 s, sys: 136 ms, total: 33.8 s Wall time: 34.1 s</p>
+<pre><code>CPU times: user 33.6 s, sys: 136 ms, total: 33.8 s
+Wall time: 34.1 s</code></pre>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1567,7 +1620,8 @@ code
 <h3 id="测试2iterrows循环">测试2：Iterrows循环</h3>
 <p>该循环方式是通过iterrows进行循环，ind和row分别代表了每一行的index和内容。测试例子大概需要s，比起下标循环速度提升了321倍。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">%%time</span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> ind, row <span class="keyword">in</span> df1.iterrows():</span><br><span class="line">    <span class="keyword">if</span> row[<span class="string">&#x27;close&#x27;</span>] - row[<span class="string">&#x27;open&#x27;</span>] &gt;=<span class="number">0</span>:</span><br><span class="line">        df1.iloc[i][<span class="string">&#x27;status&#x27;</span>] = <span class="number">1</span>     </span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        df1.iloc[i][<span class="string">&#x27;status&#x27;</span>] = -<span class="number">1</span>  </span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line">df1.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<p>CPU times: user 18.5 s, sys: 82.7 ms, total: 18.6 s Wall time: 18.8 s</p>
+<pre><code>CPU times: user 18.5 s, sys: 82.7 ms, total: 18.6 s
+Wall time: 18.8 s</code></pre>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1903,7 +1957,8 @@ code
 </div>
 <h3 id="测试3apply循环">测试3：Apply循环</h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">%%time</span><br><span class="line"></span><br><span class="line">df1[<span class="string">&#x27;status&#x27;</span>] = (df1[<span class="string">&#x27;close&#x27;</span>]-df[<span class="string">&#x27;open&#x27;</span>]).apply(<span class="keyword">lambda</span> x: <span class="number">1</span> <span class="keyword">if</span> x &gt;=<span class="number">0</span> <span class="keyword">else</span> -<span class="number">1</span>)</span><br><span class="line">df1.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<p>CPU times: user 23.8 ms, sys: 1.99 ms, total: 25.8 ms Wall time: 35.6 ms</p>
+<pre><code>CPU times: user 23.8 ms, sys: 1.99 ms, total: 25.8 ms
+Wall time: 35.6 ms</code></pre>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2239,7 +2294,8 @@ code
 </div>
 <h3 id="测试4numpy内置向量化函数">测试4：numpy内置向量化函数</h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">%%time</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">df1[<span class="string">&#x27;status&#x27;</span>] = np.where((df1.close -  df1.<span class="built_in">open</span>)&gt;=<span class="number">0</span>, <span class="number">1</span>, -<span class="number">1</span>)</span><br><span class="line">df1.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<p>CPU times: user 1.74 ms, sys: 2.99 ms, total: 4.72 ms Wall time: 10.4 ms</p>
+<pre><code>CPU times: user 1.74 ms, sys: 2.99 ms, total: 4.72 ms
+Wall time: 10.4 ms</code></pre>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {

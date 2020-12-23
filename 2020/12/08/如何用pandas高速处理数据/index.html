@@ -576,9 +576,20 @@ code
 </div>
 <p>显示dataframe的内存占用情况。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.info(memory_usage = <span class="string">&#x27;deep&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p>&lt;class 'pandas.core.frame.DataFrame'&gt; MultiIndex: 61001 entries, (2020-11-16 00:00:00, 000001) to (2020-12-04 00:00:00, 689009) Data columns (total 6 columns): open 61001 non-null float64 high 61001 non-null float64 low 61001 non-null float64 close 61001 non-null float64 volume 61001 non-null float64 amount 61001 non-null float64 dtypes: float64(6) memory usage: 3.2 MB</p>
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+MultiIndex: 61001 entries, (2020-11-16 00:00:00, 000001) to (2020-12-04 00:00:00, 689009)
+Data columns (total 6 columns):
+open      61001 non-null float64
+high      61001 non-null float64
+low       61001 non-null float64
+close     61001 non-null float64
+volume    61001 non-null float64
+amount    61001 non-null float64
+dtypes: float64(6)
+memory usage: 3.2 MB</code></pre>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line"></span><br><span class="line">df1 = df</span><br><span class="line">col_name = df1.columns.tolist()</span><br><span class="line">col_name.insert(<span class="number">6</span>,<span class="string">&#x27;status&#x27;</span>)</span><br><span class="line">df1 = df1.reindex(columns=col_name)</span><br><span class="line">df1.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<p>CPU times: user 1.72 ms, sys: 1.99 ms, total: 3.71 ms Wall time: 3.21 ms</p>
+<pre><code>CPU times: user 1.72 ms, sys: 1.99 ms, total: 3.71 ms
+Wall time: 3.21 ms</code></pre>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -916,7 +927,8 @@ NaN
 <h3 id="测试1使用下标循环">测试1：使用下标循环</h3>
 <p>下标循环是通过循环一个下标数列，通过iloc去不断获取数据。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(df1)):</span><br><span class="line">    <span class="keyword">if</span> (df1.iloc[i][<span class="string">&#x27;close&#x27;</span>] - df1.iloc[i][<span class="string">&#x27;open&#x27;</span>]) &gt;=<span class="number">0</span>:</span><br><span class="line">        df1.iloc[i][<span class="string">&#x27;status&#x27;</span>] = <span class="number">1</span>        </span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        df1.iloc[i][<span class="string">&#x27;status&#x27;</span>] = -<span class="number">1</span>   </span><br><span class="line">df1.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<p>CPU times: user 33.6 s, sys: 136 ms, total: 33.8 s Wall time: 34.1 s</p>
+<pre><code>CPU times: user 33.6 s, sys: 136 ms, total: 33.8 s
+Wall time: 34.1 s</code></pre>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1253,7 +1265,8 @@ code
 <h3 id="测试2iterrows循环">测试2：Iterrows循环</h3>
 <p>该循环方式是通过iterrows进行循环，ind和row分别代表了每一行的index和内容。测试例子大概需要s，比起下标循环速度提升了321倍。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> ind, row <span class="keyword">in</span> df1.iterrows():</span><br><span class="line">    <span class="keyword">if</span> row[<span class="string">&#x27;close&#x27;</span>] - row[<span class="string">&#x27;open&#x27;</span>] &gt;=<span class="number">0</span>:</span><br><span class="line">        df1.iloc[i][<span class="string">&#x27;status&#x27;</span>] = <span class="number">1</span>     </span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        df1.iloc[i][<span class="string">&#x27;status&#x27;</span>] = -<span class="number">1</span>  </span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line">df1.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<p>CPU times: user 18.5 s, sys: 82.7 ms, total: 18.6 s Wall time: 18.8 s</p>
+<pre><code>CPU times: user 18.5 s, sys: 82.7 ms, total: 18.6 s
+Wall time: 18.8 s</code></pre>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1589,7 +1602,8 @@ code
 </div>
 <h3 id="测试3apply循环">测试3：Apply循环</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line"></span><br><span class="line">df1[<span class="string">&#x27;status&#x27;</span>] = (df1[<span class="string">&#x27;close&#x27;</span>]-df[<span class="string">&#x27;open&#x27;</span>]).apply(<span class="keyword">lambda</span> x: <span class="number">1</span> <span class="keyword">if</span> x &gt;=<span class="number">0</span> <span class="keyword">else</span> -<span class="number">1</span>)</span><br><span class="line">df1.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<p>CPU times: user 23.8 ms, sys: 1.99 ms, total: 25.8 ms Wall time: 35.6 ms</p>
+<pre><code>CPU times: user 23.8 ms, sys: 1.99 ms, total: 25.8 ms
+Wall time: 35.6 ms</code></pre>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1925,7 +1939,8 @@ code
 </div>
 <h3 id="测试4numpy内置向量化函数">测试4：numpy内置向量化函数</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">df1[<span class="string">&#x27;status&#x27;</span>] = np.where((df1.close -  df1.<span class="built_in">open</span>)&gt;=<span class="number">0</span>, <span class="number">1</span>, -<span class="number">1</span>)</span><br><span class="line">df1.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<p>CPU times: user 1.74 ms, sys: 2.99 ms, total: 4.72 ms Wall time: 10.4 ms</p>
+<pre><code>CPU times: user 1.74 ms, sys: 2.99 ms, total: 4.72 ms
+Wall time: 10.4 ms</code></pre>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2364,20 +2379,20 @@ code
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
