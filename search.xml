@@ -52,28 +52,6 @@
       </tags>
   </entry>
   <entry>
-    <title>欢迎来到我的博客</title>
-    <url>/2020/11/19/hello-world/</url>
-    <content><![CDATA[<h2 id="橘子的博客终于开通了">橘子的博客终于开通了</h2>
-<p>一直偷懒，最近终于良心发现，总觉以前的光阴虚度，不想未来同样蹉跎岁月，自当奋起，希望能记录下未来成长过程中的点点滴滴想法和经验。</p>
-<p>借词聊表胸怀</p>
-<blockquote>
-<p><font color=green><strong>江城子·密州出猎</strong></font><br />
-<font color=blue><strong>宋 苏轼</strong></font></p>
-<p>老夫聊发少年狂， 左牵黄，右擎苍， 锦帽貂裘，千骑卷平冈。 为报倾城随太守，亲射虎，看孙郎。</p>
-<p>酒酣胸胆尚开张， 鬓微霜，又何妨! 持节云中，何日遣冯唐? 会挽雕弓如满月，西北望，射天狼。</p>
-</blockquote>
-<h2 id="本站用途">本站用途</h2>
-<p>这是个人用来学习研究金融工程，机器学习的小窝，</p>
-]]></content>
-      <categories>
-        <category>美好生活</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【Hexo】Next主题更好地支持LaTeX数学公式</title>
     <url>/2020/12/17/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%9B%B4%E5%A5%BD%E5%9C%B0%E6%94%AF%E6%8C%81LaTeX%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</url>
     <content><![CDATA[<p>在Typora中可以正常显示的<span class="math inline">\(L^AT_EX\)</span>数学公式，在Hexo NexT主题下却渲染得不是太理想。我们去最新的<a href="https://theme-next.js.org/docs/third-party-services/math-equations.html">NexT官方文档</a>里看看如何解决吧！</p>
@@ -108,6 +86,28 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>欢迎来到我的博客</title>
+    <url>/2020/11/19/hello-world/</url>
+    <content><![CDATA[<h2 id="橘子的博客终于开通了">橘子的博客终于开通了</h2>
+<p>一直偷懒，最近终于良心发现，总觉以前的光阴虚度，不想未来同样蹉跎岁月，自当奋起，希望能记录下未来成长过程中的点点滴滴想法和经验。</p>
+<p>借词聊表胸怀</p>
+<blockquote>
+<p><font color=green><strong>江城子·密州出猎</strong></font><br />
+<font color=blue><strong>宋 苏轼</strong></font></p>
+<p>老夫聊发少年狂， 左牵黄，右擎苍， 锦帽貂裘，千骑卷平冈。 为报倾城随太守，亲射虎，看孙郎。</p>
+<p>酒酣胸胆尚开张， 鬓微霜，又何妨! 持节云中，何日遣冯唐? 会挽雕弓如满月，西北望，射天狼。</p>
+</blockquote>
+<h2 id="本站用途">本站用途</h2>
+<p>这是个人用来学习研究金融工程，机器学习的小窝，</p>
+]]></content>
+      <categories>
+        <category>美好生活</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -155,81 +155,6 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Rust的安装及卸载</title>
-    <url>/2021/01/04/%E3%80%90Rust%E3%80%91Rust%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E5%8D%B8%E8%BD%BD/</url>
-    <content><![CDATA[<h1 id="安装">安装</h1>
-<h2 id="下载rust的安装器">下载Rust的安装器</h2>
-<p>从<a href="https://www.rust-lang.org/zh-CN/tools/install">官网</a>下载<code>rustup-init.exe</code>。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104150128.png" /></p>
-<p>说明：</p>
-<blockquote>
-<p><code>rustup</code>是安装和管理 <strong>Rust 构建版本</strong>的工具。rustup 用于管理不同平台下的 Rust 构建版本并使其互相兼容， 支持安装由 Beta 和 Nightly 频道发布的版本，并支持其他用于交叉编译的编译版本 <code>cargo</code>是rust的<strong>包管理器和构建系统工具</strong>。它将常用命令集于一身，无需引入其它命令。</p>
-<p>rustup程序是rust的安装程序，也是他的版本管理程序，类似于Python的Anaconda发行版的conda工具，非常方便使用管理。cargo是rust的构建工具，暂不介绍，需要明白的是：rustup是管理语言自身的，cargo是管理第三方拓展的。</p>
-</blockquote>
-<a id="more"></a>
-<h2 id="配置path环境变量">配置<code>path</code>环境变量</h2>
-<p>在 Rust 开发环境中，所有工具都安装在 <code>~/.cargo/bin</code> 目录中，您可以在这里找到包括 <code>rustc</code>、<code>cargo</code> 和 <code>rustup</code> 在内的 Rust 工具链。</p>
-<p>所以，如果打算修改默认的安装位置，可以在环境变量中这样设置，以安装路径为<code>D:\Program Files\Rust\</code>为例。否则会默认安装在 C 盘下。</p>
-<blockquote>
-<p>CARGO_HOME：D:Files\.cargo RUSTUP_HOME：D:Files\.rustup</p>
-</blockquote>
-<h2 id="安装-1">安装</h2>
-<h3 id="msvc工具链方式">MSVC工具链方式</h3>
-<p>下载完成后直接点击执行，会出现一个CMD窗口：仔细阅读上面的内容，如果没有安装Microsoft 2019 builder tools，就从<a href="https://visualstudio.microsoft.com/downloads/">这里</a>进行下载安装。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210105152553.png" /></p>
-<p>下载build tools之后，在Visual studio installer中只选择“C++生成工具”，然后只选择"MSVC v142 - VS2019 C++ x64/x86 生成工具"。安装上去大约需要1.8G硬盘空间。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210105153117.png" /></p>
-<h3 id="安装rust">安装Rust</h3>
-<p>运行<code>rustup-init.exe</code></p>
-<p>然后，在下面输入1，进行默认安装：</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104151722.png" align=left style="zoom:65%" ></p>
-<p>检查是否安装成功</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rustc --version</span><br><span class="line">cargo --version　　</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104154515.png" align=left style="zoom:75%" ></p>
-<h3 id="gnu工具链方式">GNU工具链方式</h3>
-<p>gnu（本文使用MinGW-w64）占用空间小（500M），对于初步的rust使用足够了。</p>
-<p><a href="http://www.mingw-w64.org/doku.php">MinGW-w64下载</a></p>
-<h4 id="安装mingw-w64">安装MinGW-w64</h4>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106091000.png" /></p>
-<p>这里你可以选择安装的版本, 建议只更改第二项至x86_64, 其他选项不做改动。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106091120.png" /></p>
-<p><strong>关于Threads选项的说明：</strong></p>
-<p>To summarize:</p>
-<ul>
-<li><code>posix</code>: enable C++11/C11 multithreading features. Makes libgcc depend on libwinpthreads, so that even if you don't directly call pthreads API, you'll be distributing the winpthreads DLL. There's nothing wrong with distributing one more DLL with your application.</li>
-<li><code>win32</code>: No C++11 multithreading features.</li>
-</ul>
-<p>Neither have influence on any user code calling Win32 APIs or pthreads APIs. You can always use both.</p>
-<p>exception seh (for Structured Exception Handling mechanism).</p>
-<p>这里可以设置安装目录, 我安装在</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106091244.png" /></p>
-<h3 id="环境变量的配置">环境变量的配置</h3>
-<p>新增 <code>D:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin</code>到<code>PATH</code>。</p>
-<h3 id="检查安装是否成功">检查安装是否成功</h3>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">C:\Users\junlv&gt;mingw32<span class="literal">-make</span> -<span class="literal">-version</span></span><br><span class="line">GNU Make <span class="number">4.2</span>.<span class="number">1</span></span><br><span class="line">Built <span class="keyword">for</span> x86_64<span class="literal">-w64</span><span class="literal">-mingw32</span></span><br><span class="line">Copyright (C) <span class="number">1988</span><span class="literal">-2016</span> Free Software Foundation, Inc.</span><br><span class="line">License GPLv3+: GNU GPL version <span class="number">3</span> or later &lt;http://gnu.org/licenses/gpl.html&gt;</span><br><span class="line">This is free software: you are free to change and redistribute it.</span><br><span class="line">There is NO WARRANTY, to the extent permitted by law.</span><br><span class="line"></span><br><span class="line">C:\Users\junlv&gt;g++ -<span class="literal">-version</span></span><br><span class="line">g++ (x86_64<span class="literal">-posix</span><span class="literal">-seh</span><span class="literal">-rev0</span>, Built by MinGW<span class="literal">-W64</span> project) <span class="number">8.1</span>.<span class="number">0</span></span><br><span class="line">Copyright (C) <span class="number">2018</span> Free Software Foundation, Inc.</span><br><span class="line">This is free software; see the source <span class="keyword">for</span> copying conditions.  There is NO</span><br><span class="line">warranty; not even <span class="keyword">for</span> MERCHANTABILITY or FITNESS <span class="keyword">FOR</span> A PARTICULAR PURPOSE.</span><br></pre></td></tr></table></figure>
-<h3 id="安装rust-1">安装Rust</h3>
-<p>运行<code>rustup-init.exe</code></p>
-<p>然后，在下面输入2，进行定制化安装：</p>
-<p><code>default host triple</code>修改为<code>x86_64-pc-windows-gnu</code></p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106114540.png" align=left style="zoom:85%" ></p>
-<p>继续选1进行安装即可。</p>
-<p>安装验证</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">E:\Downloads\Programs&gt;rustc -<span class="literal">-version</span></span><br><span class="line">rustc <span class="number">1.49</span>.<span class="number">0</span> (e1884a8e3 <span class="number">2020</span><span class="literal">-12</span><span class="literal">-29</span>)</span><br><span class="line"></span><br><span class="line">E:\Downloads\Programs&gt;cargo -<span class="literal">-version</span></span><br><span class="line">cargo <span class="number">1.49</span>.<span class="number">0</span> (d00d64df9 <span class="number">2020</span><span class="literal">-12</span><span class="literal">-05</span>)</span><br></pre></td></tr></table></figure>
-<p>安装源代码用于代码补全</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">E:\Downloads\Programs&gt;rustup component add rust<span class="literal">-src</span></span><br><span class="line">info: downloading component <span class="string">&#x27;rust-src&#x27;</span></span><br><span class="line">info: installing component <span class="string">&#x27;rust-src&#x27;</span></span><br><span class="line">info: <span class="keyword">using</span> up to 500.0 MiB of RAM to unpack components</span><br></pre></td></tr></table></figure>
-<h1 id="卸载rust">卸载Rust</h1>
-<p>如果想卸载 Rust，可以运行 <code>rustup self uninstall</code></p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104150931.png" align=left style="zoom:85%" ></p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>rust</category>
-      </categories>
-      <tags>
-        <tag>rust</tag>
       </tags>
   </entry>
   <entry>
@@ -394,26 +319,44 @@
 <h1 id="配置步骤">配置步骤</h1>
 <h2 id="环境变量设置">环境变量设置</h2>
 <blockquote>
-<p>RUST=d:Files.rustup-x86_64-pc-windows-msvc CARGO HOME = D:Files.cargo RUSTUP_DIST_SERVER = https://mirrors.ustc.edu.cn/rust-static RUSTUP_HOME = D:Files.rustup RUSTUP_UPDATE_ROOT = https://mirrors.ustc.edu.cn/rust-static/rustup RUST_SRC_PATH = d:Files.rustup-x86_64-pc-windows-msvc</p>
+<p>RUST=d:Files.rustup-x86_64-pc-windows-msvc<br />
+CARGO HOME = D:Files.cargo<br />
+RUSTUP_DIST_SERVER = https://mirrors.ustc.edu.cn/rust-static<br />
+RUSTUP_HOME = D:Files.rustup<br />
+RUSTUP_UPDATE_ROOT = https://mirrors.ustc.edu.cn/rust-static/rustup<br />
+RUST_SRC_PATH = d:Files.rustup-x86_64-pc-windows-msvc</p>
 </blockquote>
 <a id="more"></a>
 <h2 id="配置windows的rust和crates.io国内镜像">配置Windows的Rust和Crates.io国内镜像</h2>
 <h3 id="修改crates.io国内镜像">修改Crates.io国内镜像</h3>
 <blockquote>
-<p>[source.crates-io] registry = "https://github.com/rust-lang/crates.io-index"</p>
-<p>#Replace with any mirror source replace-with = 'ustc'</p>
-<p>#replace-with = 'tuna'</p>
-<p>#replace-with = 'sjtu'</p>
-<p>#replace-with = 'rustcc'</p>
-<p>#University of science and technology of China [source.ustc] registry = "git://mirrors.ustc.edu.cn/crates.io-index"</p>
-<p>#Tsinghua University [source.tuna] registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"</p>
-<p>#Shanghai Jiaotong University [source.sjtu] registry = "https://mirrors.sjtug.sjtu.edu.cn/git/crates.io-index"</p>
-<p>#Rustcc community [source.rustcc] registry = "git://crates.rustcc.cn/crates.io-index"</p>
+<p>[source.crates-io]<br />
+registry = "https://github.com/rust-lang/crates.io-index"</p>
+<p>#Replace with any mirror source<br />
+replace-with = 'ustc'<br />
+#replace-with = 'tuna'<br />
+#replace-with = 'sjtu'<br />
+#replace-with = 'rustcc'</p>
+<p>#University of science and technology of China<br />
+[source.ustc]<br />
+registry = "git://mirrors.ustc.edu.cn/crates.io-index"</p>
+<p>#Tsinghua University<br />
+[source.tuna]<br />
+registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"</p>
+<p>#Shanghai Jiaotong University<br />
+[source.sjtu]<br />
+registry = "https://mirrors.sjtug.sjtu.edu.cn/git/crates.io-index"</p>
+<p>#Rustcc community<br />
+[source.rustcc]<br />
+registry = "git://crates.rustcc.cn/crates.io-index"</p>
 </blockquote>
 <h3 id="修改rustup国内镜像">修改rustup国内镜像</h3>
 <p>在系统环境变量中设置</p>
 <blockquote>
-<p>CARGO HOME = D:Files.cargo RUSTUP_DIST_SERVER = https://mirrors.ustc.edu.cn/rust-static RUSTUP_HOME = D:Files.rustup RUSTUP_UPDATE_ROOT = https://mirrors.ustc.edu.cn/rust-static/rustup</p>
+<p>CARGO HOME = D:Files.cargo<br />
+RUSTUP_DIST_SERVER = https://mirrors.ustc.edu.cn/rust-static<br />
+RUSTUP_HOME = D:Files.rustup<br />
+RUSTUP_UPDATE_ROOT = https://mirrors.ustc.edu.cn/rust-static/rustup</p>
 </blockquote>
 <h2 id="vs-code插件安装">VS Code插件安装</h2>
 <ol type="1">
@@ -439,6 +382,81 @@
       <tags>
         <tag>rust</tag>
         <tag>VScode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Rust】Rust的安装及卸载</title>
+    <url>/2021/01/04/%E3%80%90Rust%E3%80%91Rust%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E5%8D%B8%E8%BD%BD/</url>
+    <content><![CDATA[<h1 id="安装">安装</h1>
+<h2 id="下载rust的安装器">下载Rust的安装器</h2>
+<p>从<a href="https://www.rust-lang.org/zh-CN/tools/install">官网</a>下载<code>rustup-init.exe</code>。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104150128.png" /></p>
+<p>说明：</p>
+<blockquote>
+<p><code>rustup</code>是安装和管理 <strong>Rust 构建版本</strong>的工具。rustup 用于管理不同平台下的 Rust 构建版本并使其互相兼容， 支持安装由 Beta 和 Nightly 频道发布的版本，并支持其他用于交叉编译的编译版本 <code>cargo</code>是rust的<strong>包管理器和构建系统工具</strong>。它将常用命令集于一身，无需引入其它命令。</p>
+<p>rustup程序是rust的安装程序，也是他的版本管理程序，类似于Python的Anaconda发行版的conda工具，非常方便使用管理。cargo是rust的构建工具，暂不介绍，需要明白的是：rustup是管理语言自身的，cargo是管理第三方拓展的。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="配置path环境变量">配置<code>path</code>环境变量</h2>
+<p>在 Rust 开发环境中，所有工具都安装在 <code>~/.cargo/bin</code> 目录中，您可以在这里找到包括 <code>rustc</code>、<code>cargo</code> 和 <code>rustup</code> 在内的 Rust 工具链。</p>
+<p>所以，如果打算修改默认的安装位置，可以在环境变量中这样设置，以安装路径为<code>D:\Program Files\Rust\</code>为例。否则会默认安装在 C 盘下。</p>
+<blockquote>
+<p>CARGO_HOME：D:Files\.cargo RUSTUP_HOME：D:Files\.rustup</p>
+</blockquote>
+<h2 id="安装-1">安装</h2>
+<h3 id="msvc工具链方式">MSVC工具链方式</h3>
+<p>下载完成后直接点击执行，会出现一个CMD窗口：仔细阅读上面的内容，如果没有安装Microsoft 2019 builder tools，就从<a href="https://visualstudio.microsoft.com/downloads/">这里</a>进行下载安装。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210105152553.png" /></p>
+<p>下载build tools之后，在Visual studio installer中只选择“C++生成工具”，然后只选择"MSVC v142 - VS2019 C++ x64/x86 生成工具"。安装上去大约需要1.8G硬盘空间。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210105153117.png" /></p>
+<h3 id="安装rust">安装Rust</h3>
+<p>运行<code>rustup-init.exe</code></p>
+<p>然后，在下面输入1，进行默认安装：</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104151722.png" /></p>
+<p>检查是否安装成功</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rustc --version</span><br><span class="line">cargo --version　　</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104154515.png" /></p>
+<h3 id="gnu工具链方式">GNU工具链方式</h3>
+<p>gnu（本文使用MinGW-w64）占用空间小（500M），对于初步的rust使用足够了。</p>
+<p><a href="http://www.mingw-w64.org/doku.php">MinGW-w64下载</a></p>
+<h4 id="安装mingw-w64">安装MinGW-w64</h4>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106091000.png" /></p>
+<p>这里你可以选择安装的版本, 建议只更改第二项至x86_64, 其他选项不做改动。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106091120.png" /></p>
+<p><strong>关于Threads选项的说明：</strong></p>
+<p>To summarize:</p>
+<ul>
+<li><code>posix</code>: enable C++11/C11 multithreading features. Makes libgcc depend on libwinpthreads, so that even if you don't directly call pthreads API, you'll be distributing the winpthreads DLL. There's nothing wrong with distributing one more DLL with your application.</li>
+<li><code>win32</code>: No C++11 multithreading features.</li>
+</ul>
+<p>Neither have influence on any user code calling Win32 APIs or pthreads APIs. You can always use both.</p>
+<p>exception seh (for Structured Exception Handling mechanism).</p>
+<p>这里可以设置安装目录, 我安装在</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106091244.png" /></p>
+<h3 id="环境变量的配置">环境变量的配置</h3>
+<p>新增 <code>D:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin</code>到<code>PATH</code>。</p>
+<h3 id="检查安装是否成功">检查安装是否成功</h3>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">C:\Users\junlv&gt;mingw32<span class="literal">-make</span> -<span class="literal">-version</span></span><br><span class="line">GNU Make <span class="number">4.2</span>.<span class="number">1</span></span><br><span class="line">Built <span class="keyword">for</span> x86_64<span class="literal">-w64</span><span class="literal">-mingw32</span></span><br><span class="line">Copyright (C) <span class="number">1988</span><span class="literal">-2016</span> Free Software Foundation, Inc.</span><br><span class="line">License GPLv3+: GNU GPL version <span class="number">3</span> or later &lt;http://gnu.org/licenses/gpl.html&gt;</span><br><span class="line">This is free software: you are free to change and redistribute it.</span><br><span class="line">There is NO WARRANTY, to the extent permitted by law.</span><br><span class="line"></span><br><span class="line">C:\Users\junlv&gt;g++ -<span class="literal">-version</span></span><br><span class="line">g++ (x86_64<span class="literal">-posix</span><span class="literal">-seh</span><span class="literal">-rev0</span>, Built by MinGW<span class="literal">-W64</span> project) <span class="number">8.1</span>.<span class="number">0</span></span><br><span class="line">Copyright (C) <span class="number">2018</span> Free Software Foundation, Inc.</span><br><span class="line">This is free software; see the source <span class="keyword">for</span> copying conditions.  There is NO</span><br><span class="line">warranty; not even <span class="keyword">for</span> MERCHANTABILITY or FITNESS <span class="keyword">FOR</span> A PARTICULAR PURPOSE.</span><br></pre></td></tr></table></figure>
+<h3 id="安装rust-1">安装Rust</h3>
+<p>运行<code>rustup-init.exe</code></p>
+<p>然后，在下面输入2，进行定制化安装：</p>
+<p><code>default host triple</code>修改为<code>x86_64-pc-windows-gnu</code></p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106114540.png" /></p>
+<p>继续选1进行安装即可。</p>
+<p>安装验证</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">E:\Downloads\Programs&gt;rustc -<span class="literal">-version</span></span><br><span class="line">rustc <span class="number">1.49</span>.<span class="number">0</span> (e1884a8e3 <span class="number">2020</span><span class="literal">-12</span><span class="literal">-29</span>)</span><br><span class="line"></span><br><span class="line">E:\Downloads\Programs&gt;cargo -<span class="literal">-version</span></span><br><span class="line">cargo <span class="number">1.49</span>.<span class="number">0</span> (d00d64df9 <span class="number">2020</span><span class="literal">-12</span><span class="literal">-05</span>)</span><br></pre></td></tr></table></figure>
+<p>安装源代码用于代码补全</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">E:\Downloads\Programs&gt;rustup component add rust<span class="literal">-src</span></span><br><span class="line">info: downloading component <span class="string">&#x27;rust-src&#x27;</span></span><br><span class="line">info: installing component <span class="string">&#x27;rust-src&#x27;</span></span><br><span class="line">info: <span class="keyword">using</span> up to 500.0 MiB of RAM to unpack components</span><br></pre></td></tr></table></figure>
+<h1 id="卸载rust">卸载Rust</h1>
+<p>如果想卸载 Rust，可以运行 <code>rustup self uninstall</code></p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104150931.png" /></p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>rust</category>
+      </categories>
+      <tags>
+        <tag>rust</tag>
       </tags>
   </entry>
   <entry>
