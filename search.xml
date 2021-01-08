@@ -52,43 +52,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】Next主题更好地支持LaTeX数学公式</title>
-    <url>/2020/12/17/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%9B%B4%E5%A5%BD%E5%9C%B0%E6%94%AF%E6%8C%81LaTeX%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</url>
-    <content><![CDATA[<p>在Typora中可以正常显示的<span class="math inline">\(L^AT_EX\)</span>数学公式，在Hexo NexT主题下却渲染得不是太理想。我们去最新的<a href="https://theme-next.js.org/docs/third-party-services/math-equations.html">NexT官方文档</a>里看看如何解决吧！</p>
-<a id="more"></a>
-<h2 id="实施步骤">实施步骤</h2>
-<p>NexT主题现在提供两种数学公式的渲染方式 <a href="https://www.mathjax.org/">MathJax</a> 及 <a href="https://katex.org/">KaTeX</a>。其中<code>katex</code>的速度更快，但是对于<span class="math inline">\(L^AT_EX\)</span>的支持有一定的限制。所以除非你的博客数量实在是过于庞大，不然就可以直接使用<code>mathjax</code>。</p>
-<p>使用<code>mathjax</code>，可以选择多种渲染引擎，但推荐使用</p>
-<ul>
-<li><a href="https://github.com/wzpan/hexo-renderer-pandoc">hexo-renderer-pandoc</a></li>
-</ul>
-<p>使用其它诸如<a href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a>之类的引擎（这是Hexo默认首先用来渲染MarkDown的），然后再交给<code>mathjax</code>渲染。<code>hexo-renderer-marked</code>会把一些特殊的MarkDown符号转换为相应的html标签，比如在MarkDown语法中，下划线 _ 代表斜体，会被转化为&lt; em&gt;标签，\也会被转义成一个。而类<span class="math inline">\(L^AT_EX\)</span>格式书写的数学公式下划线 _ 表示角标，\表示公式换行，有特殊的含义，所以<code>mathjax</code>引擎在渲染数学公式的时候就会无法正常渲染。</p>
-<h3 id="安装pandoc">安装pandoc</h3>
-<p><a href="https://github.com/jgm/pandoc/blob/master/INSTALL.md">安装文档</a>及<a href="https://github.com/jgm/pandoc/releases/latest">下载链接</a>]，因为在安装<code>Anaconda</code>时已经含有pandoc。这里不再单独进行安装。</p>
-<h3 id="配置next">配置NexT</h3>
-<ol type="1">
-<li>首先，在NexT主题配置文件中将<code>mathjax</code>设为渲染引擎</li>
-</ol>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<ol start="2" type="1">
-<li>然后，卸载最初的<code>hexo-renderer-marked</code>引擎并安装<code>hexo-renderer-pandoc</code>。</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm un hexo-renderer-marked</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm i hexo-renderer-pandoc</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201217170659.png" /></p>
-<ol start="3" type="1">
-<li>在更换完渲染引擎后，执行一下<code>hexo clean</code>，然后再进行部署或启动本地服务器来验证渲染是否工作正常。</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo clean &amp;&amp; hexo g -d</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> or hexo clean &amp;&amp; hexo s</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>欢迎来到我的博客</title>
     <url>/2020/11/19/hello-world/</url>
     <content><![CDATA[<h2 id="橘子的博客终于开通了">橘子的博客终于开通了</h2>
@@ -131,23 +94,33 @@
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】常用操作指令</title>
-    <url>/2020/11/20/%E3%80%90Hexo%E3%80%91%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4/</url>
-    <content><![CDATA[<p>欢迎使用 <a href="https://hexo.io/">Hexo</a>! 有关hexo的详细说明参见 <a href="https://hexo.io/docs/">documentation</a> 。 相关的问题解决参见 <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> 。</p>
+    <title>【Hexo】Next主题更好地支持LaTeX数学公式</title>
+    <url>/2020/12/17/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%9B%B4%E5%A5%BD%E5%9C%B0%E6%94%AF%E6%8C%81LaTeX%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</url>
+    <content><![CDATA[<p>在Typora中可以正常显示的<span class="math inline">\(L^AT_EX\)</span>数学公式，在Hexo NexT主题下却渲染得不是太理想。我们去最新的<a href="https://theme-next.js.org/docs/third-party-services/math-equations.html">NexT官方文档</a>里看看如何解决吧！</p>
 <a id="more"></a>
-<h2 id="快速入门">快速入门</h2>
-<h3 id="创建新贴">创建新贴</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>详见: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="启动本地服务">启动本地服务</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>详见: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="生成静态页面">生成静态页面</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>详见: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="部署到远程">部署到远程</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>详见: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h2 id="实施步骤">实施步骤</h2>
+<p>NexT主题现在提供两种数学公式的渲染方式 <a href="https://www.mathjax.org/">MathJax</a> 及 <a href="https://katex.org/">KaTeX</a>。其中<code>katex</code>的速度更快，但是对于<span class="math inline">\(L^AT_EX\)</span>的支持有一定的限制。所以除非你的博客数量实在是过于庞大，不然就可以直接使用<code>mathjax</code>。</p>
+<p>使用<code>mathjax</code>，可以选择多种渲染引擎，但推荐使用</p>
+<ul>
+<li><a href="https://github.com/wzpan/hexo-renderer-pandoc">hexo-renderer-pandoc</a></li>
+</ul>
+<p>使用其它诸如<a href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a>之类的引擎（这是Hexo默认首先用来渲染MarkDown的），然后再交给<code>mathjax</code>渲染。<code>hexo-renderer-marked</code>会把一些特殊的MarkDown符号转换为相应的html标签，比如在MarkDown语法中，下划线 _ 代表斜体，会被转化为&lt; em&gt;标签，\也会被转义成一个。而类<span class="math inline">\(L^AT_EX\)</span>格式书写的数学公式下划线 _ 表示角标，\表示公式换行，有特殊的含义，所以<code>mathjax</code>引擎在渲染数学公式的时候就会无法正常渲染。</p>
+<h3 id="安装pandoc">安装pandoc</h3>
+<p><a href="https://github.com/jgm/pandoc/blob/master/INSTALL.md">安装文档</a>及<a href="https://github.com/jgm/pandoc/releases/latest">下载链接</a>]，因为在安装<code>Anaconda</code>时已经含有pandoc。这里不再单独进行安装。</p>
+<h3 id="配置next">配置NexT</h3>
+<ol type="1">
+<li>首先，在NexT主题配置文件中将<code>mathjax</code>设为渲染引擎</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li>然后，卸载最初的<code>hexo-renderer-marked</code>引擎并安装<code>hexo-renderer-pandoc</code>。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm un hexo-renderer-marked</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm i hexo-renderer-pandoc</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201217170659.png" /></p>
+<ol start="3" type="1">
+<li>在更换完渲染引擎后，执行一下<code>hexo clean</code>，然后再进行部署或启动本地服务器来验证渲染是否工作正常。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo clean &amp;&amp; hexo g -d</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> or hexo clean &amp;&amp; hexo s</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>技术笔记</category>
@@ -385,6 +358,32 @@ RUSTUP_UPDATE_ROOT = https://mirrors.ustc.edu.cn/rust-static/rustup</p>
       </tags>
   </entry>
   <entry>
+    <title>【Rust】在jupyter notebook中使用Rust</title>
+    <url>/2021/01/07/%E3%80%90Rust%E3%80%91%E5%9C%A8jupyter-notebook%E4%B8%AD%E4%BD%BF%E7%94%A8Rust/</url>
+    <content><![CDATA[<p>在jupyter notebook中是否也可以像python那样使用呢？ 答案是可以的。现在来记录一下配置步骤。</p>
+<h1 id="使用evcxr作为jupyter-notebook内核">使用EvCxR作为jupyter notebook内核</h1>
+<h2 id="安装">安装</h2>
+<ol type="1">
+<li><p>安装jupyter notebook或者jupyter lab</p></li>
+<li><p>安装<a href="https://cmake.org/download/">CMake</a>，在安装EvCxR编译时会使用到。</p></li>
+<li><p>安装EvCxR</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">cargo install evcxr_jupyter</span><br><span class="line">evcxr_jupyter -<span class="literal">-install</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="参考">参考</h1>
+<ol type="1">
+<li><a href="https://github.com/google/evcxr/blob/master/evcxr_jupyter/README.md">EvCxR Jupyter Kernel</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>rust</category>
+      </categories>
+      <tags>
+        <tag>rust</tag>
+        <tag>jupyternotebook</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【Rust】Rust的安装及卸载</title>
     <url>/2021/01/04/%E3%80%90Rust%E3%80%91Rust%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E5%8D%B8%E8%BD%BD/</url>
     <content><![CDATA[<h1 id="安装">安装</h1>
@@ -460,25 +459,30 @@ RUSTUP_UPDATE_ROOT = https://mirrors.ustc.edu.cn/rust-static/rustup</p>
       </tags>
   </entry>
   <entry>
-    <title>【python】multiprocessing进程间的通信（一）--队列</title>
-    <url>/2021/01/01/%E3%80%90python%E3%80%91multiprocessing%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/</url>
-    <content><![CDATA[<p>multiprocessing模块支持进程间通信的三种主要形式:<code>队列</code>、<code>管道</code>及<code>共享内存</code>。下面我们来学习一下队列的使用情况。</p>
+    <title>【Hexo】常用操作指令</title>
+    <url>/2020/11/20/%E3%80%90Hexo%E3%80%91%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4/</url>
+    <content><![CDATA[<p>欢迎使用 <a href="https://hexo.io/">Hexo</a>! 有关hexo的详细说明参见 <a href="https://hexo.io/docs/">documentation</a> 。 相关的问题解决参见 <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> 。</p>
 <a id="more"></a>
-<h1 id="队列multiprocessing.queue">队列（multiprocessing.queue)</h1>
-<p>队列是线程和进程安全的，也就是一次只能有一个进程或线程进行操作。</p>
-<p><strong>示例：</strong>将子进程产生的信息统一写入父进程，这里是使用pool来创建进程池。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool, RLock, freeze_support,Queue,Pipe</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">from</span> TS_logs <span class="keyword">import</span> TS_log_info</span><br><span class="line"><span class="keyword">from</span>  TS_util <span class="keyword">import</span> (</span><br><span class="line">    TS_util_get_tradelist,</span><br><span class="line">    TS_util_get_real_date,</span><br><span class="line">    TS_util_get_next_datetime,</span><br><span class="line">    TS_util_get_now_time,</span><br><span class="line">    TS_util_date_convert,</span><br><span class="line">    trade_date_sse</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log_c</span>(<span class="params">q,codelist,n</span>):</span>    </span><br><span class="line">    <span class="keyword">for</span> trade_date <span class="keyword">in</span> codelist[n::<span class="number">8</span>]:</span><br><span class="line">        msg = <span class="string">&#x27;&#123;&#125; #Job&#123;&#125; Trying updating data of trade date &#123;&#125; .&#x27;</span> \</span><br><span class="line">                .<span class="built_in">format</span>(datetime.datetime.now().strftime(<span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>),n,trade_date)</span><br><span class="line">        sleep(<span class="number">0.05</span>)</span><br><span class="line">        q.put(msg)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">L = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">8</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:    </span><br><span class="line">    freeze_support()  <span class="comment"># for Windows support</span></span><br><span class="line">    manager = multiprocessing.Manager()</span><br><span class="line">    <span class="comment"># 父进程创建Queue，并传给各个子进程：</span></span><br><span class="line">    q = manager.Queue()</span><br><span class="line">    tqdm.set_lock(RLock())</span><br><span class="line">    codelist = trade_date_sse</span><br><span class="line">    func = functools.partial(log_c,q,codelist)</span><br><span class="line">    p = Pool(initializer=tqdm.set_lock, initargs=(tqdm.get_lock(),))</span><br><span class="line">    p.<span class="built_in">map</span>(func, L)</span><br><span class="line">    p.close()</span><br><span class="line">    p.join()</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> q.empty():</span><br><span class="line">        TS_log_info(q.get())</span><br></pre></td></tr></table></figure>
-<p>如果要使用Pool创建进程，就需要使用multiprocessing.Manager()中的Queue()，而不是multiprocessing.Queue()，否则会得到一条如下的错误信息：<br />
-<code>RuntimeError: Queue objects should only be shared between processes through inheritance.</code></p>
-<h1 id="section"></h1>
+<h2 id="快速入门">快速入门</h2>
+<h3 id="创建新贴">创建新贴</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>详见: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="启动本地服务">启动本地服务</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>详见: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="生成静态页面">生成静态页面</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>详见: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="部署到远程">部署到远程</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>详见: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
       <categories>
         <category>技术笔记</category>
-        <category>python</category>
+        <category>博客</category>
       </categories>
       <tags>
-        <tag>python</tag>
-        <tag>multiprocessing</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -595,6 +599,27 @@ RUSTUP_UPDATE_ROOT = https://mirrors.ustc.edu.cn/rust-static/rustup</p>
       </categories>
       <tags>
         <tag>Valine</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【python】multiprocessing进程间的通信（一）--队列</title>
+    <url>/2021/01/01/%E3%80%90python%E3%80%91multiprocessing%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/</url>
+    <content><![CDATA[<p>multiprocessing模块支持进程间通信的三种主要形式:<code>队列</code>、<code>管道</code>及<code>共享内存</code>。下面我们来学习一下队列的使用情况。</p>
+<a id="more"></a>
+<h1 id="队列multiprocessing.queue">队列（multiprocessing.queue)</h1>
+<p>队列是线程和进程安全的，也就是一次只能有一个进程或线程进行操作。</p>
+<p><strong>示例：</strong>将子进程产生的信息统一写入父进程，这里是使用pool来创建进程池。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool, RLock, freeze_support,Queue,Pipe</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">from</span> TS_logs <span class="keyword">import</span> TS_log_info</span><br><span class="line"><span class="keyword">from</span>  TS_util <span class="keyword">import</span> (</span><br><span class="line">    TS_util_get_tradelist,</span><br><span class="line">    TS_util_get_real_date,</span><br><span class="line">    TS_util_get_next_datetime,</span><br><span class="line">    TS_util_get_now_time,</span><br><span class="line">    TS_util_date_convert,</span><br><span class="line">    trade_date_sse</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log_c</span>(<span class="params">q,codelist,n</span>):</span>    </span><br><span class="line">    <span class="keyword">for</span> trade_date <span class="keyword">in</span> codelist[n::<span class="number">8</span>]:</span><br><span class="line">        msg = <span class="string">&#x27;&#123;&#125; #Job&#123;&#125; Trying updating data of trade date &#123;&#125; .&#x27;</span> \</span><br><span class="line">                .<span class="built_in">format</span>(datetime.datetime.now().strftime(<span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>),n,trade_date)</span><br><span class="line">        sleep(<span class="number">0.05</span>)</span><br><span class="line">        q.put(msg)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">L = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">8</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:    </span><br><span class="line">    freeze_support()  <span class="comment"># for Windows support</span></span><br><span class="line">    manager = multiprocessing.Manager()</span><br><span class="line">    <span class="comment"># 父进程创建Queue，并传给各个子进程：</span></span><br><span class="line">    q = manager.Queue()</span><br><span class="line">    tqdm.set_lock(RLock())</span><br><span class="line">    codelist = trade_date_sse</span><br><span class="line">    func = functools.partial(log_c,q,codelist)</span><br><span class="line">    p = Pool(initializer=tqdm.set_lock, initargs=(tqdm.get_lock(),))</span><br><span class="line">    p.<span class="built_in">map</span>(func, L)</span><br><span class="line">    p.close()</span><br><span class="line">    p.join()</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> q.empty():</span><br><span class="line">        TS_log_info(q.get())</span><br></pre></td></tr></table></figure>
+<p>如果要使用Pool创建进程，就需要使用multiprocessing.Manager()中的Queue()，而不是multiprocessing.Queue()，否则会得到一条如下的错误信息：<br />
+<code>RuntimeError: Queue objects should only be shared between processes through inheritance.</code></p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>multiprocessing</tag>
       </tags>
   </entry>
   <entry>
