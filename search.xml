@@ -30,28 +30,6 @@
       </tags>
   </entry>
   <entry>
-    <title>tqdm进度条的使用</title>
-    <url>/2020/12/23/tqdm%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p>以前使用的是processbar来制作进度条， 听闻tqdm性能更好些，遂尝试使用一下。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> tqdm(total=<span class="built_in">len</span>(codelist),<span class="built_in">ascii</span>= <span class="literal">True</span>, ncols=<span class="number">90</span>,colour=<span class="string">&quot;green&quot;</span>) <span class="keyword">as</span> pbar:</span><br><span class="line">    <span class="keyword">for</span> ts_code <span class="keyword">in</span> codelist:</span><br><span class="line">        pbar.set_description(<span class="string">&quot;Processing %s&quot;</span> % ts_code)</span><br><span class="line">        ......</span><br><span class="line">        pbar.update(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201223101745.png" /></p>
-<p>参数使用：</p>
-<p><code>ascii = True</code>, 缺省是<code>False</code>, 当使用它时，不是以正常块状来做进度条，而是以"123456789#"的方式。</p>
-<p><code>ncols = 90</code>, 这里可以根据屏幕大小来进行控制，保证进度条不产生换行的情况。</p>
-<p><code>colour = "green"</code>, 在版本4.5之后引入，可以设置进度条的颜色。</p>
-<p><code>desc</code>或利用<code>set_desciption</code>，用来设置进度条左侧的文字信息。</p>
-<p>从使用情况来看，还是比较令人满意的。</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>tqdm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>欢迎来到我的博客</title>
     <url>/2020/11/19/hello-world/</url>
     <content><![CDATA[<h2 id="橘子的博客终于开通了">橘子的博客终于开通了</h2>
@@ -128,6 +106,127 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>tqdm进度条的使用</title>
+    <url>/2020/12/23/tqdm%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>以前使用的是processbar来制作进度条， 听闻tqdm性能更好些，遂尝试使用一下。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> tqdm(total=<span class="built_in">len</span>(codelist),<span class="built_in">ascii</span>= <span class="literal">True</span>, ncols=<span class="number">90</span>,colour=<span class="string">&quot;green&quot;</span>) <span class="keyword">as</span> pbar:</span><br><span class="line">    <span class="keyword">for</span> ts_code <span class="keyword">in</span> codelist:</span><br><span class="line">        pbar.set_description(<span class="string">&quot;Processing %s&quot;</span> % ts_code)</span><br><span class="line">        ......</span><br><span class="line">        pbar.update(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201223101745.png" /></p>
+<p>参数使用：</p>
+<p><code>ascii = True</code>, 缺省是<code>False</code>, 当使用它时，不是以正常块状来做进度条，而是以"123456789#"的方式。</p>
+<p><code>ncols = 90</code>, 这里可以根据屏幕大小来进行控制，保证进度条不产生换行的情况。</p>
+<p><code>colour = "green"</code>, 在版本4.5之后引入，可以设置进度条的颜色。</p>
+<p><code>desc</code>或利用<code>set_desciption</code>，用来设置进度条左侧的文字信息。</p>
+<p>从使用情况来看，还是比较令人满意的。</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>tqdm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】常用操作指令</title>
+    <url>/2020/11/20/%E3%80%90Hexo%E3%80%91%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4/</url>
+    <content><![CDATA[<p>欢迎使用 <a href="https://hexo.io/">Hexo</a>! 有关hexo的详细说明参见 <a href="https://hexo.io/docs/">documentation</a> 。 相关的问题解决参见 <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> 。</p>
+<a id="more"></a>
+<h2 id="快速入门">快速入门</h2>
+<h3 id="创建新贴">创建新贴</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>详见: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="启动本地服务">启动本地服务</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>详见: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="生成静态页面">生成静态页面</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>详见: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="部署到远程">部署到远程</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>详见: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Rust】Rust在win10下开发环境的搭建</title>
+    <url>/2021/01/04/%E3%80%90Rust%E3%80%91Rust%E5%9C%A8win10%E4%B8%8B%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<p>记录下如何在Windows 10环境下部署VScode的Rust开发环境。</p>
+<h1 id="配置步骤">配置步骤</h1>
+<h2 id="环境变量设置">环境变量设置</h2>
+<blockquote>
+<p>RUST=d:Files.rustup-x86_64-pc-windows-msvc<br />
+CARGO HOME = D:Files.cargo<br />
+RUSTUP_DIST_SERVER = https://mirrors.ustc.edu.cn/rust-static<br />
+RUSTUP_HOME = D:Files.rustup<br />
+RUSTUP_UPDATE_ROOT = https://mirrors.ustc.edu.cn/rust-static/rustup<br />
+RUST_SRC_PATH = d:Files.rustup-x86_64-pc-windows-msvc</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="配置windows的rust和crates.io国内镜像">配置Windows的Rust和Crates.io国内镜像</h2>
+<h3 id="修改crates.io国内镜像">修改Crates.io国内镜像</h3>
+<blockquote>
+<p>[source.crates-io]<br />
+registry = "https://github.com/rust-lang/crates.io-index"</p>
+<p>#Replace with any mirror source<br />
+replace-with = 'ustc'<br />
+#replace-with = 'tuna'<br />
+#replace-with = 'sjtu'<br />
+#replace-with = 'rustcc'</p>
+<p>#University of science and technology of China<br />
+[source.ustc]<br />
+registry = "git://mirrors.ustc.edu.cn/crates.io-index"</p>
+<p>#Tsinghua University<br />
+[source.tuna]<br />
+registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"</p>
+<p>#Shanghai Jiaotong University<br />
+[source.sjtu]<br />
+registry = "https://mirrors.sjtug.sjtu.edu.cn/git/crates.io-index"</p>
+<p>#Rustcc community<br />
+[source.rustcc]<br />
+registry = "git://crates.rustcc.cn/crates.io-index"</p>
+</blockquote>
+<h3 id="修改rustup国内镜像">修改rustup国内镜像</h3>
+<p>在系统环境变量中设置</p>
+<blockquote>
+<p>CARGO HOME = D:Files.cargo<br />
+RUSTUP_DIST_SERVER = https://mirrors.ustc.edu.cn/rust-static<br />
+RUSTUP_HOME = D:Files.rustup<br />
+RUSTUP_UPDATE_ROOT = https://mirrors.ustc.edu.cn/rust-static/rustup</p>
+</blockquote>
+<h2 id="vs-code插件安装">VS Code插件安装</h2>
+<ol type="1">
+<li><p>rust-analyzer</p>
+<p>该插件有说明与会与官方的Rust有冲突，二者只能先激活一个。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104180557.png" /></p></li>
+<li><p>CodeLLDB</p>
+<p>基于LLDB的原生debugger.详见<a href="https://github.com/vadimcn/vscode-lldb">官网</a></p></li>
+<li><p>TabNine</p>
+<p>基于深度学习的智能提示插件, 详见<a href="https://www.tabnine.com/">官网</a></p></li>
+</ol>
+<h2 id="开启vs-code进行测试">开启VS Code进行测试</h2>
+<p>安装插件，重启VS Code后。</p>
+<p>现在运行官网示例。</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> ferris_says::say; <span class="comment">// from the previous step</span></span><br><span class="line"><span class="keyword">use</span> std::io::&#123;stdout, BufWriter&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> stdout = stdout();</span><br><span class="line">    <span class="keyword">let</span> message = <span class="built_in">String</span>::from(<span class="string">&quot;Hello fellow Rustaceans!&quot;</span>);</span><br><span class="line">    <span class="keyword">let</span> width = message.chars().count();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> writer = BufWriter::new(stdout.lock());</span><br><span class="line">    say(message.as_bytes(), width, &amp;<span class="keyword">mut</span> writer).unwrap();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106153608.png" /></p>
+<p>测试， RA、CodeLLDB及TabNine工作正常。</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>rust</category>
+      </categories>
+      <tags>
+        <tag>rust</tag>
+        <tag>VScode</tag>
       </tags>
   </entry>
   <entry>
@@ -286,104 +385,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【Rust】Rust在win10下开发环境的搭建</title>
-    <url>/2021/01/04/%E3%80%90Rust%E3%80%91Rust%E5%9C%A8win10%E4%B8%8B%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<p>记录下如何在Windows 10环境下部署VScode的Rust开发环境。</p>
-<h1 id="配置步骤">配置步骤</h1>
-<h2 id="环境变量设置">环境变量设置</h2>
-<blockquote>
-<p>RUST=d:Files.rustup-x86_64-pc-windows-msvc<br />
-CARGO HOME = D:Files.cargo<br />
-RUSTUP_DIST_SERVER = https://mirrors.ustc.edu.cn/rust-static<br />
-RUSTUP_HOME = D:Files.rustup<br />
-RUSTUP_UPDATE_ROOT = https://mirrors.ustc.edu.cn/rust-static/rustup<br />
-RUST_SRC_PATH = d:Files.rustup-x86_64-pc-windows-msvc</p>
-</blockquote>
-<a id="more"></a>
-<h2 id="配置windows的rust和crates.io国内镜像">配置Windows的Rust和Crates.io国内镜像</h2>
-<h3 id="修改crates.io国内镜像">修改Crates.io国内镜像</h3>
-<blockquote>
-<p>[source.crates-io]<br />
-registry = "https://github.com/rust-lang/crates.io-index"</p>
-<p>#Replace with any mirror source<br />
-replace-with = 'ustc'<br />
-#replace-with = 'tuna'<br />
-#replace-with = 'sjtu'<br />
-#replace-with = 'rustcc'</p>
-<p>#University of science and technology of China<br />
-[source.ustc]<br />
-registry = "git://mirrors.ustc.edu.cn/crates.io-index"</p>
-<p>#Tsinghua University<br />
-[source.tuna]<br />
-registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"</p>
-<p>#Shanghai Jiaotong University<br />
-[source.sjtu]<br />
-registry = "https://mirrors.sjtug.sjtu.edu.cn/git/crates.io-index"</p>
-<p>#Rustcc community<br />
-[source.rustcc]<br />
-registry = "git://crates.rustcc.cn/crates.io-index"</p>
-</blockquote>
-<h3 id="修改rustup国内镜像">修改rustup国内镜像</h3>
-<p>在系统环境变量中设置</p>
-<blockquote>
-<p>CARGO HOME = D:Files.cargo<br />
-RUSTUP_DIST_SERVER = https://mirrors.ustc.edu.cn/rust-static<br />
-RUSTUP_HOME = D:Files.rustup<br />
-RUSTUP_UPDATE_ROOT = https://mirrors.ustc.edu.cn/rust-static/rustup</p>
-</blockquote>
-<h2 id="vs-code插件安装">VS Code插件安装</h2>
-<ol type="1">
-<li><p>rust-analyzer</p>
-<p>该插件有说明与会与官方的Rust有冲突，二者只能先激活一个。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104180557.png" /></p></li>
-<li><p>CodeLLDB</p>
-<p>基于LLDB的原生debugger.详见<a href="https://github.com/vadimcn/vscode-lldb">官网</a></p></li>
-<li><p>TabNine</p>
-<p>基于深度学习的智能提示插件, 详见<a href="https://www.tabnine.com/">官网</a></p></li>
-</ol>
-<h2 id="开启vs-code进行测试">开启VS Code进行测试</h2>
-<p>安装插件，重启VS Code后。</p>
-<p>现在运行官网示例。</p>
-<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> ferris_says::say; <span class="comment">// from the previous step</span></span><br><span class="line"><span class="keyword">use</span> std::io::&#123;stdout, BufWriter&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> stdout = stdout();</span><br><span class="line">    <span class="keyword">let</span> message = <span class="built_in">String</span>::from(<span class="string">&quot;Hello fellow Rustaceans!&quot;</span>);</span><br><span class="line">    <span class="keyword">let</span> width = message.chars().count();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> writer = BufWriter::new(stdout.lock());</span><br><span class="line">    say(message.as_bytes(), width, &amp;<span class="keyword">mut</span> writer).unwrap();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106153608.png" /></p>
-<p>测试， RA、CodeLLDB及TabNine工作正常。</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>rust</category>
-      </categories>
-      <tags>
-        <tag>rust</tag>
-        <tag>VScode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Rust】在jupyter notebook中使用Rust</title>
-    <url>/2021/01/07/%E3%80%90Rust%E3%80%91%E5%9C%A8jupyter-notebook%E4%B8%AD%E4%BD%BF%E7%94%A8Rust/</url>
-    <content><![CDATA[<p>在jupyter notebook中是否也可以像python那样使用呢？ 答案是可以的。现在来记录一下配置步骤。</p>
-<h1 id="使用evcxr作为jupyter-notebook内核">使用EvCxR作为jupyter notebook内核</h1>
-<h2 id="安装">安装</h2>
-<ol type="1">
-<li><p>安装jupyter notebook或者jupyter lab</p></li>
-<li><p>安装<a href="https://cmake.org/download/">CMake</a>，在安装EvCxR编译时会使用到。</p></li>
-<li><p>安装EvCxR</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">cargo install evcxr_jupyter</span><br><span class="line">evcxr_jupyter -<span class="literal">-install</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="参考">参考</h1>
-<ol type="1">
-<li><a href="https://github.com/google/evcxr/blob/master/evcxr_jupyter/README.md">EvCxR Jupyter Kernel</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>rust</category>
-      </categories>
-      <tags>
-        <tag>rust</tag>
-        <tag>jupyternotebook</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【Rust】Rust的安装及卸载</title>
     <url>/2021/01/04/%E3%80%90Rust%E3%80%91Rust%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E5%8D%B8%E8%BD%BD/</url>
     <content><![CDATA[<h1 id="安装">安装</h1>
@@ -456,33 +457,6 @@ RUSTUP_UPDATE_ROOT = https://mirrors.ustc.edu.cn/rust-static/rustup</p>
       </categories>
       <tags>
         <tag>rust</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Hexo】常用操作指令</title>
-    <url>/2020/11/20/%E3%80%90Hexo%E3%80%91%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4/</url>
-    <content><![CDATA[<p>欢迎使用 <a href="https://hexo.io/">Hexo</a>! 有关hexo的详细说明参见 <a href="https://hexo.io/docs/">documentation</a> 。 相关的问题解决参见 <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> 。</p>
-<a id="more"></a>
-<h2 id="快速入门">快速入门</h2>
-<h3 id="创建新贴">创建新贴</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>详见: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="启动本地服务">启动本地服务</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>详见: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="生成静态页面">生成静态页面</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>详见: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="部署到远程">部署到远程</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>详见: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -599,6 +573,40 @@ RUSTUP_UPDATE_ROOT = https://mirrors.ustc.edu.cn/rust-static/rustup</p>
       </categories>
       <tags>
         <tag>Valine</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Rust】在jupyter notebook中使用Rust</title>
+    <url>/2021/01/07/%E3%80%90Rust%E3%80%91%E5%9C%A8jupyter-notebook%E4%B8%AD%E4%BD%BF%E7%94%A8Rust/</url>
+    <content><![CDATA[<p>在jupyter notebook中是否也可以像python那样使用呢？ 答案是可以的。现在来记录一下配置步骤。</p>
+<h1 id="使用evcxr作为jupyter-notebook内核">使用EvCxR作为jupyter notebook内核</h1>
+<h2 id="安装">安装</h2>
+<ol type="1">
+<li><p>安装jupyter notebook或者jupyter lab</p></li>
+<li><p>安装<a href="https://cmake.org/download/">CMake</a>，在安装EvCxR编译时会使用到。</p></li>
+<li><p>安装EvCxR</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">cargo install evcxr_jupyter</span><br><span class="line">evcxr_jupyter -<span class="literal">-install</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<a id="more"></a>
+<h2 id="问题">问题</h2>
+<p>安装过程中，原来rust选择的是gnu的工具链编译，但在编译libzmq时会报错，</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">D:\PROGRA~<span class="number">1</span>\MINGW-~<span class="number">1</span>\X86_64~<span class="number">1.0</span><span class="literal">-P</span>\mingw64\bin\G__~<span class="number">1</span>.EXE   <span class="literal">-std</span>=gnu++<span class="number">11</span> <span class="literal">-Wno</span><span class="literal">-tautological</span><span class="literal">-constant</span><span class="literal">-compare</span>  <span class="literal">-o</span> CMakeFiles\cmTC_57766.dir\CheckSymbolExists.cxx.obj <span class="literal">-c</span> E:\Tmp\libzmq<span class="literal">-4</span>.<span class="number">3.3</span>\build\CMakeFiles\CMakeTmp\CheckSymbolExists.cxx</span><br><span class="line"></span><br><span class="line">E:\Tmp\libzmq<span class="literal">-4</span>.<span class="number">3.3</span>\build\CMakeFiles\CMakeTmp\CheckSymbolExists.cxx: <span class="keyword">In</span> <span class="function"><span class="keyword">function</span> &#x27;<span class="title">int</span> <span class="title">main</span><span class="params">(int, char**)</span>&#x27;:</span></span><br><span class="line">E:\Tmp\libzmq<span class="literal">-4</span>.<span class="number">3.3</span>\build\CMakeFiles\CMakeTmp\CheckSymbolExists.cxx:<span class="number">8</span>:<span class="number">19</span>: error: <span class="string">&#x27;strlcpy&#x27;</span> was not declared <span class="keyword">in</span> this scope</span><br><span class="line">   <span class="keyword">return</span> ((int*)(&amp;strlcpy))[<span class="type">argc</span>];</span><br><span class="line">                   ^~~~~~~</span><br><span class="line">E:\Tmp\libzmq<span class="literal">-4</span>.<span class="number">3.3</span>\build\CMakeFiles\CMakeTmp\CheckSymbolExists.cxx:<span class="number">8</span>:<span class="number">19</span>: note: suggested alternative: <span class="string">&#x27;strncpy&#x27;</span></span><br><span class="line">   <span class="keyword">return</span> ((int*)(&amp;strlcpy))[<span class="type">argc</span>];</span><br><span class="line">                   ^~~~~~~</span><br><span class="line">                   strncpy</span><br><span class="line">At global scope:</span><br><span class="line">cc1plus.exe: warning: unrecognized command line option <span class="string">&#x27;-Wno-tautological-constant-compare&#x27;</span></span><br><span class="line">mingw32<span class="literal">-make</span>.exe[<span class="number">1</span>]: *** [<span class="type">CMakeFiles</span>\<span class="type">cmTC_57766.dir</span>\<span class="type">build.make</span>:<span class="number">84</span>: <span class="type">CMakeFiles</span>/<span class="type">cmTC_57766.dir</span>/<span class="type">CheckSymbolExists.cxx.obj</span>] Error <span class="number">1</span></span><br><span class="line"></span><br><span class="line">mingw32<span class="literal">-make</span>.exe[<span class="number">1</span>]: Leaving directory <span class="string">&#x27;E:/Tmp/libzmq-4.3.3/build/CMakeFiles/CMakeTmp&#x27;</span></span><br><span class="line"></span><br><span class="line">mingw32<span class="literal">-make</span>.exe: *** [<span class="type">Makefile</span>:<span class="number">139</span>: <span class="type">cmTC_57766</span>/<span class="type">fast</span>] Error <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">File E:/Tmp/libzmq<span class="literal">-4</span>.<span class="number">3.3</span>/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:</span><br><span class="line">/* */</span><br><span class="line"><span class="comment">#include &lt;string.h&gt;</span></span><br><span class="line"></span><br><span class="line">int main(int argc, char** argv)</span><br><span class="line">&#123;</span><br><span class="line">  (void)argv;</span><br><span class="line"><span class="comment">#ifndef strlcpy</span></span><br><span class="line">  <span class="keyword">return</span> ((int*)(&amp;strlcpy))[<span class="type">argc</span>];</span><br><span class="line"><span class="comment">#else</span></span><br><span class="line">  (void)argc;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"><span class="comment">#endif</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>尝试手动编译libzmq, 但无论4.3.3或4.3.2版本都无法成功。 具体原因从issue里也没有太多参考意义。后来从<a href="https://github.com/google/evcxr/issues/53">EvCxR issue 53</a>中得到些启发，将rust的工具链换回msvc工具链。重新安装EvCxR，成功。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210108102857.png" /></p>
+<p>测试</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210108103022.png" /></p>
+<h1 id="参考">参考</h1>
+<ol type="1">
+<li><a href="https://github.com/google/evcxr/blob/master/evcxr_jupyter/README.md">EvCxR Jupyter Kernel</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>rust</category>
+      </categories>
+      <tags>
+        <tag>rust</tag>
+        <tag>jupyternotebook</tag>
       </tags>
   </entry>
   <entry>

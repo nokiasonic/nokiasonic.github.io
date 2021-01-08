@@ -144,20 +144,6 @@
   </url>
   
   <url>
-    <loc>https://nokiasonic.github.io/tags/python/</loc>
-    <lastmod>2021-01-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://nokiasonic.github.io/tags/tqdm/</loc>
-    <lastmod>2021-01-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://nokiasonic.github.io/tags/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2021-01-08</lastmod>
     <changefreq>daily</changefreq>
@@ -166,6 +152,20 @@
   
   <url>
     <loc>https://nokiasonic.github.io/tags/Hexo/</loc>
+    <lastmod>2021-01-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://nokiasonic.github.io/tags/python/</loc>
+    <lastmod>2021-01-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://nokiasonic.github.io/tags/tqdm/</loc>
     <lastmod>2021-01-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -186,14 +186,14 @@
   </url>
   
   <url>
-    <loc>https://nokiasonic.github.io/tags/jupyternotebook/</loc>
+    <loc>https://nokiasonic.github.io/tags/Valine/</loc>
     <lastmod>2021-01-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://nokiasonic.github.io/tags/Valine/</loc>
+    <loc>https://nokiasonic.github.io/tags/jupyternotebook/</loc>
     <lastmod>2021-01-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -293,14 +293,14 @@
   </url>
   
   <url>
-    <loc>https://nokiasonic.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/</loc>
+    <loc>https://nokiasonic.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E7%BE%8E%E5%A5%BD%E7%94%9F%E6%B4%BB/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2021-01-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://nokiasonic.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E7%BE%8E%E5%A5%BD%E7%94%9F%E6%B4%BB/%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>https://nokiasonic.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/</loc>
     <lastmod>2021-01-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
