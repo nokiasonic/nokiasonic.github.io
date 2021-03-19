@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"nokiasonic.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Windows的cmd实在过于丑陋，且使用起来有诸多的不方便， 平时也会使用git bash, 那么有没有办法将它们集成在一起，并且有个漂亮的外观呢？ 答案是肯定的。 那就是cmder + fluent terminal。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【cmder】cmder+fluent terminal的使用及配置">
+<meta property="og:url" content="https://nokiasonic.github.io/2021/03/18/%E3%80%90cmder%E3%80%91cmder+fluent%20terminal%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="橘子树下">
+<meta property="og:description" content="Windows的cmd实在过于丑陋，且使用起来有诸多的不方便， 平时也会使用git bash, 那么有没有办法将它们集成在一起，并且有个漂亮的外观呢？ 答案是肯定的。 那就是cmder + fluent terminal。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/nokiasonic/pic/raw/master/img/20210319083047.png">
+<meta property="article:published_time" content="2021-03-18T00:42:01.000Z">
+<meta property="article:modified_time" content="2021-03-19T00:35:02.589Z">
+<meta property="article:author" content="Jun Lv">
+<meta property="article:tag" content="cmder">
+<meta property="article:tag" content="fluent terminal">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/nokiasonic/pic/raw/master/img/20210319083047.png">
+
+<link rel="canonical" href="https://nokiasonic.github.io/2021/03/18/%E3%80%90cmder%E3%80%91cmder+fluent%20terminal%E7%9A%84%E4%BD%BF%E7%94%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【cmder】cmder+fluent terminal的使用及配置 | 橘子树下</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">橘子树下</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">学习园地</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2021/03/18/%E3%80%90cmder%E3%80%91cmder+fluent%20terminal%E7%9A%84%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Jun Lv">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橘子树下">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【cmder】cmder+fluent terminal的使用及配置
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-18 08:42:01" itemprop="dateCreated datePublished" datetime="2021-03-18T08:42:01+08:00">2021-03-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-19 08:35:02" itemprop="dateModified" datetime="2021-03-19T08:35:02+08:00">2021-03-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E8%BD%AF%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">软件</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/03/18/%E3%80%90cmder%E3%80%91cmder+fluent%20terminal%E7%9A%84%E4%BD%BF%E7%94%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/18/%E3%80%90cmder%E3%80%91cmder+fluent%20terminal%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Windows的cmd实在过于丑陋，且使用起来有诸多的不方便， 平时也会使用git bash, 那么有没有办法将它们集成在一起，并且有个漂亮的外观呢？ 答案是肯定的。 那就是cmder + fluent terminal。</p>
+<a id="more"></a>
+<h2 id="特点">特点</h2>
+<ul>
+<li>便携，解压即可用</li>
+<li>自带git、ls、curl等命令</li>
+<li>可设置命令别名</li>
+<li>丰富的颜色主题（Solarized、Twilight、Ubuntu、xterm、Monokai，甚至接受自定）、可定制字体</li>
+<li>支持tab分页、同屏多端口（支持水平分割、垂直分割）</li>
+<li>支持自定terminal，无论是CMD、PowerShell、bash都可以，还可以注入环境变量</li>
+</ul>
+<h2 id="安装">安装</h2>
+<p>从[官网]{https://cmder.net/}下载，解压即可。这里我用的是mini版。</p>
+<h2 id="配置">配置</h2>
+<h3 id="外观配置">外观配置</h3>
+<p>右键Tab栏空白处，弹出菜单选择<code>Settings</code>, 在这里可以进行cmder的配置</p>
+<ul>
+<li><p>字体</p>
+<p>这里默认是<code>Consolas</code>, 可以根据自己喜好选择合适的字体，推荐使用<code>input Mono</code>、<code>Inconsolata</code>、<code>Consolas</code>、<code>Courier New</code>。</p></li>
+<li><p>色彩方案</p>
+<p><code>Features-&gt;Colors</code>来选择色彩方案，可以使用预先定义好的多种方案，也可以自定义。</p>
+<p>可以参考<a target="_blank" rel="noopener" href="https://github.com/joonro/ConEmu-Color-Themes">Github | joonro/ConEmu-Color-Themes</a></p></li>
+<li><p>集成fluent terminal</p>
+<p>比较喜欢fluent terminal的风格，把cmder从ConEmu里解放出来。</p>
+<ul>
+<li><p>从<a target="_blank" rel="noopener" href="https://github.com/felixse/FluentTerminal#automatic-install">github</a>或<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/p/fluent-terminal/9p2krlmfxf9t?cid=storebadge&amp;ocid=badge&amp;rtc=1&amp;activetab=pivot:overviewtab">microsoft store</a>安装。</p></li>
+<li><p>将以下配置保存为<code>Monokai.flutecolors</code>, 在设置主题时会使用到。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">  &#123;</span><br><span class="line">    &quot;Name&quot;: &quot;Monokai&quot;,</span><br><span class="line">    &quot;Author&quot;: &quot;David Refoua &lt;David@Refoua.me&gt;&quot;,</span><br><span class="line">    &quot;Colors&quot;: &#123;</span><br><span class="line">      &quot;Foreground&quot;: &quot;#F8F8F0&quot;,</span><br><span class="line">      &quot;Background&quot;: &quot;#282828&quot;,</span><br><span class="line">      &quot;Cursor&quot;: &quot;#f8f8f0&quot;,</span><br><span class="line">      &quot;CursorAccent&quot;: &quot;#272822&quot;,</span><br><span class="line">      &quot;Selection&quot;: &quot;rgba(73, 72, 62, 0.3)&quot;,</span><br><span class="line">      &quot;Black&quot;: &quot;#2E3436&quot;,</span><br><span class="line">      &quot;Red&quot;: &quot;#CB064D&quot;,</span><br><span class="line">      &quot;Green&quot;: &quot;#8dd006&quot;,</span><br><span class="line">      &quot;Yellow&quot;: &quot;#e6db74&quot;,</span><br><span class="line">      &quot;Blue&quot;: &quot;#0376dd&quot;,</span><br><span class="line">      &quot;Magenta&quot;: &quot;#9d74e6&quot;,</span><br><span class="line">      &quot;Cyan&quot;: &quot;#52aebf&quot;,</span><br><span class="line">      &quot;White&quot;: &quot;#F8F8F2&quot;,</span><br><span class="line">      &quot;BrightBlack&quot;: &quot;#555753&quot;,</span><br><span class="line">      &quot;BrightRed&quot;: &quot;#F92672&quot;, &#x2F;&#x2F; #f3044b</span><br><span class="line">      &quot;BrightGreen&quot;: &quot;#A6E22E&quot;,</span><br><span class="line">      &quot;BrightYellow&quot;: &quot;#FED330&quot;,</span><br><span class="line">      &quot;BrightBlue&quot;: &quot;#0383f5&quot;,</span><br><span class="line">      &quot;BrightMagenta&quot;: &quot;#AE81FF&quot;,</span><br><span class="line">      &quot;BrightCyan&quot;: &quot;#66D9EF&quot;,</span><br><span class="line">      &quot;BrightWhite&quot;: &quot;#F8F8F0&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>打开<code>Fluent Terminal</code>， 进入设置或热键<code>Ctrl-Shift ,</code>在主题中导入<code>Monokai.flutecolors</code>文件，保存并设置为默认主题。</p></li>
+<li><p>参考<a target="_blank" rel="noopener" href="https://github.com/cmderdev/cmder/wiki/Setting-up-Environment-Variables">cmder环境变量设置</a>对<code>%CMDER_ROOT%</code>、<code>%ConEmuDir%</code>加入环境变量中。</p></li>
+</ul></li>
+</ul>
+<h2 id="终端类型配置">终端类型配置</h2>
+<h3 id="cmder中的配置">cmder中的配置</h3>
+<h4 id="git-bash">Git bash</h4>
+<p>Task parameters</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;icon &quot;D:\Program Files\Git\etc\git.ico&quot;</span><br></pre></td></tr></table></figure>
+<p>Commands</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;D:\Program Files\Git\bin\sh.exe&quot; -l -new_console:d:%USERPROFILE%</span><br></pre></td></tr></table></figure>
+<h4 id="cmd">CMD</h4>
+<p>Commands</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd.exe &#x2F;k &quot;%ConEmuBaseDir%\CmdInit.cmd&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="cmdadmin">CMD(admin)</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd.exe &#x2F;k &quot;%ConEmuBaseDir%\CmdInit.cmd&quot; -new_console:a</span><br></pre></td></tr></table></figure>
+<h4 id="docker">Docker</h4>
+<p>Task parameters</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;icon &quot;c:\Program Files\Docker\Docker\resources\ddvp.ico&quot;</span><br></pre></td></tr></table></figure>
+<p>Commands</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd.exe &#x2F;k docker exec -it 138b49276cbb &#x2F;bin&#x2F;bash -cur_console:n</span><br></pre></td></tr></table></figure>
+<h3 id="fluent-terminal中的配置">### fluent terminal中的配置</h3>
+<p>进入设置-配置文件（Profile），依次创建各类需要的终端配置。</p>
+<h4 id="cmd-1">CMD</h4>
+<table>
+<thead>
+<tr class="header">
+<th>配置或参数</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>Cmder</td>
+</tr>
+<tr class="even">
+<td>Shell executable location</td>
+<td>C:.exe</td>
+</tr>
+<tr class="odd">
+<td>Working directory</td>
+<td>E:Project</td>
+</tr>
+<tr class="even">
+<td>Arguments</td>
+<td>/k title Cmder &amp; "%CMDER_ROOT%.bat"</td>
+</tr>
+<tr class="odd">
+<td>Theme</td>
+<td>Monokai</td>
+</tr>
+</tbody>
+</table>
+<h3 id="docker-1">docker</h3>
+<table>
+<thead>
+<tr class="header">
+<th>配置或参数</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>Docker</td>
+</tr>
+<tr class="even">
+<td>Shell executable location</td>
+<td>C:.exe</td>
+</tr>
+<tr class="odd">
+<td>Working directory</td>
+<td>E:Project</td>
+</tr>
+<tr class="even">
+<td>Arguments</td>
+<td>/k title Docker &amp; %DOCKER_DIR%exec -it 138b49276cbb /bin/bash</td>
+</tr>
+<tr class="odd">
+<td>Theme</td>
+<td>Monokai</td>
+</tr>
+</tbody>
+</table>
+<h3 id="提示符自定义">提示符自定义</h3>
+<p>将<code>λ</code>修改为<code>$</code>,并且将颜色设为'Bright Cryan'。在<code>%CMDER_DIR%\vendor</code>目录下打开<code>clink.lua</code>, 找到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">local cmder_prompt &#x3D;</span><br><span class="line">local lambda &#x3D;</span><br></pre></td></tr></table></figure>
+<p>将{lamb}的色彩定义为1b[1;96;40m{lamb}，lambda值设为"$"。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">local cmder_prompt &#x3D; &quot;\x1b[1;32;40m&#123;cwd&#125; &#123;git&#125;&#123;hg&#125;&#123;svn&#125; \n\x1b[1;96;40m&#123;lamb&#125; \x1b[0m&quot;</span><br><span class="line">local lambda &#x3D; &quot;$&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="卡顿">卡顿</h3>
+<p>在进入含有git项目的目录时，因为初始设定会完整遍历该目录，所以会感觉到卡顿。可以同样修改<code>clink.lua</code>,找到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">local git_dir &#x3D; get_git_dir()</span><br></pre></td></tr></table></figure>
+<p>将其注释掉即可。缺点是不会显示git相关的信息。</p>
+<h2 id="展示">展示</h2>
+<p>配置完成后的cmder+fluent terminal如图：</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210319083047.png" /></p>
+<h1 id="参考">参考</h1>
+<p>1/ <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/71706782">Windows命令行终端神器Cmder配置及美化指南</a></p>
+<p>2/ <a target="_blank" rel="noopener" href="https://github.com/cmderdev/cmder/wiki/Seamless-FluentTerminal-Integration">Seamless FluentTerminal Integration</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/cmder/" rel="tag"># cmder</a>
+              <a href="/tags/fluent-terminal/" rel="tag"># fluent terminal</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/08/%E3%80%90Markdown%E3%80%91Typora%E7%94%BB%E6%B5%81%E7%A8%8B%E5%9B%BE%E5%AE%9E%E8%B7%B5/" rel="prev" title="【Markdown】Typora画流程图实践">
+      <i class="fa fa-chevron-left"></i> 【Markdown】Typora画流程图实践
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%96%E8%A7%82%E9%85%8D%E7%BD%AE"><span class="nav-number">3.1.</span> <span class="nav-text">外观配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%88%E7%AB%AF%E7%B1%BB%E5%9E%8B%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">终端类型配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cmder%E4%B8%AD%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="nav-number">4.1.</span> <span class="nav-text">cmder中的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#git-bash"><span class="nav-number">4.1.1.</span> <span class="nav-text">Git bash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cmd"><span class="nav-number">4.1.2.</span> <span class="nav-text">CMD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cmdadmin"><span class="nav-number">4.1.3.</span> <span class="nav-text">CMD(admin)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#docker"><span class="nav-number">4.1.4.</span> <span class="nav-text">Docker</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fluent-terminal%E4%B8%AD%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="nav-number">4.2.</span> <span class="nav-text">### fluent terminal中的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cmd-1"><span class="nav-number">4.2.1.</span> <span class="nav-text">CMD</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-1"><span class="nav-number">4.3.</span> <span class="nav-text">docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E7%A4%BA%E7%AC%A6%E8%87%AA%E5%AE%9A%E4%B9%89"><span class="nav-number">4.4.</span> <span class="nav-text">提示符自定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%A1%E9%A1%BF"><span class="nav-number">4.5.</span> <span class="nav-text">卡顿</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%95%E7%A4%BA"><span class="nav-number">5.</span> <span class="nav-text">展示</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number"></span> <span class="nav-text">参考</span></a></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jun Lv"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Jun Lv</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jun Lv</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'PDEwzfU70eGolvrzzXRlTCu8-MdYXbMMI',
+      appKey     : 'uIKkyAM94pDOFzWrobUXkxxS',
+      placeholder: "留心倾听您的心声",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
