@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>欢迎来到我的博客</title>
+    <url>/2020/11/19/hello-world/</url>
+    <content><![CDATA[<h2 id="橘子的博客终于开通了">橘子的博客终于开通了</h2>
+<p>一直偷懒，最近终于良心发现，总觉以前的光阴虚度，不想未来同样蹉跎岁月，自当奋起，希望能记录下未来成长过程中的点点滴滴想法和经验。</p>
+<p>借词聊表胸怀</p>
+<blockquote>
+<p><font color=green><strong>江城子·密州出猎</strong></font><br />
+<font color=blue><strong>宋 苏轼</strong></font></p>
+<p>老夫聊发少年狂， 左牵黄，右擎苍， 锦帽貂裘，千骑卷平冈。 为报倾城随太守，亲射虎，看孙郎。</p>
+<p>酒酣胸胆尚开张， 鬓微霜，又何妨! 持节云中，何日遣冯唐? 会挽雕弓如满月，西北望，射天狼。</p>
+</blockquote>
+<h2 id="本站用途">本站用途</h2>
+<p>这是个人用来学习研究金融工程，机器学习的小窝，</p>
+]]></content>
+      <categories>
+        <category>美好生活</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>tqdm进度条的使用</title>
     <url>/2020/12/23/tqdm%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<p>以前使用的是processbar来制作进度条， 听闻tqdm性能更好些，遂尝试使用一下。</p>
@@ -20,6 +42,43 @@
       <tags>
         <tag>python</tag>
         <tag>tqdm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】Next主题更好地支持LaTeX数学公式</title>
+    <url>/2020/12/17/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%9B%B4%E5%A5%BD%E5%9C%B0%E6%94%AF%E6%8C%81LaTeX%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</url>
+    <content><![CDATA[<p>在Typora中可以正常显示的<span class="math inline">\(L^AT_EX\)</span>数学公式，在Hexo NexT主题下却渲染得不是太理想。我们去最新的<a href="https://theme-next.js.org/docs/third-party-services/math-equations.html">NexT官方文档</a>里看看如何解决吧！</p>
+<a id="more"></a>
+<h2 id="实施步骤">实施步骤</h2>
+<p>NexT主题现在提供两种数学公式的渲染方式 <a href="https://www.mathjax.org/">MathJax</a> 及 <a href="https://katex.org/">KaTeX</a>。其中<code>katex</code>的速度更快，但是对于<span class="math inline">\(L^AT_EX\)</span>的支持有一定的限制。所以除非你的博客数量实在是过于庞大，不然就可以直接使用<code>mathjax</code>。</p>
+<p>使用<code>mathjax</code>，可以选择多种渲染引擎，但推荐使用</p>
+<ul>
+<li><a href="https://github.com/wzpan/hexo-renderer-pandoc">hexo-renderer-pandoc</a></li>
+</ul>
+<p>使用其它诸如<a href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a>之类的引擎（这是Hexo默认首先用来渲染MarkDown的），然后再交给<code>mathjax</code>渲染。<code>hexo-renderer-marked</code>会把一些特殊的MarkDown符号转换为相应的html标签，比如在MarkDown语法中，下划线 _ 代表斜体，会被转化为&lt; em&gt;标签，\也会被转义成一个。而类<span class="math inline">\(L^AT_EX\)</span>格式书写的数学公式下划线 _ 表示角标，\表示公式换行，有特殊的含义，所以<code>mathjax</code>引擎在渲染数学公式的时候就会无法正常渲染。</p>
+<h3 id="安装pandoc">安装pandoc</h3>
+<p><a href="https://github.com/jgm/pandoc/blob/master/INSTALL.md">安装文档</a>及<a href="https://github.com/jgm/pandoc/releases/latest">下载链接</a>]，因为在安装<code>Anaconda</code>时已经含有pandoc。这里不再单独进行安装。</p>
+<h3 id="配置next">配置NexT</h3>
+<ol type="1">
+<li>首先，在NexT主题配置文件中将<code>mathjax</code>设为渲染引擎</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li>然后，卸载最初的<code>hexo-renderer-marked</code>引擎并安装<code>hexo-renderer-pandoc</code>。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm un hexo-renderer-marked</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm i hexo-renderer-pandoc</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201217170659.png" /></p>
+<ol start="3" type="1">
+<li>在更换完渲染引擎后，执行一下<code>hexo clean</code>，然后再进行部署或启动本地服务器来验证渲染是否工作正常。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo clean &amp;&amp; hexo g -d</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> or hexo clean &amp;&amp; hexo s</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -69,65 +128,6 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Hexo】Next主题更好地支持LaTeX数学公式</title>
-    <url>/2020/12/17/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%9B%B4%E5%A5%BD%E5%9C%B0%E6%94%AF%E6%8C%81LaTeX%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</url>
-    <content><![CDATA[<p>在Typora中可以正常显示的<span class="math inline">\(L^AT_EX\)</span>数学公式，在Hexo NexT主题下却渲染得不是太理想。我们去最新的<a href="https://theme-next.js.org/docs/third-party-services/math-equations.html">NexT官方文档</a>里看看如何解决吧！</p>
-<a id="more"></a>
-<h2 id="实施步骤">实施步骤</h2>
-<p>NexT主题现在提供两种数学公式的渲染方式 <a href="https://www.mathjax.org/">MathJax</a> 及 <a href="https://katex.org/">KaTeX</a>。其中<code>katex</code>的速度更快，但是对于<span class="math inline">\(L^AT_EX\)</span>的支持有一定的限制。所以除非你的博客数量实在是过于庞大，不然就可以直接使用<code>mathjax</code>。</p>
-<p>使用<code>mathjax</code>，可以选择多种渲染引擎，但推荐使用</p>
-<ul>
-<li><a href="https://github.com/wzpan/hexo-renderer-pandoc">hexo-renderer-pandoc</a></li>
-</ul>
-<p>使用其它诸如<a href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a>之类的引擎（这是Hexo默认首先用来渲染MarkDown的），然后再交给<code>mathjax</code>渲染。<code>hexo-renderer-marked</code>会把一些特殊的MarkDown符号转换为相应的html标签，比如在MarkDown语法中，下划线 _ 代表斜体，会被转化为&lt; em&gt;标签，\也会被转义成一个。而类<span class="math inline">\(L^AT_EX\)</span>格式书写的数学公式下划线 _ 表示角标，\表示公式换行，有特殊的含义，所以<code>mathjax</code>引擎在渲染数学公式的时候就会无法正常渲染。</p>
-<h3 id="安装pandoc">安装pandoc</h3>
-<p><a href="https://github.com/jgm/pandoc/blob/master/INSTALL.md">安装文档</a>及<a href="https://github.com/jgm/pandoc/releases/latest">下载链接</a>]，因为在安装<code>Anaconda</code>时已经含有pandoc。这里不再单独进行安装。</p>
-<h3 id="配置next">配置NexT</h3>
-<ol type="1">
-<li>首先，在NexT主题配置文件中将<code>mathjax</code>设为渲染引擎</li>
-</ol>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<ol start="2" type="1">
-<li>然后，卸载最初的<code>hexo-renderer-marked</code>引擎并安装<code>hexo-renderer-pandoc</code>。</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm un hexo-renderer-marked</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm i hexo-renderer-pandoc</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201217170659.png" /></p>
-<ol start="3" type="1">
-<li>在更换完渲染引擎后，执行一下<code>hexo clean</code>，然后再进行部署或启动本地服务器来验证渲染是否工作正常。</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo clean &amp;&amp; hexo g -d</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> or hexo clean &amp;&amp; hexo s</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>欢迎来到我的博客</title>
-    <url>/2020/11/19/hello-world/</url>
-    <content><![CDATA[<h2 id="橘子的博客终于开通了">橘子的博客终于开通了</h2>
-<p>一直偷懒，最近终于良心发现，总觉以前的光阴虚度，不想未来同样蹉跎岁月，自当奋起，希望能记录下未来成长过程中的点点滴滴想法和经验。</p>
-<p>借词聊表胸怀</p>
-<blockquote>
-<p><font color=green><strong>江城子·密州出猎</strong></font><br />
-<font color=blue><strong>宋 苏轼</strong></font></p>
-<p>老夫聊发少年狂， 左牵黄，右擎苍， 锦帽貂裘，千骑卷平冈。 为报倾城随太守，亲射虎，看孙郎。</p>
-<p>酒酣胸胆尚开张， 鬓微霜，又何妨! 持节云中，何日遣冯唐? 会挽雕弓如满月，西北望，射天狼。</p>
-</blockquote>
-<h2 id="本站用途">本站用途</h2>
-<p>这是个人用来学习研究金融工程，机器学习的小窝，</p>
-]]></content>
-      <categories>
-        <category>美好生活</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -313,6 +313,41 @@
       </tags>
   </entry>
   <entry>
+    <title>【Markdown】Typora画流程图实践</title>
+    <url>/2021/01/08/%E3%80%90Markdown%E3%80%91Typora%E7%94%BB%E6%B5%81%E7%A8%8B%E5%9B%BE%E5%AE%9E%E8%B7%B5/</url>
+    <content><![CDATA[<p><code>Typrora</code>中使用了<code>Mermaid</code>来提供强劲的绘制流程图、时序图的功能。</p>
+<h2 id="关于mermaid">关于Mermaid</h2>
+<p>是一种简单的类似 Markdown 的脚本语言，通过 JavaScript 编程语言，将文本转换为图片。因此，真正实现画图功能的并不是 Typora 本身，它只是内置了对 Mermaid 的支持。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210108172301.png" /></p>
+<h2 id="图形介绍">图形介绍</h2>
+<h3 id="流程图flowchart">流程图(flowchart)</h3>
+<p>主要语法说明：</p>
+<p>graph - 表明是流程图</p>
+<p>方向：</p>
+<ul>
+<li>TB - top to bottom</li>
+<li>TD - top-down/ same as top to bottom</li>
+<li>BT - bottom to top</li>
+<li>RL - right to left</li>
+<li>LR - left to right</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">graph TD;</span><br><span class="line">    A--&gt;B;</span><br><span class="line">    A--&gt;C;</span><br><span class="line">    B--&gt;D;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">graph TD;</span><br><span class="line">    A--&gt;B;</span><br><span class="line">    A--&gt;C;</span><br><span class="line">    B--&gt;D;</span><br></pre></td></tr></table></figure>
+<h3 id="时序图"><strong>时序图</strong></h3>
+<p>语法解释：<code>-&gt;&gt;</code> 代表实线箭头，<code>--&gt;&gt;</code> 则代表虚线。</p>
+<h1 id="参考">参考</h1>
+<p>[1] <a href="https://mermaid-js.github.io/mermaid/#/">Mermaid:https://mermaid-js.github.io/mermaid/#/</a></p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>markdown</category>
+      </categories>
+      <tags>
+        <tag>typora</tag>
+        <tag>mermaid</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【Jupyter】启动时有报错信息</title>
     <url>/2021/05/11/%E3%80%90Jupyter%E3%80%91%E5%90%AF%E5%8A%A8%E6%97%B6%E6%9C%89%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/</url>
     <content><![CDATA[<h1 id="说明">说明</h1>
@@ -333,6 +368,178 @@
       <tags>
         <tag>python</tag>
         <tag>jupyter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Rust】Rust的安装及卸载</title>
+    <url>/2021/01/04/%E3%80%90Rust%E3%80%91Rust%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E5%8D%B8%E8%BD%BD/</url>
+    <content><![CDATA[<h1 id="安装">安装</h1>
+<h2 id="下载rust的安装器">下载Rust的安装器</h2>
+<p>从<a href="https://www.rust-lang.org/zh-CN/tools/install">官网</a>下载<code>rustup-init.exe</code>。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104150128.png" /></p>
+<p>说明：</p>
+<blockquote>
+<p><code>rustup</code>是安装和管理 <strong>Rust 构建版本</strong>的工具。rustup 用于管理不同平台下的 Rust 构建版本并使其互相兼容， 支持安装由 Beta 和 Nightly 频道发布的版本，并支持其他用于交叉编译的编译版本 <code>cargo</code>是rust的<strong>包管理器和构建系统工具</strong>。它将常用命令集于一身，无需引入其它命令。</p>
+<p>rustup程序是rust的安装程序，也是他的版本管理程序，类似于Python的Anaconda发行版的conda工具，非常方便使用管理。cargo是rust的构建工具，暂不介绍，需要明白的是：rustup是管理语言自身的，cargo是管理第三方拓展的。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="配置path环境变量">配置<code>path</code>环境变量</h2>
+<p>在 Rust 开发环境中，所有工具都安装在 <code>~/.cargo/bin</code> 目录中，您可以在这里找到包括 <code>rustc</code>、<code>cargo</code> 和 <code>rustup</code> 在内的 Rust 工具链。</p>
+<p>所以，如果打算修改默认的安装位置，可以在环境变量中这样设置，以安装路径为<code>D:\Program Files\Rust\</code>为例。否则会默认安装在 C 盘下。 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CARGO_HOME：D:\Program Files\RUST\\.cargo</span><br><span class="line">RUSTUP_HOME：D:\Program Files\RUST\\.rustup</span><br></pre></td></tr></table></figure></p>
+<h2 id="安装-1">安装</h2>
+<h3 id="msvc工具链方式">MSVC工具链方式</h3>
+<p>下载完成后直接点击执行，会出现一个CMD窗口：仔细阅读上面的内容，如果没有安装Microsoft 2019 builder tools，就从<a href="https://visualstudio.microsoft.com/downloads/">这里</a>进行下载安装。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210105152553.png" /></p>
+<p>下载build tools之后，在Visual studio installer中只选择“C++生成工具”，然后只选择"MSVC v142 - VS2019 C++ x64/x86 生成工具"。安装上去大约需要1.8G硬盘空间。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210105153117.png" /></p>
+<h3 id="安装rust">安装Rust</h3>
+<p>运行<code>rustup-init.exe</code></p>
+<p>然后，在下面输入1，进行默认安装：</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104151722.png" /></p>
+<p>检查是否安装成功</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rustc --version</span><br><span class="line">cargo --version　　</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104154515.png" /></p>
+<h3 id="gnu工具链方式">GNU工具链方式</h3>
+<p>gnu（本文使用MinGW-w64）占用空间小（500M），对于初步的rust使用足够了。</p>
+<p><a href="http://www.mingw-w64.org/doku.php">MinGW-w64下载</a></p>
+<h4 id="安装mingw-w64">安装MinGW-w64</h4>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106091000.png" /></p>
+<p>这里你可以选择安装的版本, 建议只更改第二项至x86_64, 其他选项不做改动。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106091120.png" /></p>
+<p><strong>关于Threads选项的说明：</strong></p>
+<p>To summarize:</p>
+<ul>
+<li><code>posix</code>: enable C++11/C11 multithreading features. Makes libgcc depend on libwinpthreads, so that even if you don't directly call pthreads API, you'll be distributing the winpthreads DLL. There's nothing wrong with distributing one more DLL with your application.</li>
+<li><code>win32</code>: No C++11 multithreading features.</li>
+</ul>
+<p>Neither have influence on any user code calling Win32 APIs or pthreads APIs. You can always use both.</p>
+<p>exception seh (for Structured Exception Handling mechanism).</p>
+<p>这里可以设置安装目录, 我安装在</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106091244.png" /></p>
+<h3 id="环境变量的配置">环境变量的配置</h3>
+<p>新增 <code>D:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin</code>到<code>PATH</code>。</p>
+<h3 id="检查安装是否成功">检查安装是否成功</h3>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">C:\Users\junlv&gt;mingw32<span class="literal">-make</span> -<span class="literal">-version</span></span><br><span class="line">GNU Make <span class="number">4.2</span>.<span class="number">1</span></span><br><span class="line">Built <span class="keyword">for</span> x86_64<span class="literal">-w64</span><span class="literal">-mingw32</span></span><br><span class="line">Copyright (C) <span class="number">1988</span><span class="literal">-2016</span> Free Software Foundation, Inc.</span><br><span class="line">License GPLv3+: GNU GPL version <span class="number">3</span> or later &lt;http://gnu.org/licenses/gpl.html&gt;</span><br><span class="line">This is free software: you are free to change and redistribute it.</span><br><span class="line">There is NO WARRANTY, to the extent permitted by law.</span><br><span class="line"></span><br><span class="line">C:\Users\junlv&gt;g++ -<span class="literal">-version</span></span><br><span class="line">g++ (x86_64<span class="literal">-posix</span><span class="literal">-seh</span><span class="literal">-rev0</span>, Built by MinGW<span class="literal">-W64</span> project) <span class="number">8.1</span>.<span class="number">0</span></span><br><span class="line">Copyright (C) <span class="number">2018</span> Free Software Foundation, Inc.</span><br><span class="line">This is free software; see the source <span class="keyword">for</span> copying conditions.  There is NO</span><br><span class="line">warranty; not even <span class="keyword">for</span> MERCHANTABILITY or FITNESS <span class="keyword">FOR</span> A PARTICULAR PURPOSE.</span><br></pre></td></tr></table></figure>
+<h3 id="安装rust-1">安装Rust</h3>
+<p>运行<code>rustup-init.exe</code></p>
+<p>然后，在下面输入2，进行定制化安装：</p>
+<p><code>default host triple</code>修改为<code>x86_64-pc-windows-gnu</code></p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106114540.png" /></p>
+<p>继续选1进行安装即可。</p>
+<p>安装验证</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">E:\Downloads\Programs&gt;rustc -<span class="literal">-version</span></span><br><span class="line">rustc <span class="number">1.49</span>.<span class="number">0</span> (e1884a8e3 <span class="number">2020</span><span class="literal">-12</span><span class="literal">-29</span>)</span><br><span class="line"></span><br><span class="line">E:\Downloads\Programs&gt;cargo -<span class="literal">-version</span></span><br><span class="line">cargo <span class="number">1.49</span>.<span class="number">0</span> (d00d64df9 <span class="number">2020</span><span class="literal">-12</span><span class="literal">-05</span>)</span><br></pre></td></tr></table></figure>
+<p>安装源代码用于代码补全</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">E:\Downloads\Programs&gt;rustup component add rust<span class="literal">-src</span></span><br><span class="line">info: downloading component <span class="string">&#x27;rust-src&#x27;</span></span><br><span class="line">info: installing component <span class="string">&#x27;rust-src&#x27;</span></span><br><span class="line">info: <span class="keyword">using</span> up to 500.0 MiB of RAM to unpack components</span><br></pre></td></tr></table></figure>
+<h1 id="卸载rust">卸载Rust</h1>
+<p>如果想卸载 Rust，可以运行 <code>rustup self uninstall</code></p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104150931.png" /></p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>rust</category>
+      </categories>
+      <tags>
+        <tag>rust</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Python】使用PYQT5来构建持仓盈亏监控</title>
+    <url>/2021/05/14/%E3%80%90Python%E3%80%91%E4%BD%BF%E7%94%A8PYQT5%E6%9D%A5%E6%9E%84%E5%BB%BA%E6%8C%81%E4%BB%93%E7%9B%88%E4%BA%8F%E7%9B%91%E6%8E%A7/</url>
+    <content><![CDATA[<h1 id="目的">目的</h1>
+<p>通过win10的通知来监控持仓盈亏，会在托盘上累积太多的图标，而且经常受到专注助手影响，效果不是太理想。所以尝试利用PyQt5来构建一个监控系统，实现类似雪球网页上同样的功能。</p>
+<a id="more"></a>
+<h1 id="安装pyqt5">安装PyQt5</h1>
+<h2 id="安装pyqt5-1">安装PyQt5</h2>
+<ol type="1">
+<li><p>pip安装 &gt;pip install PyQt5</p></li>
+<li><p>官网下载文件安装<br />
+下载地址：<a href="https://pypi.org/project/PyQt5/#files">PyQt下载官网</a> <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210428113305.png" /> 安装方法：打开命令行，通过命令行进入到下载的whl文件所在的文件夹，输入如下命令，安装即可。 &gt;pip install PyQt5-5.15.4-cp36.cp37.cp38.cp39-none-win_amd64.whl</p></li>
+</ol>
+<h2 id="安装pyqt5-tools">安装PyQt5-tools</h2>
+<p>PyQt5-tools里含有图形界面开发工具QtDesigner及国际化翻译工具Liguist。 1. pip安装 &gt;pip install PyQt5-tools</p>
+<ol start="2" type="1">
+<li>官网下载文件安装<br />
+下载地址：<a href="https://pypi.org/project/pyqt5-tools/#files">PyQt下载官网</a> <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210428114755.png" /> 安装方法：打开命令行，通过命令行进入到下载的whl文件所在的文件夹，输入如下命令，安装即可。 &gt;pip install pyqt5_tools-5.15.2.3.0.2-py3-none-any.whl</li>
+</ol>
+<p>在系统中加入以下环境变量 &gt;d:-packages_tools<br />
+</p>
+<h2 id="与vscode集成">与VScode集成</h2>
+<ol type="1">
+<li>安装pyqt integration插件 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210428120444.png" /> 对pyqt integration插件进行配置，主要是pyuic5及qt designer的路径 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210428121818.png" /></li>
+</ol>
+<h2 id="界面设计">界面设计</h2>
+<p>用小窗口来实现监控。</p>
+<h3 id="术语">术语</h3>
+<ul>
+<li>布局<br />
+采用了布局之后能够让我们的程序在使用上更加美观，不会随着窗体的大小发生改变而改变，符合我们的使用习惯。在PyQt5中，有多种布局的方式供我们选择，比较常用的布局有以下几种：
+<ul>
+<li>表单布局：QFormLayout</li>
+<li>网格布局：QGridLayout</li>
+<li>水平排列布局：QHBoxLayout</li>
+<li>垂直排列布局：QVBoxLayout</li>
+</ul></li>
+</ul>
+<p>比较详细的说明可以参考<a href="https://zhuanlan.zhihu.com/p/28559136">PyQt5系列教程（6）：布局</a></p>
+<ul>
+<li>MVC模式 MVC 模式 指 Model-View-Controller（模型-视图-控制器） 模式。这种模式多应用于应用程序的分层开发。
+<ul>
+<li>Model是一个数据模型、一个虚拟的东西，显示不出来的，如果我们要把这些数据显示出来，就需要使用view。</li>
+<li>View：用来显示Model这种数据</li>
+<li>Controler：如果我们要编辑数据，就需要使用controler,不使用controler，我们只能对数据进行查看不能编辑</li>
+</ul></li>
+</ul>
+<h3 id="使用qtdesigner来设计界面">使用QtDesigner来设计界面</h3>
+<ol type="1">
+<li>初始界面 初始界面设计如下： <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210514104224.png" /></li>
+</ol>
+<p>相应的组件及布局如下： <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210514104405.png" /></p>
+<p>计划使用QLabel来显示总的持仓盈亏情况，用Qtableview来显示具体的股票信息， Qlabel使用<code>gridLayout</code>, Qtableview使用<code>verticalLayout</code>。</p>
+<ol start="2" type="1">
+<li>界面美化 在自定义的View类中写入代码进行美化。</li>
+</ol>
+<ul>
+<li>去除丑陋的边框</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">self.setWindowFlag(QtCore.Qt.FramelessWindowHint) </span><br></pre></td></tr></table></figure>
+<ul>
+<li>增加关闭及最小化按钮（以MacOS的样式） 用pyqtSlot装饰器来实现点击按钮关闭和最小化的操作。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">self.CloseButton.setFixedSize(<span class="number">15</span>,<span class="number">15</span>) </span><br><span class="line">self.MinButton.setFixedSize(<span class="number">15</span>,<span class="number">15</span>) </span><br><span class="line">self.CloseButton.setStyleSheet(<span class="string">&quot;QPushButton&#123;background:#F76677;border-radius:7px;&#125;QPushButton:hover&#123;background:red;&#125;&quot;</span>)</span><br><span class="line">self.MinButton.setStyleSheet(<span class="string">&quot;QPushButton&#123;background:#6DDF6D;border-radius:7px;&#125;QPushButton:hover&#123;background:green;&#125;&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@pyqtSlot()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">on_CloseButton_clicked</span>(<span class="params">self</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    关闭窗口</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    self.close()</span><br><span class="line"></span><br><span class="line"><span class="meta">@pyqtSlot()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">on_MinButton_clicked</span>(<span class="params">self</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    最小化窗口</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    self.showMinimized()    </span><br></pre></td></tr></table></figure>
+<ul>
+<li>针对盈亏对显示结果使用不同颜色</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="built_in">float</span>(self.label_4.text().split(<span class="string">&#x27;(&#x27;</span>)[<span class="number">0</span>]) &lt; <span class="number">0</span>:</span><br><span class="line">    self.label_2.setStyleSheet(<span class="string">&quot;QLabel&#123;color:#01D68A;font-size:15px;font-weight:bold;font-family:Hack;&#125;&quot;</span>)</span><br><span class="line">    self.label_4.setStyleSheet(<span class="string">&quot;QLabel&#123;color:#01D68A;font-size:15px;font-weight:bold;font-family:Hack;&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    self.label_2.setStyleSheet(<span class="string">&quot;QLabel&#123;color:#FF0018;font-size:15px;font-weight:bold;font-family:Hack;&#125;&quot;</span>)</span><br><span class="line">    self.label_4.setStyleSheet(<span class="string">&quot;QLabel&#123;color:#FF0018;font-size:15px;font-weight:bold;font-family:H</span></span><br><span class="line"><span class="string">if float(self.label_6.text().split(&#x27;(&#x27;)[0]) &lt; 0:</span></span><br><span class="line"><span class="string">    self.label_6.setStyleSheet(&quot;</span>QLabel&#123;color:<span class="comment">#01D68A;font-size:15px;font-weight:bold;font-family:Hack;&#125;&quot;)</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    self.label_6.setStyleSheet(<span class="string">&quot;QLabel&#123;color:#FF0018;font-size:15px;font-weight:bold;font-family:H</span></span><br><span class="line"><span class="string">if float(self.label_8.text().split(&#x27;(&#x27;)[0]) &lt; 0:</span></span><br><span class="line"><span class="string">    self.label_8.setStyleSheet(&quot;</span>QLabel&#123;color:<span class="comment">#01D68A;font-size:15px;font-weight:bold;font-family:Hack;&#125;&quot;)</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    self.label_8.setStyleSheet(<span class="string">&quot;QLabel&#123;color:#FF0018;font-size:15px;font-weight:bold;font-family:Hack;&#125;&quot;</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Qtableview的表头使用与窗口同样的背景色以及文字左对齐</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">self.tableView.setStyleSheet(<span class="string">&quot;border-width: 0px; border-style: solid;&quot;</span>)</span><br><span class="line">self.tableView.horizontalHeader().setStyleSheet(<span class="string">&quot;QHeaderView::section&#123;Background-color:#454545;border-radius: 0px;&#125;&quot;</span>)</span><br><span class="line">self.tableView_2.setStyleSheet(<span class="string">&quot;border-width: 0px; border-style: solid;&quot;</span>)</span><br><span class="line">self.tableView_2.horizontalHeader().setStyleSheet(<span class="string">&quot;QHeaderView::section&#123;Background-color:#454545;border-radius: 0px;&#125;&quot;</span>)</span><br><span class="line">self.tableView.horizontalHeader().setDefaultAlignment(Qt.AlignLeft)</span><br><span class="line">self.tableView_2.horizontalHeader().setDefaultAlignment(Qt.AlignLeft)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Qtableview显示的数据也同样根据盈亏使用不同的颜色<br />
+这个在Model类中的data()函数中实现</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">data</span>(<span class="params">self, index, role=Qt.DisplayRole</span>):</span></span><br><span class="line">    <span class="keyword">if</span> index.isValid():</span><br><span class="line">        value = self._data.iloc[index.row(), index.column()]            </span><br><span class="line">        <span class="keyword">if</span> role == Qt.ForegroundRole <span class="keyword">and</span> <span class="built_in">isinstance</span>(value, <span class="built_in">float</span>) <span class="keyword">and</span> index.column() == <span class="number">3</span>:</span><br><span class="line">            next_value = self._data.iloc[index.row(), index.column() + <span class="number">1</span>]</span><br><span class="line">            <span class="keyword">if</span>  next_value &lt; <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">return</span> QtGui.QColor(<span class="string">&#x27;#01D68A&#x27;</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> QtGui.QColor(<span class="string">&#x27;#FF0018&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> role == Qt.ForegroundRole <span class="keyword">and</span> <span class="built_in">isinstance</span>(value, <span class="built_in">float</span>) <span class="keyword">and</span> index.column() != <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">if</span>  value &lt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> QtGui.QColor(<span class="string">&#x27;#01D68A&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> QtGui.QColor(<span class="string">&#x27;#FF0018&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> role == Qt.DisplayRole:</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">str</span>(self._data.iloc[index.row(), index.column()])</span><br><span class="line"><span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>重写鼠标事件，实现窗口拖放</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">initDrag</span>(<span class="params">self</span>):</span></span><br><span class="line"><span class="comment"># 设置鼠标跟踪判断扳机默认值</span></span><br><span class="line">    self._move_drag   = <span class="literal">False</span></span><br><span class="line">    self._corner_drag = <span class="literal">False</span></span><br><span class="line">    self._bottom_drag = <span class="literal">False</span></span><br><span class="line">    self._right_drag  = <span class="literal">False</span></span><br><span class="line">    self._padding     = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">resizeEvent</span>(<span class="params">self, QResizeEvent</span>):</span>        </span><br><span class="line">    <span class="comment"># 重新调整边界范围以备实现鼠标拖放缩放窗口大小，采用三个列表生成式生成三个列表</span></span><br><span class="line">    self._right_rect = [QPoint(x, y) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(self.width() - self._padding, self.width() + <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, self.height() - self._padding)]</span><br><span class="line">    self._bottom_rect = [QPoint(x, y) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, self.width() - self._padding)</span><br><span class="line">            <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(self.height() - self._padding, self.height() + <span class="number">1</span>)]</span><br><span class="line">    self._corner_rect = [QPoint(x, y) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(self.width() - self._padding, self.width() + <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(self.height() - self._padding, self.height() + <span class="number">1</span>)]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mousePressEvent</span>(<span class="params">self, event</span>):</span></span><br><span class="line">    <span class="comment"># 重写鼠标点击的事件</span></span><br><span class="line">    <span class="keyword">if</span> (event.button() == Qt.LeftButton) <span class="keyword">and</span> (event.pos() <span class="keyword">in</span> self._corner_rect):</span><br><span class="line">    <span class="comment"># 鼠标左键点击右下角边界区域</span></span><br><span class="line">        self._corner_drag = <span class="literal">True</span></span><br><span class="line">        event.accept()</span><br><span class="line">    <span class="keyword">elif</span> (event.button() == Qt.LeftButton) <span class="keyword">and</span> (event.pos() <span class="keyword">in</span> self._right_rect):</span><br><span class="line">    <span class="comment"># 鼠标左键点击右侧边界区域</span></span><br><span class="line">        self._right_drag = <span class="literal">True</span></span><br><span class="line">        event.accept()</span><br><span class="line">        self.setCursor(QCursor(Qt.SizeHorCursor))</span><br><span class="line">    <span class="keyword">elif</span> (event.button() == Qt.LeftButton) <span class="keyword">and</span> (event.pos() <span class="keyword">in</span> self._bottom_rect):</span><br><span class="line">    <span class="comment"># 鼠标左键点击下侧边界区域</span></span><br><span class="line">        self._bottom_drag = <span class="literal">True</span></span><br><span class="line">        event.accept()</span><br><span class="line">        self.setCursor(QCursor(Qt.SizeVerCursor))</span><br><span class="line">    <span class="keyword">elif</span> (event.button() == Qt.LeftButton):</span><br><span class="line">    <span class="comment"># 鼠标左键点击标题栏区域</span></span><br><span class="line">        self._move_drag = <span class="literal">True</span></span><br><span class="line">        self.move_DragPosition = event.globalPos() - self.pos()</span><br><span class="line">        event.accept()</span><br><span class="line">        self.setCursor(QCursor(Qt.OpenHandCursor))  <span class="comment">#更改鼠标图标</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mouseMoveEvent</span>(<span class="params">self, QMouseEvent</span>):</span></span><br><span class="line">    <span class="comment"># 判断鼠标位置切换鼠标手势</span></span><br><span class="line">    <span class="comment"># if QMouseEvent.pos() in self._corner_rect:</span></span><br><span class="line">    <span class="comment">#     self.setCursor(Qt.SizeFDiagCursor)</span></span><br><span class="line">    <span class="comment">#     print(&quot;corner:%s, in %s&quot; %(QMouseEvent.pos(),self._corner_rect))</span></span><br><span class="line">    <span class="comment">#print(QMouseEvent.globalPos(), QMouseEvent.pos())</span></span><br><span class="line">    <span class="keyword">if</span> QMouseEvent.pos() <span class="keyword">in</span> self._bottom_rect:</span><br><span class="line">        self.setCursor(QCursor(Qt.SizeVerCursor))</span><br><span class="line">    <span class="keyword">elif</span> QMouseEvent.pos() <span class="keyword">in</span> self._right_rect:</span><br><span class="line">        self.setCursor(QCursor(Qt.SizeHorCursor))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        self.setCursor(QCursor(Qt.ArrowCursor))</span><br><span class="line">    <span class="comment"># 当鼠标左键点击不放及满足点击区域的要求后，分别实现不同的窗口调整</span></span><br><span class="line">    <span class="comment"># 没有定义左方和上方相关的5个方向，主要是因为实现起来不难，但是效果很差，拖放的时候窗口闪烁，再研究研究是否有更好的实现</span></span><br><span class="line">    <span class="keyword">if</span> Qt.LeftButton <span class="keyword">and</span> self._right_drag:</span><br><span class="line">    <span class="comment"># 右侧调整窗口宽度</span></span><br><span class="line">        self.resize(QMouseEvent.pos().x(), self.height())</span><br><span class="line">        QMouseEvent.accept()</span><br><span class="line">    <span class="keyword">elif</span> Qt.LeftButton <span class="keyword">and</span> self._bottom_drag:</span><br><span class="line">    <span class="comment"># 下侧调整窗口高度</span></span><br><span class="line">        self.resize(self.width(), QMouseEvent.pos().y())</span><br><span class="line">        QMouseEvent.accept()</span><br><span class="line">    <span class="keyword">elif</span> Qt.LeftButton <span class="keyword">and</span> self._corner_drag:</span><br><span class="line">    <span class="comment"># 右下角同时调整高度和宽度</span></span><br><span class="line">        self.resize(QMouseEvent.pos().x(), QMouseEvent.pos().y())</span><br><span class="line">        QMouseEvent.accept()</span><br><span class="line">    <span class="keyword">elif</span> Qt.LeftButton <span class="keyword">and</span> self._move_drag:</span><br><span class="line">    <span class="comment"># 标题栏拖放窗口位置</span></span><br><span class="line">        self.move(QMouseEvent.globalPos() - self.move_DragPosition)</span><br><span class="line">        QMouseEvent.accept()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mouseReleaseEvent</span>(<span class="params">self, QMouseEvent</span>):</span></span><br><span class="line">    <span class="comment"># 鼠标释放后，各扳机复位</span></span><br><span class="line">    self._move_drag = <span class="literal">False</span></span><br><span class="line">    self._corner_drag = <span class="literal">False</span></span><br><span class="line">    self._bottom_drag = <span class="literal">False</span></span><br><span class="line">    self._right_drag = <span class="literal">False</span></span><br><span class="line">    self.setCursor(QCursor(Qt.ArrowCursor))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="效果">效果</h1>
+<p>完成后的应用界面效果如下： <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210514111223.png" /></p>
+<h1 id="参考">参考</h1>
+<ol type="1">
+<li><a href="https://blog.csdn.net/weixin_40014984/article/details/104531359">VSCode配置Python、PyQt5、QtDesigner环境并创建一个ui界面测试</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/66758263">python界面编程：VScode+pyqt+pyqt integration配置备忘</a></li>
+<li><a href="https://blog.csdn.net/AzureMouse/article/details/90338961">PyQt5（designer）入门教程</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>python</category>
+        <category>量化投资</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pyqt5</tag>
       </tags>
   </entry>
   <entry>
@@ -1052,78 +1259,6 @@ code
       </tags>
   </entry>
   <entry>
-    <title>【python】multiprocessing进程间的通信（一）队列</title>
-    <url>/2021/01/01/%E3%80%90python%E3%80%91multiprocessing%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/</url>
-    <content><![CDATA[<p>multiprocessing模块支持进程间通信的三种主要形式:<code>队列</code>、<code>管道</code>及<code>共享内存</code>。下面我们来学习一下队列的使用情况。</p>
-<a id="more"></a>
-<h1 id="队列multiprocessing.queue">队列（multiprocessing.queue)</h1>
-<p>队列是线程和进程安全的，也就是一次只能有一个进程或线程进行操作。</p>
-<p><strong>示例：</strong>将子进程产生的信息统一写入父进程，这里是使用pool来创建进程池。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool, RLock, freeze_support,Queue,Pipe</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">from</span> TS_logs <span class="keyword">import</span> TS_log_info</span><br><span class="line"><span class="keyword">from</span>  TS_util <span class="keyword">import</span> (</span><br><span class="line">    TS_util_get_tradelist,</span><br><span class="line">    TS_util_get_real_date,</span><br><span class="line">    TS_util_get_next_datetime,</span><br><span class="line">    TS_util_get_now_time,</span><br><span class="line">    TS_util_date_convert,</span><br><span class="line">    trade_date_sse</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log_c</span>(<span class="params">q,codelist,n</span>):</span>    </span><br><span class="line">    <span class="keyword">for</span> trade_date <span class="keyword">in</span> codelist[n::<span class="number">8</span>]:</span><br><span class="line">        msg = <span class="string">&#x27;&#123;&#125; #Job&#123;&#125; Trying updating data of trade date &#123;&#125; .&#x27;</span> \</span><br><span class="line">                .<span class="built_in">format</span>(datetime.datetime.now().strftime(<span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>),n,trade_date)</span><br><span class="line">        sleep(<span class="number">0.05</span>)</span><br><span class="line">        q.put(msg)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">L = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">8</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:    </span><br><span class="line">    freeze_support()  <span class="comment"># for Windows support</span></span><br><span class="line">    manager = multiprocessing.Manager()</span><br><span class="line">    <span class="comment"># 父进程创建Queue，并传给各个子进程：</span></span><br><span class="line">    q = manager.Queue()</span><br><span class="line">    tqdm.set_lock(RLock())</span><br><span class="line">    codelist = trade_date_sse</span><br><span class="line">    func = functools.partial(log_c,q,codelist)</span><br><span class="line">    p = Pool(initializer=tqdm.set_lock, initargs=(tqdm.get_lock(),))</span><br><span class="line">    p.<span class="built_in">map</span>(func, L)</span><br><span class="line">    p.close()</span><br><span class="line">    p.join()</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> q.empty():</span><br><span class="line">        TS_log_info(q.get())</span><br></pre></td></tr></table></figure>
-<p>如果要使用Pool创建进程，就需要使用multiprocessing.Manager()中的Queue()，而不是multiprocessing.Queue()，否则会得到一条如下的错误信息：<br />
-<code>RuntimeError: Queue objects should only be shared between processes through inheritance.</code></p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>multiprocessing</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Markdown】Typora画流程图实践</title>
-    <url>/2021/01/08/%E3%80%90Markdown%E3%80%91Typora%E7%94%BB%E6%B5%81%E7%A8%8B%E5%9B%BE%E5%AE%9E%E8%B7%B5/</url>
-    <content><![CDATA[<p><code>Typrora</code>中使用了<code>Mermaid</code>来提供强劲的绘制流程图、时序图的功能。</p>
-<h2 id="关于mermaid">关于Mermaid</h2>
-<p>是一种简单的类似 Markdown 的脚本语言，通过 JavaScript 编程语言，将文本转换为图片。因此，真正实现画图功能的并不是 Typora 本身，它只是内置了对 Mermaid 的支持。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210108172301.png" /></p>
-<h2 id="图形介绍">图形介绍</h2>
-<h3 id="流程图flowchart">流程图(flowchart)</h3>
-<p>主要语法说明：</p>
-<p>graph - 表明是流程图</p>
-<p>方向：</p>
-<ul>
-<li>TB - top to bottom</li>
-<li>TD - top-down/ same as top to bottom</li>
-<li>BT - bottom to top</li>
-<li>RL - right to left</li>
-<li>LR - left to right</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">graph TD;</span><br><span class="line">    A--&gt;B;</span><br><span class="line">    A--&gt;C;</span><br><span class="line">    B--&gt;D;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">graph TD;</span><br><span class="line">    A--&gt;B;</span><br><span class="line">    A--&gt;C;</span><br><span class="line">    B--&gt;D;</span><br></pre></td></tr></table></figure>
-<h3 id="时序图"><strong>时序图</strong></h3>
-<p>语法解释：<code>-&gt;&gt;</code> 代表实线箭头，<code>--&gt;&gt;</code> 则代表虚线。</p>
-<h1 id="参考">参考</h1>
-<p>[1] <a href="https://mermaid-js.github.io/mermaid/#/">Mermaid:https://mermaid-js.github.io/mermaid/#/</a></p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>markdown</category>
-      </categories>
-      <tags>
-        <tag>typora</tag>
-        <tag>mermaid</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【python】在多进程下输出日志</title>
-    <url>/2021/01/08/%E3%80%90python%E3%80%91%E5%9C%A8%E5%A4%9A%E8%BF%9B%E7%A8%8B%E4%B8%8B%E8%BE%93%E5%87%BA%E6%97%A5%E5%BF%97/</url>
-    <content><![CDATA[<p>可以利用队列或管道来进行多进程下的日志输出，但<a href="https://docs.python.org/3/howto/logging-cookbook.html#logging-to-a-single-file-from-multiple-processes">官方文档</a>推荐了一种利用<code>logging.SocketHandler</code>的方案来实现多进程日志输出。</p>
-<p>其原理是：多个进程将各自环境下的日志通过<code>Socket</code>发送给一个专门打印日志的进程，这样就可以防止多进程打印的冲突与混乱情况。</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>multiprocessing</tag>
-        <tag>logging</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【Rust】在jupyter notebook中使用Rust</title>
     <url>/2021/01/07/%E3%80%90Rust%E3%80%91%E5%9C%A8jupyter-notebook%E4%B8%AD%E4%BD%BF%E7%94%A8Rust/</url>
     <content><![CDATA[<p>在jupyter notebook中是否也可以像python那样使用呢？ 答案是可以的。现在来记录一下配置步骤。</p>
@@ -1158,144 +1293,32 @@ code
       </tags>
   </entry>
   <entry>
-    <title>【Rust】Rust的安装及卸载</title>
-    <url>/2021/01/04/%E3%80%90Rust%E3%80%91Rust%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E5%8D%B8%E8%BD%BD/</url>
-    <content><![CDATA[<h1 id="安装">安装</h1>
-<h2 id="下载rust的安装器">下载Rust的安装器</h2>
-<p>从<a href="https://www.rust-lang.org/zh-CN/tools/install">官网</a>下载<code>rustup-init.exe</code>。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104150128.png" /></p>
-<p>说明：</p>
-<blockquote>
-<p><code>rustup</code>是安装和管理 <strong>Rust 构建版本</strong>的工具。rustup 用于管理不同平台下的 Rust 构建版本并使其互相兼容， 支持安装由 Beta 和 Nightly 频道发布的版本，并支持其他用于交叉编译的编译版本 <code>cargo</code>是rust的<strong>包管理器和构建系统工具</strong>。它将常用命令集于一身，无需引入其它命令。</p>
-<p>rustup程序是rust的安装程序，也是他的版本管理程序，类似于Python的Anaconda发行版的conda工具，非常方便使用管理。cargo是rust的构建工具，暂不介绍，需要明白的是：rustup是管理语言自身的，cargo是管理第三方拓展的。</p>
-</blockquote>
-<a id="more"></a>
-<h2 id="配置path环境变量">配置<code>path</code>环境变量</h2>
-<p>在 Rust 开发环境中，所有工具都安装在 <code>~/.cargo/bin</code> 目录中，您可以在这里找到包括 <code>rustc</code>、<code>cargo</code> 和 <code>rustup</code> 在内的 Rust 工具链。</p>
-<p>所以，如果打算修改默认的安装位置，可以在环境变量中这样设置，以安装路径为<code>D:\Program Files\Rust\</code>为例。否则会默认安装在 C 盘下。 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CARGO_HOME：D:\Program Files\RUST\\.cargo</span><br><span class="line">RUSTUP_HOME：D:\Program Files\RUST\\.rustup</span><br></pre></td></tr></table></figure></p>
-<h2 id="安装-1">安装</h2>
-<h3 id="msvc工具链方式">MSVC工具链方式</h3>
-<p>下载完成后直接点击执行，会出现一个CMD窗口：仔细阅读上面的内容，如果没有安装Microsoft 2019 builder tools，就从<a href="https://visualstudio.microsoft.com/downloads/">这里</a>进行下载安装。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210105152553.png" /></p>
-<p>下载build tools之后，在Visual studio installer中只选择“C++生成工具”，然后只选择"MSVC v142 - VS2019 C++ x64/x86 生成工具"。安装上去大约需要1.8G硬盘空间。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210105153117.png" /></p>
-<h3 id="安装rust">安装Rust</h3>
-<p>运行<code>rustup-init.exe</code></p>
-<p>然后，在下面输入1，进行默认安装：</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104151722.png" /></p>
-<p>检查是否安装成功</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rustc --version</span><br><span class="line">cargo --version　　</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104154515.png" /></p>
-<h3 id="gnu工具链方式">GNU工具链方式</h3>
-<p>gnu（本文使用MinGW-w64）占用空间小（500M），对于初步的rust使用足够了。</p>
-<p><a href="http://www.mingw-w64.org/doku.php">MinGW-w64下载</a></p>
-<h4 id="安装mingw-w64">安装MinGW-w64</h4>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106091000.png" /></p>
-<p>这里你可以选择安装的版本, 建议只更改第二项至x86_64, 其他选项不做改动。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106091120.png" /></p>
-<p><strong>关于Threads选项的说明：</strong></p>
-<p>To summarize:</p>
-<ul>
-<li><code>posix</code>: enable C++11/C11 multithreading features. Makes libgcc depend on libwinpthreads, so that even if you don't directly call pthreads API, you'll be distributing the winpthreads DLL. There's nothing wrong with distributing one more DLL with your application.</li>
-<li><code>win32</code>: No C++11 multithreading features.</li>
-</ul>
-<p>Neither have influence on any user code calling Win32 APIs or pthreads APIs. You can always use both.</p>
-<p>exception seh (for Structured Exception Handling mechanism).</p>
-<p>这里可以设置安装目录, 我安装在</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106091244.png" /></p>
-<h3 id="环境变量的配置">环境变量的配置</h3>
-<p>新增 <code>D:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin</code>到<code>PATH</code>。</p>
-<h3 id="检查安装是否成功">检查安装是否成功</h3>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">C:\Users\junlv&gt;mingw32<span class="literal">-make</span> -<span class="literal">-version</span></span><br><span class="line">GNU Make <span class="number">4.2</span>.<span class="number">1</span></span><br><span class="line">Built <span class="keyword">for</span> x86_64<span class="literal">-w64</span><span class="literal">-mingw32</span></span><br><span class="line">Copyright (C) <span class="number">1988</span><span class="literal">-2016</span> Free Software Foundation, Inc.</span><br><span class="line">License GPLv3+: GNU GPL version <span class="number">3</span> or later &lt;http://gnu.org/licenses/gpl.html&gt;</span><br><span class="line">This is free software: you are free to change and redistribute it.</span><br><span class="line">There is NO WARRANTY, to the extent permitted by law.</span><br><span class="line"></span><br><span class="line">C:\Users\junlv&gt;g++ -<span class="literal">-version</span></span><br><span class="line">g++ (x86_64<span class="literal">-posix</span><span class="literal">-seh</span><span class="literal">-rev0</span>, Built by MinGW<span class="literal">-W64</span> project) <span class="number">8.1</span>.<span class="number">0</span></span><br><span class="line">Copyright (C) <span class="number">2018</span> Free Software Foundation, Inc.</span><br><span class="line">This is free software; see the source <span class="keyword">for</span> copying conditions.  There is NO</span><br><span class="line">warranty; not even <span class="keyword">for</span> MERCHANTABILITY or FITNESS <span class="keyword">FOR</span> A PARTICULAR PURPOSE.</span><br></pre></td></tr></table></figure>
-<h3 id="安装rust-1">安装Rust</h3>
-<p>运行<code>rustup-init.exe</code></p>
-<p>然后，在下面输入2，进行定制化安装：</p>
-<p><code>default host triple</code>修改为<code>x86_64-pc-windows-gnu</code></p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106114540.png" /></p>
-<p>继续选1进行安装即可。</p>
-<p>安装验证</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">E:\Downloads\Programs&gt;rustc -<span class="literal">-version</span></span><br><span class="line">rustc <span class="number">1.49</span>.<span class="number">0</span> (e1884a8e3 <span class="number">2020</span><span class="literal">-12</span><span class="literal">-29</span>)</span><br><span class="line"></span><br><span class="line">E:\Downloads\Programs&gt;cargo -<span class="literal">-version</span></span><br><span class="line">cargo <span class="number">1.49</span>.<span class="number">0</span> (d00d64df9 <span class="number">2020</span><span class="literal">-12</span><span class="literal">-05</span>)</span><br></pre></td></tr></table></figure>
-<p>安装源代码用于代码补全</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">E:\Downloads\Programs&gt;rustup component add rust<span class="literal">-src</span></span><br><span class="line">info: downloading component <span class="string">&#x27;rust-src&#x27;</span></span><br><span class="line">info: installing component <span class="string">&#x27;rust-src&#x27;</span></span><br><span class="line">info: <span class="keyword">using</span> up to 500.0 MiB of RAM to unpack components</span><br></pre></td></tr></table></figure>
-<h1 id="卸载rust">卸载Rust</h1>
-<p>如果想卸载 Rust，可以运行 <code>rustup self uninstall</code></p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104150931.png" /></p>
+    <title>【python】在多进程下输出日志</title>
+    <url>/2021/01/08/%E3%80%90python%E3%80%91%E5%9C%A8%E5%A4%9A%E8%BF%9B%E7%A8%8B%E4%B8%8B%E8%BE%93%E5%87%BA%E6%97%A5%E5%BF%97/</url>
+    <content><![CDATA[<p>可以利用队列或管道来进行多进程下的日志输出，但<a href="https://docs.python.org/3/howto/logging-cookbook.html#logging-to-a-single-file-from-multiple-processes">官方文档</a>推荐了一种利用<code>logging.SocketHandler</code>的方案来实现多进程日志输出。</p>
+<p>其原理是：多个进程将各自环境下的日志通过<code>Socket</code>发送给一个专门打印日志的进程，这样就可以防止多进程打印的冲突与混乱情况。</p>
 ]]></content>
       <categories>
         <category>技术笔记</category>
-        <category>rust</category>
+        <category>python</category>
       </categories>
       <tags>
-        <tag>rust</tag>
+        <tag>python</tag>
+        <tag>multiprocessing</tag>
+        <tag>logging</tag>
       </tags>
   </entry>
   <entry>
-    <title>使用github/gitee来作为图床系统</title>
-    <url>/2020/12/10/%E4%BD%BF%E7%94%A8github%E5%8F%8Agitee%E6%9D%A5%E4%BD%9C%E4%B8%BA%E5%9B%BE%E5%BA%8A%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<p>日常进行博客及其它文章或笔记的写作时，经常需要在文章内容里插入图片。 当文档需要发布或存储到云服务器上时，就需要考虑将引用的图片放置到图床系统中。下面讲述下利用github或gitee来搭建图床系统的方法。</p>
+    <title>【python】multiprocessing进程间的通信（一）队列</title>
+    <url>/2021/01/01/%E3%80%90python%E3%80%91multiprocessing%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/</url>
+    <content><![CDATA[<p>multiprocessing模块支持进程间通信的三种主要形式:<code>队列</code>、<code>管道</code>及<code>共享内存</code>。下面我们来学习一下队列的使用情况。</p>
 <a id="more"></a>
-<h2 id="一利用github来建立图床">一、利用github来建立图床</h2>
-<h3 id="建立github图床仓库">建立Github图床仓库</h3>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113510.png" /></p>
-<h3 id="设置token">设置Token</h3>
-<p>进入全局设置，点击<code>Developer Settings</code> -&gt; <code>Personal access tokens</code>，选择<code>Generate new token</code></p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113538.png" /></p>
-<h3 id="设置picgo客户端">设置PicGO客户端</h3>
-<h4 id="下载">下载</h4>
-<p><a href="https://github.com/Molunerfinn/PicGo/releases">PicGo的可执行文件下载地址</a></p>
-<h4 id="设置">设置</h4>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113630.png" /></p>
-<ul>
-<li>仓库名：按照“账户名/仓库名”的格式填写；</li>
-<li>分支名：统一填写为<code>main</code>；</li>
-<li>Tocken：将之前的Github的Token黏贴在这里；</li>
-<li>存储路径：若设置为img/，则会在repository下创建一个“img”文件夹；</li>
-<li>自定义域名：在上传图片后成功后，PicGo会将“自定义域名+上传的图片名”生成的访问链接，放到剪切板。这里约定遵循如下的格式：<code>域名/用户名/仓库名/分支名。</code></li>
-</ul>
-<h4 id="上传图片">上传图片</h4>
-<p>在picgo上传区，可以直接上传剪贴板上的图片或保存成文件上传。这里不再说明。</p>
-<hr />
-<p>因为github显示图片相当不稳定。 所以可以使用gitee来替代它作为图床的托管仓库。</p>
-<h2 id="二利用gitee来建立图床">二、利用gitee来建立图床</h2>
-<h3 id="在gitee中创建仓库">在gitee中创建仓库</h3>
-<p>按照常规创建仓库的方式创建一个专门用于图床的仓库</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113253.png" /></p>
-<h3 id="获取token">获取token</h3>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113315.png" /></p>
-<h3 id="在picgo中安装gitee插件">在PicGO中安装gitee插件</h3>
-<h4 id="安装">安装</h4>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211111817.png" /></p>
-<h4 id="配置插件">配置插件</h4>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211112516.png" /></p>
-<p>这里需要注意的是repo的名字中大小写字母需要完全一致且是repo仓库路径。否则会报404错误。</p>
-<h4 id="上传图片-1">上传图片</h4>
-<p>至此，图床系统搭建完成，可以愉快地写作了。</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>美好生活</category>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>github</tag>
-        <tag>gitee</tag>
-        <tag>picgo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【python】multiprocessing进程间的通信（二）管道</title>
-    <url>/2021/01/08/%E3%80%90python%E3%80%91multiprocessing%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%EF%BC%88%E4%BA%8C%EF%BC%89%E7%AE%A1%E9%81%93/</url>
-    <content><![CDATA[<p><code>multiprocessing.Pipe()</code>用来创建管道，返回两个连接对象，代表管道的两端，一般用于进程或者线程之间的通信，不同于<code>os.pipe()</code>,<code>os.pipe()</code>主要用来创建两个文件描述符，一个读，一个写，是单向的。而<code>multiprocessing.Pipe()</code>则可以双向通信。</p>
-<a id="more"></a>
-<h1 id="管道multiprocessing.pipe">管道（multiprocessing.Pipe）</h1>
-<blockquote>
-<p><code>multiprocessing.``Pipe</code>([<em>duplex</em>])</p>
-<p>返回一对 <a href="https://docs.python.org/zh-cn/3/library/multiprocessing.html#multiprocessing.connection.Connection"><code>Connection</code></a> 对象 <code>(conn1, conn2)</code> ， 分别表示管道的两端。</p>
-<p>如果 <em>duplex</em> 被置为 <code>True</code> (默认值)，那么该管道是双向的。如果 <em>duplex</em> 被置为 <code>False</code> ，那么该管道是单向的，即 <code>conn1</code> 只能用于接收消息，而 <code>conn2</code> 仅能用于发送消息。</p>
-</blockquote>
+<h1 id="队列multiprocessing.queue">队列（multiprocessing.queue)</h1>
+<p>队列是线程和进程安全的，也就是一次只能有一个进程或线程进行操作。</p>
 <p><strong>示例：</strong>将子进程产生的信息统一写入父进程，这里是使用pool来创建进程池。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool, RLock, freeze_support,Queue,Pipe</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">from</span> TS_logs <span class="keyword">import</span> TS_log_info</span><br><span class="line"><span class="keyword">from</span>  TS_util <span class="keyword">import</span> (</span><br><span class="line">    TS_util_get_tradelist,</span><br><span class="line">    TS_util_get_real_date,</span><br><span class="line">    TS_util_get_next_datetime,</span><br><span class="line">    TS_util_get_now_time,</span><br><span class="line">    TS_util_date_convert,</span><br><span class="line">    trade_date_sse</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log_c</span>(<span class="params">child_conn,codelist,n</span>):</span> </span><br><span class="line">    <span class="keyword">for</span> trade_date <span class="keyword">in</span> codelist[n::<span class="number">8</span>][<span class="number">0</span>:<span class="number">17</span>]:</span><br><span class="line">        msg = <span class="string">&#x27;&#123;&#125; #Job&#123;&#125;  trade date &#123;&#125;.&#x27;</span> \</span><br><span class="line">                .<span class="built_in">format</span>(datetime.datetime.now().strftime(<span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>),n,trade_date)</span><br><span class="line">        child_conn.send(msg)</span><br><span class="line">    print(<span class="string">&#x27;workers exit&#x27;</span>)</span><br><span class="line"></span><br><span class="line">L = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">8</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:    </span><br><span class="line">    freeze_support()  <span class="comment"># for Windows support</span></span><br><span class="line">    parent_conn,child_conn = Pipe()</span><br><span class="line">    tqdm.set_lock(RLock())</span><br><span class="line">    codelist = trade_date_sse</span><br><span class="line">    func = functools.partial(log_c,child_conn,codelist)</span><br><span class="line">    p = Pool(initializer=tqdm.set_lock, initargs=(tqdm.get_lock(),))</span><br><span class="line">    p.<span class="built_in">map</span>(func, L)</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">while</span> parent_conn.poll(<span class="number">0.001</span>):</span><br><span class="line">        print(parent_conn.recv())</span><br><span class="line">    p.close()</span><br><span class="line">    p.join()</span><br><span class="line">    parent_conn.close()</span><br><span class="line">    child_conn.close()</span><br></pre></td></tr></table></figure>
-<p>当子进程发送一定量的数据之后会卡住，没有任何报错和提示，卡住不动！！测试大概是7000字节左右。原因尚未找到。按文档看，应该与OS有关，最大应该可达32M。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool, RLock, freeze_support,Queue,Pipe</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">from</span> TS_logs <span class="keyword">import</span> TS_log_info</span><br><span class="line"><span class="keyword">from</span>  TS_util <span class="keyword">import</span> (</span><br><span class="line">    TS_util_get_tradelist,</span><br><span class="line">    TS_util_get_real_date,</span><br><span class="line">    TS_util_get_next_datetime,</span><br><span class="line">    TS_util_get_now_time,</span><br><span class="line">    TS_util_date_convert,</span><br><span class="line">    trade_date_sse</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log_c</span>(<span class="params">q,codelist,n</span>):</span>    </span><br><span class="line">    <span class="keyword">for</span> trade_date <span class="keyword">in</span> codelist[n::<span class="number">8</span>]:</span><br><span class="line">        msg = <span class="string">&#x27;&#123;&#125; #Job&#123;&#125; Trying updating data of trade date &#123;&#125; .&#x27;</span> \</span><br><span class="line">                .<span class="built_in">format</span>(datetime.datetime.now().strftime(<span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>),n,trade_date)</span><br><span class="line">        sleep(<span class="number">0.05</span>)</span><br><span class="line">        q.put(msg)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">L = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">8</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:    </span><br><span class="line">    freeze_support()  <span class="comment"># for Windows support</span></span><br><span class="line">    manager = multiprocessing.Manager()</span><br><span class="line">    <span class="comment"># 父进程创建Queue，并传给各个子进程：</span></span><br><span class="line">    q = manager.Queue()</span><br><span class="line">    tqdm.set_lock(RLock())</span><br><span class="line">    codelist = trade_date_sse</span><br><span class="line">    func = functools.partial(log_c,q,codelist)</span><br><span class="line">    p = Pool(initializer=tqdm.set_lock, initargs=(tqdm.get_lock(),))</span><br><span class="line">    p.<span class="built_in">map</span>(func, L)</span><br><span class="line">    p.close()</span><br><span class="line">    p.join()</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> q.empty():</span><br><span class="line">        TS_log_info(q.get())</span><br></pre></td></tr></table></figure>
+<p>如果要使用Pool创建进程，就需要使用multiprocessing.Manager()中的Queue()，而不是multiprocessing.Queue()，否则会得到一条如下的错误信息：<br />
+<code>RuntimeError: Queue objects should only be shared between processes through inheritance.</code></p>
 ]]></content>
       <categories>
         <category>技术笔记</category>
@@ -1561,6 +1584,83 @@ code
       </categories>
       <tags>
         <tag>Valine</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【python】multiprocessing进程间的通信（二）管道</title>
+    <url>/2021/01/08/%E3%80%90python%E3%80%91multiprocessing%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%EF%BC%88%E4%BA%8C%EF%BC%89%E7%AE%A1%E9%81%93/</url>
+    <content><![CDATA[<p><code>multiprocessing.Pipe()</code>用来创建管道，返回两个连接对象，代表管道的两端，一般用于进程或者线程之间的通信，不同于<code>os.pipe()</code>,<code>os.pipe()</code>主要用来创建两个文件描述符，一个读，一个写，是单向的。而<code>multiprocessing.Pipe()</code>则可以双向通信。</p>
+<a id="more"></a>
+<h1 id="管道multiprocessing.pipe">管道（multiprocessing.Pipe）</h1>
+<blockquote>
+<p><code>multiprocessing.``Pipe</code>([<em>duplex</em>])</p>
+<p>返回一对 <a href="https://docs.python.org/zh-cn/3/library/multiprocessing.html#multiprocessing.connection.Connection"><code>Connection</code></a> 对象 <code>(conn1, conn2)</code> ， 分别表示管道的两端。</p>
+<p>如果 <em>duplex</em> 被置为 <code>True</code> (默认值)，那么该管道是双向的。如果 <em>duplex</em> 被置为 <code>False</code> ，那么该管道是单向的，即 <code>conn1</code> 只能用于接收消息，而 <code>conn2</code> 仅能用于发送消息。</p>
+</blockquote>
+<p><strong>示例：</strong>将子进程产生的信息统一写入父进程，这里是使用pool来创建进程池。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool, RLock, freeze_support,Queue,Pipe</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">from</span> TS_logs <span class="keyword">import</span> TS_log_info</span><br><span class="line"><span class="keyword">from</span>  TS_util <span class="keyword">import</span> (</span><br><span class="line">    TS_util_get_tradelist,</span><br><span class="line">    TS_util_get_real_date,</span><br><span class="line">    TS_util_get_next_datetime,</span><br><span class="line">    TS_util_get_now_time,</span><br><span class="line">    TS_util_date_convert,</span><br><span class="line">    trade_date_sse</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log_c</span>(<span class="params">child_conn,codelist,n</span>):</span> </span><br><span class="line">    <span class="keyword">for</span> trade_date <span class="keyword">in</span> codelist[n::<span class="number">8</span>][<span class="number">0</span>:<span class="number">17</span>]:</span><br><span class="line">        msg = <span class="string">&#x27;&#123;&#125; #Job&#123;&#125;  trade date &#123;&#125;.&#x27;</span> \</span><br><span class="line">                .<span class="built_in">format</span>(datetime.datetime.now().strftime(<span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>),n,trade_date)</span><br><span class="line">        child_conn.send(msg)</span><br><span class="line">    print(<span class="string">&#x27;workers exit&#x27;</span>)</span><br><span class="line"></span><br><span class="line">L = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">8</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:    </span><br><span class="line">    freeze_support()  <span class="comment"># for Windows support</span></span><br><span class="line">    parent_conn,child_conn = Pipe()</span><br><span class="line">    tqdm.set_lock(RLock())</span><br><span class="line">    codelist = trade_date_sse</span><br><span class="line">    func = functools.partial(log_c,child_conn,codelist)</span><br><span class="line">    p = Pool(initializer=tqdm.set_lock, initargs=(tqdm.get_lock(),))</span><br><span class="line">    p.<span class="built_in">map</span>(func, L)</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">while</span> parent_conn.poll(<span class="number">0.001</span>):</span><br><span class="line">        print(parent_conn.recv())</span><br><span class="line">    p.close()</span><br><span class="line">    p.join()</span><br><span class="line">    parent_conn.close()</span><br><span class="line">    child_conn.close()</span><br></pre></td></tr></table></figure>
+<p>当子进程发送一定量的数据之后会卡住，没有任何报错和提示，卡住不动！！测试大概是7000字节左右。原因尚未找到。按文档看，应该与OS有关，最大应该可达32M。</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>multiprocessing</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用github/gitee来作为图床系统</title>
+    <url>/2020/12/10/%E4%BD%BF%E7%94%A8github%E5%8F%8Agitee%E6%9D%A5%E4%BD%9C%E4%B8%BA%E5%9B%BE%E5%BA%8A%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<p>日常进行博客及其它文章或笔记的写作时，经常需要在文章内容里插入图片。 当文档需要发布或存储到云服务器上时，就需要考虑将引用的图片放置到图床系统中。下面讲述下利用github或gitee来搭建图床系统的方法。</p>
+<a id="more"></a>
+<h2 id="一利用github来建立图床">一、利用github来建立图床</h2>
+<h3 id="建立github图床仓库">建立Github图床仓库</h3>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113510.png" /></p>
+<h3 id="设置token">设置Token</h3>
+<p>进入全局设置，点击<code>Developer Settings</code> -&gt; <code>Personal access tokens</code>，选择<code>Generate new token</code></p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113538.png" /></p>
+<h3 id="设置picgo客户端">设置PicGO客户端</h3>
+<h4 id="下载">下载</h4>
+<p><a href="https://github.com/Molunerfinn/PicGo/releases">PicGo的可执行文件下载地址</a></p>
+<h4 id="设置">设置</h4>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113630.png" /></p>
+<ul>
+<li>仓库名：按照“账户名/仓库名”的格式填写；</li>
+<li>分支名：统一填写为<code>main</code>；</li>
+<li>Tocken：将之前的Github的Token黏贴在这里；</li>
+<li>存储路径：若设置为img/，则会在repository下创建一个“img”文件夹；</li>
+<li>自定义域名：在上传图片后成功后，PicGo会将“自定义域名+上传的图片名”生成的访问链接，放到剪切板。这里约定遵循如下的格式：<code>域名/用户名/仓库名/分支名。</code></li>
+</ul>
+<h4 id="上传图片">上传图片</h4>
+<p>在picgo上传区，可以直接上传剪贴板上的图片或保存成文件上传。这里不再说明。</p>
+<hr />
+<p>因为github显示图片相当不稳定。 所以可以使用gitee来替代它作为图床的托管仓库。</p>
+<h2 id="二利用gitee来建立图床">二、利用gitee来建立图床</h2>
+<h3 id="在gitee中创建仓库">在gitee中创建仓库</h3>
+<p>按照常规创建仓库的方式创建一个专门用于图床的仓库</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113253.png" /></p>
+<h3 id="获取token">获取token</h3>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113315.png" /></p>
+<h3 id="在picgo中安装gitee插件">在PicGO中安装gitee插件</h3>
+<h4 id="安装">安装</h4>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211111817.png" /></p>
+<h4 id="配置插件">配置插件</h4>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211112516.png" /></p>
+<p>这里需要注意的是repo的名字中大小写字母需要完全一致且是repo仓库路径。否则会报404错误。</p>
+<h4 id="上传图片-1">上传图片</h4>
+<p>至此，图床系统搭建完成，可以愉快地写作了。</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>美好生活</category>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+        <tag>gitee</tag>
+        <tag>picgo</tag>
       </tags>
   </entry>
   <entry>
