@@ -184,6 +184,756 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2021/05/14/%E3%80%90Python%E3%80%91pandas%20dataframe%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F%E5%AF%B9%E9%BD%90%E7%BE%8E%E5%8C%96%E7%9A%84%E6%80%9D%E8%B7%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Jun Lv">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橘子树下">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/14/%E3%80%90Python%E3%80%91pandas%20dataframe%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F%E5%AF%B9%E9%BD%90%E7%BE%8E%E5%8C%96%E7%9A%84%E6%80%9D%E8%B7%AF/" class="post-title-link" itemprop="url">【Python】pandas dataframe输出格式对齐美化的思路</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-14 10:09:24 / 修改时间：10:10:34" itemprop="dateCreated datePublished" datetime="2021-05-14T10:09:24+08:00">2021-05-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/05/14/%E3%80%90Python%E3%80%91pandas%20dataframe%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F%E5%AF%B9%E9%BD%90%E7%BE%8E%E5%8C%96%E7%9A%84%E6%80%9D%E8%B7%AF/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/14/%E3%80%90Python%E3%80%91pandas%20dataframe%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F%E5%AF%B9%E9%BD%90%E7%BE%8E%E5%8C%96%E7%9A%84%E6%80%9D%E8%B7%AF/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="需求">需求</h1>
+<p>在jupyter中可以直接使用用dataframe的名字输出美观的表格形式，例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> QUANTAXIS <span class="keyword">as</span> QA</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">通过本地数据库获取股票日线数据：</span></span><br><span class="line"><span class="string">QA.QA_fetch_stock_day_adv(</span></span><br><span class="line"><span class="string">    code,</span></span><br><span class="line"><span class="string">    start=&#x27;all&#x27;,</span></span><br><span class="line"><span class="string">    end=None,</span></span><br><span class="line"><span class="string">    if_drop_index=True,</span></span><br><span class="line"><span class="string">    collections=Collection(Database(MongoClient(host=[&#x27;localhost:27017&#x27;], document_class=dict, tz_aware=False, connect=True), &#x27;quantaxis&#x27;), &#x27;stock_day&#x27;),</span></span><br><span class="line"><span class="string">)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">data=QA.QA_fetch_stock_day_adv([<span class="string">&quot;002003&quot;</span>,<span class="string">&#x27;300999&#x27;</span>,<span class="string">&#x27;603899&#x27;</span>],<span class="string">&#x27;2021-05-12&#x27;</span>,<span class="string">&#x27;2021-05-13&#x27;</span>)</span><br><span class="line">df = data.data</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+open
+</th>
+<th>
+high
+</th>
+<th>
+low
+</th>
+<th>
+close
+</th>
+<th>
+volume
+</th>
+<th>
+amount
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="3" valign="top">
+2021-05-12
+</th>
+<th>
+002003
+</th>
+<td>
+7.32
+</td>
+<td>
+7.51
+</td>
+<td>
+7.28
+</td>
+<td>
+7.48
+</td>
+<td>
+80536.0
+</td>
+<td>
+5.980900e+07
+</td>
+</tr>
+<tr>
+<th>
+300999
+</th>
+<td>
+76.12
+</td>
+<td>
+76.75
+</td>
+<td>
+75.11
+</td>
+<td>
+76.20
+</td>
+<td>
+146625.0
+</td>
+<td>
+1.114936e+09
+</td>
+</tr>
+<tr>
+<th>
+603899
+</th>
+<td>
+86.80
+</td>
+<td>
+87.85
+</td>
+<td>
+85.71
+</td>
+<td>
+86.60
+</td>
+<td>
+19172.0
+</td>
+<td>
+1.656046e+08
+</td>
+</tr>
+<tr>
+<th rowspan="3" valign="top">
+2021-05-13
+</th>
+<th>
+002003
+</th>
+<td>
+7.44
+</td>
+<td>
+7.63
+</td>
+<td>
+7.34
+</td>
+<td>
+7.55
+</td>
+<td>
+98429.0
+</td>
+<td>
+7.403393e+07
+</td>
+</tr>
+<tr>
+<th>
+300999
+</th>
+<td>
+75.00
+</td>
+<td>
+75.60
+</td>
+<td>
+74.04
+</td>
+<td>
+74.20
+</td>
+<td>
+144742.0
+</td>
+<td>
+1.080974e+09
+</td>
+</tr>
+<tr>
+<th>
+603899
+</th>
+<td>
+85.71
+</td>
+<td>
+88.12
+</td>
+<td>
+85.10
+</td>
+<td>
+87.59
+</td>
+<td>
+14734.0
+</td>
+<td>
+1.280291e+08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>在使用<code>print</code>输出时的结果是这样的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(df)</span><br></pre></td></tr></table></figure>
+<pre><code>                    open   high    low  close    volume        amount
+date       code                                                      
+2021-05-12 002003   7.32   7.51   7.28   7.48   80536.0  5.980900e+07
+           300999  76.12  76.75  75.11  76.20  146625.0  1.114936e+09
+           603899  86.80  87.85  85.71  86.60   19172.0  1.656046e+08
+2021-05-13 002003   7.44   7.63   7.34   7.55   98429.0  7.403393e+07
+           300999  75.00  75.60  74.04  74.20  144742.0  1.080974e+09
+           603899  85.71  88.12  85.10  87.59   14734.0  1.280291e+08</code></pre>
+<p>而当DataFrame中存在中英文混合的时候，会出现print()打印无法对齐的情况，导致输出的结果都没有对齐，十分不美观。如:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df1 = df</span><br><span class="line">df1.columns = [<span class="string">&quot;开盘价&quot;</span>, <span class="string">&quot;最高价&quot;</span>, <span class="string">&quot;最低价&quot;</span>, <span class="string">&quot;收盘价&quot;</span>, <span class="string">&quot;成交量&quot;</span>, <span class="string">&quot;成交金额&quot;</span>]</span><br><span class="line">print(df1)</span><br></pre></td></tr></table></figure>
+<pre><code>                     开盘价    最高价    最低价    收盘价       成交量          成交金额
+date       code                                                      
+2021-05-12 002003   7.32   7.51   7.28   7.48   80536.0  5.980900e+07
+           300999  76.12  76.75  75.11  76.20  146625.0  1.114936e+09
+           603899  86.80  87.85  85.71  86.60   19172.0  1.656046e+08
+2021-05-13 002003   7.44   7.63   7.34   7.55   98429.0  7.403393e+07
+           300999  75.00  75.60  74.04  74.20  144742.0  1.080974e+09
+           603899  85.71  88.12  85.10  87.59   14734.0  1.280291e+08</code></pre>
+<p>那么问题来了。 1. 有没有办法使用<code>print</code>输出中英文混合的dataframe可以对齐美观？ 2. 在执行完整的python代码时(非jupyter)，有办法象jupyter中一样输出美观的dataframe表格么？</p>
+<h1 id="解决办法">解决办法</h1>
+<h2 id="问题1-有没有办法使用print输出中英文混合的dataframe可以对齐美观">问题1 有没有办法使用print输出中英文混合的dataframe可以对齐美观？</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">pd.set_option(<span class="string">&#x27;display.unicode.ambiguous_as_wide&#x27;</span>, <span class="literal">True</span>)</span><br><span class="line">pd.set_option(<span class="string">&#x27;display.unicode.east_asian_width&#x27;</span>, <span class="literal">True</span>)</span><br><span class="line">pd.set_option(<span class="string">&#x27;display.width&#x27;</span>, <span class="number">180</span>)                       <span class="comment"># 设置打印宽度(**重要**)</span></span><br><span class="line">print(df1)</span><br></pre></td></tr></table></figure>
+<pre><code>                   开盘价  最高价  最低价  收盘价    成交量      成交金额
+date       code                                                          
+2021-05-12 002003    7.32    7.51    7.28    7.48   80536.0  5.980900e+07
+           300999   76.12   76.75   75.11   76.20  146625.0  1.114936e+09
+           603899   86.80   87.85   85.71   86.60   19172.0  1.656046e+08
+2021-05-13 002003    7.44    7.63    7.34    7.55   98429.0  7.403393e+07
+           300999   75.00   75.60   74.04   74.20  144742.0  1.080974e+09
+           603899   85.71   88.12   85.10   87.59   14734.0  1.280291e+08</code></pre>
+<h2 id="问题2-在执行完整的python代码时非jupyter有办法象jupyter中一样输出美观的dataframe表格么">问题2 在执行完整的python代码时(非jupyter)，有办法象jupyter中一样输出美观的dataframe表格么？</h2>
+<p>使用<code>IPython.display</code>来替换<code>print</code>的输出效果。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> display</span><br><span class="line"></span><br><span class="line">display(df)</span><br><span class="line">display(df1)</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+开盘价
+</th>
+<th>
+最高价
+</th>
+<th>
+最低价
+</th>
+<th>
+收盘价
+</th>
+<th>
+成交量
+</th>
+<th>
+成交金额
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="3" valign="top">
+2021-05-12
+</th>
+<th>
+002003
+</th>
+<td>
+7.32
+</td>
+<td>
+7.51
+</td>
+<td>
+7.28
+</td>
+<td>
+7.48
+</td>
+<td>
+80536.0
+</td>
+<td>
+5.980900e+07
+</td>
+</tr>
+<tr>
+<th>
+300999
+</th>
+<td>
+76.12
+</td>
+<td>
+76.75
+</td>
+<td>
+75.11
+</td>
+<td>
+76.20
+</td>
+<td>
+146625.0
+</td>
+<td>
+1.114936e+09
+</td>
+</tr>
+<tr>
+<th>
+603899
+</th>
+<td>
+86.80
+</td>
+<td>
+87.85
+</td>
+<td>
+85.71
+</td>
+<td>
+86.60
+</td>
+<td>
+19172.0
+</td>
+<td>
+1.656046e+08
+</td>
+</tr>
+<tr>
+<th rowspan="3" valign="top">
+2021-05-13
+</th>
+<th>
+002003
+</th>
+<td>
+7.44
+</td>
+<td>
+7.63
+</td>
+<td>
+7.34
+</td>
+<td>
+7.55
+</td>
+<td>
+98429.0
+</td>
+<td>
+7.403393e+07
+</td>
+</tr>
+<tr>
+<th>
+300999
+</th>
+<td>
+75.00
+</td>
+<td>
+75.60
+</td>
+<td>
+74.04
+</td>
+<td>
+74.20
+</td>
+<td>
+144742.0
+</td>
+<td>
+1.080974e+09
+</td>
+</tr>
+<tr>
+<th>
+603899
+</th>
+<td>
+85.71
+</td>
+<td>
+88.12
+</td>
+<td>
+85.10
+</td>
+<td>
+87.59
+</td>
+<td>
+14734.0
+</td>
+<td>
+1.280291e+08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+开盘价
+</th>
+<th>
+最高价
+</th>
+<th>
+最低价
+</th>
+<th>
+收盘价
+</th>
+<th>
+成交量
+</th>
+<th>
+成交金额
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="3" valign="top">
+2021-05-12
+</th>
+<th>
+002003
+</th>
+<td>
+7.32
+</td>
+<td>
+7.51
+</td>
+<td>
+7.28
+</td>
+<td>
+7.48
+</td>
+<td>
+80536.0
+</td>
+<td>
+5.980900e+07
+</td>
+</tr>
+<tr>
+<th>
+300999
+</th>
+<td>
+76.12
+</td>
+<td>
+76.75
+</td>
+<td>
+75.11
+</td>
+<td>
+76.20
+</td>
+<td>
+146625.0
+</td>
+<td>
+1.114936e+09
+</td>
+</tr>
+<tr>
+<th>
+603899
+</th>
+<td>
+86.80
+</td>
+<td>
+87.85
+</td>
+<td>
+85.71
+</td>
+<td>
+86.60
+</td>
+<td>
+19172.0
+</td>
+<td>
+1.656046e+08
+</td>
+</tr>
+<tr>
+<th rowspan="3" valign="top">
+2021-05-13
+</th>
+<th>
+002003
+</th>
+<td>
+7.44
+</td>
+<td>
+7.63
+</td>
+<td>
+7.34
+</td>
+<td>
+7.55
+</td>
+<td>
+98429.0
+</td>
+<td>
+7.403393e+07
+</td>
+</tr>
+<tr>
+<th>
+300999
+</th>
+<td>
+75.00
+</td>
+<td>
+75.60
+</td>
+<td>
+74.04
+</td>
+<td>
+74.20
+</td>
+<td>
+144742.0
+</td>
+<td>
+1.080974e+09
+</td>
+</tr>
+<tr>
+<th>
+603899
+</th>
+<td>
+85.71
+</td>
+<td>
+88.12
+</td>
+<td>
+85.10
+</td>
+<td>
+87.59
+</td>
+<td>
+14734.0
+</td>
+<td>
+1.280291e+08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2021/05/11/%E3%80%90Jupyter%E3%80%91%E5%90%AF%E5%8A%A8%E6%97%B6%E6%9C%89%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1085,104 +1835,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2020/12/23/tqdm%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Jun Lv">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="橘子树下">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/23/tqdm%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">tqdm进度条的使用</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-12-23 10:02:40 / 修改时间：10:19:06" itemprop="dateCreated datePublished" datetime="2020-12-23T10:02:40+08:00">2020-12-23</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/12/23/tqdm%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E4%BD%BF%E7%94%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/23/tqdm%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>以前使用的是processbar来制作进度条， 听闻tqdm性能更好些，遂尝试使用一下。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tqdm(total=<span class="built_in">len</span>(codelist),<span class="built_in">ascii</span>= <span class="literal">True</span>, ncols=<span class="number">90</span>,colour=<span class="string">&quot;green&quot;</span>) <span class="keyword">as</span> pbar:</span><br><span class="line">    <span class="keyword">for</span> ts_code <span class="keyword">in</span> codelist:</span><br><span class="line">        pbar.set_description(<span class="string">&quot;Processing %s&quot;</span> % ts_code)</span><br><span class="line">        ......</span><br><span class="line">        pbar.update(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201223101745.png" /></p>
-<p>参数使用：</p>
-<p><code>ascii = True</code>, 缺省是<code>False</code>, 当使用它时，不是以正常块状来做进度条，而是以"123456789#"的方式。</p>
-<p><code>ncols = 90</code>, 这里可以根据屏幕大小来进行控制，保证进度条不产生换行的情况。</p>
-<p><code>colour = "green"</code>, 在版本4.5之后引入，可以设置进度条的颜色。</p>
-<p><code>desc</code>或利用<code>set_desciption</code>，用来设置进度条左侧的文字信息。</p>
-<p>从使用情况来看，还是比较令人满意的。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1250,7 +1906,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1263,7 +1919,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
