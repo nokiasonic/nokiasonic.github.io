@@ -221,13 +221,6 @@
   </url>
   
   <url>
-    <loc>https://nokiasonic.github.io/tags/Hexo/</loc>
-    <lastmod>2021-07-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://nokiasonic.github.io/tags/python/</loc>
     <lastmod>2021-07-16</lastmod>
     <changefreq>daily</changefreq>
@@ -242,14 +235,14 @@
   </url>
   
   <url>
-    <loc>https://nokiasonic.github.io/tags/jupyter/</loc>
+    <loc>https://nokiasonic.github.io/tags/Hexo/</loc>
     <lastmod>2021-07-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://nokiasonic.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</loc>
+    <loc>https://nokiasonic.github.io/tags/jupyter/</loc>
     <lastmod>2021-07-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -264,6 +257,13 @@
   
   <url>
     <loc>https://nokiasonic.github.io/tags/mermaid/</loc>
+    <lastmod>2021-07-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://nokiasonic.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</loc>
     <lastmod>2021-07-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -298,13 +298,6 @@
   </url>
   
   <url>
-    <loc>https://nokiasonic.github.io/tags/jupyternotebook/</loc>
-    <lastmod>2021-07-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://nokiasonic.github.io/tags/multiprocessing/</loc>
     <lastmod>2021-07-16</lastmod>
     <changefreq>daily</changefreq>
@@ -312,14 +305,7 @@
   </url>
   
   <url>
-    <loc>https://nokiasonic.github.io/tags/cmder/</loc>
-    <lastmod>2021-07-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://nokiasonic.github.io/tags/fluent-terminal/</loc>
+    <loc>https://nokiasonic.github.io/tags/jupyternotebook/</loc>
     <lastmod>2021-07-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -361,6 +347,20 @@
   </url>
   
   <url>
+    <loc>https://nokiasonic.github.io/tags/cmder/</loc>
+    <lastmod>2021-07-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://nokiasonic.github.io/tags/fluent-terminal/</loc>
+    <lastmod>2021-07-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://nokiasonic.github.io/tags/pandas/</loc>
     <lastmod>2021-07-16</lastmod>
     <changefreq>daily</changefreq>
@@ -384,7 +384,7 @@
   </url>
   
   <url>
-    <loc>https://nokiasonic.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/python/</loc>
+    <loc>https://nokiasonic.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2021-07-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -398,14 +398,7 @@
   </url>
   
   <url>
-    <loc>https://nokiasonic.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2021-07-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://nokiasonic.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/</loc>
+    <loc>https://nokiasonic.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/python/</loc>
     <lastmod>2021-07-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -419,7 +412,7 @@
   </url>
   
   <url>
-    <loc>https://nokiasonic.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/python/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/</loc>
+    <loc>https://nokiasonic.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/</loc>
     <lastmod>2021-07-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -433,7 +426,7 @@
   </url>
   
   <url>
-    <loc>https://nokiasonic.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E8%BD%AF%E4%BB%B6/</loc>
+    <loc>https://nokiasonic.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E7%BE%8E%E5%A5%BD%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2021-07-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -447,7 +440,14 @@
   </url>
   
   <url>
-    <loc>https://nokiasonic.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E7%BE%8E%E5%A5%BD%E7%94%9F%E6%B4%BB/</loc>
+    <loc>https://nokiasonic.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E8%BD%AF%E4%BB%B6/</loc>
+    <lastmod>2021-07-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://nokiasonic.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/python/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/</loc>
     <lastmod>2021-07-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
