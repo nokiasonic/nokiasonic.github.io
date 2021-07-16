@@ -184,6 +184,1272 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2021/07/16/%E3%80%90Python%E3%80%91Pandas%E4%B9%8Bdataframe%E4%B8%8Eseries%E7%9A%84%E5%8D%8F%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Jun Lv">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橘子树下">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/16/%E3%80%90Python%E3%80%91Pandas%E4%B9%8Bdataframe%E4%B8%8Eseries%E7%9A%84%E5%8D%8F%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-07-16 17:32:27" itemprop="dateCreated datePublished" datetime="2021-07-16T17:32:27+08:00">2021-07-16</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/07/16/%E3%80%90Python%E3%80%91Pandas%E4%B9%8Bdataframe%E4%B8%8Eseries%E7%9A%84%E5%8D%8F%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/16/%E3%80%90Python%E3%80%91Pandas%E4%B9%8Bdataframe%E4%B8%8Eseries%E7%9A%84%E5%8D%8F%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="目的">目的</h1>
+<h2 id="什么是协方差">什么是协方差</h2>
+<p><code>协方差（Covariance）</code>在概率论和统计学中用于衡量两个变量的总体误差。而方差是协方差的一种特殊情况，即当两个变量是相同的情况。 协方差表示的是两个变量的总体的误差，这与只表示一个变量误差的方差不同。 如果两个变量的变化趋势一致，也就是说如果其中一个大于自身的期望值，另外一个也大于自身的期望值，那么两个变量之间的协方差就是正值。 如果两个变量的变化趋势相反，即其中一个大于自身的期望值，另外一个却小于自身的期望值，那么两个变量之间的协方差就是负值。<br />
+<span class="math inline">\(Cov(X,Y) = E[(X-E(X))(Y-E(Y))]\)</span></p>
+<h2 id="协方差的性质">协方差的性质</h2>
+<ol type="1">
+<li><span class="math inline">\(Cov(X,Y)=Cov(Y,X)\)</span><br />
+</li>
+<li><span class="math inline">\(Cov(aX,bY)=abCov(X,Y)\)</span>，（a，b是常数）<br />
+</li>
+<li><span class="math inline">\(Cov(X_1+X_2,Y)=Cov(X_1,Y)+Cov(X_2,Y)\)</span><br />
+</li>
+<li><span class="math inline">\(Cov(X+a,Y+b)=Cov(X,Y)\)</span></li>
+</ol>
+<h1 id="协方差的计算">协方差的计算</h1>
+<p>可以使用<code>pandas</code>,<code>numpy</code>来计算两个变量的协方差，下面举例分别说明</p>
+<h2 id="获取数据">获取数据</h2>
+<p>分别取<code>顺丰控股(002352.SZ)</code>，<code>沪深300指数(000300.SH)</code>自2018年12月28日至2019年12月31日的数据，这里是为了计算每日涨跌幅，故多取了2018年最后一个交易日的数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> QUANTAXIS <span class="keyword">as</span> QA</span><br><span class="line"><span class="keyword">from</span> IPython.core.interactiveshell <span class="keyword">import</span> InteractiveShell</span><br><span class="line">InteractiveShell.ast_node_interactivity = <span class="string">&quot;all&quot;</span> </span><br><span class="line"></span><br><span class="line">stock = QA.QA_fetch_stock_day_adv(<span class="string">&#x27;002352&#x27;</span>,<span class="string">&#x27;2018-12-28&#x27;</span>,<span class="string">&#x27;2019-12-31&#x27;</span>)</span><br><span class="line">index = QA.QA_fetch_index_day_adv(<span class="string">&#x27;000300&#x27;</span>,<span class="string">&#x27;2018-12-28&#x27;</span>,<span class="string">&#x27;2019-12-31&#x27;</span>)</span><br><span class="line">display(stock.data)</span><br><span class="line">display(index.data)</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+open
+</th>
+<th>
+high
+</th>
+<th>
+low
+</th>
+<th>
+close
+</th>
+<th>
+volume
+</th>
+<th>
+amount
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+2018-12-28
+</th>
+<th>
+002352
+</th>
+<td>
+32.75
+</td>
+<td>
+33.02
+</td>
+<td>
+32.50
+</td>
+<td>
+32.75
+</td>
+<td>
+55314.0
+</td>
+<td>
+181019008.0
+</td>
+</tr>
+<tr>
+<th>
+2019-01-02
+</th>
+<th>
+002352
+</th>
+<td>
+32.50
+</td>
+<td>
+32.71
+</td>
+<td>
+32.21
+</td>
+<td>
+32.71
+</td>
+<td>
+16457.0
+</td>
+<td>
+53470292.0
+</td>
+</tr>
+<tr>
+<th>
+2019-01-03
+</th>
+<th>
+002352
+</th>
+<td>
+32.63
+</td>
+<td>
+32.88
+</td>
+<td>
+32.23
+</td>
+<td>
+32.73
+</td>
+<td>
+22575.0
+</td>
+<td>
+73397384.0
+</td>
+</tr>
+<tr>
+<th>
+2019-01-04
+</th>
+<th>
+002352
+</th>
+<td>
+32.59
+</td>
+<td>
+32.99
+</td>
+<td>
+32.11
+</td>
+<td>
+32.95
+</td>
+<td>
+36217.0
+</td>
+<td>
+118465936.0
+</td>
+</tr>
+<tr>
+<th>
+2019-01-07
+</th>
+<th>
+002352
+</th>
+<td>
+32.88
+</td>
+<td>
+32.91
+</td>
+<td>
+32.62
+</td>
+<td>
+32.80
+</td>
+<td>
+31058.0
+</td>
+<td>
+101845472.0
+</td>
+</tr>
+<tr>
+<th>
+...
+</th>
+<th>
+...
+</th>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+</tr>
+<tr>
+<th>
+2019-12-25
+</th>
+<th>
+002352
+</th>
+<td>
+38.39
+</td>
+<td>
+38.45
+</td>
+<td>
+37.73
+</td>
+<td>
+37.90
+</td>
+<td>
+70724.0
+</td>
+<td>
+268576480.0
+</td>
+</tr>
+<tr>
+<th>
+2019-12-26
+</th>
+<th>
+002352
+</th>
+<td>
+38.00
+</td>
+<td>
+38.38
+</td>
+<td>
+37.52
+</td>
+<td>
+37.75
+</td>
+<td>
+72621.0
+</td>
+<td>
+274198528.0
+</td>
+</tr>
+<tr>
+<th>
+2019-12-27
+</th>
+<th>
+002352
+</th>
+<td>
+37.75
+</td>
+<td>
+38.03
+</td>
+<td>
+37.38
+</td>
+<td>
+37.51
+</td>
+<td>
+97280.0
+</td>
+<td>
+367301696.0
+</td>
+</tr>
+<tr>
+<th>
+2019-12-30
+</th>
+<th>
+002352
+</th>
+<td>
+37.52
+</td>
+<td>
+37.87
+</td>
+<td>
+37.00
+</td>
+<td>
+37.70
+</td>
+<td>
+106665.0
+</td>
+<td>
+399623008.0
+</td>
+</tr>
+<tr>
+<th>
+2019-12-31
+</th>
+<th>
+002352
+</th>
+<td>
+37.80
+</td>
+<td>
+37.85
+</td>
+<td>
+37.00
+</td>
+<td>
+37.19
+</td>
+<td>
+78659.0
+</td>
+<td>
+292803712.0
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+245 rows × 6 columns
+</p>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+open
+</th>
+<th>
+close
+</th>
+<th>
+high
+</th>
+<th>
+low
+</th>
+<th>
+vol
+</th>
+<th>
+amount
+</th>
+<th>
+up_count
+</th>
+<th>
+down_count
+</th>
+<th>
+date_stamp
+</th>
+<th>
+volume
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+2018-12-28
+</th>
+<th>
+000300
+</th>
+<td>
+2994.80
+</td>
+<td>
+3010.65
+</td>
+<td>
+3024.35
+</td>
+<td>
+2984.82
+</td>
+<td>
+710537.0
+</td>
+<td>
+7.814531e+10
+</td>
+<td>
+200
+</td>
+<td>
+81
+</td>
+<td>
+1.545926e+09
+</td>
+<td>
+710537.0
+</td>
+</tr>
+<tr>
+<th>
+2019-01-02
+</th>
+<th>
+000300
+</th>
+<td>
+3017.07
+</td>
+<td>
+2969.54
+</td>
+<td>
+3018.78
+</td>
+<td>
+2958.49
+</td>
+<td>
+686630.0
+</td>
+<td>
+7.610557e+10
+</td>
+<td>
+70
+</td>
+<td>
+216
+</td>
+<td>
+1.546358e+09
+</td>
+<td>
+686630.0
+</td>
+</tr>
+<tr>
+<th>
+2019-01-03
+</th>
+<th>
+000300
+</th>
+<td>
+2963.02
+</td>
+<td>
+2964.84
+</td>
+<td>
+3000.44
+</td>
+<td>
+2953.26
+</td>
+<td>
+708671.0
+</td>
+<td>
+7.666480e+10
+</td>
+<td>
+145
+</td>
+<td>
+142
+</td>
+<td>
+1.546445e+09
+</td>
+<td>
+708671.0
+</td>
+</tr>
+<tr>
+<th>
+2019-01-04
+</th>
+<th>
+000300
+</th>
+<td>
+2940.19
+</td>
+<td>
+3035.87
+</td>
+<td>
+3036.81
+</td>
+<td>
+2935.83
+</td>
+<td>
+1033189.0
+</td>
+<td>
+1.071410e+11
+</td>
+<td>
+286
+</td>
+<td>
+12
+</td>
+<td>
+1.546531e+09
+</td>
+<td>
+1033189.0
+</td>
+</tr>
+<tr>
+<th>
+2019-01-07
+</th>
+<th>
+000300
+</th>
+<td>
+3055.15
+</td>
+<td>
+3054.30
+</td>
+<td>
+3061.75
+</td>
+<td>
+3035.91
+</td>
+<td>
+1011643.0
+</td>
+<td>
+1.057039e+11
+</td>
+<td>
+217
+</td>
+<td>
+73
+</td>
+<td>
+1.546790e+09
+</td>
+<td>
+1011643.0
+</td>
+</tr>
+<tr>
+<th>
+...
+</th>
+<th>
+...
+</th>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+</tr>
+<tr>
+<th>
+2019-12-25
+</th>
+<th>
+000300
+</th>
+<td>
+3988.66
+</td>
+<td>
+3990.87
+</td>
+<td>
+4000.56
+</td>
+<td>
+3976.36
+</td>
+<td>
+949388.0
+</td>
+<td>
+1.318965e+11
+</td>
+<td>
+117
+</td>
+<td>
+168
+</td>
+<td>
+1.577203e+09
+</td>
+<td>
+949388.0
+</td>
+</tr>
+<tr>
+<th>
+2019-12-26
+</th>
+<th>
+000300
+</th>
+<td>
+3993.67
+</td>
+<td>
+4025.99
+</td>
+<td>
+4025.99
+</td>
+<td>
+3993.54
+</td>
+<td>
+1088606.0
+</td>
+<td>
+1.408150e+11
+</td>
+<td>
+236
+</td>
+<td>
+53
+</td>
+<td>
+1.577290e+09
+</td>
+<td>
+1088606.0
+</td>
+</tr>
+<tr>
+<th>
+2019-12-27
+</th>
+<th>
+000300
+</th>
+<td>
+4029.25
+</td>
+<td>
+4022.03
+</td>
+<td>
+4066.80
+</td>
+<td>
+4019.72
+</td>
+<td>
+1509264.0
+</td>
+<td>
+1.950904e+11
+</td>
+<td>
+116
+</td>
+<td>
+173
+</td>
+<td>
+1.577376e+09
+</td>
+<td>
+1509264.0
+</td>
+</tr>
+<tr>
+<th>
+2019-12-30
+</th>
+<th>
+000300
+</th>
+<td>
+4015.52
+</td>
+<td>
+4081.63
+</td>
+<td>
+4083.69
+</td>
+<td>
+4001.50
+</td>
+<td>
+1559714.0
+</td>
+<td>
+2.168147e+11
+</td>
+<td>
+241
+</td>
+<td>
+53
+</td>
+<td>
+1.577635e+09
+</td>
+<td>
+1559714.0
+</td>
+</tr>
+<tr>
+<th>
+2019-12-31
+</th>
+<th>
+000300
+</th>
+<td>
+4077.75
+</td>
+<td>
+4096.58
+</td>
+<td>
+4098.14
+</td>
+<td>
+4069.01
+</td>
+<td>
+1232642.0
+</td>
+<td>
+1.731193e+11
+</td>
+<td>
+189
+</td>
+<td>
+95
+</td>
+<td>
+1.577722e+09
+</td>
+<td>
+1232642.0
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+245 rows × 10 columns
+</p>
+</div>
+<p>每日涨跌幅的计算公式为：<span class="math inline">\(\frac{当日收盘价-前日收盘价}{前日收盘价}\)</span><br />
+可以有两种方式计算 - 直接计算</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">returns_stock = (stock.data[<span class="string">&#x27;close&#x27;</span>]-stock.data[<span class="string">&#x27;close&#x27;</span>].shift(<span class="number">1</span>))/stock.data[<span class="string">&#x27;close&#x27;</span>].shift(<span class="number">1</span>)</span><br><span class="line">returns_index = (index.data[<span class="string">&#x27;close&#x27;</span>]-index.data[<span class="string">&#x27;close&#x27;</span>].shift(<span class="number">1</span>))/index.data[<span class="string">&#x27;close&#x27;</span>].shift(<span class="number">1</span>)</span><br><span class="line">display(returns_stock,returns_index)</span><br></pre></td></tr></table></figure>
+<pre><code>date        code  
+2018-12-28  002352         NaN
+2019-01-02  002352   -0.001221
+2019-01-03  002352    0.000611
+2019-01-04  002352    0.006722
+2019-01-07  002352   -0.004552
+                        ...   
+2019-12-25  002352   -0.012764
+2019-12-26  002352   -0.003958
+2019-12-27  002352   -0.006358
+2019-12-30  002352    0.005065
+2019-12-31  002352   -0.013528
+Name: close, Length: 245, dtype: float64
+
+
+
+date        code  
+2018-12-28  000300         NaN
+2019-01-02  000300   -0.013655
+2019-01-03  000300   -0.001583
+2019-01-04  000300    0.023957
+2019-01-07  000300    0.006071
+                        ...   
+2019-12-25  000300   -0.000523
+2019-12-26  000300    0.008800
+2019-12-27  000300   -0.000984
+2019-12-30  000300    0.014818
+2019-12-31  000300    0.003663
+Name: close, Length: 245, dtype: float64</code></pre>
+<ul>
+<li>使用<code>pct_change()</code>计算</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">returns_stock = stock.data.close.pct_change()</span><br><span class="line">returns_index = index.data.close.pct_change()</span><br><span class="line">display(returns_stock,returns_index)</span><br></pre></td></tr></table></figure>
+<pre><code>date        code  
+2018-12-28  002352         NaN
+2019-01-02  002352   -0.001221
+2019-01-03  002352    0.000611
+2019-01-04  002352    0.006722
+2019-01-07  002352   -0.004552
+                        ...   
+2019-12-25  002352   -0.012764
+2019-12-26  002352   -0.003958
+2019-12-27  002352   -0.006358
+2019-12-30  002352    0.005065
+2019-12-31  002352   -0.013528
+Name: close, Length: 245, dtype: float64
+
+
+
+date        code  
+2018-12-28  000300         NaN
+2019-01-02  000300   -0.013655
+2019-01-03  000300   -0.001583
+2019-01-04  000300    0.023957
+2019-01-07  000300    0.006071
+                        ...   
+2019-12-25  000300   -0.000523
+2019-12-26  000300    0.008800
+2019-12-27  000300   -0.000984
+2019-12-30  000300    0.014818
+2019-12-31  000300    0.003663
+Name: close, Length: 245, dtype: float64</code></pre>
+<h2 id="使用numpy计算协方差">使用<code>numpy</code>计算协方差</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">covr_matrix = np.cov(returns_stock, returns_index)</span><br><span class="line">print(covr_matrix)</span><br></pre></td></tr></table></figure>
+<pre><code>[[nan nan]
+ [nan nan]]</code></pre>
+<p>使用numpy计算协方差时，不会自动排除<code>NaN</code>的数据，所以需要手动清洗数据。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">covr_matrix = np.cov(returns_stock[<span class="number">1</span>:], returns_index[<span class="number">1</span>:])</span><br><span class="line">print(covr_matrix)</span><br></pre></td></tr></table></figure>
+<pre><code>[[3.19837928e-04 9.71284226e-05]
+ [9.71284226e-05 1.56416934e-04]]</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">covr = covr_matrix[<span class="number">0</span>][<span class="number">1</span>]</span><br><span class="line">print(covr)</span><br></pre></td></tr></table></figure>
+<pre><code>9.712842264272448e-05</code></pre>
+<h2 id="使用pandas计算协方差">使用<code>pandas</code>计算协方差</h2>
+<p>因为取出的数据是多含多重索引的series数据，在使用<code>pandas.series.cov()</code>进行协方差计算时，如果索引不一致，会出现计算结果为<code>nan</code>的情况</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">covr = returns_stock.cov(returns_index)</span><br><span class="line">print(covr)</span><br></pre></td></tr></table></figure>
+<pre><code>nan</code></pre>
+<p>需要先去除多重索引，办法有多种，如使用<code>droplevel()</code>,<code>unstack()</code>等，以下分别举例说明， - 使用<code>droplevel()</code>来完成</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">covr = returns_stock.droplevel(<span class="number">1</span>).cov(returns_index.droplevel(<span class="number">1</span>))</span><br><span class="line">print(covr)</span><br></pre></td></tr></table></figure>
+<pre><code>9.712842264272448e-05</code></pre>
+<ul>
+<li>使用<code>unstack()</code>来完成</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df = pd.concat([returns_stock.unstack(), returns_index.unstack()],axis=<span class="number">1</span>)</span><br><span class="line">display(df)</span><br><span class="line">df.cov()</span><br><span class="line">covr = df.cov().loc[<span class="string">&#x27;002352&#x27;</span>,<span class="string">&#x27;000300&#x27;</span>]</span><br><span class="line">print(covr)</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+code
+</th>
+<th>
+002352
+</th>
+<th>
+000300
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+2018-12-28
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+2019-01-02
+</th>
+<td>
+-0.001221
+</td>
+<td>
+-0.013655
+</td>
+</tr>
+<tr>
+<th>
+2019-01-03
+</th>
+<td>
+0.000611
+</td>
+<td>
+-0.001583
+</td>
+</tr>
+<tr>
+<th>
+2019-01-04
+</th>
+<td>
+0.006722
+</td>
+<td>
+0.023957
+</td>
+</tr>
+<tr>
+<th>
+2019-01-07
+</th>
+<td>
+-0.004552
+</td>
+<td>
+0.006071
+</td>
+</tr>
+<tr>
+<th>
+...
+</th>
+<td>
+...
+</td>
+<td>
+...
+</td>
+</tr>
+<tr>
+<th>
+2019-12-25
+</th>
+<td>
+-0.012764
+</td>
+<td>
+-0.000523
+</td>
+</tr>
+<tr>
+<th>
+2019-12-26
+</th>
+<td>
+-0.003958
+</td>
+<td>
+0.008800
+</td>
+</tr>
+<tr>
+<th>
+2019-12-27
+</th>
+<td>
+-0.006358
+</td>
+<td>
+-0.000984
+</td>
+</tr>
+<tr>
+<th>
+2019-12-30
+</th>
+<td>
+0.005065
+</td>
+<td>
+0.014818
+</td>
+</tr>
+<tr>
+<th>
+2019-12-31
+</th>
+<td>
+-0.013528
+</td>
+<td>
+0.003663
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+245 rows × 2 columns
+</p>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+code
+</th>
+<th>
+002352
+</th>
+<th>
+000300
+</th>
+</tr>
+<tr>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+002352
+</th>
+<td>
+0.000320
+</td>
+<td>
+0.000097
+</td>
+</tr>
+<tr>
+<th>
+000300
+</th>
+<td>
+0.000097
+</td>
+<td>
+0.000156
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code>9.71284226427245e-05</code></pre>
+<p>使用<code>pandas.dataframe.cov()</code>或<code>panadas.series.cov()</code>时,会自动排除<code>NaN</code>的数据，这一点与用numpy来计算是有区别的。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2021/07/02/%E3%80%90Python%E3%80%91%E4%BD%BF%E7%94%A8PYQT5%E6%9D%A5%E6%9E%84%E5%BB%BA%E6%8C%81%E4%BB%93%E7%9B%88%E4%BA%8F%E7%9B%91%E6%8E%A7%20(%E7%BB%AD)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1080,108 +2346,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2021/01/04/%E3%80%90Rust%E3%80%91Rust%E5%9C%A8win10%E4%B8%8B%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Jun Lv">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="橘子树下">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/04/%E3%80%90Rust%E3%80%91Rust%E5%9C%A8win10%E4%B8%8B%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">【Rust】Rust在win10下开发环境的搭建</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-01-04 17:36:56" itemprop="dateCreated datePublished" datetime="2021-01-04T17:36:56+08:00">2021-01-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-08 11:59:54" itemprop="dateModified" datetime="2021-01-08T11:59:54+08:00">2021-01-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/rust/" itemprop="url" rel="index"><span itemprop="name">rust</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/01/04/%E3%80%90Rust%E3%80%91Rust%E5%9C%A8win10%E4%B8%8B%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/04/%E3%80%90Rust%E3%80%91Rust%E5%9C%A8win10%E4%B8%8B%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>记录下如何在Windows 10环境下部署VScode的Rust开发环境。</p>
-<h1 id="配置步骤">配置步骤</h1>
-<h2 id="环境变量设置">环境变量设置</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">RUST&#x3D;d:\Program Files\RUST\.rustup\toolchains\stable-x86_64-pc-windows-msvc  </span><br><span class="line">CARGO HOME &#x3D; D:\Program Files\RUST\.cargo  </span><br><span class="line">RUSTUP_DIST_SERVER &#x3D; https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;rust-static  </span><br><span class="line">RUSTUP_HOME &#x3D; D:\Program Files\RUST\.rustup  </span><br><span class="line">RUSTUP_UPDATE_ROOT &#x3D; https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;rust-static&#x2F;rustup  </span><br><span class="line">RUST_SRC_PATH &#x3D; d:\Program Files\RUST\.rustup\toolchains\stable-x86_64-pc-windows-msvc\lib\rustlib\src\rust\src</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/04/%E3%80%90Rust%E3%80%91Rust%E5%9C%A8win10%E4%B8%8B%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1253,7 +2417,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
