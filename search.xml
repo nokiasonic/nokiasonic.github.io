@@ -30,28 +30,6 @@
       </tags>
   </entry>
   <entry>
-    <title>tqdm进度条的使用</title>
-    <url>/2020/12/23/tqdm%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p>以前使用的是processbar来制作进度条， 听闻tqdm性能更好些，遂尝试使用一下。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> tqdm(total=<span class="built_in">len</span>(codelist),<span class="built_in">ascii</span>= <span class="literal">True</span>, ncols=<span class="number">90</span>,colour=<span class="string">&quot;green&quot;</span>) <span class="keyword">as</span> pbar:</span><br><span class="line">    <span class="keyword">for</span> ts_code <span class="keyword">in</span> codelist:</span><br><span class="line">        pbar.set_description(<span class="string">&quot;Processing %s&quot;</span> % ts_code)</span><br><span class="line">        ......</span><br><span class="line">        pbar.update(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201223101745.png" /></p>
-<p>参数使用：</p>
-<p><code>ascii = True</code>, 缺省是<code>False</code>, 当使用它时，不是以正常块状来做进度条，而是以"123456789#"的方式。</p>
-<p><code>ncols = 90</code>, 这里可以根据屏幕大小来进行控制，保证进度条不产生换行的情况。</p>
-<p><code>colour = "green"</code>, 在版本4.5之后引入，可以设置进度条的颜色。</p>
-<p><code>desc</code>或利用<code>set_desciption</code>，用来设置进度条左侧的文字信息。</p>
-<p>从使用情况来看，还是比较令人满意的。</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>tqdm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>欢迎来到我的博客</title>
     <url>/2020/11/19/hello-world/</url>
     <content><![CDATA[<h2 id="橘子的博客终于开通了">橘子的博客终于开通了</h2>
@@ -111,23 +89,25 @@
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】Next主题标题颜色设置</title>
-    <url>/2020/12/10/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%A0%87%E9%A2%98%E9%A2%9C%E8%89%B2%E8%AE%BE%E7%BD%AE/</url>
-    <content><![CDATA[<p>主题采用的是Next的Mist。 不太喜欢全部都是黑灰白色的主基调，希望将标题来点明亮的颜色。以下来介绍具体的配置方法。</p>
-<a id="more"></a>
-<h2 id="更改标题配色">更改标题配色</h2>
-<p>找到<code>\themes\next\source\css\_common\outline\header\site-meta.styl</code>文件。编辑修改<code>.brand&#123;&#125;</code>里<code>color</code>参数配置</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.brand</span> &#123;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">//  color: var(--brand-color);</span><br><span class="line">  <span class="selector-tag">color</span>: <span class="selector-id">#fc6423</span> !<span class="selector-tag">important</span>;</span><br><span class="line">  <span class="selector-tag">display</span>: <span class="selector-tag">inline-block</span>;</span><br><span class="line">  line-height: $font-size-title;</span><br><span class="line">  <span class="selector-tag">padding</span>: 0 40<span class="selector-tag">px</span>;</span><br><span class="line">  <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line"></span><br><span class="line">  &amp;<span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">var</span>(--brand-hover-color);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="更改标题上下横线配色">更改标题上下横线配色</h2>
-<p>找到<code>\themes\next\source\css\_schemes\Mist\_header.styl</code>。编辑修改<code>i&#123;&#125;</code>里的<code>background</code>参数配置</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"> <span class="selector-tag">i</span> &#123;</span><br><span class="line">   //background: var(--brand-color);</span><br><span class="line"><span class="selector-tag">background</span>: <span class="selector-id">#fc6423</span> !<span class="selector-tag">important</span>;</span><br><span class="line">   <span class="selector-tag">display</span>: <span class="selector-tag">block</span>;</span><br><span class="line">   <span class="selector-tag">height</span>: 2<span class="selector-tag">px</span>;</span><br><span class="line">   <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+    <title>tqdm进度条的使用</title>
+    <url>/2020/12/23/tqdm%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>以前使用的是processbar来制作进度条， 听闻tqdm性能更好些，遂尝试使用一下。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> tqdm(total=<span class="built_in">len</span>(codelist),<span class="built_in">ascii</span>= <span class="literal">True</span>, ncols=<span class="number">90</span>,colour=<span class="string">&quot;green&quot;</span>) <span class="keyword">as</span> pbar:</span><br><span class="line">    <span class="keyword">for</span> ts_code <span class="keyword">in</span> codelist:</span><br><span class="line">        pbar.set_description(<span class="string">&quot;Processing %s&quot;</span> % ts_code)</span><br><span class="line">        ......</span><br><span class="line">        pbar.update(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201223101745.png" /></p>
+<p>参数使用：</p>
+<p><code>ascii = True</code>, 缺省是<code>False</code>, 当使用它时，不是以正常块状来做进度条，而是以"123456789#"的方式。</p>
+<p><code>ncols = 90</code>, 这里可以根据屏幕大小来进行控制，保证进度条不产生换行的情况。</p>
+<p><code>colour = "green"</code>, 在版本4.5之后引入，可以设置进度条的颜色。</p>
+<p><code>desc</code>或利用<code>set_desciption</code>，用来设置进度条左侧的文字信息。</p>
+<p>从使用情况来看，还是比较令人满意的。</p>
 ]]></content>
       <categories>
         <category>技术笔记</category>
-        <category>博客</category>
+        <category>python</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>python</tag>
+        <tag>tqdm</tag>
       </tags>
   </entry>
   <entry>
@@ -148,6 +128,26 @@
 <h3 id="部署到远程">部署到远程</h3>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>详见: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】Next主题标题颜色设置</title>
+    <url>/2020/12/10/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%A0%87%E9%A2%98%E9%A2%9C%E8%89%B2%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<p>主题采用的是Next的Mist。 不太喜欢全部都是黑灰白色的主基调，希望将标题来点明亮的颜色。以下来介绍具体的配置方法。</p>
+<a id="more"></a>
+<h2 id="更改标题配色">更改标题配色</h2>
+<p>找到<code>\themes\next\source\css\_common\outline\header\site-meta.styl</code>文件。编辑修改<code>.brand&#123;&#125;</code>里<code>color</code>参数配置</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.brand</span> &#123;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">//  color: var(--brand-color);</span><br><span class="line">  <span class="selector-tag">color</span>: <span class="selector-id">#fc6423</span> !<span class="selector-tag">important</span>;</span><br><span class="line">  <span class="selector-tag">display</span>: <span class="selector-tag">inline-block</span>;</span><br><span class="line">  line-height: $font-size-title;</span><br><span class="line">  <span class="selector-tag">padding</span>: 0 40<span class="selector-tag">px</span>;</span><br><span class="line">  <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line"></span><br><span class="line">  &amp;<span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">var</span>(--brand-hover-color);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="更改标题上下横线配色">更改标题上下横线配色</h2>
+<p>找到<code>\themes\next\source\css\_schemes\Mist\_header.styl</code>。编辑修改<code>i&#123;&#125;</code>里的<code>background</code>参数配置</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"> <span class="selector-tag">i</span> &#123;</span><br><span class="line">   //background: var(--brand-color);</span><br><span class="line"><span class="selector-tag">background</span>: <span class="selector-id">#fc6423</span> !<span class="selector-tag">important</span>;</span><br><span class="line">   <span class="selector-tag">display</span>: <span class="selector-tag">block</span>;</span><br><span class="line">   <span class="selector-tag">height</span>: 2<span class="selector-tag">px</span>;</span><br><span class="line">   <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>技术笔记</category>
@@ -313,29 +313,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【Jupyter】启动时有报错信息</title>
-    <url>/2021/05/11/%E3%80%90Jupyter%E3%80%91%E5%90%AF%E5%8A%A8%E6%97%B6%E6%9C%89%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/</url>
-    <content><![CDATA[<h1 id="说明">说明</h1>
-<p>在升级jupyter到版本6.x以上时，在启动的时候会报很多行以下错误 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Config option &#96;template_path&#96; not recognized by &#96;LenvsLatexExporter&#96;. Did you mean one of: &#96;template_file, template_name, template_paths&#96;?</span><br></pre></td></tr></table></figure></p>
-<h1 id="解决方案">解决方案</h1>
-<p>使用VS Code依次打开python安装目录下的/lib/site-packages/ ('jupyter_contrib_nbextensions', 'jupyter_latex_envs' 及'latex_envs')子目录。</p>
-<p>通过'Edit/Replace in Files'来查找'template_path'并替换为'template_paths'。</p>
-<p>注意有的内容已经是template_paths，不需要修改。</p>
-<h1 id="参考">参考</h1>
-<p>1/ [jupyter代码自动补全插件、安装后出现警告“Config option <code>template_path</code> not recognized by <code>LenvsLatexExporter</code>”的解决方案](<a href="https://blog.csdn.net/DTFT_/article/details/111242118">jupyter代码自动补全插件、安装后出现警告"Config option not recognized by "的解决方案_Sun's Blog-CSDN博客</a>)</p>
-<p>2/ <a href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions/issues/1529">Config option <code>template_path</code> not recognized by <code>LenvsLatexExporter</code>. Did you mean one of: <code>template_file, template_name, template_paths</code>? · Issue #1529 · ipython-contrib/jupyter_contrib_nbextensions (github.com)</a>)</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>python</category>
-        <category>jupyter</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>jupyter</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【Markdown】Typora画流程图实践</title>
     <url>/2021/01/08/%E3%80%90Markdown%E3%80%91Typora%E7%94%BB%E6%B5%81%E7%A8%8B%E5%9B%BE%E5%AE%9E%E8%B7%B5/</url>
     <content><![CDATA[<p><code>Typrora</code>中使用了<code>Mermaid</code>来提供强劲的绘制流程图、时序图的功能。</p>
@@ -368,6 +345,29 @@
       <tags>
         <tag>typora</tag>
         <tag>mermaid</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Jupyter】启动时有报错信息</title>
+    <url>/2021/05/11/%E3%80%90Jupyter%E3%80%91%E5%90%AF%E5%8A%A8%E6%97%B6%E6%9C%89%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/</url>
+    <content><![CDATA[<h1 id="说明">说明</h1>
+<p>在升级jupyter到版本6.x以上时，在启动的时候会报很多行以下错误 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Config option &#96;template_path&#96; not recognized by &#96;LenvsLatexExporter&#96;. Did you mean one of: &#96;template_file, template_name, template_paths&#96;?</span><br></pre></td></tr></table></figure></p>
+<h1 id="解决方案">解决方案</h1>
+<p>使用VS Code依次打开python安装目录下的/lib/site-packages/ ('jupyter_contrib_nbextensions', 'jupyter_latex_envs' 及'latex_envs')子目录。</p>
+<p>通过'Edit/Replace in Files'来查找'template_path'并替换为'template_paths'。</p>
+<p>注意有的内容已经是template_paths，不需要修改。</p>
+<h1 id="参考">参考</h1>
+<p>1/ [jupyter代码自动补全插件、安装后出现警告“Config option <code>template_path</code> not recognized by <code>LenvsLatexExporter</code>”的解决方案](<a href="https://blog.csdn.net/DTFT_/article/details/111242118">jupyter代码自动补全插件、安装后出现警告"Config option not recognized by "的解决方案_Sun's Blog-CSDN博客</a>)</p>
+<p>2/ <a href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions/issues/1529">Config option <code>template_path</code> not recognized by <code>LenvsLatexExporter</code>. Did you mean one of: <code>template_file, template_name, template_paths</code>? · Issue #1529 · ipython-contrib/jupyter_contrib_nbextensions (github.com)</a>)</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>python</category>
+        <category>jupyter</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>jupyter</tag>
       </tags>
   </entry>
   <entry>
@@ -2141,6 +2141,65 @@ code
       </tags>
   </entry>
   <entry>
+    <title>【Python】使用PYQT5来构建持仓盈亏监控(续)</title>
+    <url>/2021/07/02/%E3%80%90Python%E3%80%91%E4%BD%BF%E7%94%A8PYQT5%E6%9D%A5%E6%9E%84%E5%BB%BA%E6%8C%81%E4%BB%93%E7%9B%88%E4%BA%8F%E7%9B%91%E6%8E%A7%20(%E7%BB%AD)/</url>
+    <content><![CDATA[<h1 id="目的">目的</h1>
+<p>实时通过图形的方式呈现盈亏情况</p>
+<a id="more"></a>
+<h1 id="安装pyqtgraph">安装PyQtgraph</h1>
+<h2 id="安装">安装</h2>
+<p>通过pip进行安装</p>
+<blockquote>
+<p>pip install pyqtgraph</p>
+</blockquote>
+<h2 id="界面设计">界面设计</h2>
+<h3 id="使用qtdesigner来设计界面">使用QtDesigner来设计界面</h3>
+<ol type="1">
+<li>初始界面 初始界面设计如下： <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210514104224.png" /></li>
+</ol>
+<p>在此基础上，增加一个<code>label</code>及<code>widget</code>。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210702091127.png" /></p>
+<p>将widget重命名为<code>“graphWidget"</code>。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210702091239.png" /></p>
+<p>点击右键，选择<code>“提升为...”</code>， 提升的类名称为<code>“PlotWidget”</code>, 头文件为<code>“pyqtgraph”</code>。</p>
+<figure>
+<img src="C:\Users\junlv\AppData\Roaming\Typora\typora-user-images\image-20210702091446161.png" alt="image-20210702091446161" /><figcaption aria-hidden="true">image-20210702091446161</figcaption>
+</figure>
+<p>之所以使用这种方法，是因为按一般做法，利用Qt Designer新建一个布局，在代码中动态添加一个PlotWidget到这个布局来实现，代码如下:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pyqtgraph <span class="keyword">as</span> pg</span><br><span class="line">plot_plt = pg.PlotWidget(background=(<span class="number">69</span>,<span class="number">69</span>,<span class="number">69</span>), axisItems=&#123;<span class="string">&#x27;bottom&#x27;</span>: TimeAxisItem(orientation=<span class="string">&#x27;bottom&#x27;</span>)&#125;)</span><br><span class="line">verticalLayout.addWidget(plot_plt) </span><br></pre></td></tr></table></figure>
+<p>这里指定了背景色及坐标轴使用的模板。</p>
+<p>这样的做法，我一直没有找到控制PlotWidget大小的方法，导致出来的图形结果与我的期望不太一致。因此才尝试在UI设计时就固定住该部件的大小。</p>
+<h3 id="获取数据并展示">获取数据并展示</h3>
+<ol type="1">
+<li><p>将实时取得的持仓盈亏数据存入列表</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">self.data_list = []</span><br><span class="line">self.data_list.append(<span class="built_in">float</span>(self.data_summary[<span class="string">&#x27;day_float_amount&#x27;</span>]))</span><br></pre></td></tr></table></figure></li>
+<li><p>将时间进行时间戳转化存入列表</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">timestamp</span>():</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(time.mktime(datetime.datetime.now().timetuple()))</span><br><span class="line"></span><br><span class="line">self.time_list = []</span><br><span class="line">self.time_list.append(timestamp())</span><br></pre></td></tr></table></figure></li>
+<li><p>坐标轴显示为时间</p>
+<p>默认pyqtgraph会使用0开始的整数来作为坐标轴的值。 这里希望使用实时取到的时间来做为显示的值，因此需要重写pyqtgraph的AxisItem类。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TimeAxisItem</span>(<span class="params">pg.AxisItem</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, *args, **kwargs</span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__(*args, **kwargs)</span><br><span class="line">        <span class="comment">#self.setLabel(text=&#x27;Time&#x27;, units=None)</span></span><br><span class="line">        self.enableAutoSIPrefix(<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">tickStrings</span>(<span class="params">self, values, scale, spacing</span>):</span></span><br><span class="line">        <span class="keyword">return</span> [datetime.datetime.fromtimestamp(value).strftime(<span class="string">&quot;%H:%M:%S&quot;</span>) <span class="keyword">for</span> value <span class="keyword">in</span> values]</span><br></pre></td></tr></table></figure></li>
+<li><p>展示</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">graphWidget.plot().setData(self.model.time_list, self.model.data_list,pen=<span class="string">&#x27;g&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="效果">效果</h1>
+<p>完成后的应用界面效果如下： <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210702094351.png" /></p>
+<h1 id="参考">参考</h1>
+<ol start="4" type="1">
+<li><a href="%5BPyQt5的PyQtGraph实践系列3：实时数据更新绘制图形%20-%20州的先生%20(zmister.com)%5D(https://zmister.com/archives/826.html)">PyQt5的PyQtGraph实践系列3：实时数据更新绘制图形</a></li>
+<li><a href="%5BEmbedding%20PyQtGraph%20(or%20any%20other%20custom%20PyQt5%20widgets)%20from%20Qt%20Designer%20(mfitzp.com)%5D(https://www.mfitzp.com/tutorials/embed-pyqtgraph-custom-widgets-qt-app/)">Embedding custom widgets from Qt Designer</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>python</category>
+        <category>量化投资</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pyqt5</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【Python】pandas dataframe输出格式对齐美化的思路</title>
     <url>/2021/05/14/%E3%80%90Python%E3%80%91pandas%20dataframe%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F%E5%AF%B9%E9%BD%90%E7%BE%8E%E5%8C%96%E7%9A%84%E6%80%9D%E8%B7%AF/</url>
     <content><![CDATA[<h1 id="需求">需求</h1>
@@ -2863,62 +2922,75 @@ code
       </tags>
   </entry>
   <entry>
-    <title>【Python】使用PYQT5来构建持仓盈亏监控(续)</title>
-    <url>/2021/07/02/%E3%80%90Python%E3%80%91%E4%BD%BF%E7%94%A8PYQT5%E6%9D%A5%E6%9E%84%E5%BB%BA%E6%8C%81%E4%BB%93%E7%9B%88%E4%BA%8F%E7%9B%91%E6%8E%A7%20(%E7%BB%AD)/</url>
-    <content><![CDATA[<h1 id="目的">目的</h1>
-<p>实时通过图形的方式呈现盈亏情况</p>
-<a id="more"></a>
-<h1 id="安装pyqtgraph">安装PyQtgraph</h1>
-<h2 id="安装">安装</h2>
-<p>通过pip进行安装</p>
+    <title>【Rust】Rust的安装及卸载</title>
+    <url>/2021/01/04/%E3%80%90Rust%E3%80%91Rust%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E5%8D%B8%E8%BD%BD/</url>
+    <content><![CDATA[<h1 id="安装">安装</h1>
+<h2 id="下载rust的安装器">下载Rust的安装器</h2>
+<p>从<a href="https://www.rust-lang.org/zh-CN/tools/install">官网</a>下载<code>rustup-init.exe</code>。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104150128.png" /></p>
+<p>说明：</p>
 <blockquote>
-<p>pip install pyqtgraph</p>
+<p><code>rustup</code>是安装和管理 <strong>Rust 构建版本</strong>的工具。rustup 用于管理不同平台下的 Rust 构建版本并使其互相兼容， 支持安装由 Beta 和 Nightly 频道发布的版本，并支持其他用于交叉编译的编译版本 <code>cargo</code>是rust的<strong>包管理器和构建系统工具</strong>。它将常用命令集于一身，无需引入其它命令。</p>
+<p>rustup程序是rust的安装程序，也是他的版本管理程序，类似于Python的Anaconda发行版的conda工具，非常方便使用管理。cargo是rust的构建工具，暂不介绍，需要明白的是：rustup是管理语言自身的，cargo是管理第三方拓展的。</p>
 </blockquote>
-<h2 id="界面设计">界面设计</h2>
-<h3 id="使用qtdesigner来设计界面">使用QtDesigner来设计界面</h3>
-<ol type="1">
-<li>初始界面 初始界面设计如下： <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210514104224.png" /></li>
-</ol>
-<p>在此基础上，增加一个<code>label</code>及<code>widget</code>。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210702091127.png" /></p>
-<p>将widget重命名为<code>“graphWidget"</code>。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210702091239.png" /></p>
-<p>点击右键，选择<code>“提升为...”</code>， 提升的类名称为<code>“PlotWidget”</code>, 头文件为<code>“pyqtgraph”</code>。</p>
-<figure>
-<img src="C:\Users\junlv\AppData\Roaming\Typora\typora-user-images\image-20210702091446161.png" alt="image-20210702091446161" /><figcaption aria-hidden="true">image-20210702091446161</figcaption>
-</figure>
-<p>之所以使用这种方法，是因为按一般做法，利用Qt Designer新建一个布局，在代码中动态添加一个PlotWidget到这个布局来实现，代码如下:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pyqtgraph <span class="keyword">as</span> pg</span><br><span class="line">plot_plt = pg.PlotWidget(background=(<span class="number">69</span>,<span class="number">69</span>,<span class="number">69</span>), axisItems=&#123;<span class="string">&#x27;bottom&#x27;</span>: TimeAxisItem(orientation=<span class="string">&#x27;bottom&#x27;</span>)&#125;)</span><br><span class="line">verticalLayout.addWidget(plot_plt) </span><br></pre></td></tr></table></figure>
-<p>这里指定了背景色及坐标轴使用的模板。</p>
-<p>这样的做法，我一直没有找到控制PlotWidget大小的方法，导致出来的图形结果与我的期望不太一致。因此才尝试在UI设计时就固定住该部件的大小。</p>
-<h3 id="获取数据并展示">获取数据并展示</h3>
-<ol type="1">
-<li><p>将实时取得的持仓盈亏数据存入列表</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">self.data_list = []</span><br><span class="line">self.data_list.append(<span class="built_in">float</span>(self.data_summary[<span class="string">&#x27;day_float_amount&#x27;</span>]))</span><br></pre></td></tr></table></figure></li>
-<li><p>将时间进行时间戳转化存入列表</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">timestamp</span>():</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(time.mktime(datetime.datetime.now().timetuple()))</span><br><span class="line"></span><br><span class="line">self.time_list = []</span><br><span class="line">self.time_list.append(timestamp())</span><br></pre></td></tr></table></figure></li>
-<li><p>坐标轴显示为时间</p>
-<p>默认pyqtgraph会使用0开始的整数来作为坐标轴的值。 这里希望使用实时取到的时间来做为显示的值，因此需要重写pyqtgraph的AxisItem类。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TimeAxisItem</span>(<span class="params">pg.AxisItem</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, *args, **kwargs</span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__(*args, **kwargs)</span><br><span class="line">        <span class="comment">#self.setLabel(text=&#x27;Time&#x27;, units=None)</span></span><br><span class="line">        self.enableAutoSIPrefix(<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">tickStrings</span>(<span class="params">self, values, scale, spacing</span>):</span></span><br><span class="line">        <span class="keyword">return</span> [datetime.datetime.fromtimestamp(value).strftime(<span class="string">&quot;%H:%M:%S&quot;</span>) <span class="keyword">for</span> value <span class="keyword">in</span> values]</span><br></pre></td></tr></table></figure></li>
-<li><p>展示</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">graphWidget.plot().setData(self.model.time_list, self.model.data_list,pen=<span class="string">&#x27;g&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="效果">效果</h1>
-<p>完成后的应用界面效果如下： <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210702094351.png" /></p>
-<h1 id="参考">参考</h1>
-<ol start="4" type="1">
-<li><a href="%5BPyQt5的PyQtGraph实践系列3：实时数据更新绘制图形%20-%20州的先生%20(zmister.com)%5D(https://zmister.com/archives/826.html)">PyQt5的PyQtGraph实践系列3：实时数据更新绘制图形</a></li>
-<li><a href="%5BEmbedding%20PyQtGraph%20(or%20any%20other%20custom%20PyQt5%20widgets)%20from%20Qt%20Designer%20(mfitzp.com)%5D(https://www.mfitzp.com/tutorials/embed-pyqtgraph-custom-widgets-qt-app/)">Embedding custom widgets from Qt Designer</a></li>
-</ol>
+<a id="more"></a>
+<h2 id="配置path环境变量">配置<code>path</code>环境变量</h2>
+<p>在 Rust 开发环境中，所有工具都安装在 <code>~/.cargo/bin</code> 目录中，您可以在这里找到包括 <code>rustc</code>、<code>cargo</code> 和 <code>rustup</code> 在内的 Rust 工具链。</p>
+<p>所以，如果打算修改默认的安装位置，可以在环境变量中这样设置，以安装路径为<code>D:\Program Files\Rust\</code>为例。否则会默认安装在 C 盘下。 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CARGO_HOME：D:\Program Files\RUST\\.cargo</span><br><span class="line">RUSTUP_HOME：D:\Program Files\RUST\\.rustup</span><br></pre></td></tr></table></figure></p>
+<h2 id="安装-1">安装</h2>
+<h3 id="msvc工具链方式">MSVC工具链方式</h3>
+<p>下载完成后直接点击执行，会出现一个CMD窗口：仔细阅读上面的内容，如果没有安装Microsoft 2019 builder tools，就从<a href="https://visualstudio.microsoft.com/downloads/">这里</a>进行下载安装。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210105152553.png" /></p>
+<p>下载build tools之后，在Visual studio installer中只选择“C++生成工具”，然后只选择"MSVC v142 - VS2019 C++ x64/x86 生成工具"。安装上去大约需要1.8G硬盘空间。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210105153117.png" /></p>
+<h3 id="安装rust">安装Rust</h3>
+<p>运行<code>rustup-init.exe</code></p>
+<p>然后，在下面输入1，进行默认安装：</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104151722.png" /></p>
+<p>检查是否安装成功</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rustc --version</span><br><span class="line">cargo --version　　</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104154515.png" /></p>
+<h3 id="gnu工具链方式">GNU工具链方式</h3>
+<p>gnu（本文使用MinGW-w64）占用空间小（500M），对于初步的rust使用足够了。</p>
+<p><a href="http://www.mingw-w64.org/doku.php">MinGW-w64下载</a></p>
+<h4 id="安装mingw-w64">安装MinGW-w64</h4>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106091000.png" /></p>
+<p>这里你可以选择安装的版本, 建议只更改第二项至x86_64, 其他选项不做改动。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106091120.png" /></p>
+<p><strong>关于Threads选项的说明：</strong></p>
+<p>To summarize:</p>
+<ul>
+<li><code>posix</code>: enable C++11/C11 multithreading features. Makes libgcc depend on libwinpthreads, so that even if you don't directly call pthreads API, you'll be distributing the winpthreads DLL. There's nothing wrong with distributing one more DLL with your application.</li>
+<li><code>win32</code>: No C++11 multithreading features.</li>
+</ul>
+<p>Neither have influence on any user code calling Win32 APIs or pthreads APIs. You can always use both.</p>
+<p>exception seh (for Structured Exception Handling mechanism).</p>
+<p>这里可以设置安装目录, 我安装在</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106091244.png" /></p>
+<h3 id="环境变量的配置">环境变量的配置</h3>
+<p>新增 <code>D:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin</code>到<code>PATH</code>。</p>
+<h3 id="检查安装是否成功">检查安装是否成功</h3>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">C:\Users\junlv&gt;mingw32<span class="literal">-make</span> -<span class="literal">-version</span></span><br><span class="line">GNU Make <span class="number">4.2</span>.<span class="number">1</span></span><br><span class="line">Built <span class="keyword">for</span> x86_64<span class="literal">-w64</span><span class="literal">-mingw32</span></span><br><span class="line">Copyright (C) <span class="number">1988</span><span class="literal">-2016</span> Free Software Foundation, Inc.</span><br><span class="line">License GPLv3+: GNU GPL version <span class="number">3</span> or later &lt;http://gnu.org/licenses/gpl.html&gt;</span><br><span class="line">This is free software: you are free to change and redistribute it.</span><br><span class="line">There is NO WARRANTY, to the extent permitted by law.</span><br><span class="line"></span><br><span class="line">C:\Users\junlv&gt;g++ -<span class="literal">-version</span></span><br><span class="line">g++ (x86_64<span class="literal">-posix</span><span class="literal">-seh</span><span class="literal">-rev0</span>, Built by MinGW<span class="literal">-W64</span> project) <span class="number">8.1</span>.<span class="number">0</span></span><br><span class="line">Copyright (C) <span class="number">2018</span> Free Software Foundation, Inc.</span><br><span class="line">This is free software; see the source <span class="keyword">for</span> copying conditions.  There is NO</span><br><span class="line">warranty; not even <span class="keyword">for</span> MERCHANTABILITY or FITNESS <span class="keyword">FOR</span> A PARTICULAR PURPOSE.</span><br></pre></td></tr></table></figure>
+<h3 id="安装rust-1">安装Rust</h3>
+<p>运行<code>rustup-init.exe</code></p>
+<p>然后，在下面输入2，进行定制化安装：</p>
+<p><code>default host triple</code>修改为<code>x86_64-pc-windows-gnu</code></p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106114540.png" /></p>
+<p>继续选1进行安装即可。</p>
+<p>安装验证</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">E:\Downloads\Programs&gt;rustc -<span class="literal">-version</span></span><br><span class="line">rustc <span class="number">1.49</span>.<span class="number">0</span> (e1884a8e3 <span class="number">2020</span><span class="literal">-12</span><span class="literal">-29</span>)</span><br><span class="line"></span><br><span class="line">E:\Downloads\Programs&gt;cargo -<span class="literal">-version</span></span><br><span class="line">cargo <span class="number">1.49</span>.<span class="number">0</span> (d00d64df9 <span class="number">2020</span><span class="literal">-12</span><span class="literal">-05</span>)</span><br></pre></td></tr></table></figure>
+<p>安装源代码用于代码补全</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">E:\Downloads\Programs&gt;rustup component add rust<span class="literal">-src</span></span><br><span class="line">info: downloading component <span class="string">&#x27;rust-src&#x27;</span></span><br><span class="line">info: installing component <span class="string">&#x27;rust-src&#x27;</span></span><br><span class="line">info: <span class="keyword">using</span> up to 500.0 MiB of RAM to unpack components</span><br></pre></td></tr></table></figure>
+<h1 id="卸载rust">卸载Rust</h1>
+<p>如果想卸载 Rust，可以运行 <code>rustup self uninstall</code></p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104150931.png" /></p>
 ]]></content>
       <categories>
         <category>技术笔记</category>
-        <category>python</category>
-        <category>量化投资</category>
+        <category>rust</category>
       </categories>
       <tags>
-        <tag>python</tag>
-        <tag>pyqt5</tag>
+        <tag>rust</tag>
       </tags>
   </entry>
   <entry>
@@ -3023,78 +3095,6 @@ code
       </tags>
   </entry>
   <entry>
-    <title>【Rust】Rust的安装及卸载</title>
-    <url>/2021/01/04/%E3%80%90Rust%E3%80%91Rust%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E5%8D%B8%E8%BD%BD/</url>
-    <content><![CDATA[<h1 id="安装">安装</h1>
-<h2 id="下载rust的安装器">下载Rust的安装器</h2>
-<p>从<a href="https://www.rust-lang.org/zh-CN/tools/install">官网</a>下载<code>rustup-init.exe</code>。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104150128.png" /></p>
-<p>说明：</p>
-<blockquote>
-<p><code>rustup</code>是安装和管理 <strong>Rust 构建版本</strong>的工具。rustup 用于管理不同平台下的 Rust 构建版本并使其互相兼容， 支持安装由 Beta 和 Nightly 频道发布的版本，并支持其他用于交叉编译的编译版本 <code>cargo</code>是rust的<strong>包管理器和构建系统工具</strong>。它将常用命令集于一身，无需引入其它命令。</p>
-<p>rustup程序是rust的安装程序，也是他的版本管理程序，类似于Python的Anaconda发行版的conda工具，非常方便使用管理。cargo是rust的构建工具，暂不介绍，需要明白的是：rustup是管理语言自身的，cargo是管理第三方拓展的。</p>
-</blockquote>
-<a id="more"></a>
-<h2 id="配置path环境变量">配置<code>path</code>环境变量</h2>
-<p>在 Rust 开发环境中，所有工具都安装在 <code>~/.cargo/bin</code> 目录中，您可以在这里找到包括 <code>rustc</code>、<code>cargo</code> 和 <code>rustup</code> 在内的 Rust 工具链。</p>
-<p>所以，如果打算修改默认的安装位置，可以在环境变量中这样设置，以安装路径为<code>D:\Program Files\Rust\</code>为例。否则会默认安装在 C 盘下。 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CARGO_HOME：D:\Program Files\RUST\\.cargo</span><br><span class="line">RUSTUP_HOME：D:\Program Files\RUST\\.rustup</span><br></pre></td></tr></table></figure></p>
-<h2 id="安装-1">安装</h2>
-<h3 id="msvc工具链方式">MSVC工具链方式</h3>
-<p>下载完成后直接点击执行，会出现一个CMD窗口：仔细阅读上面的内容，如果没有安装Microsoft 2019 builder tools，就从<a href="https://visualstudio.microsoft.com/downloads/">这里</a>进行下载安装。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210105152553.png" /></p>
-<p>下载build tools之后，在Visual studio installer中只选择“C++生成工具”，然后只选择"MSVC v142 - VS2019 C++ x64/x86 生成工具"。安装上去大约需要1.8G硬盘空间。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210105153117.png" /></p>
-<h3 id="安装rust">安装Rust</h3>
-<p>运行<code>rustup-init.exe</code></p>
-<p>然后，在下面输入1，进行默认安装：</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104151722.png" /></p>
-<p>检查是否安装成功</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rustc --version</span><br><span class="line">cargo --version　　</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104154515.png" /></p>
-<h3 id="gnu工具链方式">GNU工具链方式</h3>
-<p>gnu（本文使用MinGW-w64）占用空间小（500M），对于初步的rust使用足够了。</p>
-<p><a href="http://www.mingw-w64.org/doku.php">MinGW-w64下载</a></p>
-<h4 id="安装mingw-w64">安装MinGW-w64</h4>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106091000.png" /></p>
-<p>这里你可以选择安装的版本, 建议只更改第二项至x86_64, 其他选项不做改动。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106091120.png" /></p>
-<p><strong>关于Threads选项的说明：</strong></p>
-<p>To summarize:</p>
-<ul>
-<li><code>posix</code>: enable C++11/C11 multithreading features. Makes libgcc depend on libwinpthreads, so that even if you don't directly call pthreads API, you'll be distributing the winpthreads DLL. There's nothing wrong with distributing one more DLL with your application.</li>
-<li><code>win32</code>: No C++11 multithreading features.</li>
-</ul>
-<p>Neither have influence on any user code calling Win32 APIs or pthreads APIs. You can always use both.</p>
-<p>exception seh (for Structured Exception Handling mechanism).</p>
-<p>这里可以设置安装目录, 我安装在</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106091244.png" /></p>
-<h3 id="环境变量的配置">环境变量的配置</h3>
-<p>新增 <code>D:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin</code>到<code>PATH</code>。</p>
-<h3 id="检查安装是否成功">检查安装是否成功</h3>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">C:\Users\junlv&gt;mingw32<span class="literal">-make</span> -<span class="literal">-version</span></span><br><span class="line">GNU Make <span class="number">4.2</span>.<span class="number">1</span></span><br><span class="line">Built <span class="keyword">for</span> x86_64<span class="literal">-w64</span><span class="literal">-mingw32</span></span><br><span class="line">Copyright (C) <span class="number">1988</span><span class="literal">-2016</span> Free Software Foundation, Inc.</span><br><span class="line">License GPLv3+: GNU GPL version <span class="number">3</span> or later &lt;http://gnu.org/licenses/gpl.html&gt;</span><br><span class="line">This is free software: you are free to change and redistribute it.</span><br><span class="line">There is NO WARRANTY, to the extent permitted by law.</span><br><span class="line"></span><br><span class="line">C:\Users\junlv&gt;g++ -<span class="literal">-version</span></span><br><span class="line">g++ (x86_64<span class="literal">-posix</span><span class="literal">-seh</span><span class="literal">-rev0</span>, Built by MinGW<span class="literal">-W64</span> project) <span class="number">8.1</span>.<span class="number">0</span></span><br><span class="line">Copyright (C) <span class="number">2018</span> Free Software Foundation, Inc.</span><br><span class="line">This is free software; see the source <span class="keyword">for</span> copying conditions.  There is NO</span><br><span class="line">warranty; not even <span class="keyword">for</span> MERCHANTABILITY or FITNESS <span class="keyword">FOR</span> A PARTICULAR PURPOSE.</span><br></pre></td></tr></table></figure>
-<h3 id="安装rust-1">安装Rust</h3>
-<p>运行<code>rustup-init.exe</code></p>
-<p>然后，在下面输入2，进行定制化安装：</p>
-<p><code>default host triple</code>修改为<code>x86_64-pc-windows-gnu</code></p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106114540.png" /></p>
-<p>继续选1进行安装即可。</p>
-<p>安装验证</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">E:\Downloads\Programs&gt;rustc -<span class="literal">-version</span></span><br><span class="line">rustc <span class="number">1.49</span>.<span class="number">0</span> (e1884a8e3 <span class="number">2020</span><span class="literal">-12</span><span class="literal">-29</span>)</span><br><span class="line"></span><br><span class="line">E:\Downloads\Programs&gt;cargo -<span class="literal">-version</span></span><br><span class="line">cargo <span class="number">1.49</span>.<span class="number">0</span> (d00d64df9 <span class="number">2020</span><span class="literal">-12</span><span class="literal">-05</span>)</span><br></pre></td></tr></table></figure>
-<p>安装源代码用于代码补全</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">E:\Downloads\Programs&gt;rustup component add rust<span class="literal">-src</span></span><br><span class="line">info: downloading component <span class="string">&#x27;rust-src&#x27;</span></span><br><span class="line">info: installing component <span class="string">&#x27;rust-src&#x27;</span></span><br><span class="line">info: <span class="keyword">using</span> up to 500.0 MiB of RAM to unpack components</span><br></pre></td></tr></table></figure>
-<h1 id="卸载rust">卸载Rust</h1>
-<p>如果想卸载 Rust，可以运行 <code>rustup self uninstall</code></p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104150931.png" /></p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>rust</category>
-      </categories>
-      <tags>
-        <tag>rust</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【Rust】在jupyter notebook中使用Rust</title>
     <url>/2021/01/07/%E3%80%90Rust%E3%80%91%E5%9C%A8jupyter-notebook%E4%B8%AD%E4%BD%BF%E7%94%A8Rust/</url>
     <content><![CDATA[<p>在jupyter notebook中是否也可以像python那样使用呢？ 答案是可以的。现在来记录一下配置步骤。</p>
@@ -3171,6 +3171,22 @@ code
       <tags>
         <tag>python</tag>
         <tag>multiprocessing</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【python】在多进程下输出日志</title>
+    <url>/2021/01/08/%E3%80%90python%E3%80%91%E5%9C%A8%E5%A4%9A%E8%BF%9B%E7%A8%8B%E4%B8%8B%E8%BE%93%E5%87%BA%E6%97%A5%E5%BF%97/</url>
+    <content><![CDATA[<p>可以利用队列或管道来进行多进程下的日志输出，但<a href="https://docs.python.org/3/howto/logging-cookbook.html#logging-to-a-single-file-from-multiple-processes">官方文档</a>推荐了一种利用<code>logging.SocketHandler</code>的方案来实现多进程日志输出。</p>
+<p>其原理是：多个进程将各自环境下的日志通过<code>Socket</code>发送给一个专门打印日志的进程，这样就可以防止多进程打印的冲突与混乱情况。</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>multiprocessing</tag>
+        <tag>logging</tag>
       </tags>
   </entry>
   <entry>
@@ -3315,23 +3331,7 @@ code
       </tags>
   </entry>
   <entry>
-    <title>【python】在多进程下输出日志</title>
-    <url>/2021/01/08/%E3%80%90python%E3%80%91%E5%9C%A8%E5%A4%9A%E8%BF%9B%E7%A8%8B%E4%B8%8B%E8%BE%93%E5%87%BA%E6%97%A5%E5%BF%97/</url>
-    <content><![CDATA[<p>可以利用队列或管道来进行多进程下的日志输出，但<a href="https://docs.python.org/3/howto/logging-cookbook.html#logging-to-a-single-file-from-multiple-processes">官方文档</a>推荐了一种利用<code>logging.SocketHandler</code>的方案来实现多进程日志输出。</p>
-<p>其原理是：多个进程将各自环境下的日志通过<code>Socket</code>发送给一个专门打印日志的进程，这样就可以防止多进程打印的冲突与混乱情况。</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>multiprocessing</tag>
-        <tag>logging</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【量化投资】Pandas与numpy的方差计算</title>
+    <title>【量化投资】贝塔系数的计算</title>
     <url>/2021/07/17/%E3%80%90%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E3%80%91%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97/</url>
     <content><![CDATA[<h1 id="目的">目的</h1>
 <p>在量化分析中，经常会需要获取<span class="math inline">\(\beta\)</span>(贝塔系数），那该如何查询或计算该系数呢？</p>
