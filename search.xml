@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>tqdm进度条的使用</title>
+    <url>/2020/12/23/tqdm%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>以前使用的是processbar来制作进度条， 听闻tqdm性能更好些，遂尝试使用一下。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> tqdm(total=<span class="built_in">len</span>(codelist),<span class="built_in">ascii</span>= <span class="literal">True</span>, ncols=<span class="number">90</span>,colour=<span class="string">&quot;green&quot;</span>) <span class="keyword">as</span> pbar:</span><br><span class="line">    <span class="keyword">for</span> ts_code <span class="keyword">in</span> codelist:</span><br><span class="line">        pbar.set_description(<span class="string">&quot;Processing %s&quot;</span> % ts_code)</span><br><span class="line">        ......</span><br><span class="line">        pbar.update(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201223101745.png" /></p>
+<p>参数使用：</p>
+<p><code>ascii = True</code>, 缺省是<code>False</code>, 当使用它时，不是以正常块状来做进度条，而是以"123456789#"的方式。</p>
+<p><code>ncols = 90</code>, 这里可以根据屏幕大小来进行控制，保证进度条不产生换行的情况。</p>
+<p><code>colour = "green"</code>, 在版本4.5之后引入，可以设置进度条的颜色。</p>
+<p><code>desc</code>或利用<code>set_desciption</code>，用来设置进度条左侧的文字信息。</p>
+<p>从使用情况来看，还是比较令人满意的。</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>tqdm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>docker创建的vhdx文件无法移动或删除</title>
     <url>/2020/12/23/docker%E5%88%9B%E5%BB%BA%E7%9A%84vhdx%E6%96%87%E4%BB%B6%E6%97%A0%E6%B3%95%E7%A7%BB%E5%8A%A8%E6%88%96%E5%88%A0%E9%99%A4/</url>
     <content><![CDATA[<p>操作系统为win10 professional,由于开始使用docker时没有及时调整img存放的位置，导致C盘空间被耗尽。所以决定迁移img至数据盘。但在通过dockerdeskto setting更改存储位置时，发生了异常，没有完全执行成功。初次重启后无法正常启动docker。</p>
@@ -30,6 +52,43 @@
       </tags>
   </entry>
   <entry>
+    <title>【Hexo】Next主题更好地支持LaTeX数学公式</title>
+    <url>/2020/12/17/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%9B%B4%E5%A5%BD%E5%9C%B0%E6%94%AF%E6%8C%81LaTeX%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</url>
+    <content><![CDATA[<p>在Typora中可以正常显示的<span class="math inline">\(L^AT_EX\)</span>数学公式，在Hexo NexT主题下却渲染得不是太理想。我们去最新的<a href="https://theme-next.js.org/docs/third-party-services/math-equations.html">NexT官方文档</a>里看看如何解决吧！</p>
+<a id="more"></a>
+<h2 id="实施步骤">实施步骤</h2>
+<p>NexT主题现在提供两种数学公式的渲染方式 <a href="https://www.mathjax.org/">MathJax</a> 及 <a href="https://katex.org/">KaTeX</a>。其中<code>katex</code>的速度更快，但是对于<span class="math inline">\(L^AT_EX\)</span>的支持有一定的限制。所以除非你的博客数量实在是过于庞大，不然就可以直接使用<code>mathjax</code>。</p>
+<p>使用<code>mathjax</code>，可以选择多种渲染引擎，但推荐使用</p>
+<ul>
+<li><a href="https://github.com/wzpan/hexo-renderer-pandoc">hexo-renderer-pandoc</a></li>
+</ul>
+<p>使用其它诸如<a href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a>之类的引擎（这是Hexo默认首先用来渲染MarkDown的），然后再交给<code>mathjax</code>渲染。<code>hexo-renderer-marked</code>会把一些特殊的MarkDown符号转换为相应的html标签，比如在MarkDown语法中，下划线 _ 代表斜体，会被转化为&lt; em&gt;标签，\也会被转义成一个。而类<span class="math inline">\(L^AT_EX\)</span>格式书写的数学公式下划线 _ 表示角标，\表示公式换行，有特殊的含义，所以<code>mathjax</code>引擎在渲染数学公式的时候就会无法正常渲染。</p>
+<h3 id="安装pandoc">安装pandoc</h3>
+<p><a href="https://github.com/jgm/pandoc/blob/master/INSTALL.md">安装文档</a>及<a href="https://github.com/jgm/pandoc/releases/latest">下载链接</a>]，因为在安装<code>Anaconda</code>时已经含有pandoc。这里不再单独进行安装。</p>
+<h3 id="配置next">配置NexT</h3>
+<ol type="1">
+<li>首先，在NexT主题配置文件中将<code>mathjax</code>设为渲染引擎</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li>然后，卸载最初的<code>hexo-renderer-marked</code>引擎并安装<code>hexo-renderer-pandoc</code>。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm un hexo-renderer-marked</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm i hexo-renderer-pandoc</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201217170659.png" /></p>
+<ol start="3" type="1">
+<li>在更换完渲染引擎后，执行一下<code>hexo clean</code>，然后再进行部署或启动本地服务器来验证渲染是否工作正常。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo clean &amp;&amp; hexo g -d</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> or hexo clean &amp;&amp; hexo s</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>欢迎来到我的博客</title>
     <url>/2020/11/19/hello-world/</url>
     <content><![CDATA[<h2 id="橘子的博客终于开通了">橘子的博客终于开通了</h2>
@@ -49,28 +108,6 @@
       </categories>
       <tags>
         <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>tqdm进度条的使用</title>
-    <url>/2020/12/23/tqdm%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p>以前使用的是processbar来制作进度条， 听闻tqdm性能更好些，遂尝试使用一下。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> tqdm(total=<span class="built_in">len</span>(codelist),<span class="built_in">ascii</span>= <span class="literal">True</span>, ncols=<span class="number">90</span>,colour=<span class="string">&quot;green&quot;</span>) <span class="keyword">as</span> pbar:</span><br><span class="line">    <span class="keyword">for</span> ts_code <span class="keyword">in</span> codelist:</span><br><span class="line">        pbar.set_description(<span class="string">&quot;Processing %s&quot;</span> % ts_code)</span><br><span class="line">        ......</span><br><span class="line">        pbar.update(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201223101745.png" /></p>
-<p>参数使用：</p>
-<p><code>ascii = True</code>, 缺省是<code>False</code>, 当使用它时，不是以正常块状来做进度条，而是以"123456789#"的方式。</p>
-<p><code>ncols = 90</code>, 这里可以根据屏幕大小来进行控制，保证进度条不产生换行的情况。</p>
-<p><code>colour = "green"</code>, 在版本4.5之后引入，可以设置进度条的颜色。</p>
-<p><code>desc</code>或利用<code>set_desciption</code>，用来设置进度条左侧的文字信息。</p>
-<p>从使用情况来看，还是比较令人满意的。</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>tqdm</tag>
       </tags>
   </entry>
   <entry>
@@ -159,7 +196,7 @@
 <p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210830132849.png" /></p>
 <h2 id="演示">演示</h2>
 <p>制作完成！</p>
-<p><a href="%5B科技制作--小笨钟_哔哩哔哩_bilibili%5D(https://www.bilibili.com/video/BV1r64y1a76r/)">制作及演示视频</a></p>
+<p><a href="https://www.bilibili.com/video/BV1r64y1a76r/">制作及演示视频</a></p>
 <h1 id="参考">参考</h1>
 <p>1/ <a href="%5B如何制作一支带逗比功能的笔%20-%20知乎%20(zhihu.com)%5D(https://zhuanlan.zhihu.com/p/67700105)">如何制作一支带逗比功能的笔</a></p>
 <p>2/ <a href="%5B用stc15w4k32移植arduino小贱钟Plotclock%20(amobbs.com%20阿莫电子论坛)%5D(https://www.amobbs.com/thread-5687693-1-1.html)">用stc15w4k32移植arduino小贱钟Plotclock</a></p>
@@ -172,43 +209,6 @@
       <tags>
         <tag>arduino</tag>
         <tag>ESP8266</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Hexo】Next主题更好地支持LaTeX数学公式</title>
-    <url>/2020/12/17/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%9B%B4%E5%A5%BD%E5%9C%B0%E6%94%AF%E6%8C%81LaTeX%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</url>
-    <content><![CDATA[<p>在Typora中可以正常显示的<span class="math inline">\(L^AT_EX\)</span>数学公式，在Hexo NexT主题下却渲染得不是太理想。我们去最新的<a href="https://theme-next.js.org/docs/third-party-services/math-equations.html">NexT官方文档</a>里看看如何解决吧！</p>
-<a id="more"></a>
-<h2 id="实施步骤">实施步骤</h2>
-<p>NexT主题现在提供两种数学公式的渲染方式 <a href="https://www.mathjax.org/">MathJax</a> 及 <a href="https://katex.org/">KaTeX</a>。其中<code>katex</code>的速度更快，但是对于<span class="math inline">\(L^AT_EX\)</span>的支持有一定的限制。所以除非你的博客数量实在是过于庞大，不然就可以直接使用<code>mathjax</code>。</p>
-<p>使用<code>mathjax</code>，可以选择多种渲染引擎，但推荐使用</p>
-<ul>
-<li><a href="https://github.com/wzpan/hexo-renderer-pandoc">hexo-renderer-pandoc</a></li>
-</ul>
-<p>使用其它诸如<a href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a>之类的引擎（这是Hexo默认首先用来渲染MarkDown的），然后再交给<code>mathjax</code>渲染。<code>hexo-renderer-marked</code>会把一些特殊的MarkDown符号转换为相应的html标签，比如在MarkDown语法中，下划线 _ 代表斜体，会被转化为&lt; em&gt;标签，\也会被转义成一个。而类<span class="math inline">\(L^AT_EX\)</span>格式书写的数学公式下划线 _ 表示角标，\表示公式换行，有特殊的含义，所以<code>mathjax</code>引擎在渲染数学公式的时候就会无法正常渲染。</p>
-<h3 id="安装pandoc">安装pandoc</h3>
-<p><a href="https://github.com/jgm/pandoc/blob/master/INSTALL.md">安装文档</a>及<a href="https://github.com/jgm/pandoc/releases/latest">下载链接</a>]，因为在安装<code>Anaconda</code>时已经含有pandoc。这里不再单独进行安装。</p>
-<h3 id="配置next">配置NexT</h3>
-<ol type="1">
-<li>首先，在NexT主题配置文件中将<code>mathjax</code>设为渲染引擎</li>
-</ol>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<ol start="2" type="1">
-<li>然后，卸载最初的<code>hexo-renderer-marked</code>引擎并安装<code>hexo-renderer-pandoc</code>。</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm un hexo-renderer-marked</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm i hexo-renderer-pandoc</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201217170659.png" /></p>
-<ol start="3" type="1">
-<li>在更换完渲染引擎后，执行一下<code>hexo clean</code>，然后再进行部署或启动本地服务器来验证渲染是否工作正常。</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo clean &amp;&amp; hexo g -d</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> or hexo clean &amp;&amp; hexo s</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -259,181 +259,23 @@
       </tags>
   </entry>
   <entry>
-    <title>【Jupyter】启动时有报错信息</title>
-    <url>/2021/05/11/%E3%80%90Jupyter%E3%80%91%E5%90%AF%E5%8A%A8%E6%97%B6%E6%9C%89%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/</url>
-    <content><![CDATA[<h1 id="说明">说明</h1>
-<p>在升级jupyter到版本6.x以上时，在启动的时候会报很多行以下错误 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Config option &#96;template_path&#96; not recognized by &#96;LenvsLatexExporter&#96;. Did you mean one of: &#96;template_file, template_name, template_paths&#96;?</span><br></pre></td></tr></table></figure></p>
-<h1 id="解决方案">解决方案</h1>
-<p>使用VS Code依次打开python安装目录下的/lib/site-packages/ ('jupyter_contrib_nbextensions', 'jupyter_latex_envs' 及'latex_envs')子目录。</p>
-<p>通过'Edit/Replace in Files'来查找'template_path'并替换为'template_paths'。</p>
-<p>注意有的内容已经是template_paths，不需要修改。</p>
-<h1 id="参考">参考</h1>
-<p>1/ [jupyter代码自动补全插件、安装后出现警告“Config option <code>template_path</code> not recognized by <code>LenvsLatexExporter</code>”的解决方案](<a href="https://blog.csdn.net/DTFT_/article/details/111242118">jupyter代码自动补全插件、安装后出现警告"Config option not recognized by "的解决方案_Sun's Blog-CSDN博客</a>)</p>
-<p>2/ <a href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions/issues/1529">Config option <code>template_path</code> not recognized by <code>LenvsLatexExporter</code>. Did you mean one of: <code>template_file, template_name, template_paths</code>? · Issue #1529 · ipython-contrib/jupyter_contrib_nbextensions (github.com)</a>)</p>
+    <title>【Hexo】github开启令牌验证后无法更新Blog的问题</title>
+    <url>/2021/08/30/%E3%80%90Hexo%E3%80%91github%E5%BC%80%E5%90%AF%E4%BB%A4%E7%89%8C%E9%AA%8C%E8%AF%81%E5%90%8E%E6%97%A0%E6%B3%95%E6%9B%B4%E6%96%B0Blog%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>从2021年8月13日起， github不再支持帐号密码验证Git操作，改用token(令牌)或SSH密钥。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210830140625.png" /></p>
+<p><strong>解决方案</strong></p>
+<p>1/ 首先登入Github 账户，<code>Setting - Developer settings - Personal access tokens - Generate new token</code>, Note 填写 Hexo 或 Blog 之类，勾选第一项 repo，然后 Generate token；为Hexo项目生成一个令牌。</p>
+<p>2/ 修改<code>_config.yml</code>,</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://[复制生成的token]@github.com/nokiasonic/nokiasonic.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>即可正常hexo d更新blog。</p>
 ]]></content>
       <categories>
         <category>技术笔记</category>
-        <category>python</category>
-        <category>jupyter</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>jupyter</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Hexo】美化表格</title>
-    <url>/2020/12/09/%E3%80%90Hexo%E3%80%91%E7%BE%8E%E5%8C%96%E8%A1%A8%E6%A0%BC/</url>
-    <content><![CDATA[<p>通过jupyter notebook导出的markdown文件中的表格过于丑陋，遂尝试对生成的表格内容进行美化。</p>
-<a id="more"></a>
-<h2 id="步骤">步骤</h2>
-<h3 id="创建自定义的css文件">创建自定义的CSS文件</h3>
-<p>在<code>themes/next/source/css/main.styl</code>中添加一行内容。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">@import <span class="string">&quot;_custom/custom&quot;</span></span><br></pre></td></tr></table></figure>
-<p>然后在<code>themes/next/source/css</code>目录下创建<code>_custom</code>文件夹。再进入该文件夹创建名为custom.styl的文件， 用它来配置自己需要的CSS样式。</p>
-<h3 id="基本样式">基本样式</h3>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">table</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>; <span class="comment">/*表格宽度*/</span></span><br><span class="line">    <span class="attribute">max-width</span>: <span class="number">65em</span>; <span class="comment">/*表格最大宽度，避免表格过宽*/</span></span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#dedede</span>; <span class="comment">/*表格外边框设置*/</span></span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">15px</span> auto; <span class="comment">/*外边距*/</span></span><br><span class="line">    <span class="attribute">border-collapse</span>: collapse; <span class="comment">/*使用单一线条的边框*/</span></span><br><span class="line">    <span class="attribute">empty-cells</span>: show; <span class="comment">/*单元格无内容依旧绘制边框*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">th</span>,</span><br><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">td</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">25px</span>; <span class="comment">/*统一每一行的默认高度*/</span></span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">10px</span>;  <span class="comment">/*行内字符大小*/</span></span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#dedede</span>; <span class="comment">/*内部边框样式*/</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">10px</span>; <span class="comment">/*内边距*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="表头样式">表头样式</h3>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">th</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">10px</span>;  <span class="comment">/*表头字符大小*/</span></span><br><span class="line">    <span class="attribute">font-weight</span>: bold; <span class="comment">/*加粗*/</span></span><br><span class="line">    <span class="attribute">text-align</span>: center <span class="meta">!important</span>; <span class="comment">/*内容居中，加上 !important 避免被 Markdown 样式覆盖*/</span></span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">158</span>,<span class="number">188</span>,<span class="number">226</span>,<span class="number">0.2</span>); <span class="comment">/*背景色*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="示例">示例</h3>
-<table>
-<thead>
-<tr class="header">
-<th></th>
-<th></th>
-<th>open</th>
-<th>high</th>
-<th>low</th>
-<th>close</th>
-<th>volume</th>
-<th>amount</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>date</td>
-<td>code</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>2020-11-16</td>
-<td>000001</td>
-<td>17.08</td>
-<td>17.43</td>
-<td>16.90</td>
-<td>17.37</td>
-<td>759856.0</td>
-<td>1.308190e+09</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>000002</td>
-<td>29.39</td>
-<td>29.50</td>
-<td>29.00</td>
-<td>29.20</td>
-<td>516576.0</td>
-<td>1.509810e+09</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>000004</td>
-<td>31.15</td>
-<td>31.46</td>
-<td>30.11</td>
-<td>30.61</td>
-<td>72456.0</td>
-<td>2.223127e+08</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>000005</td>
-<td>2.68</td>
-<td>2.70</td>
-<td>2.65</td>
-<td>2.69</td>
-<td>64372.0</td>
-<td>1.725762e+07</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>000006</td>
-<td>5.66</td>
-<td>5.74</td>
-<td>5.62</td>
-<td>5.72</td>
-<td>98253.0</td>
-<td>5.592563e+07</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>000007</td>
-<td>9.42</td>
-<td>9.42</td>
-<td>9.18</td>
-<td>9.20</td>
-<td>22567.0</td>
-<td>2.094628e+07</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>000008</td>
-<td>2.72</td>
-<td>2.74</td>
-<td>2.70</td>
-<td>2.73</td>
-<td>171930.0</td>
-<td>4.678304e+07</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>000009</td>
-<td>7.71</td>
-<td>7.88</td>
-<td>7.66</td>
-<td>7.82</td>
-<td>320180.0</td>
-<td>2.492149e+08</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>000010</td>
-<td>4.19</td>
-<td>4.27</td>
-<td>4.10</td>
-<td>4.24</td>
-<td>71661.0</td>
-<td>3.004320e+07</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>000011</td>
-<td>13.76</td>
-<td>14.40</td>
-<td>13.58</td>
-<td>14.39</td>
-<td>105639.0</td>
-<td>1.489735e+08</td>
-</tr>
-</tbody>
-</table>
-<p>参考：</p>
-<ol type="1">
-<li><p><a href="https://hexo.imydl.tech/archives/6742.html">Hexo下表格的美化和优化</a></p></li>
-<li><p><a href="https://www.jianshu.com/p/6c1651fe5374">完美解决：Hexo Next主题本地可预览CSS，但部署到网站CSS失效问题！</a></p></li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>博客</category>
+        <category>Hexo</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
+        <tag>Github</tag>
       </tags>
   </entry>
   <entry>
@@ -472,1320 +314,26 @@
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】github开启令牌验证后无法更新Blog的问题</title>
-    <url>/2021/08/30/%E3%80%90Hexo%E3%80%91github%E5%BC%80%E5%90%AF%E4%BB%A4%E7%89%8C%E9%AA%8C%E8%AF%81%E5%90%8E%E6%97%A0%E6%B3%95%E6%9B%B4%E6%96%B0Blog%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>从2021年8月13日起， github不再支持帐号密码验证Git操作，改用token(令牌)或SSH密钥。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210830140625.png" /></p>
-<p><strong>解决方案</strong></p>
-<p>1/ 首先登入Github 账户，<code>Setting - Developer settings - Personal access tokens - Generate new token</code>, Note 填写 Hexo 或 Blog 之类，勾选第一项 repo，然后 Generate token；为Hexo项目生成一个令牌。</p>
-<p>2/ 修改<code>_config.yml</code>,</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://[复制生成的token]@github.com/nokiasonic/nokiasonic.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>即可正常hexo d更新blog。</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Github</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Python】Pandas与numpy的方差计算</title>
-    <url>/2021/07/16/%E3%80%90Python%E3%80%91Pandas%E4%B8%8Enumpy%E7%9A%84%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97/</url>
-    <content><![CDATA[<h1 id="目的">目的</h1>
-<p>方差在统计描述和概率分布中各有不同的定义，并有不同的公式。<br />
-在统计描述中，方差用来计算每一个变量（观察值）与总体均数之间的差异。为避免出现离均差总和为零，离均差平方和受样本含量的影响，统计学采用平均离均差平方和来描述变量的变异程度。<br />
-<code>总体方差计算公式</code>： <span class="math inline">\({\sigma}^2=\frac{\sum_{i=1}^{N}(X_i-\bar{\mu})}{N}\)</span><br />
-其中<span class="math inline">\({\sigma}^2\)</span>为总体方差，<span class="math inline">\(X_i\)</span>为变量，<span class="math inline">\(\bar{\mu}\)</span>为总体均值，<span class="math inline">\(N\)</span>为总体例数。</p>
-<p>实际工作中，总体均数难以得到时，应用样本统计量代替总体参数，经校正后，<br />
-<code>样本方差计算公式</code>： <span class="math inline">\({S}^2=\frac{\sum_{i=1}^{N}(X_i-\bar{X})}{n-1}\)</span><br />
-其中<span class="math inline">\({S}^2\)</span>为样本方差，<span class="math inline">\(X_i\)</span>为变量，<span class="math inline">\(\bar{X}\)</span>为样本均值，<span class="math inline">\(n\)</span>为样本例数。</p>
-<a id="more"></a>
-<h1 id="方差的计算">方差的计算</h1>
-<h2 id="数据准备">数据准备</h2>
-<p>取一定周期的沪深300指数(000300.SH)的每日行情数据，如：2019年全年。为了计算每日涨跌幅，故多取了2018年最后一个交易日的数据。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> QUANTAXIS <span class="keyword">as</span> QA</span><br><span class="line"><span class="keyword">from</span> IPython.core.interactiveshell <span class="keyword">import</span> InteractiveShell</span><br><span class="line">InteractiveShell.ast_node_interactivity = <span class="string">&quot;all&quot;</span> </span><br><span class="line"></span><br><span class="line">index = QA.QA_fetch_index_day_adv(<span class="string">&#x27;000300&#x27;</span>,<span class="string">&#x27;2018-12-28&#x27;</span>,<span class="string">&#x27;2019-12-31&#x27;</span>)</span><br><span class="line">display(index.data)</span><br><span class="line"><span class="comment"># 计算每日涨跌幅</span></span><br><span class="line">returns_index = index.data.close.pct_change()</span><br><span class="line">display(returns_index)</span><br></pre></td></tr></table></figure>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th>
-</th>
-<th>
-</th>
-<th>
-open
-</th>
-<th>
-close
-</th>
-<th>
-high
-</th>
-<th>
-low
-</th>
-<th>
-vol
-</th>
-<th>
-amount
-</th>
-<th>
-up_count
-</th>
-<th>
-down_count
-</th>
-<th>
-date_stamp
-</th>
-<th>
-volume
-</th>
-</tr>
-<tr>
-<th>
-date
-</th>
-<th>
-code
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>
-2018-12-28
-</th>
-<th>
-000300
-</th>
-<td>
-2994.80
-</td>
-<td>
-3010.65
-</td>
-<td>
-3024.35
-</td>
-<td>
-2984.82
-</td>
-<td>
-710537.0
-</td>
-<td>
-7.814531e+10
-</td>
-<td>
-200
-</td>
-<td>
-81
-</td>
-<td>
-1.545926e+09
-</td>
-<td>
-710537.0
-</td>
-</tr>
-<tr>
-<th>
-2019-01-02
-</th>
-<th>
-000300
-</th>
-<td>
-3017.07
-</td>
-<td>
-2969.54
-</td>
-<td>
-3018.78
-</td>
-<td>
-2958.49
-</td>
-<td>
-686630.0
-</td>
-<td>
-7.610557e+10
-</td>
-<td>
-70
-</td>
-<td>
-216
-</td>
-<td>
-1.546358e+09
-</td>
-<td>
-686630.0
-</td>
-</tr>
-<tr>
-<th>
-2019-01-03
-</th>
-<th>
-000300
-</th>
-<td>
-2963.02
-</td>
-<td>
-2964.84
-</td>
-<td>
-3000.44
-</td>
-<td>
-2953.26
-</td>
-<td>
-708671.0
-</td>
-<td>
-7.666480e+10
-</td>
-<td>
-145
-</td>
-<td>
-142
-</td>
-<td>
-1.546445e+09
-</td>
-<td>
-708671.0
-</td>
-</tr>
-<tr>
-<th>
-2019-01-04
-</th>
-<th>
-000300
-</th>
-<td>
-2940.19
-</td>
-<td>
-3035.87
-</td>
-<td>
-3036.81
-</td>
-<td>
-2935.83
-</td>
-<td>
-1033189.0
-</td>
-<td>
-1.071410e+11
-</td>
-<td>
-286
-</td>
-<td>
-12
-</td>
-<td>
-1.546531e+09
-</td>
-<td>
-1033189.0
-</td>
-</tr>
-<tr>
-<th>
-2019-01-07
-</th>
-<th>
-000300
-</th>
-<td>
-3055.15
-</td>
-<td>
-3054.30
-</td>
-<td>
-3061.75
-</td>
-<td>
-3035.91
-</td>
-<td>
-1011643.0
-</td>
-<td>
-1.057039e+11
-</td>
-<td>
-217
-</td>
-<td>
-73
-</td>
-<td>
-1.546790e+09
-</td>
-<td>
-1011643.0
-</td>
-</tr>
-<tr>
-<th>
-...
-</th>
-<th>
-...
-</th>
-<td>
-...
-</td>
-<td>
-...
-</td>
-<td>
-...
-</td>
-<td>
-...
-</td>
-<td>
-...
-</td>
-<td>
-...
-</td>
-<td>
-...
-</td>
-<td>
-...
-</td>
-<td>
-...
-</td>
-<td>
-...
-</td>
-</tr>
-<tr>
-<th>
-2019-12-25
-</th>
-<th>
-000300
-</th>
-<td>
-3988.66
-</td>
-<td>
-3990.87
-</td>
-<td>
-4000.56
-</td>
-<td>
-3976.36
-</td>
-<td>
-949388.0
-</td>
-<td>
-1.318965e+11
-</td>
-<td>
-117
-</td>
-<td>
-168
-</td>
-<td>
-1.577203e+09
-</td>
-<td>
-949388.0
-</td>
-</tr>
-<tr>
-<th>
-2019-12-26
-</th>
-<th>
-000300
-</th>
-<td>
-3993.67
-</td>
-<td>
-4025.99
-</td>
-<td>
-4025.99
-</td>
-<td>
-3993.54
-</td>
-<td>
-1088606.0
-</td>
-<td>
-1.408150e+11
-</td>
-<td>
-236
-</td>
-<td>
-53
-</td>
-<td>
-1.577290e+09
-</td>
-<td>
-1088606.0
-</td>
-</tr>
-<tr>
-<th>
-2019-12-27
-</th>
-<th>
-000300
-</th>
-<td>
-4029.25
-</td>
-<td>
-4022.03
-</td>
-<td>
-4066.80
-</td>
-<td>
-4019.72
-</td>
-<td>
-1509264.0
-</td>
-<td>
-1.950904e+11
-</td>
-<td>
-116
-</td>
-<td>
-173
-</td>
-<td>
-1.577376e+09
-</td>
-<td>
-1509264.0
-</td>
-</tr>
-<tr>
-<th>
-2019-12-30
-</th>
-<th>
-000300
-</th>
-<td>
-4015.52
-</td>
-<td>
-4081.63
-</td>
-<td>
-4083.69
-</td>
-<td>
-4001.50
-</td>
-<td>
-1559714.0
-</td>
-<td>
-2.168147e+11
-</td>
-<td>
-241
-</td>
-<td>
-53
-</td>
-<td>
-1.577635e+09
-</td>
-<td>
-1559714.0
-</td>
-</tr>
-<tr>
-<th>
-2019-12-31
-</th>
-<th>
-000300
-</th>
-<td>
-4077.75
-</td>
-<td>
-4096.58
-</td>
-<td>
-4098.14
-</td>
-<td>
-4069.01
-</td>
-<td>
-1232642.0
-</td>
-<td>
-1.731193e+11
-</td>
-<td>
-189
-</td>
-<td>
-95
-</td>
-<td>
-1.577722e+09
-</td>
-<td>
-1232642.0
-</td>
-</tr>
-</tbody>
-</table>
-<p>
-245 rows × 10 columns
-</p>
-</div>
-<pre><code>date        code  
-2018-12-28  000300         NaN
-2019-01-02  000300   -0.013655
-2019-01-03  000300   -0.001583
-2019-01-04  000300    0.023957
-2019-01-07  000300    0.006071
-                        ...   
-2019-12-25  000300   -0.000523
-2019-12-26  000300    0.008800
-2019-12-27  000300   -0.000984
-2019-12-30  000300    0.014818
-2019-12-31  000300    0.003663
-Name: close, Length: 245, dtype: float64</code></pre>
-<h2 id="使用numpy计算">使用numpy计算</h2>
-<p>numpy 中计算的方差就是总体方差。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">np.var(returns_index)</span><br></pre></td></tr></table></figure>
-<pre><code>0.00015577588074696037</code></pre>
-<h2 id="使用pandas计算">使用pandas计算</h2>
-<p>pandas 中计算的方差为样本方差。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">returns_index.var()</span><br></pre></td></tr></table></figure>
-<pre><code>0.0001564169337541495</code></pre>
-<h1 id="小结">小结</h1>
-<p>在计算方差时，使用numpy和pandas会得到不一样的计算结果，需要根据实际需要样本方差还是总体方差来决定使用何种方式。</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>量化投资</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>线性代数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Python】pandas dataframe输出格式对齐美化的思路</title>
-    <url>/2021/05/14/%E3%80%90Python%E3%80%91pandas%20dataframe%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F%E5%AF%B9%E9%BD%90%E7%BE%8E%E5%8C%96%E7%9A%84%E6%80%9D%E8%B7%AF/</url>
-    <content><![CDATA[<h1 id="需求">需求</h1>
-<p>在jupyter中可以直接使用用dataframe的名字输出美观的表格形式，例如：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> QUANTAXIS <span class="keyword">as</span> QA</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">通过本地数据库获取股票日线数据：</span></span><br><span class="line"><span class="string">QA.QA_fetch_stock_day_adv(</span></span><br><span class="line"><span class="string">    code,</span></span><br><span class="line"><span class="string">    start=&#x27;all&#x27;,</span></span><br><span class="line"><span class="string">    end=None,</span></span><br><span class="line"><span class="string">    if_drop_index=True,</span></span><br><span class="line"><span class="string">    collections=Collection(Database(MongoClient(host=[&#x27;localhost:27017&#x27;], document_class=dict, tz_aware=False, connect=True), &#x27;quantaxis&#x27;), &#x27;stock_day&#x27;),</span></span><br><span class="line"><span class="string">)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">data=QA.QA_fetch_stock_day_adv([<span class="string">&quot;002003&quot;</span>,<span class="string">&#x27;300999&#x27;</span>,<span class="string">&#x27;603899&#x27;</span>],<span class="string">&#x27;2021-05-12&#x27;</span>,<span class="string">&#x27;2021-05-13&#x27;</span>)</span><br><span class="line">df = data.data</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th>
-</th>
-<th>
-</th>
-<th>
-open
-</th>
-<th>
-high
-</th>
-<th>
-low
-</th>
-<th>
-close
-</th>
-<th>
-volume
-</th>
-<th>
-amount
-</th>
-</tr>
-<tr>
-<th>
-date
-</th>
-<th>
-code
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th rowspan="3" valign="top">
-2021-05-12
-</th>
-<th>
-002003
-</th>
-<td>
-7.32
-</td>
-<td>
-7.51
-</td>
-<td>
-7.28
-</td>
-<td>
-7.48
-</td>
-<td>
-80536.0
-</td>
-<td>
-5.980900e+07
-</td>
-</tr>
-<tr>
-<th>
-300999
-</th>
-<td>
-76.12
-</td>
-<td>
-76.75
-</td>
-<td>
-75.11
-</td>
-<td>
-76.20
-</td>
-<td>
-146625.0
-</td>
-<td>
-1.114936e+09
-</td>
-</tr>
-<tr>
-<th>
-603899
-</th>
-<td>
-86.80
-</td>
-<td>
-87.85
-</td>
-<td>
-85.71
-</td>
-<td>
-86.60
-</td>
-<td>
-19172.0
-</td>
-<td>
-1.656046e+08
-</td>
-</tr>
-<tr>
-<th rowspan="3" valign="top">
-2021-05-13
-</th>
-<th>
-002003
-</th>
-<td>
-7.44
-</td>
-<td>
-7.63
-</td>
-<td>
-7.34
-</td>
-<td>
-7.55
-</td>
-<td>
-98429.0
-</td>
-<td>
-7.403393e+07
-</td>
-</tr>
-<tr>
-<th>
-300999
-</th>
-<td>
-75.00
-</td>
-<td>
-75.60
-</td>
-<td>
-74.04
-</td>
-<td>
-74.20
-</td>
-<td>
-144742.0
-</td>
-<td>
-1.080974e+09
-</td>
-</tr>
-<tr>
-<th>
-603899
-</th>
-<td>
-85.71
-</td>
-<td>
-88.12
-</td>
-<td>
-85.10
-</td>
-<td>
-87.59
-</td>
-<td>
-14734.0
-</td>
-<td>
-1.280291e+08
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>在使用<code>print</code>输出时的结果是这样的。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(df)</span><br></pre></td></tr></table></figure>
-<pre><code>                    open   high    low  close    volume        amount
-date       code                                                      
-2021-05-12 002003   7.32   7.51   7.28   7.48   80536.0  5.980900e+07
-           300999  76.12  76.75  75.11  76.20  146625.0  1.114936e+09
-           603899  86.80  87.85  85.71  86.60   19172.0  1.656046e+08
-2021-05-13 002003   7.44   7.63   7.34   7.55   98429.0  7.403393e+07
-           300999  75.00  75.60  74.04  74.20  144742.0  1.080974e+09
-           603899  85.71  88.12  85.10  87.59   14734.0  1.280291e+08</code></pre>
-<p>而当DataFrame中存在中英文混合的时候，会出现print()打印无法对齐的情况，导致输出的结果都没有对齐，十分不美观。如:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df1 = df</span><br><span class="line">df1.columns = [<span class="string">&quot;开盘价&quot;</span>, <span class="string">&quot;最高价&quot;</span>, <span class="string">&quot;最低价&quot;</span>, <span class="string">&quot;收盘价&quot;</span>, <span class="string">&quot;成交量&quot;</span>, <span class="string">&quot;成交金额&quot;</span>]</span><br><span class="line">print(df1)</span><br></pre></td></tr></table></figure>
-<pre><code>                     开盘价    最高价    最低价    收盘价       成交量          成交金额
-date       code                                                      
-2021-05-12 002003   7.32   7.51   7.28   7.48   80536.0  5.980900e+07
-           300999  76.12  76.75  75.11  76.20  146625.0  1.114936e+09
-           603899  86.80  87.85  85.71  86.60   19172.0  1.656046e+08
-2021-05-13 002003   7.44   7.63   7.34   7.55   98429.0  7.403393e+07
-           300999  75.00  75.60  74.04  74.20  144742.0  1.080974e+09
-           603899  85.71  88.12  85.10  87.59   14734.0  1.280291e+08</code></pre>
-<p>那么问题来了。 1. 有没有办法使用<code>print</code>输出中英文混合的dataframe可以对齐美观？ 2. 在执行完整的python代码时(非jupyter)，有办法象jupyter中一样输出美观的dataframe表格么？</p>
-<h1 id="解决办法">解决办法</h1>
-<h2 id="问题1-有没有办法使用print输出中英文混合的dataframe可以对齐美观">问题1 有没有办法使用print输出中英文混合的dataframe可以对齐美观？</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">pd.set_option(<span class="string">&#x27;display.unicode.ambiguous_as_wide&#x27;</span>, <span class="literal">True</span>)</span><br><span class="line">pd.set_option(<span class="string">&#x27;display.unicode.east_asian_width&#x27;</span>, <span class="literal">True</span>)</span><br><span class="line">pd.set_option(<span class="string">&#x27;display.width&#x27;</span>, <span class="number">180</span>)                       <span class="comment"># 设置打印宽度(**重要**)</span></span><br><span class="line">print(df1)</span><br></pre></td></tr></table></figure>
-<pre><code>                   开盘价  最高价  最低价  收盘价    成交量      成交金额
-date       code                                                          
-2021-05-12 002003    7.32    7.51    7.28    7.48   80536.0  5.980900e+07
-           300999   76.12   76.75   75.11   76.20  146625.0  1.114936e+09
-           603899   86.80   87.85   85.71   86.60   19172.0  1.656046e+08
-2021-05-13 002003    7.44    7.63    7.34    7.55   98429.0  7.403393e+07
-           300999   75.00   75.60   74.04   74.20  144742.0  1.080974e+09
-           603899   85.71   88.12   85.10   87.59   14734.0  1.280291e+08</code></pre>
-<h2 id="问题2-在执行完整的python代码时非jupyter有办法象jupyter中一样输出美观的dataframe表格么">问题2 在执行完整的python代码时(非jupyter)，有办法象jupyter中一样输出美观的dataframe表格么？</h2>
-<p>使用<code>IPython.display</code>来替换<code>print</code>的输出效果。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> display</span><br><span class="line"></span><br><span class="line">display(df)</span><br><span class="line">display(df1)</span><br></pre></td></tr></table></figure>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th>
-</th>
-<th>
-</th>
-<th>
-开盘价
-</th>
-<th>
-最高价
-</th>
-<th>
-最低价
-</th>
-<th>
-收盘价
-</th>
-<th>
-成交量
-</th>
-<th>
-成交金额
-</th>
-</tr>
-<tr>
-<th>
-date
-</th>
-<th>
-code
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th rowspan="3" valign="top">
-2021-05-12
-</th>
-<th>
-002003
-</th>
-<td>
-7.32
-</td>
-<td>
-7.51
-</td>
-<td>
-7.28
-</td>
-<td>
-7.48
-</td>
-<td>
-80536.0
-</td>
-<td>
-5.980900e+07
-</td>
-</tr>
-<tr>
-<th>
-300999
-</th>
-<td>
-76.12
-</td>
-<td>
-76.75
-</td>
-<td>
-75.11
-</td>
-<td>
-76.20
-</td>
-<td>
-146625.0
-</td>
-<td>
-1.114936e+09
-</td>
-</tr>
-<tr>
-<th>
-603899
-</th>
-<td>
-86.80
-</td>
-<td>
-87.85
-</td>
-<td>
-85.71
-</td>
-<td>
-86.60
-</td>
-<td>
-19172.0
-</td>
-<td>
-1.656046e+08
-</td>
-</tr>
-<tr>
-<th rowspan="3" valign="top">
-2021-05-13
-</th>
-<th>
-002003
-</th>
-<td>
-7.44
-</td>
-<td>
-7.63
-</td>
-<td>
-7.34
-</td>
-<td>
-7.55
-</td>
-<td>
-98429.0
-</td>
-<td>
-7.403393e+07
-</td>
-</tr>
-<tr>
-<th>
-300999
-</th>
-<td>
-75.00
-</td>
-<td>
-75.60
-</td>
-<td>
-74.04
-</td>
-<td>
-74.20
-</td>
-<td>
-144742.0
-</td>
-<td>
-1.080974e+09
-</td>
-</tr>
-<tr>
-<th>
-603899
-</th>
-<td>
-85.71
-</td>
-<td>
-88.12
-</td>
-<td>
-85.10
-</td>
-<td>
-87.59
-</td>
-<td>
-14734.0
-</td>
-<td>
-1.280291e+08
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th>
-</th>
-<th>
-</th>
-<th>
-开盘价
-</th>
-<th>
-最高价
-</th>
-<th>
-最低价
-</th>
-<th>
-收盘价
-</th>
-<th>
-成交量
-</th>
-<th>
-成交金额
-</th>
-</tr>
-<tr>
-<th>
-date
-</th>
-<th>
-code
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th rowspan="3" valign="top">
-2021-05-12
-</th>
-<th>
-002003
-</th>
-<td>
-7.32
-</td>
-<td>
-7.51
-</td>
-<td>
-7.28
-</td>
-<td>
-7.48
-</td>
-<td>
-80536.0
-</td>
-<td>
-5.980900e+07
-</td>
-</tr>
-<tr>
-<th>
-300999
-</th>
-<td>
-76.12
-</td>
-<td>
-76.75
-</td>
-<td>
-75.11
-</td>
-<td>
-76.20
-</td>
-<td>
-146625.0
-</td>
-<td>
-1.114936e+09
-</td>
-</tr>
-<tr>
-<th>
-603899
-</th>
-<td>
-86.80
-</td>
-<td>
-87.85
-</td>
-<td>
-85.71
-</td>
-<td>
-86.60
-</td>
-<td>
-19172.0
-</td>
-<td>
-1.656046e+08
-</td>
-</tr>
-<tr>
-<th rowspan="3" valign="top">
-2021-05-13
-</th>
-<th>
-002003
-</th>
-<td>
-7.44
-</td>
-<td>
-7.63
-</td>
-<td>
-7.34
-</td>
-<td>
-7.55
-</td>
-<td>
-98429.0
-</td>
-<td>
-7.403393e+07
-</td>
-</tr>
-<tr>
-<th>
-300999
-</th>
-<td>
-75.00
-</td>
-<td>
-75.60
-</td>
-<td>
-74.04
-</td>
-<td>
-74.20
-</td>
-<td>
-144742.0
-</td>
-<td>
-1.080974e+09
-</td>
-</tr>
-<tr>
-<th>
-603899
-</th>
-<td>
-85.71
-</td>
-<td>
-88.12
-</td>
-<td>
-85.10
-</td>
-<td>
-87.59
-</td>
-<td>
-14734.0
-</td>
-<td>
-1.280291e+08
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="问题3-输出dataframe数据时可以不输出索引号么">问题3 输出dataframe数据时，可以不输出索引号么？</h3>
-<p><code>python 2.7</code></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span> df.to_string(index=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
-<p><code>python 3</code></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(df.to_string(index=<span class="literal">False</span>))</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>dataframe</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Python】使用PYQT5来构建持仓盈亏监控(续)</title>
-    <url>/2021/07/02/%E3%80%90Python%E3%80%91%E4%BD%BF%E7%94%A8PYQT5%E6%9D%A5%E6%9E%84%E5%BB%BA%E6%8C%81%E4%BB%93%E7%9B%88%E4%BA%8F%E7%9B%91%E6%8E%A7%20(%E7%BB%AD)/</url>
-    <content><![CDATA[<h1 id="目的">目的</h1>
-<p>实时通过图形的方式呈现盈亏情况</p>
-<a id="more"></a>
-<h1 id="安装pyqtgraph">安装PyQtgraph</h1>
-<h2 id="安装">安装</h2>
-<p>通过pip进行安装</p>
-<blockquote>
-<p>pip install pyqtgraph</p>
-</blockquote>
-<h2 id="界面设计">界面设计</h2>
-<h3 id="使用qtdesigner来设计界面">使用QtDesigner来设计界面</h3>
-<ol type="1">
-<li>初始界面 初始界面设计如下： <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210514104224.png" /></li>
-</ol>
-<p>在此基础上，增加一个<code>label</code>及<code>widget</code>。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210702091127.png" /></p>
-<p>将widget重命名为<code>“graphWidget"</code>。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210702091239.png" /></p>
-<p>点击右键，选择<code>“提升为...”</code>， 提升的类名称为<code>“PlotWidget”</code>, 头文件为<code>“pyqtgraph”</code>。</p>
-<figure>
-<img src="C:\Users\junlv\AppData\Roaming\Typora\typora-user-images\image-20210702091446161.png" alt="image-20210702091446161" /><figcaption aria-hidden="true">image-20210702091446161</figcaption>
-</figure>
-<p>之所以使用这种方法，是因为按一般做法，利用Qt Designer新建一个布局，在代码中动态添加一个PlotWidget到这个布局来实现，代码如下:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pyqtgraph <span class="keyword">as</span> pg</span><br><span class="line">plot_plt = pg.PlotWidget(background=(<span class="number">69</span>,<span class="number">69</span>,<span class="number">69</span>), axisItems=&#123;<span class="string">&#x27;bottom&#x27;</span>: TimeAxisItem(orientation=<span class="string">&#x27;bottom&#x27;</span>)&#125;)</span><br><span class="line">verticalLayout.addWidget(plot_plt) </span><br></pre></td></tr></table></figure>
-<p>这里指定了背景色及坐标轴使用的模板。</p>
-<p>这样的做法，我一直没有找到控制PlotWidget大小的方法，导致出来的图形结果与我的期望不太一致。因此才尝试在UI设计时就固定住该部件的大小。</p>
-<h3 id="获取数据并展示">获取数据并展示</h3>
-<ol type="1">
-<li><p>将实时取得的持仓盈亏数据存入列表</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">self.data_list = []</span><br><span class="line">self.data_list.append(<span class="built_in">float</span>(self.data_summary[<span class="string">&#x27;day_float_amount&#x27;</span>]))</span><br></pre></td></tr></table></figure></li>
-<li><p>将时间进行时间戳转化存入列表</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">timestamp</span>():</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(time.mktime(datetime.datetime.now().timetuple()))</span><br><span class="line"></span><br><span class="line">self.time_list = []</span><br><span class="line">self.time_list.append(timestamp())</span><br></pre></td></tr></table></figure></li>
-<li><p>坐标轴显示为时间</p>
-<p>默认pyqtgraph会使用0开始的整数来作为坐标轴的值。 这里希望使用实时取到的时间来做为显示的值，因此需要重写pyqtgraph的AxisItem类。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TimeAxisItem</span>(<span class="params">pg.AxisItem</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, *args, **kwargs</span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__(*args, **kwargs)</span><br><span class="line">        <span class="comment">#self.setLabel(text=&#x27;Time&#x27;, units=None)</span></span><br><span class="line">        self.enableAutoSIPrefix(<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">tickStrings</span>(<span class="params">self, values, scale, spacing</span>):</span></span><br><span class="line">        <span class="keyword">return</span> [datetime.datetime.fromtimestamp(value).strftime(<span class="string">&quot;%H:%M:%S&quot;</span>) <span class="keyword">for</span> value <span class="keyword">in</span> values]</span><br></pre></td></tr></table></figure></li>
-<li><p>展示</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">graphWidget.plot().setData(self.model.time_list, self.model.data_list,pen=<span class="string">&#x27;g&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="效果">效果</h1>
-<p>完成后的应用界面效果如下： <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210702094351.png" /></p>
+    <title>【Jupyter】启动时有报错信息</title>
+    <url>/2021/05/11/%E3%80%90Jupyter%E3%80%91%E5%90%AF%E5%8A%A8%E6%97%B6%E6%9C%89%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/</url>
+    <content><![CDATA[<h1 id="说明">说明</h1>
+<p>在升级jupyter到版本6.x以上时，在启动的时候会报很多行以下错误 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Config option &#96;template_path&#96; not recognized by &#96;LenvsLatexExporter&#96;. Did you mean one of: &#96;template_file, template_name, template_paths&#96;?</span><br></pre></td></tr></table></figure></p>
+<h1 id="解决方案">解决方案</h1>
+<p>使用VS Code依次打开python安装目录下的/lib/site-packages/ ('jupyter_contrib_nbextensions', 'jupyter_latex_envs' 及'latex_envs')子目录。</p>
+<p>通过'Edit/Replace in Files'来查找'template_path'并替换为'template_paths'。</p>
+<p>注意有的内容已经是template_paths，不需要修改。</p>
 <h1 id="参考">参考</h1>
-<ol start="4" type="1">
-<li><a href="%5BPyQt5的PyQtGraph实践系列3：实时数据更新绘制图形%20-%20州的先生%20(zmister.com)%5D(https://zmister.com/archives/826.html)">PyQt5的PyQtGraph实践系列3：实时数据更新绘制图形</a></li>
-<li><a href="%5BEmbedding%20PyQtGraph%20(or%20any%20other%20custom%20PyQt5%20widgets)%20from%20Qt%20Designer%20(mfitzp.com)%5D(https://www.mfitzp.com/tutorials/embed-pyqtgraph-custom-widgets-qt-app/)">Embedding custom widgets from Qt Designer</a></li>
-</ol>
+<p>1/ [jupyter代码自动补全插件、安装后出现警告“Config option <code>template_path</code> not recognized by <code>LenvsLatexExporter</code>”的解决方案](<a href="https://blog.csdn.net/DTFT_/article/details/111242118">jupyter代码自动补全插件、安装后出现警告"Config option not recognized by "的解决方案_Sun's Blog-CSDN博客</a>)</p>
+<p>2/ <a href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions/issues/1529">Config option <code>template_path</code> not recognized by <code>LenvsLatexExporter</code>. Did you mean one of: <code>template_file, template_name, template_paths</code>? · Issue #1529 · ipython-contrib/jupyter_contrib_nbextensions (github.com)</a>)</p>
 ]]></content>
       <categories>
         <category>技术笔记</category>
         <category>python</category>
-        <category>量化投资</category>
+        <category>jupyter</category>
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>pyqt5</tag>
+        <tag>jupyter</tag>
       </tags>
   </entry>
   <entry>
@@ -3004,6 +1552,1337 @@ code
       </tags>
   </entry>
   <entry>
+    <title>【Python】pandas dataframe输出格式对齐美化的思路</title>
+    <url>/2021/05/14/%E3%80%90Python%E3%80%91pandas%20dataframe%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F%E5%AF%B9%E9%BD%90%E7%BE%8E%E5%8C%96%E7%9A%84%E6%80%9D%E8%B7%AF/</url>
+    <content><![CDATA[<h1 id="需求">需求</h1>
+<p>在jupyter中可以直接使用用dataframe的名字输出美观的表格形式，例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> QUANTAXIS <span class="keyword">as</span> QA</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">通过本地数据库获取股票日线数据：</span></span><br><span class="line"><span class="string">QA.QA_fetch_stock_day_adv(</span></span><br><span class="line"><span class="string">    code,</span></span><br><span class="line"><span class="string">    start=&#x27;all&#x27;,</span></span><br><span class="line"><span class="string">    end=None,</span></span><br><span class="line"><span class="string">    if_drop_index=True,</span></span><br><span class="line"><span class="string">    collections=Collection(Database(MongoClient(host=[&#x27;localhost:27017&#x27;], document_class=dict, tz_aware=False, connect=True), &#x27;quantaxis&#x27;), &#x27;stock_day&#x27;),</span></span><br><span class="line"><span class="string">)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">data=QA.QA_fetch_stock_day_adv([<span class="string">&quot;002003&quot;</span>,<span class="string">&#x27;300999&#x27;</span>,<span class="string">&#x27;603899&#x27;</span>],<span class="string">&#x27;2021-05-12&#x27;</span>,<span class="string">&#x27;2021-05-13&#x27;</span>)</span><br><span class="line">df = data.data</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+open
+</th>
+<th>
+high
+</th>
+<th>
+low
+</th>
+<th>
+close
+</th>
+<th>
+volume
+</th>
+<th>
+amount
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="3" valign="top">
+2021-05-12
+</th>
+<th>
+002003
+</th>
+<td>
+7.32
+</td>
+<td>
+7.51
+</td>
+<td>
+7.28
+</td>
+<td>
+7.48
+</td>
+<td>
+80536.0
+</td>
+<td>
+5.980900e+07
+</td>
+</tr>
+<tr>
+<th>
+300999
+</th>
+<td>
+76.12
+</td>
+<td>
+76.75
+</td>
+<td>
+75.11
+</td>
+<td>
+76.20
+</td>
+<td>
+146625.0
+</td>
+<td>
+1.114936e+09
+</td>
+</tr>
+<tr>
+<th>
+603899
+</th>
+<td>
+86.80
+</td>
+<td>
+87.85
+</td>
+<td>
+85.71
+</td>
+<td>
+86.60
+</td>
+<td>
+19172.0
+</td>
+<td>
+1.656046e+08
+</td>
+</tr>
+<tr>
+<th rowspan="3" valign="top">
+2021-05-13
+</th>
+<th>
+002003
+</th>
+<td>
+7.44
+</td>
+<td>
+7.63
+</td>
+<td>
+7.34
+</td>
+<td>
+7.55
+</td>
+<td>
+98429.0
+</td>
+<td>
+7.403393e+07
+</td>
+</tr>
+<tr>
+<th>
+300999
+</th>
+<td>
+75.00
+</td>
+<td>
+75.60
+</td>
+<td>
+74.04
+</td>
+<td>
+74.20
+</td>
+<td>
+144742.0
+</td>
+<td>
+1.080974e+09
+</td>
+</tr>
+<tr>
+<th>
+603899
+</th>
+<td>
+85.71
+</td>
+<td>
+88.12
+</td>
+<td>
+85.10
+</td>
+<td>
+87.59
+</td>
+<td>
+14734.0
+</td>
+<td>
+1.280291e+08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>在使用<code>print</code>输出时的结果是这样的。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(df)</span><br></pre></td></tr></table></figure>
+<pre><code>                    open   high    low  close    volume        amount
+date       code                                                      
+2021-05-12 002003   7.32   7.51   7.28   7.48   80536.0  5.980900e+07
+           300999  76.12  76.75  75.11  76.20  146625.0  1.114936e+09
+           603899  86.80  87.85  85.71  86.60   19172.0  1.656046e+08
+2021-05-13 002003   7.44   7.63   7.34   7.55   98429.0  7.403393e+07
+           300999  75.00  75.60  74.04  74.20  144742.0  1.080974e+09
+           603899  85.71  88.12  85.10  87.59   14734.0  1.280291e+08</code></pre>
+<p>而当DataFrame中存在中英文混合的时候，会出现print()打印无法对齐的情况，导致输出的结果都没有对齐，十分不美观。如:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df1 = df</span><br><span class="line">df1.columns = [<span class="string">&quot;开盘价&quot;</span>, <span class="string">&quot;最高价&quot;</span>, <span class="string">&quot;最低价&quot;</span>, <span class="string">&quot;收盘价&quot;</span>, <span class="string">&quot;成交量&quot;</span>, <span class="string">&quot;成交金额&quot;</span>]</span><br><span class="line">print(df1)</span><br></pre></td></tr></table></figure>
+<pre><code>                     开盘价    最高价    最低价    收盘价       成交量          成交金额
+date       code                                                      
+2021-05-12 002003   7.32   7.51   7.28   7.48   80536.0  5.980900e+07
+           300999  76.12  76.75  75.11  76.20  146625.0  1.114936e+09
+           603899  86.80  87.85  85.71  86.60   19172.0  1.656046e+08
+2021-05-13 002003   7.44   7.63   7.34   7.55   98429.0  7.403393e+07
+           300999  75.00  75.60  74.04  74.20  144742.0  1.080974e+09
+           603899  85.71  88.12  85.10  87.59   14734.0  1.280291e+08</code></pre>
+<p>那么问题来了。 1. 有没有办法使用<code>print</code>输出中英文混合的dataframe可以对齐美观？ 2. 在执行完整的python代码时(非jupyter)，有办法象jupyter中一样输出美观的dataframe表格么？</p>
+<h1 id="解决办法">解决办法</h1>
+<h2 id="问题1-有没有办法使用print输出中英文混合的dataframe可以对齐美观">问题1 有没有办法使用print输出中英文混合的dataframe可以对齐美观？</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">pd.set_option(<span class="string">&#x27;display.unicode.ambiguous_as_wide&#x27;</span>, <span class="literal">True</span>)</span><br><span class="line">pd.set_option(<span class="string">&#x27;display.unicode.east_asian_width&#x27;</span>, <span class="literal">True</span>)</span><br><span class="line">pd.set_option(<span class="string">&#x27;display.width&#x27;</span>, <span class="number">180</span>)                       <span class="comment"># 设置打印宽度(**重要**)</span></span><br><span class="line">print(df1)</span><br></pre></td></tr></table></figure>
+<pre><code>                   开盘价  最高价  最低价  收盘价    成交量      成交金额
+date       code                                                          
+2021-05-12 002003    7.32    7.51    7.28    7.48   80536.0  5.980900e+07
+           300999   76.12   76.75   75.11   76.20  146625.0  1.114936e+09
+           603899   86.80   87.85   85.71   86.60   19172.0  1.656046e+08
+2021-05-13 002003    7.44    7.63    7.34    7.55   98429.0  7.403393e+07
+           300999   75.00   75.60   74.04   74.20  144742.0  1.080974e+09
+           603899   85.71   88.12   85.10   87.59   14734.0  1.280291e+08</code></pre>
+<h2 id="问题2-在执行完整的python代码时非jupyter有办法象jupyter中一样输出美观的dataframe表格么">问题2 在执行完整的python代码时(非jupyter)，有办法象jupyter中一样输出美观的dataframe表格么？</h2>
+<p>使用<code>IPython.display</code>来替换<code>print</code>的输出效果。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> display</span><br><span class="line"></span><br><span class="line">display(df)</span><br><span class="line">display(df1)</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+开盘价
+</th>
+<th>
+最高价
+</th>
+<th>
+最低价
+</th>
+<th>
+收盘价
+</th>
+<th>
+成交量
+</th>
+<th>
+成交金额
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="3" valign="top">
+2021-05-12
+</th>
+<th>
+002003
+</th>
+<td>
+7.32
+</td>
+<td>
+7.51
+</td>
+<td>
+7.28
+</td>
+<td>
+7.48
+</td>
+<td>
+80536.0
+</td>
+<td>
+5.980900e+07
+</td>
+</tr>
+<tr>
+<th>
+300999
+</th>
+<td>
+76.12
+</td>
+<td>
+76.75
+</td>
+<td>
+75.11
+</td>
+<td>
+76.20
+</td>
+<td>
+146625.0
+</td>
+<td>
+1.114936e+09
+</td>
+</tr>
+<tr>
+<th>
+603899
+</th>
+<td>
+86.80
+</td>
+<td>
+87.85
+</td>
+<td>
+85.71
+</td>
+<td>
+86.60
+</td>
+<td>
+19172.0
+</td>
+<td>
+1.656046e+08
+</td>
+</tr>
+<tr>
+<th rowspan="3" valign="top">
+2021-05-13
+</th>
+<th>
+002003
+</th>
+<td>
+7.44
+</td>
+<td>
+7.63
+</td>
+<td>
+7.34
+</td>
+<td>
+7.55
+</td>
+<td>
+98429.0
+</td>
+<td>
+7.403393e+07
+</td>
+</tr>
+<tr>
+<th>
+300999
+</th>
+<td>
+75.00
+</td>
+<td>
+75.60
+</td>
+<td>
+74.04
+</td>
+<td>
+74.20
+</td>
+<td>
+144742.0
+</td>
+<td>
+1.080974e+09
+</td>
+</tr>
+<tr>
+<th>
+603899
+</th>
+<td>
+85.71
+</td>
+<td>
+88.12
+</td>
+<td>
+85.10
+</td>
+<td>
+87.59
+</td>
+<td>
+14734.0
+</td>
+<td>
+1.280291e+08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+开盘价
+</th>
+<th>
+最高价
+</th>
+<th>
+最低价
+</th>
+<th>
+收盘价
+</th>
+<th>
+成交量
+</th>
+<th>
+成交金额
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="3" valign="top">
+2021-05-12
+</th>
+<th>
+002003
+</th>
+<td>
+7.32
+</td>
+<td>
+7.51
+</td>
+<td>
+7.28
+</td>
+<td>
+7.48
+</td>
+<td>
+80536.0
+</td>
+<td>
+5.980900e+07
+</td>
+</tr>
+<tr>
+<th>
+300999
+</th>
+<td>
+76.12
+</td>
+<td>
+76.75
+</td>
+<td>
+75.11
+</td>
+<td>
+76.20
+</td>
+<td>
+146625.0
+</td>
+<td>
+1.114936e+09
+</td>
+</tr>
+<tr>
+<th>
+603899
+</th>
+<td>
+86.80
+</td>
+<td>
+87.85
+</td>
+<td>
+85.71
+</td>
+<td>
+86.60
+</td>
+<td>
+19172.0
+</td>
+<td>
+1.656046e+08
+</td>
+</tr>
+<tr>
+<th rowspan="3" valign="top">
+2021-05-13
+</th>
+<th>
+002003
+</th>
+<td>
+7.44
+</td>
+<td>
+7.63
+</td>
+<td>
+7.34
+</td>
+<td>
+7.55
+</td>
+<td>
+98429.0
+</td>
+<td>
+7.403393e+07
+</td>
+</tr>
+<tr>
+<th>
+300999
+</th>
+<td>
+75.00
+</td>
+<td>
+75.60
+</td>
+<td>
+74.04
+</td>
+<td>
+74.20
+</td>
+<td>
+144742.0
+</td>
+<td>
+1.080974e+09
+</td>
+</tr>
+<tr>
+<th>
+603899
+</th>
+<td>
+85.71
+</td>
+<td>
+88.12
+</td>
+<td>
+85.10
+</td>
+<td>
+87.59
+</td>
+<td>
+14734.0
+</td>
+<td>
+1.280291e+08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="问题3-输出dataframe数据时可以不输出索引号么">问题3 输出dataframe数据时，可以不输出索引号么？</h3>
+<p><code>python 2.7</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span> df.to_string(index=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<p><code>python 3</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(df.to_string(index=<span class="literal">False</span>))</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>dataframe</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Python】Pandas与numpy的方差计算</title>
+    <url>/2021/07/16/%E3%80%90Python%E3%80%91Pandas%E4%B8%8Enumpy%E7%9A%84%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97/</url>
+    <content><![CDATA[<h1 id="目的">目的</h1>
+<p>方差在统计描述和概率分布中各有不同的定义，并有不同的公式。<br />
+在统计描述中，方差用来计算每一个变量（观察值）与总体均数之间的差异。为避免出现离均差总和为零，离均差平方和受样本含量的影响，统计学采用平均离均差平方和来描述变量的变异程度。<br />
+<code>总体方差计算公式</code>： <span class="math inline">\({\sigma}^2=\frac{\sum_{i=1}^{N}(X_i-\bar{\mu})}{N}\)</span><br />
+其中<span class="math inline">\({\sigma}^2\)</span>为总体方差，<span class="math inline">\(X_i\)</span>为变量，<span class="math inline">\(\bar{\mu}\)</span>为总体均值，<span class="math inline">\(N\)</span>为总体例数。</p>
+<p>实际工作中，总体均数难以得到时，应用样本统计量代替总体参数，经校正后，<br />
+<code>样本方差计算公式</code>： <span class="math inline">\({S}^2=\frac{\sum_{i=1}^{N}(X_i-\bar{X})}{n-1}\)</span><br />
+其中<span class="math inline">\({S}^2\)</span>为样本方差，<span class="math inline">\(X_i\)</span>为变量，<span class="math inline">\(\bar{X}\)</span>为样本均值，<span class="math inline">\(n\)</span>为样本例数。</p>
+<a id="more"></a>
+<h1 id="方差的计算">方差的计算</h1>
+<h2 id="数据准备">数据准备</h2>
+<p>取一定周期的沪深300指数(000300.SH)的每日行情数据，如：2019年全年。为了计算每日涨跌幅，故多取了2018年最后一个交易日的数据。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> QUANTAXIS <span class="keyword">as</span> QA</span><br><span class="line"><span class="keyword">from</span> IPython.core.interactiveshell <span class="keyword">import</span> InteractiveShell</span><br><span class="line">InteractiveShell.ast_node_interactivity = <span class="string">&quot;all&quot;</span> </span><br><span class="line"></span><br><span class="line">index = QA.QA_fetch_index_day_adv(<span class="string">&#x27;000300&#x27;</span>,<span class="string">&#x27;2018-12-28&#x27;</span>,<span class="string">&#x27;2019-12-31&#x27;</span>)</span><br><span class="line">display(index.data)</span><br><span class="line"><span class="comment"># 计算每日涨跌幅</span></span><br><span class="line">returns_index = index.data.close.pct_change()</span><br><span class="line">display(returns_index)</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+open
+</th>
+<th>
+close
+</th>
+<th>
+high
+</th>
+<th>
+low
+</th>
+<th>
+vol
+</th>
+<th>
+amount
+</th>
+<th>
+up_count
+</th>
+<th>
+down_count
+</th>
+<th>
+date_stamp
+</th>
+<th>
+volume
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+2018-12-28
+</th>
+<th>
+000300
+</th>
+<td>
+2994.80
+</td>
+<td>
+3010.65
+</td>
+<td>
+3024.35
+</td>
+<td>
+2984.82
+</td>
+<td>
+710537.0
+</td>
+<td>
+7.814531e+10
+</td>
+<td>
+200
+</td>
+<td>
+81
+</td>
+<td>
+1.545926e+09
+</td>
+<td>
+710537.0
+</td>
+</tr>
+<tr>
+<th>
+2019-01-02
+</th>
+<th>
+000300
+</th>
+<td>
+3017.07
+</td>
+<td>
+2969.54
+</td>
+<td>
+3018.78
+</td>
+<td>
+2958.49
+</td>
+<td>
+686630.0
+</td>
+<td>
+7.610557e+10
+</td>
+<td>
+70
+</td>
+<td>
+216
+</td>
+<td>
+1.546358e+09
+</td>
+<td>
+686630.0
+</td>
+</tr>
+<tr>
+<th>
+2019-01-03
+</th>
+<th>
+000300
+</th>
+<td>
+2963.02
+</td>
+<td>
+2964.84
+</td>
+<td>
+3000.44
+</td>
+<td>
+2953.26
+</td>
+<td>
+708671.0
+</td>
+<td>
+7.666480e+10
+</td>
+<td>
+145
+</td>
+<td>
+142
+</td>
+<td>
+1.546445e+09
+</td>
+<td>
+708671.0
+</td>
+</tr>
+<tr>
+<th>
+2019-01-04
+</th>
+<th>
+000300
+</th>
+<td>
+2940.19
+</td>
+<td>
+3035.87
+</td>
+<td>
+3036.81
+</td>
+<td>
+2935.83
+</td>
+<td>
+1033189.0
+</td>
+<td>
+1.071410e+11
+</td>
+<td>
+286
+</td>
+<td>
+12
+</td>
+<td>
+1.546531e+09
+</td>
+<td>
+1033189.0
+</td>
+</tr>
+<tr>
+<th>
+2019-01-07
+</th>
+<th>
+000300
+</th>
+<td>
+3055.15
+</td>
+<td>
+3054.30
+</td>
+<td>
+3061.75
+</td>
+<td>
+3035.91
+</td>
+<td>
+1011643.0
+</td>
+<td>
+1.057039e+11
+</td>
+<td>
+217
+</td>
+<td>
+73
+</td>
+<td>
+1.546790e+09
+</td>
+<td>
+1011643.0
+</td>
+</tr>
+<tr>
+<th>
+...
+</th>
+<th>
+...
+</th>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+</tr>
+<tr>
+<th>
+2019-12-25
+</th>
+<th>
+000300
+</th>
+<td>
+3988.66
+</td>
+<td>
+3990.87
+</td>
+<td>
+4000.56
+</td>
+<td>
+3976.36
+</td>
+<td>
+949388.0
+</td>
+<td>
+1.318965e+11
+</td>
+<td>
+117
+</td>
+<td>
+168
+</td>
+<td>
+1.577203e+09
+</td>
+<td>
+949388.0
+</td>
+</tr>
+<tr>
+<th>
+2019-12-26
+</th>
+<th>
+000300
+</th>
+<td>
+3993.67
+</td>
+<td>
+4025.99
+</td>
+<td>
+4025.99
+</td>
+<td>
+3993.54
+</td>
+<td>
+1088606.0
+</td>
+<td>
+1.408150e+11
+</td>
+<td>
+236
+</td>
+<td>
+53
+</td>
+<td>
+1.577290e+09
+</td>
+<td>
+1088606.0
+</td>
+</tr>
+<tr>
+<th>
+2019-12-27
+</th>
+<th>
+000300
+</th>
+<td>
+4029.25
+</td>
+<td>
+4022.03
+</td>
+<td>
+4066.80
+</td>
+<td>
+4019.72
+</td>
+<td>
+1509264.0
+</td>
+<td>
+1.950904e+11
+</td>
+<td>
+116
+</td>
+<td>
+173
+</td>
+<td>
+1.577376e+09
+</td>
+<td>
+1509264.0
+</td>
+</tr>
+<tr>
+<th>
+2019-12-30
+</th>
+<th>
+000300
+</th>
+<td>
+4015.52
+</td>
+<td>
+4081.63
+</td>
+<td>
+4083.69
+</td>
+<td>
+4001.50
+</td>
+<td>
+1559714.0
+</td>
+<td>
+2.168147e+11
+</td>
+<td>
+241
+</td>
+<td>
+53
+</td>
+<td>
+1.577635e+09
+</td>
+<td>
+1559714.0
+</td>
+</tr>
+<tr>
+<th>
+2019-12-31
+</th>
+<th>
+000300
+</th>
+<td>
+4077.75
+</td>
+<td>
+4096.58
+</td>
+<td>
+4098.14
+</td>
+<td>
+4069.01
+</td>
+<td>
+1232642.0
+</td>
+<td>
+1.731193e+11
+</td>
+<td>
+189
+</td>
+<td>
+95
+</td>
+<td>
+1.577722e+09
+</td>
+<td>
+1232642.0
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+245 rows × 10 columns
+</p>
+</div>
+<pre><code>date        code  
+2018-12-28  000300         NaN
+2019-01-02  000300   -0.013655
+2019-01-03  000300   -0.001583
+2019-01-04  000300    0.023957
+2019-01-07  000300    0.006071
+                        ...   
+2019-12-25  000300   -0.000523
+2019-12-26  000300    0.008800
+2019-12-27  000300   -0.000984
+2019-12-30  000300    0.014818
+2019-12-31  000300    0.003663
+Name: close, Length: 245, dtype: float64</code></pre>
+<h2 id="使用numpy计算">使用numpy计算</h2>
+<p>numpy 中计算的方差就是总体方差。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">np.var(returns_index)</span><br></pre></td></tr></table></figure>
+<pre><code>0.00015577588074696037</code></pre>
+<h2 id="使用pandas计算">使用pandas计算</h2>
+<p>pandas 中计算的方差为样本方差。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">returns_index.var()</span><br></pre></td></tr></table></figure>
+<pre><code>0.0001564169337541495</code></pre>
+<h1 id="小结">小结</h1>
+<p>在计算方差时，使用numpy和pandas会得到不一样的计算结果，需要根据实际需要样本方差还是总体方差来决定使用何种方式。</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>量化投资</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>线性代数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Rust】在jupyter notebook中使用Rust</title>
+    <url>/2021/01/07/%E3%80%90Rust%E3%80%91%E5%9C%A8jupyter-notebook%E4%B8%AD%E4%BD%BF%E7%94%A8Rust/</url>
+    <content><![CDATA[<p>在jupyter notebook中是否也可以像python那样使用呢？ 答案是可以的。现在来记录一下配置步骤。</p>
+<h1 id="使用evcxr作为jupyter-notebook内核">使用EvCxR作为jupyter notebook内核</h1>
+<h2 id="安装">安装</h2>
+<ol type="1">
+<li><p>安装jupyter notebook或者jupyter lab</p></li>
+<li><p>安装<a href="https://cmake.org/download/">CMake</a>，在安装EvCxR编译时会使用到。</p></li>
+<li><p>安装EvCxR</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">cargo install evcxr_jupyter</span><br><span class="line">evcxr_jupyter -<span class="literal">-install</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<a id="more"></a>
+<h2 id="问题">问题</h2>
+<p>安装过程中，原来rust选择的是gnu的工具链编译，但在编译libzmq时会报错，</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">D:\PROGRA~<span class="number">1</span>\MINGW-~<span class="number">1</span>\X86_64~<span class="number">1.0</span><span class="literal">-P</span>\mingw64\bin\G__~<span class="number">1</span>.EXE   <span class="literal">-std</span>=gnu++<span class="number">11</span> <span class="literal">-Wno</span><span class="literal">-tautological</span><span class="literal">-constant</span><span class="literal">-compare</span>  <span class="literal">-o</span> CMakeFiles\cmTC_57766.dir\CheckSymbolExists.cxx.obj <span class="literal">-c</span> E:\Tmp\libzmq<span class="literal">-4</span>.<span class="number">3.3</span>\build\CMakeFiles\CMakeTmp\CheckSymbolExists.cxx</span><br><span class="line"></span><br><span class="line">E:\Tmp\libzmq<span class="literal">-4</span>.<span class="number">3.3</span>\build\CMakeFiles\CMakeTmp\CheckSymbolExists.cxx: <span class="keyword">In</span> <span class="function"><span class="keyword">function</span> &#x27;<span class="title">int</span> <span class="title">main</span><span class="params">(int, char**)</span>&#x27;:</span></span><br><span class="line">E:\Tmp\libzmq<span class="literal">-4</span>.<span class="number">3.3</span>\build\CMakeFiles\CMakeTmp\CheckSymbolExists.cxx:<span class="number">8</span>:<span class="number">19</span>: error: <span class="string">&#x27;strlcpy&#x27;</span> was not declared <span class="keyword">in</span> this scope</span><br><span class="line">   <span class="keyword">return</span> ((int*)(&amp;strlcpy))[<span class="type">argc</span>];</span><br><span class="line">                   ^~~~~~~</span><br><span class="line">E:\Tmp\libzmq<span class="literal">-4</span>.<span class="number">3.3</span>\build\CMakeFiles\CMakeTmp\CheckSymbolExists.cxx:<span class="number">8</span>:<span class="number">19</span>: note: suggested alternative: <span class="string">&#x27;strncpy&#x27;</span></span><br><span class="line">   <span class="keyword">return</span> ((int*)(&amp;strlcpy))[<span class="type">argc</span>];</span><br><span class="line">                   ^~~~~~~</span><br><span class="line">                   strncpy</span><br><span class="line">At global scope:</span><br><span class="line">cc1plus.exe: warning: unrecognized command line option <span class="string">&#x27;-Wno-tautological-constant-compare&#x27;</span></span><br><span class="line">mingw32<span class="literal">-make</span>.exe[<span class="number">1</span>]: *** [<span class="type">CMakeFiles</span>\<span class="type">cmTC_57766.dir</span>\<span class="type">build.make</span>:<span class="number">84</span>: <span class="type">CMakeFiles</span>/<span class="type">cmTC_57766.dir</span>/<span class="type">CheckSymbolExists.cxx.obj</span>] Error <span class="number">1</span></span><br><span class="line"></span><br><span class="line">mingw32<span class="literal">-make</span>.exe[<span class="number">1</span>]: Leaving directory <span class="string">&#x27;E:/Tmp/libzmq-4.3.3/build/CMakeFiles/CMakeTmp&#x27;</span></span><br><span class="line"></span><br><span class="line">mingw32<span class="literal">-make</span>.exe: *** [<span class="type">Makefile</span>:<span class="number">139</span>: <span class="type">cmTC_57766</span>/<span class="type">fast</span>] Error <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">File E:/Tmp/libzmq<span class="literal">-4</span>.<span class="number">3.3</span>/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:</span><br><span class="line">/* */</span><br><span class="line"><span class="comment">#include &lt;string.h&gt;</span></span><br><span class="line"></span><br><span class="line">int main(int argc, char** argv)</span><br><span class="line">&#123;</span><br><span class="line">  (void)argv;</span><br><span class="line"><span class="comment">#ifndef strlcpy</span></span><br><span class="line">  <span class="keyword">return</span> ((int*)(&amp;strlcpy))[<span class="type">argc</span>];</span><br><span class="line"><span class="comment">#else</span></span><br><span class="line">  (void)argc;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"><span class="comment">#endif</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>尝试手动编译libzmq, 但无论4.3.3或4.3.2版本都无法成功。 具体原因从issue里也没有太多参考意义。后来从<a href="https://github.com/google/evcxr/issues/53">EvCxR issue 53</a>中得到些启发，将rust的工具链换回msvc工具链。重新安装EvCxR，成功。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210108102857.png" /></p>
+<p>测试</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210108103022.png" /></p>
+<h1 id="参考">参考</h1>
+<ol type="1">
+<li><a href="https://github.com/google/evcxr/blob/master/evcxr_jupyter/README.md">EvCxR Jupyter Kernel</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>rust</category>
+      </categories>
+      <tags>
+        <tag>rust</tag>
+        <tag>jupyternotebook</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Python】使用PYQT5来构建持仓盈亏监控(续)</title>
+    <url>/2021/07/02/%E3%80%90Python%E3%80%91%E4%BD%BF%E7%94%A8PYQT5%E6%9D%A5%E6%9E%84%E5%BB%BA%E6%8C%81%E4%BB%93%E7%9B%88%E4%BA%8F%E7%9B%91%E6%8E%A7%20(%E7%BB%AD)/</url>
+    <content><![CDATA[<h1 id="目的">目的</h1>
+<p>实时通过图形的方式呈现盈亏情况</p>
+<a id="more"></a>
+<h1 id="安装pyqtgraph">安装PyQtgraph</h1>
+<h2 id="安装">安装</h2>
+<p>通过pip进行安装</p>
+<blockquote>
+<p>pip install pyqtgraph</p>
+</blockquote>
+<h2 id="界面设计">界面设计</h2>
+<h3 id="使用qtdesigner来设计界面">使用QtDesigner来设计界面</h3>
+<ol type="1">
+<li>初始界面 初始界面设计如下： <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210514104224.png" /></li>
+</ol>
+<p>在此基础上，增加一个<code>label</code>及<code>widget</code>。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210702091127.png" /></p>
+<p>将widget重命名为<code>“graphWidget"</code>。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210702091239.png" /></p>
+<p>点击右键，选择<code>“提升为...”</code>， 提升的类名称为<code>“PlotWidget”</code>, 头文件为<code>“pyqtgraph”</code>。</p>
+<figure>
+<img src="C:\Users\junlv\AppData\Roaming\Typora\typora-user-images\image-20210702091446161.png" alt="image-20210702091446161" /><figcaption aria-hidden="true">image-20210702091446161</figcaption>
+</figure>
+<p>之所以使用这种方法，是因为按一般做法，利用Qt Designer新建一个布局，在代码中动态添加一个PlotWidget到这个布局来实现，代码如下:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pyqtgraph <span class="keyword">as</span> pg</span><br><span class="line">plot_plt = pg.PlotWidget(background=(<span class="number">69</span>,<span class="number">69</span>,<span class="number">69</span>), axisItems=&#123;<span class="string">&#x27;bottom&#x27;</span>: TimeAxisItem(orientation=<span class="string">&#x27;bottom&#x27;</span>)&#125;)</span><br><span class="line">verticalLayout.addWidget(plot_plt) </span><br></pre></td></tr></table></figure>
+<p>这里指定了背景色及坐标轴使用的模板。</p>
+<p>这样的做法，我一直没有找到控制PlotWidget大小的方法，导致出来的图形结果与我的期望不太一致。因此才尝试在UI设计时就固定住该部件的大小。</p>
+<h3 id="获取数据并展示">获取数据并展示</h3>
+<ol type="1">
+<li><p>将实时取得的持仓盈亏数据存入列表</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">self.data_list = []</span><br><span class="line">self.data_list.append(<span class="built_in">float</span>(self.data_summary[<span class="string">&#x27;day_float_amount&#x27;</span>]))</span><br></pre></td></tr></table></figure></li>
+<li><p>将时间进行时间戳转化存入列表</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">timestamp</span>():</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(time.mktime(datetime.datetime.now().timetuple()))</span><br><span class="line"></span><br><span class="line">self.time_list = []</span><br><span class="line">self.time_list.append(timestamp())</span><br></pre></td></tr></table></figure></li>
+<li><p>坐标轴显示为时间</p>
+<p>默认pyqtgraph会使用0开始的整数来作为坐标轴的值。 这里希望使用实时取到的时间来做为显示的值，因此需要重写pyqtgraph的AxisItem类。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TimeAxisItem</span>(<span class="params">pg.AxisItem</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, *args, **kwargs</span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__(*args, **kwargs)</span><br><span class="line">        <span class="comment">#self.setLabel(text=&#x27;Time&#x27;, units=None)</span></span><br><span class="line">        self.enableAutoSIPrefix(<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">tickStrings</span>(<span class="params">self, values, scale, spacing</span>):</span></span><br><span class="line">        <span class="keyword">return</span> [datetime.datetime.fromtimestamp(value).strftime(<span class="string">&quot;%H:%M:%S&quot;</span>) <span class="keyword">for</span> value <span class="keyword">in</span> values]</span><br></pre></td></tr></table></figure></li>
+<li><p>展示</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">graphWidget.plot().setData(self.model.time_list, self.model.data_list,pen=<span class="string">&#x27;g&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="效果">效果</h1>
+<p>完成后的应用界面效果如下： <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210702094351.png" /></p>
+<h1 id="参考">参考</h1>
+<ol start="4" type="1">
+<li><a href="%5BPyQt5的PyQtGraph实践系列3：实时数据更新绘制图形%20-%20州的先生%20(zmister.com)%5D(https://zmister.com/archives/826.html)">PyQt5的PyQtGraph实践系列3：实时数据更新绘制图形</a></li>
+<li><a href="%5BEmbedding%20PyQtGraph%20(or%20any%20other%20custom%20PyQt5%20widgets)%20from%20Qt%20Designer%20(mfitzp.com)%5D(https://www.mfitzp.com/tutorials/embed-pyqtgraph-custom-widgets-qt-app/)">Embedding custom widgets from Qt Designer</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>python</category>
+        <category>量化投资</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pyqt5</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【Rust】Rust在win10下开发环境的搭建</title>
     <url>/2021/01/04/%E3%80%90Rust%E3%80%91Rust%E5%9C%A8win10%E4%B8%8B%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<p>记录下如何在Windows 10环境下部署VScode的Rust开发环境。</p>
@@ -3216,37 +3095,24 @@ code
       </tags>
   </entry>
   <entry>
-    <title>【Rust】在jupyter notebook中使用Rust</title>
-    <url>/2021/01/07/%E3%80%90Rust%E3%80%91%E5%9C%A8jupyter-notebook%E4%B8%AD%E4%BD%BF%E7%94%A8Rust/</url>
-    <content><![CDATA[<p>在jupyter notebook中是否也可以像python那样使用呢？ 答案是可以的。现在来记录一下配置步骤。</p>
-<h1 id="使用evcxr作为jupyter-notebook内核">使用EvCxR作为jupyter notebook内核</h1>
-<h2 id="安装">安装</h2>
-<ol type="1">
-<li><p>安装jupyter notebook或者jupyter lab</p></li>
-<li><p>安装<a href="https://cmake.org/download/">CMake</a>，在安装EvCxR编译时会使用到。</p></li>
-<li><p>安装EvCxR</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">cargo install evcxr_jupyter</span><br><span class="line">evcxr_jupyter -<span class="literal">-install</span></span><br></pre></td></tr></table></figure></li>
-</ol>
+    <title>【python】multiprocessing进程间的通信（一）队列</title>
+    <url>/2021/01/01/%E3%80%90python%E3%80%91multiprocessing%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/</url>
+    <content><![CDATA[<p>multiprocessing模块支持进程间通信的三种主要形式:<code>队列</code>、<code>管道</code>及<code>共享内存</code>。下面我们来学习一下队列的使用情况。</p>
 <a id="more"></a>
-<h2 id="问题">问题</h2>
-<p>安装过程中，原来rust选择的是gnu的工具链编译，但在编译libzmq时会报错，</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">D:\PROGRA~<span class="number">1</span>\MINGW-~<span class="number">1</span>\X86_64~<span class="number">1.0</span><span class="literal">-P</span>\mingw64\bin\G__~<span class="number">1</span>.EXE   <span class="literal">-std</span>=gnu++<span class="number">11</span> <span class="literal">-Wno</span><span class="literal">-tautological</span><span class="literal">-constant</span><span class="literal">-compare</span>  <span class="literal">-o</span> CMakeFiles\cmTC_57766.dir\CheckSymbolExists.cxx.obj <span class="literal">-c</span> E:\Tmp\libzmq<span class="literal">-4</span>.<span class="number">3.3</span>\build\CMakeFiles\CMakeTmp\CheckSymbolExists.cxx</span><br><span class="line"></span><br><span class="line">E:\Tmp\libzmq<span class="literal">-4</span>.<span class="number">3.3</span>\build\CMakeFiles\CMakeTmp\CheckSymbolExists.cxx: <span class="keyword">In</span> <span class="function"><span class="keyword">function</span> &#x27;<span class="title">int</span> <span class="title">main</span><span class="params">(int, char**)</span>&#x27;:</span></span><br><span class="line">E:\Tmp\libzmq<span class="literal">-4</span>.<span class="number">3.3</span>\build\CMakeFiles\CMakeTmp\CheckSymbolExists.cxx:<span class="number">8</span>:<span class="number">19</span>: error: <span class="string">&#x27;strlcpy&#x27;</span> was not declared <span class="keyword">in</span> this scope</span><br><span class="line">   <span class="keyword">return</span> ((int*)(&amp;strlcpy))[<span class="type">argc</span>];</span><br><span class="line">                   ^~~~~~~</span><br><span class="line">E:\Tmp\libzmq<span class="literal">-4</span>.<span class="number">3.3</span>\build\CMakeFiles\CMakeTmp\CheckSymbolExists.cxx:<span class="number">8</span>:<span class="number">19</span>: note: suggested alternative: <span class="string">&#x27;strncpy&#x27;</span></span><br><span class="line">   <span class="keyword">return</span> ((int*)(&amp;strlcpy))[<span class="type">argc</span>];</span><br><span class="line">                   ^~~~~~~</span><br><span class="line">                   strncpy</span><br><span class="line">At global scope:</span><br><span class="line">cc1plus.exe: warning: unrecognized command line option <span class="string">&#x27;-Wno-tautological-constant-compare&#x27;</span></span><br><span class="line">mingw32<span class="literal">-make</span>.exe[<span class="number">1</span>]: *** [<span class="type">CMakeFiles</span>\<span class="type">cmTC_57766.dir</span>\<span class="type">build.make</span>:<span class="number">84</span>: <span class="type">CMakeFiles</span>/<span class="type">cmTC_57766.dir</span>/<span class="type">CheckSymbolExists.cxx.obj</span>] Error <span class="number">1</span></span><br><span class="line"></span><br><span class="line">mingw32<span class="literal">-make</span>.exe[<span class="number">1</span>]: Leaving directory <span class="string">&#x27;E:/Tmp/libzmq-4.3.3/build/CMakeFiles/CMakeTmp&#x27;</span></span><br><span class="line"></span><br><span class="line">mingw32<span class="literal">-make</span>.exe: *** [<span class="type">Makefile</span>:<span class="number">139</span>: <span class="type">cmTC_57766</span>/<span class="type">fast</span>] Error <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">File E:/Tmp/libzmq<span class="literal">-4</span>.<span class="number">3.3</span>/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:</span><br><span class="line">/* */</span><br><span class="line"><span class="comment">#include &lt;string.h&gt;</span></span><br><span class="line"></span><br><span class="line">int main(int argc, char** argv)</span><br><span class="line">&#123;</span><br><span class="line">  (void)argv;</span><br><span class="line"><span class="comment">#ifndef strlcpy</span></span><br><span class="line">  <span class="keyword">return</span> ((int*)(&amp;strlcpy))[<span class="type">argc</span>];</span><br><span class="line"><span class="comment">#else</span></span><br><span class="line">  (void)argc;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"><span class="comment">#endif</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>尝试手动编译libzmq, 但无论4.3.3或4.3.2版本都无法成功。 具体原因从issue里也没有太多参考意义。后来从<a href="https://github.com/google/evcxr/issues/53">EvCxR issue 53</a>中得到些启发，将rust的工具链换回msvc工具链。重新安装EvCxR，成功。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210108102857.png" /></p>
-<p>测试</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210108103022.png" /></p>
-<h1 id="参考">参考</h1>
-<ol type="1">
-<li><a href="https://github.com/google/evcxr/blob/master/evcxr_jupyter/README.md">EvCxR Jupyter Kernel</a></li>
-</ol>
+<h1 id="队列multiprocessing.queue">队列（multiprocessing.queue)</h1>
+<p>队列是线程和进程安全的，也就是一次只能有一个进程或线程进行操作。</p>
+<p><strong>示例：</strong>将子进程产生的信息统一写入父进程，这里是使用pool来创建进程池。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool, RLock, freeze_support,Queue,Pipe</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">from</span> TS_logs <span class="keyword">import</span> TS_log_info</span><br><span class="line"><span class="keyword">from</span>  TS_util <span class="keyword">import</span> (</span><br><span class="line">    TS_util_get_tradelist,</span><br><span class="line">    TS_util_get_real_date,</span><br><span class="line">    TS_util_get_next_datetime,</span><br><span class="line">    TS_util_get_now_time,</span><br><span class="line">    TS_util_date_convert,</span><br><span class="line">    trade_date_sse</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log_c</span>(<span class="params">q,codelist,n</span>):</span>    </span><br><span class="line">    <span class="keyword">for</span> trade_date <span class="keyword">in</span> codelist[n::<span class="number">8</span>]:</span><br><span class="line">        msg = <span class="string">&#x27;&#123;&#125; #Job&#123;&#125; Trying updating data of trade date &#123;&#125; .&#x27;</span> \</span><br><span class="line">                .<span class="built_in">format</span>(datetime.datetime.now().strftime(<span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>),n,trade_date)</span><br><span class="line">        sleep(<span class="number">0.05</span>)</span><br><span class="line">        q.put(msg)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">L = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">8</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:    </span><br><span class="line">    freeze_support()  <span class="comment"># for Windows support</span></span><br><span class="line">    manager = multiprocessing.Manager()</span><br><span class="line">    <span class="comment"># 父进程创建Queue，并传给各个子进程：</span></span><br><span class="line">    q = manager.Queue()</span><br><span class="line">    tqdm.set_lock(RLock())</span><br><span class="line">    codelist = trade_date_sse</span><br><span class="line">    func = functools.partial(log_c,q,codelist)</span><br><span class="line">    p = Pool(initializer=tqdm.set_lock, initargs=(tqdm.get_lock(),))</span><br><span class="line">    p.<span class="built_in">map</span>(func, L)</span><br><span class="line">    p.close()</span><br><span class="line">    p.join()</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> q.empty():</span><br><span class="line">        TS_log_info(q.get())</span><br></pre></td></tr></table></figure>
+<p>如果要使用Pool创建进程，就需要使用multiprocessing.Manager()中的Queue()，而不是multiprocessing.Queue()，否则会得到一条如下的错误信息：<br />
+<code>RuntimeError: Queue objects should only be shared between processes through inheritance.</code></p>
 ]]></content>
       <categories>
         <category>技术笔记</category>
-        <category>rust</category>
+        <category>python</category>
       </categories>
       <tags>
-        <tag>rust</tag>
-        <tag>jupyternotebook</tag>
+        <tag>python</tag>
+        <tag>multiprocessing</tag>
       </tags>
   </entry>
   <entry>
@@ -3263,27 +3129,6 @@ code
 <p><strong>示例：</strong>将子进程产生的信息统一写入父进程，这里是使用pool来创建进程池。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool, RLock, freeze_support,Queue,Pipe</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">from</span> TS_logs <span class="keyword">import</span> TS_log_info</span><br><span class="line"><span class="keyword">from</span>  TS_util <span class="keyword">import</span> (</span><br><span class="line">    TS_util_get_tradelist,</span><br><span class="line">    TS_util_get_real_date,</span><br><span class="line">    TS_util_get_next_datetime,</span><br><span class="line">    TS_util_get_now_time,</span><br><span class="line">    TS_util_date_convert,</span><br><span class="line">    trade_date_sse</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log_c</span>(<span class="params">child_conn,codelist,n</span>):</span> </span><br><span class="line">    <span class="keyword">for</span> trade_date <span class="keyword">in</span> codelist[n::<span class="number">8</span>][<span class="number">0</span>:<span class="number">17</span>]:</span><br><span class="line">        msg = <span class="string">&#x27;&#123;&#125; #Job&#123;&#125;  trade date &#123;&#125;.&#x27;</span> \</span><br><span class="line">                .<span class="built_in">format</span>(datetime.datetime.now().strftime(<span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>),n,trade_date)</span><br><span class="line">        child_conn.send(msg)</span><br><span class="line">    print(<span class="string">&#x27;workers exit&#x27;</span>)</span><br><span class="line"></span><br><span class="line">L = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">8</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:    </span><br><span class="line">    freeze_support()  <span class="comment"># for Windows support</span></span><br><span class="line">    parent_conn,child_conn = Pipe()</span><br><span class="line">    tqdm.set_lock(RLock())</span><br><span class="line">    codelist = trade_date_sse</span><br><span class="line">    func = functools.partial(log_c,child_conn,codelist)</span><br><span class="line">    p = Pool(initializer=tqdm.set_lock, initargs=(tqdm.get_lock(),))</span><br><span class="line">    p.<span class="built_in">map</span>(func, L)</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">while</span> parent_conn.poll(<span class="number">0.001</span>):</span><br><span class="line">        print(parent_conn.recv())</span><br><span class="line">    p.close()</span><br><span class="line">    p.join()</span><br><span class="line">    parent_conn.close()</span><br><span class="line">    child_conn.close()</span><br></pre></td></tr></table></figure>
 <p>当子进程发送一定量的数据之后会卡住，没有任何报错和提示，卡住不动！！测试大概是7000字节左右。原因尚未找到。按文档看，应该与OS有关，最大应该可达32M。</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>multiprocessing</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【python】multiprocessing进程间的通信（一）队列</title>
-    <url>/2021/01/01/%E3%80%90python%E3%80%91multiprocessing%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/</url>
-    <content><![CDATA[<p>multiprocessing模块支持进程间通信的三种主要形式:<code>队列</code>、<code>管道</code>及<code>共享内存</code>。下面我们来学习一下队列的使用情况。</p>
-<a id="more"></a>
-<h1 id="队列multiprocessing.queue">队列（multiprocessing.queue)</h1>
-<p>队列是线程和进程安全的，也就是一次只能有一个进程或线程进行操作。</p>
-<p><strong>示例：</strong>将子进程产生的信息统一写入父进程，这里是使用pool来创建进程池。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool, RLock, freeze_support,Queue,Pipe</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">from</span> TS_logs <span class="keyword">import</span> TS_log_info</span><br><span class="line"><span class="keyword">from</span>  TS_util <span class="keyword">import</span> (</span><br><span class="line">    TS_util_get_tradelist,</span><br><span class="line">    TS_util_get_real_date,</span><br><span class="line">    TS_util_get_next_datetime,</span><br><span class="line">    TS_util_get_now_time,</span><br><span class="line">    TS_util_date_convert,</span><br><span class="line">    trade_date_sse</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log_c</span>(<span class="params">q,codelist,n</span>):</span>    </span><br><span class="line">    <span class="keyword">for</span> trade_date <span class="keyword">in</span> codelist[n::<span class="number">8</span>]:</span><br><span class="line">        msg = <span class="string">&#x27;&#123;&#125; #Job&#123;&#125; Trying updating data of trade date &#123;&#125; .&#x27;</span> \</span><br><span class="line">                .<span class="built_in">format</span>(datetime.datetime.now().strftime(<span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>),n,trade_date)</span><br><span class="line">        sleep(<span class="number">0.05</span>)</span><br><span class="line">        q.put(msg)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">L = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">8</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:    </span><br><span class="line">    freeze_support()  <span class="comment"># for Windows support</span></span><br><span class="line">    manager = multiprocessing.Manager()</span><br><span class="line">    <span class="comment"># 父进程创建Queue，并传给各个子进程：</span></span><br><span class="line">    q = manager.Queue()</span><br><span class="line">    tqdm.set_lock(RLock())</span><br><span class="line">    codelist = trade_date_sse</span><br><span class="line">    func = functools.partial(log_c,q,codelist)</span><br><span class="line">    p = Pool(initializer=tqdm.set_lock, initargs=(tqdm.get_lock(),))</span><br><span class="line">    p.<span class="built_in">map</span>(func, L)</span><br><span class="line">    p.close()</span><br><span class="line">    p.join()</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> q.empty():</span><br><span class="line">        TS_log_info(q.get())</span><br></pre></td></tr></table></figure>
-<p>如果要使用Pool创建进程，就需要使用multiprocessing.Manager()中的Queue()，而不是multiprocessing.Queue()，否则会得到一条如下的错误信息：<br />
-<code>RuntimeError: Queue objects should only be shared between processes through inheritance.</code></p>
 ]]></content>
       <categories>
         <category>技术笔记</category>
@@ -3623,6 +3468,216 @@ code
       </tags>
   </entry>
   <entry>
+    <title>【Hexo】美化表格</title>
+    <url>/2020/12/09/%E3%80%90Hexo%E3%80%91%E7%BE%8E%E5%8C%96%E8%A1%A8%E6%A0%BC/</url>
+    <content><![CDATA[<p>通过jupyter notebook导出的markdown文件中的表格过于丑陋，遂尝试对生成的表格内容进行美化。</p>
+<a id="more"></a>
+<h2 id="步骤">步骤</h2>
+<h3 id="创建自定义的css文件">创建自定义的CSS文件</h3>
+<p>在<code>themes/next/source/css/main.styl</code>中添加一行内容。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">@import <span class="string">&quot;_custom/custom&quot;</span></span><br></pre></td></tr></table></figure>
+<p>然后在<code>themes/next/source/css</code>目录下创建<code>_custom</code>文件夹。再进入该文件夹创建名为custom.styl的文件， 用它来配置自己需要的CSS样式。</p>
+<h3 id="基本样式">基本样式</h3>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">table</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>; <span class="comment">/*表格宽度*/</span></span><br><span class="line">    <span class="attribute">max-width</span>: <span class="number">65em</span>; <span class="comment">/*表格最大宽度，避免表格过宽*/</span></span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#dedede</span>; <span class="comment">/*表格外边框设置*/</span></span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">15px</span> auto; <span class="comment">/*外边距*/</span></span><br><span class="line">    <span class="attribute">border-collapse</span>: collapse; <span class="comment">/*使用单一线条的边框*/</span></span><br><span class="line">    <span class="attribute">empty-cells</span>: show; <span class="comment">/*单元格无内容依旧绘制边框*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">th</span>,</span><br><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">td</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">25px</span>; <span class="comment">/*统一每一行的默认高度*/</span></span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">10px</span>;  <span class="comment">/*行内字符大小*/</span></span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#dedede</span>; <span class="comment">/*内部边框样式*/</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">10px</span>; <span class="comment">/*内边距*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="表头样式">表头样式</h3>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">th</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">10px</span>;  <span class="comment">/*表头字符大小*/</span></span><br><span class="line">    <span class="attribute">font-weight</span>: bold; <span class="comment">/*加粗*/</span></span><br><span class="line">    <span class="attribute">text-align</span>: center <span class="meta">!important</span>; <span class="comment">/*内容居中，加上 !important 避免被 Markdown 样式覆盖*/</span></span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">158</span>,<span class="number">188</span>,<span class="number">226</span>,<span class="number">0.2</span>); <span class="comment">/*背景色*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="示例">示例</h3>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th>open</th>
+<th>high</th>
+<th>low</th>
+<th>close</th>
+<th>volume</th>
+<th>amount</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>date</td>
+<td>code</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>2020-11-16</td>
+<td>000001</td>
+<td>17.08</td>
+<td>17.43</td>
+<td>16.90</td>
+<td>17.37</td>
+<td>759856.0</td>
+<td>1.308190e+09</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>000002</td>
+<td>29.39</td>
+<td>29.50</td>
+<td>29.00</td>
+<td>29.20</td>
+<td>516576.0</td>
+<td>1.509810e+09</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>000004</td>
+<td>31.15</td>
+<td>31.46</td>
+<td>30.11</td>
+<td>30.61</td>
+<td>72456.0</td>
+<td>2.223127e+08</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>000005</td>
+<td>2.68</td>
+<td>2.70</td>
+<td>2.65</td>
+<td>2.69</td>
+<td>64372.0</td>
+<td>1.725762e+07</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>000006</td>
+<td>5.66</td>
+<td>5.74</td>
+<td>5.62</td>
+<td>5.72</td>
+<td>98253.0</td>
+<td>5.592563e+07</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>000007</td>
+<td>9.42</td>
+<td>9.42</td>
+<td>9.18</td>
+<td>9.20</td>
+<td>22567.0</td>
+<td>2.094628e+07</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>000008</td>
+<td>2.72</td>
+<td>2.74</td>
+<td>2.70</td>
+<td>2.73</td>
+<td>171930.0</td>
+<td>4.678304e+07</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>000009</td>
+<td>7.71</td>
+<td>7.88</td>
+<td>7.66</td>
+<td>7.82</td>
+<td>320180.0</td>
+<td>2.492149e+08</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>000010</td>
+<td>4.19</td>
+<td>4.27</td>
+<td>4.10</td>
+<td>4.24</td>
+<td>71661.0</td>
+<td>3.004320e+07</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>000011</td>
+<td>13.76</td>
+<td>14.40</td>
+<td>13.58</td>
+<td>14.39</td>
+<td>105639.0</td>
+<td>1.489735e+08</td>
+</tr>
+</tbody>
+</table>
+<p>参考：</p>
+<ol type="1">
+<li><p><a href="https://hexo.imydl.tech/archives/6742.html">Hexo下表格的美化和优化</a></p></li>
+<li><p><a href="https://www.jianshu.com/p/6c1651fe5374">完美解决：Hexo Next主题本地可预览CSS，但部署到网站CSS失效问题！</a></p></li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【量化投资】贝塔系数的计算</title>
+    <url>/2021/07/17/%E3%80%90%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E3%80%91%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97/</url>
+    <content><![CDATA[<h1 id="目的">目的</h1>
+<p>在量化分析中，经常会需要获取<span class="math inline">\(\beta\)</span>(贝塔系数），那该如何查询或计算该系数呢？</p>
+<h2 id="贝塔系数的含义">贝塔系数的含义</h2>
+<p>贝塔系数衡量了个股或基金相对于整个股市的波动情况。</p>
+<table>
+<thead>
+<tr class="header">
+<th>β范围</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>β=1</td>
+<td>股票或基金的风险收益率与市场平均风险收益率相同</td>
+</tr>
+<tr class="even">
+<td>β&gt;1</td>
+<td>股票或基金的风险相较于市场平均更大</td>
+</tr>
+<tr class="odd">
+<td>β&lt;1</td>
+<td>股票或基金的风险相较于市场平均更小</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h2 id="查询">查询</h2>
+<p>可以在<a href="http://www.iwencai.com/stockpick/search?typed=1&amp;preParams=&amp;ts=1&amp;f=1&amp;qs=stockpick_ambiguity_index&amp;selfsectsn=&amp;querytype=stock&amp;searchfilter=&amp;tid=stockpick&amp;multiIndex=%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0&amp;stockpick&amp;w=%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0">同花顺网站</a>中查到上市公司当日的贝塔系数。</p>
+<h2 id="计算">计算</h2>
+<p>相对于沪深300指数(000300.SH)的beta系数计算方式如下：<br />
+<span class="math inline">\(\beta_i = \frac{标的资产i的收益与市场收益的协方差}{市场收益的方差} = \frac{Cov(r_i,r_m)}{\sigma_m^2}\)</span></p>
+<p>例1、顺丰控股(002352.SZ)相对于沪深300指数(000300.SH)的beta系数计算，一定周期的沪深300指数(000300.SH)与顺丰控股(002352.SZ)的每日涨跌幅，如：2019年全年。</p>
+<p>关于协方差、方差的计算方法:<br />
+<a href="https://nokiasonic.github.io/2021/07/16/%E3%80%90Python%E3%80%91Pandas%E4%B9%8Bdataframe%E4%B8%8Eseries%E7%9A%84%E5%8D%8F%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97/">【Python】Pandas之dataframe与series的协方差计算</a><br />
+<a href="https://nokiasonic.github.io/2021/07/16/%E3%80%90Python%E3%80%91Pandas%E4%B9%8B%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97/">【Python】Pandas、Numpy之方差计算</a></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> QUANTAXIS <span class="keyword">as</span> QA</span><br><span class="line"><span class="keyword">from</span> IPython.core.interactiveshell <span class="keyword">import</span> InteractiveShell</span><br><span class="line">InteractiveShell.ast_node_interactivity = <span class="string">&quot;all&quot;</span> </span><br><span class="line"></span><br><span class="line">stock = QA.QA_fetch_stock_day_adv(<span class="string">&#x27;002352&#x27;</span>,<span class="string">&#x27;2018-12-28&#x27;</span>,<span class="string">&#x27;2019-12-31&#x27;</span>)</span><br><span class="line">index = QA.QA_fetch_index_day_adv(<span class="string">&#x27;000300&#x27;</span>,<span class="string">&#x27;2018-12-28&#x27;</span>,<span class="string">&#x27;2019-12-31&#x27;</span>)</span><br><span class="line"></span><br><span class="line">returns_stock = stock.data.close.pct_change()</span><br><span class="line">returns_index = index.data.close.pct_change()</span><br><span class="line"><span class="comment">#计算两组数据的协方差</span></span><br><span class="line">covr = np.cov(returns_stock[<span class="number">1</span>:],returns_index[<span class="number">1</span>:])[<span class="number">0</span>][<span class="number">1</span>]</span><br><span class="line"><span class="comment">#计算沪深300指数数据的方差</span></span><br><span class="line">var = np.var(returns_index)</span><br><span class="line"><span class="comment">#计算贝塔值</span></span><br><span class="line">beta = covr/var</span><br><span class="line">print(<span class="string">&quot;Covariance:&#123;&#125;,Variance:&#123;&#125;,Beta:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(covr,var,beta))</span><br></pre></td></tr></table></figure>
+<pre><code>Covariance:9.712842264272448e-05,Variance:0.00015577588074696037,Beta:0.6235138724748936</code></pre>
+<h1 id="参考">参考</h1>
+<p>1/ <a href="https://wiki.mbalib.com/wiki/%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0">贝塔系数</a><br />
+2/ <a href="https://zhuanlan.zhihu.com/p/136858300">股票β系数（贝塔、beta）计算的具体操作</a><br />
+3/ <a href="https://blog.csdn.net/thfyshz/article/details/83443783?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-2.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-2.control">Python计算贝塔系数和夏普比率</a></p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>量化投资</category>
+      </categories>
+      <tags>
+        <tag>线性代数</tag>
+        <tag>python，贝塔</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>线性代数在量化投资分析中的应用</title>
     <url>/2020/12/17/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9C%A8%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%88%86%E6%9E%90%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</url>
     <content><![CDATA[<h1 id="基本概念">基本概念</h1>
@@ -3782,61 +3837,6 @@ code
       <tags>
         <tag>python</tag>
         <tag>线性代数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【量化投资】贝塔系数的计算</title>
-    <url>/2021/07/17/%E3%80%90%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E3%80%91%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97/</url>
-    <content><![CDATA[<h1 id="目的">目的</h1>
-<p>在量化分析中，经常会需要获取<span class="math inline">\(\beta\)</span>(贝塔系数），那该如何查询或计算该系数呢？</p>
-<h2 id="贝塔系数的含义">贝塔系数的含义</h2>
-<p>贝塔系数衡量了个股或基金相对于整个股市的波动情况。</p>
-<table>
-<thead>
-<tr class="header">
-<th>β范围</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>β=1</td>
-<td>股票或基金的风险收益率与市场平均风险收益率相同</td>
-</tr>
-<tr class="even">
-<td>β&gt;1</td>
-<td>股票或基金的风险相较于市场平均更大</td>
-</tr>
-<tr class="odd">
-<td>β&lt;1</td>
-<td>股票或基金的风险相较于市场平均更小</td>
-</tr>
-</tbody>
-</table>
-<a id="more"></a>
-<h2 id="查询">查询</h2>
-<p>可以在<a href="http://www.iwencai.com/stockpick/search?typed=1&amp;preParams=&amp;ts=1&amp;f=1&amp;qs=stockpick_ambiguity_index&amp;selfsectsn=&amp;querytype=stock&amp;searchfilter=&amp;tid=stockpick&amp;multiIndex=%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0&amp;stockpick&amp;w=%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0">同花顺网站</a>中查到上市公司当日的贝塔系数。</p>
-<h2 id="计算">计算</h2>
-<p>相对于沪深300指数(000300.SH)的beta系数计算方式如下：<br />
-<span class="math inline">\(\beta_i = \frac{标的资产i的收益与市场收益的协方差}{市场收益的方差} = \frac{Cov(r_i,r_m)}{\sigma_m^2}\)</span></p>
-<p>例1、顺丰控股(002352.SZ)相对于沪深300指数(000300.SH)的beta系数计算，一定周期的沪深300指数(000300.SH)与顺丰控股(002352.SZ)的每日涨跌幅，如：2019年全年。</p>
-<p>关于协方差、方差的计算方法:<br />
-<a href="https://nokiasonic.github.io/2021/07/16/%E3%80%90Python%E3%80%91Pandas%E4%B9%8Bdataframe%E4%B8%8Eseries%E7%9A%84%E5%8D%8F%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97/">【Python】Pandas之dataframe与series的协方差计算</a><br />
-<a href="https://nokiasonic.github.io/2021/07/16/%E3%80%90Python%E3%80%91Pandas%E4%B9%8B%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97/">【Python】Pandas、Numpy之方差计算</a></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> QUANTAXIS <span class="keyword">as</span> QA</span><br><span class="line"><span class="keyword">from</span> IPython.core.interactiveshell <span class="keyword">import</span> InteractiveShell</span><br><span class="line">InteractiveShell.ast_node_interactivity = <span class="string">&quot;all&quot;</span> </span><br><span class="line"></span><br><span class="line">stock = QA.QA_fetch_stock_day_adv(<span class="string">&#x27;002352&#x27;</span>,<span class="string">&#x27;2018-12-28&#x27;</span>,<span class="string">&#x27;2019-12-31&#x27;</span>)</span><br><span class="line">index = QA.QA_fetch_index_day_adv(<span class="string">&#x27;000300&#x27;</span>,<span class="string">&#x27;2018-12-28&#x27;</span>,<span class="string">&#x27;2019-12-31&#x27;</span>)</span><br><span class="line"></span><br><span class="line">returns_stock = stock.data.close.pct_change()</span><br><span class="line">returns_index = index.data.close.pct_change()</span><br><span class="line"><span class="comment">#计算两组数据的协方差</span></span><br><span class="line">covr = np.cov(returns_stock[<span class="number">1</span>:],returns_index[<span class="number">1</span>:])[<span class="number">0</span>][<span class="number">1</span>]</span><br><span class="line"><span class="comment">#计算沪深300指数数据的方差</span></span><br><span class="line">var = np.var(returns_index)</span><br><span class="line"><span class="comment">#计算贝塔值</span></span><br><span class="line">beta = covr/var</span><br><span class="line">print(<span class="string">&quot;Covariance:&#123;&#125;,Variance:&#123;&#125;,Beta:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(covr,var,beta))</span><br></pre></td></tr></table></figure>
-<pre><code>Covariance:9.712842264272448e-05,Variance:0.00015577588074696037,Beta:0.6235138724748936</code></pre>
-<h1 id="参考">参考</h1>
-<p>1/ <a href="https://wiki.mbalib.com/wiki/%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0">贝塔系数</a><br />
-2/ <a href="https://zhuanlan.zhihu.com/p/136858300">股票β系数（贝塔、beta）计算的具体操作</a><br />
-3/ <a href="https://blog.csdn.net/thfyshz/article/details/83443783?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-2.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-2.control">Python计算贝塔系数和夏普比率</a></p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>量化投资</category>
-      </categories>
-      <tags>
-        <tag>线性代数</tag>
-        <tag>python，贝塔</tag>
       </tags>
   </entry>
   <entry>
