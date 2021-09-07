@@ -52,6 +52,48 @@
       </tags>
   </entry>
   <entry>
+    <title>tqdm进度条的使用</title>
+    <url>/2020/12/23/tqdm%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>以前使用的是processbar来制作进度条， 听闻tqdm性能更好些，遂尝试使用一下。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> tqdm(total=<span class="built_in">len</span>(codelist),<span class="built_in">ascii</span>= <span class="literal">True</span>, ncols=<span class="number">90</span>,colour=<span class="string">&quot;green&quot;</span>) <span class="keyword">as</span> pbar:</span><br><span class="line">    <span class="keyword">for</span> ts_code <span class="keyword">in</span> codelist:</span><br><span class="line">        pbar.set_description(<span class="string">&quot;Processing %s&quot;</span> % ts_code)</span><br><span class="line">        ......</span><br><span class="line">        pbar.update(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201223101745.png" /></p>
+<p>参数使用：</p>
+<p><code>ascii = True</code>, 缺省是<code>False</code>, 当使用它时，不是以正常块状来做进度条，而是以"123456789#"的方式。</p>
+<p><code>ncols = 90</code>, 这里可以根据屏幕大小来进行控制，保证进度条不产生换行的情况。</p>
+<p><code>colour = "green"</code>, 在版本4.5之后引入，可以设置进度条的颜色。</p>
+<p><code>desc</code>或利用<code>set_desciption</code>，用来设置进度条左侧的文字信息。</p>
+<p>从使用情况来看，还是比较令人满意的。</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>tqdm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】Next主题标题颜色设置</title>
+    <url>/2020/12/10/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%A0%87%E9%A2%98%E9%A2%9C%E8%89%B2%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<p>主题采用的是Next的Mist。 不太喜欢全部都是黑灰白色的主基调，希望将标题来点明亮的颜色。以下来介绍具体的配置方法。</p>
+<a id="more"></a>
+<h2 id="更改标题配色">更改标题配色</h2>
+<p>找到<code>\themes\next\source\css\_common\outline\header\site-meta.styl</code>文件。编辑修改<code>.brand&#123;&#125;</code>里<code>color</code>参数配置</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.brand</span> &#123;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">//  color: var(--brand-color);</span><br><span class="line">  <span class="selector-tag">color</span>: <span class="selector-id">#fc6423</span> !<span class="selector-tag">important</span>;</span><br><span class="line">  <span class="selector-tag">display</span>: <span class="selector-tag">inline-block</span>;</span><br><span class="line">  line-height: $font-size-title;</span><br><span class="line">  <span class="selector-tag">padding</span>: 0 40<span class="selector-tag">px</span>;</span><br><span class="line">  <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line"></span><br><span class="line">  &amp;<span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">var</span>(--brand-hover-color);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="更改标题上下横线配色">更改标题上下横线配色</h2>
+<p>找到<code>\themes\next\source\css\_schemes\Mist\_header.styl</code>。编辑修改<code>i&#123;&#125;</code>里的<code>background</code>参数配置</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"> <span class="selector-tag">i</span> &#123;</span><br><span class="line">   //background: var(--brand-color);</span><br><span class="line"><span class="selector-tag">background</span>: <span class="selector-id">#fc6423</span> !<span class="selector-tag">important</span>;</span><br><span class="line">   <span class="selector-tag">display</span>: <span class="selector-tag">block</span>;</span><br><span class="line">   <span class="selector-tag">height</span>: 2<span class="selector-tag">px</span>;</span><br><span class="line">   <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【Hexo】Next主题更好地支持LaTeX数学公式</title>
     <url>/2020/12/17/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%9B%B4%E5%A5%BD%E5%9C%B0%E6%94%AF%E6%8C%81LaTeX%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</url>
     <content><![CDATA[<p>在Typora中可以正常显示的<span class="math inline">\(L^AT_EX\)</span>数学公式，在Hexo NexT主题下却渲染得不是太理想。我们去最新的<a href="https://theme-next.js.org/docs/third-party-services/math-equations.html">NexT官方文档</a>里看看如何解决吧！</p>
@@ -86,48 +128,6 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Hexo】Next主题标题颜色设置</title>
-    <url>/2020/12/10/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%A0%87%E9%A2%98%E9%A2%9C%E8%89%B2%E8%AE%BE%E7%BD%AE/</url>
-    <content><![CDATA[<p>主题采用的是Next的Mist。 不太喜欢全部都是黑灰白色的主基调，希望将标题来点明亮的颜色。以下来介绍具体的配置方法。</p>
-<a id="more"></a>
-<h2 id="更改标题配色">更改标题配色</h2>
-<p>找到<code>\themes\next\source\css\_common\outline\header\site-meta.styl</code>文件。编辑修改<code>.brand&#123;&#125;</code>里<code>color</code>参数配置</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.brand</span> &#123;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">//  color: var(--brand-color);</span><br><span class="line">  <span class="selector-tag">color</span>: <span class="selector-id">#fc6423</span> !<span class="selector-tag">important</span>;</span><br><span class="line">  <span class="selector-tag">display</span>: <span class="selector-tag">inline-block</span>;</span><br><span class="line">  line-height: $font-size-title;</span><br><span class="line">  <span class="selector-tag">padding</span>: 0 40<span class="selector-tag">px</span>;</span><br><span class="line">  <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line"></span><br><span class="line">  &amp;<span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">var</span>(--brand-hover-color);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="更改标题上下横线配色">更改标题上下横线配色</h2>
-<p>找到<code>\themes\next\source\css\_schemes\Mist\_header.styl</code>。编辑修改<code>i&#123;&#125;</code>里的<code>background</code>参数配置</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"> <span class="selector-tag">i</span> &#123;</span><br><span class="line">   //background: var(--brand-color);</span><br><span class="line"><span class="selector-tag">background</span>: <span class="selector-id">#fc6423</span> !<span class="selector-tag">important</span>;</span><br><span class="line">   <span class="selector-tag">display</span>: <span class="selector-tag">block</span>;</span><br><span class="line">   <span class="selector-tag">height</span>: 2<span class="selector-tag">px</span>;</span><br><span class="line">   <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>tqdm进度条的使用</title>
-    <url>/2020/12/23/tqdm%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p>以前使用的是processbar来制作进度条， 听闻tqdm性能更好些，遂尝试使用一下。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> tqdm(total=<span class="built_in">len</span>(codelist),<span class="built_in">ascii</span>= <span class="literal">True</span>, ncols=<span class="number">90</span>,colour=<span class="string">&quot;green&quot;</span>) <span class="keyword">as</span> pbar:</span><br><span class="line">    <span class="keyword">for</span> ts_code <span class="keyword">in</span> codelist:</span><br><span class="line">        pbar.set_description(<span class="string">&quot;Processing %s&quot;</span> % ts_code)</span><br><span class="line">        ......</span><br><span class="line">        pbar.update(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201223101745.png" /></p>
-<p>参数使用：</p>
-<p><code>ascii = True</code>, 缺省是<code>False</code>, 当使用它时，不是以正常块状来做进度条，而是以"123456789#"的方式。</p>
-<p><code>ncols = 90</code>, 这里可以根据屏幕大小来进行控制，保证进度条不产生换行的情况。</p>
-<p><code>colour = "green"</code>, 在版本4.5之后引入，可以设置进度条的颜色。</p>
-<p><code>desc</code>或利用<code>set_desciption</code>，用来设置进度条左侧的文字信息。</p>
-<p>从使用情况来看，还是比较令人满意的。</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>tqdm</tag>
       </tags>
   </entry>
   <entry>
@@ -302,158 +302,38 @@
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】美化表格</title>
-    <url>/2020/12/09/%E3%80%90Hexo%E3%80%91%E7%BE%8E%E5%8C%96%E8%A1%A8%E6%A0%BC/</url>
-    <content><![CDATA[<p>通过jupyter notebook导出的markdown文件中的表格过于丑陋，遂尝试对生成的表格内容进行美化。</p>
-<a id="more"></a>
-<h2 id="步骤">步骤</h2>
-<h3 id="创建自定义的css文件">创建自定义的CSS文件</h3>
-<p>在<code>themes/next/source/css/main.styl</code>中添加一行内容。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">@import <span class="string">&quot;_custom/custom&quot;</span></span><br></pre></td></tr></table></figure>
-<p>然后在<code>themes/next/source/css</code>目录下创建<code>_custom</code>文件夹。再进入该文件夹创建名为custom.styl的文件， 用它来配置自己需要的CSS样式。</p>
-<h3 id="基本样式">基本样式</h3>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">table</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>; <span class="comment">/*表格宽度*/</span></span><br><span class="line">    <span class="attribute">max-width</span>: <span class="number">65em</span>; <span class="comment">/*表格最大宽度，避免表格过宽*/</span></span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#dedede</span>; <span class="comment">/*表格外边框设置*/</span></span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">15px</span> auto; <span class="comment">/*外边距*/</span></span><br><span class="line">    <span class="attribute">border-collapse</span>: collapse; <span class="comment">/*使用单一线条的边框*/</span></span><br><span class="line">    <span class="attribute">empty-cells</span>: show; <span class="comment">/*单元格无内容依旧绘制边框*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">th</span>,</span><br><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">td</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">25px</span>; <span class="comment">/*统一每一行的默认高度*/</span></span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">10px</span>;  <span class="comment">/*行内字符大小*/</span></span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#dedede</span>; <span class="comment">/*内部边框样式*/</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">10px</span>; <span class="comment">/*内边距*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="表头样式">表头样式</h3>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">th</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">10px</span>;  <span class="comment">/*表头字符大小*/</span></span><br><span class="line">    <span class="attribute">font-weight</span>: bold; <span class="comment">/*加粗*/</span></span><br><span class="line">    <span class="attribute">text-align</span>: center <span class="meta">!important</span>; <span class="comment">/*内容居中，加上 !important 避免被 Markdown 样式覆盖*/</span></span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">158</span>,<span class="number">188</span>,<span class="number">226</span>,<span class="number">0.2</span>); <span class="comment">/*背景色*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="示例">示例</h3>
-<table>
-<thead>
-<tr class="header">
-<th></th>
-<th></th>
-<th>open</th>
-<th>high</th>
-<th>low</th>
-<th>close</th>
-<th>volume</th>
-<th>amount</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>date</td>
-<td>code</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>2020-11-16</td>
-<td>000001</td>
-<td>17.08</td>
-<td>17.43</td>
-<td>16.90</td>
-<td>17.37</td>
-<td>759856.0</td>
-<td>1.308190e+09</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>000002</td>
-<td>29.39</td>
-<td>29.50</td>
-<td>29.00</td>
-<td>29.20</td>
-<td>516576.0</td>
-<td>1.509810e+09</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>000004</td>
-<td>31.15</td>
-<td>31.46</td>
-<td>30.11</td>
-<td>30.61</td>
-<td>72456.0</td>
-<td>2.223127e+08</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>000005</td>
-<td>2.68</td>
-<td>2.70</td>
-<td>2.65</td>
-<td>2.69</td>
-<td>64372.0</td>
-<td>1.725762e+07</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>000006</td>
-<td>5.66</td>
-<td>5.74</td>
-<td>5.62</td>
-<td>5.72</td>
-<td>98253.0</td>
-<td>5.592563e+07</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>000007</td>
-<td>9.42</td>
-<td>9.42</td>
-<td>9.18</td>
-<td>9.20</td>
-<td>22567.0</td>
-<td>2.094628e+07</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>000008</td>
-<td>2.72</td>
-<td>2.74</td>
-<td>2.70</td>
-<td>2.73</td>
-<td>171930.0</td>
-<td>4.678304e+07</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>000009</td>
-<td>7.71</td>
-<td>7.88</td>
-<td>7.66</td>
-<td>7.82</td>
-<td>320180.0</td>
-<td>2.492149e+08</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>000010</td>
-<td>4.19</td>
-<td>4.27</td>
-<td>4.10</td>
-<td>4.24</td>
-<td>71661.0</td>
-<td>3.004320e+07</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>000011</td>
-<td>13.76</td>
-<td>14.40</td>
-<td>13.58</td>
-<td>14.39</td>
-<td>105639.0</td>
-<td>1.489735e+08</td>
-</tr>
-</tbody>
-</table>
-<p>参考：</p>
-<ol type="1">
-<li><p><a href="https://hexo.imydl.tech/archives/6742.html">Hexo下表格的美化和优化</a></p></li>
-<li><p><a href="https://www.jianshu.com/p/6c1651fe5374">完美解决：Hexo Next主题本地可预览CSS，但部署到网站CSS失效问题！</a></p></li>
-</ol>
+    <title>【Markdown】Typora画流程图实践</title>
+    <url>/2021/01/08/%E3%80%90Markdown%E3%80%91Typora%E7%94%BB%E6%B5%81%E7%A8%8B%E5%9B%BE%E5%AE%9E%E8%B7%B5/</url>
+    <content><![CDATA[<p><code>Typrora</code>中使用了<code>Mermaid</code>来提供强劲的绘制流程图、时序图的功能。</p>
+<h2 id="关于mermaid">关于Mermaid</h2>
+<p>是一种简单的类似 Markdown 的脚本语言，通过 JavaScript 编程语言，将文本转换为图片。因此，真正实现画图功能的并不是 Typora 本身，它只是内置了对 Mermaid 的支持。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210108172301.png" /></p>
+<h2 id="图形介绍">图形介绍</h2>
+<h3 id="流程图flowchart">流程图(flowchart)</h3>
+<p>主要语法说明：</p>
+<p>graph - 表明是流程图</p>
+<p>方向：</p>
+<ul>
+<li>TB - top to bottom</li>
+<li>TD - top-down/ same as top to bottom</li>
+<li>BT - bottom to top</li>
+<li>RL - right to left</li>
+<li>LR - left to right</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">graph TD;</span><br><span class="line">    A--&gt;B;</span><br><span class="line">    A--&gt;C;</span><br><span class="line">    B--&gt;D;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">graph TD;</span><br><span class="line">    A--&gt;B;</span><br><span class="line">    A--&gt;C;</span><br><span class="line">    B--&gt;D;</span><br></pre></td></tr></table></figure>
+<h3 id="时序图"><strong>时序图</strong></h3>
+<p>语法解释：<code>-&gt;&gt;</code> 代表实线箭头，<code>--&gt;&gt;</code> 则代表虚线。</p>
+<h1 id="参考">参考</h1>
+<p>[1] <a href="https://mermaid-js.github.io/mermaid/#/">Mermaid:https://mermaid-js.github.io/mermaid/#/</a></p>
 ]]></content>
       <categories>
         <category>技术笔记</category>
-        <category>博客</category>
+        <category>markdown</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>typora</tag>
+        <tag>mermaid</tag>
       </tags>
   </entry>
   <entry>
@@ -1012,686 +892,158 @@ Name: close, Length: 245, dtype: float64</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>【Python】pandas dataframe输出格式对齐美化的思路</title>
-    <url>/2021/05/14/%E3%80%90Python%E3%80%91pandas%20dataframe%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F%E5%AF%B9%E9%BD%90%E7%BE%8E%E5%8C%96%E7%9A%84%E6%80%9D%E8%B7%AF/</url>
-    <content><![CDATA[<h1 id="需求">需求</h1>
-<p>在jupyter中可以直接使用用dataframe的名字输出美观的表格形式，例如：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> QUANTAXIS <span class="keyword">as</span> QA</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">通过本地数据库获取股票日线数据：</span></span><br><span class="line"><span class="string">QA.QA_fetch_stock_day_adv(</span></span><br><span class="line"><span class="string">    code,</span></span><br><span class="line"><span class="string">    start=&#x27;all&#x27;,</span></span><br><span class="line"><span class="string">    end=None,</span></span><br><span class="line"><span class="string">    if_drop_index=True,</span></span><br><span class="line"><span class="string">    collections=Collection(Database(MongoClient(host=[&#x27;localhost:27017&#x27;], document_class=dict, tz_aware=False, connect=True), &#x27;quantaxis&#x27;), &#x27;stock_day&#x27;),</span></span><br><span class="line"><span class="string">)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">data=QA.QA_fetch_stock_day_adv([<span class="string">&quot;002003&quot;</span>,<span class="string">&#x27;300999&#x27;</span>,<span class="string">&#x27;603899&#x27;</span>],<span class="string">&#x27;2021-05-12&#x27;</span>,<span class="string">&#x27;2021-05-13&#x27;</span>)</span><br><span class="line">df = data.data</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+    <title>【Hexo】美化表格</title>
+    <url>/2020/12/09/%E3%80%90Hexo%E3%80%91%E7%BE%8E%E5%8C%96%E8%A1%A8%E6%A0%BC/</url>
+    <content><![CDATA[<p>通过jupyter notebook导出的markdown文件中的表格过于丑陋，遂尝试对生成的表格内容进行美化。</p>
 <a id="more"></a>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
+<h2 id="步骤">步骤</h2>
+<h3 id="创建自定义的css文件">创建自定义的CSS文件</h3>
+<p>在<code>themes/next/source/css/main.styl</code>中添加一行内容。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">@import <span class="string">&quot;_custom/custom&quot;</span></span><br></pre></td></tr></table></figure>
+<p>然后在<code>themes/next/source/css</code>目录下创建<code>_custom</code>文件夹。再进入该文件夹创建名为custom.styl的文件， 用它来配置自己需要的CSS样式。</p>
+<h3 id="基本样式">基本样式</h3>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">table</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>; <span class="comment">/*表格宽度*/</span></span><br><span class="line">    <span class="attribute">max-width</span>: <span class="number">65em</span>; <span class="comment">/*表格最大宽度，避免表格过宽*/</span></span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#dedede</span>; <span class="comment">/*表格外边框设置*/</span></span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">15px</span> auto; <span class="comment">/*外边距*/</span></span><br><span class="line">    <span class="attribute">border-collapse</span>: collapse; <span class="comment">/*使用单一线条的边框*/</span></span><br><span class="line">    <span class="attribute">empty-cells</span>: show; <span class="comment">/*单元格无内容依旧绘制边框*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">th</span>,</span><br><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">td</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">25px</span>; <span class="comment">/*统一每一行的默认高度*/</span></span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">10px</span>;  <span class="comment">/*行内字符大小*/</span></span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#dedede</span>; <span class="comment">/*内部边框样式*/</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">10px</span>; <span class="comment">/*内边距*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="表头样式">表头样式</h3>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">th</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">10px</span>;  <span class="comment">/*表头字符大小*/</span></span><br><span class="line">    <span class="attribute">font-weight</span>: bold; <span class="comment">/*加粗*/</span></span><br><span class="line">    <span class="attribute">text-align</span>: center <span class="meta">!important</span>; <span class="comment">/*内容居中，加上 !important 避免被 Markdown 样式覆盖*/</span></span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">158</span>,<span class="number">188</span>,<span class="number">226</span>,<span class="number">0.2</span>); <span class="comment">/*背景色*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="示例">示例</h3>
+<table>
 <thead>
-<tr style="text-align: right;">
-<th>
-</th>
-<th>
-</th>
-<th>
-open
-</th>
-<th>
-high
-</th>
-<th>
-low
-</th>
-<th>
-close
-</th>
-<th>
-volume
-</th>
-<th>
-amount
-</th>
-</tr>
-<tr>
-<th>
-date
-</th>
-<th>
-code
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
+<tr class="header">
+<th></th>
+<th></th>
+<th>open</th>
+<th>high</th>
+<th>low</th>
+<th>close</th>
+<th>volume</th>
+<th>amount</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<th rowspan="3" valign="top">
-2021-05-12
-</th>
-<th>
-002003
-</th>
-<td>
-7.32
-</td>
-<td>
-7.51
-</td>
-<td>
-7.28
-</td>
-<td>
-7.48
-</td>
-<td>
-80536.0
-</td>
-<td>
-5.980900e+07
-</td>
+<tr class="odd">
+<td>date</td>
+<td>code</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
-<tr>
-<th>
-300999
-</th>
-<td>
-76.12
-</td>
-<td>
-76.75
-</td>
-<td>
-75.11
-</td>
-<td>
-76.20
-</td>
-<td>
-146625.0
-</td>
-<td>
-1.114936e+09
-</td>
+<tr class="even">
+<td>2020-11-16</td>
+<td>000001</td>
+<td>17.08</td>
+<td>17.43</td>
+<td>16.90</td>
+<td>17.37</td>
+<td>759856.0</td>
+<td>1.308190e+09</td>
 </tr>
-<tr>
-<th>
-603899
-</th>
-<td>
-86.80
-</td>
-<td>
-87.85
-</td>
-<td>
-85.71
-</td>
-<td>
-86.60
-</td>
-<td>
-19172.0
-</td>
-<td>
-1.656046e+08
-</td>
+<tr class="odd">
+<td></td>
+<td>000002</td>
+<td>29.39</td>
+<td>29.50</td>
+<td>29.00</td>
+<td>29.20</td>
+<td>516576.0</td>
+<td>1.509810e+09</td>
 </tr>
-<tr>
-<th rowspan="3" valign="top">
-2021-05-13
-</th>
-<th>
-002003
-</th>
-<td>
-7.44
-</td>
-<td>
-7.63
-</td>
-<td>
-7.34
-</td>
-<td>
-7.55
-</td>
-<td>
-98429.0
-</td>
-<td>
-7.403393e+07
-</td>
+<tr class="even">
+<td></td>
+<td>000004</td>
+<td>31.15</td>
+<td>31.46</td>
+<td>30.11</td>
+<td>30.61</td>
+<td>72456.0</td>
+<td>2.223127e+08</td>
 </tr>
-<tr>
-<th>
-300999
-</th>
-<td>
-75.00
-</td>
-<td>
-75.60
-</td>
-<td>
-74.04
-</td>
-<td>
-74.20
-</td>
-<td>
-144742.0
-</td>
-<td>
-1.080974e+09
-</td>
+<tr class="odd">
+<td></td>
+<td>000005</td>
+<td>2.68</td>
+<td>2.70</td>
+<td>2.65</td>
+<td>2.69</td>
+<td>64372.0</td>
+<td>1.725762e+07</td>
 </tr>
-<tr>
-<th>
-603899
-</th>
-<td>
-85.71
-</td>
-<td>
-88.12
-</td>
-<td>
-85.10
-</td>
-<td>
-87.59
-</td>
-<td>
-14734.0
-</td>
-<td>
-1.280291e+08
-</td>
+<tr class="even">
+<td></td>
+<td>000006</td>
+<td>5.66</td>
+<td>5.74</td>
+<td>5.62</td>
+<td>5.72</td>
+<td>98253.0</td>
+<td>5.592563e+07</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>000007</td>
+<td>9.42</td>
+<td>9.42</td>
+<td>9.18</td>
+<td>9.20</td>
+<td>22567.0</td>
+<td>2.094628e+07</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>000008</td>
+<td>2.72</td>
+<td>2.74</td>
+<td>2.70</td>
+<td>2.73</td>
+<td>171930.0</td>
+<td>4.678304e+07</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>000009</td>
+<td>7.71</td>
+<td>7.88</td>
+<td>7.66</td>
+<td>7.82</td>
+<td>320180.0</td>
+<td>2.492149e+08</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>000010</td>
+<td>4.19</td>
+<td>4.27</td>
+<td>4.10</td>
+<td>4.24</td>
+<td>71661.0</td>
+<td>3.004320e+07</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>000011</td>
+<td>13.76</td>
+<td>14.40</td>
+<td>13.58</td>
+<td>14.39</td>
+<td>105639.0</td>
+<td>1.489735e+08</td>
 </tr>
 </tbody>
 </table>
-</div>
-<p>在使用<code>print</code>输出时的结果是这样的。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(df)</span><br></pre></td></tr></table></figure>
-<pre><code>                    open   high    low  close    volume        amount
-date       code                                                      
-2021-05-12 002003   7.32   7.51   7.28   7.48   80536.0  5.980900e+07
-           300999  76.12  76.75  75.11  76.20  146625.0  1.114936e+09
-           603899  86.80  87.85  85.71  86.60   19172.0  1.656046e+08
-2021-05-13 002003   7.44   7.63   7.34   7.55   98429.0  7.403393e+07
-           300999  75.00  75.60  74.04  74.20  144742.0  1.080974e+09
-           603899  85.71  88.12  85.10  87.59   14734.0  1.280291e+08</code></pre>
-<p>而当DataFrame中存在中英文混合的时候，会出现print()打印无法对齐的情况，导致输出的结果都没有对齐，十分不美观。如:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df1 = df</span><br><span class="line">df1.columns = [<span class="string">&quot;开盘价&quot;</span>, <span class="string">&quot;最高价&quot;</span>, <span class="string">&quot;最低价&quot;</span>, <span class="string">&quot;收盘价&quot;</span>, <span class="string">&quot;成交量&quot;</span>, <span class="string">&quot;成交金额&quot;</span>]</span><br><span class="line">print(df1)</span><br></pre></td></tr></table></figure>
-<pre><code>                     开盘价    最高价    最低价    收盘价       成交量          成交金额
-date       code                                                      
-2021-05-12 002003   7.32   7.51   7.28   7.48   80536.0  5.980900e+07
-           300999  76.12  76.75  75.11  76.20  146625.0  1.114936e+09
-           603899  86.80  87.85  85.71  86.60   19172.0  1.656046e+08
-2021-05-13 002003   7.44   7.63   7.34   7.55   98429.0  7.403393e+07
-           300999  75.00  75.60  74.04  74.20  144742.0  1.080974e+09
-           603899  85.71  88.12  85.10  87.59   14734.0  1.280291e+08</code></pre>
-<p>那么问题来了。 1. 有没有办法使用<code>print</code>输出中英文混合的dataframe可以对齐美观？ 2. 在执行完整的python代码时(非jupyter)，有办法象jupyter中一样输出美观的dataframe表格么？</p>
-<h1 id="解决办法">解决办法</h1>
-<h2 id="问题1-有没有办法使用print输出中英文混合的dataframe可以对齐美观">问题1 有没有办法使用print输出中英文混合的dataframe可以对齐美观？</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">pd.set_option(<span class="string">&#x27;display.unicode.ambiguous_as_wide&#x27;</span>, <span class="literal">True</span>)</span><br><span class="line">pd.set_option(<span class="string">&#x27;display.unicode.east_asian_width&#x27;</span>, <span class="literal">True</span>)</span><br><span class="line">pd.set_option(<span class="string">&#x27;display.width&#x27;</span>, <span class="number">180</span>)                       <span class="comment"># 设置打印宽度(**重要**)</span></span><br><span class="line">print(df1)</span><br></pre></td></tr></table></figure>
-<pre><code>                   开盘价  最高价  最低价  收盘价    成交量      成交金额
-date       code                                                          
-2021-05-12 002003    7.32    7.51    7.28    7.48   80536.0  5.980900e+07
-           300999   76.12   76.75   75.11   76.20  146625.0  1.114936e+09
-           603899   86.80   87.85   85.71   86.60   19172.0  1.656046e+08
-2021-05-13 002003    7.44    7.63    7.34    7.55   98429.0  7.403393e+07
-           300999   75.00   75.60   74.04   74.20  144742.0  1.080974e+09
-           603899   85.71   88.12   85.10   87.59   14734.0  1.280291e+08</code></pre>
-<h2 id="问题2-在执行完整的python代码时非jupyter有办法象jupyter中一样输出美观的dataframe表格么">问题2 在执行完整的python代码时(非jupyter)，有办法象jupyter中一样输出美观的dataframe表格么？</h2>
-<p>使用<code>IPython.display</code>来替换<code>print</code>的输出效果。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> display</span><br><span class="line"></span><br><span class="line">display(df)</span><br><span class="line">display(df1)</span><br></pre></td></tr></table></figure>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th>
-</th>
-<th>
-</th>
-<th>
-开盘价
-</th>
-<th>
-最高价
-</th>
-<th>
-最低价
-</th>
-<th>
-收盘价
-</th>
-<th>
-成交量
-</th>
-<th>
-成交金额
-</th>
-</tr>
-<tr>
-<th>
-date
-</th>
-<th>
-code
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th rowspan="3" valign="top">
-2021-05-12
-</th>
-<th>
-002003
-</th>
-<td>
-7.32
-</td>
-<td>
-7.51
-</td>
-<td>
-7.28
-</td>
-<td>
-7.48
-</td>
-<td>
-80536.0
-</td>
-<td>
-5.980900e+07
-</td>
-</tr>
-<tr>
-<th>
-300999
-</th>
-<td>
-76.12
-</td>
-<td>
-76.75
-</td>
-<td>
-75.11
-</td>
-<td>
-76.20
-</td>
-<td>
-146625.0
-</td>
-<td>
-1.114936e+09
-</td>
-</tr>
-<tr>
-<th>
-603899
-</th>
-<td>
-86.80
-</td>
-<td>
-87.85
-</td>
-<td>
-85.71
-</td>
-<td>
-86.60
-</td>
-<td>
-19172.0
-</td>
-<td>
-1.656046e+08
-</td>
-</tr>
-<tr>
-<th rowspan="3" valign="top">
-2021-05-13
-</th>
-<th>
-002003
-</th>
-<td>
-7.44
-</td>
-<td>
-7.63
-</td>
-<td>
-7.34
-</td>
-<td>
-7.55
-</td>
-<td>
-98429.0
-</td>
-<td>
-7.403393e+07
-</td>
-</tr>
-<tr>
-<th>
-300999
-</th>
-<td>
-75.00
-</td>
-<td>
-75.60
-</td>
-<td>
-74.04
-</td>
-<td>
-74.20
-</td>
-<td>
-144742.0
-</td>
-<td>
-1.080974e+09
-</td>
-</tr>
-<tr>
-<th>
-603899
-</th>
-<td>
-85.71
-</td>
-<td>
-88.12
-</td>
-<td>
-85.10
-</td>
-<td>
-87.59
-</td>
-<td>
-14734.0
-</td>
-<td>
-1.280291e+08
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th>
-</th>
-<th>
-</th>
-<th>
-开盘价
-</th>
-<th>
-最高价
-</th>
-<th>
-最低价
-</th>
-<th>
-收盘价
-</th>
-<th>
-成交量
-</th>
-<th>
-成交金额
-</th>
-</tr>
-<tr>
-<th>
-date
-</th>
-<th>
-code
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th rowspan="3" valign="top">
-2021-05-12
-</th>
-<th>
-002003
-</th>
-<td>
-7.32
-</td>
-<td>
-7.51
-</td>
-<td>
-7.28
-</td>
-<td>
-7.48
-</td>
-<td>
-80536.0
-</td>
-<td>
-5.980900e+07
-</td>
-</tr>
-<tr>
-<th>
-300999
-</th>
-<td>
-76.12
-</td>
-<td>
-76.75
-</td>
-<td>
-75.11
-</td>
-<td>
-76.20
-</td>
-<td>
-146625.0
-</td>
-<td>
-1.114936e+09
-</td>
-</tr>
-<tr>
-<th>
-603899
-</th>
-<td>
-86.80
-</td>
-<td>
-87.85
-</td>
-<td>
-85.71
-</td>
-<td>
-86.60
-</td>
-<td>
-19172.0
-</td>
-<td>
-1.656046e+08
-</td>
-</tr>
-<tr>
-<th rowspan="3" valign="top">
-2021-05-13
-</th>
-<th>
-002003
-</th>
-<td>
-7.44
-</td>
-<td>
-7.63
-</td>
-<td>
-7.34
-</td>
-<td>
-7.55
-</td>
-<td>
-98429.0
-</td>
-<td>
-7.403393e+07
-</td>
-</tr>
-<tr>
-<th>
-300999
-</th>
-<td>
-75.00
-</td>
-<td>
-75.60
-</td>
-<td>
-74.04
-</td>
-<td>
-74.20
-</td>
-<td>
-144742.0
-</td>
-<td>
-1.080974e+09
-</td>
-</tr>
-<tr>
-<th>
-603899
-</th>
-<td>
-85.71
-</td>
-<td>
-88.12
-</td>
-<td>
-85.10
-</td>
-<td>
-87.59
-</td>
-<td>
-14734.0
-</td>
-<td>
-1.280291e+08
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="问题3-输出dataframe数据时可以不输出索引号么">问题3 输出dataframe数据时，可以不输出索引号么？</h3>
-<p><code>python 2.7</code></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span> df.to_string(index=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
-<p><code>python 3</code></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(df.to_string(index=<span class="literal">False</span>))</span><br></pre></td></tr></table></figure>
+<p>参考：</p>
+<ol type="1">
+<li><p><a href="https://hexo.imydl.tech/archives/6742.html">Hexo下表格的美化和优化</a></p></li>
+<li><p><a href="https://www.jianshu.com/p/6c1651fe5374">完美解决：Hexo Next主题本地可预览CSS，但部署到网站CSS失效问题！</a></p></li>
+</ol>
 ]]></content>
       <categories>
         <category>技术笔记</category>
-        <category>python</category>
+        <category>博客</category>
       </categories>
       <tags>
-        <tag>dataframe</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -2910,97 +2262,686 @@ code
       </tags>
   </entry>
   <entry>
-    <title>【Markdown】Typora画流程图实践</title>
-    <url>/2021/01/08/%E3%80%90Markdown%E3%80%91Typora%E7%94%BB%E6%B5%81%E7%A8%8B%E5%9B%BE%E5%AE%9E%E8%B7%B5/</url>
-    <content><![CDATA[<p><code>Typrora</code>中使用了<code>Mermaid</code>来提供强劲的绘制流程图、时序图的功能。</p>
-<h2 id="关于mermaid">关于Mermaid</h2>
-<p>是一种简单的类似 Markdown 的脚本语言，通过 JavaScript 编程语言，将文本转换为图片。因此，真正实现画图功能的并不是 Typora 本身，它只是内置了对 Mermaid 的支持。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210108172301.png" /></p>
-<h2 id="图形介绍">图形介绍</h2>
-<h3 id="流程图flowchart">流程图(flowchart)</h3>
-<p>主要语法说明：</p>
-<p>graph - 表明是流程图</p>
-<p>方向：</p>
-<ul>
-<li>TB - top to bottom</li>
-<li>TD - top-down/ same as top to bottom</li>
-<li>BT - bottom to top</li>
-<li>RL - right to left</li>
-<li>LR - left to right</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">graph TD;</span><br><span class="line">    A--&gt;B;</span><br><span class="line">    A--&gt;C;</span><br><span class="line">    B--&gt;D;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">graph TD;</span><br><span class="line">    A--&gt;B;</span><br><span class="line">    A--&gt;C;</span><br><span class="line">    B--&gt;D;</span><br></pre></td></tr></table></figure>
-<h3 id="时序图"><strong>时序图</strong></h3>
-<p>语法解释：<code>-&gt;&gt;</code> 代表实线箭头，<code>--&gt;&gt;</code> 则代表虚线。</p>
-<h1 id="参考">参考</h1>
-<p>[1] <a href="https://mermaid-js.github.io/mermaid/#/">Mermaid:https://mermaid-js.github.io/mermaid/#/</a></p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>markdown</category>
-      </categories>
-      <tags>
-        <tag>typora</tag>
-        <tag>mermaid</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Python】使用PYQT5来构建持仓盈亏监控(续)</title>
-    <url>/2021/07/02/%E3%80%90Python%E3%80%91%E4%BD%BF%E7%94%A8PYQT5%E6%9D%A5%E6%9E%84%E5%BB%BA%E6%8C%81%E4%BB%93%E7%9B%88%E4%BA%8F%E7%9B%91%E6%8E%A7%20(%E7%BB%AD)/</url>
-    <content><![CDATA[<h1 id="目的">目的</h1>
-<p>实时通过图形的方式呈现盈亏情况</p>
+    <title>【Python】pandas dataframe输出格式对齐美化的思路</title>
+    <url>/2021/05/14/%E3%80%90Python%E3%80%91pandas%20dataframe%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F%E5%AF%B9%E9%BD%90%E7%BE%8E%E5%8C%96%E7%9A%84%E6%80%9D%E8%B7%AF/</url>
+    <content><![CDATA[<h1 id="需求">需求</h1>
+<p>在jupyter中可以直接使用用dataframe的名字输出美观的表格形式，例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> QUANTAXIS <span class="keyword">as</span> QA</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">通过本地数据库获取股票日线数据：</span></span><br><span class="line"><span class="string">QA.QA_fetch_stock_day_adv(</span></span><br><span class="line"><span class="string">    code,</span></span><br><span class="line"><span class="string">    start=&#x27;all&#x27;,</span></span><br><span class="line"><span class="string">    end=None,</span></span><br><span class="line"><span class="string">    if_drop_index=True,</span></span><br><span class="line"><span class="string">    collections=Collection(Database(MongoClient(host=[&#x27;localhost:27017&#x27;], document_class=dict, tz_aware=False, connect=True), &#x27;quantaxis&#x27;), &#x27;stock_day&#x27;),</span></span><br><span class="line"><span class="string">)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">data=QA.QA_fetch_stock_day_adv([<span class="string">&quot;002003&quot;</span>,<span class="string">&#x27;300999&#x27;</span>,<span class="string">&#x27;603899&#x27;</span>],<span class="string">&#x27;2021-05-12&#x27;</span>,<span class="string">&#x27;2021-05-13&#x27;</span>)</span><br><span class="line">df = data.data</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h1 id="安装pyqtgraph">安装PyQtgraph</h1>
-<h2 id="安装">安装</h2>
-<p>通过pip进行安装</p>
-<blockquote>
-<p>pip install pyqtgraph</p>
-</blockquote>
-<h2 id="界面设计">界面设计</h2>
-<h3 id="使用qtdesigner来设计界面">使用QtDesigner来设计界面</h3>
-<ol type="1">
-<li>初始界面 初始界面设计如下： <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210514104224.png" /></li>
-</ol>
-<p>在此基础上，增加一个<code>label</code>及<code>widget</code>。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210702091127.png" /></p>
-<p>将widget重命名为<code>“graphWidget"</code>。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210702091239.png" /></p>
-<p>点击右键，选择<code>“提升为...”</code>， 提升的类名称为<code>“PlotWidget”</code>, 头文件为<code>“pyqtgraph”</code>。</p>
-<figure>
-<img src="C:\Users\junlv\AppData\Roaming\Typora\typora-user-images\image-20210702091446161.png" alt="image-20210702091446161" /><figcaption aria-hidden="true">image-20210702091446161</figcaption>
-</figure>
-<p>之所以使用这种方法，是因为按一般做法，利用Qt Designer新建一个布局，在代码中动态添加一个PlotWidget到这个布局来实现，代码如下:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pyqtgraph <span class="keyword">as</span> pg</span><br><span class="line">plot_plt = pg.PlotWidget(background=(<span class="number">69</span>,<span class="number">69</span>,<span class="number">69</span>), axisItems=&#123;<span class="string">&#x27;bottom&#x27;</span>: TimeAxisItem(orientation=<span class="string">&#x27;bottom&#x27;</span>)&#125;)</span><br><span class="line">verticalLayout.addWidget(plot_plt) </span><br></pre></td></tr></table></figure>
-<p>这里指定了背景色及坐标轴使用的模板。</p>
-<p>这样的做法，我一直没有找到控制PlotWidget大小的方法，导致出来的图形结果与我的期望不太一致。因此才尝试在UI设计时就固定住该部件的大小。</p>
-<h3 id="获取数据并展示">获取数据并展示</h3>
-<ol type="1">
-<li><p>将实时取得的持仓盈亏数据存入列表</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">self.data_list = []</span><br><span class="line">self.data_list.append(<span class="built_in">float</span>(self.data_summary[<span class="string">&#x27;day_float_amount&#x27;</span>]))</span><br></pre></td></tr></table></figure></li>
-<li><p>将时间进行时间戳转化存入列表</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">timestamp</span>():</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(time.mktime(datetime.datetime.now().timetuple()))</span><br><span class="line"></span><br><span class="line">self.time_list = []</span><br><span class="line">self.time_list.append(timestamp())</span><br></pre></td></tr></table></figure></li>
-<li><p>坐标轴显示为时间</p>
-<p>默认pyqtgraph会使用0开始的整数来作为坐标轴的值。 这里希望使用实时取到的时间来做为显示的值，因此需要重写pyqtgraph的AxisItem类。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TimeAxisItem</span>(<span class="params">pg.AxisItem</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, *args, **kwargs</span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__(*args, **kwargs)</span><br><span class="line">        <span class="comment">#self.setLabel(text=&#x27;Time&#x27;, units=None)</span></span><br><span class="line">        self.enableAutoSIPrefix(<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">tickStrings</span>(<span class="params">self, values, scale, spacing</span>):</span></span><br><span class="line">        <span class="keyword">return</span> [datetime.datetime.fromtimestamp(value).strftime(<span class="string">&quot;%H:%M:%S&quot;</span>) <span class="keyword">for</span> value <span class="keyword">in</span> values]</span><br></pre></td></tr></table></figure></li>
-<li><p>展示</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">graphWidget.plot().setData(self.model.time_list, self.model.data_list,pen=<span class="string">&#x27;g&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="效果">效果</h1>
-<p>完成后的应用界面效果如下： <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210702094351.png" /></p>
-<h1 id="参考">参考</h1>
-<ol start="4" type="1">
-<li><a href="%5BPyQt5的PyQtGraph实践系列3：实时数据更新绘制图形%20-%20州的先生%20(zmister.com)%5D(https://zmister.com/archives/826.html)">PyQt5的PyQtGraph实践系列3：实时数据更新绘制图形</a></li>
-<li><a href="%5BEmbedding%20PyQtGraph%20(or%20any%20other%20custom%20PyQt5%20widgets)%20from%20Qt%20Designer%20(mfitzp.com)%5D(https://www.mfitzp.com/tutorials/embed-pyqtgraph-custom-widgets-qt-app/)">Embedding custom widgets from Qt Designer</a></li>
-</ol>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+open
+</th>
+<th>
+high
+</th>
+<th>
+low
+</th>
+<th>
+close
+</th>
+<th>
+volume
+</th>
+<th>
+amount
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="3" valign="top">
+2021-05-12
+</th>
+<th>
+002003
+</th>
+<td>
+7.32
+</td>
+<td>
+7.51
+</td>
+<td>
+7.28
+</td>
+<td>
+7.48
+</td>
+<td>
+80536.0
+</td>
+<td>
+5.980900e+07
+</td>
+</tr>
+<tr>
+<th>
+300999
+</th>
+<td>
+76.12
+</td>
+<td>
+76.75
+</td>
+<td>
+75.11
+</td>
+<td>
+76.20
+</td>
+<td>
+146625.0
+</td>
+<td>
+1.114936e+09
+</td>
+</tr>
+<tr>
+<th>
+603899
+</th>
+<td>
+86.80
+</td>
+<td>
+87.85
+</td>
+<td>
+85.71
+</td>
+<td>
+86.60
+</td>
+<td>
+19172.0
+</td>
+<td>
+1.656046e+08
+</td>
+</tr>
+<tr>
+<th rowspan="3" valign="top">
+2021-05-13
+</th>
+<th>
+002003
+</th>
+<td>
+7.44
+</td>
+<td>
+7.63
+</td>
+<td>
+7.34
+</td>
+<td>
+7.55
+</td>
+<td>
+98429.0
+</td>
+<td>
+7.403393e+07
+</td>
+</tr>
+<tr>
+<th>
+300999
+</th>
+<td>
+75.00
+</td>
+<td>
+75.60
+</td>
+<td>
+74.04
+</td>
+<td>
+74.20
+</td>
+<td>
+144742.0
+</td>
+<td>
+1.080974e+09
+</td>
+</tr>
+<tr>
+<th>
+603899
+</th>
+<td>
+85.71
+</td>
+<td>
+88.12
+</td>
+<td>
+85.10
+</td>
+<td>
+87.59
+</td>
+<td>
+14734.0
+</td>
+<td>
+1.280291e+08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>在使用<code>print</code>输出时的结果是这样的。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(df)</span><br></pre></td></tr></table></figure>
+<pre><code>                    open   high    low  close    volume        amount
+date       code                                                      
+2021-05-12 002003   7.32   7.51   7.28   7.48   80536.0  5.980900e+07
+           300999  76.12  76.75  75.11  76.20  146625.0  1.114936e+09
+           603899  86.80  87.85  85.71  86.60   19172.0  1.656046e+08
+2021-05-13 002003   7.44   7.63   7.34   7.55   98429.0  7.403393e+07
+           300999  75.00  75.60  74.04  74.20  144742.0  1.080974e+09
+           603899  85.71  88.12  85.10  87.59   14734.0  1.280291e+08</code></pre>
+<p>而当DataFrame中存在中英文混合的时候，会出现print()打印无法对齐的情况，导致输出的结果都没有对齐，十分不美观。如:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df1 = df</span><br><span class="line">df1.columns = [<span class="string">&quot;开盘价&quot;</span>, <span class="string">&quot;最高价&quot;</span>, <span class="string">&quot;最低价&quot;</span>, <span class="string">&quot;收盘价&quot;</span>, <span class="string">&quot;成交量&quot;</span>, <span class="string">&quot;成交金额&quot;</span>]</span><br><span class="line">print(df1)</span><br></pre></td></tr></table></figure>
+<pre><code>                     开盘价    最高价    最低价    收盘价       成交量          成交金额
+date       code                                                      
+2021-05-12 002003   7.32   7.51   7.28   7.48   80536.0  5.980900e+07
+           300999  76.12  76.75  75.11  76.20  146625.0  1.114936e+09
+           603899  86.80  87.85  85.71  86.60   19172.0  1.656046e+08
+2021-05-13 002003   7.44   7.63   7.34   7.55   98429.0  7.403393e+07
+           300999  75.00  75.60  74.04  74.20  144742.0  1.080974e+09
+           603899  85.71  88.12  85.10  87.59   14734.0  1.280291e+08</code></pre>
+<p>那么问题来了。 1. 有没有办法使用<code>print</code>输出中英文混合的dataframe可以对齐美观？ 2. 在执行完整的python代码时(非jupyter)，有办法象jupyter中一样输出美观的dataframe表格么？</p>
+<h1 id="解决办法">解决办法</h1>
+<h2 id="问题1-有没有办法使用print输出中英文混合的dataframe可以对齐美观">问题1 有没有办法使用print输出中英文混合的dataframe可以对齐美观？</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">pd.set_option(<span class="string">&#x27;display.unicode.ambiguous_as_wide&#x27;</span>, <span class="literal">True</span>)</span><br><span class="line">pd.set_option(<span class="string">&#x27;display.unicode.east_asian_width&#x27;</span>, <span class="literal">True</span>)</span><br><span class="line">pd.set_option(<span class="string">&#x27;display.width&#x27;</span>, <span class="number">180</span>)                       <span class="comment"># 设置打印宽度(**重要**)</span></span><br><span class="line">print(df1)</span><br></pre></td></tr></table></figure>
+<pre><code>                   开盘价  最高价  最低价  收盘价    成交量      成交金额
+date       code                                                          
+2021-05-12 002003    7.32    7.51    7.28    7.48   80536.0  5.980900e+07
+           300999   76.12   76.75   75.11   76.20  146625.0  1.114936e+09
+           603899   86.80   87.85   85.71   86.60   19172.0  1.656046e+08
+2021-05-13 002003    7.44    7.63    7.34    7.55   98429.0  7.403393e+07
+           300999   75.00   75.60   74.04   74.20  144742.0  1.080974e+09
+           603899   85.71   88.12   85.10   87.59   14734.0  1.280291e+08</code></pre>
+<h2 id="问题2-在执行完整的python代码时非jupyter有办法象jupyter中一样输出美观的dataframe表格么">问题2 在执行完整的python代码时(非jupyter)，有办法象jupyter中一样输出美观的dataframe表格么？</h2>
+<p>使用<code>IPython.display</code>来替换<code>print</code>的输出效果。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> display</span><br><span class="line"></span><br><span class="line">display(df)</span><br><span class="line">display(df1)</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+开盘价
+</th>
+<th>
+最高价
+</th>
+<th>
+最低价
+</th>
+<th>
+收盘价
+</th>
+<th>
+成交量
+</th>
+<th>
+成交金额
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="3" valign="top">
+2021-05-12
+</th>
+<th>
+002003
+</th>
+<td>
+7.32
+</td>
+<td>
+7.51
+</td>
+<td>
+7.28
+</td>
+<td>
+7.48
+</td>
+<td>
+80536.0
+</td>
+<td>
+5.980900e+07
+</td>
+</tr>
+<tr>
+<th>
+300999
+</th>
+<td>
+76.12
+</td>
+<td>
+76.75
+</td>
+<td>
+75.11
+</td>
+<td>
+76.20
+</td>
+<td>
+146625.0
+</td>
+<td>
+1.114936e+09
+</td>
+</tr>
+<tr>
+<th>
+603899
+</th>
+<td>
+86.80
+</td>
+<td>
+87.85
+</td>
+<td>
+85.71
+</td>
+<td>
+86.60
+</td>
+<td>
+19172.0
+</td>
+<td>
+1.656046e+08
+</td>
+</tr>
+<tr>
+<th rowspan="3" valign="top">
+2021-05-13
+</th>
+<th>
+002003
+</th>
+<td>
+7.44
+</td>
+<td>
+7.63
+</td>
+<td>
+7.34
+</td>
+<td>
+7.55
+</td>
+<td>
+98429.0
+</td>
+<td>
+7.403393e+07
+</td>
+</tr>
+<tr>
+<th>
+300999
+</th>
+<td>
+75.00
+</td>
+<td>
+75.60
+</td>
+<td>
+74.04
+</td>
+<td>
+74.20
+</td>
+<td>
+144742.0
+</td>
+<td>
+1.080974e+09
+</td>
+</tr>
+<tr>
+<th>
+603899
+</th>
+<td>
+85.71
+</td>
+<td>
+88.12
+</td>
+<td>
+85.10
+</td>
+<td>
+87.59
+</td>
+<td>
+14734.0
+</td>
+<td>
+1.280291e+08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+开盘价
+</th>
+<th>
+最高价
+</th>
+<th>
+最低价
+</th>
+<th>
+收盘价
+</th>
+<th>
+成交量
+</th>
+<th>
+成交金额
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="3" valign="top">
+2021-05-12
+</th>
+<th>
+002003
+</th>
+<td>
+7.32
+</td>
+<td>
+7.51
+</td>
+<td>
+7.28
+</td>
+<td>
+7.48
+</td>
+<td>
+80536.0
+</td>
+<td>
+5.980900e+07
+</td>
+</tr>
+<tr>
+<th>
+300999
+</th>
+<td>
+76.12
+</td>
+<td>
+76.75
+</td>
+<td>
+75.11
+</td>
+<td>
+76.20
+</td>
+<td>
+146625.0
+</td>
+<td>
+1.114936e+09
+</td>
+</tr>
+<tr>
+<th>
+603899
+</th>
+<td>
+86.80
+</td>
+<td>
+87.85
+</td>
+<td>
+85.71
+</td>
+<td>
+86.60
+</td>
+<td>
+19172.0
+</td>
+<td>
+1.656046e+08
+</td>
+</tr>
+<tr>
+<th rowspan="3" valign="top">
+2021-05-13
+</th>
+<th>
+002003
+</th>
+<td>
+7.44
+</td>
+<td>
+7.63
+</td>
+<td>
+7.34
+</td>
+<td>
+7.55
+</td>
+<td>
+98429.0
+</td>
+<td>
+7.403393e+07
+</td>
+</tr>
+<tr>
+<th>
+300999
+</th>
+<td>
+75.00
+</td>
+<td>
+75.60
+</td>
+<td>
+74.04
+</td>
+<td>
+74.20
+</td>
+<td>
+144742.0
+</td>
+<td>
+1.080974e+09
+</td>
+</tr>
+<tr>
+<th>
+603899
+</th>
+<td>
+85.71
+</td>
+<td>
+88.12
+</td>
+<td>
+85.10
+</td>
+<td>
+87.59
+</td>
+<td>
+14734.0
+</td>
+<td>
+1.280291e+08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="问题3-输出dataframe数据时可以不输出索引号么">问题3 输出dataframe数据时，可以不输出索引号么？</h3>
+<p><code>python 2.7</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span> df.to_string(index=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<p><code>python 3</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(df.to_string(index=<span class="literal">False</span>))</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>技术笔记</category>
         <category>python</category>
-        <category>量化投资</category>
       </categories>
       <tags>
-        <tag>python</tag>
-        <tag>pyqt5</tag>
+        <tag>dataframe</tag>
       </tags>
   </entry>
   <entry>
@@ -3216,6 +3157,65 @@ code
       </tags>
   </entry>
   <entry>
+    <title>【Python】使用PYQT5来构建持仓盈亏监控(续)</title>
+    <url>/2021/07/02/%E3%80%90Python%E3%80%91%E4%BD%BF%E7%94%A8PYQT5%E6%9D%A5%E6%9E%84%E5%BB%BA%E6%8C%81%E4%BB%93%E7%9B%88%E4%BA%8F%E7%9B%91%E6%8E%A7%20(%E7%BB%AD)/</url>
+    <content><![CDATA[<h1 id="目的">目的</h1>
+<p>实时通过图形的方式呈现盈亏情况</p>
+<a id="more"></a>
+<h1 id="安装pyqtgraph">安装PyQtgraph</h1>
+<h2 id="安装">安装</h2>
+<p>通过pip进行安装</p>
+<blockquote>
+<p>pip install pyqtgraph</p>
+</blockquote>
+<h2 id="界面设计">界面设计</h2>
+<h3 id="使用qtdesigner来设计界面">使用QtDesigner来设计界面</h3>
+<ol type="1">
+<li>初始界面 初始界面设计如下： <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210514104224.png" /></li>
+</ol>
+<p>在此基础上，增加一个<code>label</code>及<code>widget</code>。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210702091127.png" /></p>
+<p>将widget重命名为<code>“graphWidget"</code>。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210702091239.png" /></p>
+<p>点击右键，选择<code>“提升为...”</code>， 提升的类名称为<code>“PlotWidget”</code>, 头文件为<code>“pyqtgraph”</code>。</p>
+<figure>
+<img src="C:\Users\junlv\AppData\Roaming\Typora\typora-user-images\image-20210702091446161.png" alt="image-20210702091446161" /><figcaption aria-hidden="true">image-20210702091446161</figcaption>
+</figure>
+<p>之所以使用这种方法，是因为按一般做法，利用Qt Designer新建一个布局，在代码中动态添加一个PlotWidget到这个布局来实现，代码如下:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pyqtgraph <span class="keyword">as</span> pg</span><br><span class="line">plot_plt = pg.PlotWidget(background=(<span class="number">69</span>,<span class="number">69</span>,<span class="number">69</span>), axisItems=&#123;<span class="string">&#x27;bottom&#x27;</span>: TimeAxisItem(orientation=<span class="string">&#x27;bottom&#x27;</span>)&#125;)</span><br><span class="line">verticalLayout.addWidget(plot_plt) </span><br></pre></td></tr></table></figure>
+<p>这里指定了背景色及坐标轴使用的模板。</p>
+<p>这样的做法，我一直没有找到控制PlotWidget大小的方法，导致出来的图形结果与我的期望不太一致。因此才尝试在UI设计时就固定住该部件的大小。</p>
+<h3 id="获取数据并展示">获取数据并展示</h3>
+<ol type="1">
+<li><p>将实时取得的持仓盈亏数据存入列表</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">self.data_list = []</span><br><span class="line">self.data_list.append(<span class="built_in">float</span>(self.data_summary[<span class="string">&#x27;day_float_amount&#x27;</span>]))</span><br></pre></td></tr></table></figure></li>
+<li><p>将时间进行时间戳转化存入列表</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">timestamp</span>():</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(time.mktime(datetime.datetime.now().timetuple()))</span><br><span class="line"></span><br><span class="line">self.time_list = []</span><br><span class="line">self.time_list.append(timestamp())</span><br></pre></td></tr></table></figure></li>
+<li><p>坐标轴显示为时间</p>
+<p>默认pyqtgraph会使用0开始的整数来作为坐标轴的值。 这里希望使用实时取到的时间来做为显示的值，因此需要重写pyqtgraph的AxisItem类。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TimeAxisItem</span>(<span class="params">pg.AxisItem</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, *args, **kwargs</span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__(*args, **kwargs)</span><br><span class="line">        <span class="comment">#self.setLabel(text=&#x27;Time&#x27;, units=None)</span></span><br><span class="line">        self.enableAutoSIPrefix(<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">tickStrings</span>(<span class="params">self, values, scale, spacing</span>):</span></span><br><span class="line">        <span class="keyword">return</span> [datetime.datetime.fromtimestamp(value).strftime(<span class="string">&quot;%H:%M:%S&quot;</span>) <span class="keyword">for</span> value <span class="keyword">in</span> values]</span><br></pre></td></tr></table></figure></li>
+<li><p>展示</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">graphWidget.plot().setData(self.model.time_list, self.model.data_list,pen=<span class="string">&#x27;g&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="效果">效果</h1>
+<p>完成后的应用界面效果如下： <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210702094351.png" /></p>
+<h1 id="参考">参考</h1>
+<ol start="4" type="1">
+<li><a href="%5BPyQt5的PyQtGraph实践系列3：实时数据更新绘制图形%20-%20州的先生%20(zmister.com)%5D(https://zmister.com/archives/826.html)">PyQt5的PyQtGraph实践系列3：实时数据更新绘制图形</a></li>
+<li><a href="%5BEmbedding%20PyQtGraph%20(or%20any%20other%20custom%20PyQt5%20widgets)%20from%20Qt%20Designer%20(mfitzp.com)%5D(https://www.mfitzp.com/tutorials/embed-pyqtgraph-custom-widgets-qt-app/)">Embedding custom widgets from Qt Designer</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>python</category>
+        <category>量化投资</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pyqt5</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【Rust】在jupyter notebook中使用Rust</title>
     <url>/2021/01/07/%E3%80%90Rust%E3%80%91%E5%9C%A8jupyter-notebook%E4%B8%AD%E4%BD%BF%E7%94%A8Rust/</url>
     <content><![CDATA[<p>在jupyter notebook中是否也可以像python那样使用呢？ 答案是可以的。现在来记录一下配置步骤。</p>
@@ -3250,27 +3250,6 @@ code
       </tags>
   </entry>
   <entry>
-    <title>【python】multiprocessing进程间的通信（一）队列</title>
-    <url>/2021/01/01/%E3%80%90python%E3%80%91multiprocessing%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/</url>
-    <content><![CDATA[<p>multiprocessing模块支持进程间通信的三种主要形式:<code>队列</code>、<code>管道</code>及<code>共享内存</code>。下面我们来学习一下队列的使用情况。</p>
-<a id="more"></a>
-<h1 id="队列multiprocessing.queue">队列（multiprocessing.queue)</h1>
-<p>队列是线程和进程安全的，也就是一次只能有一个进程或线程进行操作。</p>
-<p><strong>示例：</strong>将子进程产生的信息统一写入父进程，这里是使用pool来创建进程池。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool, RLock, freeze_support,Queue,Pipe</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">from</span> TS_logs <span class="keyword">import</span> TS_log_info</span><br><span class="line"><span class="keyword">from</span>  TS_util <span class="keyword">import</span> (</span><br><span class="line">    TS_util_get_tradelist,</span><br><span class="line">    TS_util_get_real_date,</span><br><span class="line">    TS_util_get_next_datetime,</span><br><span class="line">    TS_util_get_now_time,</span><br><span class="line">    TS_util_date_convert,</span><br><span class="line">    trade_date_sse</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log_c</span>(<span class="params">q,codelist,n</span>):</span>    </span><br><span class="line">    <span class="keyword">for</span> trade_date <span class="keyword">in</span> codelist[n::<span class="number">8</span>]:</span><br><span class="line">        msg = <span class="string">&#x27;&#123;&#125; #Job&#123;&#125; Trying updating data of trade date &#123;&#125; .&#x27;</span> \</span><br><span class="line">                .<span class="built_in">format</span>(datetime.datetime.now().strftime(<span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>),n,trade_date)</span><br><span class="line">        sleep(<span class="number">0.05</span>)</span><br><span class="line">        q.put(msg)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">L = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">8</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:    </span><br><span class="line">    freeze_support()  <span class="comment"># for Windows support</span></span><br><span class="line">    manager = multiprocessing.Manager()</span><br><span class="line">    <span class="comment"># 父进程创建Queue，并传给各个子进程：</span></span><br><span class="line">    q = manager.Queue()</span><br><span class="line">    tqdm.set_lock(RLock())</span><br><span class="line">    codelist = trade_date_sse</span><br><span class="line">    func = functools.partial(log_c,q,codelist)</span><br><span class="line">    p = Pool(initializer=tqdm.set_lock, initargs=(tqdm.get_lock(),))</span><br><span class="line">    p.<span class="built_in">map</span>(func, L)</span><br><span class="line">    p.close()</span><br><span class="line">    p.join()</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> q.empty():</span><br><span class="line">        TS_log_info(q.get())</span><br></pre></td></tr></table></figure>
-<p>如果要使用Pool创建进程，就需要使用multiprocessing.Manager()中的Queue()，而不是multiprocessing.Queue()，否则会得到一条如下的错误信息：<br />
-<code>RuntimeError: Queue objects should only be shared between processes through inheritance.</code></p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>multiprocessing</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【python】multiprocessing进程间的通信（二）管道</title>
     <url>/2021/01/08/%E3%80%90python%E3%80%91multiprocessing%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%EF%BC%88%E4%BA%8C%EF%BC%89%E7%AE%A1%E9%81%93/</url>
     <content><![CDATA[<p><code>multiprocessing.Pipe()</code>用来创建管道，返回两个连接对象，代表管道的两端，一般用于进程或者线程之间的通信，不同于<code>os.pipe()</code>,<code>os.pipe()</code>主要用来创建两个文件描述符，一个读，一个写，是单向的。而<code>multiprocessing.Pipe()</code>则可以双向通信。</p>
@@ -3292,22 +3271,6 @@ code
       <tags>
         <tag>python</tag>
         <tag>multiprocessing</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【python】在多进程下输出日志</title>
-    <url>/2021/01/08/%E3%80%90python%E3%80%91%E5%9C%A8%E5%A4%9A%E8%BF%9B%E7%A8%8B%E4%B8%8B%E8%BE%93%E5%87%BA%E6%97%A5%E5%BF%97/</url>
-    <content><![CDATA[<p>可以利用队列或管道来进行多进程下的日志输出，但<a href="https://docs.python.org/3/howto/logging-cookbook.html#logging-to-a-single-file-from-multiple-processes">官方文档</a>推荐了一种利用<code>logging.SocketHandler</code>的方案来实现多进程日志输出。</p>
-<p>其原理是：多个进程将各自环境下的日志通过<code>Socket</code>发送给一个专门打印日志的进程，这样就可以防止多进程打印的冲突与混乱情况。</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>multiprocessing</tag>
-        <tag>logging</tag>
       </tags>
   </entry>
   <entry>
@@ -3452,59 +3415,40 @@ code
       </tags>
   </entry>
   <entry>
-    <title>【量化投资】贝塔系数的计算</title>
-    <url>/2021/07/17/%E3%80%90%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E3%80%91%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97/</url>
-    <content><![CDATA[<h1 id="目的">目的</h1>
-<p>在量化分析中，经常会需要获取<span class="math inline">\(\beta\)</span>(贝塔系数），那该如何查询或计算该系数呢？</p>
-<h2 id="贝塔系数的含义">贝塔系数的含义</h2>
-<p>贝塔系数衡量了个股或基金相对于整个股市的波动情况。</p>
-<table>
-<thead>
-<tr class="header">
-<th>β范围</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>β=1</td>
-<td>股票或基金的风险收益率与市场平均风险收益率相同</td>
-</tr>
-<tr class="even">
-<td>β&gt;1</td>
-<td>股票或基金的风险相较于市场平均更大</td>
-</tr>
-<tr class="odd">
-<td>β&lt;1</td>
-<td>股票或基金的风险相较于市场平均更小</td>
-</tr>
-</tbody>
-</table>
+    <title>【python】multiprocessing进程间的通信（一）队列</title>
+    <url>/2021/01/01/%E3%80%90python%E3%80%91multiprocessing%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/</url>
+    <content><![CDATA[<p>multiprocessing模块支持进程间通信的三种主要形式:<code>队列</code>、<code>管道</code>及<code>共享内存</code>。下面我们来学习一下队列的使用情况。</p>
 <a id="more"></a>
-<h2 id="查询">查询</h2>
-<p>可以在<a href="http://www.iwencai.com/stockpick/search?typed=1&amp;preParams=&amp;ts=1&amp;f=1&amp;qs=stockpick_ambiguity_index&amp;selfsectsn=&amp;querytype=stock&amp;searchfilter=&amp;tid=stockpick&amp;multiIndex=%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0&amp;stockpick&amp;w=%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0">同花顺网站</a>中查到上市公司当日的贝塔系数。</p>
-<h2 id="计算">计算</h2>
-<p>相对于沪深300指数(000300.SH)的beta系数计算方式如下：<br />
-<span class="math inline">\(\beta_i = \frac{标的资产i的收益与市场收益的协方差}{市场收益的方差} = \frac{Cov(r_i,r_m)}{\sigma_m^2}\)</span></p>
-<p>例1、顺丰控股(002352.SZ)相对于沪深300指数(000300.SH)的beta系数计算，一定周期的沪深300指数(000300.SH)与顺丰控股(002352.SZ)的每日涨跌幅，如：2019年全年。</p>
-<p>关于协方差、方差的计算方法:<br />
-<a href="https://nokiasonic.github.io/2021/07/16/%E3%80%90Python%E3%80%91Pandas%E4%B9%8Bdataframe%E4%B8%8Eseries%E7%9A%84%E5%8D%8F%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97/">【Python】Pandas之dataframe与series的协方差计算</a><br />
-<a href="https://nokiasonic.github.io/2021/07/16/%E3%80%90Python%E3%80%91Pandas%E4%B9%8B%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97/">【Python】Pandas、Numpy之方差计算</a></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> QUANTAXIS <span class="keyword">as</span> QA</span><br><span class="line"><span class="keyword">from</span> IPython.core.interactiveshell <span class="keyword">import</span> InteractiveShell</span><br><span class="line">InteractiveShell.ast_node_interactivity = <span class="string">&quot;all&quot;</span> </span><br><span class="line"></span><br><span class="line">stock = QA.QA_fetch_stock_day_adv(<span class="string">&#x27;002352&#x27;</span>,<span class="string">&#x27;2018-12-28&#x27;</span>,<span class="string">&#x27;2019-12-31&#x27;</span>)</span><br><span class="line">index = QA.QA_fetch_index_day_adv(<span class="string">&#x27;000300&#x27;</span>,<span class="string">&#x27;2018-12-28&#x27;</span>,<span class="string">&#x27;2019-12-31&#x27;</span>)</span><br><span class="line"></span><br><span class="line">returns_stock = stock.data.close.pct_change()</span><br><span class="line">returns_index = index.data.close.pct_change()</span><br><span class="line"><span class="comment">#计算两组数据的协方差</span></span><br><span class="line">covr = np.cov(returns_stock[<span class="number">1</span>:],returns_index[<span class="number">1</span>:])[<span class="number">0</span>][<span class="number">1</span>]</span><br><span class="line"><span class="comment">#计算沪深300指数数据的方差</span></span><br><span class="line">var = np.var(returns_index)</span><br><span class="line"><span class="comment">#计算贝塔值</span></span><br><span class="line">beta = covr/var</span><br><span class="line">print(<span class="string">&quot;Covariance:&#123;&#125;,Variance:&#123;&#125;,Beta:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(covr,var,beta))</span><br></pre></td></tr></table></figure>
-<pre><code>Covariance:9.712842264272448e-05,Variance:0.00015577588074696037,Beta:0.6235138724748936</code></pre>
-<h1 id="参考">参考</h1>
-<p>1/ <a href="https://wiki.mbalib.com/wiki/%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0">贝塔系数</a><br />
-2/ <a href="https://zhuanlan.zhihu.com/p/136858300">股票β系数（贝塔、beta）计算的具体操作</a><br />
-3/ <a href="https://blog.csdn.net/thfyshz/article/details/83443783?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-2.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-2.control">Python计算贝塔系数和夏普比率</a></p>
+<h1 id="队列multiprocessing.queue">队列（multiprocessing.queue)</h1>
+<p>队列是线程和进程安全的，也就是一次只能有一个进程或线程进行操作。</p>
+<p><strong>示例：</strong>将子进程产生的信息统一写入父进程，这里是使用pool来创建进程池。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool, RLock, freeze_support,Queue,Pipe</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">from</span> TS_logs <span class="keyword">import</span> TS_log_info</span><br><span class="line"><span class="keyword">from</span>  TS_util <span class="keyword">import</span> (</span><br><span class="line">    TS_util_get_tradelist,</span><br><span class="line">    TS_util_get_real_date,</span><br><span class="line">    TS_util_get_next_datetime,</span><br><span class="line">    TS_util_get_now_time,</span><br><span class="line">    TS_util_date_convert,</span><br><span class="line">    trade_date_sse</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log_c</span>(<span class="params">q,codelist,n</span>):</span>    </span><br><span class="line">    <span class="keyword">for</span> trade_date <span class="keyword">in</span> codelist[n::<span class="number">8</span>]:</span><br><span class="line">        msg = <span class="string">&#x27;&#123;&#125; #Job&#123;&#125; Trying updating data of trade date &#123;&#125; .&#x27;</span> \</span><br><span class="line">                .<span class="built_in">format</span>(datetime.datetime.now().strftime(<span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>),n,trade_date)</span><br><span class="line">        sleep(<span class="number">0.05</span>)</span><br><span class="line">        q.put(msg)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">L = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">8</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:    </span><br><span class="line">    freeze_support()  <span class="comment"># for Windows support</span></span><br><span class="line">    manager = multiprocessing.Manager()</span><br><span class="line">    <span class="comment"># 父进程创建Queue，并传给各个子进程：</span></span><br><span class="line">    q = manager.Queue()</span><br><span class="line">    tqdm.set_lock(RLock())</span><br><span class="line">    codelist = trade_date_sse</span><br><span class="line">    func = functools.partial(log_c,q,codelist)</span><br><span class="line">    p = Pool(initializer=tqdm.set_lock, initargs=(tqdm.get_lock(),))</span><br><span class="line">    p.<span class="built_in">map</span>(func, L)</span><br><span class="line">    p.close()</span><br><span class="line">    p.join()</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> q.empty():</span><br><span class="line">        TS_log_info(q.get())</span><br></pre></td></tr></table></figure>
+<p>如果要使用Pool创建进程，就需要使用multiprocessing.Manager()中的Queue()，而不是multiprocessing.Queue()，否则会得到一条如下的错误信息：<br />
+<code>RuntimeError: Queue objects should only be shared between processes through inheritance.</code></p>
 ]]></content>
       <categories>
         <category>技术笔记</category>
-        <category>量化投资</category>
+        <category>python</category>
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>线性代数</tag>
-        <tag>贝塔</tag>
+        <tag>multiprocessing</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【python】在多进程下输出日志</title>
+    <url>/2021/01/08/%E3%80%90python%E3%80%91%E5%9C%A8%E5%A4%9A%E8%BF%9B%E7%A8%8B%E4%B8%8B%E8%BE%93%E5%87%BA%E6%97%A5%E5%BF%97/</url>
+    <content><![CDATA[<p>可以利用队列或管道来进行多进程下的日志输出，但<a href="https://docs.python.org/3/howto/logging-cookbook.html#logging-to-a-single-file-from-multiple-processes">官方文档</a>推荐了一种利用<code>logging.SocketHandler</code>的方案来实现多进程日志输出。</p>
+<p>其原理是：多个进程将各自环境下的日志通过<code>Socket</code>发送给一个专门打印日志的进程，这样就可以防止多进程打印的冲突与混乱情况。</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>multiprocessing</tag>
+        <tag>logging</tag>
       </tags>
   </entry>
   <entry>
@@ -3626,6 +3570,80 @@ code
       </tags>
   </entry>
   <entry>
+    <title>【量化投资】通达信板块数据提取</title>
+    <url>/2021/09/06/%E3%80%90%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E3%80%91%E9%80%9A%E8%BE%BE%E4%BF%A1%E6%9D%BF%E5%9D%97%E6%95%B0%E6%8D%AE%E6%8F%90%E5%8F%96/</url>
+    <content><![CDATA[<h1 id="数据提取">数据提取</h1>
+<p>从MongoDB中进取通达信板块数据，该数据均通过通达信api从服务器上提取并存入MongoDB。</p>
+<h2 id="实例">实例</h2>
+<h3 id="模糊查询">1. 模糊查询</h3>
+<p>MongoDB 使用 <strong><code>$regex</code></strong> 操作符来设置匹配字符串的正则表达式来进行模糊查询。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"></span><br><span class="line"><span class="comment">#存入数据</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_block_list</span>(<span class="params">database</span>):</span></span><br><span class="line">    stocklist = []</span><br><span class="line">    collection = db[<span class="string">&#x27;stock_block&#x27;</span>]</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> collection.find(&#123;<span class="string">&#x27;blockname&#x27;</span>:&#123;<span class="string">&#x27;$regex&#x27;</span>:<span class="string">&#x27;酒&#x27;</span>&#125;&#125;,&#123;<span class="string">&#x27;_id&#x27;</span>:<span class="number">0</span>,<span class="string">&#x27;code&#x27;</span>:<span class="number">1</span>&#125;):</span><br><span class="line">        stocklist.append(item[<span class="string">&#x27;code&#x27;</span>])</span><br><span class="line">    stocklist = <span class="built_in">list</span>(<span class="built_in">set</span>(stocklist))</span><br><span class="line">    <span class="keyword">return</span> stocklist</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    client = MongoClient(<span class="string">&#x27;localhost&#x27;</span>, <span class="number">27017</span>)</span><br><span class="line">    db = client[<span class="string">&#x27;quantaxis&#x27;</span>]</span><br><span class="line">    stocklist = get_block_list(database=db)</span><br><span class="line">    print(<span class="string">&quot;Total &#123;&#125; stocks are in this block.\n&#123;&#125;&quot;</span>.<span class="built_in">format</span>(<span class="built_in">len</span>(stocklist),stocklist))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Total 69 stocks are in this block.</span><br><span class="line">[&#39;600257&#39;, &#39;000752&#39;, &#39;600616&#39;, &#39;600766&#39;, &#39;600779&#39;, &#39;601579&#39;, &#39;603919&#39;, &#39;603198&#39;, &#39;600771&#39;, &#39;603101&#39;, &#39;600132&#39;, &#39;000524&#39;, &#39;600258&#39;, &#39;605108&#39;, &#39;000428&#39;, &#39;600750&#39;, &#39;000888&#39;, &#39;603025&#39;, &#39;002461&#39;, &#39;600238&#39;, &#39;600754&#39;, &#39;601007&#39;, &#39;000929&#39;, &#39;000596&#39;, &#39;600573&#39;, &#39;600600&#39;, &#39;603299&#39;, &#39;600059&#39;, &#39;600197&#39;, &#39;002772&#39;, &#39;600559&#39;, &#39;300237&#39;, &#39;600260&#39;, &#39;600543&#39;, &#39;000721&#39;, &#39;600084&#39;, &#39;600365&#39;, &#39;000930&#39;, &#39;000858&#39;, &#39;000860&#39;, &#39;603369&#39;, &#39;000568&#39;, &#39;600655&#39;, &#39;600809&#39;, &#39;600702&#39;, &#39;002304&#39;, &#39;002568&#39;, &#39;000869&#39;, &#39;600382&#39;, &#39;600781&#39;, &#39;002342&#39;, &#39;000829&#39;, &#39;600381&#39;, &#39;600199&#39;, &#39;002646&#39;, &#39;603589&#39;, &#39;603777&#39;, &#39;002183&#39;, &#39;000995&#39;, &#39;600252&#39;, &#39;000729&#39;, &#39;603779&#39;, &#39;002803&#39;, &#39;002186&#39;, &#39;600395&#39;, &#39;600696&#39;, &#39;600519&#39;, &#39;000007&#39;, &#39;000799&#39;]</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="提取板块名称">2. 提取板块名称</h3>
+<h4 id="用mongodb命令提取">用MongoDB命令提取</h4>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.getCollection(&#x27;stock_block&#x27;).distinct(&#x27;blockname&#x27;)</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210906121720.png" /></p>
+<h4 id="用pymongo模块提取">用pymongo模块提取</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"></span><br><span class="line">client = MongoClient(<span class="string">&#x27;localhost&#x27;</span>, <span class="number">27017</span>)</span><br><span class="line">db = client[<span class="string">&#x27;quantaxis&#x27;</span>]</span><br><span class="line">collection = db[<span class="string">&#x27;stock_block&#x27;</span>]</span><br><span class="line"></span><br><span class="line">res = collection.distinct(<span class="string">&#x27;blockname&#x27;</span>)</span><br><span class="line">print(res[:<span class="number">10</span>])</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<blockquote>
+<p>[None, '300ESG', '300周期', '300非周', '3D打印', '5G概念', 'BIPV概念', 'C2M概念', 'CRO概念', 'ETC概念']</p>
+</blockquote>
+<p>如需要知道酒类板块的名称，可以采用模糊查询的方式来提取数据。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.getCollection(&#x27;stock_block&#x27;).distinct(&#x27;blockname&#x27;,&#123;&#x27;blockname&#x27;:&#123;$regex:&#x27;酒&#x27;&#125;&#125;)</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210906125011.png" /></p>
+<h3 id="提取板块中的股票代码及名称">3. 提取板块中的股票代码及名称</h3>
+<p>查询板块<code>白酒</code>及<code>白酒概念</code>中的股票列表（包括代码及名称)</p>
+<h4 id="仅提取代码">仅提取代码</h4>
+<h5 id="用mongodb命令提取-1">用MongoDB命令提取</h5>
+<p>因通达信同一板块定义中包含通达信行业、申万行业等不同分类，含有重复项，所以用去重方式进行查询。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.getCollection(&#x27;stock_block&#x27;).distinct(&#x27;code&#x27;,&#123;&#x27;blockname&#x27;:&#x27;白酒&#x27;&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.getCollection(&#x27;stock_block&#x27;).distinct(&#x27;code&#x27;,&#123;&#x27;blockname&#x27;:&#x27;白酒概念&#x27;&#125;)</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210907095910.png" /></p>
+<h5 id="用pymongo模块提取-1">用pymongo模块提取</h5>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"></span><br><span class="line">client = MongoClient(<span class="string">&#x27;localhost&#x27;</span>, <span class="number">27017</span>)</span><br><span class="line">db = client[<span class="string">&#x27;quantaxis&#x27;</span>]</span><br><span class="line">collection = db[<span class="string">&#x27;stock_block&#x27;</span>]</span><br><span class="line"></span><br><span class="line">res = collection.distinct(<span class="string">&#x27;code&#x27;</span>,&#123;<span class="string">&#x27;blockname&#x27;</span>:<span class="string">&#x27;白酒&#x27;</span>&#125;)</span><br><span class="line">print(<span class="string">&quot;Total &#123;&#125; stocks are in this block&quot;</span>.<span class="built_in">format</span>(<span class="built_in">len</span>(res)))</span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
+<p>​</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Total 20 stocks are in this block</span><br><span class="line">[&#x27;000568&#x27;, &#x27;000596&#x27;, &#x27;000799&#x27;, &#x27;000858&#x27;, &#x27;000860&#x27;, &#x27;000995&#x27;, &#x27;002304&#x27;, &#x27;002646&#x27;, &#x27;600197&#x27;, &#x27;600199&#x27;, &#x27;600519&#x27;, &#x27;600559&#x27;, &#x27;600702&#x27;, &#x27;600779&#x27;, &#x27;600809&#x27;, &#x27;603025&#x27;, &#x27;603198&#x27;, &#x27;603369&#x27;, &#x27;603589&#x27;, &#x27;603919&#x27;]</span><br></pre></td></tr></table></figure>
+<h4 id="提取代码及名称">提取代码及名称</h4>
+<p>需要使用联表查询，使用<code>aggregate</code>函数。</p>
+<h5 id="用mongodb命令提取-2">用MongoDB命令提取</h5>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.getCollection(&#x27;stock_block&#x27;).aggregate([&#123;</span><br><span class="line"><span class="meta">  $</span><span class="bash">lookup: &#123; // 左连接</span></span><br><span class="line">    from: &quot;stock_list&quot;,   // 关联到stock_list表</span><br><span class="line">    localField: &quot;code&quot;,   // stock_block 表关联的字段</span><br><span class="line">    foreignField: &quot;code&quot;, // stock_list 表关联的字段</span><br><span class="line">    as: &quot;stock_list&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">&#123; $match : &#123;&#x27;blockname&#x27; : &#x27;白酒&#x27;&#125;&#125;,</span><br><span class="line">&#123; $project: &#123;&#x27;code&#x27;:1,&#x27;stock_list.name&#x27;:1,&#x27;_id&#x27;:0&#125;&#125;,</span><br><span class="line">&#123; $unwind:&#x27;$stock_list&#x27;&#125;,</span><br><span class="line">&#123; $replaceWith:&#123;&#x27;code&#x27;:&#x27;$code&#x27;,&#x27;name&#x27;:&#x27;$stock_list.name&#x27;&#125;&#125;,</span><br><span class="line">&#123; $group: &#123;_id:&#x27;$code&#x27;,&#x27;name&#x27;:&#123; $first:&quot;$name&quot; &#125;&#125;&#125;,</span><br><span class="line">&#123; $replaceWith:&#123;&#x27;code&#x27;:&#x27;$_id&#x27;,&#x27;name&#x27;:&#x27;$name&#x27;&#125;&#125;</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210907113155.png" /></p>
+<h5 id="用pymongo模块提取-2">用pymongo模块提取</h5>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"></span><br><span class="line">client = MongoClient(<span class="string">&#x27;localhost&#x27;</span>, <span class="number">27017</span>)</span><br><span class="line">db = client[<span class="string">&#x27;quantaxis&#x27;</span>]</span><br><span class="line">collection = db[<span class="string">&#x27;stock_block&#x27;</span>]</span><br><span class="line">count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">res = collection.aggregate(</span><br><span class="line">  [</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="string">&#x27;$lookup&#x27;</span>: &#123;    <span class="comment">#左连接              </span></span><br><span class="line">            <span class="string">&#x27;from&#x27;</span>: <span class="string">&quot;stock_list&quot;</span>,    <span class="comment"># 关联到stock_list表</span></span><br><span class="line">            <span class="string">&#x27;localField&#x27;</span>: <span class="string">&quot;code&quot;</span>,    <span class="comment"># stock_block 表关联的字段</span></span><br><span class="line">            <span class="string">&#x27;foreignField&#x27;</span>: <span class="string">&quot;code&quot;</span>,  <span class="comment"># stock_list 表关联的字段</span></span><br><span class="line">            <span class="string">&#x27;as&#x27;</span>: <span class="string">&quot;stock_list&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">&#123; <span class="string">&#x27;$match&#x27;</span> : &#123;<span class="string">&#x27;blockname&#x27;</span> : <span class="string">&#x27;白酒&#x27;</span>&#125;&#125;,</span><br><span class="line">&#123; <span class="string">&#x27;$project&#x27;</span>: &#123;<span class="string">&#x27;code&#x27;</span>:<span class="number">1</span>,<span class="string">&#x27;stock_list.name&#x27;</span>:<span class="number">1</span>,<span class="string">&#x27;_id&#x27;</span>:<span class="number">0</span>&#125;&#125;,</span><br><span class="line">&#123; <span class="string">&#x27;$unwind&#x27;</span>:<span class="string">&#x27;$stock_list&#x27;</span>&#125;,</span><br><span class="line">&#123; <span class="string">&#x27;$replaceWith&#x27;</span>:&#123;<span class="string">&#x27;code&#x27;</span>:<span class="string">&#x27;$code&#x27;</span>,<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;$stock_list.name&#x27;</span>&#125;&#125;,</span><br><span class="line">&#123; <span class="string">&#x27;$group&#x27;</span>: &#123;<span class="string">&#x27;_id&#x27;</span>:<span class="string">&#x27;$code&#x27;</span>,<span class="string">&#x27;name&#x27;</span>:&#123; <span class="string">&#x27;$first&#x27;</span>:<span class="string">&quot;$name&quot;</span> &#125;&#125;&#125;,</span><br><span class="line">&#123; <span class="string">&#x27;$replaceWith&#x27;</span>:&#123;<span class="string">&#x27;code&#x27;</span>:<span class="string">&#x27;$_id&#x27;</span>,<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;$name&#x27;</span>&#125;&#125;</span><br><span class="line"></span><br><span class="line">])</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> res:</span><br><span class="line">    print(item)</span><br><span class="line">    count = count + <span class="number">1</span></span><br><span class="line">print(<span class="string">&quot;Total &#123;&#125; stocks are in this block&quot;</span>.<span class="built_in">format</span>(count))</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>白酒</code>板块</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&#123;&#x27;code&#x27;: &#x27;000858&#x27;, &#x27;name&#x27;: &#x27;五 粮 液&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600519&#x27;, &#x27;name&#x27;: &#x27;贵州茅台&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002646&#x27;, &#x27;name&#x27;: &#x27;青青稞酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600809&#x27;, &#x27;name&#x27;: &#x27;山西汾酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000995&#x27;, &#x27;name&#x27;: &#x27;皇台酒业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603025&#x27;, &#x27;name&#x27;: &#x27;大豪科技&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002304&#x27;, &#x27;name&#x27;: &#x27;洋河股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000596&#x27;, &#x27;name&#x27;: &#x27;古井贡酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600559&#x27;, &#x27;name&#x27;: &#x27;老白干酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603198&#x27;, &#x27;name&#x27;: &#x27;迎驾贡酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000799&#x27;, &#x27;name&#x27;: &#x27;酒鬼酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603369&#x27;, &#x27;name&#x27;: &#x27;今世缘&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603589&#x27;, &#x27;name&#x27;: &#x27;口子窖&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600779&#x27;, &#x27;name&#x27;: &#x27;水井坊&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600199&#x27;, &#x27;name&#x27;: &#x27;金种子酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600702&#x27;, &#x27;name&#x27;: &#x27;舍得酒业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000860&#x27;, &#x27;name&#x27;: &#x27;顺鑫农业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603919&#x27;, &#x27;name&#x27;: &#x27;金徽酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000568&#x27;, &#x27;name&#x27;: &#x27;泸州老窖&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600197&#x27;, &#x27;name&#x27;: &#x27;伊力特&#x27;&#125;</span><br><span class="line">Total 20 stocks are in this block</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>白酒概念</code>板块</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&#123;&#x27;code&#x27;: &#x27;600238&#x27;, &#x27;name&#x27;: &#x27;海南椰岛&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002304&#x27;, &#x27;name&#x27;: &#x27;洋河股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000596&#x27;, &#x27;name&#x27;: &#x27;古井贡酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600382&#x27;, &#x27;name&#x27;: &#x27;*ST广珠&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600750&#x27;, &#x27;name&#x27;: &#x27;江中药业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600252&#x27;, &#x27;name&#x27;: &#x27;中恒集团&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002646&#x27;, &#x27;name&#x27;: &#x27;青青稞酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600519&#x27;, &#x27;name&#x27;: &#x27;贵州茅台&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600696&#x27;, &#x27;name&#x27;: &#x27;岩石股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600771&#x27;, &#x27;name&#x27;: &#x27;广誉远&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600809&#x27;, &#x27;name&#x27;: &#x27;山西汾酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603919&#x27;, &#x27;name&#x27;: &#x27;金徽酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600655&#x27;, &#x27;name&#x27;: &#x27;豫园股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000888&#x27;, &#x27;name&#x27;: &#x27;峨眉山Ａ&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000930&#x27;, &#x27;name&#x27;: &#x27;中粮科技&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000829&#x27;, &#x27;name&#x27;: &#x27;天音控股&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002183&#x27;, &#x27;name&#x27;: &#x27;怡 亚 通&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002342&#x27;, &#x27;name&#x27;: &#x27;巨力索具&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000799&#x27;, &#x27;name&#x27;: &#x27;酒鬼酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002803&#x27;, &#x27;name&#x27;: &#x27;吉宏股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;300237&#x27;, &#x27;name&#x27;: &#x27;美晨生态&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600257&#x27;, &#x27;name&#x27;: &#x27;大湖股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002772&#x27;, &#x27;name&#x27;: &#x27;众兴菌业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600260&#x27;, &#x27;name&#x27;: &#x27;ST凯乐&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600395&#x27;, &#x27;name&#x27;: &#x27;盘江股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600559&#x27;, &#x27;name&#x27;: &#x27;老白干酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000995&#x27;, &#x27;name&#x27;: &#x27;皇台酒业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600766&#x27;, &#x27;name&#x27;: &#x27;*ST园城&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603101&#x27;, &#x27;name&#x27;: &#x27;汇嘉时代&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603198&#x27;, &#x27;name&#x27;: &#x27;迎驾贡酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603025&#x27;, &#x27;name&#x27;: &#x27;大豪科技&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603369&#x27;, &#x27;name&#x27;: &#x27;今世缘&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603777&#x27;, &#x27;name&#x27;: &#x27;来伊份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000568&#x27;, &#x27;name&#x27;: &#x27;泸州老窖&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600197&#x27;, &#x27;name&#x27;: &#x27;伊力特&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000858&#x27;, &#x27;name&#x27;: &#x27;五 粮 液&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600779&#x27;, &#x27;name&#x27;: &#x27;水井坊&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600199&#x27;, &#x27;name&#x27;: &#x27;金种子酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600702&#x27;, &#x27;name&#x27;: &#x27;舍得酒业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000860&#x27;, &#x27;name&#x27;: &#x27;顺鑫农业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600781&#x27;, &#x27;name&#x27;: &#x27;ST辅仁&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603589&#x27;, &#x27;name&#x27;: &#x27;口子窖&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600381&#x27;, &#x27;name&#x27;: &#x27;青海春天&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603299&#x27;, &#x27;name&#x27;: &#x27;苏盐井神&#x27;&#125;</span><br><span class="line">Total 44 stocks are in this block</span><br></pre></td></tr></table></figure>
+<h3 id="查询股票所属板块">4. 查询股票所属板块</h3>
+<p>以<code>贵州茅台（600519）</code>为例：</p>
+<h4 id="用mongodb命令提取-3">用MongoDB命令提取</h4>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.getCollection(&#x27;stock_block&#x27;).distinct(&#x27;blockname&#x27;,&#123;&#x27;code&#x27;:&#x27;600519&#x27;&#125;)</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210907180637.png" /></p>
+<h4 id="用pymongo模块提取-3">用pymongo模块提取</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"></span><br><span class="line">client = MongoClient(<span class="string">&#x27;localhost&#x27;</span>, <span class="number">27017</span>)</span><br><span class="line">db = client[<span class="string">&#x27;quantaxis&#x27;</span>]</span><br><span class="line">collection = db[<span class="string">&#x27;stock_block&#x27;</span>]</span><br><span class="line"></span><br><span class="line">res = collection.distinct(<span class="string">&#x27;blockname&#x27;</span>,&#123;<span class="string">&#x27;code&#x27;</span>:<span class="string">&#x27;600519&#x27;</span>&#125;)</span><br><span class="line">print(<span class="string">&quot;The stock belongs to Total &#123;&#125; blocks&quot;</span>.<span class="built_in">format</span>(<span class="built_in">len</span>(res)))</span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">The stock belongs to Total 36 blocks</span><br><span class="line">[&#x27;300ESG&#x27;, &#x27;300非周&#x27;, &#x27;MSCI成份&#x27;, &#x27;上证180&#x27;, &#x27;上证50&#x27;, &#x27;上证混改&#x27;, &#x27;上证超大&#x27;, &#x27;中华A80&#x27;, &#x27;中证100&#x27;, &#x27;中证龙头&#x27;, &#x27;保险重仓&#x27;, &#x27;北上重仓&#x27;, &#x27;国证农业&#x27;, &#x27;国证成长&#x27;, &#x27;基金重仓&#x27;, &#x27;大盘成长&#x27;, &#x27;大盘股&#x27;, &#x27;央视50&#x27;, &#x27;富时A50&#x27;, &#x27;投资时钟&#x27;, &#x27;持续增长&#x27;, &#x27;昨成交20&#x27;, &#x27;沪深300&#x27;, &#x27;泛珠三角&#x27;, &#x27;白酒&#x27;, &#x27;白酒概念&#x27;, &#x27;百元股&#x27;, &#x27;绩优股&#x27;, &#x27;罗素大盘&#x27;, &#x27;股权转让&#x27;, &#x27;融资融券&#x27;, &#x27;行业龙头&#x27;, &#x27;证金汇金&#x27;, &#x27;通达信88&#x27;, &#x27;银河99&#x27;, &#x27;高市净率&#x27;]</span><br></pre></td></tr></table></figure>
+<h1 id="参考">参考</h1>
+<p>1/ <a href="https://docs.mongodb.com/manual/aggregation/">Aggregation — MongoDB Manual</a></p>
+<p>2/ <a href="https://docs.mongodb.com/manual/reference/operator/aggregation/group/">$group (aggregation) — MongoDB Manual</a></p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>量化投资</category>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>通达信</tag>
+        <tag>MongoDB</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用github/gitee来作为图床系统</title>
     <url>/2020/12/10/%E4%BD%BF%E7%94%A8github%E5%8F%8Agitee%E6%9D%A5%E4%BD%9C%E4%B8%BA%E5%9B%BE%E5%BA%8A%E7%B3%BB%E7%BB%9F/</url>
     <content><![CDATA[<p>日常进行博客及其它文章或笔记的写作时，经常需要在文章内容里插入图片。 当文档需要发布或存储到云服务器上时，就需要考虑将引用的图片放置到图床系统中。下面讲述下利用github或gitee来搭建图床系统的方法。</p>
@@ -3679,69 +3697,59 @@ code
       </tags>
   </entry>
   <entry>
-    <title>【量化投资】通达信板块数据提取</title>
-    <url>/2021/09/06/%E3%80%90%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E3%80%91%E9%80%9A%E8%BE%BE%E4%BF%A1%E6%9D%BF%E5%9D%97%E6%95%B0%E6%8D%AE%E6%8F%90%E5%8F%96/</url>
-    <content><![CDATA[<h1 id="数据提取">数据提取</h1>
-<p>从MongoDB中进取通达信板块数据，该数据均通过通达信api从服务器上提取并存入MongoDB。</p>
-<h2 id="实例">实例</h2>
-<h3 id="模糊查询">1. 模糊查询</h3>
-<p>MongoDB 使用 <strong><code>$regex</code></strong> 操作符来设置匹配字符串的正则表达式来进行模糊查询。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"></span><br><span class="line"><span class="comment">#存入数据</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_block_list</span>(<span class="params">database</span>):</span></span><br><span class="line">    stocklist = []</span><br><span class="line">    collection = db[<span class="string">&#x27;stock_block&#x27;</span>]</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> collection.find(&#123;<span class="string">&#x27;blockname&#x27;</span>:&#123;<span class="string">&#x27;$regex&#x27;</span>:<span class="string">&#x27;酒&#x27;</span>&#125;&#125;,&#123;<span class="string">&#x27;_id&#x27;</span>:<span class="number">0</span>,<span class="string">&#x27;code&#x27;</span>:<span class="number">1</span>&#125;):</span><br><span class="line">        stocklist.append(item[<span class="string">&#x27;code&#x27;</span>])</span><br><span class="line">    stocklist = <span class="built_in">list</span>(<span class="built_in">set</span>(stocklist))</span><br><span class="line">    <span class="keyword">return</span> stocklist</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    client = MongoClient(<span class="string">&#x27;localhost&#x27;</span>, <span class="number">27017</span>)</span><br><span class="line">    db = client[<span class="string">&#x27;quantaxis&#x27;</span>]</span><br><span class="line">    stocklist = get_block_list(database=db)</span><br><span class="line">    print(<span class="string">&quot;Total &#123;&#125; stocks are in this block.\n&#123;&#125;&quot;</span>.<span class="built_in">format</span>(<span class="built_in">len</span>(stocklist),stocklist))</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Total 69 stocks are in this block.</span><br><span class="line">[&#39;600257&#39;, &#39;000752&#39;, &#39;600616&#39;, &#39;600766&#39;, &#39;600779&#39;, &#39;601579&#39;, &#39;603919&#39;, &#39;603198&#39;, &#39;600771&#39;, &#39;603101&#39;, &#39;600132&#39;, &#39;000524&#39;, &#39;600258&#39;, &#39;605108&#39;, &#39;000428&#39;, &#39;600750&#39;, &#39;000888&#39;, &#39;603025&#39;, &#39;002461&#39;, &#39;600238&#39;, &#39;600754&#39;, &#39;601007&#39;, &#39;000929&#39;, &#39;000596&#39;, &#39;600573&#39;, &#39;600600&#39;, &#39;603299&#39;, &#39;600059&#39;, &#39;600197&#39;, &#39;002772&#39;, &#39;600559&#39;, &#39;300237&#39;, &#39;600260&#39;, &#39;600543&#39;, &#39;000721&#39;, &#39;600084&#39;, &#39;600365&#39;, &#39;000930&#39;, &#39;000858&#39;, &#39;000860&#39;, &#39;603369&#39;, &#39;000568&#39;, &#39;600655&#39;, &#39;600809&#39;, &#39;600702&#39;, &#39;002304&#39;, &#39;002568&#39;, &#39;000869&#39;, &#39;600382&#39;, &#39;600781&#39;, &#39;002342&#39;, &#39;000829&#39;, &#39;600381&#39;, &#39;600199&#39;, &#39;002646&#39;, &#39;603589&#39;, &#39;603777&#39;, &#39;002183&#39;, &#39;000995&#39;, &#39;600252&#39;, &#39;000729&#39;, &#39;603779&#39;, &#39;002803&#39;, &#39;002186&#39;, &#39;600395&#39;, &#39;600696&#39;, &#39;600519&#39;, &#39;000007&#39;, &#39;000799&#39;]</span><br></pre></td></tr></table></figure>
+    <title>【量化投资】贝塔系数的计算</title>
+    <url>/2021/07/17/%E3%80%90%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E3%80%91%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97/</url>
+    <content><![CDATA[<h1 id="目的">目的</h1>
+<p>在量化分析中，经常会需要获取<span class="math inline">\(\beta\)</span>(贝塔系数），那该如何查询或计算该系数呢？</p>
+<h2 id="贝塔系数的含义">贝塔系数的含义</h2>
+<p>贝塔系数衡量了个股或基金相对于整个股市的波动情况。</p>
+<table>
+<thead>
+<tr class="header">
+<th>β范围</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>β=1</td>
+<td>股票或基金的风险收益率与市场平均风险收益率相同</td>
+</tr>
+<tr class="even">
+<td>β&gt;1</td>
+<td>股票或基金的风险相较于市场平均更大</td>
+</tr>
+<tr class="odd">
+<td>β&lt;1</td>
+<td>股票或基金的风险相较于市场平均更小</td>
+</tr>
+</tbody>
+</table>
 <a id="more"></a>
-<h3 id="提取板块名称">2. 提取板块名称</h3>
-<h4 id="用mongodb命令提取">用MongoDB命令提取</h4>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.getCollection(&#x27;stock_block&#x27;).distinct(&#x27;blockname&#x27;)</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210906121720.png" /></p>
-<h4 id="用pymongo模块提取">用pymongo模块提取</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"></span><br><span class="line">client = MongoClient(<span class="string">&#x27;localhost&#x27;</span>, <span class="number">27017</span>)</span><br><span class="line">db = client[<span class="string">&#x27;quantaxis&#x27;</span>]</span><br><span class="line">collection = db[<span class="string">&#x27;stock_block&#x27;</span>]</span><br><span class="line"></span><br><span class="line">res = collection.distinct(<span class="string">&#x27;blockname&#x27;</span>)</span><br><span class="line">print(res[:<span class="number">10</span>])</span><br></pre></td></tr></table></figure>
-<p>输出结果：</p>
-<blockquote>
-<p>[None, '300ESG', '300周期', '300非周', '3D打印', '5G概念', 'BIPV概念', 'C2M概念', 'CRO概念', 'ETC概念']</p>
-</blockquote>
-<p>如需要知道酒类板块的名称，可以采用模糊查询的方式来提取数据。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.getCollection(&#x27;stock_block&#x27;).distinct(&#x27;blockname&#x27;,&#123;&#x27;blockname&#x27;:&#123;$regex:&#x27;酒&#x27;&#125;&#125;)</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210906125011.png" /></p>
-<h3 id="提取板块中的股票代码及名称">3. 提取板块中的股票代码及名称</h3>
-<p>查询板块<code>白酒</code>及<code>白酒概念</code>中的股票列表（包括代码及名称)</p>
-<h4 id="仅提取代码">仅提取代码</h4>
-<h5 id="用mongodb命令提取-1">用MongoDB命令提取</h5>
-<p>因通达信同一板块定义中包含通达信行业、申万行业等不同分类，含有重复项，所以用去重方式进行查询。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.getCollection(&#x27;stock_block&#x27;).distinct(&#x27;code&#x27;,&#123;&#x27;blockname&#x27;:&#x27;白酒&#x27;&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.getCollection(&#x27;stock_block&#x27;).distinct(&#x27;code&#x27;,&#123;&#x27;blockname&#x27;:&#x27;白酒概念&#x27;&#125;)</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210907095910.png" /></p>
-<h5 id="用pymongo模块提取-1">用pymongo模块提取</h5>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"></span><br><span class="line">client = MongoClient(<span class="string">&#x27;localhost&#x27;</span>, <span class="number">27017</span>)</span><br><span class="line">db = client[<span class="string">&#x27;quantaxis&#x27;</span>]</span><br><span class="line">collection = db[<span class="string">&#x27;stock_block&#x27;</span>]</span><br><span class="line"></span><br><span class="line">res = collection.distinct(<span class="string">&#x27;code&#x27;</span>,&#123;<span class="string">&#x27;blockname&#x27;</span>:<span class="string">&#x27;白酒&#x27;</span>&#125;)</span><br><span class="line">print(<span class="string">&quot;Total &#123;&#125; stocks are in this block&quot;</span>.<span class="built_in">format</span>(<span class="built_in">len</span>(res)))</span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
-<p>​</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Total 20 stocks are in this block</span><br><span class="line">[&#x27;000568&#x27;, &#x27;000596&#x27;, &#x27;000799&#x27;, &#x27;000858&#x27;, &#x27;000860&#x27;, &#x27;000995&#x27;, &#x27;002304&#x27;, &#x27;002646&#x27;, &#x27;600197&#x27;, &#x27;600199&#x27;, &#x27;600519&#x27;, &#x27;600559&#x27;, &#x27;600702&#x27;, &#x27;600779&#x27;, &#x27;600809&#x27;, &#x27;603025&#x27;, &#x27;603198&#x27;, &#x27;603369&#x27;, &#x27;603589&#x27;, &#x27;603919&#x27;]</span><br></pre></td></tr></table></figure>
-<h4 id="提取代码及名称">提取代码及名称</h4>
-<p>需要使用联表查询，使用<code>aggregate</code>函数。</p>
-<h5 id="用mongodb命令提取-2">用MongoDB命令提取</h5>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.getCollection(&#x27;stock_block&#x27;).aggregate([&#123;</span><br><span class="line"><span class="meta">  $</span><span class="bash">lookup: &#123; // 左连接</span></span><br><span class="line">    from: &quot;stock_list&quot;,   // 关联到stock_list表</span><br><span class="line">    localField: &quot;code&quot;,   // stock_block 表关联的字段</span><br><span class="line">    foreignField: &quot;code&quot;, // stock_list 表关联的字段</span><br><span class="line">    as: &quot;stock_list&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">&#123; $match : &#123;&#x27;blockname&#x27; : &#x27;白酒&#x27;&#125;&#125;,</span><br><span class="line">&#123; $project: &#123;&#x27;code&#x27;:1,&#x27;stock_list.name&#x27;:1,&#x27;_id&#x27;:0&#125;&#125;,</span><br><span class="line">&#123; $unwind:&#x27;$stock_list&#x27;&#125;,</span><br><span class="line">&#123; $replaceWith:&#123;&#x27;code&#x27;:&#x27;$code&#x27;,&#x27;name&#x27;:&#x27;$stock_list.name&#x27;&#125;&#125;,</span><br><span class="line">&#123; $group: &#123;_id:&#x27;$code&#x27;,&#x27;name&#x27;:&#123; $first:&quot;$name&quot; &#125;&#125;&#125;,</span><br><span class="line">&#123; $replaceWith:&#123;&#x27;code&#x27;:&#x27;$_id&#x27;,&#x27;name&#x27;:&#x27;$name&#x27;&#125;&#125;</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210907113155.png" /></p>
-<h5 id="用pymongo模块提取-2">用pymongo模块提取</h5>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"></span><br><span class="line">client = MongoClient(<span class="string">&#x27;localhost&#x27;</span>, <span class="number">27017</span>)</span><br><span class="line">db = client[<span class="string">&#x27;quantaxis&#x27;</span>]</span><br><span class="line">collection = db[<span class="string">&#x27;stock_block&#x27;</span>]</span><br><span class="line">count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">res = collection.aggregate(</span><br><span class="line">  [</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="string">&#x27;$lookup&#x27;</span>: &#123;    <span class="comment">#左连接              </span></span><br><span class="line">            <span class="string">&#x27;from&#x27;</span>: <span class="string">&quot;stock_list&quot;</span>,    <span class="comment"># 关联到stock_list表</span></span><br><span class="line">            <span class="string">&#x27;localField&#x27;</span>: <span class="string">&quot;code&quot;</span>,    <span class="comment"># stock_block 表关联的字段</span></span><br><span class="line">            <span class="string">&#x27;foreignField&#x27;</span>: <span class="string">&quot;code&quot;</span>,  <span class="comment"># stock_list 表关联的字段</span></span><br><span class="line">            <span class="string">&#x27;as&#x27;</span>: <span class="string">&quot;stock_list&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">&#123; <span class="string">&#x27;$match&#x27;</span> : &#123;<span class="string">&#x27;blockname&#x27;</span> : <span class="string">&#x27;白酒&#x27;</span>&#125;&#125;,</span><br><span class="line">&#123; <span class="string">&#x27;$project&#x27;</span>: &#123;<span class="string">&#x27;code&#x27;</span>:<span class="number">1</span>,<span class="string">&#x27;stock_list.name&#x27;</span>:<span class="number">1</span>,<span class="string">&#x27;_id&#x27;</span>:<span class="number">0</span>&#125;&#125;,</span><br><span class="line">&#123; <span class="string">&#x27;$unwind&#x27;</span>:<span class="string">&#x27;$stock_list&#x27;</span>&#125;,</span><br><span class="line">&#123; <span class="string">&#x27;$replaceWith&#x27;</span>:&#123;<span class="string">&#x27;code&#x27;</span>:<span class="string">&#x27;$code&#x27;</span>,<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;$stock_list.name&#x27;</span>&#125;&#125;,</span><br><span class="line">&#123; <span class="string">&#x27;$group&#x27;</span>: &#123;<span class="string">&#x27;_id&#x27;</span>:<span class="string">&#x27;$code&#x27;</span>,<span class="string">&#x27;name&#x27;</span>:&#123; <span class="string">&#x27;$first&#x27;</span>:<span class="string">&quot;$name&quot;</span> &#125;&#125;&#125;,</span><br><span class="line">&#123; <span class="string">&#x27;$replaceWith&#x27;</span>:&#123;<span class="string">&#x27;code&#x27;</span>:<span class="string">&#x27;$_id&#x27;</span>,<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;$name&#x27;</span>&#125;&#125;</span><br><span class="line"></span><br><span class="line">])</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> res:</span><br><span class="line">    print(item)</span><br><span class="line">    count = count + <span class="number">1</span></span><br><span class="line">print(<span class="string">&quot;Total &#123;&#125; stocks are in this block&quot;</span>.<span class="built_in">format</span>(count))</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>白酒</code>板块</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&#123;&#x27;code&#x27;: &#x27;000858&#x27;, &#x27;name&#x27;: &#x27;五 粮 液&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600519&#x27;, &#x27;name&#x27;: &#x27;贵州茅台&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002646&#x27;, &#x27;name&#x27;: &#x27;青青稞酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600809&#x27;, &#x27;name&#x27;: &#x27;山西汾酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000995&#x27;, &#x27;name&#x27;: &#x27;皇台酒业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603025&#x27;, &#x27;name&#x27;: &#x27;大豪科技&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002304&#x27;, &#x27;name&#x27;: &#x27;洋河股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000596&#x27;, &#x27;name&#x27;: &#x27;古井贡酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600559&#x27;, &#x27;name&#x27;: &#x27;老白干酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603198&#x27;, &#x27;name&#x27;: &#x27;迎驾贡酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000799&#x27;, &#x27;name&#x27;: &#x27;酒鬼酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603369&#x27;, &#x27;name&#x27;: &#x27;今世缘&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603589&#x27;, &#x27;name&#x27;: &#x27;口子窖&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600779&#x27;, &#x27;name&#x27;: &#x27;水井坊&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600199&#x27;, &#x27;name&#x27;: &#x27;金种子酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600702&#x27;, &#x27;name&#x27;: &#x27;舍得酒业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000860&#x27;, &#x27;name&#x27;: &#x27;顺鑫农业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603919&#x27;, &#x27;name&#x27;: &#x27;金徽酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000568&#x27;, &#x27;name&#x27;: &#x27;泸州老窖&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600197&#x27;, &#x27;name&#x27;: &#x27;伊力特&#x27;&#125;</span><br><span class="line">Total 20 stocks are in this block</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>白酒概念</code>板块</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&#123;&#x27;code&#x27;: &#x27;600238&#x27;, &#x27;name&#x27;: &#x27;海南椰岛&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002304&#x27;, &#x27;name&#x27;: &#x27;洋河股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000596&#x27;, &#x27;name&#x27;: &#x27;古井贡酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600382&#x27;, &#x27;name&#x27;: &#x27;*ST广珠&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600750&#x27;, &#x27;name&#x27;: &#x27;江中药业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600252&#x27;, &#x27;name&#x27;: &#x27;中恒集团&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002646&#x27;, &#x27;name&#x27;: &#x27;青青稞酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600519&#x27;, &#x27;name&#x27;: &#x27;贵州茅台&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600696&#x27;, &#x27;name&#x27;: &#x27;岩石股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600771&#x27;, &#x27;name&#x27;: &#x27;广誉远&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600809&#x27;, &#x27;name&#x27;: &#x27;山西汾酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603919&#x27;, &#x27;name&#x27;: &#x27;金徽酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600655&#x27;, &#x27;name&#x27;: &#x27;豫园股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000888&#x27;, &#x27;name&#x27;: &#x27;峨眉山Ａ&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000930&#x27;, &#x27;name&#x27;: &#x27;中粮科技&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000829&#x27;, &#x27;name&#x27;: &#x27;天音控股&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002183&#x27;, &#x27;name&#x27;: &#x27;怡 亚 通&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002342&#x27;, &#x27;name&#x27;: &#x27;巨力索具&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000799&#x27;, &#x27;name&#x27;: &#x27;酒鬼酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002803&#x27;, &#x27;name&#x27;: &#x27;吉宏股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;300237&#x27;, &#x27;name&#x27;: &#x27;美晨生态&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600257&#x27;, &#x27;name&#x27;: &#x27;大湖股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002772&#x27;, &#x27;name&#x27;: &#x27;众兴菌业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600260&#x27;, &#x27;name&#x27;: &#x27;ST凯乐&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600395&#x27;, &#x27;name&#x27;: &#x27;盘江股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600559&#x27;, &#x27;name&#x27;: &#x27;老白干酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000995&#x27;, &#x27;name&#x27;: &#x27;皇台酒业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600766&#x27;, &#x27;name&#x27;: &#x27;*ST园城&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603101&#x27;, &#x27;name&#x27;: &#x27;汇嘉时代&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603198&#x27;, &#x27;name&#x27;: &#x27;迎驾贡酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603025&#x27;, &#x27;name&#x27;: &#x27;大豪科技&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603369&#x27;, &#x27;name&#x27;: &#x27;今世缘&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603777&#x27;, &#x27;name&#x27;: &#x27;来伊份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000568&#x27;, &#x27;name&#x27;: &#x27;泸州老窖&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600197&#x27;, &#x27;name&#x27;: &#x27;伊力特&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000858&#x27;, &#x27;name&#x27;: &#x27;五 粮 液&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600779&#x27;, &#x27;name&#x27;: &#x27;水井坊&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600199&#x27;, &#x27;name&#x27;: &#x27;金种子酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600702&#x27;, &#x27;name&#x27;: &#x27;舍得酒业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000860&#x27;, &#x27;name&#x27;: &#x27;顺鑫农业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600781&#x27;, &#x27;name&#x27;: &#x27;ST辅仁&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603589&#x27;, &#x27;name&#x27;: &#x27;口子窖&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600381&#x27;, &#x27;name&#x27;: &#x27;青海春天&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603299&#x27;, &#x27;name&#x27;: &#x27;苏盐井神&#x27;&#125;</span><br><span class="line">Total 44 stocks are in this block</span><br></pre></td></tr></table></figure>
+<h2 id="查询">查询</h2>
+<p>可以在<a href="http://www.iwencai.com/stockpick/search?typed=1&amp;preParams=&amp;ts=1&amp;f=1&amp;qs=stockpick_ambiguity_index&amp;selfsectsn=&amp;querytype=stock&amp;searchfilter=&amp;tid=stockpick&amp;multiIndex=%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0&amp;stockpick&amp;w=%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0">同花顺网站</a>中查到上市公司当日的贝塔系数。</p>
+<h2 id="计算">计算</h2>
+<p>相对于沪深300指数(000300.SH)的beta系数计算方式如下：<br />
+<span class="math inline">\(\beta_i = \frac{标的资产i的收益与市场收益的协方差}{市场收益的方差} = \frac{Cov(r_i,r_m)}{\sigma_m^2}\)</span></p>
+<p>例1、顺丰控股(002352.SZ)相对于沪深300指数(000300.SH)的beta系数计算，一定周期的沪深300指数(000300.SH)与顺丰控股(002352.SZ)的每日涨跌幅，如：2019年全年。</p>
+<p>关于协方差、方差的计算方法:<br />
+<a href="https://nokiasonic.github.io/2021/07/16/%E3%80%90Python%E3%80%91Pandas%E4%B9%8Bdataframe%E4%B8%8Eseries%E7%9A%84%E5%8D%8F%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97/">【Python】Pandas之dataframe与series的协方差计算</a><br />
+<a href="https://nokiasonic.github.io/2021/07/16/%E3%80%90Python%E3%80%91Pandas%E4%B9%8B%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97/">【Python】Pandas、Numpy之方差计算</a></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> QUANTAXIS <span class="keyword">as</span> QA</span><br><span class="line"><span class="keyword">from</span> IPython.core.interactiveshell <span class="keyword">import</span> InteractiveShell</span><br><span class="line">InteractiveShell.ast_node_interactivity = <span class="string">&quot;all&quot;</span> </span><br><span class="line"></span><br><span class="line">stock = QA.QA_fetch_stock_day_adv(<span class="string">&#x27;002352&#x27;</span>,<span class="string">&#x27;2018-12-28&#x27;</span>,<span class="string">&#x27;2019-12-31&#x27;</span>)</span><br><span class="line">index = QA.QA_fetch_index_day_adv(<span class="string">&#x27;000300&#x27;</span>,<span class="string">&#x27;2018-12-28&#x27;</span>,<span class="string">&#x27;2019-12-31&#x27;</span>)</span><br><span class="line"></span><br><span class="line">returns_stock = stock.data.close.pct_change()</span><br><span class="line">returns_index = index.data.close.pct_change()</span><br><span class="line"><span class="comment">#计算两组数据的协方差</span></span><br><span class="line">covr = np.cov(returns_stock[<span class="number">1</span>:],returns_index[<span class="number">1</span>:])[<span class="number">0</span>][<span class="number">1</span>]</span><br><span class="line"><span class="comment">#计算沪深300指数数据的方差</span></span><br><span class="line">var = np.var(returns_index)</span><br><span class="line"><span class="comment">#计算贝塔值</span></span><br><span class="line">beta = covr/var</span><br><span class="line">print(<span class="string">&quot;Covariance:&#123;&#125;,Variance:&#123;&#125;,Beta:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(covr,var,beta))</span><br></pre></td></tr></table></figure>
+<pre><code>Covariance:9.712842264272448e-05,Variance:0.00015577588074696037,Beta:0.6235138724748936</code></pre>
 <h1 id="参考">参考</h1>
-<p>1/ <a href="https://docs.mongodb.com/manual/aggregation/">Aggregation — MongoDB Manual</a></p>
-<p>2/ <a href="https://docs.mongodb.com/manual/reference/operator/aggregation/group/">$group (aggregation) — MongoDB Manual</a></p>
+<p>1/ <a href="https://wiki.mbalib.com/wiki/%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0">贝塔系数</a><br />
+2/ <a href="https://zhuanlan.zhihu.com/p/136858300">股票β系数（贝塔、beta）计算的具体操作</a><br />
+3/ <a href="https://blog.csdn.net/thfyshz/article/details/83443783?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-2.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-2.control">Python计算贝塔系数和夏普比率</a></p>
 ]]></content>
       <categories>
         <category>技术笔记</category>
         <category>量化投资</category>
-        <category>数据库</category>
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>通达信</tag>
-        <tag>MongoDB</tag>
+        <tag>线性代数</tag>
+        <tag>贝塔</tag>
       </tags>
   </entry>
   <entry>
