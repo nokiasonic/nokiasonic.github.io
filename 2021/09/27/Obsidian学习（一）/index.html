@@ -20,23 +20,22 @@
     var CONFIG = {"hostname":"nokiasonic.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="以前使用的是processbar来制作进度条， 听闻tqdm性能更好些，遂尝试使用一下。 12345with tqdm(total&#x3D;len(codelist),ascii&#x3D; True, ncols&#x3D;90,colour&#x3D;&quot;green&quot;) as pbar:    for ts_code in codelist:        pbar.set_description(&quot;">
+  <meta name="description" content="背景 最近对[[【知识管理】Zettelkasten笔记法|Zettelkasten笔记法]]进行学习，也在学习过程中了解到了Obsidian, 它可以帮助人们高效地建立适合自己的知识管理体系。所以在梳理整合自己知识体系的同时，也同步进行了Obsidian的学习。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="tqdm进度条的使用">
-<meta property="og:url" content="https://nokiasonic.github.io/2020/12/23/tqdm%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:title" content="Obsidian学习（一）">
+<meta property="og:url" content="https://nokiasonic.github.io/2021/09/27/Obsidian%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
 <meta property="og:site_name" content="橘子树下">
-<meta property="og:description" content="以前使用的是processbar来制作进度条， 听闻tqdm性能更好些，遂尝试使用一下。 12345with tqdm(total&#x3D;len(codelist),ascii&#x3D; True, ncols&#x3D;90,colour&#x3D;&quot;green&quot;) as pbar:    for ts_code in codelist:        pbar.set_description(&quot;">
+<meta property="og:description" content="背景 最近对[[【知识管理】Zettelkasten笔记法|Zettelkasten笔记法]]进行学习，也在学习过程中了解到了Obsidian, 它可以帮助人们高效地建立适合自己的知识管理体系。所以在梳理整合自己知识体系的同时，也同步进行了Obsidian的学习。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/nokiasonic/pic/raw/master/img/20201223101745.png">
-<meta property="article:published_time" content="2020-12-23T02:02:40.000Z">
-<meta property="article:modified_time" content="2021-12-13T01:10:35.996Z">
+<meta property="og:image" content="https://gitee.com/nokiasonic/pic/raw/master/img/msedge_481gTyW4AC.png">
+<meta property="article:published_time" content="2021-09-27T13:26:24.000Z">
+<meta property="article:modified_time" content="2021-11-02T14:18:19.836Z">
 <meta property="article:author" content="Jun Lv">
-<meta property="article:tag" content="python">
-<meta property="article:tag" content="tqdm">
+<meta property="article:tag" content="Obsidian&#x2F;学习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/nokiasonic/pic/raw/master/img/20201223101745.png">
+<meta name="twitter:image" content="https://gitee.com/nokiasonic/pic/raw/master/img/msedge_481gTyW4AC.png">
 
-<link rel="canonical" href="https://nokiasonic.github.io/2020/12/23/tqdm%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E4%BD%BF%E7%94%A8/">
+<link rel="canonical" href="https://nokiasonic.github.io/2021/09/27/Obsidian%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">
 
 
 <script id="page-configurations">
@@ -49,7 +48,7 @@
   };
 </script>
 
-  <title>tqdm进度条的使用 | 橘子树下</title>
+  <title>Obsidian学习（一） | 橘子树下</title>
   
 
 
@@ -193,7 +192,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2020/12/23/tqdm%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2021/09/27/Obsidian%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -206,7 +205,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          tqdm进度条的使用
+          Obsidian学习（一）
         </h1>
 
         <div class="post-meta">
@@ -216,14 +215,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-12-23 10:02:40" itemprop="dateCreated datePublished" datetime="2020-12-23T10:02:40+08:00">2020-12-23</time>
+              <time title="创建时间：2021-09-27 21:26:24" itemprop="dateCreated datePublished" datetime="2021-09-27T21:26:24+08:00">2021-09-27</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-13 09:10:35" itemprop="dateModified" datetime="2021-12-13T09:10:35+08:00">2021-12-13</time>
+                <time title="修改时间：2021-11-02 22:18:19" itemprop="dateModified" datetime="2021-11-02T22:18:19+08:00">2021-11-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -231,11 +230,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                  <a href="/categories/%E4%B8%93%E6%A0%8F/" itemprop="url" rel="index"><span itemprop="name">专栏</span></a>
                 </span>
             </span>
 
@@ -255,8 +250,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/12/23/tqdm%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E4%BD%BF%E7%94%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/23/tqdm%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/09/27/Obsidian%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/09/27/Obsidian%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -271,15 +266,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>以前使用的是processbar来制作进度条， 听闻tqdm性能更好些，遂尝试使用一下。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tqdm(total=<span class="built_in">len</span>(codelist),<span class="built_in">ascii</span>= <span class="literal">True</span>, ncols=<span class="number">90</span>,colour=<span class="string">&quot;green&quot;</span>) <span class="keyword">as</span> pbar:</span><br><span class="line">    <span class="keyword">for</span> ts_code <span class="keyword">in</span> codelist:</span><br><span class="line">        pbar.set_description(<span class="string">&quot;Processing %s&quot;</span> % ts_code)</span><br><span class="line">        ......</span><br><span class="line">        pbar.update(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201223101745.png" /></p>
-<p>参数使用：</p>
-<p><code>ascii = True</code>, 缺省是<code>False</code>, 当使用它时，不是以正常块状来做进度条，而是以"123456789#"的方式。</p>
-<p><code>ncols = 90</code>, 这里可以根据屏幕大小来进行控制，保证进度条不产生换行的情况。</p>
-<p><code>colour = "green"</code>, 在版本4.5之后引入，可以设置进度条的颜色。</p>
-<p><code>desc</code>或利用<code>set_desciption</code>，用来设置进度条左侧的文字信息。</p>
-<p>从使用情况来看，还是比较令人满意的。</p>
+        <h1 id="背景">背景</h1>
+<p>最近对[[【知识管理】Zettelkasten笔记法|Zettelkasten笔记法]]进行学习，也在学习过程中了解到了<code>Obsidian</code>, 它可以帮助人们高效地建立适合自己的知识管理体系。所以在梳理整合自己知识体系的同时，也同步进行了<code>Obsidian</code>的学习。</p>
+<a id="more"></a>
+<h1 id="obsidian是什么">Obsidian是什么？</h1>
+<p><code>Obsidian</code>是什么？正如其<a target="_blank" rel="noopener" href="https://obsidian.md/">Obsidian官网</a>宣称的</p>
+<blockquote>
+<p>Obsidian is a powerful knowledge base that works on top of<br />
+a local folder of plain text Markdown files.</p>
+</blockquote>
+<p>从字里行间我们可以了解到，它是基于<strong>Markdown文件</strong>的<strong>本地</strong>知识管理软件，它的特点可以归纳为: - 本地化 - 基于<code>markdown</code> - 知识管理 第三个特点就决定了它与<code>Typora</code>等markdown编辑器有了本质的区别，它是如何体现出它强大的知识管理能力来呢？</p>
+<h1 id="为什么要选择obsidian">为什么要选择Obsidian?</h1>
+<h2 id="个人用户免费">个人用户免费</h2>
+<p>目前类似的<code>Roam Research</code>等软件收费颇高，像<code>Obsidian</code>如此良心的软件并不多见。<br />
+<img src="https://gitee.com/nokiasonic/pic/raw/master/img/msedge_481gTyW4AC.png" /></p>
+<h2 id="数据本地化">数据本地化</h2>
+<p><code>Obsidian</code>很好地保护了自己笔记内容的隐私，而其它笔记软件多由于采用数据库方式来管理笔记，一般使用上传内容至服务提供商的方式来实现，而<code>Obsidian</code>使用所谓的<code>库</code>,实际上就是基于文件夹的方式，建立不同的库，可以使用各自的主题，插件，非常方便。使用本地化结构的知识管理系统，最大的优点在于不依赖于工具软件本身，就算有朝一日，决定不用<code>Obsidian</code>,也可以很容易地将自己的知识管理体系进行迁移。</p>
+<h2 id="与其它软件的联动较强">与其它软件的联动较强</h2>
+<p>可以与<code>Zotero</code>联动实现文献管理互动，可以与<code>logseq</code>联动实现日程管理等等，总而言之，通过有效地使用工具，高效地提升自己的知识管理能力及执行能力。</p>
+<h2 id="良好生态的社区环境与丰富的插件">良好生态的社区环境与丰富的插件</h2>
+<p><code>Obsidian</code>的社区生态良好，开发了许多实用的第三方插件。</p>
+<p><a target="_blank" rel="noopener" href="https://forum.obsidian.md/">Obsidian英文社区</a> <a target="_blank" rel="noopener" href="https://forum-zh.obsidian.md/">Obsidian中文社区</a> 在软件设置里的<code>社区插件</code>中关闭<code>安全模式</code>后，可以安装自己需要的插件。</p>
+<h2 id="优秀的移动端体验">优秀的移动端体验</h2>
+<p>在<code>android</code>和<code>ios</code>下都有APP可以安装使用。</p>
+<h1 id="obsidian能做什么">Obsidian能做什么？</h1>
+<h2 id="撰写技术文章">撰写技术文章</h2>
+<p>对于一直习惯用markdown方式来写技术文章的人，<code>Obsidian</code>也提供了不亚于<code>Typora</code>的写作体验。</p>
+<h2 id="计划">计划</h2>
+<p>例如日清单，工作计划等都可以使用或通过<code>Obsidian</code>及其插件进行。</p>
+<h2 id="读书笔记">读书笔记</h2>
+<p>以前一直是用<code>Notion</code>来作读书笔记，但相对于把思绪集中在写作内容上，<code>Notion</code>会花费相对多的时间来进行版面的设计。而使用markdown方式的便利性在使用<code>Obsidian</code>的过程中就得到了体现。</p>
+<h2 id="双向链接与知识图谱">双向链接与知识图谱</h2>
+<p>这也是目前流行的笔记推崇的概念，目的是把头脑里杂乱无章的知识网状化，系统化。</p>
+<h1 id="写在最后">写在最后</h1>
+<p>无论工具多么先进，最终还是要看执行的人是否真正把关注点放在工具要解决的事务上，而非纠缠、沉溺于工具本身。 希望通过<code>Obsidian</code>学习的同时，也为自己初步建立一个适合自己的知识管理体系。</p>
 
     </div>
 
@@ -289,8 +309,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/python/" rel="tag"># python</a>
-              <a href="/tags/tqdm/" rel="tag"># tqdm</a>
+              <a href="/tags/Obsidian-%E5%AD%A6%E4%B9%A0/" rel="tag"># Obsidian/学习</a>
           </div>
 
         
@@ -299,12 +318,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/12/23/docker%E5%88%9B%E5%BB%BA%E7%9A%84vhdx%E6%96%87%E4%BB%B6%E6%97%A0%E6%B3%95%E7%A7%BB%E5%8A%A8%E6%88%96%E5%88%A0%E9%99%A4/" rel="prev" title="docker创建的vhdx文件无法移动或删除">
-      <i class="fa fa-chevron-left"></i> docker创建的vhdx文件无法移动或删除
+    <a href="/2021/09/24/%E3%80%90%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6%E3%80%91ShareX%E6%88%AA%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="【应用软件】ShareX截图工具的使用">
+      <i class="fa fa-chevron-left"></i> 【应用软件】ShareX截图工具的使用
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/01/01/%E3%80%90python%E3%80%91multiprocessing%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/" rel="next" title="【python】multiprocessing进程间的通信（一）队列">
-      【python】multiprocessing进程间的通信（一）队列 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/10/09/Obsidian%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/" rel="next" title="Obsidian学习（二）">
+      Obsidian学习（二） <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -365,6 +384,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#obsidian%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">2.</span> <span class="nav-text">Obsidian是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%80%89%E6%8B%A9obsidian"><span class="nav-number">3.</span> <span class="nav-text">为什么要选择Obsidian?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AA%E4%BA%BA%E7%94%A8%E6%88%B7%E5%85%8D%E8%B4%B9"><span class="nav-number">3.1.</span> <span class="nav-text">个人用户免费</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%9C%AC%E5%9C%B0%E5%8C%96"><span class="nav-number">3.2.</span> <span class="nav-text">数据本地化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8E%E5%85%B6%E5%AE%83%E8%BD%AF%E4%BB%B6%E7%9A%84%E8%81%94%E5%8A%A8%E8%BE%83%E5%BC%BA"><span class="nav-number">3.3.</span> <span class="nav-text">与其它软件的联动较强</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%89%AF%E5%A5%BD%E7%94%9F%E6%80%81%E7%9A%84%E7%A4%BE%E5%8C%BA%E7%8E%AF%E5%A2%83%E4%B8%8E%E4%B8%B0%E5%AF%8C%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="nav-number">3.4.</span> <span class="nav-text">良好生态的社区环境与丰富的插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E7%A7%80%E7%9A%84%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%BD%93%E9%AA%8C"><span class="nav-number">3.5.</span> <span class="nav-text">优秀的移动端体验</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#obsidian%E8%83%BD%E5%81%9A%E4%BB%80%E4%B9%88"><span class="nav-number">4.</span> <span class="nav-text">Obsidian能做什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%92%B0%E5%86%99%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0"><span class="nav-number">4.1.</span> <span class="nav-text">撰写技术文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E5%88%92"><span class="nav-number">4.2.</span> <span class="nav-text">计划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0"><span class="nav-number">4.3.</span> <span class="nav-text">读书笔记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8C%E5%90%91%E9%93%BE%E6%8E%A5%E4%B8%8E%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1"><span class="nav-number">4.4.</span> <span class="nav-text">双向链接与知识图谱</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="nav-number">5.</span> <span class="nav-text">写在最后</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
