@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://gitee.com/nokiasonic/pic/raw/master/img/20210927144145.png">
 <meta property="og:image" content="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_YSysK9hAWE.png">
 <meta property="article:published_time" content="2021-09-24T13:06:24.000Z">
-<meta property="article:modified_time" content="2021-09-27T07:02:57.920Z">
+<meta property="article:modified_time" content="2021-09-27T08:18:11.128Z">
 <meta property="article:author" content="Jun Lv">
 <meta property="article:tag" content="shareX">
 <meta property="article:tag" content="效率工具">
@@ -233,7 +233,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-27 15:02:57" itemprop="dateModified" datetime="2021-09-27T15:02:57+08:00">2021-09-27</time>
+                <time title="修改时间：2021-09-27 16:18:11" itemprop="dateModified" datetime="2021-09-27T16:18:11+08:00">2021-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -302,7 +302,10 @@
 <p>其间遇到的问题是，shareX截图加阴影后，会将阴影部分的背景透明化，拷贝到剪粘板再通过picgo上传后，会丢失该部分透明化的背景，而变之为白色背景，这个应该是picgo无法正确从剪粘板上读取shareX处理图片的透明化信息所致。但从生成的文件上传确是正常的。这个与shareX使用.net方法不能正常通过alpha通道来处理剪粘板拷贝内容的透明度有关。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210927144145.png" /> 解决方法： shareX截图后的处理动作里，可以不选择<code>图像复制到剪粘板</code>，而是选择上<code>保存图像文件</code>及<code>将文件复制到剪粘板</code>,通过重新读取文件内容来规避。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_YSysK9hAWE.png" /></p>
 <p>至此, shareX可以满足我对博客图片美化的要求。</p>
 <h1 id="参考">参考</h1>
-<p>1/ <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/338226481"># 一般人都不会用的强大的屏幕截图工具，添加水印、截图特效等，让你的截图更完美！</a> 2/ <a target="_blank" rel="noopener" href="https://getsharex.com/">shareX官网</a> 3/ <a target="_blank" rel="noopener" href="https://docs.github.com/cn/rest">GitHub REST API - GitHub Docs</a> 4/ <a target="_blank" rel="noopener" href="https://gitee.com/api/v5/swagger#/getV5ReposOwnerRepoStargazers?ex=no">Gitee open API</a></p>
+<p>1/ <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/338226481"># 一般人都不会用的强大的屏幕截图工具，添加水印、截图特效等，让你的截图更完美！</a><br />
+2/ <a target="_blank" rel="noopener" href="https://getsharex.com/">shareX官网</a><br />
+3/ <a target="_blank" rel="noopener" href="https://docs.github.com/cn/rest">GitHub REST API - GitHub Docs</a><br />
+4/ <a target="_blank" rel="noopener" href="https://gitee.com/api/v5/swagger#/getV5ReposOwnerRepoStargazers?ex=no">Gitee open API</a></p>
 
     </div>
 
@@ -326,7 +329,10 @@
     <a href="/2021/09/11/%E3%80%90cmder%E3%80%91%E5%9C%A8VsCode%E4%BD%BF%E7%94%A8Cmder%E4%BD%9C%E4%B8%BA%E9%BB%98%E8%AE%A4%E7%BB%88%E7%AB%AF/" rel="prev" title="【cmder】在VsCode使用Cmder作为默认终端">
       <i class="fa fa-chevron-left"></i> 【cmder】在VsCode使用Cmder作为默认终端
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/10/25/Obsidian%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -402,7 +408,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -551,7 +557,7 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
       lang       : '' || 'zh-cn',
       path       : location.pathname,
       recordIP   : false,
-      serverURLs : ''
+      serverURLs : 'https://pdewzfu7.api.lncldglobal.com'
     });
   }, window.Valine);
 });
