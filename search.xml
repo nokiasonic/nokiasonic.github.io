@@ -1,35 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>docker创建的vhdx文件无法移动或删除</title>
-    <url>/2020/12/23/docker%E5%88%9B%E5%BB%BA%E7%9A%84vhdx%E6%96%87%E4%BB%B6%E6%97%A0%E6%B3%95%E7%A7%BB%E5%8A%A8%E6%88%96%E5%88%A0%E9%99%A4/</url>
-    <content><![CDATA[<p>操作系统为win10 professional,由于开始使用docker时没有及时调整img存放的位置，导致C盘空间被耗尽。所以决定迁移img至数据盘。但在通过dockerdeskto setting更改存储位置时，发生了异常，没有完全执行成功。初次重启后无法正常启动docker。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201223092440.png" /></p>
-<p>再次重启后发现原有的vhdx文件没有被迁移至指定的位置， 且无法拷贝，移动或删除，提示无管理员权限。</p>
-<a id="more"></a>
-<p>处理过程如下：</p>
-<ol type="1">
-<li>开启本机Administrator账户：</li>
-</ol>
-<p>​ 快捷键Win + X, 计算机管理 - 系统工具 - 本地用户和组 - 用户， 右键选择"Administrator"属性，取消勾选“账户已禁用”，重启计算机， 然后选择Administrator账号登录即可。</p>
-<p>​ 但是在尝试拷贝及移动vhdx文件时，仍然提示权限不够。没有解决该问题</p>
-<ol start="2" type="1">
-<li><p>恢复docker desktop为出厂设置</p>
-<p>点击右上“troubleshooting”图标，选择恢复出厂设置</p></li>
-</ol>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201223094101.png" /></p>
-<p>重启后， docker及内部的容器都运行正常，再次尝试改变存储位置。这次运行成功， vhdx文件正常迁移到设定目标位置，且 docker及内部的容器都运行正常。问题得以解决，判断是首次操作时出现异常，导致文件迁移未完成且处于死锁状态。</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>docker</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>hyper-v</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Obsidian学习（一）</title>
     <url>/2021/09/27/Obsidian%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/</url>
     <content><![CDATA[<h1 id="背景">背景</h1>
@@ -72,28 +43,6 @@ a local folder of plain text Markdown files.</p>
       </categories>
       <tags>
         <tag>Obsidian/学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>欢迎来到我的博客</title>
-    <url>/2020/11/19/hello-world/</url>
-    <content><![CDATA[<h2 id="橘子的博客终于开通了">橘子的博客终于开通了</h2>
-<p>一直偷懒，最近终于良心发现，总觉以前的光阴虚度，不想未来同样蹉跎岁月，自当奋起，希望能记录下未来成长过程中的点点滴滴想法和经验。</p>
-<p>借词聊表胸怀</p>
-<blockquote>
-<p><font color=green><strong>江城子·密州出猎</strong></font><br />
-<font color=blue><strong>宋 苏轼</strong></font></p>
-<p>老夫聊发少年狂， 左牵黄，右擎苍， 锦帽貂裘，千骑卷平冈。 为报倾城随太守，亲射虎，看孙郎。</p>
-<p>酒酣胸胆尚开张， 鬓微霜，又何妨! 持节云中，何日遣冯唐? 会挽雕弓如满月，西北望，射天狼。</p>
-</blockquote>
-<h2 id="本站用途">本站用途</h2>
-<p>这是个人用来学习研究金融工程，机器学习的小窝，</p>
-]]></content>
-      <categories>
-        <category>美好生活</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -141,25 +90,54 @@ a local folder of plain text Markdown files.</p>
       </tags>
   </entry>
   <entry>
-    <title>tqdm进度条的使用</title>
-    <url>/2020/12/23/tqdm%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p>以前使用的是processbar来制作进度条， 听闻tqdm性能更好些，遂尝试使用一下。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> tqdm(total=<span class="built_in">len</span>(codelist),<span class="built_in">ascii</span>= <span class="literal">True</span>, ncols=<span class="number">90</span>,colour=<span class="string">&quot;green&quot;</span>) <span class="keyword">as</span> pbar:</span><br><span class="line">    <span class="keyword">for</span> ts_code <span class="keyword">in</span> codelist:</span><br><span class="line">        pbar.set_description(<span class="string">&quot;Processing %s&quot;</span> % ts_code)</span><br><span class="line">        ......</span><br><span class="line">        pbar.update(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201223101745.png" /></p>
-<p>参数使用：</p>
-<p><code>ascii = True</code>, 缺省是<code>False</code>, 当使用它时，不是以正常块状来做进度条，而是以"123456789#"的方式。</p>
-<p><code>ncols = 90</code>, 这里可以根据屏幕大小来进行控制，保证进度条不产生换行的情况。</p>
-<p><code>colour = "green"</code>, 在版本4.5之后引入，可以设置进度条的颜色。</p>
-<p><code>desc</code>或利用<code>set_desciption</code>，用来设置进度条左侧的文字信息。</p>
-<p>从使用情况来看，还是比较令人满意的。</p>
+    <title>docker创建的vhdx文件无法移动或删除</title>
+    <url>/2020/12/23/docker%E5%88%9B%E5%BB%BA%E7%9A%84vhdx%E6%96%87%E4%BB%B6%E6%97%A0%E6%B3%95%E7%A7%BB%E5%8A%A8%E6%88%96%E5%88%A0%E9%99%A4/</url>
+    <content><![CDATA[<p>操作系统为win10 professional,由于开始使用docker时没有及时调整img存放的位置，导致C盘空间被耗尽。所以决定迁移img至数据盘。但在通过dockerdeskto setting更改存储位置时，发生了异常，没有完全执行成功。初次重启后无法正常启动docker。</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201223092440.png" /></p>
+<p>再次重启后发现原有的vhdx文件没有被迁移至指定的位置， 且无法拷贝，移动或删除，提示无管理员权限。</p>
+<a id="more"></a>
+<p>处理过程如下：</p>
+<ol type="1">
+<li>开启本机Administrator账户：</li>
+</ol>
+<p>​ 快捷键Win + X, 计算机管理 - 系统工具 - 本地用户和组 - 用户， 右键选择"Administrator"属性，取消勾选“账户已禁用”，重启计算机， 然后选择Administrator账号登录即可。</p>
+<p>​ 但是在尝试拷贝及移动vhdx文件时，仍然提示权限不够。没有解决该问题</p>
+<ol start="2" type="1">
+<li><p>恢复docker desktop为出厂设置</p>
+<p>点击右上“troubleshooting”图标，选择恢复出厂设置</p></li>
+</ol>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201223094101.png" /></p>
+<p>重启后， docker及内部的容器都运行正常，再次尝试改变存储位置。这次运行成功， vhdx文件正常迁移到设定目标位置，且 docker及内部的容器都运行正常。问题得以解决，判断是首次操作时出现异常，导致文件迁移未完成且处于死锁状态。</p>
 ]]></content>
       <categories>
         <category>技术笔记</category>
-        <category>python</category>
+        <category>docker</category>
       </categories>
       <tags>
-        <tag>python</tag>
-        <tag>tqdm</tag>
+        <tag>docker</tag>
+        <tag>hyper-v</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>欢迎来到我的博客</title>
+    <url>/2020/11/19/hello-world/</url>
+    <content><![CDATA[<h2 id="橘子的博客终于开通了">橘子的博客终于开通了</h2>
+<p>一直偷懒，最近终于良心发现，总觉以前的光阴虚度，不想未来同样蹉跎岁月，自当奋起，希望能记录下未来成长过程中的点点滴滴想法和经验。</p>
+<p>借词聊表胸怀</p>
+<blockquote>
+<p><font color=green><strong>江城子·密州出猎</strong></font><br />
+<font color=blue><strong>宋 苏轼</strong></font></p>
+<p>老夫聊发少年狂， 左牵黄，右擎苍， 锦帽貂裘，千骑卷平冈。 为报倾城随太守，亲射虎，看孙郎。</p>
+<p>酒酣胸胆尚开张， 鬓微霜，又何妨! 持节云中，何日遣冯唐? 会挽雕弓如满月，西北望，射天狼。</p>
+</blockquote>
+<h2 id="本站用途">本站用途</h2>
+<p>这是个人用来学习研究金融工程，机器学习的小窝，</p>
+]]></content>
+      <categories>
+        <category>美好生活</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -259,6 +237,28 @@ a local folder of plain text Markdown files.</p>
       <tags>
         <tag>arduino</tag>
         <tag>ESP8266</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>tqdm进度条的使用</title>
+    <url>/2020/12/23/tqdm%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>以前使用的是processbar来制作进度条， 听闻tqdm性能更好些，遂尝试使用一下。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> tqdm(total=<span class="built_in">len</span>(codelist),<span class="built_in">ascii</span>= <span class="literal">True</span>, ncols=<span class="number">90</span>,colour=<span class="string">&quot;green&quot;</span>) <span class="keyword">as</span> pbar:</span><br><span class="line">    <span class="keyword">for</span> ts_code <span class="keyword">in</span> codelist:</span><br><span class="line">        pbar.set_description(<span class="string">&quot;Processing %s&quot;</span> % ts_code)</span><br><span class="line">        ......</span><br><span class="line">        pbar.update(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201223101745.png" /></p>
+<p>参数使用：</p>
+<p><code>ascii = True</code>, 缺省是<code>False</code>, 当使用它时，不是以正常块状来做进度条，而是以"123456789#"的方式。</p>
+<p><code>ncols = 90</code>, 这里可以根据屏幕大小来进行控制，保证进度条不产生换行的情况。</p>
+<p><code>colour = "green"</code>, 在版本4.5之后引入，可以设置进度条的颜色。</p>
+<p><code>desc</code>或利用<code>set_desciption</code>，用来设置进度条左侧的文字信息。</p>
+<p>从使用情况来看，还是比较令人满意的。</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>tqdm</tag>
       </tags>
   </entry>
   <entry>
@@ -3230,6 +3230,64 @@ code
       </tags>
   </entry>
   <entry>
+    <title>【Rust】Rust配置日志记录</title>
+    <url>/2022/04/13/%E3%80%90Rust%E3%80%91Rust%E9%85%8D%E7%BD%AE%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>利用 <code>log</code> 及 <code>env_logger</code>来配置日志。</p>
+<h1 id="简介">简介</h1>
+<h2 id="crate-log"><em>Crate</em> log</h2>
+<h3 id="功能说明">功能说明</h3>
+<p><code>log</code> 提供了一个单独的日志记录 <em>API</em>，给出了日志库的一般抽象，后面具体的日志库需要基于这个抽象实现具体的实例。</p>
+<p>日志请求由目标，级别和内容组成。目标是一个字符串，其默认为日志请求的位置的模块路径，尽管可能会覆盖默认值。记录器实现通常使用目标基于某些用户配置来过滤日志请求。</p>
+<h3 id="记录器实现">记录器实现</h3>
+<p>为了生成日志输出，必须使用与 <code>log</code> 兼容的日志记录器实现。有许多可用的实现可供选择，这里有一些常用的： - 精简版记录器: - <a href="https://docs.rs/env_logger/*/env_logger/">env_logger</a> - <a href="https://github.com/borntyping/rust-simple_logger">simple_logger</a> - <a href="https://github.com/drakulix/simplelog.rs">simplelog</a> - <a href="https://docs.rs/pretty_env_logger/*/pretty_env_logger/">pretty_env_logger</a> - <a href="https://docs.rs/stderrlog/*/stderrlog/">stderrlog</a> - <a href="https://docs.rs/flexi_logger/*/flexi_logger/">flexi_logger</a> - 复杂且可配置的框架: - <a href="https://docs.rs/log4rs/*/log4rs/">log4rs</a> - <a href="https://docs.rs/fern/*/fern/">fern</a> - 专用适配: - <a href="https://docs.rs/syslog/*/syslog/">syslog</a> - <a href="https://docs.rs/slog-stdlog/*/slog_stdlog/">slog-stdlog</a> - <a href="https://docs.rs/log/latest/log/(https://docs.rs/systemd-journal-logger/*/systemd_journal_logger/)">systemd-journal-logger</a> - <a href="https://docs.rs/log/latest/log/(https://docs.rs/android_log/*/android_log/)">android_log</a> - <a href="https://docs.rs/log/latest/log/(https://docs.rs/win_dbg_logger/*/win_dbg_logger/)">win_dbg_logger</a> - WebAssembly可用: - <a href="https://docs.rs/log/latest/log/(https://docs.rs/console_log/*/console_log/)">console_log</a> - 动态库: - 构建在<code>log</code>之上的 FFI-safe wrapper 来初始化库。</p>
+<a id="more"></a>
+<h3 id="日志分级">日志分级</h3>
+<p><code>log</code>的最基本的用法是通过5个宏来实现的。 <strong>定义</strong>如下： <figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="meta">#[repr(usize)]</span></span><br><span class="line"><span class="keyword">pub</span> <span class="class"><span class="keyword">enum</span> <span class="title">Level</span></span> &#123;</span><br><span class="line">    Error,</span><br><span class="line">    Warn,</span><br><span class="line">    Info,</span><br><span class="line">    <span class="built_in">Debug</span>,</span><br><span class="line">    Trace,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> <strong>优先级</strong>：<code>error!</code> &gt; <code>warn!</code> &gt; <code>info!</code> &gt; <code>debug!</code> &gt; <code>trace!</code>。<code>error!</code>的优先级最高，<code>trace!</code>优先级最低。</p>
+<h2 id="crate-env_logger"><em>Crate</em> env_logger</h2>
+<p><code>env_logger</code> 通过配置环境变量来实现日志记录器的功能。</p>
+<h3 id="应用示例">应用示例</h3>
+<ol type="1">
+<li>打印不同级别日志 <figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="meta">#[cfg(test)]</span></span><br><span class="line"><span class="keyword">mod</span> logtests &#123;</span><br><span class="line">    <span class="meta">#[test]</span></span><br><span class="line">    <span class="function"><span class="keyword">fn</span> <span class="title">test_log_default</span></span>()&#123;</span><br><span class="line">		<span class="keyword">use</span> log::&#123;debug, error, warn, info&#125;;</span><br><span class="line"></span><br><span class="line">		env_logger::init();</span><br><span class="line"></span><br><span class="line">		debug!(<span class="string">&quot;debug message&quot;</span>);</span><br><span class="line">		info!(<span class="string">&quot;informational message&quot;</span>);</span><br><span class="line">		warn!(<span class="string">&quot;warning message&quot;</span>);</span><br><span class="line">		error!(<span class="string">&quot;error message&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 运行<code>cargo test -- test_log_default</code>进行测试，结果如下： <img src="https://s2.loli.net/2022/04/13/5BoA2P6TvVd3GCD.png" /> 为什么无法看到 <em>error</em> 以下级别的日志呢？ 从 <code>env_logger</code> 的源代码中有以下说明： &gt;Log levels are controlled on a per-module basis, and <strong>by default all logging is disabled except for the <code>error</code> level</strong>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+</ol>
+<p>基于<code>env_logger</code>的工作模式，需要对 环境变量 <em>RUST_LOG</em> 进行预定义，对以上代码使用以下方式测试。 先设置环境变量 <em>RUST_LOG</em> ，然后运行测试， <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">set</span> RUST_LOG=trace</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cargo <span class="built_in">test</span> -- test_log_default</span></span><br></pre></td></tr></table></figure> 结果如下： <img src="https://s2.loli.net/2022/04/13/MZbY89mlxsUIXBo.png" /></p>
+<ol start="2" type="1">
+<li><p>采用本地时间作为时间戳 这时需要创建日志生成器 <em>builder</em> 中的 <em>format</em> 方法来完成输出格式的配置。 <figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure> 运行<code>set RUST_LOG=trace &amp;&amp; cargo test -- test_log_localtime</code><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> 结果如下： <img src="https://s2.loli.net/2022/04/13/qr49HXw6BNJmakA.png" /> 可以看出， 时间戳已经更改为本地时间，但是整个日志格式比较简陋。</p></li>
+<li><p>输出格式美化 依照默认输出时的格式，在时间戳、级别、目标前后加入方括号。方括号表现为较高亮度，级别用不同颜色区别。</p></li>
+</ol>
+<ul>
+<li>对级别及方括号分别创建样式 <em>Style</em> ，</li>
+<li><em>Style</em> 中的 <em>set_intense</em> 方法用来设置高亮度</li>
+<li><em>Style</em> 中的 <em>set_color</em> 方法用来设置颜色，参数为 <em>enum</em> 类型 <figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="meta">#[non_exhaustive]</span></span><br><span class="line"><span class="keyword">pub</span> <span class="class"><span class="keyword">enum</span> <span class="title">Color</span></span> &#123;</span><br><span class="line">    Black,</span><br><span class="line">    Blue,</span><br><span class="line">    Green,</span><br><span class="line">    Red,</span><br><span class="line">    Cyan,</span><br><span class="line">    Magenta,</span><br><span class="line">    Yellow,</span><br><span class="line">    White,</span><br><span class="line">    Ansi256(<span class="built_in">u8</span>),</span><br><span class="line">    Rgb(<span class="built_in">u8</span>, <span class="built_in">u8</span>, <span class="built_in">u8</span>),</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><em>Style</em> 中的 <em>set_bold</em> 方法用来设置字体粗细</li>
+<li><em>Style</em> 中的 <em>value</em> 方法用来封装需要格式化的内容</li>
+</ul>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="meta">#[test]</span></span><br><span class="line">    <span class="function"><span class="keyword">fn</span> <span class="title">test_log_beautify</span></span>()&#123;</span><br><span class="line">        <span class="keyword">use</span> log::&#123;debug, error, warn, info, trace&#125;;</span><br><span class="line">        <span class="keyword">use</span> env_logger::Builder;</span><br><span class="line">        <span class="keyword">use</span> env_logger::fmt::Color;</span><br><span class="line">        <span class="keyword">use</span> chrono::Local;</span><br><span class="line">        <span class="keyword">use</span> std::io::Write;</span><br><span class="line">        <span class="keyword">use</span> log::Level;      </span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建env_logger生成器， 也可直接写成env_logger::builder()</span></span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">mut</span> builder = Builder::from_default_env();</span><br><span class="line">        </span><br><span class="line">        builder</span><br><span class="line">        .format(|buf, record| &#123;</span><br><span class="line">            <span class="keyword">let</span> <span class="keyword">mut</span> level_style = buf.style();</span><br><span class="line">            <span class="keyword">let</span> <span class="keyword">mut</span> brace_style = buf.style();</span><br><span class="line">            level_style.set_intense(<span class="literal">true</span>);</span><br><span class="line">            <span class="keyword">match</span> record.level() &#123;</span><br><span class="line">                Level::Trace =&gt; level_style.set_color(Color::Cyan).set_bold(<span class="literal">true</span>),</span><br><span class="line">                Level::<span class="built_in">Debug</span> =&gt; level_style.set_color(Color::Blue).set_bold(<span class="literal">true</span>),</span><br><span class="line">                Level::Info =&gt; level_style.set_color(Color::Green).set_bold(<span class="literal">true</span>),</span><br><span class="line">                Level::Warn =&gt; level_style.set_color(Color::Yellow).set_bold(<span class="literal">true</span>),</span><br><span class="line">                Level::Error =&gt; level_style.set_color(Color::Red).set_bold(<span class="literal">true</span>),</span><br><span class="line">            &#125;;</span><br><span class="line">            brace_style.set_color(Color::Black).set_intense(<span class="literal">true</span>);</span><br><span class="line">            <span class="built_in">writeln!</span>(buf, <span class="string">&quot;&#123;&#125;&#123;&#125; &#123;&#125; &#123;&#125;&#123;&#125; &#123;&#125;&quot;</span>, </span><br><span class="line">                    brace_style.value(<span class="string">&quot;[&quot;</span>),</span><br><span class="line">                    Local::now().format(<span class="string">&quot;%Y-%m-%d %H:%M:%S%.3f&quot;</span>), </span><br><span class="line">                    level_style.value(record.level()), </span><br><span class="line">                    record.target(), </span><br><span class="line">                    brace_style.value(<span class="string">&quot;]&quot;</span>), </span><br><span class="line">                    record.args())</span><br><span class="line">           &#125;)</span><br><span class="line">        .init();</span><br><span class="line"></span><br><span class="line">        trace!(<span class="string">&quot;trace message&quot;</span>);</span><br><span class="line">        debug!(<span class="string">&quot;debug message&quot;</span>);</span><br><span class="line">        info!(<span class="string">&quot;informational message&quot;</span>);</span><br><span class="line">        warn!(<span class="string">&quot;warning message&quot;</span>);</span><br><span class="line">        error!(<span class="string">&quot;error message&quot;</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>运行<code>set RUST_LOG=trace &amp;&amp; cargo test -- test_log_beautify</code><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> 结果如下： <img src="https://s2.loli.net/2022/04/13/lvO2d5gfNskSyMJ.png" /></p>
+<h1 id="参考">参考</h1>
+<ol type="1">
+<li><a href="https://docs.rs/crate/log/latest">log 文档</a></li>
+<li><a href="https://docs.rs/crate/env_logger/0.9.0">env_logger 文档</a></li>
+</ol>
+<h1 id="注释">注释</h1>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p><a href="https://docs.rs/env_logger/latest/src/env_logger/lib.rs.html#11-1315">lib.rs - source (docs.rs)</a>, 第92行。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>该命令可以在 <em>cmd</em> 下同时执行多条命令, 命令格式：<strong>command1 &amp;&amp; command2</strong> ，command1执行成后后才能执行command2。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>该命令可以在 <em>cmd</em> 下同时执行多条命令, 命令格式：<strong>command1 &amp;&amp; command2</strong> ，command1执行成后后才能执行command2。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+]]></content>
+      <categories>
+        <category>程序语言</category>
+      </categories>
+      <tags>
+        <tag>计算机技术/程序语言</tag>
+        <tag>Rust</tag>
+        <tag>日志</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【Rust】Rust的安装及卸载升级</title>
     <url>/2021/01/04/%E3%80%90Rust%E3%80%91Rust%E7%9A%84%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD%E5%8F%8A%E5%8D%87%E7%BA%A7/</url>
     <content><![CDATA[<h1 id="安装">安装</h1>
@@ -3338,61 +3396,66 @@ code
       </tags>
   </entry>
   <entry>
-    <title>【Rust】Rust配置日志记录</title>
-    <url>/2022/04/13/%E3%80%90Rust%E3%80%91Rust%E9%85%8D%E7%BD%AE%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<p>利用 <code>log</code> 及 <code>env_logger</code>来配置日志。</p>
-<h1 id="简介">简介</h1>
-<h2 id="crate-log"><em>Crate</em> log</h2>
-<h3 id="功能说明">功能说明</h3>
-<p><code>log</code> 提供了一个单独的日志记录 <em>API</em>，给出了日志库的一般抽象，后面具体的日志库需要基于这个抽象实现具体的实例。</p>
-<p>日志请求由目标，级别和内容组成。目标是一个字符串，其默认为日志请求的位置的模块路径，尽管可能会覆盖默认值。记录器实现通常使用目标基于某些用户配置来过滤日志请求。</p>
-<h3 id="记录器实现">记录器实现</h3>
-<p>为了生成日志输出，必须使用与 <code>log</code> 兼容的日志记录器实现。有许多可用的实现可供选择，这里有一些常用的： - 精简版记录器: - <a href="https://docs.rs/env_logger/*/env_logger/">env_logger</a> - <a href="https://github.com/borntyping/rust-simple_logger">simple_logger</a> - <a href="https://github.com/drakulix/simplelog.rs">simplelog</a> - <a href="https://docs.rs/pretty_env_logger/*/pretty_env_logger/">pretty_env_logger</a> - <a href="https://docs.rs/stderrlog/*/stderrlog/">stderrlog</a> - <a href="https://docs.rs/flexi_logger/*/flexi_logger/">flexi_logger</a> - 复杂且可配置的框架: - <a href="https://docs.rs/log4rs/*/log4rs/">log4rs</a> - <a href="https://docs.rs/fern/*/fern/">fern</a> - 专用适配: - <a href="https://docs.rs/syslog/*/syslog/">syslog</a> - <a href="https://docs.rs/slog-stdlog/*/slog_stdlog/">slog-stdlog</a> - <a href="https://docs.rs/log/latest/log/(https://docs.rs/systemd-journal-logger/*/systemd_journal_logger/)">systemd-journal-logger</a> - <a href="https://docs.rs/log/latest/log/(https://docs.rs/android_log/*/android_log/)">android_log</a> - <a href="https://docs.rs/log/latest/log/(https://docs.rs/win_dbg_logger/*/win_dbg_logger/)">win_dbg_logger</a> - WebAssembly可用: - <a href="https://docs.rs/log/latest/log/(https://docs.rs/console_log/*/console_log/)">console_log</a> - 动态库: - 构建在<code>log</code>之上的 FFI-safe wrapper 来初始化库。</p>
+    <title>【python】multiprocessing进程间的通信（一）队列</title>
+    <url>/2021/01/01/%E3%80%90python%E3%80%91multiprocessing%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/</url>
+    <content><![CDATA[<p>multiprocessing模块支持进程间通信的三种主要形式:<code>队列</code>、<code>管道</code>及<code>共享内存</code>。下面我们来学习一下队列的使用情况。</p>
 <a id="more"></a>
-<h3 id="日志分级">日志分级</h3>
-<p><code>log</code>的最基本的用法是通过5个宏来实现的。 <strong>定义</strong>如下： <figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="meta">#[repr(usize)]</span></span><br><span class="line"><span class="keyword">pub</span> <span class="class"><span class="keyword">enum</span> <span class="title">Level</span></span> &#123;</span><br><span class="line">    Error,</span><br><span class="line">    Warn,</span><br><span class="line">    Info,</span><br><span class="line">    <span class="built_in">Debug</span>,</span><br><span class="line">    Trace,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> <strong>优先级</strong>：<code>error!</code> &gt; <code>warn!</code> &gt; <code>info!</code> &gt; <code>debug!</code> &gt; <code>trace!</code>。<code>error!</code>的优先级最高，<code>trace!</code>优先级最低。</p>
-<h2 id="crate-env_logger"><em>Crate</em> env_logger</h2>
-<p><code>env_logger</code> 通过配置环境变量来实现日志记录器的功能。</p>
-<h3 id="应用示例">应用示例</h3>
-<ol type="1">
-<li>打印不同级别日志 <figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="meta">#[cfg(test)]</span></span><br><span class="line"><span class="keyword">mod</span> logtests &#123;</span><br><span class="line">    <span class="meta">#[test]</span></span><br><span class="line">    <span class="function"><span class="keyword">fn</span> <span class="title">test_log_default</span></span>()&#123;</span><br><span class="line">		<span class="keyword">use</span> log::&#123;debug, error, warn, info&#125;;</span><br><span class="line"></span><br><span class="line">		env_logger::init();</span><br><span class="line"></span><br><span class="line">		debug!(<span class="string">&quot;debug message&quot;</span>);</span><br><span class="line">		info!(<span class="string">&quot;informational message&quot;</span>);</span><br><span class="line">		warn!(<span class="string">&quot;warning message&quot;</span>);</span><br><span class="line">		error!(<span class="string">&quot;error message&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 运行<code>cargo test -- test_log_default</code>进行测试，结果如下： <img src="https://gitee.com/nokiasonic/pic/raw/master/img/Code_t7ogo5zsdw.png" /> 为什么无法看到 <em>error</em> 以下级别的日志呢？ 从 <code>env_logger</code> 的源代码中有以下说明： &gt;Log levels are controlled on a per-module basis, and <strong>by default all logging is disabled except for the <code>error</code> level</strong>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
-</ol>
-<p>基于<code>env_logger</code>的工作模式，需要对 环境变量 <em>RUST_LOG</em> 进行预定义，对以上代码使用以下方式测试。 先设置环境变量 <em>RUST_LOG</em> ，然后运行测试， <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">set</span> RUST_LOG=trace</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cargo <span class="built_in">test</span> -- test_log_default</span></span><br></pre></td></tr></table></figure> 结果如下： <img src="https://gitee.com/nokiasonic/pic/raw/master/img/Code_bdpGi6fkEb.png" /></p>
-<ol start="2" type="1">
-<li><p>采用本地时间作为时间戳 这时需要创建日志生成器 <em>builder</em> 中的 <em>format</em> 方法来完成输出格式的配置。 <figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure> 运行<code>set RUST_LOG=trace &amp;&amp; cargo test -- test_log_localtime</code><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> 结果如下： <img src="https://gitee.com/nokiasonic/pic/raw/master/img/Code_eizq8NbynS.png" /> 可以看出， 时间戳已经更改为本地时间，但是整个日志格式比较简陋。</p></li>
-<li><p>输出格式美化 依照默认输出时的格式，在时间戳、级别、目标前后加入方括号。方括号表现为较高亮度，级别用不同颜色区别。</p></li>
-</ol>
-<ul>
-<li>对级别及方括号分别创建样式 <em>Style</em> ，</li>
-<li><em>Style</em> 中的 <em>set_intense</em> 方法用来设置高亮度</li>
-<li><em>Style</em> 中的 <em>set_color</em> 方法用来设置颜色，参数为 <em>enum</em> 类型 <figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="meta">#[non_exhaustive]</span></span><br><span class="line"><span class="keyword">pub</span> <span class="class"><span class="keyword">enum</span> <span class="title">Color</span></span> &#123;</span><br><span class="line">    Black,</span><br><span class="line">    Blue,</span><br><span class="line">    Green,</span><br><span class="line">    Red,</span><br><span class="line">    Cyan,</span><br><span class="line">    Magenta,</span><br><span class="line">    Yellow,</span><br><span class="line">    White,</span><br><span class="line">    Ansi256(<span class="built_in">u8</span>),</span><br><span class="line">    Rgb(<span class="built_in">u8</span>, <span class="built_in">u8</span>, <span class="built_in">u8</span>),</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><em>Style</em> 中的 <em>set_bold</em> 方法用来设置字体粗细</li>
-<li><em>Style</em> 中的 <em>value</em> 方法用来封装需要格式化的内容</li>
-</ul>
-<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="meta">#[test]</span></span><br><span class="line">    <span class="function"><span class="keyword">fn</span> <span class="title">test_log_beautify</span></span>()&#123;</span><br><span class="line">        <span class="keyword">use</span> log::&#123;debug, error, warn, info, trace&#125;;</span><br><span class="line">        <span class="keyword">use</span> env_logger::Builder;</span><br><span class="line">        <span class="keyword">use</span> env_logger::fmt::Color;</span><br><span class="line">        <span class="keyword">use</span> chrono::Local;</span><br><span class="line">        <span class="keyword">use</span> std::io::Write;</span><br><span class="line">        <span class="keyword">use</span> log::Level;      </span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建env_logger生成器， 也可直接写成env_logger::builder()</span></span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">mut</span> builder = Builder::from_default_env();</span><br><span class="line">        </span><br><span class="line">        builder</span><br><span class="line">        .format(|buf, record| &#123;</span><br><span class="line">            <span class="keyword">let</span> <span class="keyword">mut</span> level_style = buf.style();</span><br><span class="line">            <span class="keyword">let</span> <span class="keyword">mut</span> brace_style = buf.style();</span><br><span class="line">            level_style.set_intense(<span class="literal">true</span>);</span><br><span class="line">            <span class="keyword">match</span> record.level() &#123;</span><br><span class="line">                Level::Trace =&gt; level_style.set_color(Color::Cyan).set_bold(<span class="literal">true</span>),</span><br><span class="line">                Level::<span class="built_in">Debug</span> =&gt; level_style.set_color(Color::Blue).set_bold(<span class="literal">true</span>),</span><br><span class="line">                Level::Info =&gt; level_style.set_color(Color::Green).set_bold(<span class="literal">true</span>),</span><br><span class="line">                Level::Warn =&gt; level_style.set_color(Color::Yellow).set_bold(<span class="literal">true</span>),</span><br><span class="line">                Level::Error =&gt; level_style.set_color(Color::Red).set_bold(<span class="literal">true</span>),</span><br><span class="line">            &#125;;</span><br><span class="line">            brace_style.set_color(Color::Black).set_intense(<span class="literal">true</span>);</span><br><span class="line">            <span class="built_in">writeln!</span>(buf, <span class="string">&quot;&#123;&#125;&#123;&#125; &#123;&#125; &#123;&#125;&#123;&#125; &#123;&#125;&quot;</span>, </span><br><span class="line">                    brace_style.value(<span class="string">&quot;[&quot;</span>),</span><br><span class="line">                    Local::now().format(<span class="string">&quot;%Y-%m-%d %H:%M:%S%.3f&quot;</span>), </span><br><span class="line">                    level_style.value(record.level()), </span><br><span class="line">                    record.target(), </span><br><span class="line">                    brace_style.value(<span class="string">&quot;]&quot;</span>), </span><br><span class="line">                    record.args())</span><br><span class="line">           &#125;)</span><br><span class="line">        .init();</span><br><span class="line"></span><br><span class="line">        trace!(<span class="string">&quot;trace message&quot;</span>);</span><br><span class="line">        debug!(<span class="string">&quot;debug message&quot;</span>);</span><br><span class="line">        info!(<span class="string">&quot;informational message&quot;</span>);</span><br><span class="line">        warn!(<span class="string">&quot;warning message&quot;</span>);</span><br><span class="line">        error!(<span class="string">&quot;error message&quot;</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>运行<code>set RUST_LOG=trace &amp;&amp; cargo test -- test_log_beautify</code><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> 结果如下： <img src="https://gitee.com/nokiasonic/pic/raw/master/img/Code_W2ftSdM2HC.png" /></p>
-<h1 id="参考">参考</h1>
-<ol type="1">
-<li><a href="https://docs.rs/crate/log/latest">log 文档</a></li>
-<li><a href="https://docs.rs/crate/env_logger/0.9.0">env_logger 文档</a></li>
-</ol>
-<h1 id="注释">注释</h1>
-<section class="footnotes" role="doc-endnotes">
-<hr />
-<ol>
-<li id="fn1" role="doc-endnote"><p><a href="https://docs.rs/env_logger/latest/src/env_logger/lib.rs.html#11-1315">lib.rs - source (docs.rs)</a>, 第92行。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>该命令可以在 <em>cmd</em> 下同时执行多条命令, 命令格式：<strong>command1 &amp;&amp; command2</strong> ，command1执行成后后才能执行command2。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3" role="doc-endnote"><p>该命令可以在 <em>cmd</em> 下同时执行多条命令, 命令格式：<strong>command1 &amp;&amp; command2</strong> ，command1执行成后后才能执行command2。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
+<h1 id="队列multiprocessing.queue">队列（multiprocessing.queue)</h1>
+<p>队列是线程和进程安全的，也就是一次只能有一个进程或线程进行操作。</p>
+<p><strong>示例：</strong>将子进程产生的信息统一写入父进程，这里是使用pool来创建进程池。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool, RLock, freeze_support,Queue,Pipe</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">from</span> TS_logs <span class="keyword">import</span> TS_log_info</span><br><span class="line"><span class="keyword">from</span>  TS_util <span class="keyword">import</span> (</span><br><span class="line">    TS_util_get_tradelist,</span><br><span class="line">    TS_util_get_real_date,</span><br><span class="line">    TS_util_get_next_datetime,</span><br><span class="line">    TS_util_get_now_time,</span><br><span class="line">    TS_util_date_convert,</span><br><span class="line">    trade_date_sse</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log_c</span>(<span class="params">q,codelist,n</span>):</span>    </span><br><span class="line">    <span class="keyword">for</span> trade_date <span class="keyword">in</span> codelist[n::<span class="number">8</span>]:</span><br><span class="line">        msg = <span class="string">&#x27;&#123;&#125; #Job&#123;&#125; Trying updating data of trade date &#123;&#125; .&#x27;</span> \</span><br><span class="line">                .<span class="built_in">format</span>(datetime.datetime.now().strftime(<span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>),n,trade_date)</span><br><span class="line">        sleep(<span class="number">0.05</span>)</span><br><span class="line">        q.put(msg)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">L = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">8</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:    </span><br><span class="line">    freeze_support()  <span class="comment"># for Windows support</span></span><br><span class="line">    manager = multiprocessing.Manager()</span><br><span class="line">    <span class="comment"># 父进程创建Queue，并传给各个子进程：</span></span><br><span class="line">    q = manager.Queue()</span><br><span class="line">    tqdm.set_lock(RLock())</span><br><span class="line">    codelist = trade_date_sse</span><br><span class="line">    func = functools.partial(log_c,q,codelist)</span><br><span class="line">    p = Pool(initializer=tqdm.set_lock, initargs=(tqdm.get_lock(),))</span><br><span class="line">    p.<span class="built_in">map</span>(func, L)</span><br><span class="line">    p.close()</span><br><span class="line">    p.join()</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> q.empty():</span><br><span class="line">        TS_log_info(q.get())</span><br></pre></td></tr></table></figure>
+<p>如果要使用Pool创建进程，就需要使用multiprocessing.Manager()中的Queue()，而不是multiprocessing.Queue()，否则会得到一条如下的错误信息：<br />
+<code>RuntimeError: Queue objects should only be shared between processes through inheritance.</code></p>
 ]]></content>
       <categories>
-        <category>程序语言</category>
+        <category>技术笔记</category>
+        <category>python</category>
       </categories>
       <tags>
-        <tag>计算机技术/程序语言</tag>
-        <tag>Rust</tag>
-        <tag>日志</tag>
+        <tag>python</tag>
+        <tag>multiprocessing</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【cmder】在VsCode使用Cmder作为默认终端</title>
+    <url>/2021/09/11/%E3%80%90cmder%E3%80%91%E5%9C%A8VsCode%E4%BD%BF%E7%94%A8Cmder%E4%BD%9C%E4%B8%BA%E9%BB%98%E8%AE%A4%E7%BB%88%E7%AB%AF/</url>
+    <content><![CDATA[<h1 id="前言">前言</h1>
+<p>实在忍受不了<code>VsCode</code>里的默认终端为<code>powershell</code>或<code>cmd</code>, 希望能使用<code>cmder</code>来作为默认终端。</p>
+<h1 id="配置步骤">配置步骤</h1>
+<p>旧版的<code>VsCode</code>使用以下方法修改。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;terminal.integrated.shellArgs.windows&quot;:[&quot;/k %CMDER_ROOT%\\vendor\\init.bat&quot;]</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210911222337.png" /></p>
+<p>当VSCode升级至1.57.1(2021.6.17)时，会出现警告提示：</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210911222337.png" />意思是此项已弃用，<code>Microsoft</code>官方配置默认 shell 的新推荐方法是在 #terminal.integrated.profiles.windows# 中创建一个终端配置文件，并将其配置文件名称设置为 #terminal.integrated.defaultProfile.windows# 中的默认值。此操作当前将优先于新的配置文件设置，但将来会发生更改。</p>
+<ol type="1">
+<li>打开<code>User Settings</code>(<code>File</code>-&gt; <code>Preferences</code>-&gt; <code>Settings</code>)。</li>
+<li>输入栏：<code>terminal.integrated.Profiles.windows</code>, 并点击<code>Edit in settings.son</code>。</li>
+</ol>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210911220449.png" /></p>
+<ol start="3" type="1">
+<li><p>添加新的配置， 并设置<code>cmder</code>为默认配置。</p></li>
+<li><p>打开一个新终端(<code>Terminal</code> -&gt; <code>New Terminal</code>)</p>
+<table>
+<thead>
+<tr class="header">
+<th><img src="https://gitee.com/nokiasonic/pic/raw/master/img/image-20210911224105094.png" /></th>
+<th><img src="https://gitee.com/nokiasonic/pic/raw/master/img/image-20210911224326323.png" /></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></li>
+</ol>
+<h1 id="参考">参考</h1>
+<p>1/ <a href="https://code.visualstudio.com/docs/editor/integrated-terminal#_terminal-profiles">Integrated Terminal in Visual Studio Code</a></p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>软件</category>
+      </categories>
+      <tags>
+        <tag>VsCode</tag>
+        <tag>cmder</tag>
       </tags>
   </entry>
   <entry>
@@ -3537,69 +3600,6 @@ code
       </tags>
   </entry>
   <entry>
-    <title>【cmder】在VsCode使用Cmder作为默认终端</title>
-    <url>/2021/09/11/%E3%80%90cmder%E3%80%91%E5%9C%A8VsCode%E4%BD%BF%E7%94%A8Cmder%E4%BD%9C%E4%B8%BA%E9%BB%98%E8%AE%A4%E7%BB%88%E7%AB%AF/</url>
-    <content><![CDATA[<h1 id="前言">前言</h1>
-<p>实在忍受不了<code>VsCode</code>里的默认终端为<code>powershell</code>或<code>cmd</code>, 希望能使用<code>cmder</code>来作为默认终端。</p>
-<h1 id="配置步骤">配置步骤</h1>
-<p>旧版的<code>VsCode</code>使用以下方法修改。</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;terminal.integrated.shellArgs.windows&quot;:[&quot;/k %CMDER_ROOT%\\vendor\\init.bat&quot;]</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210911222337.png" /></p>
-<p>当VSCode升级至1.57.1(2021.6.17)时，会出现警告提示：</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210911222337.png" />意思是此项已弃用，<code>Microsoft</code>官方配置默认 shell 的新推荐方法是在 #terminal.integrated.profiles.windows# 中创建一个终端配置文件，并将其配置文件名称设置为 #terminal.integrated.defaultProfile.windows# 中的默认值。此操作当前将优先于新的配置文件设置，但将来会发生更改。</p>
-<ol type="1">
-<li>打开<code>User Settings</code>(<code>File</code>-&gt; <code>Preferences</code>-&gt; <code>Settings</code>)。</li>
-<li>输入栏：<code>terminal.integrated.Profiles.windows</code>, 并点击<code>Edit in settings.son</code>。</li>
-</ol>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210911220449.png" /></p>
-<ol start="3" type="1">
-<li><p>添加新的配置， 并设置<code>cmder</code>为默认配置。</p></li>
-<li><p>打开一个新终端(<code>Terminal</code> -&gt; <code>New Terminal</code>)</p>
-<table>
-<thead>
-<tr class="header">
-<th><img src="https://gitee.com/nokiasonic/pic/raw/master/img/image-20210911224105094.png" /></th>
-<th><img src="https://gitee.com/nokiasonic/pic/raw/master/img/image-20210911224326323.png" /></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table></li>
-</ol>
-<h1 id="参考">参考</h1>
-<p>1/ <a href="https://code.visualstudio.com/docs/editor/integrated-terminal#_terminal-profiles">Integrated Terminal in Visual Studio Code</a></p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>软件</category>
-      </categories>
-      <tags>
-        <tag>cmder</tag>
-        <tag>VsCode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【python】multiprocessing进程间的通信（一）队列</title>
-    <url>/2021/01/01/%E3%80%90python%E3%80%91multiprocessing%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/</url>
-    <content><![CDATA[<p>multiprocessing模块支持进程间通信的三种主要形式:<code>队列</code>、<code>管道</code>及<code>共享内存</code>。下面我们来学习一下队列的使用情况。</p>
-<a id="more"></a>
-<h1 id="队列multiprocessing.queue">队列（multiprocessing.queue)</h1>
-<p>队列是线程和进程安全的，也就是一次只能有一个进程或线程进行操作。</p>
-<p><strong>示例：</strong>将子进程产生的信息统一写入父进程，这里是使用pool来创建进程池。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool, RLock, freeze_support,Queue,Pipe</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">from</span> TS_logs <span class="keyword">import</span> TS_log_info</span><br><span class="line"><span class="keyword">from</span>  TS_util <span class="keyword">import</span> (</span><br><span class="line">    TS_util_get_tradelist,</span><br><span class="line">    TS_util_get_real_date,</span><br><span class="line">    TS_util_get_next_datetime,</span><br><span class="line">    TS_util_get_now_time,</span><br><span class="line">    TS_util_date_convert,</span><br><span class="line">    trade_date_sse</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log_c</span>(<span class="params">q,codelist,n</span>):</span>    </span><br><span class="line">    <span class="keyword">for</span> trade_date <span class="keyword">in</span> codelist[n::<span class="number">8</span>]:</span><br><span class="line">        msg = <span class="string">&#x27;&#123;&#125; #Job&#123;&#125; Trying updating data of trade date &#123;&#125; .&#x27;</span> \</span><br><span class="line">                .<span class="built_in">format</span>(datetime.datetime.now().strftime(<span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>),n,trade_date)</span><br><span class="line">        sleep(<span class="number">0.05</span>)</span><br><span class="line">        q.put(msg)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">L = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">8</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:    </span><br><span class="line">    freeze_support()  <span class="comment"># for Windows support</span></span><br><span class="line">    manager = multiprocessing.Manager()</span><br><span class="line">    <span class="comment"># 父进程创建Queue，并传给各个子进程：</span></span><br><span class="line">    q = manager.Queue()</span><br><span class="line">    tqdm.set_lock(RLock())</span><br><span class="line">    codelist = trade_date_sse</span><br><span class="line">    func = functools.partial(log_c,q,codelist)</span><br><span class="line">    p = Pool(initializer=tqdm.set_lock, initargs=(tqdm.get_lock(),))</span><br><span class="line">    p.<span class="built_in">map</span>(func, L)</span><br><span class="line">    p.close()</span><br><span class="line">    p.join()</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> q.empty():</span><br><span class="line">        TS_log_info(q.get())</span><br></pre></td></tr></table></figure>
-<p>如果要使用Pool创建进程，就需要使用multiprocessing.Manager()中的Queue()，而不是multiprocessing.Queue()，否则会得到一条如下的错误信息：<br />
-<code>RuntimeError: Queue objects should only be shared between processes through inheritance.</code></p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>multiprocessing</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【python】multiprocessing进程间的通信（二）管道</title>
     <url>/2021/01/08/%E3%80%90python%E3%80%91multiprocessing%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%EF%BC%88%E4%BA%8C%EF%BC%89%E7%AE%A1%E9%81%93/</url>
     <content><![CDATA[<p><code>multiprocessing.Pipe()</code>用来创建管道，返回两个连接对象，代表管道的两端，一般用于进程或者线程之间的通信，不同于<code>os.pipe()</code>,<code>os.pipe()</code>主要用来创建两个文件描述符，一个读，一个写，是单向的。而<code>multiprocessing.Pipe()</code>则可以双向通信。</p>
@@ -3637,6 +3637,48 @@ code
         <tag>python</tag>
         <tag>multiprocessing</tag>
         <tag>logging</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【应用软件】ShareX截图工具的使用</title>
+    <url>/2021/09/24/%E3%80%90%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6%E3%80%91ShareX%E6%88%AA%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>截图，使用过的工具有<code>sngait</code>， <code>greenshot</code>, 前者功能强大，但需要付费。后者轻巧，但软件功能较少且更新较慢，最后的稳定版还是2017年发布的。至于QQ等截图工具，需要打开QQ软件本身，不太省心。</p>
+<p>在写博客的时候，大多数工具均采用矩形截图的方式， 如果需要对所截取的图片进行圆角，阴影等效果的添加，就必须使用其它软件来进行后处理。</p>
+<p><code>shareX</code>恰好满足这些需求。且体量也不算大。</p>
+<a id="more"></a>
+<h1 id="sharex简介">shareX简介</h1>
+<p>ShareX 是一款功能非常强大且免费开源的截图与屏幕记录工具 。除了正常的截图功能外，还提供多区域截图、滚动截图、屏幕取色，屏幕录制，添加水印等实用的功能。而且还可以上传到多种文件存储服务器上。可以让截图更加高效、美观。</p>
+<p>更多信息及下载详见<a href="https://getsharex.com/">shareX官网</a></p>
+<h1 id="sharex截图美化的实现">shareX截图美化的实现</h1>
+<ol type="1">
+<li><p>打开<code>shareX</code>--&gt; <code>动作设置</code>。<br />
+<img src="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_jFxXpRXGir.png" /></p></li>
+<li><p>在<code>图像</code>--&gt;<code>效果</code>中点击<code>图像效果配置</code>。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_yGfFOIJKcC.png" /></p></li>
+<li><p>圆角美化 新建效果，取合适的名称，然后从<code>操作</code>中选择<code>Rounded corners</code>, 参数选择圆角弧度大小。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_W6qalshpdF.png" /></p></li>
+<li><p>阴影美化 从<code>过滤器</code>中选择<code>Shadow</code>, 设置合适的参数。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_uIQRUTi22o.png" /></p></li>
+<li><p>添加水印 从<code>绘图</code>中选择<code>Text watermark</code>, 并对其位置，大小，字体等参数进行设置。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/dypdBtoCS6.png" /></p></li>
+</ol>
+<p>这里只尝试了几种截图美化，效果，shareX内置了许多图片效果，还有已做好的模板可供选择，可见<a href="https://getsharex.com/image-effects/">Image effects - ShareX (getsharex.com)</a></p>
+<h1 id="sharex截图上传">shareX截图上传</h1>
+<p>内置的图床或文件上传器多为国外服务器，考虑到今后图片使用的便捷性和易维护性，尝试自定义github或gitee图床的上传。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_fqguL6O4Y5.png" /></p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_yuKhrmNT1P.png" /> 参考<a href="https://getsharex.com/docs/custom-uploader">Custom uploader guide - ShareX (getsharex.com)</a>进行上传器的自定义，这时发现无论github还是gitee, 利用<code>API</code>上传时，</p>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/chrome_MFIy4P76vd.png" /> 上传的图片内容需要用base64编码后放入<code>content</code>参数中，也就是说上传前需要对图片内容做一次base64的编码，这个目前在shareX中并没有提供，就此做罢。</p>
+<p>最后采取的上传解决方案是，截图后通过<code>picgo</code>预设的图床进行上传。</p>
+<p>其间遇到的问题是，shareX截图加阴影后，会将阴影部分的背景透明化，拷贝到剪粘板再通过picgo上传后，会丢失该部分透明化的背景，而变之为白色背景，这个应该是picgo无法正确从剪粘板上读取shareX处理图片的透明化信息所致。但从生成的文件上传确是正常的。这个与shareX使用.net方法不能正常通过alpha通道来处理剪粘板拷贝内容的透明度有关。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210927144145.png" /> 解决方法： shareX截图后的处理动作里，可以不选择<code>图像复制到剪粘板</code>，而是选择上<code>保存图像文件</code>及<code>将文件复制到剪粘板</code>,通过重新读取文件内容来规避。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_YSysK9hAWE.png" /></p>
+<p>至此, shareX可以满足我对博客图片美化的要求。</p>
+<h1 id="参考">参考</h1>
+<p>1/ <a href="https://zhuanlan.zhihu.com/p/338226481"># 一般人都不会用的强大的屏幕截图工具，添加水印、截图特效等，让你的截图更完美！</a><br />
+2/ <a href="https://getsharex.com/">shareX官网</a><br />
+3/ <a href="https://docs.github.com/cn/rest">GitHub REST API - GitHub Docs</a><br />
+4/ <a href="https://gitee.com/api/v5/swagger#/getV5ReposOwnerRepoStargazers?ex=no">Gitee open API</a></p>
+]]></content>
+      <categories>
+        <category>应用软件</category>
+      </categories>
+      <tags>
+        <tag>shareX</tag>
+        <tag>效率工具</tag>
+        <tag>截图</tag>
       </tags>
   </entry>
   <entry>
@@ -3693,122 +3735,6 @@ code
         <tag>python</tag>
         <tag>线性代数</tag>
         <tag>贝塔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【应用软件】ShareX截图工具的使用</title>
-    <url>/2021/09/24/%E3%80%90%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6%E3%80%91ShareX%E6%88%AA%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p>截图，使用过的工具有<code>sngait</code>， <code>greenshot</code>, 前者功能强大，但需要付费。后者轻巧，但软件功能较少且更新较慢，最后的稳定版还是2017年发布的。至于QQ等截图工具，需要打开QQ软件本身，不太省心。</p>
-<p>在写博客的时候，大多数工具均采用矩形截图的方式， 如果需要对所截取的图片进行圆角，阴影等效果的添加，就必须使用其它软件来进行后处理。</p>
-<p><code>shareX</code>恰好满足这些需求。且体量也不算大。</p>
-<a id="more"></a>
-<h1 id="sharex简介">shareX简介</h1>
-<p>ShareX 是一款功能非常强大且免费开源的截图与屏幕记录工具 。除了正常的截图功能外，还提供多区域截图、滚动截图、屏幕取色，屏幕录制，添加水印等实用的功能。而且还可以上传到多种文件存储服务器上。可以让截图更加高效、美观。</p>
-<p>更多信息及下载详见<a href="https://getsharex.com/">shareX官网</a></p>
-<h1 id="sharex截图美化的实现">shareX截图美化的实现</h1>
-<ol type="1">
-<li><p>打开<code>shareX</code>--&gt; <code>动作设置</code>。<br />
-<img src="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_jFxXpRXGir.png" /></p></li>
-<li><p>在<code>图像</code>--&gt;<code>效果</code>中点击<code>图像效果配置</code>。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_yGfFOIJKcC.png" /></p></li>
-<li><p>圆角美化 新建效果，取合适的名称，然后从<code>操作</code>中选择<code>Rounded corners</code>, 参数选择圆角弧度大小。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_W6qalshpdF.png" /></p></li>
-<li><p>阴影美化 从<code>过滤器</code>中选择<code>Shadow</code>, 设置合适的参数。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_uIQRUTi22o.png" /></p></li>
-<li><p>添加水印 从<code>绘图</code>中选择<code>Text watermark</code>, 并对其位置，大小，字体等参数进行设置。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/dypdBtoCS6.png" /></p></li>
-</ol>
-<p>这里只尝试了几种截图美化，效果，shareX内置了许多图片效果，还有已做好的模板可供选择，可见<a href="https://getsharex.com/image-effects/">Image effects - ShareX (getsharex.com)</a></p>
-<h1 id="sharex截图上传">shareX截图上传</h1>
-<p>内置的图床或文件上传器多为国外服务器，考虑到今后图片使用的便捷性和易维护性，尝试自定义github或gitee图床的上传。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_fqguL6O4Y5.png" /></p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_yuKhrmNT1P.png" /> 参考<a href="https://getsharex.com/docs/custom-uploader">Custom uploader guide - ShareX (getsharex.com)</a>进行上传器的自定义，这时发现无论github还是gitee, 利用<code>API</code>上传时，</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/chrome_MFIy4P76vd.png" /> 上传的图片内容需要用base64编码后放入<code>content</code>参数中，也就是说上传前需要对图片内容做一次base64的编码，这个目前在shareX中并没有提供，就此做罢。</p>
-<p>最后采取的上传解决方案是，截图后通过<code>picgo</code>预设的图床进行上传。</p>
-<p>其间遇到的问题是，shareX截图加阴影后，会将阴影部分的背景透明化，拷贝到剪粘板再通过picgo上传后，会丢失该部分透明化的背景，而变之为白色背景，这个应该是picgo无法正确从剪粘板上读取shareX处理图片的透明化信息所致。但从生成的文件上传确是正常的。这个与shareX使用.net方法不能正常通过alpha通道来处理剪粘板拷贝内容的透明度有关。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210927144145.png" /> 解决方法： shareX截图后的处理动作里，可以不选择<code>图像复制到剪粘板</code>，而是选择上<code>保存图像文件</code>及<code>将文件复制到剪粘板</code>,通过重新读取文件内容来规避。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_YSysK9hAWE.png" /></p>
-<p>至此, shareX可以满足我对博客图片美化的要求。</p>
-<h1 id="参考">参考</h1>
-<p>1/ <a href="https://zhuanlan.zhihu.com/p/338226481"># 一般人都不会用的强大的屏幕截图工具，添加水印、截图特效等，让你的截图更完美！</a><br />
-2/ <a href="https://getsharex.com/">shareX官网</a><br />
-3/ <a href="https://docs.github.com/cn/rest">GitHub REST API - GitHub Docs</a><br />
-4/ <a href="https://gitee.com/api/v5/swagger#/getV5ReposOwnerRepoStargazers?ex=no">Gitee open API</a></p>
-]]></content>
-      <categories>
-        <category>应用软件</category>
-      </categories>
-      <tags>
-        <tag>shareX</tag>
-        <tag>效率工具</tag>
-        <tag>截图</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【量化投资】通达信板块数据提取</title>
-    <url>/2021/09/06/%E3%80%90%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E3%80%91%E9%80%9A%E8%BE%BE%E4%BF%A1%E6%9D%BF%E5%9D%97%E6%95%B0%E6%8D%AE%E6%8F%90%E5%8F%96/</url>
-    <content><![CDATA[<h1 id="数据提取">数据提取</h1>
-<p>从MongoDB中进取通达信板块数据，该数据均通过通达信api从服务器上提取并存入MongoDB。</p>
-<h2 id="实例">实例</h2>
-<h3 id="模糊查询">1. 模糊查询</h3>
-<p>MongoDB 使用 <strong><code>$regex</code></strong> 操作符来设置匹配字符串的正则表达式来进行模糊查询。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"></span><br><span class="line"><span class="comment">#存入数据</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_block_list</span>(<span class="params">database</span>):</span></span><br><span class="line">    stocklist = []</span><br><span class="line">    collection = db[<span class="string">&#x27;stock_block&#x27;</span>]</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> collection.find(&#123;<span class="string">&#x27;blockname&#x27;</span>:&#123;<span class="string">&#x27;$regex&#x27;</span>:<span class="string">&#x27;酒&#x27;</span>&#125;&#125;,&#123;<span class="string">&#x27;_id&#x27;</span>:<span class="number">0</span>,<span class="string">&#x27;code&#x27;</span>:<span class="number">1</span>&#125;):</span><br><span class="line">        stocklist.append(item[<span class="string">&#x27;code&#x27;</span>])</span><br><span class="line">    stocklist = <span class="built_in">list</span>(<span class="built_in">set</span>(stocklist))</span><br><span class="line">    <span class="keyword">return</span> stocklist</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    client = MongoClient(<span class="string">&#x27;localhost&#x27;</span>, <span class="number">27017</span>)</span><br><span class="line">    db = client[<span class="string">&#x27;quantaxis&#x27;</span>]</span><br><span class="line">    stocklist = get_block_list(database=db)</span><br><span class="line">    print(<span class="string">&quot;Total &#123;&#125; stocks are in this block.\n&#123;&#125;&quot;</span>.<span class="built_in">format</span>(<span class="built_in">len</span>(stocklist),stocklist))</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Total 69 stocks are in this block.</span><br><span class="line">[&#39;600257&#39;, &#39;000752&#39;, &#39;600616&#39;, &#39;600766&#39;, &#39;600779&#39;, &#39;601579&#39;, &#39;603919&#39;, &#39;603198&#39;, &#39;600771&#39;, &#39;603101&#39;, &#39;600132&#39;, &#39;000524&#39;, &#39;600258&#39;, &#39;605108&#39;, &#39;000428&#39;, &#39;600750&#39;, &#39;000888&#39;, &#39;603025&#39;, &#39;002461&#39;, &#39;600238&#39;, &#39;600754&#39;, &#39;601007&#39;, &#39;000929&#39;, &#39;000596&#39;, &#39;600573&#39;, &#39;600600&#39;, &#39;603299&#39;, &#39;600059&#39;, &#39;600197&#39;, &#39;002772&#39;, &#39;600559&#39;, &#39;300237&#39;, &#39;600260&#39;, &#39;600543&#39;, &#39;000721&#39;, &#39;600084&#39;, &#39;600365&#39;, &#39;000930&#39;, &#39;000858&#39;, &#39;000860&#39;, &#39;603369&#39;, &#39;000568&#39;, &#39;600655&#39;, &#39;600809&#39;, &#39;600702&#39;, &#39;002304&#39;, &#39;002568&#39;, &#39;000869&#39;, &#39;600382&#39;, &#39;600781&#39;, &#39;002342&#39;, &#39;000829&#39;, &#39;600381&#39;, &#39;600199&#39;, &#39;002646&#39;, &#39;603589&#39;, &#39;603777&#39;, &#39;002183&#39;, &#39;000995&#39;, &#39;600252&#39;, &#39;000729&#39;, &#39;603779&#39;, &#39;002803&#39;, &#39;002186&#39;, &#39;600395&#39;, &#39;600696&#39;, &#39;600519&#39;, &#39;000007&#39;, &#39;000799&#39;]</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h3 id="提取板块名称">2. 提取板块名称</h3>
-<h4 id="用mongodb命令提取">用MongoDB命令提取</h4>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.getCollection(&#x27;stock_block&#x27;).distinct(&#x27;blockname&#x27;)</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210906121720.png" /></p>
-<h4 id="用pymongo模块提取">用pymongo模块提取</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"></span><br><span class="line">client = MongoClient(<span class="string">&#x27;localhost&#x27;</span>, <span class="number">27017</span>)</span><br><span class="line">db = client[<span class="string">&#x27;quantaxis&#x27;</span>]</span><br><span class="line">collection = db[<span class="string">&#x27;stock_block&#x27;</span>]</span><br><span class="line"></span><br><span class="line">res = collection.distinct(<span class="string">&#x27;blockname&#x27;</span>)</span><br><span class="line">print(res[:<span class="number">10</span>])</span><br></pre></td></tr></table></figure>
-<p>输出结果：</p>
-<blockquote>
-<p>[None, '300ESG', '300周期', '300非周', '3D打印', '5G概念', 'BIPV概念', 'C2M概念', 'CRO概念', 'ETC概念']</p>
-</blockquote>
-<p>如需要知道酒类板块的名称，可以采用模糊查询的方式来提取数据。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.getCollection(&#x27;stock_block&#x27;).distinct(&#x27;blockname&#x27;,&#123;&#x27;blockname&#x27;:&#123;$regex:&#x27;酒&#x27;&#125;&#125;)</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210906125011.png" /></p>
-<h3 id="提取板块中的股票代码及名称">3. 提取板块中的股票代码及名称</h3>
-<p>查询板块<code>白酒</code>及<code>白酒概念</code>中的股票列表（包括代码及名称)</p>
-<h4 id="仅提取代码">仅提取代码</h4>
-<h5 id="用mongodb命令提取-1">用MongoDB命令提取</h5>
-<p>因通达信同一板块定义中包含通达信行业、申万行业等不同分类，含有重复项，所以用去重方式进行查询。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.getCollection(&#x27;stock_block&#x27;).distinct(&#x27;code&#x27;,&#123;&#x27;blockname&#x27;:&#x27;白酒&#x27;&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.getCollection(&#x27;stock_block&#x27;).distinct(&#x27;code&#x27;,&#123;&#x27;blockname&#x27;:&#x27;白酒概念&#x27;&#125;)</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210907095910.png" /></p>
-<h5 id="用pymongo模块提取-1">用pymongo模块提取</h5>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"></span><br><span class="line">client = MongoClient(<span class="string">&#x27;localhost&#x27;</span>, <span class="number">27017</span>)</span><br><span class="line">db = client[<span class="string">&#x27;quantaxis&#x27;</span>]</span><br><span class="line">collection = db[<span class="string">&#x27;stock_block&#x27;</span>]</span><br><span class="line"></span><br><span class="line">res = collection.distinct(<span class="string">&#x27;code&#x27;</span>,&#123;<span class="string">&#x27;blockname&#x27;</span>:<span class="string">&#x27;白酒&#x27;</span>&#125;)</span><br><span class="line">print(<span class="string">&quot;Total &#123;&#125; stocks are in this block&quot;</span>.<span class="built_in">format</span>(<span class="built_in">len</span>(res)))</span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
-<p>​</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Total 20 stocks are in this block</span><br><span class="line">[&#x27;000568&#x27;, &#x27;000596&#x27;, &#x27;000799&#x27;, &#x27;000858&#x27;, &#x27;000860&#x27;, &#x27;000995&#x27;, &#x27;002304&#x27;, &#x27;002646&#x27;, &#x27;600197&#x27;, &#x27;600199&#x27;, &#x27;600519&#x27;, &#x27;600559&#x27;, &#x27;600702&#x27;, &#x27;600779&#x27;, &#x27;600809&#x27;, &#x27;603025&#x27;, &#x27;603198&#x27;, &#x27;603369&#x27;, &#x27;603589&#x27;, &#x27;603919&#x27;]</span><br></pre></td></tr></table></figure>
-<h4 id="提取代码及名称">提取代码及名称</h4>
-<p>需要使用联表查询，使用<code>aggregate</code>函数。</p>
-<h5 id="用mongodb命令提取-2">用MongoDB命令提取</h5>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.getCollection(&#x27;stock_block&#x27;).aggregate([&#123;</span><br><span class="line"><span class="meta">  $</span><span class="bash">lookup: &#123; // 左连接</span></span><br><span class="line">    from: &quot;stock_list&quot;,   // 关联到stock_list表</span><br><span class="line">    localField: &quot;code&quot;,   // stock_block 表关联的字段</span><br><span class="line">    foreignField: &quot;code&quot;, // stock_list 表关联的字段</span><br><span class="line">    as: &quot;stock_list&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">&#123; $match : &#123;&#x27;blockname&#x27; : &#x27;白酒&#x27;&#125;&#125;,</span><br><span class="line">&#123; $project: &#123;&#x27;code&#x27;:1,&#x27;stock_list.name&#x27;:1,&#x27;_id&#x27;:0&#125;&#125;,</span><br><span class="line">&#123; $unwind:&#x27;$stock_list&#x27;&#125;,</span><br><span class="line">&#123; $replaceWith:&#123;&#x27;code&#x27;:&#x27;$code&#x27;,&#x27;name&#x27;:&#x27;$stock_list.name&#x27;&#125;&#125;,</span><br><span class="line">&#123; $group: &#123;_id:&#x27;$code&#x27;,&#x27;name&#x27;:&#123; $first:&quot;$name&quot; &#125;&#125;&#125;,</span><br><span class="line">&#123; $replaceWith:&#123;&#x27;code&#x27;:&#x27;$_id&#x27;,&#x27;name&#x27;:&#x27;$name&#x27;&#125;&#125;</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210907113155.png" /></p>
-<h5 id="用pymongo模块提取-2">用pymongo模块提取</h5>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"></span><br><span class="line">client = MongoClient(<span class="string">&#x27;localhost&#x27;</span>, <span class="number">27017</span>)</span><br><span class="line">db = client[<span class="string">&#x27;quantaxis&#x27;</span>]</span><br><span class="line">collection = db[<span class="string">&#x27;stock_block&#x27;</span>]</span><br><span class="line">count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">res = collection.aggregate(</span><br><span class="line">  [</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="string">&#x27;$lookup&#x27;</span>: &#123;    <span class="comment">#左连接              </span></span><br><span class="line">            <span class="string">&#x27;from&#x27;</span>: <span class="string">&quot;stock_list&quot;</span>,    <span class="comment"># 关联到stock_list表</span></span><br><span class="line">            <span class="string">&#x27;localField&#x27;</span>: <span class="string">&quot;code&quot;</span>,    <span class="comment"># stock_block 表关联的字段</span></span><br><span class="line">            <span class="string">&#x27;foreignField&#x27;</span>: <span class="string">&quot;code&quot;</span>,  <span class="comment"># stock_list 表关联的字段</span></span><br><span class="line">            <span class="string">&#x27;as&#x27;</span>: <span class="string">&quot;stock_list&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">&#123; <span class="string">&#x27;$match&#x27;</span> : &#123;<span class="string">&#x27;blockname&#x27;</span> : <span class="string">&#x27;白酒&#x27;</span>&#125;&#125;,</span><br><span class="line">&#123; <span class="string">&#x27;$project&#x27;</span>: &#123;<span class="string">&#x27;code&#x27;</span>:<span class="number">1</span>,<span class="string">&#x27;stock_list.name&#x27;</span>:<span class="number">1</span>,<span class="string">&#x27;_id&#x27;</span>:<span class="number">0</span>&#125;&#125;,</span><br><span class="line">&#123; <span class="string">&#x27;$unwind&#x27;</span>:<span class="string">&#x27;$stock_list&#x27;</span>&#125;,</span><br><span class="line">&#123; <span class="string">&#x27;$replaceWith&#x27;</span>:&#123;<span class="string">&#x27;code&#x27;</span>:<span class="string">&#x27;$code&#x27;</span>,<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;$stock_list.name&#x27;</span>&#125;&#125;,</span><br><span class="line">&#123; <span class="string">&#x27;$group&#x27;</span>: &#123;<span class="string">&#x27;_id&#x27;</span>:<span class="string">&#x27;$code&#x27;</span>,<span class="string">&#x27;name&#x27;</span>:&#123; <span class="string">&#x27;$first&#x27;</span>:<span class="string">&quot;$name&quot;</span> &#125;&#125;&#125;,</span><br><span class="line">&#123; <span class="string">&#x27;$replaceWith&#x27;</span>:&#123;<span class="string">&#x27;code&#x27;</span>:<span class="string">&#x27;$_id&#x27;</span>,<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;$name&#x27;</span>&#125;&#125;</span><br><span class="line"></span><br><span class="line">])</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> res:</span><br><span class="line">    print(item)</span><br><span class="line">    count = count + <span class="number">1</span></span><br><span class="line">print(<span class="string">&quot;Total &#123;&#125; stocks are in this block&quot;</span>.<span class="built_in">format</span>(count))</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>白酒</code>板块</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&#123;&#x27;code&#x27;: &#x27;000858&#x27;, &#x27;name&#x27;: &#x27;五 粮 液&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600519&#x27;, &#x27;name&#x27;: &#x27;贵州茅台&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002646&#x27;, &#x27;name&#x27;: &#x27;青青稞酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600809&#x27;, &#x27;name&#x27;: &#x27;山西汾酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000995&#x27;, &#x27;name&#x27;: &#x27;皇台酒业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603025&#x27;, &#x27;name&#x27;: &#x27;大豪科技&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002304&#x27;, &#x27;name&#x27;: &#x27;洋河股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000596&#x27;, &#x27;name&#x27;: &#x27;古井贡酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600559&#x27;, &#x27;name&#x27;: &#x27;老白干酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603198&#x27;, &#x27;name&#x27;: &#x27;迎驾贡酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000799&#x27;, &#x27;name&#x27;: &#x27;酒鬼酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603369&#x27;, &#x27;name&#x27;: &#x27;今世缘&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603589&#x27;, &#x27;name&#x27;: &#x27;口子窖&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600779&#x27;, &#x27;name&#x27;: &#x27;水井坊&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600199&#x27;, &#x27;name&#x27;: &#x27;金种子酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600702&#x27;, &#x27;name&#x27;: &#x27;舍得酒业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000860&#x27;, &#x27;name&#x27;: &#x27;顺鑫农业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603919&#x27;, &#x27;name&#x27;: &#x27;金徽酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000568&#x27;, &#x27;name&#x27;: &#x27;泸州老窖&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600197&#x27;, &#x27;name&#x27;: &#x27;伊力特&#x27;&#125;</span><br><span class="line">Total 20 stocks are in this block</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>白酒概念</code>板块</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&#123;&#x27;code&#x27;: &#x27;600238&#x27;, &#x27;name&#x27;: &#x27;海南椰岛&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002304&#x27;, &#x27;name&#x27;: &#x27;洋河股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000596&#x27;, &#x27;name&#x27;: &#x27;古井贡酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600382&#x27;, &#x27;name&#x27;: &#x27;*ST广珠&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600750&#x27;, &#x27;name&#x27;: &#x27;江中药业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600252&#x27;, &#x27;name&#x27;: &#x27;中恒集团&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002646&#x27;, &#x27;name&#x27;: &#x27;青青稞酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600519&#x27;, &#x27;name&#x27;: &#x27;贵州茅台&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600696&#x27;, &#x27;name&#x27;: &#x27;岩石股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600771&#x27;, &#x27;name&#x27;: &#x27;广誉远&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600809&#x27;, &#x27;name&#x27;: &#x27;山西汾酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603919&#x27;, &#x27;name&#x27;: &#x27;金徽酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600655&#x27;, &#x27;name&#x27;: &#x27;豫园股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000888&#x27;, &#x27;name&#x27;: &#x27;峨眉山Ａ&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000930&#x27;, &#x27;name&#x27;: &#x27;中粮科技&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000829&#x27;, &#x27;name&#x27;: &#x27;天音控股&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002183&#x27;, &#x27;name&#x27;: &#x27;怡 亚 通&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002342&#x27;, &#x27;name&#x27;: &#x27;巨力索具&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000799&#x27;, &#x27;name&#x27;: &#x27;酒鬼酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002803&#x27;, &#x27;name&#x27;: &#x27;吉宏股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;300237&#x27;, &#x27;name&#x27;: &#x27;美晨生态&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600257&#x27;, &#x27;name&#x27;: &#x27;大湖股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002772&#x27;, &#x27;name&#x27;: &#x27;众兴菌业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600260&#x27;, &#x27;name&#x27;: &#x27;ST凯乐&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600395&#x27;, &#x27;name&#x27;: &#x27;盘江股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600559&#x27;, &#x27;name&#x27;: &#x27;老白干酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000995&#x27;, &#x27;name&#x27;: &#x27;皇台酒业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600766&#x27;, &#x27;name&#x27;: &#x27;*ST园城&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603101&#x27;, &#x27;name&#x27;: &#x27;汇嘉时代&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603198&#x27;, &#x27;name&#x27;: &#x27;迎驾贡酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603025&#x27;, &#x27;name&#x27;: &#x27;大豪科技&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603369&#x27;, &#x27;name&#x27;: &#x27;今世缘&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603777&#x27;, &#x27;name&#x27;: &#x27;来伊份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000568&#x27;, &#x27;name&#x27;: &#x27;泸州老窖&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600197&#x27;, &#x27;name&#x27;: &#x27;伊力特&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000858&#x27;, &#x27;name&#x27;: &#x27;五 粮 液&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600779&#x27;, &#x27;name&#x27;: &#x27;水井坊&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600199&#x27;, &#x27;name&#x27;: &#x27;金种子酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600702&#x27;, &#x27;name&#x27;: &#x27;舍得酒业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000860&#x27;, &#x27;name&#x27;: &#x27;顺鑫农业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600781&#x27;, &#x27;name&#x27;: &#x27;ST辅仁&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603589&#x27;, &#x27;name&#x27;: &#x27;口子窖&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600381&#x27;, &#x27;name&#x27;: &#x27;青海春天&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603299&#x27;, &#x27;name&#x27;: &#x27;苏盐井神&#x27;&#125;</span><br><span class="line">Total 44 stocks are in this block</span><br></pre></td></tr></table></figure>
-<h3 id="查询股票所属板块">4. 查询股票所属板块</h3>
-<p>以<code>贵州茅台（600519）</code>为例：</p>
-<h4 id="用mongodb命令提取-3">用MongoDB命令提取</h4>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.getCollection(&#x27;stock_block&#x27;).distinct(&#x27;blockname&#x27;,&#123;&#x27;code&#x27;:&#x27;600519&#x27;&#125;)</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210907180637.png" /></p>
-<h4 id="用pymongo模块提取-3">用pymongo模块提取</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"></span><br><span class="line">client = MongoClient(<span class="string">&#x27;localhost&#x27;</span>, <span class="number">27017</span>)</span><br><span class="line">db = client[<span class="string">&#x27;quantaxis&#x27;</span>]</span><br><span class="line">collection = db[<span class="string">&#x27;stock_block&#x27;</span>]</span><br><span class="line"></span><br><span class="line">res = collection.distinct(<span class="string">&#x27;blockname&#x27;</span>,&#123;<span class="string">&#x27;code&#x27;</span>:<span class="string">&#x27;600519&#x27;</span>&#125;)</span><br><span class="line">print(<span class="string">&quot;The stock belongs to Total &#123;&#125; blocks&quot;</span>.<span class="built_in">format</span>(<span class="built_in">len</span>(res)))</span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">The stock belongs to Total 36 blocks</span><br><span class="line">[&#x27;300ESG&#x27;, &#x27;300非周&#x27;, &#x27;MSCI成份&#x27;, &#x27;上证180&#x27;, &#x27;上证50&#x27;, &#x27;上证混改&#x27;, &#x27;上证超大&#x27;, &#x27;中华A80&#x27;, &#x27;中证100&#x27;, &#x27;中证龙头&#x27;, &#x27;保险重仓&#x27;, &#x27;北上重仓&#x27;, &#x27;国证农业&#x27;, &#x27;国证成长&#x27;, &#x27;基金重仓&#x27;, &#x27;大盘成长&#x27;, &#x27;大盘股&#x27;, &#x27;央视50&#x27;, &#x27;富时A50&#x27;, &#x27;投资时钟&#x27;, &#x27;持续增长&#x27;, &#x27;昨成交20&#x27;, &#x27;沪深300&#x27;, &#x27;泛珠三角&#x27;, &#x27;白酒&#x27;, &#x27;白酒概念&#x27;, &#x27;百元股&#x27;, &#x27;绩优股&#x27;, &#x27;罗素大盘&#x27;, &#x27;股权转让&#x27;, &#x27;融资融券&#x27;, &#x27;行业龙头&#x27;, &#x27;证金汇金&#x27;, &#x27;通达信88&#x27;, &#x27;银河99&#x27;, &#x27;高市净率&#x27;]</span><br></pre></td></tr></table></figure>
-<h1 id="参考">参考</h1>
-<p>1/ <a href="https://docs.mongodb.com/manual/aggregation/">Aggregation — MongoDB Manual</a></p>
-<p>2/ <a href="https://docs.mongodb.com/manual/reference/operator/aggregation/group/">$group (aggregation) — MongoDB Manual</a></p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>量化投资</category>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>通达信</tag>
-        <tag>MongoDB</tag>
       </tags>
   </entry>
   <entry>
@@ -3927,6 +3853,80 @@ code
       </categories>
       <tags>
         <tag>Valine</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【量化投资】通达信板块数据提取</title>
+    <url>/2021/09/06/%E3%80%90%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E3%80%91%E9%80%9A%E8%BE%BE%E4%BF%A1%E6%9D%BF%E5%9D%97%E6%95%B0%E6%8D%AE%E6%8F%90%E5%8F%96/</url>
+    <content><![CDATA[<h1 id="数据提取">数据提取</h1>
+<p>从MongoDB中进取通达信板块数据，该数据均通过通达信api从服务器上提取并存入MongoDB。</p>
+<h2 id="实例">实例</h2>
+<h3 id="模糊查询">1. 模糊查询</h3>
+<p>MongoDB 使用 <strong><code>$regex</code></strong> 操作符来设置匹配字符串的正则表达式来进行模糊查询。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"></span><br><span class="line"><span class="comment">#存入数据</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_block_list</span>(<span class="params">database</span>):</span></span><br><span class="line">    stocklist = []</span><br><span class="line">    collection = db[<span class="string">&#x27;stock_block&#x27;</span>]</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> collection.find(&#123;<span class="string">&#x27;blockname&#x27;</span>:&#123;<span class="string">&#x27;$regex&#x27;</span>:<span class="string">&#x27;酒&#x27;</span>&#125;&#125;,&#123;<span class="string">&#x27;_id&#x27;</span>:<span class="number">0</span>,<span class="string">&#x27;code&#x27;</span>:<span class="number">1</span>&#125;):</span><br><span class="line">        stocklist.append(item[<span class="string">&#x27;code&#x27;</span>])</span><br><span class="line">    stocklist = <span class="built_in">list</span>(<span class="built_in">set</span>(stocklist))</span><br><span class="line">    <span class="keyword">return</span> stocklist</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    client = MongoClient(<span class="string">&#x27;localhost&#x27;</span>, <span class="number">27017</span>)</span><br><span class="line">    db = client[<span class="string">&#x27;quantaxis&#x27;</span>]</span><br><span class="line">    stocklist = get_block_list(database=db)</span><br><span class="line">    print(<span class="string">&quot;Total &#123;&#125; stocks are in this block.\n&#123;&#125;&quot;</span>.<span class="built_in">format</span>(<span class="built_in">len</span>(stocklist),stocklist))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Total 69 stocks are in this block.</span><br><span class="line">[&#39;600257&#39;, &#39;000752&#39;, &#39;600616&#39;, &#39;600766&#39;, &#39;600779&#39;, &#39;601579&#39;, &#39;603919&#39;, &#39;603198&#39;, &#39;600771&#39;, &#39;603101&#39;, &#39;600132&#39;, &#39;000524&#39;, &#39;600258&#39;, &#39;605108&#39;, &#39;000428&#39;, &#39;600750&#39;, &#39;000888&#39;, &#39;603025&#39;, &#39;002461&#39;, &#39;600238&#39;, &#39;600754&#39;, &#39;601007&#39;, &#39;000929&#39;, &#39;000596&#39;, &#39;600573&#39;, &#39;600600&#39;, &#39;603299&#39;, &#39;600059&#39;, &#39;600197&#39;, &#39;002772&#39;, &#39;600559&#39;, &#39;300237&#39;, &#39;600260&#39;, &#39;600543&#39;, &#39;000721&#39;, &#39;600084&#39;, &#39;600365&#39;, &#39;000930&#39;, &#39;000858&#39;, &#39;000860&#39;, &#39;603369&#39;, &#39;000568&#39;, &#39;600655&#39;, &#39;600809&#39;, &#39;600702&#39;, &#39;002304&#39;, &#39;002568&#39;, &#39;000869&#39;, &#39;600382&#39;, &#39;600781&#39;, &#39;002342&#39;, &#39;000829&#39;, &#39;600381&#39;, &#39;600199&#39;, &#39;002646&#39;, &#39;603589&#39;, &#39;603777&#39;, &#39;002183&#39;, &#39;000995&#39;, &#39;600252&#39;, &#39;000729&#39;, &#39;603779&#39;, &#39;002803&#39;, &#39;002186&#39;, &#39;600395&#39;, &#39;600696&#39;, &#39;600519&#39;, &#39;000007&#39;, &#39;000799&#39;]</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="提取板块名称">2. 提取板块名称</h3>
+<h4 id="用mongodb命令提取">用MongoDB命令提取</h4>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.getCollection(&#x27;stock_block&#x27;).distinct(&#x27;blockname&#x27;)</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210906121720.png" /></p>
+<h4 id="用pymongo模块提取">用pymongo模块提取</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"></span><br><span class="line">client = MongoClient(<span class="string">&#x27;localhost&#x27;</span>, <span class="number">27017</span>)</span><br><span class="line">db = client[<span class="string">&#x27;quantaxis&#x27;</span>]</span><br><span class="line">collection = db[<span class="string">&#x27;stock_block&#x27;</span>]</span><br><span class="line"></span><br><span class="line">res = collection.distinct(<span class="string">&#x27;blockname&#x27;</span>)</span><br><span class="line">print(res[:<span class="number">10</span>])</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<blockquote>
+<p>[None, '300ESG', '300周期', '300非周', '3D打印', '5G概念', 'BIPV概念', 'C2M概念', 'CRO概念', 'ETC概念']</p>
+</blockquote>
+<p>如需要知道酒类板块的名称，可以采用模糊查询的方式来提取数据。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.getCollection(&#x27;stock_block&#x27;).distinct(&#x27;blockname&#x27;,&#123;&#x27;blockname&#x27;:&#123;$regex:&#x27;酒&#x27;&#125;&#125;)</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210906125011.png" /></p>
+<h3 id="提取板块中的股票代码及名称">3. 提取板块中的股票代码及名称</h3>
+<p>查询板块<code>白酒</code>及<code>白酒概念</code>中的股票列表（包括代码及名称)</p>
+<h4 id="仅提取代码">仅提取代码</h4>
+<h5 id="用mongodb命令提取-1">用MongoDB命令提取</h5>
+<p>因通达信同一板块定义中包含通达信行业、申万行业等不同分类，含有重复项，所以用去重方式进行查询。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.getCollection(&#x27;stock_block&#x27;).distinct(&#x27;code&#x27;,&#123;&#x27;blockname&#x27;:&#x27;白酒&#x27;&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.getCollection(&#x27;stock_block&#x27;).distinct(&#x27;code&#x27;,&#123;&#x27;blockname&#x27;:&#x27;白酒概念&#x27;&#125;)</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210907095910.png" /></p>
+<h5 id="用pymongo模块提取-1">用pymongo模块提取</h5>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"></span><br><span class="line">client = MongoClient(<span class="string">&#x27;localhost&#x27;</span>, <span class="number">27017</span>)</span><br><span class="line">db = client[<span class="string">&#x27;quantaxis&#x27;</span>]</span><br><span class="line">collection = db[<span class="string">&#x27;stock_block&#x27;</span>]</span><br><span class="line"></span><br><span class="line">res = collection.distinct(<span class="string">&#x27;code&#x27;</span>,&#123;<span class="string">&#x27;blockname&#x27;</span>:<span class="string">&#x27;白酒&#x27;</span>&#125;)</span><br><span class="line">print(<span class="string">&quot;Total &#123;&#125; stocks are in this block&quot;</span>.<span class="built_in">format</span>(<span class="built_in">len</span>(res)))</span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
+<p>​</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Total 20 stocks are in this block</span><br><span class="line">[&#x27;000568&#x27;, &#x27;000596&#x27;, &#x27;000799&#x27;, &#x27;000858&#x27;, &#x27;000860&#x27;, &#x27;000995&#x27;, &#x27;002304&#x27;, &#x27;002646&#x27;, &#x27;600197&#x27;, &#x27;600199&#x27;, &#x27;600519&#x27;, &#x27;600559&#x27;, &#x27;600702&#x27;, &#x27;600779&#x27;, &#x27;600809&#x27;, &#x27;603025&#x27;, &#x27;603198&#x27;, &#x27;603369&#x27;, &#x27;603589&#x27;, &#x27;603919&#x27;]</span><br></pre></td></tr></table></figure>
+<h4 id="提取代码及名称">提取代码及名称</h4>
+<p>需要使用联表查询，使用<code>aggregate</code>函数。</p>
+<h5 id="用mongodb命令提取-2">用MongoDB命令提取</h5>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.getCollection(&#x27;stock_block&#x27;).aggregate([&#123;</span><br><span class="line"><span class="meta">  $</span><span class="bash">lookup: &#123; // 左连接</span></span><br><span class="line">    from: &quot;stock_list&quot;,   // 关联到stock_list表</span><br><span class="line">    localField: &quot;code&quot;,   // stock_block 表关联的字段</span><br><span class="line">    foreignField: &quot;code&quot;, // stock_list 表关联的字段</span><br><span class="line">    as: &quot;stock_list&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">&#123; $match : &#123;&#x27;blockname&#x27; : &#x27;白酒&#x27;&#125;&#125;,</span><br><span class="line">&#123; $project: &#123;&#x27;code&#x27;:1,&#x27;stock_list.name&#x27;:1,&#x27;_id&#x27;:0&#125;&#125;,</span><br><span class="line">&#123; $unwind:&#x27;$stock_list&#x27;&#125;,</span><br><span class="line">&#123; $replaceWith:&#123;&#x27;code&#x27;:&#x27;$code&#x27;,&#x27;name&#x27;:&#x27;$stock_list.name&#x27;&#125;&#125;,</span><br><span class="line">&#123; $group: &#123;_id:&#x27;$code&#x27;,&#x27;name&#x27;:&#123; $first:&quot;$name&quot; &#125;&#125;&#125;,</span><br><span class="line">&#123; $replaceWith:&#123;&#x27;code&#x27;:&#x27;$_id&#x27;,&#x27;name&#x27;:&#x27;$name&#x27;&#125;&#125;</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210907113155.png" /></p>
+<h5 id="用pymongo模块提取-2">用pymongo模块提取</h5>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"></span><br><span class="line">client = MongoClient(<span class="string">&#x27;localhost&#x27;</span>, <span class="number">27017</span>)</span><br><span class="line">db = client[<span class="string">&#x27;quantaxis&#x27;</span>]</span><br><span class="line">collection = db[<span class="string">&#x27;stock_block&#x27;</span>]</span><br><span class="line">count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">res = collection.aggregate(</span><br><span class="line">  [</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="string">&#x27;$lookup&#x27;</span>: &#123;    <span class="comment">#左连接              </span></span><br><span class="line">            <span class="string">&#x27;from&#x27;</span>: <span class="string">&quot;stock_list&quot;</span>,    <span class="comment"># 关联到stock_list表</span></span><br><span class="line">            <span class="string">&#x27;localField&#x27;</span>: <span class="string">&quot;code&quot;</span>,    <span class="comment"># stock_block 表关联的字段</span></span><br><span class="line">            <span class="string">&#x27;foreignField&#x27;</span>: <span class="string">&quot;code&quot;</span>,  <span class="comment"># stock_list 表关联的字段</span></span><br><span class="line">            <span class="string">&#x27;as&#x27;</span>: <span class="string">&quot;stock_list&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">&#123; <span class="string">&#x27;$match&#x27;</span> : &#123;<span class="string">&#x27;blockname&#x27;</span> : <span class="string">&#x27;白酒&#x27;</span>&#125;&#125;,</span><br><span class="line">&#123; <span class="string">&#x27;$project&#x27;</span>: &#123;<span class="string">&#x27;code&#x27;</span>:<span class="number">1</span>,<span class="string">&#x27;stock_list.name&#x27;</span>:<span class="number">1</span>,<span class="string">&#x27;_id&#x27;</span>:<span class="number">0</span>&#125;&#125;,</span><br><span class="line">&#123; <span class="string">&#x27;$unwind&#x27;</span>:<span class="string">&#x27;$stock_list&#x27;</span>&#125;,</span><br><span class="line">&#123; <span class="string">&#x27;$replaceWith&#x27;</span>:&#123;<span class="string">&#x27;code&#x27;</span>:<span class="string">&#x27;$code&#x27;</span>,<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;$stock_list.name&#x27;</span>&#125;&#125;,</span><br><span class="line">&#123; <span class="string">&#x27;$group&#x27;</span>: &#123;<span class="string">&#x27;_id&#x27;</span>:<span class="string">&#x27;$code&#x27;</span>,<span class="string">&#x27;name&#x27;</span>:&#123; <span class="string">&#x27;$first&#x27;</span>:<span class="string">&quot;$name&quot;</span> &#125;&#125;&#125;,</span><br><span class="line">&#123; <span class="string">&#x27;$replaceWith&#x27;</span>:&#123;<span class="string">&#x27;code&#x27;</span>:<span class="string">&#x27;$_id&#x27;</span>,<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;$name&#x27;</span>&#125;&#125;</span><br><span class="line"></span><br><span class="line">])</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> res:</span><br><span class="line">    print(item)</span><br><span class="line">    count = count + <span class="number">1</span></span><br><span class="line">print(<span class="string">&quot;Total &#123;&#125; stocks are in this block&quot;</span>.<span class="built_in">format</span>(count))</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>白酒</code>板块</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&#123;&#x27;code&#x27;: &#x27;000858&#x27;, &#x27;name&#x27;: &#x27;五 粮 液&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600519&#x27;, &#x27;name&#x27;: &#x27;贵州茅台&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002646&#x27;, &#x27;name&#x27;: &#x27;青青稞酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600809&#x27;, &#x27;name&#x27;: &#x27;山西汾酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000995&#x27;, &#x27;name&#x27;: &#x27;皇台酒业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603025&#x27;, &#x27;name&#x27;: &#x27;大豪科技&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002304&#x27;, &#x27;name&#x27;: &#x27;洋河股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000596&#x27;, &#x27;name&#x27;: &#x27;古井贡酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600559&#x27;, &#x27;name&#x27;: &#x27;老白干酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603198&#x27;, &#x27;name&#x27;: &#x27;迎驾贡酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000799&#x27;, &#x27;name&#x27;: &#x27;酒鬼酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603369&#x27;, &#x27;name&#x27;: &#x27;今世缘&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603589&#x27;, &#x27;name&#x27;: &#x27;口子窖&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600779&#x27;, &#x27;name&#x27;: &#x27;水井坊&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600199&#x27;, &#x27;name&#x27;: &#x27;金种子酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600702&#x27;, &#x27;name&#x27;: &#x27;舍得酒业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000860&#x27;, &#x27;name&#x27;: &#x27;顺鑫农业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603919&#x27;, &#x27;name&#x27;: &#x27;金徽酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000568&#x27;, &#x27;name&#x27;: &#x27;泸州老窖&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600197&#x27;, &#x27;name&#x27;: &#x27;伊力特&#x27;&#125;</span><br><span class="line">Total 20 stocks are in this block</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>白酒概念</code>板块</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&#123;&#x27;code&#x27;: &#x27;600238&#x27;, &#x27;name&#x27;: &#x27;海南椰岛&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002304&#x27;, &#x27;name&#x27;: &#x27;洋河股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000596&#x27;, &#x27;name&#x27;: &#x27;古井贡酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600382&#x27;, &#x27;name&#x27;: &#x27;*ST广珠&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600750&#x27;, &#x27;name&#x27;: &#x27;江中药业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600252&#x27;, &#x27;name&#x27;: &#x27;中恒集团&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002646&#x27;, &#x27;name&#x27;: &#x27;青青稞酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600519&#x27;, &#x27;name&#x27;: &#x27;贵州茅台&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600696&#x27;, &#x27;name&#x27;: &#x27;岩石股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600771&#x27;, &#x27;name&#x27;: &#x27;广誉远&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600809&#x27;, &#x27;name&#x27;: &#x27;山西汾酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603919&#x27;, &#x27;name&#x27;: &#x27;金徽酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600655&#x27;, &#x27;name&#x27;: &#x27;豫园股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000888&#x27;, &#x27;name&#x27;: &#x27;峨眉山Ａ&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000930&#x27;, &#x27;name&#x27;: &#x27;中粮科技&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000829&#x27;, &#x27;name&#x27;: &#x27;天音控股&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002183&#x27;, &#x27;name&#x27;: &#x27;怡 亚 通&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002342&#x27;, &#x27;name&#x27;: &#x27;巨力索具&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000799&#x27;, &#x27;name&#x27;: &#x27;酒鬼酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002803&#x27;, &#x27;name&#x27;: &#x27;吉宏股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;300237&#x27;, &#x27;name&#x27;: &#x27;美晨生态&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600257&#x27;, &#x27;name&#x27;: &#x27;大湖股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;002772&#x27;, &#x27;name&#x27;: &#x27;众兴菌业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600260&#x27;, &#x27;name&#x27;: &#x27;ST凯乐&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600395&#x27;, &#x27;name&#x27;: &#x27;盘江股份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600559&#x27;, &#x27;name&#x27;: &#x27;老白干酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000995&#x27;, &#x27;name&#x27;: &#x27;皇台酒业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600766&#x27;, &#x27;name&#x27;: &#x27;*ST园城&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603101&#x27;, &#x27;name&#x27;: &#x27;汇嘉时代&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603198&#x27;, &#x27;name&#x27;: &#x27;迎驾贡酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603025&#x27;, &#x27;name&#x27;: &#x27;大豪科技&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603369&#x27;, &#x27;name&#x27;: &#x27;今世缘&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603777&#x27;, &#x27;name&#x27;: &#x27;来伊份&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000568&#x27;, &#x27;name&#x27;: &#x27;泸州老窖&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600197&#x27;, &#x27;name&#x27;: &#x27;伊力特&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000858&#x27;, &#x27;name&#x27;: &#x27;五 粮 液&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600779&#x27;, &#x27;name&#x27;: &#x27;水井坊&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600199&#x27;, &#x27;name&#x27;: &#x27;金种子酒&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600702&#x27;, &#x27;name&#x27;: &#x27;舍得酒业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;000860&#x27;, &#x27;name&#x27;: &#x27;顺鑫农业&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600781&#x27;, &#x27;name&#x27;: &#x27;ST辅仁&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603589&#x27;, &#x27;name&#x27;: &#x27;口子窖&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;600381&#x27;, &#x27;name&#x27;: &#x27;青海春天&#x27;&#125;</span><br><span class="line">&#123;&#x27;code&#x27;: &#x27;603299&#x27;, &#x27;name&#x27;: &#x27;苏盐井神&#x27;&#125;</span><br><span class="line">Total 44 stocks are in this block</span><br></pre></td></tr></table></figure>
+<h3 id="查询股票所属板块">4. 查询股票所属板块</h3>
+<p>以<code>贵州茅台（600519）</code>为例：</p>
+<h4 id="用mongodb命令提取-3">用MongoDB命令提取</h4>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.getCollection(&#x27;stock_block&#x27;).distinct(&#x27;blockname&#x27;,&#123;&#x27;code&#x27;:&#x27;600519&#x27;&#125;)</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210907180637.png" /></p>
+<h4 id="用pymongo模块提取-3">用pymongo模块提取</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"></span><br><span class="line">client = MongoClient(<span class="string">&#x27;localhost&#x27;</span>, <span class="number">27017</span>)</span><br><span class="line">db = client[<span class="string">&#x27;quantaxis&#x27;</span>]</span><br><span class="line">collection = db[<span class="string">&#x27;stock_block&#x27;</span>]</span><br><span class="line"></span><br><span class="line">res = collection.distinct(<span class="string">&#x27;blockname&#x27;</span>,&#123;<span class="string">&#x27;code&#x27;</span>:<span class="string">&#x27;600519&#x27;</span>&#125;)</span><br><span class="line">print(<span class="string">&quot;The stock belongs to Total &#123;&#125; blocks&quot;</span>.<span class="built_in">format</span>(<span class="built_in">len</span>(res)))</span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">The stock belongs to Total 36 blocks</span><br><span class="line">[&#x27;300ESG&#x27;, &#x27;300非周&#x27;, &#x27;MSCI成份&#x27;, &#x27;上证180&#x27;, &#x27;上证50&#x27;, &#x27;上证混改&#x27;, &#x27;上证超大&#x27;, &#x27;中华A80&#x27;, &#x27;中证100&#x27;, &#x27;中证龙头&#x27;, &#x27;保险重仓&#x27;, &#x27;北上重仓&#x27;, &#x27;国证农业&#x27;, &#x27;国证成长&#x27;, &#x27;基金重仓&#x27;, &#x27;大盘成长&#x27;, &#x27;大盘股&#x27;, &#x27;央视50&#x27;, &#x27;富时A50&#x27;, &#x27;投资时钟&#x27;, &#x27;持续增长&#x27;, &#x27;昨成交20&#x27;, &#x27;沪深300&#x27;, &#x27;泛珠三角&#x27;, &#x27;白酒&#x27;, &#x27;白酒概念&#x27;, &#x27;百元股&#x27;, &#x27;绩优股&#x27;, &#x27;罗素大盘&#x27;, &#x27;股权转让&#x27;, &#x27;融资融券&#x27;, &#x27;行业龙头&#x27;, &#x27;证金汇金&#x27;, &#x27;通达信88&#x27;, &#x27;银河99&#x27;, &#x27;高市净率&#x27;]</span><br></pre></td></tr></table></figure>
+<h1 id="参考">参考</h1>
+<p>1/ <a href="https://docs.mongodb.com/manual/aggregation/">Aggregation — MongoDB Manual</a></p>
+<p>2/ <a href="https://docs.mongodb.com/manual/reference/operator/aggregation/group/">$group (aggregation) — MongoDB Manual</a></p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>量化投资</category>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>通达信</tag>
+        <tag>MongoDB</tag>
       </tags>
   </entry>
   <entry>
