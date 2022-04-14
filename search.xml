@@ -1,50 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Obsidian学习（二）</title>
-    <url>/2021/10/09/Obsidian%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
-    <content><![CDATA[<h1 id="安装">安装</h1>
-<p>通过<a href="%5BObsidian%5D(https://obsidian.md/)">官网</a>下载并安装程序。 安装完后，可以在<code>Settings</code> -&gt; <code>About</code> -&gt; <code>Language</code>中选择界面语言，我还是使用英文界面，方便对接英文论坛内容。</p>
-<a id="more"></a>
-<h1 id="第一条笔记">第一条笔记</h1>
-<h2 id="创建新笔记库">创建新笔记库</h2>
-<p>打开<code>obsidian</code>, 可以选择从已有目录创建笔记库，也可以直接创建新笔记库，这里的库是基于目录来进行识别的。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/Obsidian_nhFVhNwfsT.png" /></p>
-<h2 id="创建知识管理库结构">创建知识管理库结构</h2>
-<p>根据自己的实践需要来建立知识管理库结构，示例：[[我的笔记系统结构]]</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/Obsidian_OPlKZFHfIr.png" /></p>
-<p>这时，在整个库里只有这些目录，在其下是空空如也的。</p>
-<h2 id="写第一条笔记">写第一条笔记</h2>
-<p>比如撰写<code>中国图书馆分类法</code>条目来作为自己的第一条笔记。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/Obsidian_qT0pelIdhd.png" /></p>
-<p>有两种方式来新建一条笔记：</p>
-<ol type="1">
-<li>点击界面上的<code>Create new file</code>或者使用快捷键<code>Ctrl + N</code>;</li>
-<li>点击左侧导航栏处的<code>New note</code>图标。</li>
-</ol>
-<p>我们在目录<code>01. 闪念笔记</code>下来新建一个名为<code>中国图书馆分类法.md</code>的文件。使用<code>markdown</code>的语法写作内容。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/Obsidian_lTIOQIhJoP.png" /></p>
-<p>屏幕右上角红框处，按住<code>Ctrl</code>键并点击，可以生成一个新的分栏来进行预览。如果只是点击，则是在编辑和预览状态间切换。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/Obsidian_t2KVZrispz.png" /></p>
-<p>从<code>ZettleKasten</code>笔记记录的角度来说，需要为每一篇笔记编一个能唯一识别的号码，我们可以在<code>Metadata(元数据)</code>中来增加<code>uid</code>项来实现，同时为了方便归类，也增加<code>cid（classification number）</code>,这可以根据汉语主题词表来进行定义。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 中国图书馆分类法</span><br><span class="line">date: 2021-10-09 22:38:24</span><br><span class="line">uid: 20211009223824</span><br><span class="line">cid: G254.122.001</span><br><span class="line">categories: [知识管理]</span><br><span class="line">tags: [图书馆分类法&#x2F;中图法]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>可以以此为依据，在<code>obsidian</code>中建立模板，方便撰写新笔记时直接插入。 1. 在<code>Core plugins</code>里启用<code>Templates</code>插件 2. 需要在 <code>Settings</code> -&gt; <code>Templates</code> -&gt; <code>Template folder location</code> 中指定模板文件夹的路径。 3. 在左边导航栏中点击<code>Insert template</code>或者为这功能设置一个快捷键，这里我设为<code>Ctrl + Q</code>。在写新笔记时就可以插入相应的模板内容。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123;title&#125;&#125;</span><br><span class="line">date: &#123;&#123;date:YYYY-MM-DD HH:mm:ss&#125;&#125;</span><br><span class="line">uid: &#123;&#123;date:YYYYMMDDHHmmss&#125;&#125;</span><br><span class="line">cid: xxxx.xxxx.xxx</span><br><span class="line">categories: [xxxx]</span><br><span class="line">tags: [xxxx&#x2F;xxx]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>至此，第一个笔记已经顺利完成，可以移入分类目录中使用。</p>
-<h1 id="学习小结">学习小结</h1>
-<ol type="1">
-<li>熟悉<code>obsidian</code>的基本界面操作。</li>
-<li>模板的配置及使用。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>专栏</category>
-      </categories>
-      <tags>
-        <tag>Obsidian/学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>docker创建的vhdx文件无法移动或删除</title>
     <url>/2020/12/23/docker%E5%88%9B%E5%BB%BA%E7%9A%84vhdx%E6%96%87%E4%BB%B6%E6%97%A0%E6%B3%95%E7%A7%BB%E5%8A%A8%E6%88%96%E5%88%A0%E9%99%A4/</url>
     <content><![CDATA[<p>操作系统为win10 professional,由于开始使用docker时没有及时调整img存放的位置，导致C盘空间被耗尽。所以决定迁移img至数据盘。但在通过dockerdeskto setting更改存储位置时，发生了异常，没有完全执行成功。初次重启后无法正常启动docker。</p>
@@ -73,25 +29,92 @@
       </tags>
   </entry>
   <entry>
-    <title>欢迎来到我的博客</title>
-    <url>/2020/11/19/hello-world/</url>
-    <content><![CDATA[<h2 id="橘子的博客终于开通了">橘子的博客终于开通了</h2>
-<p>一直偷懒，最近终于良心发现，总觉以前的光阴虚度，不想未来同样蹉跎岁月，自当奋起，希望能记录下未来成长过程中的点点滴滴想法和经验。</p>
-<p>借词聊表胸怀</p>
+    <title>Obsidian学习（一）</title>
+    <url>/2021/09/27/Obsidian%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="背景">背景</h1>
+<p>最近对[[【知识管理】Zettelkasten笔记法|Zettelkasten笔记法]]进行学习，也在学习过程中了解到了<code>Obsidian</code>, 它可以帮助人们高效地建立适合自己的知识管理体系。所以在梳理整合自己知识体系的同时，也同步进行了<code>Obsidian</code>的学习。</p>
+<a id="more"></a>
+<h1 id="obsidian是什么">Obsidian是什么？</h1>
+<p><code>Obsidian</code>是什么？正如其<a href="https://obsidian.md/">Obsidian官网</a>宣称的</p>
 <blockquote>
-<p><font color=green><strong>江城子·密州出猎</strong></font><br />
-<font color=blue><strong>宋 苏轼</strong></font></p>
-<p>老夫聊发少年狂， 左牵黄，右擎苍， 锦帽貂裘，千骑卷平冈。 为报倾城随太守，亲射虎，看孙郎。</p>
-<p>酒酣胸胆尚开张， 鬓微霜，又何妨! 持节云中，何日遣冯唐? 会挽雕弓如满月，西北望，射天狼。</p>
+<p>Obsidian is a powerful knowledge base that works on top of<br />
+a local folder of plain text Markdown files.</p>
 </blockquote>
-<h2 id="本站用途">本站用途</h2>
-<p>这是个人用来学习研究金融工程，机器学习的小窝，</p>
+<p>从字里行间我们可以了解到，它是基于<strong>Markdown文件</strong>的<strong>本地</strong>知识管理软件，它的特点可以归纳为: - 本地化 - 基于<code>markdown</code> - 知识管理 第三个特点就决定了它与<code>Typora</code>等markdown编辑器有了本质的区别，它是如何体现出它强大的知识管理能力来呢？</p>
+<h1 id="为什么要选择obsidian">为什么要选择Obsidian?</h1>
+<h2 id="个人用户免费">个人用户免费</h2>
+<p>目前类似的<code>Roam Research</code>等软件收费颇高，像<code>Obsidian</code>如此良心的软件并不多见。<br />
+<img src="https://s2.loli.net/2022/04/14/1xH7cp8lkfL2eq4.png" /></p>
+<h2 id="数据本地化">数据本地化</h2>
+<p><code>Obsidian</code>很好地保护了自己笔记内容的隐私，而其它笔记软件多由于采用数据库方式来管理笔记，一般使用上传内容至服务提供商的方式来实现，而<code>Obsidian</code>使用所谓的<code>库</code>,实际上就是基于文件夹的方式，建立不同的库，可以使用各自的主题，插件，非常方便。使用本地化结构的知识管理系统，最大的优点在于不依赖于工具软件本身，就算有朝一日，决定不用<code>Obsidian</code>,也可以很容易地将自己的知识管理体系进行迁移。</p>
+<h2 id="与其它软件的联动较强">与其它软件的联动较强</h2>
+<p>可以与<code>Zotero</code>联动实现文献管理互动，可以与<code>logseq</code>联动实现日程管理等等，总而言之，通过有效地使用工具，高效地提升自己的知识管理能力及执行能力。</p>
+<h2 id="良好生态的社区环境与丰富的插件">良好生态的社区环境与丰富的插件</h2>
+<p><code>Obsidian</code>的社区生态良好，开发了许多实用的第三方插件。</p>
+<p><a href="https://forum.obsidian.md/">Obsidian英文社区</a> <a href="https://forum-zh.obsidian.md/">Obsidian中文社区</a> 在软件设置里的<code>社区插件</code>中关闭<code>安全模式</code>后，可以安装自己需要的插件。</p>
+<h2 id="优秀的移动端体验">优秀的移动端体验</h2>
+<p>在<code>android</code>和<code>ios</code>下都有APP可以安装使用。</p>
+<h1 id="obsidian能做什么">Obsidian能做什么？</h1>
+<h2 id="撰写技术文章">撰写技术文章</h2>
+<p>对于一直习惯用markdown方式来写技术文章的人，<code>Obsidian</code>也提供了不亚于<code>Typora</code>的写作体验。</p>
+<h2 id="计划">计划</h2>
+<p>例如日清单，工作计划等都可以使用或通过<code>Obsidian</code>及其插件进行。</p>
+<h2 id="读书笔记">读书笔记</h2>
+<p>以前一直是用<code>Notion</code>来作读书笔记，但相对于把思绪集中在写作内容上，<code>Notion</code>会花费相对多的时间来进行版面的设计。而使用markdown方式的便利性在使用<code>Obsidian</code>的过程中就得到了体现。</p>
+<h2 id="双向链接与知识图谱">双向链接与知识图谱</h2>
+<p>这也是目前流行的笔记推崇的概念，目的是把头脑里杂乱无章的知识网状化，系统化。</p>
+<h1 id="写在最后">写在最后</h1>
+<p>无论工具多么先进，最终还是要看执行的人是否真正把关注点放在工具要解决的事务上，而非纠缠、沉溺于工具本身。 希望通过<code>Obsidian</code>学习的同时，也为自己初步建立一个适合自己的知识管理体系。</p>
 ]]></content>
       <categories>
-        <category>美好生活</category>
+        <category>专栏</category>
       </categories>
       <tags>
-        <tag>随笔</tag>
+        <tag>Obsidian/学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Obsidian学习（二）</title>
+    <url>/2021/10/09/Obsidian%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="安装">安装</h1>
+<p>通过<a href="%5BObsidian%5D(https://obsidian.md/)">官网</a>下载并安装程序。 安装完后，可以在<code>Settings</code> -&gt; <code>About</code> -&gt; <code>Language</code>中选择界面语言，我还是使用英文界面，方便对接英文论坛内容。</p>
+<a id="more"></a>
+<h1 id="第一条笔记">第一条笔记</h1>
+<h2 id="创建新笔记库">创建新笔记库</h2>
+<p>打开<code>obsidian</code>, 可以选择从已有目录创建笔记库，也可以直接创建新笔记库，这里的库是基于目录来进行识别的。</p>
+<p><img src="https://s2.loli.net/2022/04/14/XuLUyqm5jNVHEJ2.png" /></p>
+<h2 id="创建知识管理库结构">创建知识管理库结构</h2>
+<p>根据自己的实践需要来建立知识管理库结构，示例：[[我的笔记系统结构]]</p>
+<p><img src="https://s2.loli.net/2022/04/14/cplyEbHqSWOCvJI.png" /></p>
+<p>这时，在整个库里只有这些目录，在其下是空空如也的。</p>
+<h2 id="写第一条笔记">写第一条笔记</h2>
+<p>比如撰写<code>中国图书馆分类法</code>条目来作为自己的第一条笔记。</p>
+<p><img src="https://s2.loli.net/2022/04/14/xg4VXIYQ1q5foac.png" /></p>
+<p>有两种方式来新建一条笔记：</p>
+<ol type="1">
+<li>点击界面上的<code>Create new file</code>或者使用快捷键<code>Ctrl + N</code>;</li>
+<li>点击左侧导航栏处的<code>New note</code>图标。</li>
+</ol>
+<p>我们在目录<code>01. 闪念笔记</code>下来新建一个名为<code>中国图书馆分类法.md</code>的文件。使用<code>markdown</code>的语法写作内容。</p>
+<p><img src="https://s2.loli.net/2022/04/14/7eIMHg9Svquklri.png" /></p>
+<p>屏幕右上角红框处，按住<code>Ctrl</code>键并点击，可以生成一个新的分栏来进行预览。如果只是点击，则是在编辑和预览状态间切换。</p>
+<p><img src="https://s2.loli.net/2022/04/14/LNdmnoOMlEhK1vJ.png" /></p>
+<p>从<code>ZettleKasten</code>笔记记录的角度来说，需要为每一篇笔记编一个能唯一识别的号码，我们可以在<code>Metadata(元数据)</code>中来增加<code>uid</code>项来实现，同时为了方便归类，也增加<code>cid（classification number）</code>,这可以根据汉语主题词表来进行定义。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 中国图书馆分类法</span><br><span class="line">date: 2021-10-09 22:38:24</span><br><span class="line">uid: 20211009223824</span><br><span class="line">cid: G254.122.001</span><br><span class="line">categories: [知识管理]</span><br><span class="line">tags: [图书馆分类法&#x2F;中图法]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>可以以此为依据，在<code>obsidian</code>中建立模板，方便撰写新笔记时直接插入。 1. 在<code>Core plugins</code>里启用<code>Templates</code>插件 2. 需要在 <code>Settings</code> -&gt; <code>Templates</code> -&gt; <code>Template folder location</code> 中指定模板文件夹的路径。 3. 在左边导航栏中点击<code>Insert template</code>或者为这功能设置一个快捷键，这里我设为<code>Ctrl + Q</code>。在写新笔记时就可以插入相应的模板内容。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123;title&#125;&#125;</span><br><span class="line">date: &#123;&#123;date:YYYY-MM-DD HH:mm:ss&#125;&#125;</span><br><span class="line">uid: &#123;&#123;date:YYYYMMDDHHmmss&#125;&#125;</span><br><span class="line">cid: xxxx.xxxx.xxx</span><br><span class="line">categories: [xxxx]</span><br><span class="line">tags: [xxxx&#x2F;xxx]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>至此，第一个笔记已经顺利完成，可以移入分类目录中使用。</p>
+<h1 id="学习小结">学习小结</h1>
+<ol type="1">
+<li>熟悉<code>obsidian</code>的基本界面操作。</li>
+<li>模板的配置及使用。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>专栏</category>
+      </categories>
+      <tags>
+        <tag>Obsidian/学习</tag>
       </tags>
   </entry>
   <entry>
@@ -249,23 +272,25 @@
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】github开启令牌验证后无法更新Blog的问题</title>
-    <url>/2021/08/30/%E3%80%90Hexo%E3%80%91github%E5%BC%80%E5%90%AF%E4%BB%A4%E7%89%8C%E9%AA%8C%E8%AF%81%E5%90%8E%E6%97%A0%E6%B3%95%E6%9B%B4%E6%96%B0Blog%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>从2021年8月13日起， github不再支持帐号密码验证Git操作，改用token(令牌)或SSH密钥。</p>
-<p><img src="https://s2.loli.net/2022/04/14/L6YvJDdyVg5uxot.png" /></p>
-<p><strong>解决方案</strong></p>
-<p>1/ 首先登入Github 账户，<code>Setting - Developer settings - Personal access tokens - Generate new token</code>, Note 填写 Hexo 或 Blog 之类，勾选第一项 repo，然后 Generate token；为Hexo项目生成一个令牌。</p>
-<p>2/ 修改<code>_config.yml</code>,</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://[复制生成的token]@github.com/nokiasonic/nokiasonic.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>即可正常hexo d更新blog。</p>
+    <title>欢迎来到我的博客</title>
+    <url>/2020/11/19/hello-world/</url>
+    <content><![CDATA[<h2 id="橘子的博客终于开通了">橘子的博客终于开通了</h2>
+<p>一直偷懒，最近终于良心发现，总觉以前的光阴虚度，不想未来同样蹉跎岁月，自当奋起，希望能记录下未来成长过程中的点点滴滴想法和经验。</p>
+<p>借词聊表胸怀</p>
+<blockquote>
+<p><font color=green><strong>江城子·密州出猎</strong></font><br />
+<font color=blue><strong>宋 苏轼</strong></font></p>
+<p>老夫聊发少年狂， 左牵黄，右擎苍， 锦帽貂裘，千骑卷平冈。 为报倾城随太守，亲射虎，看孙郎。</p>
+<p>酒酣胸胆尚开张， 鬓微霜，又何妨! 持节云中，何日遣冯唐? 会挽雕弓如满月，西北望，射天狼。</p>
+</blockquote>
+<h2 id="本站用途">本站用途</h2>
+<p>这是个人用来学习研究金融工程，机器学习的小窝，</p>
 ]]></content>
       <categories>
-        <category>技术笔记</category>
-        <category>Hexo</category>
+        <category>美好生活</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
-        <tag>Github</tag>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -286,6 +311,26 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】github开启令牌验证后无法更新Blog的问题</title>
+    <url>/2021/08/30/%E3%80%90Hexo%E3%80%91github%E5%BC%80%E5%90%AF%E4%BB%A4%E7%89%8C%E9%AA%8C%E8%AF%81%E5%90%8E%E6%97%A0%E6%B3%95%E6%9B%B4%E6%96%B0Blog%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>从2021年8月13日起， github不再支持帐号密码验证Git操作，改用token(令牌)或SSH密钥。</p>
+<p><img src="https://s2.loli.net/2022/04/14/L6YvJDdyVg5uxot.png" /></p>
+<p><strong>解决方案</strong></p>
+<p>1/ 首先登入Github 账户，<code>Setting - Developer settings - Personal access tokens - Generate new token</code>, Note 填写 Hexo 或 Blog 之类，勾选第一项 repo，然后 Generate token；为Hexo项目生成一个令牌。</p>
+<p>2/ 修改<code>_config.yml</code>,</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://[复制生成的token]@github.com/nokiasonic/nokiasonic.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>即可正常hexo d更新blog。</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Github</tag>
       </tags>
   </entry>
   <entry>
@@ -313,29 +358,6 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Jupyter】启动时有报错信息</title>
-    <url>/2021/05/11/%E3%80%90Jupyter%E3%80%91%E5%90%AF%E5%8A%A8%E6%97%B6%E6%9C%89%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/</url>
-    <content><![CDATA[<h1 id="说明">说明</h1>
-<p>在升级jupyter到版本6.x以上时，在启动的时候会报很多行以下错误 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Config option &#96;template_path&#96; not recognized by &#96;LenvsLatexExporter&#96;. Did you mean one of: &#96;template_file, template_name, template_paths&#96;?</span><br></pre></td></tr></table></figure></p>
-<h1 id="解决方案">解决方案</h1>
-<p>使用VS Code依次打开python安装目录下的/lib/site-packages/ ('jupyter_contrib_nbextensions', 'jupyter_latex_envs' 及'latex_envs')子目录。</p>
-<p>通过'Edit/Replace in Files'来查找'template_path'并替换为'template_paths'。</p>
-<p>注意有的内容已经是template_paths，不需要修改。</p>
-<h1 id="参考">参考</h1>
-<p>1/ [jupyter代码自动补全插件、安装后出现警告“Config option <code>template_path</code> not recognized by <code>LenvsLatexExporter</code>”的解决方案](<a href="https://blog.csdn.net/DTFT_/article/details/111242118">jupyter代码自动补全插件、安装后出现警告"Config option not recognized by "的解决方案_Sun's Blog-CSDN博客</a>)</p>
-<p>2/ <a href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions/issues/1529">Config option <code>template_path</code> not recognized by <code>LenvsLatexExporter</code>. Did you mean one of: <code>template_file, template_name, template_paths</code>? · Issue #1529 · ipython-contrib/jupyter_contrib_nbextensions (github.com)</a>)</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>python</category>
-        <category>jupyter</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>jupyter</tag>
       </tags>
   </entry>
   <entry>
@@ -526,6 +548,29 @@
       <tags>
         <tag>typora</tag>
         <tag>mermaid</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Jupyter】启动时有报错信息</title>
+    <url>/2021/05/11/%E3%80%90Jupyter%E3%80%91%E5%90%AF%E5%8A%A8%E6%97%B6%E6%9C%89%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/</url>
+    <content><![CDATA[<h1 id="说明">说明</h1>
+<p>在升级jupyter到版本6.x以上时，在启动的时候会报很多行以下错误 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Config option &#96;template_path&#96; not recognized by &#96;LenvsLatexExporter&#96;. Did you mean one of: &#96;template_file, template_name, template_paths&#96;?</span><br></pre></td></tr></table></figure></p>
+<h1 id="解决方案">解决方案</h1>
+<p>使用VS Code依次打开python安装目录下的/lib/site-packages/ ('jupyter_contrib_nbextensions', 'jupyter_latex_envs' 及'latex_envs')子目录。</p>
+<p>通过'Edit/Replace in Files'来查找'template_path'并替换为'template_paths'。</p>
+<p>注意有的内容已经是template_paths，不需要修改。</p>
+<h1 id="参考">参考</h1>
+<p>1/ [jupyter代码自动补全插件、安装后出现警告“Config option <code>template_path</code> not recognized by <code>LenvsLatexExporter</code>”的解决方案](<a href="https://blog.csdn.net/DTFT_/article/details/111242118">jupyter代码自动补全插件、安装后出现警告"Config option not recognized by "的解决方案_Sun's Blog-CSDN博客</a>)</p>
+<p>2/ <a href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions/issues/1529">Config option <code>template_path</code> not recognized by <code>LenvsLatexExporter</code>. Did you mean one of: <code>template_file, template_name, template_paths</code>? · Issue #1529 · ipython-contrib/jupyter_contrib_nbextensions (github.com)</a>)</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>python</category>
+        <category>jupyter</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>jupyter</tag>
       </tags>
   </entry>
   <entry>
@@ -3076,6 +3121,44 @@ code
       </tags>
   </entry>
   <entry>
+    <title>【Rust】Rust在win10下开发环境的搭建</title>
+    <url>/2021/01/04/%E3%80%90Rust%E3%80%91Rust%E5%9C%A8win10%E4%B8%8B%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<p>记录下如何在Windows 10环境下部署VScode的Rust开发环境。</p>
+<h1 id="配置步骤">配置步骤</h1>
+<h2 id="环境变量设置">环境变量设置</h2>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">RUST&#x3D;d:\Program Files\RUST\.rustup\toolchains\stable-x86_64-pc-windows-msvc  </span><br><span class="line">CARGO HOME &#x3D; D:\Program Files\RUST\.cargo  </span><br><span class="line">RUSTUP_DIST_SERVER &#x3D; https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;rust-static  </span><br><span class="line">RUSTUP_HOME &#x3D; D:\Program Files\RUST\.rustup  </span><br><span class="line">RUSTUP_UPDATE_ROOT &#x3D; https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;rust-static&#x2F;rustup  </span><br><span class="line">RUST_SRC_PATH &#x3D; d:\Program Files\RUST\.rustup\toolchains\stable-x86_64-pc-windows-msvc\lib\rustlib\src\rust\src</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="配置windows的rust和crates.io国内镜像">配置Windows的Rust和Crates.io国内镜像</h2>
+<h3 id="修改crates.io国内镜像">修改Crates.io国内镜像</h3>
+<p>修改<code>~/.cargo/config</code> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[source.crates-io]  </span><br><span class="line">registry &#x3D; &quot;https:&#x2F;&#x2F;github.com&#x2F;rust-lang&#x2F;crates.io-index&quot;  </span><br><span class="line"></span><br><span class="line">#Replace with any mirror source  </span><br><span class="line">replace-with &#x3D; &#39;ustc&#39;  </span><br><span class="line">#replace-with &#x3D; &#39;tuna&#39;  </span><br><span class="line">#replace-with &#x3D; &#39;sjtu&#39;  </span><br><span class="line">#replace-with &#x3D; &#39;rustcc&#39;  </span><br><span class="line"></span><br><span class="line">#University of science and technology of China  </span><br><span class="line">[source.ustc]  </span><br><span class="line">registry &#x3D; &quot;git:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;crates.io-index&quot;  </span><br><span class="line"></span><br><span class="line">#Tsinghua University  </span><br><span class="line">[source.tuna]  </span><br><span class="line">registry &#x3D; &quot;https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;git&#x2F;crates.io-index.git&quot;  </span><br><span class="line"></span><br><span class="line">#Shanghai Jiaotong University  </span><br><span class="line">[source.sjtu]  </span><br><span class="line">registry &#x3D; &quot;https:&#x2F;&#x2F;mirrors.sjtug.sjtu.edu.cn&#x2F;git&#x2F;crates.io-index&quot;  </span><br><span class="line"></span><br><span class="line">#Rustcc community  </span><br><span class="line">[source.rustcc]  </span><br><span class="line">registry &#x3D; &quot;git:&#x2F;&#x2F;crates.rustcc.cn&#x2F;crates.io-index&quot;  </span><br></pre></td></tr></table></figure> ### 修改rustup国内镜像</p>
+<p>在系统环境变量中设置 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CARGO HOME &#x3D; D:\Program Files\RUST\.cargo  </span><br><span class="line">RUSTUP_DIST_SERVER &#x3D; https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;rust-static  </span><br><span class="line">RUSTUP_HOME &#x3D; D:\Program Files\RUST\.rustup  </span><br><span class="line">RUSTUP_UPDATE_ROOT &#x3D; https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;rust-static&#x2F;rustup  </span><br></pre></td></tr></table></figure></p>
+<h2 id="vs-code插件安装">VS Code插件安装</h2>
+<ol type="1">
+<li><p>rust-analyzer</p>
+<p>该插件有说明与会与官方的Rust有冲突，二者只能先激活一个。</p>
+<p><img src="https://s2.loli.net/2022/04/14/vGay32FOwzkAWtL.png" /></p></li>
+<li><p>CodeLLDB</p>
+<p>基于LLDB的原生debugger.详见<a href="https://github.com/vadimcn/vscode-lldb">官网</a></p></li>
+<li><p>TabNine</p>
+<p>基于深度学习的智能提示插件, 详见<a href="https://www.tabnine.com/">官网</a></p></li>
+</ol>
+<h2 id="开启vs-code进行测试">开启VS Code进行测试</h2>
+<p>安装插件，重启VS Code后。</p>
+<p>现在运行官网示例。</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> ferris_says::say; <span class="comment">// from the previous step</span></span><br><span class="line"><span class="keyword">use</span> std::io::&#123;stdout, BufWriter&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> stdout = stdout();</span><br><span class="line">    <span class="keyword">let</span> message = <span class="built_in">String</span>::from(<span class="string">&quot;Hello fellow Rustaceans!&quot;</span>);</span><br><span class="line">    <span class="keyword">let</span> width = message.chars().count();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> writer = BufWriter::new(stdout.lock());</span><br><span class="line">    say(message.as_bytes(), width, &amp;<span class="keyword">mut</span> writer).unwrap();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/04/14/6qljpGuyzBgOmE4.png" /></p>
+<p>测试， RA、CodeLLDB及TabNine工作正常。</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>rust</category>
+      </categories>
+      <tags>
+        <tag>rust</tag>
+        <tag>VScode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【Python】使用PYQT5来构建持仓盈亏监控(续)</title>
     <url>/2021/07/02/%E3%80%90Python%E3%80%91%E4%BD%BF%E7%94%A8PYQT5%E6%9D%A5%E6%9E%84%E5%BB%BA%E6%8C%81%E4%BB%93%E7%9B%88%E4%BA%8F%E7%9B%91%E6%8E%A7%20(%E7%BB%AD)/</url>
     <content><![CDATA[<h1 id="目的">目的</h1>
@@ -3123,44 +3206,6 @@ code
       <tags>
         <tag>python</tag>
         <tag>pyqt5</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Rust】Rust在win10下开发环境的搭建</title>
-    <url>/2021/01/04/%E3%80%90Rust%E3%80%91Rust%E5%9C%A8win10%E4%B8%8B%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<p>记录下如何在Windows 10环境下部署VScode的Rust开发环境。</p>
-<h1 id="配置步骤">配置步骤</h1>
-<h2 id="环境变量设置">环境变量设置</h2>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">RUST&#x3D;d:\Program Files\RUST\.rustup\toolchains\stable-x86_64-pc-windows-msvc  </span><br><span class="line">CARGO HOME &#x3D; D:\Program Files\RUST\.cargo  </span><br><span class="line">RUSTUP_DIST_SERVER &#x3D; https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;rust-static  </span><br><span class="line">RUSTUP_HOME &#x3D; D:\Program Files\RUST\.rustup  </span><br><span class="line">RUSTUP_UPDATE_ROOT &#x3D; https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;rust-static&#x2F;rustup  </span><br><span class="line">RUST_SRC_PATH &#x3D; d:\Program Files\RUST\.rustup\toolchains\stable-x86_64-pc-windows-msvc\lib\rustlib\src\rust\src</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="配置windows的rust和crates.io国内镜像">配置Windows的Rust和Crates.io国内镜像</h2>
-<h3 id="修改crates.io国内镜像">修改Crates.io国内镜像</h3>
-<p>修改<code>~/.cargo/config</code> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[source.crates-io]  </span><br><span class="line">registry &#x3D; &quot;https:&#x2F;&#x2F;github.com&#x2F;rust-lang&#x2F;crates.io-index&quot;  </span><br><span class="line"></span><br><span class="line">#Replace with any mirror source  </span><br><span class="line">replace-with &#x3D; &#39;ustc&#39;  </span><br><span class="line">#replace-with &#x3D; &#39;tuna&#39;  </span><br><span class="line">#replace-with &#x3D; &#39;sjtu&#39;  </span><br><span class="line">#replace-with &#x3D; &#39;rustcc&#39;  </span><br><span class="line"></span><br><span class="line">#University of science and technology of China  </span><br><span class="line">[source.ustc]  </span><br><span class="line">registry &#x3D; &quot;git:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;crates.io-index&quot;  </span><br><span class="line"></span><br><span class="line">#Tsinghua University  </span><br><span class="line">[source.tuna]  </span><br><span class="line">registry &#x3D; &quot;https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;git&#x2F;crates.io-index.git&quot;  </span><br><span class="line"></span><br><span class="line">#Shanghai Jiaotong University  </span><br><span class="line">[source.sjtu]  </span><br><span class="line">registry &#x3D; &quot;https:&#x2F;&#x2F;mirrors.sjtug.sjtu.edu.cn&#x2F;git&#x2F;crates.io-index&quot;  </span><br><span class="line"></span><br><span class="line">#Rustcc community  </span><br><span class="line">[source.rustcc]  </span><br><span class="line">registry &#x3D; &quot;git:&#x2F;&#x2F;crates.rustcc.cn&#x2F;crates.io-index&quot;  </span><br></pre></td></tr></table></figure> ### 修改rustup国内镜像</p>
-<p>在系统环境变量中设置 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CARGO HOME &#x3D; D:\Program Files\RUST\.cargo  </span><br><span class="line">RUSTUP_DIST_SERVER &#x3D; https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;rust-static  </span><br><span class="line">RUSTUP_HOME &#x3D; D:\Program Files\RUST\.rustup  </span><br><span class="line">RUSTUP_UPDATE_ROOT &#x3D; https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;rust-static&#x2F;rustup  </span><br></pre></td></tr></table></figure></p>
-<h2 id="vs-code插件安装">VS Code插件安装</h2>
-<ol type="1">
-<li><p>rust-analyzer</p>
-<p>该插件有说明与会与官方的Rust有冲突，二者只能先激活一个。</p>
-<p><img src="https://s2.loli.net/2022/04/14/vGay32FOwzkAWtL.png" /></p></li>
-<li><p>CodeLLDB</p>
-<p>基于LLDB的原生debugger.详见<a href="https://github.com/vadimcn/vscode-lldb">官网</a></p></li>
-<li><p>TabNine</p>
-<p>基于深度学习的智能提示插件, 详见<a href="https://www.tabnine.com/">官网</a></p></li>
-</ol>
-<h2 id="开启vs-code进行测试">开启VS Code进行测试</h2>
-<p>安装插件，重启VS Code后。</p>
-<p>现在运行官网示例。</p>
-<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> ferris_says::say; <span class="comment">// from the previous step</span></span><br><span class="line"><span class="keyword">use</span> std::io::&#123;stdout, BufWriter&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> stdout = stdout();</span><br><span class="line">    <span class="keyword">let</span> message = <span class="built_in">String</span>::from(<span class="string">&quot;Hello fellow Rustaceans!&quot;</span>);</span><br><span class="line">    <span class="keyword">let</span> width = message.chars().count();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> writer = BufWriter::new(stdout.lock());</span><br><span class="line">    say(message.as_bytes(), width, &amp;<span class="keyword">mut</span> writer).unwrap();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2022/04/14/6qljpGuyzBgOmE4.png" /></p>
-<p>测试， RA、CodeLLDB及TabNine工作正常。</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>rust</category>
-      </categories>
-      <tags>
-        <tag>rust</tag>
-        <tag>VScode</tag>
       </tags>
   </entry>
   <entry>
@@ -3321,48 +3366,6 @@ code
       </tags>
   </entry>
   <entry>
-    <title>【cmder】在VsCode使用Cmder作为默认终端</title>
-    <url>/2021/09/11/%E3%80%90cmder%E3%80%91%E5%9C%A8VsCode%E4%BD%BF%E7%94%A8Cmder%E4%BD%9C%E4%B8%BA%E9%BB%98%E8%AE%A4%E7%BB%88%E7%AB%AF/</url>
-    <content><![CDATA[<h1 id="前言">前言</h1>
-<p>实在忍受不了<code>VsCode</code>里的默认终端为<code>powershell</code>或<code>cmd</code>, 希望能使用<code>cmder</code>来作为默认终端。</p>
-<h1 id="配置步骤">配置步骤</h1>
-<p>旧版的<code>VsCode</code>使用以下方法修改。</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;terminal.integrated.shellArgs.windows&quot;:[&quot;/k %CMDER_ROOT%\\vendor\\init.bat&quot;]</span><br></pre></td></tr></table></figure>
-<p>当VSCode升级至1.57.1(2021.6.17)时，会出现警告提示：</p>
-<p><img src="https://s2.loli.net/2022/04/14/hT1As3nwuqpFCyQ.png" /></p>
-<p>意思是此项已弃用，<code>Microsoft</code>官方配置默认 shell 的新推荐方法是在 #terminal.integrated.profiles.windows# 中创建一个终端配置文件，并将其配置文件名称设置为 #terminal.integrated.defaultProfile.windows# 中的默认值。此操作当前将优先于新的配置文件设置，但将来会发生更改。</p>
-<ol type="1">
-<li>打开<code>User Settings</code>(<code>File</code>-&gt; <code>Preferences</code>-&gt; <code>Settings</code>)。</li>
-<li>输入栏：<code>terminal.integrated.Profiles.windows</code>, 并点击<code>Edit in settings.son</code>。</li>
-</ol>
-<p><img src="https://s2.loli.net/2022/04/14/ltZiaKGOpsSDTkE.png" /></p>
-<ol start="3" type="1">
-<li><p>添加新的配置， 并设置<code>cmder</code>为默认配置。</p></li>
-<li><p>打开一个新终端(<code>Terminal</code> -&gt; <code>New Terminal</code>)</p>
-<table>
-<thead>
-<tr class="header">
-<th><img src="https://s2.loli.net/2022/04/14/WbDMzE32fayt8Hg.png" /></th>
-<th><img src="https://s2.loli.net/2022/04/14/sGTVRWPSaAH2E9f.png" /></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table></li>
-</ol>
-<h1 id="参考">参考</h1>
-<p>1/ <a href="https://code.visualstudio.com/docs/editor/integrated-terminal#_terminal-profiles">Integrated Terminal in Visual Studio Code</a></p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>软件</category>
-      </categories>
-      <tags>
-        <tag>VsCode</tag>
-        <tag>cmder</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【cmder】cmder+fluent terminal的使用及配置</title>
     <url>/2021/03/18/%E3%80%90cmder%E3%80%91cmder+fluent%20terminal%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<p>Windows的cmd实在过于丑陋，且使用起来有诸多的不方便， 平时也会使用git bash, 那么有没有办法将它们集成在一起，并且有个漂亮的外观呢？ 答案是肯定的。 那就是cmder + fluent terminal。</p>
@@ -3504,6 +3507,72 @@ code
       </tags>
   </entry>
   <entry>
+    <title>【cmder】在VsCode使用Cmder作为默认终端</title>
+    <url>/2021/09/11/%E3%80%90cmder%E3%80%91%E5%9C%A8VsCode%E4%BD%BF%E7%94%A8Cmder%E4%BD%9C%E4%B8%BA%E9%BB%98%E8%AE%A4%E7%BB%88%E7%AB%AF/</url>
+    <content><![CDATA[<h1 id="前言">前言</h1>
+<p>实在忍受不了<code>VsCode</code>里的默认终端为<code>powershell</code>或<code>cmd</code>, 希望能使用<code>cmder</code>来作为默认终端。</p>
+<h1 id="配置步骤">配置步骤</h1>
+<p>旧版的<code>VsCode</code>使用以下方法修改。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;terminal.integrated.shellArgs.windows&quot;:[&quot;/k %CMDER_ROOT%\\vendor\\init.bat&quot;]</span><br></pre></td></tr></table></figure>
+<p>当VSCode升级至1.57.1(2021.6.17)时，会出现警告提示：</p>
+<p><img src="https://s2.loli.net/2022/04/14/hT1As3nwuqpFCyQ.png" /></p>
+<p>意思是此项已弃用，<code>Microsoft</code>官方配置默认 shell 的新推荐方法是在 #terminal.integrated.profiles.windows# 中创建一个终端配置文件，并将其配置文件名称设置为 #terminal.integrated.defaultProfile.windows# 中的默认值。此操作当前将优先于新的配置文件设置，但将来会发生更改。</p>
+<ol type="1">
+<li>打开<code>User Settings</code>(<code>File</code>-&gt; <code>Preferences</code>-&gt; <code>Settings</code>)。</li>
+<li>输入栏：<code>terminal.integrated.Profiles.windows</code>, 并点击<code>Edit in settings.son</code>。</li>
+</ol>
+<p><img src="https://s2.loli.net/2022/04/14/ltZiaKGOpsSDTkE.png" /></p>
+<ol start="3" type="1">
+<li><p>添加新的配置， 并设置<code>cmder</code>为默认配置。</p></li>
+<li><p>打开一个新终端(<code>Terminal</code> -&gt; <code>New Terminal</code>)</p>
+<table>
+<thead>
+<tr class="header">
+<th><img src="https://s2.loli.net/2022/04/14/WbDMzE32fayt8Hg.png" /></th>
+<th><img src="https://s2.loli.net/2022/04/14/sGTVRWPSaAH2E9f.png" /></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></li>
+</ol>
+<h1 id="参考">参考</h1>
+<p>1/ <a href="https://code.visualstudio.com/docs/editor/integrated-terminal#_terminal-profiles">Integrated Terminal in Visual Studio Code</a></p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>软件</category>
+      </categories>
+      <tags>
+        <tag>cmder</tag>
+        <tag>VsCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【python】multiprocessing进程间的通信（二）管道</title>
+    <url>/2021/01/08/%E3%80%90python%E3%80%91multiprocessing%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%EF%BC%88%E4%BA%8C%EF%BC%89%E7%AE%A1%E9%81%93/</url>
+    <content><![CDATA[<p><code>multiprocessing.Pipe()</code>用来创建管道，返回两个连接对象，代表管道的两端，一般用于进程或者线程之间的通信，不同于<code>os.pipe()</code>,<code>os.pipe()</code>主要用来创建两个文件描述符，一个读，一个写，是单向的。而<code>multiprocessing.Pipe()</code>则可以双向通信。</p>
+<a id="more"></a>
+<h1 id="管道multiprocessing.pipe">管道（multiprocessing.Pipe）</h1>
+<blockquote>
+<p><code>multiprocessing.``Pipe</code>([<em>duplex</em>])</p>
+<p>返回一对 <a href="https://docs.python.org/zh-cn/3/library/multiprocessing.html#multiprocessing.connection.Connection"><code>Connection</code></a> 对象 <code>(conn1, conn2)</code> ， 分别表示管道的两端。</p>
+<p>如果 <em>duplex</em> 被置为 <code>True</code> (默认值)，那么该管道是双向的。如果 <em>duplex</em> 被置为 <code>False</code> ，那么该管道是单向的，即 <code>conn1</code> 只能用于接收消息，而 <code>conn2</code> 仅能用于发送消息。</p>
+</blockquote>
+<p><strong>示例：</strong>将子进程产生的信息统一写入父进程，这里是使用pool来创建进程池。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool, RLock, freeze_support,Queue,Pipe</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">from</span> TS_logs <span class="keyword">import</span> TS_log_info</span><br><span class="line"><span class="keyword">from</span>  TS_util <span class="keyword">import</span> (</span><br><span class="line">    TS_util_get_tradelist,</span><br><span class="line">    TS_util_get_real_date,</span><br><span class="line">    TS_util_get_next_datetime,</span><br><span class="line">    TS_util_get_now_time,</span><br><span class="line">    TS_util_date_convert,</span><br><span class="line">    trade_date_sse</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log_c</span>(<span class="params">child_conn,codelist,n</span>):</span> </span><br><span class="line">    <span class="keyword">for</span> trade_date <span class="keyword">in</span> codelist[n::<span class="number">8</span>][<span class="number">0</span>:<span class="number">17</span>]:</span><br><span class="line">        msg = <span class="string">&#x27;&#123;&#125; #Job&#123;&#125;  trade date &#123;&#125;.&#x27;</span> \</span><br><span class="line">                .<span class="built_in">format</span>(datetime.datetime.now().strftime(<span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>),n,trade_date)</span><br><span class="line">        child_conn.send(msg)</span><br><span class="line">    print(<span class="string">&#x27;workers exit&#x27;</span>)</span><br><span class="line"></span><br><span class="line">L = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">8</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:    </span><br><span class="line">    freeze_support()  <span class="comment"># for Windows support</span></span><br><span class="line">    parent_conn,child_conn = Pipe()</span><br><span class="line">    tqdm.set_lock(RLock())</span><br><span class="line">    codelist = trade_date_sse</span><br><span class="line">    func = functools.partial(log_c,child_conn,codelist)</span><br><span class="line">    p = Pool(initializer=tqdm.set_lock, initargs=(tqdm.get_lock(),))</span><br><span class="line">    p.<span class="built_in">map</span>(func, L)</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">while</span> parent_conn.poll(<span class="number">0.001</span>):</span><br><span class="line">        print(parent_conn.recv())</span><br><span class="line">    p.close()</span><br><span class="line">    p.join()</span><br><span class="line">    parent_conn.close()</span><br><span class="line">    child_conn.close()</span><br></pre></td></tr></table></figure>
+<p>当子进程发送一定量的数据之后会卡住，没有任何报错和提示，卡住不动！！测试大概是7000字节左右。原因尚未找到。按文档看，应该与OS有关，最大应该可达32M。</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>multiprocessing</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【python】multiprocessing进程间的通信（一）队列</title>
     <url>/2021/01/01/%E3%80%90python%E3%80%91multiprocessing%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/</url>
     <content><![CDATA[<p>multiprocessing模块支持进程间通信的三种主要形式:<code>队列</code>、<code>管道</code>及<code>共享内存</code>。下面我们来学习一下队列的使用情况。</p>
@@ -3541,27 +3610,47 @@ code
       </tags>
   </entry>
   <entry>
-    <title>【python】multiprocessing进程间的通信（二）管道</title>
-    <url>/2021/01/08/%E3%80%90python%E3%80%91multiprocessing%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%EF%BC%88%E4%BA%8C%EF%BC%89%E7%AE%A1%E9%81%93/</url>
-    <content><![CDATA[<p><code>multiprocessing.Pipe()</code>用来创建管道，返回两个连接对象，代表管道的两端，一般用于进程或者线程之间的通信，不同于<code>os.pipe()</code>,<code>os.pipe()</code>主要用来创建两个文件描述符，一个读，一个写，是单向的。而<code>multiprocessing.Pipe()</code>则可以双向通信。</p>
+    <title>【应用软件】ShareX截图工具的使用</title>
+    <url>/2021/09/24/%E3%80%90%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6%E3%80%91ShareX%E6%88%AA%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>截图，使用过的工具有<code>sngait</code>， <code>greenshot</code>, 前者功能强大，但需要付费。后者轻巧，但软件功能较少且更新较慢，最后的稳定版还是2017年发布的。至于QQ等截图工具，需要打开QQ软件本身，不太省心。</p>
+<p>在写博客的时候，大多数工具均采用矩形截图的方式， 如果需要对所截取的图片进行圆角，阴影等效果的添加，就必须使用其它软件来进行后处理。</p>
+<p><code>shareX</code>恰好满足这些需求。且体量也不算大。</p>
 <a id="more"></a>
-<h1 id="管道multiprocessing.pipe">管道（multiprocessing.Pipe）</h1>
-<blockquote>
-<p><code>multiprocessing.``Pipe</code>([<em>duplex</em>])</p>
-<p>返回一对 <a href="https://docs.python.org/zh-cn/3/library/multiprocessing.html#multiprocessing.connection.Connection"><code>Connection</code></a> 对象 <code>(conn1, conn2)</code> ， 分别表示管道的两端。</p>
-<p>如果 <em>duplex</em> 被置为 <code>True</code> (默认值)，那么该管道是双向的。如果 <em>duplex</em> 被置为 <code>False</code> ，那么该管道是单向的，即 <code>conn1</code> 只能用于接收消息，而 <code>conn2</code> 仅能用于发送消息。</p>
-</blockquote>
-<p><strong>示例：</strong>将子进程产生的信息统一写入父进程，这里是使用pool来创建进程池。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool, RLock, freeze_support,Queue,Pipe</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">from</span> TS_logs <span class="keyword">import</span> TS_log_info</span><br><span class="line"><span class="keyword">from</span>  TS_util <span class="keyword">import</span> (</span><br><span class="line">    TS_util_get_tradelist,</span><br><span class="line">    TS_util_get_real_date,</span><br><span class="line">    TS_util_get_next_datetime,</span><br><span class="line">    TS_util_get_now_time,</span><br><span class="line">    TS_util_date_convert,</span><br><span class="line">    trade_date_sse</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log_c</span>(<span class="params">child_conn,codelist,n</span>):</span> </span><br><span class="line">    <span class="keyword">for</span> trade_date <span class="keyword">in</span> codelist[n::<span class="number">8</span>][<span class="number">0</span>:<span class="number">17</span>]:</span><br><span class="line">        msg = <span class="string">&#x27;&#123;&#125; #Job&#123;&#125;  trade date &#123;&#125;.&#x27;</span> \</span><br><span class="line">                .<span class="built_in">format</span>(datetime.datetime.now().strftime(<span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>),n,trade_date)</span><br><span class="line">        child_conn.send(msg)</span><br><span class="line">    print(<span class="string">&#x27;workers exit&#x27;</span>)</span><br><span class="line"></span><br><span class="line">L = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">8</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:    </span><br><span class="line">    freeze_support()  <span class="comment"># for Windows support</span></span><br><span class="line">    parent_conn,child_conn = Pipe()</span><br><span class="line">    tqdm.set_lock(RLock())</span><br><span class="line">    codelist = trade_date_sse</span><br><span class="line">    func = functools.partial(log_c,child_conn,codelist)</span><br><span class="line">    p = Pool(initializer=tqdm.set_lock, initargs=(tqdm.get_lock(),))</span><br><span class="line">    p.<span class="built_in">map</span>(func, L)</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">while</span> parent_conn.poll(<span class="number">0.001</span>):</span><br><span class="line">        print(parent_conn.recv())</span><br><span class="line">    p.close()</span><br><span class="line">    p.join()</span><br><span class="line">    parent_conn.close()</span><br><span class="line">    child_conn.close()</span><br></pre></td></tr></table></figure>
-<p>当子进程发送一定量的数据之后会卡住，没有任何报错和提示，卡住不动！！测试大概是7000字节左右。原因尚未找到。按文档看，应该与OS有关，最大应该可达32M。</p>
+<h1 id="sharex简介">shareX简介</h1>
+<p>ShareX 是一款功能非常强大且免费开源的截图与屏幕记录工具 。除了正常的截图功能外，还提供多区域截图、滚动截图、屏幕取色，屏幕录制，添加水印等实用的功能。而且还可以上传到多种文件存储服务器上。可以让截图更加高效、美观。</p>
+<p>更多信息及下载详见<a href="https://getsharex.com/">shareX官网</a></p>
+<h1 id="sharex截图美化的实现">shareX截图美化的实现</h1>
+<ol type="1">
+<li><p>打开<code>shareX</code>--&gt; <code>动作设置</code>。<br />
+<img src="https://s2.loli.net/2022/04/14/uNx2cCDt3eIpYgE.png" /></p></li>
+<li><p>在<code>图像</code>--&gt;<code>效果</code>中点击<code>图像效果配置</code>。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_yGfFOIJKcC.png" /> <img src="https://s2.loli.net/2022/04/14/oW1LIdqnyaslbfx.png" /></p></li>
+<li><p>圆角美化 新建效果，取合适的名称，然后从<code>操作</code>中选择<code>Rounded corners</code>, 参数选择圆角弧度大小。 <img src="https://s2.loli.net/2022/04/14/yUxfQT8RnWSFp2J.png" /></p></li>
+<li><p>阴影美化 从<code>过滤器</code>中选择<code>Shadow</code>, 设置合适的参数。 <img src="https://s2.loli.net/2022/04/14/tkcMVJoGjpheWLP.png" /></p></li>
+<li><p>添加水印 从<code>绘图</code>中选择<code>Text watermark</code>, 并对其位置，大小，字体等参数进行设置。 <img src="https://s2.loli.net/2022/04/14/UQzq48bHKdZufSO.png" /></p></li>
+</ol>
+<p>这里只尝试了几种截图美化，效果，shareX内置了许多图片效果，还有已做好的模板可供选择，可见<a href="https://getsharex.com/image-effects/">Image effects - ShareX (getsharex.com)</a></p>
+<h1 id="sharex截图上传">shareX截图上传</h1>
+<p>内置的图床或文件上传器多为国外服务器，考虑到今后图片使用的便捷性和易维护性，尝试自定义github或gitee图床的上传。 <img src="https://s2.loli.net/2022/04/14/W7QSUtIq6pcDlN1.png" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/Gg9blyzh4WuFCTE.png" /> 参考<a href="https://getsharex.com/docs/custom-uploader">Custom uploader guide - ShareX (getsharex.com)</a>进行上传器的自定义，这时发现无论github还是gitee, 利用<code>API</code>上传时，</p>
+<p><img src="https://s2.loli.net/2022/04/14/Chidkgf5KowXHAu.png" /></p>
+<p>上传的图片内容需要用base64编码后放入<code>content</code>参数中，也就是说上传前需要对图片内容做一次base64的编码，这个目前在shareX中并没有提供，就此做罢。</p>
+<p>最后采取的上传解决方案是，截图后通过<code>picgo</code>预设的图床进行上传。</p>
+<p>其间遇到的问题是，shareX截图加阴影后，会将阴影部分的背景透明化，拷贝到剪粘板再通过picgo上传后，会丢失该部分透明化的背景，而变之为白色背景，这个应该是picgo无法正确从剪粘板上读取shareX处理图片的透明化信息所致。但从生成的文件上传确是正常的。这个与shareX使用.net方法不能正常通过alpha通道来处理剪粘板拷贝内容的透明度有关。 <img src="https://s2.loli.net/2022/04/14/FyLdfDVCRnQljS2.png" /></p>
+<p>解决方法： shareX截图后的处理动作里，可以不选择<code>图像复制到剪粘板</code>，而是选择上<code>保存图像文件</code>及<code>将文件复制到剪粘板</code>,通过重新读取文件内容来规避。 <img src="https://s2.loli.net/2022/04/14/h5GwJnbNFegjqXv.png" /></p>
+<p>至此, shareX可以满足我对博客图片美化的要求。</p>
+<h1 id="参考">参考</h1>
+<p>1/ <a href="https://zhuanlan.zhihu.com/p/338226481"># 一般人都不会用的强大的屏幕截图工具，添加水印、截图特效等，让你的截图更完美！</a><br />
+2/ <a href="https://getsharex.com/">shareX官网</a><br />
+3/ <a href="https://docs.github.com/cn/rest">GitHub REST API - GitHub Docs</a><br />
+4/ <a href="https://gitee.com/api/v5/swagger#/getV5ReposOwnerRepoStargazers?ex=no">Gitee open API</a></p>
 ]]></content>
       <categories>
-        <category>技术笔记</category>
-        <category>python</category>
+        <category>应用软件</category>
       </categories>
       <tags>
-        <tag>python</tag>
-        <tag>multiprocessing</tag>
+        <tag>shareX</tag>
+        <tag>效率工具</tag>
+        <tag>截图</tag>
       </tags>
   </entry>
   <entry>
@@ -3618,50 +3707,6 @@ code
         <tag>python</tag>
         <tag>线性代数</tag>
         <tag>贝塔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【应用软件】ShareX截图工具的使用</title>
-    <url>/2021/09/24/%E3%80%90%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6%E3%80%91ShareX%E6%88%AA%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p>截图，使用过的工具有<code>sngait</code>， <code>greenshot</code>, 前者功能强大，但需要付费。后者轻巧，但软件功能较少且更新较慢，最后的稳定版还是2017年发布的。至于QQ等截图工具，需要打开QQ软件本身，不太省心。</p>
-<p>在写博客的时候，大多数工具均采用矩形截图的方式， 如果需要对所截取的图片进行圆角，阴影等效果的添加，就必须使用其它软件来进行后处理。</p>
-<p><code>shareX</code>恰好满足这些需求。且体量也不算大。</p>
-<a id="more"></a>
-<h1 id="sharex简介">shareX简介</h1>
-<p>ShareX 是一款功能非常强大且免费开源的截图与屏幕记录工具 。除了正常的截图功能外，还提供多区域截图、滚动截图、屏幕取色，屏幕录制，添加水印等实用的功能。而且还可以上传到多种文件存储服务器上。可以让截图更加高效、美观。</p>
-<p>更多信息及下载详见<a href="https://getsharex.com/">shareX官网</a></p>
-<h1 id="sharex截图美化的实现">shareX截图美化的实现</h1>
-<ol type="1">
-<li><p>打开<code>shareX</code>--&gt; <code>动作设置</code>。<br />
-<img src="https://s2.loli.net/2022/04/14/uNx2cCDt3eIpYgE.png" /></p></li>
-<li><p>在<code>图像</code>--&gt;<code>效果</code>中点击<code>图像效果配置</code>。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_yGfFOIJKcC.png" /> <img src="https://s2.loli.net/2022/04/14/oW1LIdqnyaslbfx.png" /></p></li>
-<li><p>圆角美化 新建效果，取合适的名称，然后从<code>操作</code>中选择<code>Rounded corners</code>, 参数选择圆角弧度大小。 <img src="https://s2.loli.net/2022/04/14/yUxfQT8RnWSFp2J.png" /></p></li>
-<li><p>阴影美化 从<code>过滤器</code>中选择<code>Shadow</code>, 设置合适的参数。 <img src="https://s2.loli.net/2022/04/14/tkcMVJoGjpheWLP.png" /></p></li>
-<li><p>添加水印 从<code>绘图</code>中选择<code>Text watermark</code>, 并对其位置，大小，字体等参数进行设置。 <img src="https://s2.loli.net/2022/04/14/UQzq48bHKdZufSO.png" /></p></li>
-</ol>
-<p>这里只尝试了几种截图美化，效果，shareX内置了许多图片效果，还有已做好的模板可供选择，可见<a href="https://getsharex.com/image-effects/">Image effects - ShareX (getsharex.com)</a></p>
-<h1 id="sharex截图上传">shareX截图上传</h1>
-<p>内置的图床或文件上传器多为国外服务器，考虑到今后图片使用的便捷性和易维护性，尝试自定义github或gitee图床的上传。 <img src="https://s2.loli.net/2022/04/14/W7QSUtIq6pcDlN1.png" /></p>
-<p><img src="https://s2.loli.net/2022/04/14/Gg9blyzh4WuFCTE.png" /> 参考<a href="https://getsharex.com/docs/custom-uploader">Custom uploader guide - ShareX (getsharex.com)</a>进行上传器的自定义，这时发现无论github还是gitee, 利用<code>API</code>上传时，</p>
-<p><img src="https://s2.loli.net/2022/04/14/Chidkgf5KowXHAu.png" /></p>
-<p>上传的图片内容需要用base64编码后放入<code>content</code>参数中，也就是说上传前需要对图片内容做一次base64的编码，这个目前在shareX中并没有提供，就此做罢。</p>
-<p>最后采取的上传解决方案是，截图后通过<code>picgo</code>预设的图床进行上传。</p>
-<p>其间遇到的问题是，shareX截图加阴影后，会将阴影部分的背景透明化，拷贝到剪粘板再通过picgo上传后，会丢失该部分透明化的背景，而变之为白色背景，这个应该是picgo无法正确从剪粘板上读取shareX处理图片的透明化信息所致。但从生成的文件上传确是正常的。这个与shareX使用.net方法不能正常通过alpha通道来处理剪粘板拷贝内容的透明度有关。 <img src="https://s2.loli.net/2022/04/14/FyLdfDVCRnQljS2.png" /></p>
-<p>解决方法： shareX截图后的处理动作里，可以不选择<code>图像复制到剪粘板</code>，而是选择上<code>保存图像文件</code>及<code>将文件复制到剪粘板</code>,通过重新读取文件内容来规避。 <img src="https://s2.loli.net/2022/04/14/h5GwJnbNFegjqXv.png" /></p>
-<p>至此, shareX可以满足我对博客图片美化的要求。</p>
-<h1 id="参考">参考</h1>
-<p>1/ <a href="https://zhuanlan.zhihu.com/p/338226481"># 一般人都不会用的强大的屏幕截图工具，添加水印、截图特效等，让你的截图更完美！</a><br />
-2/ <a href="https://getsharex.com/">shareX官网</a><br />
-3/ <a href="https://docs.github.com/cn/rest">GitHub REST API - GitHub Docs</a><br />
-4/ <a href="https://gitee.com/api/v5/swagger#/getV5ReposOwnerRepoStargazers?ex=no">Gitee open API</a></p>
-]]></content>
-      <categories>
-        <category>应用软件</category>
-      </categories>
-      <tags>
-        <tag>shareX</tag>
-        <tag>效率工具</tag>
-        <tag>截图</tag>
       </tags>
   </entry>
   <entry>
@@ -4055,51 +4100,6 @@ code
       <tags>
         <tag>python</tag>
         <tag>线性代数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Obsidian学习（一）</title>
-    <url>/2021/09/27/Obsidian%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/</url>
-    <content><![CDATA[<h1 id="背景">背景</h1>
-<p>最近对[[【知识管理】Zettelkasten笔记法|Zettelkasten笔记法]]进行学习，也在学习过程中了解到了<code>Obsidian</code>, 它可以帮助人们高效地建立适合自己的知识管理体系。所以在梳理整合自己知识体系的同时，也同步进行了<code>Obsidian</code>的学习。</p>
-<a id="more"></a>
-<h1 id="obsidian是什么">Obsidian是什么？</h1>
-<p><code>Obsidian</code>是什么？正如其<a href="https://obsidian.md/">Obsidian官网</a>宣称的</p>
-<blockquote>
-<p>Obsidian is a powerful knowledge base that works on top of<br />
-a local folder of plain text Markdown files.</p>
-</blockquote>
-<p>从字里行间我们可以了解到，它是基于<strong>Markdown文件</strong>的<strong>本地</strong>知识管理软件，它的特点可以归纳为: - 本地化 - 基于<code>markdown</code> - 知识管理 第三个特点就决定了它与<code>Typora</code>等markdown编辑器有了本质的区别，它是如何体现出它强大的知识管理能力来呢？</p>
-<h1 id="为什么要选择obsidian">为什么要选择Obsidian?</h1>
-<h2 id="个人用户免费">个人用户免费</h2>
-<p>目前类似的<code>Roam Research</code>等软件收费颇高，像<code>Obsidian</code>如此良心的软件并不多见。<br />
-<img src="https://gitee.com/nokiasonic/pic/raw/master/img/msedge_481gTyW4AC.png" /></p>
-<h2 id="数据本地化">数据本地化</h2>
-<p><code>Obsidian</code>很好地保护了自己笔记内容的隐私，而其它笔记软件多由于采用数据库方式来管理笔记，一般使用上传内容至服务提供商的方式来实现，而<code>Obsidian</code>使用所谓的<code>库</code>,实际上就是基于文件夹的方式，建立不同的库，可以使用各自的主题，插件，非常方便。使用本地化结构的知识管理系统，最大的优点在于不依赖于工具软件本身，就算有朝一日，决定不用<code>Obsidian</code>,也可以很容易地将自己的知识管理体系进行迁移。</p>
-<h2 id="与其它软件的联动较强">与其它软件的联动较强</h2>
-<p>可以与<code>Zotero</code>联动实现文献管理互动，可以与<code>logseq</code>联动实现日程管理等等，总而言之，通过有效地使用工具，高效地提升自己的知识管理能力及执行能力。</p>
-<h2 id="良好生态的社区环境与丰富的插件">良好生态的社区环境与丰富的插件</h2>
-<p><code>Obsidian</code>的社区生态良好，开发了许多实用的第三方插件。</p>
-<p><a href="https://forum.obsidian.md/">Obsidian英文社区</a> <a href="https://forum-zh.obsidian.md/">Obsidian中文社区</a> 在软件设置里的<code>社区插件</code>中关闭<code>安全模式</code>后，可以安装自己需要的插件。</p>
-<h2 id="优秀的移动端体验">优秀的移动端体验</h2>
-<p>在<code>android</code>和<code>ios</code>下都有APP可以安装使用。</p>
-<h1 id="obsidian能做什么">Obsidian能做什么？</h1>
-<h2 id="撰写技术文章">撰写技术文章</h2>
-<p>对于一直习惯用markdown方式来写技术文章的人，<code>Obsidian</code>也提供了不亚于<code>Typora</code>的写作体验。</p>
-<h2 id="计划">计划</h2>
-<p>例如日清单，工作计划等都可以使用或通过<code>Obsidian</code>及其插件进行。</p>
-<h2 id="读书笔记">读书笔记</h2>
-<p>以前一直是用<code>Notion</code>来作读书笔记，但相对于把思绪集中在写作内容上，<code>Notion</code>会花费相对多的时间来进行版面的设计。而使用markdown方式的便利性在使用<code>Obsidian</code>的过程中就得到了体现。</p>
-<h2 id="双向链接与知识图谱">双向链接与知识图谱</h2>
-<p>这也是目前流行的笔记推崇的概念，目的是把头脑里杂乱无章的知识网状化，系统化。</p>
-<h1 id="写在最后">写在最后</h1>
-<p>无论工具多么先进，最终还是要看执行的人是否真正把关注点放在工具要解决的事务上，而非纠缠、沉溺于工具本身。 希望通过<code>Obsidian</code>学习的同时，也为自己初步建立一个适合自己的知识管理体系。</p>
-]]></content>
-      <categories>
-        <category>专栏</category>
-      </categories>
-      <tags>
-        <tag>Obsidian/学习</tag>
       </tags>
   </entry>
   <entry>
