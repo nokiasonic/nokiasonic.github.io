@@ -1,51 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Obsidian学习（一）</title>
-    <url>/2021/09/27/Obsidian%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/</url>
-    <content><![CDATA[<h1 id="背景">背景</h1>
-<p>最近对[[【知识管理】Zettelkasten笔记法|Zettelkasten笔记法]]进行学习，也在学习过程中了解到了<code>Obsidian</code>, 它可以帮助人们高效地建立适合自己的知识管理体系。所以在梳理整合自己知识体系的同时，也同步进行了<code>Obsidian</code>的学习。</p>
-<a id="more"></a>
-<h1 id="obsidian是什么">Obsidian是什么？</h1>
-<p><code>Obsidian</code>是什么？正如其<a href="https://obsidian.md/">Obsidian官网</a>宣称的</p>
-<blockquote>
-<p>Obsidian is a powerful knowledge base that works on top of<br />
-a local folder of plain text Markdown files.</p>
-</blockquote>
-<p>从字里行间我们可以了解到，它是基于<strong>Markdown文件</strong>的<strong>本地</strong>知识管理软件，它的特点可以归纳为: - 本地化 - 基于<code>markdown</code> - 知识管理 第三个特点就决定了它与<code>Typora</code>等markdown编辑器有了本质的区别，它是如何体现出它强大的知识管理能力来呢？</p>
-<h1 id="为什么要选择obsidian">为什么要选择Obsidian?</h1>
-<h2 id="个人用户免费">个人用户免费</h2>
-<p>目前类似的<code>Roam Research</code>等软件收费颇高，像<code>Obsidian</code>如此良心的软件并不多见。<br />
-<img src="https://gitee.com/nokiasonic/pic/raw/master/img/msedge_481gTyW4AC.png" /></p>
-<h2 id="数据本地化">数据本地化</h2>
-<p><code>Obsidian</code>很好地保护了自己笔记内容的隐私，而其它笔记软件多由于采用数据库方式来管理笔记，一般使用上传内容至服务提供商的方式来实现，而<code>Obsidian</code>使用所谓的<code>库</code>,实际上就是基于文件夹的方式，建立不同的库，可以使用各自的主题，插件，非常方便。使用本地化结构的知识管理系统，最大的优点在于不依赖于工具软件本身，就算有朝一日，决定不用<code>Obsidian</code>,也可以很容易地将自己的知识管理体系进行迁移。</p>
-<h2 id="与其它软件的联动较强">与其它软件的联动较强</h2>
-<p>可以与<code>Zotero</code>联动实现文献管理互动，可以与<code>logseq</code>联动实现日程管理等等，总而言之，通过有效地使用工具，高效地提升自己的知识管理能力及执行能力。</p>
-<h2 id="良好生态的社区环境与丰富的插件">良好生态的社区环境与丰富的插件</h2>
-<p><code>Obsidian</code>的社区生态良好，开发了许多实用的第三方插件。</p>
-<p><a href="https://forum.obsidian.md/">Obsidian英文社区</a> <a href="https://forum-zh.obsidian.md/">Obsidian中文社区</a> 在软件设置里的<code>社区插件</code>中关闭<code>安全模式</code>后，可以安装自己需要的插件。</p>
-<h2 id="优秀的移动端体验">优秀的移动端体验</h2>
-<p>在<code>android</code>和<code>ios</code>下都有APP可以安装使用。</p>
-<h1 id="obsidian能做什么">Obsidian能做什么？</h1>
-<h2 id="撰写技术文章">撰写技术文章</h2>
-<p>对于一直习惯用markdown方式来写技术文章的人，<code>Obsidian</code>也提供了不亚于<code>Typora</code>的写作体验。</p>
-<h2 id="计划">计划</h2>
-<p>例如日清单，工作计划等都可以使用或通过<code>Obsidian</code>及其插件进行。</p>
-<h2 id="读书笔记">读书笔记</h2>
-<p>以前一直是用<code>Notion</code>来作读书笔记，但相对于把思绪集中在写作内容上，<code>Notion</code>会花费相对多的时间来进行版面的设计。而使用markdown方式的便利性在使用<code>Obsidian</code>的过程中就得到了体现。</p>
-<h2 id="双向链接与知识图谱">双向链接与知识图谱</h2>
-<p>这也是目前流行的笔记推崇的概念，目的是把头脑里杂乱无章的知识网状化，系统化。</p>
-<h1 id="写在最后">写在最后</h1>
-<p>无论工具多么先进，最终还是要看执行的人是否真正把关注点放在工具要解决的事务上，而非纠缠、沉溺于工具本身。 希望通过<code>Obsidian</code>学习的同时，也为自己初步建立一个适合自己的知识管理体系。</p>
-]]></content>
-      <categories>
-        <category>专栏</category>
-      </categories>
-      <tags>
-        <tag>Obsidian/学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Obsidian学习（二）</title>
     <url>/2021/10/09/Obsidian%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
     <content><![CDATA[<h1 id="安装">安装</h1>
@@ -93,7 +48,7 @@ a local folder of plain text Markdown files.</p>
     <title>docker创建的vhdx文件无法移动或删除</title>
     <url>/2020/12/23/docker%E5%88%9B%E5%BB%BA%E7%9A%84vhdx%E6%96%87%E4%BB%B6%E6%97%A0%E6%B3%95%E7%A7%BB%E5%8A%A8%E6%88%96%E5%88%A0%E9%99%A4/</url>
     <content><![CDATA[<p>操作系统为win10 professional,由于开始使用docker时没有及时调整img存放的位置，导致C盘空间被耗尽。所以决定迁移img至数据盘。但在通过dockerdeskto setting更改存储位置时，发生了异常，没有完全执行成功。初次重启后无法正常启动docker。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201223092440.png" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/jYHEVXgAFdQ96tk.png" /></p>
 <p>再次重启后发现原有的vhdx文件没有被迁移至指定的位置， 且无法拷贝，移动或删除，提示无管理员权限。</p>
 <a id="more"></a>
 <p>处理过程如下：</p>
@@ -106,8 +61,7 @@ a local folder of plain text Markdown files.</p>
 <li><p>恢复docker desktop为出厂设置</p>
 <p>点击右上“troubleshooting”图标，选择恢复出厂设置</p></li>
 </ol>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201223094101.png" /></p>
-<p>重启后， docker及内部的容器都运行正常，再次尝试改变存储位置。这次运行成功， vhdx文件正常迁移到设定目标位置，且 docker及内部的容器都运行正常。问题得以解决，判断是首次操作时出现异常，导致文件迁移未完成且处于死锁状态。</p>
+<p><img src="https://s2.loli.net/2022/04/14/32rOyojniPdGg1E.png" /> 重启后， docker及内部的容器都运行正常，再次尝试改变存储位置。这次运行成功， vhdx文件正常迁移到设定目标位置，且 docker及内部的容器都运行正常。问题得以解决，判断是首次操作时出现异常，导致文件迁移未完成且处于死锁状态。</p>
 ]]></content>
       <categories>
         <category>技术笔记</category>
@@ -141,6 +95,27 @@ a local folder of plain text Markdown files.</p>
       </tags>
   </entry>
   <entry>
+    <title>tqdm进度条的使用</title>
+    <url>/2020/12/23/tqdm%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>以前使用的是processbar来制作进度条， 听闻tqdm性能更好些，遂尝试使用一下。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> tqdm(total=<span class="built_in">len</span>(codelist),<span class="built_in">ascii</span>= <span class="literal">True</span>, ncols=<span class="number">90</span>,colour=<span class="string">&quot;green&quot;</span>) <span class="keyword">as</span> pbar:</span><br><span class="line">    <span class="keyword">for</span> ts_code <span class="keyword">in</span> codelist:</span><br><span class="line">        pbar.set_description(<span class="string">&quot;Processing %s&quot;</span> % ts_code)</span><br><span class="line">        ......</span><br><span class="line">        pbar.update(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/04/14/DJqSNL69eTsIZKP.png" /> 参数使用：</p>
+<p><code>ascii = True</code>, 缺省是<code>False</code>, 当使用它时，不是以正常块状来做进度条，而是以"123456789#"的方式。</p>
+<p><code>ncols = 90</code>, 这里可以根据屏幕大小来进行控制，保证进度条不产生换行的情况。</p>
+<p><code>colour = "green"</code>, 在版本4.5之后引入，可以设置进度条的颜色。</p>
+<p><code>desc</code>或利用<code>set_desciption</code>，用来设置进度条左侧的文字信息。</p>
+<p>从使用情况来看，还是比较令人满意的。</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>tqdm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【Arduino】ESP8266开发实例</title>
     <url>/2021/08/23/%E3%80%90Arduino%E3%80%91ESP8266%E5%BC%80%E5%8F%91%E5%AE%9E%E4%BE%8B/</url>
     <content><![CDATA[<h1 id="esp8266的arduino开发环境搭建">ESP8266的Arduino开发环境搭建</h1>
@@ -151,21 +126,20 @@ a local folder of plain text Markdown files.</p>
 <p>1/ 首先添加ESP8266板支持</p>
 <p>进入<code>首选项（Preferences）</code>，找到<strong>附加开发板管理器地址</strong>（Additional Board Manager URLs），并在其后添加如下信息：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;arduino.esp8266.com&#x2F;stable&#x2F;package_esp8266com_index.json</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210823100217.png" /></p>
-<p>2/ 安装硬件包</p>
+<p><img src="https://s2.loli.net/2022/04/14/SlmziK2rfdvZqUV.png" /> 2/ 安装硬件包</p>
 <p>点击<code>工具 - 开发板 - 开发板管理器</code>，进入开发板管理器界面： 在搜索栏上面输入<code>ESP8266</code>，选择最新版本点击“安装”，</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210823100136.png" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/OUyNpZagnAS8LYt.png" /></p>
 <h2 id="下载esp8266的硬件包再离线安装">2. 下载ESP8266的硬件包再离线安装</h2>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd E:</span><br><span class="line">mkdir esp8266</span><br><span class="line">cd esp8266</span><br><span class="line">git clone https://github.com/esp8266/Arduino.git esp8266</span><br></pre></td></tr></table></figure>
 <p>当clone完毕后，在esp8266文件夹下会有板级工具包的目录。进入tools，运行get.py的python文件</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd tools</span><br><span class="line">python get.py</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210823102329.png" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/FVAK9NDlw3Bga8G.png" /></p>
 <h2 id="直接使用封装好的esp8266-sdk进行环境配置">3. 直接使用封装好的ESP8266 SDK进行环境配置</h2>
 <p><strong>点击下方链接下载打包好的esp8266安装包，选择任一版本直接运行并解压即可。</strong></p>
 <p><a href="https://docs.espressif.com/projects/esp8266-rtos-sdk/en/latest/get-started/windows-setup.html">安装说明</a></p>
 <p>无论使用何种方法，只要可以在Arduino IDE中可以看到ESP8266的开发板，开发环境就算搭建好了。可以开始进行开发和学习过程了。</p>
 <h1 id="制作一支带逗比功能的笔">制作一支带逗比功能的笔</h1>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210823110227.png" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/skItQylPxZMd1A4.png" /></p>
 <h2 id="材料准备">材料准备</h2>
 <ul>
 <li><p>9g舵机3个</p></li>
@@ -178,39 +152,37 @@ a local folder of plain text Markdown files.</p>
 <li><p>M3x6 对接螺丝若干</p></li>
 <li><p>亚克力激光切割零件一批</p></li>
 <li><p>3D打印笔架与笔帽</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/%E6%9C%BA%E6%9E%B6%E9%85%8D%E4%BB%B6.jpg" /></p></li>
+<p><img src="https://s2.loli.net/2022/04/14/soLHUcnrTdX6tJV.jpg" /></p></li>
 </ul>
 <h2 id="制作步骤">制作步骤</h2>
 <h3 id="组装">组装</h3>
 <ul>
 <li><p>左右舵机安装</p>
 <p>舵机与板件通过舵机自带的M2螺丝固定（红色框部分），板件中间位置的连接用M3螺丝加螺母固定（橙色框部分）</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/左右舵机.jpg" /></p></li>
+<p><img src="https://s2.loli.net/2022/04/14/6yFYisQTmX7cRzh.jpg" /></p></li>
 <li><p>四杆机械臂安装</p>
 <p>将机械臂所需的板件与舵机自带的连接杆粘合，并用M4x10的螺丝加螺母固定（推荐使用M3x6的对接螺丝）。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/%E6%9C%BA%E6%A2%B0%E8%87%821.jpg" /></p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/%E6%9C%BA%E6%A2%B0%E8%87%823.jpg" /></p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/%E6%9C%BA%E6%A2%B0%E8%87%822.jpg" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/iTMAkhdEWFwo1cY.jpg" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/kt8eYSvEh4n7MjC.jpg" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/LPAVYJ4NuykgXj8.jpg" /></p>
 <p>在舵机调式完毕后，用M2.5x10的螺丝将机械臂固定至舵机上。这里如果有较长的M2螺丝效果会更好一些，舵机自带的M2螺丝稍短了一点。</p></li>
 <li><p>上舵机安装</p></li>
 </ul>
 <p>​ 上龙门架用M3x12的螺丝加螺母连接，舵机与板件用自带的M2螺丝固定</p>
-<p>​ <img src="https://gitee.com/nokiasonic/pic/raw/master/img/%E4%B8%8A%E8%88%B5%E6%9C%BA.jpg" style="zoom: 50%;" /></p>
+<p>​ <img src="https://s2.loli.net/2022/04/14/9Gqe5czBoAVfwrd.jpg" style="zoom: 50%;" /></p>
 <h3 id="esp8266的调试">ESP8266的调试</h3>
 <p>将<code>arduinojson5</code>和<code>NTPclient</code>添加到<code>arduino libraries</code>中。</p>
-<figure>
-<img src="C:\Users\junlv\AppData\Roaming\Typora\typora-user-images\image-20210823131116985.png" alt="image-20210823131116985" /><figcaption aria-hidden="true">image-20210823131116985</figcaption>
-</figure>
+<p><img src="https://s2.loli.net/2022/04/14/Uqh5SKYiDC13XBz.png" /></p>
 <p>利用ESP8266自带示例ESP8266-blink及ESP8266WiFi-NTPClient进行测试，ESP8266模块工作正常</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210823135400.png" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/kHKoFntirpLq1dy.png" /></p>
 <p>从无线路由器的用户列表中也可以看到ESP8266确实已经连接成功。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/image-20210823135511980.png" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/b864MIBAxspHUGd.png" /></p>
 <h3 id="esp8266与舵机的联调">ESP8266与舵机的联调</h3>
 <p>通过坐标的变化来控制笔的行进与书写。</p>
 <p>坐标参数的定义如下：</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/%E5%9D%90%E6%A0%87%E5%8F%82%E6%95%B0%E5%AE%9A%E4%B9%89.jpg" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/pd5rowaAsv19BDJ.jpg" /></p>
 <p>打开程序上传代码成功后，左右臂舵机会左右来回旋转，请注意舵机的旋转方向，并在最左或最右时迅速拔掉供电的USB。断电停机后再安装摆臂。摆臂的安装位置，如下图，最左是灰色，最右是白色，让摆臂尽量停留在0,90,180度位置上。安装好摆臂后，接电继续工作，看舵机是否是在灰色和白色两个位置上往复。差距小时，可以修改程序中下面的4个参数修正，差距太大，请拆掉摆臂重装。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210830132722.png" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/sUcuHKakiX4MRFf.png" /></p>
 <p><code>control.h</code>,原始代码中垂直方向共用<code>SERVOFAKTOR</code>来控制，在微调的时候发现效果不好，分别使用<code>SERVOFAKTORLEFT</code>和<code>SERVOFAKTORRIGHT</code>来控制。</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">  <span class="comment">// When in calibration mode, adjust the following factor until the servos move exactly 90 degrees</span></span><br><span class="line"><span class="keyword">int</span> SERVOFAKTORLEFT = <span class="number">605</span>;</span><br><span class="line"><span class="keyword">int</span> SERVOFAKTORRIGHT = <span class="number">1090</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Zero-position of left and right servo</span></span><br><span class="line">  <span class="comment">// When in calibration mode, adjust the NULL-values so that the servo arms are at all times parallel</span></span><br><span class="line">  <span class="comment">// either to the X or Y axis</span></span><br><span class="line"><span class="keyword">int</span> SERVOLEFTNULL = <span class="number">2000</span>;</span><br><span class="line"><span class="keyword">int</span> SERVORIGHTNULL = <span class="number">800</span>;</span><br></pre></td></tr></table></figure>
 <p>相应地，在<code>control.cpp</code>中，修改</p>
@@ -221,7 +193,7 @@ a local folder of plain text Markdown files.</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> LIFT0 = <span class="number">1750</span>;   <span class="comment">//落笔写字 on drawing surface</span></span><br><span class="line"><span class="keyword">int</span> LIFT1 = <span class="number">1650</span>;   <span class="comment">//写字时抬臂动作 between numbers</span></span><br><span class="line"><span class="keyword">int</span> LIFT2 = <span class="number">1470</span>;   <span class="comment">//高抬笔架  going towards sweeper</span></span><br></pre></td></tr></table></figure>
 <h3 id="工作原理">工作原理</h3>
 <p>xy坐标到舵机角度转换</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210830132849.png" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/KMlaAFi2m3Ngzkn.png" /></p>
 <h2 id="演示">演示</h2>
 <p>制作完成！</p>
 <p><a href="https://www.bilibili.com/video/BV1r64y1a76r/">制作及演示视频</a></p>
@@ -237,28 +209,6 @@ a local folder of plain text Markdown files.</p>
       <tags>
         <tag>arduino</tag>
         <tag>ESP8266</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>tqdm进度条的使用</title>
-    <url>/2020/12/23/tqdm%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p>以前使用的是processbar来制作进度条， 听闻tqdm性能更好些，遂尝试使用一下。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> tqdm(total=<span class="built_in">len</span>(codelist),<span class="built_in">ascii</span>= <span class="literal">True</span>, ncols=<span class="number">90</span>,colour=<span class="string">&quot;green&quot;</span>) <span class="keyword">as</span> pbar:</span><br><span class="line">    <span class="keyword">for</span> ts_code <span class="keyword">in</span> codelist:</span><br><span class="line">        pbar.set_description(<span class="string">&quot;Processing %s&quot;</span> % ts_code)</span><br><span class="line">        ......</span><br><span class="line">        pbar.update(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201223101745.png" /></p>
-<p>参数使用：</p>
-<p><code>ascii = True</code>, 缺省是<code>False</code>, 当使用它时，不是以正常块状来做进度条，而是以"123456789#"的方式。</p>
-<p><code>ncols = 90</code>, 这里可以根据屏幕大小来进行控制，保证进度条不产生换行的情况。</p>
-<p><code>colour = "green"</code>, 在版本4.5之后引入，可以设置进度条的颜色。</p>
-<p><code>desc</code>或利用<code>set_desciption</code>，用来设置进度条左侧的文字信息。</p>
-<p>从使用情况来看，还是比较令人满意的。</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>tqdm</tag>
       </tags>
   </entry>
   <entry>
@@ -284,7 +234,7 @@ a local folder of plain text Markdown files.</p>
 <li>然后，卸载最初的<code>hexo-renderer-marked</code>引擎并安装<code>hexo-renderer-pandoc</code>。</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm un hexo-renderer-marked</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm i hexo-renderer-pandoc</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201217170659.png" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/LcFgNREOrmaQWsS.png" /></p>
 <ol start="3" type="1">
 <li>在更换完渲染引擎后，执行一下<code>hexo clean</code>，然后再进行部署或启动本地服务器来验证渲染是否工作正常。</li>
 </ol>
@@ -296,6 +246,26 @@ a local folder of plain text Markdown files.</p>
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】github开启令牌验证后无法更新Blog的问题</title>
+    <url>/2021/08/30/%E3%80%90Hexo%E3%80%91github%E5%BC%80%E5%90%AF%E4%BB%A4%E7%89%8C%E9%AA%8C%E8%AF%81%E5%90%8E%E6%97%A0%E6%B3%95%E6%9B%B4%E6%96%B0Blog%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>从2021年8月13日起， github不再支持帐号密码验证Git操作，改用token(令牌)或SSH密钥。</p>
+<p><img src="https://s2.loli.net/2022/04/14/L6YvJDdyVg5uxot.png" /></p>
+<p><strong>解决方案</strong></p>
+<p>1/ 首先登入Github 账户，<code>Setting - Developer settings - Personal access tokens - Generate new token</code>, Note 填写 Hexo 或 Blog 之类，勾选第一项 repo，然后 Generate token；为Hexo项目生成一个令牌。</p>
+<p>2/ 修改<code>_config.yml</code>,</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://[复制生成的token]@github.com/nokiasonic/nokiasonic.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>即可正常hexo d更新blog。</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Github</tag>
       </tags>
   </entry>
   <entry>
@@ -316,26 +286,6 @@ a local folder of plain text Markdown files.</p>
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Hexo】github开启令牌验证后无法更新Blog的问题</title>
-    <url>/2021/08/30/%E3%80%90Hexo%E3%80%91github%E5%BC%80%E5%90%AF%E4%BB%A4%E7%89%8C%E9%AA%8C%E8%AF%81%E5%90%8E%E6%97%A0%E6%B3%95%E6%9B%B4%E6%96%B0Blog%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>从2021年8月13日起， github不再支持帐号密码验证Git操作，改用token(令牌)或SSH密钥。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210830140625.png" /></p>
-<p><strong>解决方案</strong></p>
-<p>1/ 首先登入Github 账户，<code>Setting - Developer settings - Personal access tokens - Generate new token</code>, Note 填写 Hexo 或 Blog 之类，勾选第一项 repo，然后 Generate token；为Hexo项目生成一个令牌。</p>
-<p>2/ 修改<code>_config.yml</code>,</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://[复制生成的token]@github.com/nokiasonic/nokiasonic.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>即可正常hexo d更新blog。</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Github</tag>
       </tags>
   </entry>
   <entry>
@@ -363,6 +313,29 @@ a local folder of plain text Markdown files.</p>
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Jupyter】启动时有报错信息</title>
+    <url>/2021/05/11/%E3%80%90Jupyter%E3%80%91%E5%90%AF%E5%8A%A8%E6%97%B6%E6%9C%89%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/</url>
+    <content><![CDATA[<h1 id="说明">说明</h1>
+<p>在升级jupyter到版本6.x以上时，在启动的时候会报很多行以下错误 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Config option &#96;template_path&#96; not recognized by &#96;LenvsLatexExporter&#96;. Did you mean one of: &#96;template_file, template_name, template_paths&#96;?</span><br></pre></td></tr></table></figure></p>
+<h1 id="解决方案">解决方案</h1>
+<p>使用VS Code依次打开python安装目录下的/lib/site-packages/ ('jupyter_contrib_nbextensions', 'jupyter_latex_envs' 及'latex_envs')子目录。</p>
+<p>通过'Edit/Replace in Files'来查找'template_path'并替换为'template_paths'。</p>
+<p>注意有的内容已经是template_paths，不需要修改。</p>
+<h1 id="参考">参考</h1>
+<p>1/ [jupyter代码自动补全插件、安装后出现警告“Config option <code>template_path</code> not recognized by <code>LenvsLatexExporter</code>”的解决方案](<a href="https://blog.csdn.net/DTFT_/article/details/111242118">jupyter代码自动补全插件、安装后出现警告"Config option not recognized by "的解决方案_Sun's Blog-CSDN博客</a>)</p>
+<p>2/ <a href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions/issues/1529">Config option <code>template_path</code> not recognized by <code>LenvsLatexExporter</code>. Did you mean one of: <code>template_file, template_name, template_paths</code>? · Issue #1529 · ipython-contrib/jupyter_contrib_nbextensions (github.com)</a>)</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>python</category>
+        <category>jupyter</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>jupyter</tag>
       </tags>
   </entry>
   <entry>
@@ -521,35 +494,12 @@ a local folder of plain text Markdown files.</p>
       </tags>
   </entry>
   <entry>
-    <title>【Jupyter】启动时有报错信息</title>
-    <url>/2021/05/11/%E3%80%90Jupyter%E3%80%91%E5%90%AF%E5%8A%A8%E6%97%B6%E6%9C%89%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/</url>
-    <content><![CDATA[<h1 id="说明">说明</h1>
-<p>在升级jupyter到版本6.x以上时，在启动的时候会报很多行以下错误 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Config option &#96;template_path&#96; not recognized by &#96;LenvsLatexExporter&#96;. Did you mean one of: &#96;template_file, template_name, template_paths&#96;?</span><br></pre></td></tr></table></figure></p>
-<h1 id="解决方案">解决方案</h1>
-<p>使用VS Code依次打开python安装目录下的/lib/site-packages/ ('jupyter_contrib_nbextensions', 'jupyter_latex_envs' 及'latex_envs')子目录。</p>
-<p>通过'Edit/Replace in Files'来查找'template_path'并替换为'template_paths'。</p>
-<p>注意有的内容已经是template_paths，不需要修改。</p>
-<h1 id="参考">参考</h1>
-<p>1/ [jupyter代码自动补全插件、安装后出现警告“Config option <code>template_path</code> not recognized by <code>LenvsLatexExporter</code>”的解决方案](<a href="https://blog.csdn.net/DTFT_/article/details/111242118">jupyter代码自动补全插件、安装后出现警告"Config option not recognized by "的解决方案_Sun's Blog-CSDN博客</a>)</p>
-<p>2/ <a href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions/issues/1529">Config option <code>template_path</code> not recognized by <code>LenvsLatexExporter</code>. Did you mean one of: <code>template_file, template_name, template_paths</code>? · Issue #1529 · ipython-contrib/jupyter_contrib_nbextensions (github.com)</a>)</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>python</category>
-        <category>jupyter</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>jupyter</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【Markdown】Typora画流程图实践</title>
     <url>/2021/01/08/%E3%80%90Markdown%E3%80%91Typora%E7%94%BB%E6%B5%81%E7%A8%8B%E5%9B%BE%E5%AE%9E%E8%B7%B5/</url>
     <content><![CDATA[<p><code>Typrora</code>中使用了<code>Mermaid</code>来提供强劲的绘制流程图、时序图的功能。</p>
 <h2 id="关于mermaid">关于Mermaid</h2>
 <p>是一种简单的类似 Markdown 的脚本语言，通过 JavaScript 编程语言，将文本转换为图片。因此，真正实现画图功能的并不是 Typora 本身，它只是内置了对 Mermaid 的支持。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210108172301.png" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/FiZR16eYrtTWm3g.png" /></p>
 <h2 id="图形介绍">图形介绍</h2>
 <h3 id="流程图flowchart">流程图(flowchart)</h3>
 <p>主要语法说明：</p>
@@ -3032,65 +2982,6 @@ code
       </tags>
   </entry>
   <entry>
-    <title>【Python】使用PYQT5来构建持仓盈亏监控(续)</title>
-    <url>/2021/07/02/%E3%80%90Python%E3%80%91%E4%BD%BF%E7%94%A8PYQT5%E6%9D%A5%E6%9E%84%E5%BB%BA%E6%8C%81%E4%BB%93%E7%9B%88%E4%BA%8F%E7%9B%91%E6%8E%A7%20(%E7%BB%AD)/</url>
-    <content><![CDATA[<h1 id="目的">目的</h1>
-<p>实时通过图形的方式呈现盈亏情况</p>
-<a id="more"></a>
-<h1 id="安装pyqtgraph">安装PyQtgraph</h1>
-<h2 id="安装">安装</h2>
-<p>通过pip进行安装</p>
-<blockquote>
-<p>pip install pyqtgraph</p>
-</blockquote>
-<h2 id="界面设计">界面设计</h2>
-<h3 id="使用qtdesigner来设计界面">使用QtDesigner来设计界面</h3>
-<ol type="1">
-<li>初始界面 初始界面设计如下： <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210514104224.png" /></li>
-</ol>
-<p>在此基础上，增加一个<code>label</code>及<code>widget</code>。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210702091127.png" /></p>
-<p>将widget重命名为<code>“graphWidget"</code>。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210702091239.png" /></p>
-<p>点击右键，选择<code>“提升为...”</code>， 提升的类名称为<code>“PlotWidget”</code>, 头文件为<code>“pyqtgraph”</code>。</p>
-<figure>
-<img src="C:\Users\junlv\AppData\Roaming\Typora\typora-user-images\image-20210702091446161.png" alt="image-20210702091446161" /><figcaption aria-hidden="true">image-20210702091446161</figcaption>
-</figure>
-<p>之所以使用这种方法，是因为按一般做法，利用Qt Designer新建一个布局，在代码中动态添加一个PlotWidget到这个布局来实现，代码如下:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pyqtgraph <span class="keyword">as</span> pg</span><br><span class="line">plot_plt = pg.PlotWidget(background=(<span class="number">69</span>,<span class="number">69</span>,<span class="number">69</span>), axisItems=&#123;<span class="string">&#x27;bottom&#x27;</span>: TimeAxisItem(orientation=<span class="string">&#x27;bottom&#x27;</span>)&#125;)</span><br><span class="line">verticalLayout.addWidget(plot_plt) </span><br></pre></td></tr></table></figure>
-<p>这里指定了背景色及坐标轴使用的模板。</p>
-<p>这样的做法，我一直没有找到控制PlotWidget大小的方法，导致出来的图形结果与我的期望不太一致。因此才尝试在UI设计时就固定住该部件的大小。</p>
-<h3 id="获取数据并展示">获取数据并展示</h3>
-<ol type="1">
-<li><p>将实时取得的持仓盈亏数据存入列表</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">self.data_list = []</span><br><span class="line">self.data_list.append(<span class="built_in">float</span>(self.data_summary[<span class="string">&#x27;day_float_amount&#x27;</span>]))</span><br></pre></td></tr></table></figure></li>
-<li><p>将时间进行时间戳转化存入列表</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">timestamp</span>():</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(time.mktime(datetime.datetime.now().timetuple()))</span><br><span class="line"></span><br><span class="line">self.time_list = []</span><br><span class="line">self.time_list.append(timestamp())</span><br></pre></td></tr></table></figure></li>
-<li><p>坐标轴显示为时间</p>
-<p>默认pyqtgraph会使用0开始的整数来作为坐标轴的值。 这里希望使用实时取到的时间来做为显示的值，因此需要重写pyqtgraph的AxisItem类。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TimeAxisItem</span>(<span class="params">pg.AxisItem</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, *args, **kwargs</span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__(*args, **kwargs)</span><br><span class="line">        <span class="comment">#self.setLabel(text=&#x27;Time&#x27;, units=None)</span></span><br><span class="line">        self.enableAutoSIPrefix(<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">tickStrings</span>(<span class="params">self, values, scale, spacing</span>):</span></span><br><span class="line">        <span class="keyword">return</span> [datetime.datetime.fromtimestamp(value).strftime(<span class="string">&quot;%H:%M:%S&quot;</span>) <span class="keyword">for</span> value <span class="keyword">in</span> values]</span><br></pre></td></tr></table></figure></li>
-<li><p>展示</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">graphWidget.plot().setData(self.model.time_list, self.model.data_list,pen=<span class="string">&#x27;g&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="效果">效果</h1>
-<p>完成后的应用界面效果如下： <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210702094351.png" /></p>
-<h1 id="参考">参考</h1>
-<ol start="4" type="1">
-<li><a href="%5BPyQt5的PyQtGraph实践系列3：实时数据更新绘制图形%20-%20州的先生%20(zmister.com)%5D(https://zmister.com/archives/826.html)">PyQt5的PyQtGraph实践系列3：实时数据更新绘制图形</a></li>
-<li><a href="%5BEmbedding%20PyQtGraph%20(or%20any%20other%20custom%20PyQt5%20widgets)%20from%20Qt%20Designer%20(mfitzp.com)%5D(https://www.mfitzp.com/tutorials/embed-pyqtgraph-custom-widgets-qt-app/)">Embedding custom widgets from Qt Designer</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>python</category>
-        <category>量化投资</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>pyqt5</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【Python】使用PYQT5来构建持仓盈亏监控</title>
     <url>/2021/05/14/%E3%80%90Python%E3%80%91%E4%BD%BF%E7%94%A8PYQT5%E6%9D%A5%E6%9E%84%E5%BB%BA%E6%8C%81%E4%BB%93%E7%9B%88%E4%BA%8F%E7%9B%91%E6%8E%A7/</url>
     <content><![CDATA[<h1 id="目的">目的</h1>
@@ -3101,19 +2992,19 @@ code
 <ol type="1">
 <li><p>pip安装 &gt;pip install PyQt5</p></li>
 <li><p>官网下载文件安装<br />
-下载地址：<a href="https://pypi.org/project/PyQt5/#files">PyQt下载官网</a> <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210428113305.png" /> 安装方法：打开命令行，通过命令行进入到下载的whl文件所在的文件夹，输入如下命令，安装即可。 &gt;pip install PyQt5-5.15.4-cp36.cp37.cp38.cp39-none-win_amd64.whl</p></li>
+下载地址：<a href="https://pypi.org/project/PyQt5/#files">PyQt下载官网</a> <img src="https://s2.loli.net/2022/04/14/ATIvDBfZr6N1WL5.png" /> 安装方法：打开命令行，通过命令行进入到下载的whl文件所在的文件夹，输入如下命令，安装即可。 &gt;pip install PyQt5-5.15.4-cp36.cp37.cp38.cp39-none-win_amd64.whl</p></li>
 </ol>
 <h2 id="安装pyqt5-tools">安装PyQt5-tools</h2>
 <p>PyQt5-tools里含有图形界面开发工具QtDesigner及国际化翻译工具Liguist。 1. pip安装 &gt;pip install PyQt5-tools</p>
 <ol start="2" type="1">
 <li>官网下载文件安装<br />
-下载地址：<a href="https://pypi.org/project/pyqt5-tools/#files">PyQt下载官网</a> <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210428114755.png" /> 安装方法：打开命令行，通过命令行进入到下载的whl文件所在的文件夹，输入如下命令，安装即可。 &gt;pip install pyqt5_tools-5.15.2.3.0.2-py3-none-any.whl</li>
+下载地址：<a href="https://pypi.org/project/pyqt5-tools/#files">PyQt下载官网</a> <img src="https://s2.loli.net/2022/04/14/KNDVktjGFofTnZ3.png" /> 安装方法：打开命令行，通过命令行进入到下载的whl文件所在的文件夹，输入如下命令，安装即可。 &gt;pip install pyqt5_tools-5.15.2.3.0.2-py3-none-any.whl</li>
 </ol>
 <p>在系统中加入以下环境变量 &gt;d:-packages_tools<br />
 </p>
 <h2 id="与vscode集成">与VScode集成</h2>
 <ol type="1">
-<li>安装pyqt integration插件 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210428120444.png" /> 对pyqt integration插件进行配置，主要是pyuic5及qt designer的路径 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210428121818.png" /></li>
+<li>安装pyqt integration插件 <img src="https://s2.loli.net/2022/04/14/vS2MUFCL8oNT1Kl.png" /> 对pyqt integration插件进行配置，主要是pyuic5及qt designer的路径 <img src="https://s2.loli.net/2022/04/14/W4FUgXOnvAVjqI5.png" /></li>
 </ol>
 <h2 id="界面设计">界面设计</h2>
 <p>用小窗口来实现监控。</p>
@@ -3139,9 +3030,9 @@ code
 </ul>
 <h3 id="使用qtdesigner来设计界面">使用QtDesigner来设计界面</h3>
 <ol type="1">
-<li>初始界面 初始界面设计如下： <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210514104224.png" /></li>
+<li>初始界面 初始界面设计如下： <img src="https://s2.loli.net/2022/04/14/zcTQvBmEta5WwuP.png" /></li>
 </ol>
-<p>相应的组件及布局如下： <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210514104405.png" /></p>
+<p>相应的组件及布局如下： <img src="https://s2.loli.net/2022/04/14/Pb6hNWke3I9Lngf.png" /></p>
 <p>计划使用QLabel来显示总的持仓盈亏情况，用Qtableview来显示具体的股票信息， Qlabel使用<code>gridLayout</code>, Qtableview使用<code>verticalLayout</code>。</p>
 <ol start="2" type="1">
 <li>界面美化 在自定义的View类中写入代码进行美化。</li>
@@ -3172,14 +3063,57 @@ code
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">initDrag</span>(<span class="params">self</span>):</span></span><br><span class="line"><span class="comment"># 设置鼠标跟踪判断扳机默认值</span></span><br><span class="line">    self._move_drag   = <span class="literal">False</span></span><br><span class="line">    self._corner_drag = <span class="literal">False</span></span><br><span class="line">    self._bottom_drag = <span class="literal">False</span></span><br><span class="line">    self._right_drag  = <span class="literal">False</span></span><br><span class="line">    self._padding     = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">resizeEvent</span>(<span class="params">self, QResizeEvent</span>):</span>        </span><br><span class="line">    <span class="comment"># 重新调整边界范围以备实现鼠标拖放缩放窗口大小，采用三个列表生成式生成三个列表</span></span><br><span class="line">    self._right_rect = [QPoint(x, y) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(self.width() - self._padding, self.width() + <span class="number">1</span>) <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, self.height() - self._padding)]</span><br><span class="line">    self._bottom_rect = [QPoint(x, y) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, self.width() - self._padding)</span><br><span class="line">     <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(self.height() - self._padding, self.height() + <span class="number">1</span>)]</span><br><span class="line">    self._corner_rect = [QPoint(x, y) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(self.width() - self._padding, self.width() + <span class="number">1</span>) <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(self.height() - self._padding, self.height() + <span class="number">1</span>)]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mousePressEvent</span>(<span class="params">self, event</span>):</span></span><br><span class="line">    <span class="comment"># 重写鼠标点击的事件</span></span><br><span class="line">    <span class="keyword">if</span> (event.button() == Qt.LeftButton) <span class="keyword">and</span> (event.pos() <span class="keyword">in</span> self._corner_rect):</span><br><span class="line">        <span class="comment"># 鼠标左键点击右下角边界区域</span></span><br><span class="line">        self._corner_drag = <span class="literal">True</span></span><br><span class="line">        event.accept()</span><br><span class="line">    <span class="keyword">elif</span> (event.button() == Qt.LeftButton) <span class="keyword">and</span> (event.pos() <span class="keyword">in</span> self._right_rect):</span><br><span class="line">        <span class="comment"># 鼠标左键点击右侧边界区域</span></span><br><span class="line">        self._right_drag = <span class="literal">True</span></span><br><span class="line">        event.accept()</span><br><span class="line">        self.setCursor(QCursor(Qt.SizeHorCursor))</span><br><span class="line">    <span class="keyword">elif</span> (event.button() == Qt.LeftButton) <span class="keyword">and</span> (event.pos() <span class="keyword">in</span> self._bottom_rect):</span><br><span class="line">        <span class="comment"># 鼠标左键点击下侧边界区域</span></span><br><span class="line">        self._bottom_drag = <span class="literal">True</span></span><br><span class="line">        event.accept()</span><br><span class="line">        self.setCursor(QCursor(Qt.SizeVerCursor))</span><br><span class="line">    <span class="keyword">elif</span> (event.button() == Qt.LeftButton) <span class="keyword">and</span> (event.y() &lt; self.label_10.y()+self.label_10.height() <span class="keyword">or</span> (event.y() &gt; self.label_9.y() <span class="keyword">and</span> event.y() &lt; self.tableView_2.y())):</span><br><span class="line">        <span class="comment"># 鼠标左键点击标题栏区域</span></span><br><span class="line">        self._move_drag = <span class="literal">True</span></span><br><span class="line">        self.move_DragPosition = event.globalPos() - self.pos()</span><br><span class="line">        event.accept()</span><br><span class="line">        self.setCursor(QCursor(Qt.OpenHandCursor))  <span class="comment">#更改鼠标图标</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mouseMoveEvent</span>(<span class="params">self, QMouseEvent</span>):</span></span><br><span class="line">    <span class="comment"># 判断鼠标位置切换鼠标手势</span></span><br><span class="line">    <span class="comment"># if QMouseEvent.pos() in self._corner_rect:</span></span><br><span class="line">    <span class="comment">#     self.setCursor(Qt.SizeFDiagCursor)</span></span><br><span class="line">    <span class="comment">#     print(&quot;corner:%s, in %s&quot; %(QMouseEvent.pos(),self._corner_rect))</span></span><br><span class="line">    <span class="comment">#print(QMouseEvent.globalPos(), QMouseEvent.pos(), self.graphWidget.x(), self.graphWidget.y(), self.graphWidget.pos(), self.graphWidget.width(), self.graphWidget.height())</span></span><br><span class="line">    <span class="keyword">if</span> QMouseEvent.pos() <span class="keyword">in</span> self._bottom_rect:</span><br><span class="line">        self.setCursor(QCursor(Qt.SizeVerCursor))</span><br><span class="line">    <span class="keyword">elif</span> QMouseEvent.pos() <span class="keyword">in</span> self._right_rect:</span><br><span class="line">        self.setCursor(QCursor(Qt.SizeHorCursor))</span><br><span class="line">    <span class="keyword">elif</span> QMouseEvent.pos() <span class="keyword">in</span> self._corner_rect:</span><br><span class="line">        self.setCursor(QCursor(Qt.SizeFDiagCursor))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        self.setCursor(QCursor(Qt.ArrowCursor))</span><br><span class="line">    <span class="comment"># 当鼠标左键点击不放及满足点击区域的要求后，分别实现不同的窗口调整</span></span><br><span class="line">    <span class="comment"># 没有定义左方和上方相关的5个方向，主要是因为实现起来不难，但是效果很差，拖放的时候窗口闪烁，再研究研究是否有更好的实现</span></span><br><span class="line">    <span class="keyword">if</span> Qt.LeftButton <span class="keyword">and</span> self._right_drag:</span><br><span class="line">        <span class="comment"># 右侧调整窗口宽度</span></span><br><span class="line">        self.resize(QMouseEvent.pos().x(), self.height())</span><br><span class="line">        QMouseEvent.accept()</span><br><span class="line">    <span class="keyword">elif</span> Qt.LeftButton <span class="keyword">and</span> self._bottom_drag:</span><br><span class="line">        <span class="comment"># 下侧调整窗口高度</span></span><br><span class="line">        self.resize(self.width(), QMouseEvent.pos().y())</span><br><span class="line">        QMouseEvent.accept()</span><br><span class="line">    <span class="keyword">elif</span> Qt.LeftButton <span class="keyword">and</span> self._corner_drag:</span><br><span class="line">        <span class="comment"># 右下角同时调整高度和宽度</span></span><br><span class="line">        self.resize(QMouseEvent.pos().x(), QMouseEvent.pos().y())</span><br><span class="line">        QMouseEvent.accept()</span><br><span class="line">    <span class="keyword">elif</span> Qt.LeftButton <span class="keyword">and</span> self._move_drag:</span><br><span class="line">        <span class="comment"># 标题栏拖放窗口位置</span></span><br><span class="line">        self.move(QMouseEvent.globalPos() - self.move_DragPosition)</span><br><span class="line">        QMouseEvent.accept()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mouseReleaseEvent</span>(<span class="params">self, QMouseEvent</span>):</span></span><br><span class="line">    <span class="comment"># 鼠标释放后，各扳机复位</span></span><br><span class="line">    self._move_drag = <span class="literal">False</span></span><br><span class="line">    self._corner_drag = <span class="literal">False</span></span><br><span class="line">    self._bottom_drag = <span class="literal">False</span></span><br><span class="line">    self._right_drag = <span class="literal">False</span></span><br><span class="line">    self.setCursor(QCursor(Qt.ArrowCursor))</span><br></pre></td></tr></table></figure>
 <h1 id="效果">效果</h1>
-<p>完成后的应用界面效果如下： <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210514111223.png" /></p>
-<h1 id="参考">参考</h1>
+<p>完成后的应用界面效果如下： <img src="https://s2.loli.net/2022/04/14/ykQ7onW4ducAseD.png" /> # 参考 1. <a href="https://blog.csdn.net/weixin_40014984/article/details/104531359">VSCode配置Python、PyQt5、QtDesigner环境并创建一个ui界面测试</a> 2. <a href="https://zhuanlan.zhihu.com/p/66758263">python界面编程：VScode+pyqt+pyqt integration配置备忘</a> 3. <a href="https://blog.csdn.net/AzureMouse/article/details/90338961">PyQt5（designer）入门教程</a> 4. <a href="%5BEmbedding%20PyQtGraph%20(or%20any%20other%20custom%20PyQt5%20widgets)%20from%20Qt%20Designer%20(mfitzp.com)%5D(https://www.mfitzp.com/tutorials/embed-pyqtgraph-custom-widgets-qt-app/)">Embedding custom widgets from Qt Designer</a></p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>python</category>
+        <category>量化投资</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pyqt5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Python】使用PYQT5来构建持仓盈亏监控(续)</title>
+    <url>/2021/07/02/%E3%80%90Python%E3%80%91%E4%BD%BF%E7%94%A8PYQT5%E6%9D%A5%E6%9E%84%E5%BB%BA%E6%8C%81%E4%BB%93%E7%9B%88%E4%BA%8F%E7%9B%91%E6%8E%A7%20(%E7%BB%AD)/</url>
+    <content><![CDATA[<h1 id="目的">目的</h1>
+<p>实时通过图形的方式呈现盈亏情况</p>
+<a id="more"></a>
+<h1 id="安装pyqtgraph">安装PyQtgraph</h1>
+<h2 id="安装">安装</h2>
+<p>通过pip进行安装</p>
+<blockquote>
+<p>pip install pyqtgraph</p>
+</blockquote>
+<h2 id="界面设计">界面设计</h2>
+<h3 id="使用qtdesigner来设计界面">使用QtDesigner来设计界面</h3>
 <ol type="1">
-<li><a href="https://blog.csdn.net/weixin_40014984/article/details/104531359">VSCode配置Python、PyQt5、QtDesigner环境并创建一个ui界面测试</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/66758263">python界面编程：VScode+pyqt+pyqt integration配置备忘</a></li>
-<li><a href="https://blog.csdn.net/AzureMouse/article/details/90338961">PyQt5（designer）入门教程</a></li>
-<li><a href="%5BEmbedding%20PyQtGraph%20(or%20any%20other%20custom%20PyQt5%20widgets)%20from%20Qt%20Designer%20(mfitzp.com)%5D(https://www.mfitzp.com/tutorials/embed-pyqtgraph-custom-widgets-qt-app/)">Embedding custom widgets from Qt Designer</a></li>
+<li>初始界面 初始界面设计如下： <img src="https://s2.loli.net/2022/04/14/zcTQvBmEta5WwuP.png" /></li>
 </ol>
+<p>在此基础上，增加一个<code>label</code>及<code>widget</code>。</p>
+<p><img src="https://s2.loli.net/2022/04/14/sNtdLJD436alhbv.png" /> 将widget重命名为<code>“graphWidget"</code>。</p>
+<p><img src="https://s2.loli.net/2022/04/14/JtQwUzni7kbOdMP.png" /> 点击右键，选择<code>“提升为...”</code>， 提升的类名称为<code>“PlotWidget”</code>, 头文件为<code>“pyqtgraph”</code>。</p>
+<p><img src="https://s2.loli.net/2022/04/14/zwo5gmBSaQJ3Axy.png" /></p>
+<p>之所以使用这种方法，是因为按一般做法，利用Qt Designer新建一个布局，在代码中动态添加一个PlotWidget到这个布局来实现，代码如下:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pyqtgraph <span class="keyword">as</span> pg</span><br><span class="line">plot_plt = pg.PlotWidget(background=(<span class="number">69</span>,<span class="number">69</span>,<span class="number">69</span>), axisItems=&#123;<span class="string">&#x27;bottom&#x27;</span>: TimeAxisItem(orientation=<span class="string">&#x27;bottom&#x27;</span>)&#125;)</span><br><span class="line">verticalLayout.addWidget(plot_plt) </span><br></pre></td></tr></table></figure>
+<p>这里指定了背景色及坐标轴使用的模板。</p>
+<p>这样的做法，我一直没有找到控制PlotWidget大小的方法，导致出来的图形结果与我的期望不太一致。因此才尝试在UI设计时就固定住该部件的大小。</p>
+<h3 id="获取数据并展示">获取数据并展示</h3>
+<ol type="1">
+<li><p>将实时取得的持仓盈亏数据存入列表</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">self.data_list = []</span><br><span class="line">self.data_list.append(<span class="built_in">float</span>(self.data_summary[<span class="string">&#x27;day_float_amount&#x27;</span>]))</span><br></pre></td></tr></table></figure></li>
+<li><p>将时间进行时间戳转化存入列表</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">timestamp</span>():</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(time.mktime(datetime.datetime.now().timetuple()))</span><br><span class="line"></span><br><span class="line">self.time_list = []</span><br><span class="line">self.time_list.append(timestamp())</span><br></pre></td></tr></table></figure></li>
+<li><p>坐标轴显示为时间</p>
+<p>默认pyqtgraph会使用0开始的整数来作为坐标轴的值。 这里希望使用实时取到的时间来做为显示的值，因此需要重写pyqtgraph的AxisItem类。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TimeAxisItem</span>(<span class="params">pg.AxisItem</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, *args, **kwargs</span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__(*args, **kwargs)</span><br><span class="line">        <span class="comment">#self.setLabel(text=&#x27;Time&#x27;, units=None)</span></span><br><span class="line">        self.enableAutoSIPrefix(<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">tickStrings</span>(<span class="params">self, values, scale, spacing</span>):</span></span><br><span class="line">        <span class="keyword">return</span> [datetime.datetime.fromtimestamp(value).strftime(<span class="string">&quot;%H:%M:%S&quot;</span>) <span class="keyword">for</span> value <span class="keyword">in</span> values]</span><br></pre></td></tr></table></figure></li>
+<li><p>展示</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">graphWidget.plot().setData(self.model.time_list, self.model.data_list,pen=<span class="string">&#x27;g&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="效果">效果</h1>
+<p>完成后的应用界面效果如下： <img src="https://s2.loli.net/2022/04/14/pqdJtr7F5bMEcRV.png" /> # 参考 4. <a href="%5BPyQt5的PyQtGraph实践系列3：实时数据更新绘制图形%20-%20州的先生%20(zmister.com)%5D(https://zmister.com/archives/826.html)">PyQt5的PyQtGraph实践系列3：实时数据更新绘制图形</a> 2. <a href="%5BEmbedding%20PyQtGraph%20(or%20any%20other%20custom%20PyQt5%20widgets)%20from%20Qt%20Designer%20(mfitzp.com)%5D(https://www.mfitzp.com/tutorials/embed-pyqtgraph-custom-widgets-qt-app/)">Embedding custom widgets from Qt Designer</a></p>
 ]]></content>
       <categories>
         <category>技术笔记</category>
@@ -3207,7 +3141,7 @@ code
 <ol type="1">
 <li><p>rust-analyzer</p>
 <p>该插件有说明与会与官方的Rust有冲突，二者只能先激活一个。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104180557.png" /></p></li>
+<p><img src="https://s2.loli.net/2022/04/14/vGay32FOwzkAWtL.png" /></p></li>
 <li><p>CodeLLDB</p>
 <p>基于LLDB的原生debugger.详见<a href="https://github.com/vadimcn/vscode-lldb">官网</a></p></li>
 <li><p>TabNine</p>
@@ -3217,7 +3151,7 @@ code
 <p>安装插件，重启VS Code后。</p>
 <p>现在运行官网示例。</p>
 <figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> ferris_says::say; <span class="comment">// from the previous step</span></span><br><span class="line"><span class="keyword">use</span> std::io::&#123;stdout, BufWriter&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> stdout = stdout();</span><br><span class="line">    <span class="keyword">let</span> message = <span class="built_in">String</span>::from(<span class="string">&quot;Hello fellow Rustaceans!&quot;</span>);</span><br><span class="line">    <span class="keyword">let</span> width = message.chars().count();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> writer = BufWriter::new(stdout.lock());</span><br><span class="line">    say(message.as_bytes(), width, &amp;<span class="keyword">mut</span> writer).unwrap();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106153608.png" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/6qljpGuyzBgOmE4.png" /></p>
 <p>测试， RA、CodeLLDB及TabNine工作正常。</p>
 ]]></content>
       <categories>
@@ -3227,6 +3161,74 @@ code
       <tags>
         <tag>rust</tag>
         <tag>VScode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Rust】Rust的安装及卸载升级</title>
+    <url>/2021/01/04/%E3%80%90Rust%E3%80%91Rust%E7%9A%84%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD%E5%8F%8A%E5%8D%87%E7%BA%A7/</url>
+    <content><![CDATA[<h1 id="安装">安装</h1>
+<h2 id="下载rust的安装器">下载Rust的安装器</h2>
+<p>从<a href="https://www.rust-lang.org/zh-CN/tools/install">官网</a>下载<code>rustup-init.exe</code>。</p>
+<p><img src="https://s2.loli.net/2022/04/14/niWOEIa1qNCkS4D.png" /></p>
+<p>说明：</p>
+<blockquote>
+<p><code>rustup</code>是安装和管理 <strong>Rust 构建版本</strong>的工具。rustup 用于管理不同平台下的 Rust 构建版本并使其互相兼容， 支持安装由 Beta 和 Nightly 频道发布的版本，并支持其他用于交叉编译的编译版本 <code>cargo</code>是rust的<strong>包管理器和构建系统工具</strong>。它将常用命令集于一身，无需引入其它命令。</p>
+<p>rustup程序是rust的安装程序，也是他的版本管理程序，类似于Python的Anaconda发行版的conda工具，非常方便使用管理。cargo是rust的构建工具，暂不介绍，需要明白的是：rustup是管理语言自身的，cargo是管理第三方拓展的。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="配置path环境变量">配置<code>path</code>环境变量</h2>
+<p>在 Rust 开发环境中，所有工具都安装在 <code>~/.cargo/bin</code> 目录中，您可以在这里找到包括 <code>rustc</code>、<code>cargo</code> 和 <code>rustup</code> 在内的 Rust 工具链。</p>
+<p>所以，如果打算修改默认的安装位置，可以在环境变量中这样设置，以安装路径为<code>D:\Program Files\Rust\</code>为例。否则会默认安装在 C 盘下。 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CARGO_HOME：D:\Program Files\RUST\.cargo</span><br><span class="line">RUSTUP_HOME：D:\Program Files\RUST\.rustup</span><br></pre></td></tr></table></figure></p>
+<h2 id="安装-1">安装</h2>
+<h3 id="msvc工具链方式">MSVC工具链方式</h3>
+<p>下载完成后直接点击执行，会出现一个CMD窗口：仔细阅读上面的内容，如果没有安装Microsoft 2019 builder tools，就从<a href="https://visualstudio.microsoft.com/downloads/">这里</a>进行下载安装。</p>
+<p><img src="https://s2.loli.net/2022/04/14/bImn2Ea5iWvBjyq.png" /></p>
+<p>下载build tools之后，在Visual studio installer中只选择“C++生成工具”，然后只选择"MSVC v142 - VS2019 C++ x64/x86 生成工具"。安装上去大约需要1.8G硬盘空间。</p>
+<p><img src="https://s2.loli.net/2022/04/14/vtG5I9asQCFJRel.png" /></p>
+<h3 id="安装rust">安装Rust</h3>
+<p>运行<code>rustup-init.exe</code></p>
+<p>然后，在下面输入1，进行默认安装：</p>
+<p><img src="https://s2.loli.net/2022/04/14/Cj57oheYcTtazVw.png" /> 检查是否安装成功</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rustc --version</span><br><span class="line">cargo --version　　</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/04/14/8TDtqLRv5nohfUC.png" /></p>
+<h3 id="gnu工具链方式">GNU工具链方式</h3>
+<p>gnu（本文使用MinGW-w64）占用空间小（500M），对于初步的rust使用足够了。</p>
+<p><a href="http://www.mingw-w64.org/doku.php">MinGW-w64下载</a></p>
+<h4 id="安装mingw-w64">安装MinGW-w64</h4>
+<p><img src="https://s2.loli.net/2022/04/14/stGr4SkjB6O5UyA.png" /> 这里你可以选择安装的版本, 建议只更改第二项至x86_64, 其他选项不做改动。</p>
+<p><img src="https://s2.loli.net/2022/04/14/vXhQYsD5CEOa6ZU.png" /> <strong>关于Threads选项的说明：</strong></p>
+<p>To summarize:</p>
+<ul>
+<li><code>posix</code>: enable C++11/C11 multithreading features. Makes libgcc depend on libwinpthreads, so that even if you don't directly call pthreads API, you'll be distributing the winpthreads DLL. There's nothing wrong with distributing one more DLL with your application.</li>
+<li><code>win32</code>: No C++11 multithreading features.</li>
+</ul>
+<p>Neither have influence on any user code calling Win32 APIs or pthreads APIs. You can always use both.</p>
+<p>exception seh (for Structured Exception Handling mechanism).</p>
+<p>这里可以设置安装目录, 我安装在</p>
+<p><img src="https://s2.loli.net/2022/04/14/36j1DTMVsA8moLq.png" /> ### 环境变量的配置</p>
+<p>新增 <code>D:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin</code>到<code>PATH</code>。</p>
+<h3 id="检查安装是否成功">检查安装是否成功</h3>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">C:\Users\junlv&gt;mingw32<span class="literal">-make</span> -<span class="literal">-version</span></span><br><span class="line">GNU Make <span class="number">4.2</span>.<span class="number">1</span></span><br><span class="line">Built <span class="keyword">for</span> x86_64<span class="literal">-w64</span><span class="literal">-mingw32</span></span><br><span class="line">Copyright (C) <span class="number">1988</span><span class="literal">-2016</span> Free Software Foundation, Inc.</span><br><span class="line">License GPLv3+: GNU GPL version <span class="number">3</span> or later &lt;http://gnu.org/licenses/gpl.html&gt;</span><br><span class="line">This is free software: you are free to change and redistribute it.</span><br><span class="line">There is NO WARRANTY, to the extent permitted by law.</span><br><span class="line"></span><br><span class="line">C:\Users\junlv&gt;g++ -<span class="literal">-version</span></span><br><span class="line">g++ (x86_64<span class="literal">-posix</span><span class="literal">-seh</span><span class="literal">-rev0</span>, Built by MinGW<span class="literal">-W64</span> project) <span class="number">8.1</span>.<span class="number">0</span></span><br><span class="line">Copyright (C) <span class="number">2018</span> Free Software Foundation, Inc.</span><br><span class="line">This is free software; see the source <span class="keyword">for</span> copying conditions.  There is NO</span><br><span class="line">warranty; not even <span class="keyword">for</span> MERCHANTABILITY or FITNESS <span class="keyword">FOR</span> A PARTICULAR PURPOSE.</span><br></pre></td></tr></table></figure>
+<h3 id="安装rust-1">安装Rust</h3>
+<p>运行<code>rustup-init.exe</code></p>
+<p>然后，在下面输入2，进行定制化安装：</p>
+<p><code>default host triple</code>修改为<code>x86_64-pc-windows-gnu</code></p>
+<p><img src="https://s2.loli.net/2022/04/14/kGcCHQeSyV4FI58.png" /></p>
+<p>继续选1进行安装即可。</p>
+<p>安装验证</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">E:\Downloads\Programs&gt;rustc -<span class="literal">-version</span></span><br><span class="line">rustc <span class="number">1.49</span>.<span class="number">0</span> (e1884a8e3 <span class="number">2020</span><span class="literal">-12</span><span class="literal">-29</span>)</span><br><span class="line"></span><br><span class="line">E:\Downloads\Programs&gt;cargo -<span class="literal">-version</span></span><br><span class="line">cargo <span class="number">1.49</span>.<span class="number">0</span> (d00d64df9 <span class="number">2020</span><span class="literal">-12</span><span class="literal">-05</span>)</span><br></pre></td></tr></table></figure>
+<p>安装源代码用于代码补全</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">E:\Downloads\Programs&gt;rustup component add rust<span class="literal">-src</span></span><br><span class="line">info: downloading component <span class="string">&#x27;rust-src&#x27;</span></span><br><span class="line">info: installing component <span class="string">&#x27;rust-src&#x27;</span></span><br><span class="line">info: <span class="keyword">using</span> up to 500.0 MiB of RAM to unpack components</span><br></pre></td></tr></table></figure>
+<h1 id="卸载">卸载</h1>
+<p>如果想卸载 Rust，可以运行 <code>rustup self uninstall</code></p>
+<p><img src="https://s2.loli.net/2022/04/14/EyY1jSnGU8LptcT.png" /> # 升级 如果曾经安装过 <code>rustup</code>，可以执行 <code>rustup update</code> 来升级 Rust。 在升级过程中，如果遇到无法下载<code>rustup-init.exe</code>文件之类的错误，尝试更改国内镜像。使用中科大和清华源时出现过该类问题。更改为字节跳动镜像。 <code>RUSTUP_DIST_SERVER="https://rsproxy.cn" export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"</code></p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>rust</category>
+      </categories>
+      <tags>
+        <tag>rust</tag>
       </tags>
   </entry>
   <entry>
@@ -3262,7 +3264,7 @@ code
 <li><em>Style</em> 中的 <em>value</em> 方法用来封装需要格式化的内容</li>
 </ul>
 <figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="meta">#[test]</span></span><br><span class="line">    <span class="function"><span class="keyword">fn</span> <span class="title">test_log_beautify</span></span>()&#123;</span><br><span class="line">        <span class="keyword">use</span> log::&#123;debug, error, warn, info, trace&#125;;</span><br><span class="line">        <span class="keyword">use</span> env_logger::Builder;</span><br><span class="line">        <span class="keyword">use</span> env_logger::fmt::Color;</span><br><span class="line">        <span class="keyword">use</span> chrono::Local;</span><br><span class="line">        <span class="keyword">use</span> std::io::Write;</span><br><span class="line">        <span class="keyword">use</span> log::Level;      </span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建env_logger生成器， 也可直接写成env_logger::builder()</span></span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">mut</span> builder = Builder::from_default_env();</span><br><span class="line">        </span><br><span class="line">        builder</span><br><span class="line">        .format(|buf, record| &#123;</span><br><span class="line">            <span class="keyword">let</span> <span class="keyword">mut</span> level_style = buf.style();</span><br><span class="line">            <span class="keyword">let</span> <span class="keyword">mut</span> brace_style = buf.style();</span><br><span class="line">            level_style.set_intense(<span class="literal">true</span>);</span><br><span class="line">            <span class="keyword">match</span> record.level() &#123;</span><br><span class="line">                Level::Trace =&gt; level_style.set_color(Color::Cyan).set_bold(<span class="literal">true</span>),</span><br><span class="line">                Level::<span class="built_in">Debug</span> =&gt; level_style.set_color(Color::Blue).set_bold(<span class="literal">true</span>),</span><br><span class="line">                Level::Info =&gt; level_style.set_color(Color::Green).set_bold(<span class="literal">true</span>),</span><br><span class="line">                Level::Warn =&gt; level_style.set_color(Color::Yellow).set_bold(<span class="literal">true</span>),</span><br><span class="line">                Level::Error =&gt; level_style.set_color(Color::Red).set_bold(<span class="literal">true</span>),</span><br><span class="line">            &#125;;</span><br><span class="line">            brace_style.set_color(Color::Black).set_intense(<span class="literal">true</span>);</span><br><span class="line">            <span class="built_in">writeln!</span>(buf, <span class="string">&quot;&#123;&#125;&#123;&#125; &#123;&#125; &#123;&#125;&#123;&#125; &#123;&#125;&quot;</span>, </span><br><span class="line">                    brace_style.value(<span class="string">&quot;[&quot;</span>),</span><br><span class="line">                    Local::now().format(<span class="string">&quot;%Y-%m-%d %H:%M:%S%.3f&quot;</span>), </span><br><span class="line">                    level_style.value(record.level()), </span><br><span class="line">                    record.target(), </span><br><span class="line">                    brace_style.value(<span class="string">&quot;]&quot;</span>), </span><br><span class="line">                    record.args())</span><br><span class="line">           &#125;)</span><br><span class="line">        .init();</span><br><span class="line"></span><br><span class="line">        trace!(<span class="string">&quot;trace message&quot;</span>);</span><br><span class="line">        debug!(<span class="string">&quot;debug message&quot;</span>);</span><br><span class="line">        info!(<span class="string">&quot;informational message&quot;</span>);</span><br><span class="line">        warn!(<span class="string">&quot;warning message&quot;</span>);</span><br><span class="line">        error!(<span class="string">&quot;error message&quot;</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>运行<code>set RUST_LOG=trace &amp;&amp; cargo test -- test_log_beautify</code><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> 结果如下： <img src="https://s2.loli.net/2022/04/13/lvO2d5gfNskSyMJ.png" /></p>
+<p>运行<code>set RUST_LOG=trace &amp;&amp; cargo test -- test_log_beautify</code> 结果如下： <img src="https://s2.loli.net/2022/04/13/lvO2d5gfNskSyMJ.png" /></p>
 <h1 id="参考">参考</h1>
 <ol type="1">
 <li><a href="https://docs.rs/crate/log/latest">log 文档</a></li>
@@ -3274,7 +3276,6 @@ code
 <ol>
 <li id="fn1" role="doc-endnote"><p><a href="https://docs.rs/env_logger/latest/src/env_logger/lib.rs.html#11-1315">lib.rs - source (docs.rs)</a>, 第92行。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2" role="doc-endnote"><p>该命令可以在 <em>cmd</em> 下同时执行多条命令, 命令格式：<strong>command1 &amp;&amp; command2</strong> ，command1执行成后后才能执行command2。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3" role="doc-endnote"><p>该命令可以在 <em>cmd</em> 下同时执行多条命令, 命令格式：<strong>command1 &amp;&amp; command2</strong> ，command1执行成后后才能执行command2。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 ]]></content>
@@ -3285,80 +3286,6 @@ code
         <tag>计算机技术/程序语言</tag>
         <tag>Rust</tag>
         <tag>日志</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Rust】Rust的安装及卸载升级</title>
-    <url>/2021/01/04/%E3%80%90Rust%E3%80%91Rust%E7%9A%84%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD%E5%8F%8A%E5%8D%87%E7%BA%A7/</url>
-    <content><![CDATA[<h1 id="安装">安装</h1>
-<h2 id="下载rust的安装器">下载Rust的安装器</h2>
-<p>从<a href="https://www.rust-lang.org/zh-CN/tools/install">官网</a>下载<code>rustup-init.exe</code>。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104150128.png" /></p>
-<p>说明：</p>
-<blockquote>
-<p><code>rustup</code>是安装和管理 <strong>Rust 构建版本</strong>的工具。rustup 用于管理不同平台下的 Rust 构建版本并使其互相兼容， 支持安装由 Beta 和 Nightly 频道发布的版本，并支持其他用于交叉编译的编译版本 <code>cargo</code>是rust的<strong>包管理器和构建系统工具</strong>。它将常用命令集于一身，无需引入其它命令。</p>
-<p>rustup程序是rust的安装程序，也是他的版本管理程序，类似于Python的Anaconda发行版的conda工具，非常方便使用管理。cargo是rust的构建工具，暂不介绍，需要明白的是：rustup是管理语言自身的，cargo是管理第三方拓展的。</p>
-</blockquote>
-<a id="more"></a>
-<h2 id="配置path环境变量">配置<code>path</code>环境变量</h2>
-<p>在 Rust 开发环境中，所有工具都安装在 <code>~/.cargo/bin</code> 目录中，您可以在这里找到包括 <code>rustc</code>、<code>cargo</code> 和 <code>rustup</code> 在内的 Rust 工具链。</p>
-<p>所以，如果打算修改默认的安装位置，可以在环境变量中这样设置，以安装路径为<code>D:\Program Files\Rust\</code>为例。否则会默认安装在 C 盘下。 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CARGO_HOME：D:\Program Files\RUST\.cargo</span><br><span class="line">RUSTUP_HOME：D:\Program Files\RUST\.rustup</span><br></pre></td></tr></table></figure></p>
-<h2 id="安装-1">安装</h2>
-<h3 id="msvc工具链方式">MSVC工具链方式</h3>
-<p>下载完成后直接点击执行，会出现一个CMD窗口：仔细阅读上面的内容，如果没有安装Microsoft 2019 builder tools，就从<a href="https://visualstudio.microsoft.com/downloads/">这里</a>进行下载安装。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210105152553.png" /></p>
-<p>下载build tools之后，在Visual studio installer中只选择“C++生成工具”，然后只选择"MSVC v142 - VS2019 C++ x64/x86 生成工具"。安装上去大约需要1.8G硬盘空间。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210105153117.png" /></p>
-<h3 id="安装rust">安装Rust</h3>
-<p>运行<code>rustup-init.exe</code></p>
-<p>然后，在下面输入1，进行默认安装：</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104151722.png" /></p>
-<p>检查是否安装成功</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rustc --version</span><br><span class="line">cargo --version　　</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104154515.png" /></p>
-<h3 id="gnu工具链方式">GNU工具链方式</h3>
-<p>gnu（本文使用MinGW-w64）占用空间小（500M），对于初步的rust使用足够了。</p>
-<p><a href="http://www.mingw-w64.org/doku.php">MinGW-w64下载</a></p>
-<h4 id="安装mingw-w64">安装MinGW-w64</h4>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106091000.png" /></p>
-<p>这里你可以选择安装的版本, 建议只更改第二项至x86_64, 其他选项不做改动。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106091120.png" /></p>
-<p><strong>关于Threads选项的说明：</strong></p>
-<p>To summarize:</p>
-<ul>
-<li><code>posix</code>: enable C++11/C11 multithreading features. Makes libgcc depend on libwinpthreads, so that even if you don't directly call pthreads API, you'll be distributing the winpthreads DLL. There's nothing wrong with distributing one more DLL with your application.</li>
-<li><code>win32</code>: No C++11 multithreading features.</li>
-</ul>
-<p>Neither have influence on any user code calling Win32 APIs or pthreads APIs. You can always use both.</p>
-<p>exception seh (for Structured Exception Handling mechanism).</p>
-<p>这里可以设置安装目录, 我安装在</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106091244.png" /></p>
-<h3 id="环境变量的配置">环境变量的配置</h3>
-<p>新增 <code>D:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin</code>到<code>PATH</code>。</p>
-<h3 id="检查安装是否成功">检查安装是否成功</h3>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">C:\Users\junlv&gt;mingw32<span class="literal">-make</span> -<span class="literal">-version</span></span><br><span class="line">GNU Make <span class="number">4.2</span>.<span class="number">1</span></span><br><span class="line">Built <span class="keyword">for</span> x86_64<span class="literal">-w64</span><span class="literal">-mingw32</span></span><br><span class="line">Copyright (C) <span class="number">1988</span><span class="literal">-2016</span> Free Software Foundation, Inc.</span><br><span class="line">License GPLv3+: GNU GPL version <span class="number">3</span> or later &lt;http://gnu.org/licenses/gpl.html&gt;</span><br><span class="line">This is free software: you are free to change and redistribute it.</span><br><span class="line">There is NO WARRANTY, to the extent permitted by law.</span><br><span class="line"></span><br><span class="line">C:\Users\junlv&gt;g++ -<span class="literal">-version</span></span><br><span class="line">g++ (x86_64<span class="literal">-posix</span><span class="literal">-seh</span><span class="literal">-rev0</span>, Built by MinGW<span class="literal">-W64</span> project) <span class="number">8.1</span>.<span class="number">0</span></span><br><span class="line">Copyright (C) <span class="number">2018</span> Free Software Foundation, Inc.</span><br><span class="line">This is free software; see the source <span class="keyword">for</span> copying conditions.  There is NO</span><br><span class="line">warranty; not even <span class="keyword">for</span> MERCHANTABILITY or FITNESS <span class="keyword">FOR</span> A PARTICULAR PURPOSE.</span><br></pre></td></tr></table></figure>
-<h3 id="安装rust-1">安装Rust</h3>
-<p>运行<code>rustup-init.exe</code></p>
-<p>然后，在下面输入2，进行定制化安装：</p>
-<p><code>default host triple</code>修改为<code>x86_64-pc-windows-gnu</code></p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210106114540.png" /></p>
-<p>继续选1进行安装即可。</p>
-<p>安装验证</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">E:\Downloads\Programs&gt;rustc -<span class="literal">-version</span></span><br><span class="line">rustc <span class="number">1.49</span>.<span class="number">0</span> (e1884a8e3 <span class="number">2020</span><span class="literal">-12</span><span class="literal">-29</span>)</span><br><span class="line"></span><br><span class="line">E:\Downloads\Programs&gt;cargo -<span class="literal">-version</span></span><br><span class="line">cargo <span class="number">1.49</span>.<span class="number">0</span> (d00d64df9 <span class="number">2020</span><span class="literal">-12</span><span class="literal">-05</span>)</span><br></pre></td></tr></table></figure>
-<p>安装源代码用于代码补全</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">E:\Downloads\Programs&gt;rustup component add rust<span class="literal">-src</span></span><br><span class="line">info: downloading component <span class="string">&#x27;rust-src&#x27;</span></span><br><span class="line">info: installing component <span class="string">&#x27;rust-src&#x27;</span></span><br><span class="line">info: <span class="keyword">using</span> up to 500.0 MiB of RAM to unpack components</span><br></pre></td></tr></table></figure>
-<h1 id="卸载">卸载</h1>
-<p>如果想卸载 Rust，可以运行 <code>rustup self uninstall</code></p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210104150931.png" /></p>
-<h1 id="升级">升级</h1>
-<p>如果曾经安装过 <code>rustup</code>，可以执行 <code>rustup update</code> 来升级 Rust。 在升级过程中，如果遇到无法下载<code>rustup-init.exe</code>文件之类的错误，尝试更改国内镜像。使用中科大和清华源时出现过该类问题。更改为字节跳动镜像。 <code>RUSTUP_DIST_SERVER="https://rsproxy.cn" export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"</code></p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>rust</category>
-      </categories>
-      <tags>
-        <tag>rust</tag>
       </tags>
   </entry>
   <entry>
@@ -3378,10 +3305,8 @@ code
 <p>安装过程中，原来rust选择的是gnu的工具链编译，但在编译libzmq时会报错，</p>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">D:\PROGRA~<span class="number">1</span>\MINGW-~<span class="number">1</span>\X86_64~<span class="number">1.0</span><span class="literal">-P</span>\mingw64\bin\G__~<span class="number">1</span>.EXE   <span class="literal">-std</span>=gnu++<span class="number">11</span> <span class="literal">-Wno</span><span class="literal">-tautological</span><span class="literal">-constant</span><span class="literal">-compare</span>  <span class="literal">-o</span> CMakeFiles\cmTC_57766.dir\CheckSymbolExists.cxx.obj <span class="literal">-c</span> E:\Tmp\libzmq<span class="literal">-4</span>.<span class="number">3.3</span>\build\CMakeFiles\CMakeTmp\CheckSymbolExists.cxx</span><br><span class="line"></span><br><span class="line">E:\Tmp\libzmq<span class="literal">-4</span>.<span class="number">3.3</span>\build\CMakeFiles\CMakeTmp\CheckSymbolExists.cxx: <span class="keyword">In</span> <span class="function"><span class="keyword">function</span> &#x27;<span class="title">int</span> <span class="title">main</span><span class="params">(int, char**)</span>&#x27;:</span></span><br><span class="line">E:\Tmp\libzmq<span class="literal">-4</span>.<span class="number">3.3</span>\build\CMakeFiles\CMakeTmp\CheckSymbolExists.cxx:<span class="number">8</span>:<span class="number">19</span>: error: <span class="string">&#x27;strlcpy&#x27;</span> was not declared <span class="keyword">in</span> this scope</span><br><span class="line">   <span class="keyword">return</span> ((int*)(&amp;strlcpy))[<span class="type">argc</span>];</span><br><span class="line">                   ^~~~~~~</span><br><span class="line">E:\Tmp\libzmq<span class="literal">-4</span>.<span class="number">3.3</span>\build\CMakeFiles\CMakeTmp\CheckSymbolExists.cxx:<span class="number">8</span>:<span class="number">19</span>: note: suggested alternative: <span class="string">&#x27;strncpy&#x27;</span></span><br><span class="line">   <span class="keyword">return</span> ((int*)(&amp;strlcpy))[<span class="type">argc</span>];</span><br><span class="line">                   ^~~~~~~</span><br><span class="line">                   strncpy</span><br><span class="line">At global scope:</span><br><span class="line">cc1plus.exe: warning: unrecognized command line option <span class="string">&#x27;-Wno-tautological-constant-compare&#x27;</span></span><br><span class="line">mingw32<span class="literal">-make</span>.exe[<span class="number">1</span>]: *** [<span class="type">CMakeFiles</span>\<span class="type">cmTC_57766.dir</span>\<span class="type">build.make</span>:<span class="number">84</span>: <span class="type">CMakeFiles</span>/<span class="type">cmTC_57766.dir</span>/<span class="type">CheckSymbolExists.cxx.obj</span>] Error <span class="number">1</span></span><br><span class="line"></span><br><span class="line">mingw32<span class="literal">-make</span>.exe[<span class="number">1</span>]: Leaving directory <span class="string">&#x27;E:/Tmp/libzmq-4.3.3/build/CMakeFiles/CMakeTmp&#x27;</span></span><br><span class="line"></span><br><span class="line">mingw32<span class="literal">-make</span>.exe: *** [<span class="type">Makefile</span>:<span class="number">139</span>: <span class="type">cmTC_57766</span>/<span class="type">fast</span>] Error <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">File E:/Tmp/libzmq<span class="literal">-4</span>.<span class="number">3.3</span>/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:</span><br><span class="line">/* */</span><br><span class="line"><span class="comment">#include &lt;string.h&gt;</span></span><br><span class="line"></span><br><span class="line">int main(int argc, char** argv)</span><br><span class="line">&#123;</span><br><span class="line">  (void)argv;</span><br><span class="line"><span class="comment">#ifndef strlcpy</span></span><br><span class="line">  <span class="keyword">return</span> ((int*)(&amp;strlcpy))[<span class="type">argc</span>];</span><br><span class="line"><span class="comment">#else</span></span><br><span class="line">  (void)argc;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"><span class="comment">#endif</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>尝试手动编译libzmq, 但无论4.3.3或4.3.2版本都无法成功。 具体原因从issue里也没有太多参考意义。后来从<a href="https://github.com/google/evcxr/issues/53">EvCxR issue 53</a>中得到些启发，将rust的工具链换回msvc工具链。重新安装EvCxR，成功。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210108102857.png" /></p>
-<p>测试</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210108103022.png" /></p>
-<h1 id="参考">参考</h1>
+<p><img src="https://s2.loli.net/2022/04/14/qIxXnlzYaC7kETM.png" /> 测试</p>
+<p><img src="https://s2.loli.net/2022/04/14/IxYUjVNrOBfE1el.png" /> # 参考</p>
 <ol type="1">
 <li><a href="https://github.com/google/evcxr/blob/master/evcxr_jupyter/README.md">EvCxR Jupyter Kernel</a></li>
 </ol>
@@ -3396,27 +3321,6 @@ code
       </tags>
   </entry>
   <entry>
-    <title>【python】multiprocessing进程间的通信（一）队列</title>
-    <url>/2021/01/01/%E3%80%90python%E3%80%91multiprocessing%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/</url>
-    <content><![CDATA[<p>multiprocessing模块支持进程间通信的三种主要形式:<code>队列</code>、<code>管道</code>及<code>共享内存</code>。下面我们来学习一下队列的使用情况。</p>
-<a id="more"></a>
-<h1 id="队列multiprocessing.queue">队列（multiprocessing.queue)</h1>
-<p>队列是线程和进程安全的，也就是一次只能有一个进程或线程进行操作。</p>
-<p><strong>示例：</strong>将子进程产生的信息统一写入父进程，这里是使用pool来创建进程池。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool, RLock, freeze_support,Queue,Pipe</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">from</span> TS_logs <span class="keyword">import</span> TS_log_info</span><br><span class="line"><span class="keyword">from</span>  TS_util <span class="keyword">import</span> (</span><br><span class="line">    TS_util_get_tradelist,</span><br><span class="line">    TS_util_get_real_date,</span><br><span class="line">    TS_util_get_next_datetime,</span><br><span class="line">    TS_util_get_now_time,</span><br><span class="line">    TS_util_date_convert,</span><br><span class="line">    trade_date_sse</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log_c</span>(<span class="params">q,codelist,n</span>):</span>    </span><br><span class="line">    <span class="keyword">for</span> trade_date <span class="keyword">in</span> codelist[n::<span class="number">8</span>]:</span><br><span class="line">        msg = <span class="string">&#x27;&#123;&#125; #Job&#123;&#125; Trying updating data of trade date &#123;&#125; .&#x27;</span> \</span><br><span class="line">                .<span class="built_in">format</span>(datetime.datetime.now().strftime(<span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>),n,trade_date)</span><br><span class="line">        sleep(<span class="number">0.05</span>)</span><br><span class="line">        q.put(msg)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">L = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">8</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:    </span><br><span class="line">    freeze_support()  <span class="comment"># for Windows support</span></span><br><span class="line">    manager = multiprocessing.Manager()</span><br><span class="line">    <span class="comment"># 父进程创建Queue，并传给各个子进程：</span></span><br><span class="line">    q = manager.Queue()</span><br><span class="line">    tqdm.set_lock(RLock())</span><br><span class="line">    codelist = trade_date_sse</span><br><span class="line">    func = functools.partial(log_c,q,codelist)</span><br><span class="line">    p = Pool(initializer=tqdm.set_lock, initargs=(tqdm.get_lock(),))</span><br><span class="line">    p.<span class="built_in">map</span>(func, L)</span><br><span class="line">    p.close()</span><br><span class="line">    p.join()</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> q.empty():</span><br><span class="line">        TS_log_info(q.get())</span><br></pre></td></tr></table></figure>
-<p>如果要使用Pool创建进程，就需要使用multiprocessing.Manager()中的Queue()，而不是multiprocessing.Queue()，否则会得到一条如下的错误信息：<br />
-<code>RuntimeError: Queue objects should only be shared between processes through inheritance.</code></p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>multiprocessing</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【cmder】在VsCode使用Cmder作为默认终端</title>
     <url>/2021/09/11/%E3%80%90cmder%E3%80%91%E5%9C%A8VsCode%E4%BD%BF%E7%94%A8Cmder%E4%BD%9C%E4%B8%BA%E9%BB%98%E8%AE%A4%E7%BB%88%E7%AB%AF/</url>
     <content><![CDATA[<h1 id="前言">前言</h1>
@@ -3424,22 +3328,22 @@ code
 <h1 id="配置步骤">配置步骤</h1>
 <p>旧版的<code>VsCode</code>使用以下方法修改。</p>
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;terminal.integrated.shellArgs.windows&quot;:[&quot;/k %CMDER_ROOT%\\vendor\\init.bat&quot;]</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210911222337.png" /></p>
 <p>当VSCode升级至1.57.1(2021.6.17)时，会出现警告提示：</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210911222337.png" />意思是此项已弃用，<code>Microsoft</code>官方配置默认 shell 的新推荐方法是在 #terminal.integrated.profiles.windows# 中创建一个终端配置文件，并将其配置文件名称设置为 #terminal.integrated.defaultProfile.windows# 中的默认值。此操作当前将优先于新的配置文件设置，但将来会发生更改。</p>
+<p><img src="https://s2.loli.net/2022/04/14/hT1As3nwuqpFCyQ.png" /></p>
+<p>意思是此项已弃用，<code>Microsoft</code>官方配置默认 shell 的新推荐方法是在 #terminal.integrated.profiles.windows# 中创建一个终端配置文件，并将其配置文件名称设置为 #terminal.integrated.defaultProfile.windows# 中的默认值。此操作当前将优先于新的配置文件设置，但将来会发生更改。</p>
 <ol type="1">
 <li>打开<code>User Settings</code>(<code>File</code>-&gt; <code>Preferences</code>-&gt; <code>Settings</code>)。</li>
 <li>输入栏：<code>terminal.integrated.Profiles.windows</code>, 并点击<code>Edit in settings.son</code>。</li>
 </ol>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210911220449.png" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/ltZiaKGOpsSDTkE.png" /></p>
 <ol start="3" type="1">
 <li><p>添加新的配置， 并设置<code>cmder</code>为默认配置。</p></li>
 <li><p>打开一个新终端(<code>Terminal</code> -&gt; <code>New Terminal</code>)</p>
 <table>
 <thead>
 <tr class="header">
-<th><img src="https://gitee.com/nokiasonic/pic/raw/master/img/image-20210911224105094.png" /></th>
-<th><img src="https://gitee.com/nokiasonic/pic/raw/master/img/image-20210911224326323.png" /></th>
+<th><img src="https://s2.loli.net/2022/04/14/WbDMzE32fayt8Hg.png" /></th>
+<th><img src="https://s2.loli.net/2022/04/14/sGTVRWPSaAH2E9f.png" /></th>
 </tr>
 </thead>
 <tbody>
@@ -3585,7 +3489,7 @@ code
 <p>将其注释掉即可。缺点是不会显示git相关的信息。</p>
 <h2 id="展示">展示</h2>
 <p>配置完成后的cmder+fluent terminal如图：</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210319083047.png" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/leuNCy4g9FPtUL3.png" /></p>
 <h2 id="参考">参考</h2>
 <p>1/ <a href="https://zhuanlan.zhihu.com/p/71706782">Windows命令行终端神器Cmder配置及美化指南</a></p>
 <p>2/ <a href="https://github.com/cmderdev/cmder/wiki/Seamless-FluentTerminal-Integration">Seamless FluentTerminal Integration</a></p>
@@ -3600,19 +3504,16 @@ code
       </tags>
   </entry>
   <entry>
-    <title>【python】multiprocessing进程间的通信（二）管道</title>
-    <url>/2021/01/08/%E3%80%90python%E3%80%91multiprocessing%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%EF%BC%88%E4%BA%8C%EF%BC%89%E7%AE%A1%E9%81%93/</url>
-    <content><![CDATA[<p><code>multiprocessing.Pipe()</code>用来创建管道，返回两个连接对象，代表管道的两端，一般用于进程或者线程之间的通信，不同于<code>os.pipe()</code>,<code>os.pipe()</code>主要用来创建两个文件描述符，一个读，一个写，是单向的。而<code>multiprocessing.Pipe()</code>则可以双向通信。</p>
+    <title>【python】multiprocessing进程间的通信（一）队列</title>
+    <url>/2021/01/01/%E3%80%90python%E3%80%91multiprocessing%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/</url>
+    <content><![CDATA[<p>multiprocessing模块支持进程间通信的三种主要形式:<code>队列</code>、<code>管道</code>及<code>共享内存</code>。下面我们来学习一下队列的使用情况。</p>
 <a id="more"></a>
-<h1 id="管道multiprocessing.pipe">管道（multiprocessing.Pipe）</h1>
-<blockquote>
-<p><code>multiprocessing.``Pipe</code>([<em>duplex</em>])</p>
-<p>返回一对 <a href="https://docs.python.org/zh-cn/3/library/multiprocessing.html#multiprocessing.connection.Connection"><code>Connection</code></a> 对象 <code>(conn1, conn2)</code> ， 分别表示管道的两端。</p>
-<p>如果 <em>duplex</em> 被置为 <code>True</code> (默认值)，那么该管道是双向的。如果 <em>duplex</em> 被置为 <code>False</code> ，那么该管道是单向的，即 <code>conn1</code> 只能用于接收消息，而 <code>conn2</code> 仅能用于发送消息。</p>
-</blockquote>
+<h1 id="队列multiprocessing.queue">队列（multiprocessing.queue)</h1>
+<p>队列是线程和进程安全的，也就是一次只能有一个进程或线程进行操作。</p>
 <p><strong>示例：</strong>将子进程产生的信息统一写入父进程，这里是使用pool来创建进程池。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool, RLock, freeze_support,Queue,Pipe</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">from</span> TS_logs <span class="keyword">import</span> TS_log_info</span><br><span class="line"><span class="keyword">from</span>  TS_util <span class="keyword">import</span> (</span><br><span class="line">    TS_util_get_tradelist,</span><br><span class="line">    TS_util_get_real_date,</span><br><span class="line">    TS_util_get_next_datetime,</span><br><span class="line">    TS_util_get_now_time,</span><br><span class="line">    TS_util_date_convert,</span><br><span class="line">    trade_date_sse</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log_c</span>(<span class="params">child_conn,codelist,n</span>):</span> </span><br><span class="line">    <span class="keyword">for</span> trade_date <span class="keyword">in</span> codelist[n::<span class="number">8</span>][<span class="number">0</span>:<span class="number">17</span>]:</span><br><span class="line">        msg = <span class="string">&#x27;&#123;&#125; #Job&#123;&#125;  trade date &#123;&#125;.&#x27;</span> \</span><br><span class="line">                .<span class="built_in">format</span>(datetime.datetime.now().strftime(<span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>),n,trade_date)</span><br><span class="line">        child_conn.send(msg)</span><br><span class="line">    print(<span class="string">&#x27;workers exit&#x27;</span>)</span><br><span class="line"></span><br><span class="line">L = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">8</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:    </span><br><span class="line">    freeze_support()  <span class="comment"># for Windows support</span></span><br><span class="line">    parent_conn,child_conn = Pipe()</span><br><span class="line">    tqdm.set_lock(RLock())</span><br><span class="line">    codelist = trade_date_sse</span><br><span class="line">    func = functools.partial(log_c,child_conn,codelist)</span><br><span class="line">    p = Pool(initializer=tqdm.set_lock, initargs=(tqdm.get_lock(),))</span><br><span class="line">    p.<span class="built_in">map</span>(func, L)</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">while</span> parent_conn.poll(<span class="number">0.001</span>):</span><br><span class="line">        print(parent_conn.recv())</span><br><span class="line">    p.close()</span><br><span class="line">    p.join()</span><br><span class="line">    parent_conn.close()</span><br><span class="line">    child_conn.close()</span><br></pre></td></tr></table></figure>
-<p>当子进程发送一定量的数据之后会卡住，没有任何报错和提示，卡住不动！！测试大概是7000字节左右。原因尚未找到。按文档看，应该与OS有关，最大应该可达32M。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool, RLock, freeze_support,Queue,Pipe</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">from</span> TS_logs <span class="keyword">import</span> TS_log_info</span><br><span class="line"><span class="keyword">from</span>  TS_util <span class="keyword">import</span> (</span><br><span class="line">    TS_util_get_tradelist,</span><br><span class="line">    TS_util_get_real_date,</span><br><span class="line">    TS_util_get_next_datetime,</span><br><span class="line">    TS_util_get_now_time,</span><br><span class="line">    TS_util_date_convert,</span><br><span class="line">    trade_date_sse</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log_c</span>(<span class="params">q,codelist,n</span>):</span>    </span><br><span class="line">    <span class="keyword">for</span> trade_date <span class="keyword">in</span> codelist[n::<span class="number">8</span>]:</span><br><span class="line">        msg = <span class="string">&#x27;&#123;&#125; #Job&#123;&#125; Trying updating data of trade date &#123;&#125; .&#x27;</span> \</span><br><span class="line">                .<span class="built_in">format</span>(datetime.datetime.now().strftime(<span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>),n,trade_date)</span><br><span class="line">        sleep(<span class="number">0.05</span>)</span><br><span class="line">        q.put(msg)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">L = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">8</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:    </span><br><span class="line">    freeze_support()  <span class="comment"># for Windows support</span></span><br><span class="line">    manager = multiprocessing.Manager()</span><br><span class="line">    <span class="comment"># 父进程创建Queue，并传给各个子进程：</span></span><br><span class="line">    q = manager.Queue()</span><br><span class="line">    tqdm.set_lock(RLock())</span><br><span class="line">    codelist = trade_date_sse</span><br><span class="line">    func = functools.partial(log_c,q,codelist)</span><br><span class="line">    p = Pool(initializer=tqdm.set_lock, initargs=(tqdm.get_lock(),))</span><br><span class="line">    p.<span class="built_in">map</span>(func, L)</span><br><span class="line">    p.close()</span><br><span class="line">    p.join()</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> q.empty():</span><br><span class="line">        TS_log_info(q.get())</span><br></pre></td></tr></table></figure>
+<p>如果要使用Pool创建进程，就需要使用multiprocessing.Manager()中的Queue()，而不是multiprocessing.Queue()，否则会得到一条如下的错误信息：<br />
+<code>RuntimeError: Queue objects should only be shared between processes through inheritance.</code></p>
 ]]></content>
       <categories>
         <category>技术笔记</category>
@@ -3640,45 +3541,27 @@ code
       </tags>
   </entry>
   <entry>
-    <title>【应用软件】ShareX截图工具的使用</title>
-    <url>/2021/09/24/%E3%80%90%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6%E3%80%91ShareX%E6%88%AA%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p>截图，使用过的工具有<code>sngait</code>， <code>greenshot</code>, 前者功能强大，但需要付费。后者轻巧，但软件功能较少且更新较慢，最后的稳定版还是2017年发布的。至于QQ等截图工具，需要打开QQ软件本身，不太省心。</p>
-<p>在写博客的时候，大多数工具均采用矩形截图的方式， 如果需要对所截取的图片进行圆角，阴影等效果的添加，就必须使用其它软件来进行后处理。</p>
-<p><code>shareX</code>恰好满足这些需求。且体量也不算大。</p>
+    <title>【python】multiprocessing进程间的通信（二）管道</title>
+    <url>/2021/01/08/%E3%80%90python%E3%80%91multiprocessing%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%EF%BC%88%E4%BA%8C%EF%BC%89%E7%AE%A1%E9%81%93/</url>
+    <content><![CDATA[<p><code>multiprocessing.Pipe()</code>用来创建管道，返回两个连接对象，代表管道的两端，一般用于进程或者线程之间的通信，不同于<code>os.pipe()</code>,<code>os.pipe()</code>主要用来创建两个文件描述符，一个读，一个写，是单向的。而<code>multiprocessing.Pipe()</code>则可以双向通信。</p>
 <a id="more"></a>
-<h1 id="sharex简介">shareX简介</h1>
-<p>ShareX 是一款功能非常强大且免费开源的截图与屏幕记录工具 。除了正常的截图功能外，还提供多区域截图、滚动截图、屏幕取色，屏幕录制，添加水印等实用的功能。而且还可以上传到多种文件存储服务器上。可以让截图更加高效、美观。</p>
-<p>更多信息及下载详见<a href="https://getsharex.com/">shareX官网</a></p>
-<h1 id="sharex截图美化的实现">shareX截图美化的实现</h1>
-<ol type="1">
-<li><p>打开<code>shareX</code>--&gt; <code>动作设置</code>。<br />
-<img src="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_jFxXpRXGir.png" /></p></li>
-<li><p>在<code>图像</code>--&gt;<code>效果</code>中点击<code>图像效果配置</code>。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_yGfFOIJKcC.png" /></p></li>
-<li><p>圆角美化 新建效果，取合适的名称，然后从<code>操作</code>中选择<code>Rounded corners</code>, 参数选择圆角弧度大小。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_W6qalshpdF.png" /></p></li>
-<li><p>阴影美化 从<code>过滤器</code>中选择<code>Shadow</code>, 设置合适的参数。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_uIQRUTi22o.png" /></p></li>
-<li><p>添加水印 从<code>绘图</code>中选择<code>Text watermark</code>, 并对其位置，大小，字体等参数进行设置。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/dypdBtoCS6.png" /></p></li>
-</ol>
-<p>这里只尝试了几种截图美化，效果，shareX内置了许多图片效果，还有已做好的模板可供选择，可见<a href="https://getsharex.com/image-effects/">Image effects - ShareX (getsharex.com)</a></p>
-<h1 id="sharex截图上传">shareX截图上传</h1>
-<p>内置的图床或文件上传器多为国外服务器，考虑到今后图片使用的便捷性和易维护性，尝试自定义github或gitee图床的上传。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_fqguL6O4Y5.png" /></p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_yuKhrmNT1P.png" /> 参考<a href="https://getsharex.com/docs/custom-uploader">Custom uploader guide - ShareX (getsharex.com)</a>进行上传器的自定义，这时发现无论github还是gitee, 利用<code>API</code>上传时，</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/chrome_MFIy4P76vd.png" /> 上传的图片内容需要用base64编码后放入<code>content</code>参数中，也就是说上传前需要对图片内容做一次base64的编码，这个目前在shareX中并没有提供，就此做罢。</p>
-<p>最后采取的上传解决方案是，截图后通过<code>picgo</code>预设的图床进行上传。</p>
-<p>其间遇到的问题是，shareX截图加阴影后，会将阴影部分的背景透明化，拷贝到剪粘板再通过picgo上传后，会丢失该部分透明化的背景，而变之为白色背景，这个应该是picgo无法正确从剪粘板上读取shareX处理图片的透明化信息所致。但从生成的文件上传确是正常的。这个与shareX使用.net方法不能正常通过alpha通道来处理剪粘板拷贝内容的透明度有关。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210927144145.png" /> 解决方法： shareX截图后的处理动作里，可以不选择<code>图像复制到剪粘板</code>，而是选择上<code>保存图像文件</code>及<code>将文件复制到剪粘板</code>,通过重新读取文件内容来规避。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_YSysK9hAWE.png" /></p>
-<p>至此, shareX可以满足我对博客图片美化的要求。</p>
-<h1 id="参考">参考</h1>
-<p>1/ <a href="https://zhuanlan.zhihu.com/p/338226481"># 一般人都不会用的强大的屏幕截图工具，添加水印、截图特效等，让你的截图更完美！</a><br />
-2/ <a href="https://getsharex.com/">shareX官网</a><br />
-3/ <a href="https://docs.github.com/cn/rest">GitHub REST API - GitHub Docs</a><br />
-4/ <a href="https://gitee.com/api/v5/swagger#/getV5ReposOwnerRepoStargazers?ex=no">Gitee open API</a></p>
+<h1 id="管道multiprocessing.pipe">管道（multiprocessing.Pipe）</h1>
+<blockquote>
+<p><code>multiprocessing.``Pipe</code>([<em>duplex</em>])</p>
+<p>返回一对 <a href="https://docs.python.org/zh-cn/3/library/multiprocessing.html#multiprocessing.connection.Connection"><code>Connection</code></a> 对象 <code>(conn1, conn2)</code> ， 分别表示管道的两端。</p>
+<p>如果 <em>duplex</em> 被置为 <code>True</code> (默认值)，那么该管道是双向的。如果 <em>duplex</em> 被置为 <code>False</code> ，那么该管道是单向的，即 <code>conn1</code> 只能用于接收消息，而 <code>conn2</code> 仅能用于发送消息。</p>
+</blockquote>
+<p><strong>示例：</strong>将子进程产生的信息统一写入父进程，这里是使用pool来创建进程池。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool, RLock, freeze_support,Queue,Pipe</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">from</span> TS_logs <span class="keyword">import</span> TS_log_info</span><br><span class="line"><span class="keyword">from</span>  TS_util <span class="keyword">import</span> (</span><br><span class="line">    TS_util_get_tradelist,</span><br><span class="line">    TS_util_get_real_date,</span><br><span class="line">    TS_util_get_next_datetime,</span><br><span class="line">    TS_util_get_now_time,</span><br><span class="line">    TS_util_date_convert,</span><br><span class="line">    trade_date_sse</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log_c</span>(<span class="params">child_conn,codelist,n</span>):</span> </span><br><span class="line">    <span class="keyword">for</span> trade_date <span class="keyword">in</span> codelist[n::<span class="number">8</span>][<span class="number">0</span>:<span class="number">17</span>]:</span><br><span class="line">        msg = <span class="string">&#x27;&#123;&#125; #Job&#123;&#125;  trade date &#123;&#125;.&#x27;</span> \</span><br><span class="line">                .<span class="built_in">format</span>(datetime.datetime.now().strftime(<span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>),n,trade_date)</span><br><span class="line">        child_conn.send(msg)</span><br><span class="line">    print(<span class="string">&#x27;workers exit&#x27;</span>)</span><br><span class="line"></span><br><span class="line">L = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">8</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:    </span><br><span class="line">    freeze_support()  <span class="comment"># for Windows support</span></span><br><span class="line">    parent_conn,child_conn = Pipe()</span><br><span class="line">    tqdm.set_lock(RLock())</span><br><span class="line">    codelist = trade_date_sse</span><br><span class="line">    func = functools.partial(log_c,child_conn,codelist)</span><br><span class="line">    p = Pool(initializer=tqdm.set_lock, initargs=(tqdm.get_lock(),))</span><br><span class="line">    p.<span class="built_in">map</span>(func, L)</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">while</span> parent_conn.poll(<span class="number">0.001</span>):</span><br><span class="line">        print(parent_conn.recv())</span><br><span class="line">    p.close()</span><br><span class="line">    p.join()</span><br><span class="line">    parent_conn.close()</span><br><span class="line">    child_conn.close()</span><br></pre></td></tr></table></figure>
+<p>当子进程发送一定量的数据之后会卡住，没有任何报错和提示，卡住不动！！测试大概是7000字节左右。原因尚未找到。按文档看，应该与OS有关，最大应该可达32M。</p>
 ]]></content>
       <categories>
-        <category>应用软件</category>
+        <category>技术笔记</category>
+        <category>python</category>
       </categories>
       <tags>
-        <tag>shareX</tag>
-        <tag>效率工具</tag>
-        <tag>截图</tag>
+        <tag>python</tag>
+        <tag>multiprocessing</tag>
       </tags>
   </entry>
   <entry>
@@ -3738,121 +3621,47 @@ code
       </tags>
   </entry>
   <entry>
-    <title>为博客文章增加Valine评论系统</title>
-    <url>/2020/12/10/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E5%A2%9E%E5%8A%A0Valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<p>目前常用的评论系统有以下这些：</p>
-<ul>
-<li><p>Github大礼包：<a href="https://link.zhihu.com/?target=https%3A//github.com/iissnan/hexo-theme-next/issues/1604">gitment</a>， <a href="https://link.zhihu.com/?target=https%3A//github.com/iissnan/hexo-theme-next/pull/2037">gitalk</a><strong>（推荐），</strong><a href="https://link.zhihu.com/?target=https%3A//www.vincentqin.tech/2016/08/09/build-a-website-using-hexo/%23%E5%A2%9E%E5%8A%A0Gitter">gitter</a><strong>（推荐）;</strong> 三个都支持<strong>Markdown；</strong></p></li>
-<li><p>基于leancloud的无后端评论系统：<a href="https://link.zhihu.com/?target=https%3A//valine.js.org/%23/">Valine</a><strong>（推荐，</strong>支持<strong>Markdown）；</strong></p></li>
-<li><p>国外的有几个：<a href="https://link.zhihu.com/?target=http%3A//www.disqus.com/">disqus</a>(漂亮，但需翻墙)，<a href="https://link.zhihu.com/?target=https%3A//www.hypercomments.com/">hypercomments</a><strong>（推荐，</strong>不支持<strong>Markdown）。</strong></p></li>
-</ul>
-<p>来试试如何用Valine搭建评论系统吧。</p>
+    <title>【应用软件】ShareX截图工具的使用</title>
+    <url>/2021/09/24/%E3%80%90%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6%E3%80%91ShareX%E6%88%AA%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>截图，使用过的工具有<code>sngait</code>， <code>greenshot</code>, 前者功能强大，但需要付费。后者轻巧，但软件功能较少且更新较慢，最后的稳定版还是2017年发布的。至于QQ等截图工具，需要打开QQ软件本身，不太省心。</p>
+<p>在写博客的时候，大多数工具均采用矩形截图的方式， 如果需要对所截取的图片进行圆角，阴影等效果的添加，就必须使用其它软件来进行后处理。</p>
+<p><code>shareX</code>恰好满足这些需求。且体量也不算大。</p>
 <a id="more"></a>
-<h2 id="注册leanclound获取app-id-和-app-key">注册LeanClound,获取APP ID 和 APP Key</h2>
-<p>Valine 是基于 <a href="https://leancloud.cn/">LeanCloud</a> 作为数据存储的，所以需要注册一个账号，因为备案与否的关系，选择在国际区注册，在注册完成后，需要创建应用。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211115602.png" /></p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211115809.png" /></p>
-<p>点击<code>存储</code>设置，查看是否有<code>Comment</code>和 <code>Counter</code>，没有则创建，权限设为无限制。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211120224.png" /></p>
-<p>在<code>安全中心</code>里将除<code>数据存储</code>之外的服务全部关闭。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211120336.png" /></p>
-<p>最后点击<code>应用 Keys</code> 取得我们 <code>AppKey</code> 和 <code>App id</code></p>
-<h2 id="在hexo-next主题中配置">在Hexo Next主题中配置</h2>
-<p>首先打开 https://www.jsdelivr.com/package/npm/valine 获取最新的 valine.min.js 的cdn地址：</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211123228.png" /></p>
-<p>修改博客项目目录下的<code>_config.next.yml</code>文件：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Valine</span></span><br><span class="line"><span class="comment"># valine: //cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js</span></span><br><span class="line"><span class="comment"># valine: //cdnjs.cloudflare.com/ajax/libs/valine/1.3.10/Valine.min.js</span></span><br><span class="line"><span class="string">valine:https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js</span></span><br></pre></td></tr></table></figure>
-<p>以及</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">valine:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">appid:</span> <span class="comment"># Your leancloud application appid</span></span><br><span class="line">  <span class="attr">appkey:</span> <span class="comment"># Your leancloud application appkey</span></span><br><span class="line">  <span class="attr">notify:</span> <span class="literal">false</span> <span class="comment"># Mail notifier</span></span><br><span class="line">  <span class="attr">verify:</span> <span class="literal">false</span> <span class="comment"># Verification code</span></span><br><span class="line">  <span class="attr">placeholder:</span> <span class="string">Just</span> <span class="string">go</span> <span class="string">go</span> <span class="comment"># Comment box placeholder</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">mm</span> <span class="comment"># Gravatar style</span></span><br><span class="line">  <span class="attr">guest_info:</span> <span class="string">nick,mail,link</span> <span class="comment"># Custom comment header</span></span><br><span class="line">  <span class="attr">pageSize:</span> <span class="number">10</span> <span class="comment"># Pagination size</span></span><br><span class="line">  <span class="attr">language:</span> <span class="comment"># Language, available values: en, zh-cn</span></span><br><span class="line">  <span class="attr">visitor:</span> <span class="literal">false</span> <span class="comment"># Article reading statistic</span></span><br><span class="line">  <span class="attr">comment_count:</span> <span class="literal">true</span> <span class="comment"># If false, comment count will only be displayed in post page, not in home page</span></span><br><span class="line">  <span class="attr">recordIP:</span> <span class="literal">false</span> <span class="comment"># Whether to record the commenter IP</span></span><br><span class="line">  <span class="attr">serverURLs:</span> <span class="comment"># When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)</span></span><br><span class="line">  <span class="comment">#post_meta_order: 0</span></span><br></pre></td></tr></table></figure>
-<p>appid及appkey就填写我们从LeanClound那里获得的信息。</p>
-<h2 id="利用valine-admin进行评论管理">利用Valine Admin进行评论管理</h2>
-<p>Valine Admin 是Valine的扩展和增强，主要实现评论邮件通知、评论管理、垃圾评论过滤等功能。支持完全自定义的邮件通知模板，基于 Akismet API 实现准确的垃圾评论过滤。</p>
-<h3 id="部署">部署</h3>
+<h1 id="sharex简介">shareX简介</h1>
+<p>ShareX 是一款功能非常强大且免费开源的截图与屏幕记录工具 。除了正常的截图功能外，还提供多区域截图、滚动截图、屏幕取色，屏幕录制，添加水印等实用的功能。而且还可以上传到多种文件存储服务器上。可以让截图更加高效、美观。</p>
+<p>更多信息及下载详见<a href="https://getsharex.com/">shareX官网</a></p>
+<h1 id="sharex截图美化的实现">shareX截图美化的实现</h1>
 <ol type="1">
-<li>在 <a href="https://leancloud.cn/dashboard/#/apps">Leancloud</a> 云引擎部署界面，填写代码库并保存：https://github.com/DesertsP/Valine-Admin.git</li>
+<li><p>打开<code>shareX</code>--&gt; <code>动作设置</code>。<br />
+<img src="https://s2.loli.net/2022/04/14/uNx2cCDt3eIpYgE.png" /></p></li>
+<li><p>在<code>图像</code>--&gt;<code>效果</code>中点击<code>图像效果配置</code>。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_yGfFOIJKcC.png" /> <img src="https://s2.loli.net/2022/04/14/oW1LIdqnyaslbfx.png" /></p></li>
+<li><p>圆角美化 新建效果，取合适的名称，然后从<code>操作</code>中选择<code>Rounded corners</code>, 参数选择圆角弧度大小。 <img src="https://s2.loli.net/2022/04/14/yUxfQT8RnWSFp2J.png" /></p></li>
+<li><p>阴影美化 从<code>过滤器</code>中选择<code>Shadow</code>, 设置合适的参数。 <img src="https://s2.loli.net/2022/04/14/tkcMVJoGjpheWLP.png" /></p></li>
+<li><p>添加水印 从<code>绘图</code>中选择<code>Text watermark</code>, 并对其位置，大小，字体等参数进行设置。 <img src="https://s2.loli.net/2022/04/14/UQzq48bHKdZufSO.png" /></p></li>
 </ol>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211165800.png" /></p>
-<ol start="2" type="1">
-<li><p>在 <a href="https://leancloud.cn/dashboard/#/apps">Leancloud</a> 云引擎设置界面，设置环境变量以及 Web 二级域名。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211170036.png" /></p></li>
-<li><p>环境变量说明</p></li>
-</ol>
-<table>
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 27%" />
-<col style="width: 59%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">变量</th>
-<th style="text-align: left;">示例</th>
-<th style="text-align: left;">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">SITE_NAME</td>
-<td style="text-align: left;">Deserts</td>
-<td style="text-align: left;">[必填]博客名称</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">SITE_URL</td>
-<td style="text-align: left;">https://nokiasonic.github.io</td>
-<td style="text-align: left;">[必填]首页地址</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">SMTP_SERVICE</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">[新版支持]邮件服务提供商，支持 QQ、163、126、Gmail 以及 更多</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">SMTP_USER</td>
-<td style="text-align: left;">xxxxx@hotmail.com</td>
-<td style="text-align: left;">[必填] SMTP 登录用户, 这个在注册访问管理员注册页面<code>https://nokiasonic.github.io/sign-up</code>，会用作注册管理员登录信息。</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">SMTP_PASS</td>
-<td style="text-align: left;">ccxxxxxxxxch</td>
-<td style="text-align: left;">[必填] SMTP 登录密码（QQ邮箱需要获取独立密码）</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">SENDER_NAME</td>
-<td style="text-align: left;">nokiasonic</td>
-<td style="text-align: left;">[必填]发件人</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">SENDER_EMAIL</td>
-<td style="text-align: left;">xxxxx@hotmail.com</td>
-<td style="text-align: left;">[必填]发件邮箱</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">ADMIN_URL</td>
-<td style="text-align: left;">https://xxx.avosapps.us</td>
-<td style="text-align: left;">[建议] Web 主机二级域名，用于自动唤醒</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">BLOGGER_EMAIL</td>
-<td style="text-align: left;">xxxxx@hotmail.com</td>
-<td style="text-align: left;">[可选]博主通知收件地址，默认使用 SENDER_EMAIL</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">AKISMET_KEY</td>
-<td style="text-align: left;">xxxxxxxxxxxx</td>
-<td style="text-align: left;">[可选] Akismet Key 用于垃圾评论检测，设为 MANUAL_REVIEW 开启人工审核，留空不使用反垃圾</td>
-</tr>
-</tbody>
-</table>
-<p>登入ADMIN_URL对应的链接，可以进行评论的查看及管理。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210702113011.png" /></p>
+<p>这里只尝试了几种截图美化，效果，shareX内置了许多图片效果，还有已做好的模板可供选择，可见<a href="https://getsharex.com/image-effects/">Image effects - ShareX (getsharex.com)</a></p>
+<h1 id="sharex截图上传">shareX截图上传</h1>
+<p>内置的图床或文件上传器多为国外服务器，考虑到今后图片使用的便捷性和易维护性，尝试自定义github或gitee图床的上传。 <img src="https://s2.loli.net/2022/04/14/W7QSUtIq6pcDlN1.png" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/Gg9blyzh4WuFCTE.png" /> 参考<a href="https://getsharex.com/docs/custom-uploader">Custom uploader guide - ShareX (getsharex.com)</a>进行上传器的自定义，这时发现无论github还是gitee, 利用<code>API</code>上传时，</p>
+<p><img src="https://s2.loli.net/2022/04/14/Chidkgf5KowXHAu.png" /></p>
+<p>上传的图片内容需要用base64编码后放入<code>content</code>参数中，也就是说上传前需要对图片内容做一次base64的编码，这个目前在shareX中并没有提供，就此做罢。</p>
+<p>最后采取的上传解决方案是，截图后通过<code>picgo</code>预设的图床进行上传。</p>
+<p>其间遇到的问题是，shareX截图加阴影后，会将阴影部分的背景透明化，拷贝到剪粘板再通过picgo上传后，会丢失该部分透明化的背景，而变之为白色背景，这个应该是picgo无法正确从剪粘板上读取shareX处理图片的透明化信息所致。但从生成的文件上传确是正常的。这个与shareX使用.net方法不能正常通过alpha通道来处理剪粘板拷贝内容的透明度有关。 <img src="https://s2.loli.net/2022/04/14/FyLdfDVCRnQljS2.png" /></p>
+<p>解决方法： shareX截图后的处理动作里，可以不选择<code>图像复制到剪粘板</code>，而是选择上<code>保存图像文件</code>及<code>将文件复制到剪粘板</code>,通过重新读取文件内容来规避。 <img src="https://s2.loli.net/2022/04/14/h5GwJnbNFegjqXv.png" /></p>
+<p>至此, shareX可以满足我对博客图片美化的要求。</p>
+<h1 id="参考">参考</h1>
+<p>1/ <a href="https://zhuanlan.zhihu.com/p/338226481"># 一般人都不会用的强大的屏幕截图工具，添加水印、截图特效等，让你的截图更完美！</a><br />
+2/ <a href="https://getsharex.com/">shareX官网</a><br />
+3/ <a href="https://docs.github.com/cn/rest">GitHub REST API - GitHub Docs</a><br />
+4/ <a href="https://gitee.com/api/v5/swagger#/getV5ReposOwnerRepoStargazers?ex=no">Gitee open API</a></p>
 ]]></content>
       <categories>
-        <category>技术笔记</category>
-        <category>美好生活</category>
-        <category>博客</category>
+        <category>应用软件</category>
       </categories>
       <tags>
-        <tag>Valine</tag>
+        <tag>shareX</tag>
+        <tag>效率工具</tag>
+        <tag>截图</tag>
       </tags>
   </entry>
   <entry>
@@ -3930,28 +3739,137 @@ code
       </tags>
   </entry>
   <entry>
+    <title>为博客文章增加Valine评论系统</title>
+    <url>/2020/12/10/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E5%A2%9E%E5%8A%A0Valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<p>目前常用的评论系统有以下这些：</p>
+<ul>
+<li><p>Github大礼包：<a href="https://link.zhihu.com/?target=https%3A//github.com/iissnan/hexo-theme-next/issues/1604">gitment</a>， <a href="https://link.zhihu.com/?target=https%3A//github.com/iissnan/hexo-theme-next/pull/2037">gitalk</a><strong>（推荐），</strong><a href="https://link.zhihu.com/?target=https%3A//www.vincentqin.tech/2016/08/09/build-a-website-using-hexo/%23%E5%A2%9E%E5%8A%A0Gitter">gitter</a><strong>（推荐）;</strong> 三个都支持<strong>Markdown；</strong></p></li>
+<li><p>基于leancloud的无后端评论系统：<a href="https://link.zhihu.com/?target=https%3A//valine.js.org/%23/">Valine</a><strong>（推荐，</strong>支持<strong>Markdown）；</strong></p></li>
+<li><p>国外的有几个：<a href="https://link.zhihu.com/?target=http%3A//www.disqus.com/">disqus</a>(漂亮，但需翻墙)，<a href="https://link.zhihu.com/?target=https%3A//www.hypercomments.com/">hypercomments</a><strong>（推荐，</strong>不支持<strong>Markdown）。</strong></p></li>
+</ul>
+<p>来试试如何用Valine搭建评论系统吧。</p>
+<a id="more"></a>
+<h2 id="注册leanclound获取app-id-和-app-key">注册LeanClound,获取APP ID 和 APP Key</h2>
+<p>Valine 是基于 <a href="https://leancloud.cn/">LeanCloud</a> 作为数据存储的，所以需要注册一个账号，因为备案与否的关系，选择在国际区注册，在注册完成后，需要创建应用。</p>
+<p><img src="https://s2.loli.net/2022/04/14/kCUuMnrTcDtp6Ol.png" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/jJgkvhER96HTxIP.png" /></p>
+<p>点击<code>存储</code>设置，查看是否有<code>Comment</code>和 <code>Counter</code>，没有则创建，权限设为无限制。</p>
+<p><img src="https://s2.loli.net/2022/04/14/Ph8VWKl45Rsgvnm.png" /></p>
+<p>在<code>安全中心</code>里将除<code>数据存储</code>之外的服务全部关闭。</p>
+<p><img src="https://s2.loli.net/2022/04/14/dCbk2I5LfuQVqlo.png" /></p>
+<p>最后点击<code>应用 Keys</code> 取得我们 <code>AppKey</code> 和 <code>App id</code></p>
+<h2 id="在hexo-next主题中配置">在Hexo Next主题中配置</h2>
+<p>首先打开 https://www.jsdelivr.com/package/npm/valine 获取最新的 valine.min.js 的cdn地址：</p>
+<p><img src="https://s2.loli.net/2022/04/14/L53GDIsQKOmekbq.png" /></p>
+<p>修改博客项目目录下的<code>_config.next.yml</code>文件：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Valine</span></span><br><span class="line"><span class="comment"># valine: //cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js</span></span><br><span class="line"><span class="comment"># valine: //cdnjs.cloudflare.com/ajax/libs/valine/1.3.10/Valine.min.js</span></span><br><span class="line"><span class="string">valine:https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js</span></span><br></pre></td></tr></table></figure>
+<p>以及</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">valine:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">appid:</span> <span class="comment"># Your leancloud application appid</span></span><br><span class="line">  <span class="attr">appkey:</span> <span class="comment"># Your leancloud application appkey</span></span><br><span class="line">  <span class="attr">notify:</span> <span class="literal">false</span> <span class="comment"># Mail notifier</span></span><br><span class="line">  <span class="attr">verify:</span> <span class="literal">false</span> <span class="comment"># Verification code</span></span><br><span class="line">  <span class="attr">placeholder:</span> <span class="string">Just</span> <span class="string">go</span> <span class="string">go</span> <span class="comment"># Comment box placeholder</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">mm</span> <span class="comment"># Gravatar style</span></span><br><span class="line">  <span class="attr">guest_info:</span> <span class="string">nick,mail,link</span> <span class="comment"># Custom comment header</span></span><br><span class="line">  <span class="attr">pageSize:</span> <span class="number">10</span> <span class="comment"># Pagination size</span></span><br><span class="line">  <span class="attr">language:</span> <span class="comment"># Language, available values: en, zh-cn</span></span><br><span class="line">  <span class="attr">visitor:</span> <span class="literal">false</span> <span class="comment"># Article reading statistic</span></span><br><span class="line">  <span class="attr">comment_count:</span> <span class="literal">true</span> <span class="comment"># If false, comment count will only be displayed in post page, not in home page</span></span><br><span class="line">  <span class="attr">recordIP:</span> <span class="literal">false</span> <span class="comment"># Whether to record the commenter IP</span></span><br><span class="line">  <span class="attr">serverURLs:</span> <span class="comment"># When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)</span></span><br><span class="line">  <span class="comment">#post_meta_order: 0</span></span><br></pre></td></tr></table></figure>
+<p>appid及appkey就填写我们从LeanClound那里获得的信息。</p>
+<h2 id="利用valine-admin进行评论管理">利用Valine Admin进行评论管理</h2>
+<p>Valine Admin 是Valine的扩展和增强，主要实现评论邮件通知、评论管理、垃圾评论过滤等功能。支持完全自定义的邮件通知模板，基于 Akismet API 实现准确的垃圾评论过滤。</p>
+<h3 id="部署">部署</h3>
+<ol type="1">
+<li>在 <a href="https://leancloud.cn/dashboard/#/apps">Leancloud</a> 云引擎部署界面，填写代码库并保存：https://github.com/DesertsP/Valine-Admin.git</li>
+</ol>
+<p><img src="https://s2.loli.net/2022/04/14/J5gvLmkdSjYGDRp.png" /></p>
+<ol start="2" type="1">
+<li><p>在 <a href="https://leancloud.cn/dashboard/#/apps">Leancloud</a> 云引擎设置界面，设置环境变量以及 Web 二级域名。</p>
+<p><img src="https://s2.loli.net/2022/04/14/iFGUe98r3PghSfR.png" /></p></li>
+<li><p>环境变量说明</p></li>
+</ol>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 27%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">变量</th>
+<th style="text-align: left;">示例</th>
+<th style="text-align: left;">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">SITE_NAME</td>
+<td style="text-align: left;">Deserts</td>
+<td style="text-align: left;">[必填]博客名称</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SITE_URL</td>
+<td style="text-align: left;">https://nokiasonic.github.io</td>
+<td style="text-align: left;">[必填]首页地址</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SMTP_SERVICE</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">[新版支持]邮件服务提供商，支持 QQ、163、126、Gmail 以及 更多</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SMTP_USER</td>
+<td style="text-align: left;">xxxxx@hotmail.com</td>
+<td style="text-align: left;">[必填] SMTP 登录用户, 这个在注册访问管理员注册页面<code>https://nokiasonic.github.io/sign-up</code>，会用作注册管理员登录信息。</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SMTP_PASS</td>
+<td style="text-align: left;">ccxxxxxxxxch</td>
+<td style="text-align: left;">[必填] SMTP 登录密码（QQ邮箱需要获取独立密码）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SENDER_NAME</td>
+<td style="text-align: left;">nokiasonic</td>
+<td style="text-align: left;">[必填]发件人</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SENDER_EMAIL</td>
+<td style="text-align: left;">xxxxx@hotmail.com</td>
+<td style="text-align: left;">[必填]发件邮箱</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ADMIN_URL</td>
+<td style="text-align: left;">https://xxx.avosapps.us</td>
+<td style="text-align: left;">[建议] Web 主机二级域名，用于自动唤醒</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BLOGGER_EMAIL</td>
+<td style="text-align: left;">xxxxx@hotmail.com</td>
+<td style="text-align: left;">[可选]博主通知收件地址，默认使用 SENDER_EMAIL</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AKISMET_KEY</td>
+<td style="text-align: left;">xxxxxxxxxxxx</td>
+<td style="text-align: left;">[可选] Akismet Key 用于垃圾评论检测，设为 MANUAL_REVIEW 开启人工审核，留空不使用反垃圾</td>
+</tr>
+</tbody>
+</table>
+<p>登入ADMIN_URL对应的链接，可以进行评论的查看及管理。</p>
+<p><img src="https://s2.loli.net/2022/04/14/TjoOWhpUJXZ2asv.png" /></p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>美好生活</category>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>Valine</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用github/gitee来作为图床系统</title>
     <url>/2020/12/10/%E4%BD%BF%E7%94%A8github%E5%8F%8Agitee%E6%9D%A5%E4%BD%9C%E4%B8%BA%E5%9B%BE%E5%BA%8A%E7%B3%BB%E7%BB%9F/</url>
     <content><![CDATA[<p>日常进行博客及其它文章或笔记的写作时，经常需要在文章内容里插入图片。 当文档需要发布或存储到云服务器上时，就需要考虑将引用的图片放置到图床系统中。下面讲述下利用github或gitee来搭建图床系统的方法。</p>
 <a id="more"></a>
 <h2 id="一利用github来建立图床">一、利用github来建立图床</h2>
 <h3 id="建立github图床仓库">建立Github图床仓库</h3>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113510.png" /></p>
-<h3 id="设置token">设置Token</h3>
+<p><img src="https://s2.loli.net/2022/04/14/E62Lyc3w4xi9DFS.png" /> ### 设置Token</p>
 <p>进入全局设置，点击<code>Developer Settings</code> -&gt; <code>Personal access tokens</code>，选择<code>Generate new token</code></p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113538.png" /></p>
-<h3 id="设置picgo客户端">设置PicGO客户端</h3>
+<p><img src="https://s2.loli.net/2022/04/14/cY3nCtzwTqhXiGE.png" /> ### 设置PicGO客户端</p>
 <h4 id="下载">下载</h4>
 <p><a href="https://github.com/Molunerfinn/PicGo/releases">PicGo的可执行文件下载地址</a></p>
 <h4 id="设置">设置</h4>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113630.png" /></p>
-<ul>
-<li>仓库名：按照“账户名/仓库名”的格式填写；</li>
-<li>分支名：统一填写为<code>main</code>；</li>
-<li>Tocken：将之前的Github的Token黏贴在这里；</li>
-<li>存储路径：若设置为img/，则会在repository下创建一个“img”文件夹；</li>
-<li>自定义域名：在上传图片后成功后，PicGo会将“自定义域名+上传的图片名”生成的访问链接，放到剪切板。这里约定遵循如下的格式：<code>域名/用户名/仓库名/分支名。</code></li>
-</ul>
+<p><img src="https://s2.loli.net/2022/04/14/iElfYChU8GNwLXH.png" /> - 仓库名：按照“账户名/仓库名”的格式填写； - 分支名：统一填写为<code>main</code>； - Tocken：将之前的Github的Token黏贴在这里； - 存储路径：若设置为img/，则会在repository下创建一个“img”文件夹； - 自定义域名：在上传图片后成功后，PicGo会将“自定义域名+上传的图片名”生成的访问链接，放到剪切板。这里约定遵循如下的格式：<code>域名/用户名/仓库名/分支名。</code></p>
 <h4 id="上传图片">上传图片</h4>
 <p>在picgo上传区，可以直接上传剪贴板上的图片或保存成文件上传。这里不再说明。</p>
 <hr />
@@ -3959,15 +3877,11 @@ code
 <h2 id="二利用gitee来建立图床">二、利用gitee来建立图床</h2>
 <h3 id="在gitee中创建仓库">在gitee中创建仓库</h3>
 <p>按照常规创建仓库的方式创建一个专门用于图床的仓库</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113253.png" /></p>
-<h3 id="获取token">获取token</h3>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211113315.png" /></p>
-<h3 id="在picgo中安装gitee插件">在PicGO中安装gitee插件</h3>
+<p><img src="https://s2.loli.net/2022/04/14/pvFt8EJju23MgfQ.png" /> ### 获取token</p>
+<p><img src="https://s2.loli.net/2022/04/14/qYVEzvkCI52tjWi.png" /> ### 在PicGO中安装gitee插件</p>
 <h4 id="安装">安装</h4>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211111817.png" /></p>
-<h4 id="配置插件">配置插件</h4>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211112516.png" /></p>
-<p>这里需要注意的是repo的名字中大小写字母需要完全一致且是repo仓库路径。否则会报404错误。</p>
+<p><img src="https://s2.loli.net/2022/04/14/lKsvgEtIMRVG2nS.png" /> #### 配置插件</p>
+<p><img src="https://s2.loli.net/2022/04/14/e4CiMmgEPFR2caf.png" /> 这里需要注意的是repo的名字中大小写字母需要完全一致且是repo仓库路径。否则会报404错误。</p>
 <h4 id="上传图片-1">上传图片</h4>
 <p>至此，图床系统搭建完成，可以愉快地写作了。</p>
 ]]></content>
@@ -3987,8 +3901,8 @@ code
     <url>/2020/12/17/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9C%A8%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%88%86%E6%9E%90%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</url>
     <content><![CDATA[<h1 id="基本概念">基本概念</h1>
 <h2 id="标量向量矩阵和张量">标量、向量、矩阵和张量</h2>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/scalar-vector-matrix-tensor.png" style="zoom:25%;float:left" /><br />
-<br/> <br/></p>
+<p><img src="https://s2.loli.net/2022/04/14/KAo4Ji1u7qktjnm.png" style="zoom:25%;float:left" /></p>
+<p><br/> <br/></p>
 <p>• <code>标量（scalar）</code>：一个标量就是一个单独的数，它不同于线性代数中研究的其他大部分对象（通常是多个数的数组）。<br />
 • <code>向量（vector）</code>：一个向量是一列数。这些数是有序排列的。<br />
 • <code>矩阵（matrix）</code>：矩阵是一个二维数组，其中的每一个元素被两个索引（而非一个）所确定。<br />
@@ -3997,15 +3911,14 @@ code
 <h2 id="转置">转置</h2>
 <p><code>转置（transpose）</code>是矩阵的重要操作之一。矩阵的转置是以对角线为轴的镜像，这条从左上角到右下角的对角线被称为 主对角线（main diagonal）。</p>
 <p>向量可以看作只有一列的矩阵。对应地，向量的转置可以看作是只有一行的矩阵。<br />
-<img src="https://gitee.com/nokiasonic/pic/raw/master/img/vector-transposition.png" align=left style="zoom:35%" ><br />
+<img src="https://s2.loli.net/2022/04/14/iUMGpmav9JezSfc.png" align=left style="zoom:35%" ><br />
 <br/> <br/> 方阵的转置<br />
-<img src="https://gitee.com/nokiasonic/pic/raw/master/img/square-matrix-transposition.png" style="zoom:25%;float:left" /><br />
-<br/> <br/> 非方阵的转置<br />
-<img src="https://gitee.com/nokiasonic/pic/raw/master/img/non-squared-matrix-transposition.png" style="zoom:25%;float:left"/><br />
+<img src="https://s2.loli.net/2022/04/14/vSE8k3dbUfD1QRV.png" style="zoom:25%;float:left"/> <br/> <br/> 非方阵的转置<br />
+<img src="https://s2.loli.net/2022/04/14/3stURNkzihx56dn.png" style="zoom:25%;float:left"/><br />
 <br/> <br/> <br/> 上标 <span class="math inline">\(^\text{T}\)</span>用来表述转置矩阵</p>
 <p><span class="math inline">\({A}= \begin{bmatrix} A_{1,1} &amp; A_{1,2} \\ A_{2,1} &amp; A_{2,2} \\ A_{3,1} &amp; A_{3,2} \end{bmatrix}\)</span> 的转置矩阵为：</p>
 <p><span class="math inline">\({A}^{\text{T}}= \begin{bmatrix} A_{1,1} &amp; A_{2,1} &amp; A_{3,1} \\ A_{1,2} &amp; A_{2,2} &amp; A_{3,2} \end{bmatrix}\)</span><br />
-<br/> <img src="https://gitee.com/nokiasonic/pic/raw/master/img/dimensions-transposition-matrix.png" style="zoom:25%;float:left"/> <br/> 矩阵的形状 (<span class="math inline">\(m \times n\)</span>) 在转置后变为 (<span class="math inline">\(n \times m\)</span>).</p>
+<br/> <img src="https://s2.loli.net/2022/04/14/bHZtks2YRfeNn9X.png" style="zoom:25%;float:left"/> <br/> 矩阵的形状 (<span class="math inline">\(m \times n\)</span>) 在转置后变为 (<span class="math inline">\(n \times m\)</span>).</p>
 <p><br/></p>
 <h2 id="线性方程组">线性方程组</h2>
 <p>对于一个线性方程组</p>
@@ -4142,6 +4055,51 @@ code
       <tags>
         <tag>python</tag>
         <tag>线性代数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Obsidian学习（一）</title>
+    <url>/2021/09/27/Obsidian%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="背景">背景</h1>
+<p>最近对[[【知识管理】Zettelkasten笔记法|Zettelkasten笔记法]]进行学习，也在学习过程中了解到了<code>Obsidian</code>, 它可以帮助人们高效地建立适合自己的知识管理体系。所以在梳理整合自己知识体系的同时，也同步进行了<code>Obsidian</code>的学习。</p>
+<a id="more"></a>
+<h1 id="obsidian是什么">Obsidian是什么？</h1>
+<p><code>Obsidian</code>是什么？正如其<a href="https://obsidian.md/">Obsidian官网</a>宣称的</p>
+<blockquote>
+<p>Obsidian is a powerful knowledge base that works on top of<br />
+a local folder of plain text Markdown files.</p>
+</blockquote>
+<p>从字里行间我们可以了解到，它是基于<strong>Markdown文件</strong>的<strong>本地</strong>知识管理软件，它的特点可以归纳为: - 本地化 - 基于<code>markdown</code> - 知识管理 第三个特点就决定了它与<code>Typora</code>等markdown编辑器有了本质的区别，它是如何体现出它强大的知识管理能力来呢？</p>
+<h1 id="为什么要选择obsidian">为什么要选择Obsidian?</h1>
+<h2 id="个人用户免费">个人用户免费</h2>
+<p>目前类似的<code>Roam Research</code>等软件收费颇高，像<code>Obsidian</code>如此良心的软件并不多见。<br />
+<img src="https://gitee.com/nokiasonic/pic/raw/master/img/msedge_481gTyW4AC.png" /></p>
+<h2 id="数据本地化">数据本地化</h2>
+<p><code>Obsidian</code>很好地保护了自己笔记内容的隐私，而其它笔记软件多由于采用数据库方式来管理笔记，一般使用上传内容至服务提供商的方式来实现，而<code>Obsidian</code>使用所谓的<code>库</code>,实际上就是基于文件夹的方式，建立不同的库，可以使用各自的主题，插件，非常方便。使用本地化结构的知识管理系统，最大的优点在于不依赖于工具软件本身，就算有朝一日，决定不用<code>Obsidian</code>,也可以很容易地将自己的知识管理体系进行迁移。</p>
+<h2 id="与其它软件的联动较强">与其它软件的联动较强</h2>
+<p>可以与<code>Zotero</code>联动实现文献管理互动，可以与<code>logseq</code>联动实现日程管理等等，总而言之，通过有效地使用工具，高效地提升自己的知识管理能力及执行能力。</p>
+<h2 id="良好生态的社区环境与丰富的插件">良好生态的社区环境与丰富的插件</h2>
+<p><code>Obsidian</code>的社区生态良好，开发了许多实用的第三方插件。</p>
+<p><a href="https://forum.obsidian.md/">Obsidian英文社区</a> <a href="https://forum-zh.obsidian.md/">Obsidian中文社区</a> 在软件设置里的<code>社区插件</code>中关闭<code>安全模式</code>后，可以安装自己需要的插件。</p>
+<h2 id="优秀的移动端体验">优秀的移动端体验</h2>
+<p>在<code>android</code>和<code>ios</code>下都有APP可以安装使用。</p>
+<h1 id="obsidian能做什么">Obsidian能做什么？</h1>
+<h2 id="撰写技术文章">撰写技术文章</h2>
+<p>对于一直习惯用markdown方式来写技术文章的人，<code>Obsidian</code>也提供了不亚于<code>Typora</code>的写作体验。</p>
+<h2 id="计划">计划</h2>
+<p>例如日清单，工作计划等都可以使用或通过<code>Obsidian</code>及其插件进行。</p>
+<h2 id="读书笔记">读书笔记</h2>
+<p>以前一直是用<code>Notion</code>来作读书笔记，但相对于把思绪集中在写作内容上，<code>Notion</code>会花费相对多的时间来进行版面的设计。而使用markdown方式的便利性在使用<code>Obsidian</code>的过程中就得到了体现。</p>
+<h2 id="双向链接与知识图谱">双向链接与知识图谱</h2>
+<p>这也是目前流行的笔记推崇的概念，目的是把头脑里杂乱无章的知识网状化，系统化。</p>
+<h1 id="写在最后">写在最后</h1>
+<p>无论工具多么先进，最终还是要看执行的人是否真正把关注点放在工具要解决的事务上，而非纠缠、沉溺于工具本身。 希望通过<code>Obsidian</code>学习的同时，也为自己初步建立一个适合自己的知识管理体系。</p>
+]]></content>
+      <categories>
+        <category>专栏</category>
+      </categories>
+      <tags>
+        <tag>Obsidian/学习</tag>
       </tags>
   </entry>
   <entry>

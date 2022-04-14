@@ -27,20 +27,20 @@
 <meta property="og:site_name" content="橘子树下">
 <meta property="og:description" content="目前常用的评论系统有以下这些：  Github大礼包：gitment， gitalk（推荐），gitter（推荐）; 三个都支持Markdown； 基于leancloud的无后端评论系统：Valine（推荐，支持Markdown）； 国外的有几个：disqus(漂亮，但需翻墙)，hypercomments（推荐，不支持Markdown）。  来试试如何用Valine搭建评论系统吧。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/nokiasonic/pic/raw/master/img/20201211115602.png">
-<meta property="og:image" content="https://gitee.com/nokiasonic/pic/raw/master/img/20201211115809.png">
-<meta property="og:image" content="https://gitee.com/nokiasonic/pic/raw/master/img/20201211120224.png">
-<meta property="og:image" content="https://gitee.com/nokiasonic/pic/raw/master/img/20201211120336.png">
-<meta property="og:image" content="https://gitee.com/nokiasonic/pic/raw/master/img/20201211123228.png">
-<meta property="og:image" content="https://gitee.com/nokiasonic/pic/raw/master/img/20201211165800.png">
-<meta property="og:image" content="https://gitee.com/nokiasonic/pic/raw/master/img/20201211170036.png">
-<meta property="og:image" content="https://gitee.com/nokiasonic/pic/raw/master/img/20210702113011.png">
+<meta property="og:image" content="https://s2.loli.net/2022/04/14/kCUuMnrTcDtp6Ol.png">
+<meta property="og:image" content="https://s2.loli.net/2022/04/14/jJgkvhER96HTxIP.png">
+<meta property="og:image" content="https://s2.loli.net/2022/04/14/Ph8VWKl45Rsgvnm.png">
+<meta property="og:image" content="https://s2.loli.net/2022/04/14/dCbk2I5LfuQVqlo.png">
+<meta property="og:image" content="https://s2.loli.net/2022/04/14/L53GDIsQKOmekbq.png">
+<meta property="og:image" content="https://s2.loli.net/2022/04/14/J5gvLmkdSjYGDRp.png">
+<meta property="og:image" content="https://s2.loli.net/2022/04/14/iFGUe98r3PghSfR.png">
+<meta property="og:image" content="https://s2.loli.net/2022/04/14/TjoOWhpUJXZ2asv.png">
 <meta property="article:published_time" content="2020-12-10T02:51:24.000Z">
-<meta property="article:modified_time" content="2021-12-13T01:10:35.878Z">
+<meta property="article:modified_time" content="2022-04-14T01:43:19.406Z">
 <meta property="article:author" content="Jun Lv">
 <meta property="article:tag" content="Valine">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/nokiasonic/pic/raw/master/img/20201211115602.png">
+<meta name="twitter:image" content="https://s2.loli.net/2022/04/14/kCUuMnrTcDtp6Ol.png">
 
 <link rel="canonical" href="https://nokiasonic.github.io/2020/12/10/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E5%A2%9E%E5%8A%A0Valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/">
 
@@ -229,7 +229,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-13 09:10:35" itemprop="dateModified" datetime="2021-12-13T09:10:35+08:00">2021-12-13</time>
+                <time title="修改时间：2022-04-14 09:43:19" itemprop="dateModified" datetime="2022-04-14T09:43:19+08:00">2022-04-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -291,16 +291,16 @@
 <a id="more"></a>
 <h2 id="注册leanclound获取app-id-和-app-key">注册LeanClound,获取APP ID 和 APP Key</h2>
 <p>Valine 是基于 <a target="_blank" rel="noopener" href="https://leancloud.cn/">LeanCloud</a> 作为数据存储的，所以需要注册一个账号，因为备案与否的关系，选择在国际区注册，在注册完成后，需要创建应用。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211115602.png" /></p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211115809.png" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/kCUuMnrTcDtp6Ol.png" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/jJgkvhER96HTxIP.png" /></p>
 <p>点击<code>存储</code>设置，查看是否有<code>Comment</code>和 <code>Counter</code>，没有则创建，权限设为无限制。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211120224.png" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/Ph8VWKl45Rsgvnm.png" /></p>
 <p>在<code>安全中心</code>里将除<code>数据存储</code>之外的服务全部关闭。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211120336.png" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/dCbk2I5LfuQVqlo.png" /></p>
 <p>最后点击<code>应用 Keys</code> 取得我们 <code>AppKey</code> 和 <code>App id</code></p>
 <h2 id="在hexo-next主题中配置">在Hexo Next主题中配置</h2>
 <p>首先打开 https://www.jsdelivr.com/package/npm/valine 获取最新的 valine.min.js 的cdn地址：</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211123228.png" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/L53GDIsQKOmekbq.png" /></p>
 <p>修改博客项目目录下的<code>_config.next.yml</code>文件：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Valine</span></span><br><span class="line"><span class="comment"># valine: //cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js</span></span><br><span class="line"><span class="comment"># valine: //cdnjs.cloudflare.com/ajax/libs/valine/1.3.10/Valine.min.js</span></span><br><span class="line"><span class="string">valine:https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js</span></span><br></pre></td></tr></table></figure>
 <p>以及</p>
@@ -312,10 +312,10 @@
 <ol type="1">
 <li>在 <a target="_blank" rel="noopener" href="https://leancloud.cn/dashboard/#/apps">Leancloud</a> 云引擎部署界面，填写代码库并保存：https://github.com/DesertsP/Valine-Admin.git</li>
 </ol>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211165800.png" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/J5gvLmkdSjYGDRp.png" /></p>
 <ol start="2" type="1">
 <li><p>在 <a target="_blank" rel="noopener" href="https://leancloud.cn/dashboard/#/apps">Leancloud</a> 云引擎设置界面，设置环境变量以及 Web 二级域名。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20201211170036.png" /></p></li>
+<p><img src="https://s2.loli.net/2022/04/14/iFGUe98r3PghSfR.png" /></p></li>
 <li><p>环境变量说明</p></li>
 </ol>
 <table>
@@ -385,7 +385,7 @@
 </tbody>
 </table>
 <p>登入ADMIN_URL对应的链接，可以进行评论的查看及管理。</p>
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210702113011.png" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/TjoOWhpUJXZ2asv.png" /></p>
 
     </div>
 
