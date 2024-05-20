@@ -29,50 +29,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Obsidian学习（二）</title>
-    <url>/2021/10/09/Obsidian%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
-    <content><![CDATA[<h1 id="安装">安装</h1>
-<p>通过<a href="%5BObsidian%5D(https://obsidian.md/)">官网</a>下载并安装程序。 安装完后，可以在<code>Settings</code> -&gt; <code>About</code> -&gt; <code>Language</code>中选择界面语言，我还是使用英文界面，方便对接英文论坛内容。</p>
-<a id="more"></a>
-<h1 id="第一条笔记">第一条笔记</h1>
-<h2 id="创建新笔记库">创建新笔记库</h2>
-<p>打开<code>obsidian</code>, 可以选择从已有目录创建笔记库，也可以直接创建新笔记库，这里的库是基于目录来进行识别的。</p>
-<p><img src="https://s2.loli.net/2022/04/14/XuLUyqm5jNVHEJ2.png" /></p>
-<h2 id="创建知识管理库结构">创建知识管理库结构</h2>
-<p>根据自己的实践需要来建立知识管理库结构，示例：[[我的笔记系统结构]]</p>
-<p><img src="https://s2.loli.net/2022/11/16/Ctgh49XyrTA5evU.png" /></p>
-<p>这时，在整个库里只有这些目录，在其下是空空如也的。</p>
-<h2 id="写第一条笔记">写第一条笔记</h2>
-<p>比如撰写<code>中国图书馆分类法</code>条目来作为自己的第一条笔记。</p>
-<p><img src="https://s2.loli.net/2022/11/16/PazNvy5nji1GCWZ.png" /></p>
-<p>有两种方式来新建一条笔记：</p>
-<ol type="1">
-<li>点击界面上的<code>Create new file</code>或者使用快捷键<code>Ctrl + N</code>;</li>
-<li>点击左侧导航栏处的<code>New note</code>图标。</li>
-</ol>
-<p>我们在目录<code>01. 闪念笔记</code>下来新建一个名为<code>中国图书馆分类法.md</code>的文件。使用<code>markdown</code>的语法写作内容。</p>
-<p><img src="https://s2.loli.net/2022/11/16/4SfdovVqRcatAI2.png" /></p>
-<p>屏幕右上角红框处，按住<code>Ctrl</code>键并点击，可以生成一个新的分栏来进行预览。如果只是点击，则是在编辑和预览状态间切换。</p>
-<p><img src="https://s2.loli.net/2022/04/14/LNdmnoOMlEhK1vJ.png" /></p>
-<p>从<code>ZettleKasten</code>笔记记录的角度来说，需要为每一篇笔记编一个能唯一识别的号码，我们可以在<code>Metadata(元数据)</code>中来增加<code>uid</code>项来实现，同时为了方便归类，也增加<code>cid（classification number）</code>,这可以根据汉语主题词表来进行定义。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 中国图书馆分类法</span><br><span class="line">date: 2021-10-09 22:38:24</span><br><span class="line">uid: 20211009223824</span><br><span class="line">cid: G254.122.001</span><br><span class="line">categories: [知识管理]</span><br><span class="line">tags: [图书馆分类法&#x2F;中图法]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>可以以此为依据，在<code>obsidian</code>中建立模板，方便撰写新笔记时直接插入。 1. 在<code>Core plugins</code>里启用<code>Templates</code>插件 2. 需要在 <code>Settings</code> -&gt; <code>Templates</code> -&gt; <code>Template folder location</code> 中指定模板文件夹的路径。 3. 在左边导航栏中点击<code>Insert template</code>或者为这功能设置一个快捷键，这里我设为<code>Ctrl + Q</code>。在写新笔记时就可以插入相应的模板内容。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123;title&#125;&#125;</span><br><span class="line">date: &#123;&#123;date:YYYY-MM-DD HH:mm:ss&#125;&#125;</span><br><span class="line">uid: &#123;&#123;date:YYYYMMDDHHmmss&#125;&#125;</span><br><span class="line">cid: xxxx.xxxx.xxx</span><br><span class="line">categories: [xxxx]</span><br><span class="line">tags: [xxxx&#x2F;xxx]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>至此，第一个笔记已经顺利完成，可以移入分类目录中使用。</p>
-<h1 id="学习小结">学习小结</h1>
-<ol type="1">
-<li>熟悉<code>obsidian</code>的基本界面操作。</li>
-<li>模板的配置及使用。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>专栏</category>
-      </categories>
-      <tags>
-        <tag>Obsidian/学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>欢迎来到我的博客</title>
     <url>/2020/11/19/hello-world/</url>
     <content><![CDATA[<h2 id="橘子的博客终于开通了">橘子的博客终于开通了</h2>
@@ -95,68 +51,99 @@
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】github开启令牌验证后无法更新Blog的问题</title>
-    <url>/2021/08/30/%E3%80%90Hexo%E3%80%91github%E5%BC%80%E5%90%AF%E4%BB%A4%E7%89%8C%E9%AA%8C%E8%AF%81%E5%90%8E%E6%97%A0%E6%B3%95%E6%9B%B4%E6%96%B0Blog%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>从2021年8月13日起， github不再支持帐号密码验证Git操作，改用token(令牌)或SSH密钥。</p>
-<p><img src="https://s2.loli.net/2022/04/14/L6YvJDdyVg5uxot.png" /></p>
-<p><strong>解决方案</strong></p>
-<p>1/ 首先登入Github 账户，<code>Setting - Developer settings - Personal access tokens - Generate new token</code>, Note 填写 Hexo 或 Blog 之类，勾选第一项 repo，然后 Generate token；为Hexo项目生成一个令牌。</p>
-<p>2/ 修改<code>_config.yml</code>,</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://[复制生成的token]@github.com/nokiasonic/nokiasonic.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>即可正常hexo d更新blog。</p>
+    <title>【Arduino】ESP8266开发实例</title>
+    <url>/2021/08/23/%E3%80%90Arduino%E3%80%91ESP8266%E5%BC%80%E5%8F%91%E5%AE%9E%E4%BE%8B/</url>
+    <content><![CDATA[<h1 id="esp8266的arduino开发环境搭建">ESP8266的Arduino开发环境搭建</h1>
+<p>有三种常用的环境搭建方法。</p>
+<a id="more"></a>
+<h2 id="arduino下的工具的开发板管理器进行在线下载">1. Arduino下的工具的开发板管理器进行在线下载</h2>
+<p>步骤：</p>
+<p>1/ 首先添加ESP8266板支持</p>
+<p>进入<code>首选项（Preferences）</code>，找到<strong>附加开发板管理器地址</strong>（Additional Board Manager URLs），并在其后添加如下信息：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;arduino.esp8266.com&#x2F;stable&#x2F;package_esp8266com_index.json</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/04/14/SlmziK2rfdvZqUV.png" /> 2/ 安装硬件包</p>
+<p>点击<code>工具 - 开发板 - 开发板管理器</code>，进入开发板管理器界面： 在搜索栏上面输入<code>ESP8266</code>，选择最新版本点击“安装”，</p>
+<p><img src="https://s2.loli.net/2022/04/14/OUyNpZagnAS8LYt.png" /></p>
+<h2 id="下载esp8266的硬件包再离线安装">2. 下载ESP8266的硬件包再离线安装</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd E:</span><br><span class="line">mkdir esp8266</span><br><span class="line">cd esp8266</span><br><span class="line">git clone https://github.com/esp8266/Arduino.git esp8266</span><br></pre></td></tr></table></figure>
+<p>当clone完毕后，在esp8266文件夹下会有板级工具包的目录。进入tools，运行get.py的python文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd tools</span><br><span class="line">python get.py</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/04/14/FVAK9NDlw3Bga8G.png" /></p>
+<h2 id="直接使用封装好的esp8266-sdk进行环境配置">3. 直接使用封装好的ESP8266 SDK进行环境配置</h2>
+<p><strong>点击下方链接下载打包好的esp8266安装包，选择任一版本直接运行并解压即可。</strong></p>
+<p><a href="https://docs.espressif.com/projects/esp8266-rtos-sdk/en/latest/get-started/windows-setup.html">安装说明</a></p>
+<p>无论使用何种方法，只要可以在Arduino IDE中可以看到ESP8266的开发板，开发环境就算搭建好了。可以开始进行开发和学习过程了。</p>
+<h1 id="制作一支带逗比功能的笔">制作一支带逗比功能的笔</h1>
+<p><img src="https://s2.loli.net/2022/04/14/skItQylPxZMd1A4.png" /></p>
+<h2 id="材料准备">材料准备</h2>
+<ul>
+<li><p>9g舵机3个</p></li>
+<li><p>白板笔1支</p></li>
+<li><p>NodeMcu ESP8266开发板一块</p></li>
+<li><p>舵机拉杆 1.2MM Z字钢丝</p></li>
+<li><p>M3x3 平头螺丝若干</p></li>
+<li><p>M3 螺母若干</p></li>
+<li><p>M3x12 螺丝若干</p></li>
+<li><p>M3x6 对接螺丝若干</p></li>
+<li><p>亚克力激光切割零件一批</p></li>
+<li><p>3D打印笔架与笔帽</p>
+<p><img src="https://s2.loli.net/2022/04/14/soLHUcnrTdX6tJV.jpg" /></p></li>
+</ul>
+<h2 id="制作步骤">制作步骤</h2>
+<h3 id="组装">组装</h3>
+<ul>
+<li><p>左右舵机安装</p>
+<p>舵机与板件通过舵机自带的M2螺丝固定（红色框部分），板件中间位置的连接用M3螺丝加螺母固定（橙色框部分）</p>
+<p><img src="https://s2.loli.net/2022/04/14/6yFYisQTmX7cRzh.jpg" /></p></li>
+<li><p>四杆机械臂安装</p>
+<p>将机械臂所需的板件与舵机自带的连接杆粘合，并用M4x10的螺丝加螺母固定（推荐使用M3x6的对接螺丝）。</p>
+<p><img src="https://s2.loli.net/2022/04/14/iTMAkhdEWFwo1cY.jpg" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/kt8eYSvEh4n7MjC.jpg" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/LPAVYJ4NuykgXj8.jpg" /></p>
+<p>在舵机调式完毕后，用M2.5x10的螺丝将机械臂固定至舵机上。这里如果有较长的M2螺丝效果会更好一些，舵机自带的M2螺丝稍短了一点。</p></li>
+<li><p>上舵机安装</p></li>
+</ul>
+<p>​ 上龙门架用M3x12的螺丝加螺母连接，舵机与板件用自带的M2螺丝固定</p>
+<p>​ <img src="https://s2.loli.net/2022/04/14/9Gqe5czBoAVfwrd.jpg" style="zoom: 50%;" /></p>
+<h3 id="esp8266的调试">ESP8266的调试</h3>
+<p>将<code>arduinojson5</code>和<code>NTPclient</code>添加到<code>arduino libraries</code>中。</p>
+<p><img src="https://s2.loli.net/2022/04/14/Uqh5SKYiDC13XBz.png" /></p>
+<p>利用ESP8266自带示例ESP8266-blink及ESP8266WiFi-NTPClient进行测试，ESP8266模块工作正常</p>
+<p><img src="https://s2.loli.net/2022/04/14/kHKoFntirpLq1dy.png" /></p>
+<p>从无线路由器的用户列表中也可以看到ESP8266确实已经连接成功。</p>
+<p><img src="https://s2.loli.net/2022/04/14/b864MIBAxspHUGd.png" /></p>
+<h3 id="esp8266与舵机的联调">ESP8266与舵机的联调</h3>
+<p>通过坐标的变化来控制笔的行进与书写。</p>
+<p>坐标参数的定义如下：</p>
+<p><img src="https://s2.loli.net/2022/04/14/pd5rowaAsv19BDJ.jpg" /></p>
+<p>打开程序上传代码成功后，左右臂舵机会左右来回旋转，请注意舵机的旋转方向，并在最左或最右时迅速拔掉供电的USB。断电停机后再安装摆臂。摆臂的安装位置，如下图，最左是灰色，最右是白色，让摆臂尽量停留在0,90,180度位置上。安装好摆臂后，接电继续工作，看舵机是否是在灰色和白色两个位置上往复。差距小时，可以修改程序中下面的4个参数修正，差距太大，请拆掉摆臂重装。</p>
+<p><img src="https://s2.loli.net/2022/04/14/sUcuHKakiX4MRFf.png" /></p>
+<p><code>control.h</code>,原始代码中垂直方向共用<code>SERVOFAKTOR</code>来控制，在微调的时候发现效果不好，分别使用<code>SERVOFAKTORLEFT</code>和<code>SERVOFAKTORRIGHT</code>来控制。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">  <span class="comment">// When in calibration mode, adjust the following factor until the servos move exactly 90 degrees</span></span><br><span class="line"><span class="keyword">int</span> SERVOFAKTORLEFT = <span class="number">605</span>;</span><br><span class="line"><span class="keyword">int</span> SERVOFAKTORRIGHT = <span class="number">1090</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Zero-position of left and right servo</span></span><br><span class="line">  <span class="comment">// When in calibration mode, adjust the NULL-values so that the servo arms are at all times parallel</span></span><br><span class="line">  <span class="comment">// either to the X or Y axis</span></span><br><span class="line"><span class="keyword">int</span> SERVOLEFTNULL = <span class="number">2000</span>;</span><br><span class="line"><span class="keyword">int</span> SERVORIGHTNULL = <span class="number">800</span>;</span><br></pre></td></tr></table></figure>
+<p>相应地，在<code>control.cpp</code>中，修改</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">servo_left.writeMicroseconds(<span class="built_in">floor</span>(((a2 + a1 - M_PI) * SERVOFAKTOR) + SERVOLEFTNULL));</span><br><span class="line">servo_right.writeMicroseconds(<span class="built_in">floor</span>(((a1 - a2) * SERVOFAKTOR) + SERVORIGHTNULL)); </span><br></pre></td></tr></table></figure>
+<p>为</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">servo_left.writeMicroseconds(<span class="built_in">floor</span>(((a2 + a1 - M_PI) * SERVOFAKTORLEFT) + SERVOLEFTNULL));</span><br><span class="line">servo_right.writeMicroseconds(<span class="built_in">floor</span>(((a1 - a2) * SERVOFAKTORRIGHT) + SERVORIGHTNULL));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>调节抬臂舵机的写字，抬笔和抓笔擦位置，。将笔装上后再进行调试，否则因为笔的重量会导致偏差。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> LIFT0 = <span class="number">1750</span>;   <span class="comment">//落笔写字 on drawing surface</span></span><br><span class="line"><span class="keyword">int</span> LIFT1 = <span class="number">1650</span>;   <span class="comment">//写字时抬臂动作 between numbers</span></span><br><span class="line"><span class="keyword">int</span> LIFT2 = <span class="number">1470</span>;   <span class="comment">//高抬笔架  going towards sweeper</span></span><br></pre></td></tr></table></figure>
+<h3 id="工作原理">工作原理</h3>
+<p>xy坐标到舵机角度转换</p>
+<p><img src="https://s2.loli.net/2022/04/14/KMlaAFi2m3Ngzkn.png" /></p>
+<h2 id="演示">演示</h2>
+<p>制作完成！</p>
+<p><a href="https://www.bilibili.com/video/BV1r64y1a76r/">制作及演示视频</a></p>
+<h1 id="参考">参考</h1>
+<p>1/ <a href="https://zhuanlan.zhihu.com/p/67700105">如何制作一支带逗比功能的笔 - 知乎 (zhihu.com)</a></p>
+<p>2/ <a href="https://www.amobbs.com/thread-5687693-1-1.html">用stc15w4k32移植arduino小贱钟Plotclock (amobbs.com 阿莫电子论坛)</a></p>
+<p>3/ <a href="https://www.geek-workshop.com/thread-10024-1-1.html">Plotclock小贱钟的调试方法 - 机械坊 - 极客工坊 - Powered by Discuz! (geek-workshop.com)</a></p>
 ]]></content>
       <categories>
         <category>技术笔记</category>
-        <category>Hexo</category>
+        <category>arduino</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
-        <tag>Github</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Obsidian学习（一）</title>
-    <url>/2021/09/27/Obsidian%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/</url>
-    <content><![CDATA[<h1 id="背景">背景</h1>
-<p>最近对[[【知识管理】Zettelkasten笔记法|Zettelkasten笔记法]]进行学习，也在学习过程中了解到了<code>Obsidian</code>, 它可以帮助人们高效地建立适合自己的知识管理体系。所以在梳理整合自己知识体系的同时，也同步进行了<code>Obsidian</code>的学习。</p>
-<a id="more"></a>
-<h1 id="obsidian是什么">Obsidian是什么？</h1>
-<p><code>Obsidian</code>是什么？正如其<a href="https://obsidian.md/">Obsidian官网</a>宣称的</p>
-<blockquote>
-<p>Obsidian is a powerful knowledge base that works on top of<br />
-a local folder of plain text Markdown files.</p>
-</blockquote>
-<p>从字里行间我们可以了解到，它是基于<strong>Markdown文件</strong>的<strong>本地</strong>知识管理软件，它的特点可以归纳为: - 本地化 - 基于<code>markdown</code> - 知识管理 第三个特点就决定了它与<code>Typora</code>等markdown编辑器有了本质的区别，它是如何体现出它强大的知识管理能力来呢？</p>
-<h1 id="为什么要选择obsidian">为什么要选择Obsidian?</h1>
-<h2 id="个人用户免费">个人用户免费</h2>
-<p>目前类似的<code>Roam Research</code>等软件收费颇高，像<code>Obsidian</code>如此良心的软件并不多见。<br />
-<img src="https://s2.loli.net/2022/04/14/1xH7cp8lkfL2eq4.png" /></p>
-<h2 id="数据本地化">数据本地化</h2>
-<p><code>Obsidian</code>很好地保护了自己笔记内容的隐私，而其它笔记软件多由于采用数据库方式来管理笔记，一般使用上传内容至服务提供商的方式来实现，而<code>Obsidian</code>使用所谓的<code>库</code>,实际上就是基于文件夹的方式，建立不同的库，可以使用各自的主题，插件，非常方便。使用本地化结构的知识管理系统，最大的优点在于不依赖于工具软件本身，就算有朝一日，决定不用<code>Obsidian</code>,也可以很容易地将自己的知识管理体系进行迁移。</p>
-<h2 id="与其它软件的联动较强">与其它软件的联动较强</h2>
-<p>可以与<code>Zotero</code>联动实现文献管理互动，可以与<code>logseq</code>联动实现日程管理等等，总而言之，通过有效地使用工具，高效地提升自己的知识管理能力及执行能力。</p>
-<h2 id="良好生态的社区环境与丰富的插件">良好生态的社区环境与丰富的插件</h2>
-<p><code>Obsidian</code>的社区生态良好，开发了许多实用的第三方插件。</p>
-<p><a href="https://forum.obsidian.md/">Obsidian英文社区</a> <a href="https://forum-zh.obsidian.md/">Obsidian中文社区</a> 在软件设置里的<code>社区插件</code>中关闭<code>安全模式</code>后，可以安装自己需要的插件。</p>
-<h2 id="优秀的移动端体验">优秀的移动端体验</h2>
-<p>在<code>android</code>和<code>ios</code>下都有APP可以安装使用。</p>
-<h1 id="obsidian能做什么">Obsidian能做什么？</h1>
-<h2 id="撰写技术文章">撰写技术文章</h2>
-<p>对于一直习惯用markdown方式来写技术文章的人，<code>Obsidian</code>也提供了不亚于<code>Typora</code>的写作体验。</p>
-<h2 id="计划">计划</h2>
-<p>例如日清单，工作计划等都可以使用或通过<code>Obsidian</code>及其插件进行。</p>
-<h2 id="读书笔记">读书笔记</h2>
-<p>以前一直是用<code>Notion</code>来作读书笔记，但相对于把思绪集中在写作内容上，<code>Notion</code>会花费相对多的时间来进行版面的设计。而使用markdown方式的便利性在使用<code>Obsidian</code>的过程中就得到了体现。</p>
-<h2 id="双向链接与知识图谱">双向链接与知识图谱</h2>
-<p>这也是目前流行的笔记推崇的概念，目的是把头脑里杂乱无章的知识网状化，系统化。</p>
-<h1 id="写在最后">写在最后</h1>
-<p>无论工具多么先进，最终还是要看执行的人是否真正把关注点放在工具要解决的事务上，而非纠缠、沉溺于工具本身。 希望通过<code>Obsidian</code>学习的同时，也为自己初步建立一个适合自己的知识管理体系。</p>
-]]></content>
-      <categories>
-        <category>专栏</category>
-      </categories>
-      <tags>
-        <tag>Obsidian/学习</tag>
+        <tag>arduino</tag>
+        <tag>ESP8266</tag>
       </tags>
   </entry>
   <entry>
@@ -181,16 +168,33 @@ a local folder of plain text Markdown files.</p>
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】Next主题标题颜色设置</title>
-    <url>/2020/12/10/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%A0%87%E9%A2%98%E9%A2%9C%E8%89%B2%E8%AE%BE%E7%BD%AE/</url>
-    <content><![CDATA[<p>主题采用的是Next的Mist。 不太喜欢全部都是黑灰白色的主基调，希望将标题来点明亮的颜色。以下来介绍具体的配置方法。</p>
+    <title>【Hexo】Next主题更好地支持LaTeX数学公式</title>
+    <url>/2020/12/17/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%9B%B4%E5%A5%BD%E5%9C%B0%E6%94%AF%E6%8C%81LaTeX%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</url>
+    <content><![CDATA[<p>在Typora中可以正常显示的<span class="math inline">\(L^AT_EX\)</span>数学公式，在Hexo NexT主题下却渲染得不是太理想。我们去最新的<a href="https://theme-next.js.org/docs/third-party-services/math-equations.html">NexT官方文档</a>里看看如何解决吧！</p>
 <a id="more"></a>
-<h2 id="更改标题配色">更改标题配色</h2>
-<p>找到<code>\themes\next\source\css\_common\outline\header\site-meta.styl</code>文件。编辑修改<code>.brand&#123;&#125;</code>里<code>color</code>参数配置</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.brand</span> &#123;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">//  color: var(--brand-color);</span><br><span class="line">  <span class="selector-tag">color</span>: <span class="selector-id">#fc6423</span> !<span class="selector-tag">important</span>;</span><br><span class="line">  <span class="selector-tag">display</span>: <span class="selector-tag">inline-block</span>;</span><br><span class="line">  line-height: $font-size-title;</span><br><span class="line">  <span class="selector-tag">padding</span>: 0 40<span class="selector-tag">px</span>;</span><br><span class="line">  <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line"></span><br><span class="line">  &amp;<span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">var</span>(--brand-hover-color);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="更改标题上下横线配色">更改标题上下横线配色</h2>
-<p>找到<code>\themes\next\source\css\_schemes\Mist\_header.styl</code>。编辑修改<code>i&#123;&#125;</code>里的<code>background</code>参数配置</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"> <span class="selector-tag">i</span> &#123;</span><br><span class="line">   //background: var(--brand-color);</span><br><span class="line"><span class="selector-tag">background</span>: <span class="selector-id">#fc6423</span> !<span class="selector-tag">important</span>;</span><br><span class="line">   <span class="selector-tag">display</span>: <span class="selector-tag">block</span>;</span><br><span class="line">   <span class="selector-tag">height</span>: 2<span class="selector-tag">px</span>;</span><br><span class="line">   <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="实施步骤">实施步骤</h2>
+<p>NexT主题现在提供两种数学公式的渲染方式 <a href="https://www.mathjax.org/">MathJax</a> 及 <a href="https://katex.org/">KaTeX</a>。其中<code>katex</code>的速度更快，但是对于<span class="math inline">\(L^AT_EX\)</span>的支持有一定的限制。所以除非你的博客数量实在是过于庞大，不然就可以直接使用<code>mathjax</code>。</p>
+<p>使用<code>mathjax</code>，可以选择多种渲染引擎，但推荐使用</p>
+<ul>
+<li><a href="https://github.com/wzpan/hexo-renderer-pandoc">hexo-renderer-pandoc</a></li>
+</ul>
+<p>使用其它诸如<a href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a>之类的引擎（这是Hexo默认首先用来渲染MarkDown的），然后再交给<code>mathjax</code>渲染。<code>hexo-renderer-marked</code>会把一些特殊的MarkDown符号转换为相应的html标签，比如在MarkDown语法中，下划线 _ 代表斜体，会被转化为&lt; em&gt;标签，\也会被转义成一个。而类<span class="math inline">\(L^AT_EX\)</span>格式书写的数学公式下划线 _ 表示角标，\表示公式换行，有特殊的含义，所以<code>mathjax</code>引擎在渲染数学公式的时候就会无法正常渲染。</p>
+<h3 id="安装pandoc">安装pandoc</h3>
+<p><a href="https://github.com/jgm/pandoc/blob/master/INSTALL.md">安装文档</a>及<a href="https://github.com/jgm/pandoc/releases/latest">下载链接</a>]，因为在安装<code>Anaconda</code>时已经含有pandoc。这里不再单独进行安装。</p>
+<h3 id="配置next">配置NexT</h3>
+<ol type="1">
+<li>首先，在NexT主题配置文件中将<code>mathjax</code>设为渲染引擎</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li>然后，卸载最初的<code>hexo-renderer-marked</code>引擎并安装<code>hexo-renderer-pandoc</code>。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm un hexo-renderer-marked</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm i hexo-renderer-pandoc</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/04/14/LcFgNREOrmaQWsS.png" /></p>
+<ol start="3" type="1">
+<li>在更换完渲染引擎后，执行一下<code>hexo clean</code>，然后再进行部署或启动本地服务器来验证渲染是否工作正常。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo clean &amp;&amp; hexo g -d</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> or hexo clean &amp;&amp; hexo s</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>技术笔记</category>
@@ -383,99 +387,23 @@ a local folder of plain text Markdown files.</p>
       </tags>
   </entry>
   <entry>
-    <title>【Arduino】ESP8266开发实例</title>
-    <url>/2021/08/23/%E3%80%90Arduino%E3%80%91ESP8266%E5%BC%80%E5%8F%91%E5%AE%9E%E4%BE%8B/</url>
-    <content><![CDATA[<h1 id="esp8266的arduino开发环境搭建">ESP8266的Arduino开发环境搭建</h1>
-<p>有三种常用的环境搭建方法。</p>
+    <title>【Hexo】Next主题标题颜色设置</title>
+    <url>/2020/12/10/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%A0%87%E9%A2%98%E9%A2%9C%E8%89%B2%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<p>主题采用的是Next的Mist。 不太喜欢全部都是黑灰白色的主基调，希望将标题来点明亮的颜色。以下来介绍具体的配置方法。</p>
 <a id="more"></a>
-<h2 id="arduino下的工具的开发板管理器进行在线下载">1. Arduino下的工具的开发板管理器进行在线下载</h2>
-<p>步骤：</p>
-<p>1/ 首先添加ESP8266板支持</p>
-<p>进入<code>首选项（Preferences）</code>，找到<strong>附加开发板管理器地址</strong>（Additional Board Manager URLs），并在其后添加如下信息：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;arduino.esp8266.com&#x2F;stable&#x2F;package_esp8266com_index.json</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2022/04/14/SlmziK2rfdvZqUV.png" /> 2/ 安装硬件包</p>
-<p>点击<code>工具 - 开发板 - 开发板管理器</code>，进入开发板管理器界面： 在搜索栏上面输入<code>ESP8266</code>，选择最新版本点击“安装”，</p>
-<p><img src="https://s2.loli.net/2022/04/14/OUyNpZagnAS8LYt.png" /></p>
-<h2 id="下载esp8266的硬件包再离线安装">2. 下载ESP8266的硬件包再离线安装</h2>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd E:</span><br><span class="line">mkdir esp8266</span><br><span class="line">cd esp8266</span><br><span class="line">git clone https://github.com/esp8266/Arduino.git esp8266</span><br></pre></td></tr></table></figure>
-<p>当clone完毕后，在esp8266文件夹下会有板级工具包的目录。进入tools，运行get.py的python文件</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd tools</span><br><span class="line">python get.py</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2022/04/14/FVAK9NDlw3Bga8G.png" /></p>
-<h2 id="直接使用封装好的esp8266-sdk进行环境配置">3. 直接使用封装好的ESP8266 SDK进行环境配置</h2>
-<p><strong>点击下方链接下载打包好的esp8266安装包，选择任一版本直接运行并解压即可。</strong></p>
-<p><a href="https://docs.espressif.com/projects/esp8266-rtos-sdk/en/latest/get-started/windows-setup.html">安装说明</a></p>
-<p>无论使用何种方法，只要可以在Arduino IDE中可以看到ESP8266的开发板，开发环境就算搭建好了。可以开始进行开发和学习过程了。</p>
-<h1 id="制作一支带逗比功能的笔">制作一支带逗比功能的笔</h1>
-<p><img src="https://s2.loli.net/2022/04/14/skItQylPxZMd1A4.png" /></p>
-<h2 id="材料准备">材料准备</h2>
-<ul>
-<li><p>9g舵机3个</p></li>
-<li><p>白板笔1支</p></li>
-<li><p>NodeMcu ESP8266开发板一块</p></li>
-<li><p>舵机拉杆 1.2MM Z字钢丝</p></li>
-<li><p>M3x3 平头螺丝若干</p></li>
-<li><p>M3 螺母若干</p></li>
-<li><p>M3x12 螺丝若干</p></li>
-<li><p>M3x6 对接螺丝若干</p></li>
-<li><p>亚克力激光切割零件一批</p></li>
-<li><p>3D打印笔架与笔帽</p>
-<p><img src="https://s2.loli.net/2022/04/14/soLHUcnrTdX6tJV.jpg" /></p></li>
-</ul>
-<h2 id="制作步骤">制作步骤</h2>
-<h3 id="组装">组装</h3>
-<ul>
-<li><p>左右舵机安装</p>
-<p>舵机与板件通过舵机自带的M2螺丝固定（红色框部分），板件中间位置的连接用M3螺丝加螺母固定（橙色框部分）</p>
-<p><img src="https://s2.loli.net/2022/04/14/6yFYisQTmX7cRzh.jpg" /></p></li>
-<li><p>四杆机械臂安装</p>
-<p>将机械臂所需的板件与舵机自带的连接杆粘合，并用M4x10的螺丝加螺母固定（推荐使用M3x6的对接螺丝）。</p>
-<p><img src="https://s2.loli.net/2022/04/14/iTMAkhdEWFwo1cY.jpg" /></p>
-<p><img src="https://s2.loli.net/2022/04/14/kt8eYSvEh4n7MjC.jpg" /></p>
-<p><img src="https://s2.loli.net/2022/04/14/LPAVYJ4NuykgXj8.jpg" /></p>
-<p>在舵机调式完毕后，用M2.5x10的螺丝将机械臂固定至舵机上。这里如果有较长的M2螺丝效果会更好一些，舵机自带的M2螺丝稍短了一点。</p></li>
-<li><p>上舵机安装</p></li>
-</ul>
-<p>​ 上龙门架用M3x12的螺丝加螺母连接，舵机与板件用自带的M2螺丝固定</p>
-<p>​ <img src="https://s2.loli.net/2022/04/14/9Gqe5czBoAVfwrd.jpg" style="zoom: 50%;" /></p>
-<h3 id="esp8266的调试">ESP8266的调试</h3>
-<p>将<code>arduinojson5</code>和<code>NTPclient</code>添加到<code>arduino libraries</code>中。</p>
-<p><img src="https://s2.loli.net/2022/04/14/Uqh5SKYiDC13XBz.png" /></p>
-<p>利用ESP8266自带示例ESP8266-blink及ESP8266WiFi-NTPClient进行测试，ESP8266模块工作正常</p>
-<p><img src="https://s2.loli.net/2022/04/14/kHKoFntirpLq1dy.png" /></p>
-<p>从无线路由器的用户列表中也可以看到ESP8266确实已经连接成功。</p>
-<p><img src="https://s2.loli.net/2022/04/14/b864MIBAxspHUGd.png" /></p>
-<h3 id="esp8266与舵机的联调">ESP8266与舵机的联调</h3>
-<p>通过坐标的变化来控制笔的行进与书写。</p>
-<p>坐标参数的定义如下：</p>
-<p><img src="https://s2.loli.net/2022/04/14/pd5rowaAsv19BDJ.jpg" /></p>
-<p>打开程序上传代码成功后，左右臂舵机会左右来回旋转，请注意舵机的旋转方向，并在最左或最右时迅速拔掉供电的USB。断电停机后再安装摆臂。摆臂的安装位置，如下图，最左是灰色，最右是白色，让摆臂尽量停留在0,90,180度位置上。安装好摆臂后，接电继续工作，看舵机是否是在灰色和白色两个位置上往复。差距小时，可以修改程序中下面的4个参数修正，差距太大，请拆掉摆臂重装。</p>
-<p><img src="https://s2.loli.net/2022/04/14/sUcuHKakiX4MRFf.png" /></p>
-<p><code>control.h</code>,原始代码中垂直方向共用<code>SERVOFAKTOR</code>来控制，在微调的时候发现效果不好，分别使用<code>SERVOFAKTORLEFT</code>和<code>SERVOFAKTORRIGHT</code>来控制。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">  <span class="comment">// When in calibration mode, adjust the following factor until the servos move exactly 90 degrees</span></span><br><span class="line"><span class="keyword">int</span> SERVOFAKTORLEFT = <span class="number">605</span>;</span><br><span class="line"><span class="keyword">int</span> SERVOFAKTORRIGHT = <span class="number">1090</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Zero-position of left and right servo</span></span><br><span class="line">  <span class="comment">// When in calibration mode, adjust the NULL-values so that the servo arms are at all times parallel</span></span><br><span class="line">  <span class="comment">// either to the X or Y axis</span></span><br><span class="line"><span class="keyword">int</span> SERVOLEFTNULL = <span class="number">2000</span>;</span><br><span class="line"><span class="keyword">int</span> SERVORIGHTNULL = <span class="number">800</span>;</span><br></pre></td></tr></table></figure>
-<p>相应地，在<code>control.cpp</code>中，修改</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">servo_left.writeMicroseconds(<span class="built_in">floor</span>(((a2 + a1 - M_PI) * SERVOFAKTOR) + SERVOLEFTNULL));</span><br><span class="line">servo_right.writeMicroseconds(<span class="built_in">floor</span>(((a1 - a2) * SERVOFAKTOR) + SERVORIGHTNULL)); </span><br></pre></td></tr></table></figure>
-<p>为</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">servo_left.writeMicroseconds(<span class="built_in">floor</span>(((a2 + a1 - M_PI) * SERVOFAKTORLEFT) + SERVOLEFTNULL));</span><br><span class="line">servo_right.writeMicroseconds(<span class="built_in">floor</span>(((a1 - a2) * SERVOFAKTORRIGHT) + SERVORIGHTNULL));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>调节抬臂舵机的写字，抬笔和抓笔擦位置，。将笔装上后再进行调试，否则因为笔的重量会导致偏差。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> LIFT0 = <span class="number">1750</span>;   <span class="comment">//落笔写字 on drawing surface</span></span><br><span class="line"><span class="keyword">int</span> LIFT1 = <span class="number">1650</span>;   <span class="comment">//写字时抬臂动作 between numbers</span></span><br><span class="line"><span class="keyword">int</span> LIFT2 = <span class="number">1470</span>;   <span class="comment">//高抬笔架  going towards sweeper</span></span><br></pre></td></tr></table></figure>
-<h3 id="工作原理">工作原理</h3>
-<p>xy坐标到舵机角度转换</p>
-<p><img src="https://s2.loli.net/2022/04/14/KMlaAFi2m3Ngzkn.png" /></p>
-<h2 id="演示">演示</h2>
-<p>制作完成！</p>
-<p><a href="https://www.bilibili.com/video/BV1r64y1a76r/">制作及演示视频</a></p>
-<h1 id="参考">参考</h1>
-<p>1/ <a href="https://zhuanlan.zhihu.com/p/67700105">如何制作一支带逗比功能的笔 - 知乎 (zhihu.com)</a></p>
-<p>2/ <a href="https://www.amobbs.com/thread-5687693-1-1.html">用stc15w4k32移植arduino小贱钟Plotclock (amobbs.com 阿莫电子论坛)</a></p>
-<p>3/ <a href="https://www.geek-workshop.com/thread-10024-1-1.html">Plotclock小贱钟的调试方法 - 机械坊 - 极客工坊 - Powered by Discuz! (geek-workshop.com)</a></p>
+<h2 id="更改标题配色">更改标题配色</h2>
+<p>找到<code>\themes\next\source\css\_common\outline\header\site-meta.styl</code>文件。编辑修改<code>.brand&#123;&#125;</code>里<code>color</code>参数配置</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.brand</span> &#123;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">//  color: var(--brand-color);</span><br><span class="line">  <span class="selector-tag">color</span>: <span class="selector-id">#fc6423</span> !<span class="selector-tag">important</span>;</span><br><span class="line">  <span class="selector-tag">display</span>: <span class="selector-tag">inline-block</span>;</span><br><span class="line">  line-height: $font-size-title;</span><br><span class="line">  <span class="selector-tag">padding</span>: 0 40<span class="selector-tag">px</span>;</span><br><span class="line">  <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line"></span><br><span class="line">  &amp;<span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">var</span>(--brand-hover-color);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="更改标题上下横线配色">更改标题上下横线配色</h2>
+<p>找到<code>\themes\next\source\css\_schemes\Mist\_header.styl</code>。编辑修改<code>i&#123;&#125;</code>里的<code>background</code>参数配置</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"> <span class="selector-tag">i</span> &#123;</span><br><span class="line">   //background: var(--brand-color);</span><br><span class="line"><span class="selector-tag">background</span>: <span class="selector-id">#fc6423</span> !<span class="selector-tag">important</span>;</span><br><span class="line">   <span class="selector-tag">display</span>: <span class="selector-tag">block</span>;</span><br><span class="line">   <span class="selector-tag">height</span>: 2<span class="selector-tag">px</span>;</span><br><span class="line">   <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>技术笔记</category>
-        <category>arduino</category>
+        <category>博客</category>
       </categories>
       <tags>
-        <tag>arduino</tag>
-        <tag>ESP8266</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -502,40 +430,1457 @@ a local folder of plain text Markdown files.</p>
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】Next主题更好地支持LaTeX数学公式</title>
-    <url>/2020/12/17/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%9B%B4%E5%A5%BD%E5%9C%B0%E6%94%AF%E6%8C%81LaTeX%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</url>
-    <content><![CDATA[<p>在Typora中可以正常显示的<span class="math inline">\(L^AT_EX\)</span>数学公式，在Hexo NexT主题下却渲染得不是太理想。我们去最新的<a href="https://theme-next.js.org/docs/third-party-services/math-equations.html">NexT官方文档</a>里看看如何解决吧！</p>
-<a id="more"></a>
-<h2 id="实施步骤">实施步骤</h2>
-<p>NexT主题现在提供两种数学公式的渲染方式 <a href="https://www.mathjax.org/">MathJax</a> 及 <a href="https://katex.org/">KaTeX</a>。其中<code>katex</code>的速度更快，但是对于<span class="math inline">\(L^AT_EX\)</span>的支持有一定的限制。所以除非你的博客数量实在是过于庞大，不然就可以直接使用<code>mathjax</code>。</p>
-<p>使用<code>mathjax</code>，可以选择多种渲染引擎，但推荐使用</p>
-<ul>
-<li><a href="https://github.com/wzpan/hexo-renderer-pandoc">hexo-renderer-pandoc</a></li>
-</ul>
-<p>使用其它诸如<a href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a>之类的引擎（这是Hexo默认首先用来渲染MarkDown的），然后再交给<code>mathjax</code>渲染。<code>hexo-renderer-marked</code>会把一些特殊的MarkDown符号转换为相应的html标签，比如在MarkDown语法中，下划线 _ 代表斜体，会被转化为&lt; em&gt;标签，\也会被转义成一个。而类<span class="math inline">\(L^AT_EX\)</span>格式书写的数学公式下划线 _ 表示角标，\表示公式换行，有特殊的含义，所以<code>mathjax</code>引擎在渲染数学公式的时候就会无法正常渲染。</p>
-<h3 id="安装pandoc">安装pandoc</h3>
-<p><a href="https://github.com/jgm/pandoc/blob/master/INSTALL.md">安装文档</a>及<a href="https://github.com/jgm/pandoc/releases/latest">下载链接</a>]，因为在安装<code>Anaconda</code>时已经含有pandoc。这里不再单独进行安装。</p>
-<h3 id="配置next">配置NexT</h3>
-<ol type="1">
-<li>首先，在NexT主题配置文件中将<code>mathjax</code>设为渲染引擎</li>
-</ol>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<ol start="2" type="1">
-<li>然后，卸载最初的<code>hexo-renderer-marked</code>引擎并安装<code>hexo-renderer-pandoc</code>。</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm un hexo-renderer-marked</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm i hexo-renderer-pandoc</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2022/04/14/LcFgNREOrmaQWsS.png" /></p>
-<ol start="3" type="1">
-<li>在更换完渲染引擎后，执行一下<code>hexo clean</code>，然后再进行部署或启动本地服务器来验证渲染是否工作正常。</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo clean &amp;&amp; hexo g -d</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> or hexo clean &amp;&amp; hexo s</span></span><br></pre></td></tr></table></figure>
+    <title>【Hexo】github开启令牌验证后无法更新Blog的问题</title>
+    <url>/2021/08/30/%E3%80%90Hexo%E3%80%91github%E5%BC%80%E5%90%AF%E4%BB%A4%E7%89%8C%E9%AA%8C%E8%AF%81%E5%90%8E%E6%97%A0%E6%B3%95%E6%9B%B4%E6%96%B0Blog%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>从2021年8月13日起， github不再支持帐号密码验证Git操作，改用token(令牌)或SSH密钥。</p>
+<p><img src="https://s2.loli.net/2022/04/14/L6YvJDdyVg5uxot.png" /></p>
+<p><strong>解决方案</strong></p>
+<p>1/ 首先登入Github 账户，<code>Setting - Developer settings - Personal access tokens - Generate new token</code>, Note 填写 Hexo 或 Blog 之类，勾选第一项 repo，然后 Generate token；为Hexo项目生成一个令牌。</p>
+<p>2/ 修改<code>_config.yml</code>,</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://[复制生成的token]@github.com/nokiasonic/nokiasonic.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>即可正常hexo d更新blog。</p>
 ]]></content>
       <categories>
         <category>技术笔记</category>
-        <category>博客</category>
+        <category>Hexo</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Markdown】Typora画流程图实践</title>
+    <url>/2021/01/08/%E3%80%90Markdown%E3%80%91Typora%E7%94%BB%E6%B5%81%E7%A8%8B%E5%9B%BE%E5%AE%9E%E8%B7%B5/</url>
+    <content><![CDATA[<p><code>Typrora</code>中使用了<code>Mermaid</code>来提供强劲的绘制流程图、时序图的功能。</p>
+<h2 id="关于mermaid">关于Mermaid</h2>
+<p>是一种简单的类似 Markdown 的脚本语言，通过 JavaScript 编程语言，将文本转换为图片。因此，真正实现画图功能的并不是 Typora 本身，它只是内置了对 Mermaid 的支持。</p>
+<p><img src="https://s2.loli.net/2022/04/14/FiZR16eYrtTWm3g.png" /></p>
+<h2 id="图形介绍">图形介绍</h2>
+<h3 id="流程图flowchart">流程图(flowchart)</h3>
+<p>主要语法说明：</p>
+<p>graph - 表明是流程图</p>
+<p>方向：</p>
+<ul>
+<li>TB - top to bottom</li>
+<li>TD - top-down/ same as top to bottom</li>
+<li>BT - bottom to top</li>
+<li>RL - right to left</li>
+<li>LR - left to right</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">graph TD;</span><br><span class="line">    A--&gt;B;</span><br><span class="line">    A--&gt;C;</span><br><span class="line">    B--&gt;D;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">graph TD;</span><br><span class="line">    A--&gt;B;</span><br><span class="line">    A--&gt;C;</span><br><span class="line">    B--&gt;D;</span><br></pre></td></tr></table></figure>
+<h3 id="时序图"><strong>时序图</strong></h3>
+<p>语法解释：<code>-&gt;&gt;</code> 代表实线箭头，<code>--&gt;&gt;</code> 则代表虚线。</p>
+<h1 id="参考">参考</h1>
+<p>[1] <a href="https://mermaid-js.github.io/mermaid/#/">Mermaid:https://mermaid-js.github.io/mermaid/#/</a></p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>markdown</category>
+      </categories>
+      <tags>
+        <tag>typora</tag>
+        <tag>mermaid</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Obsidian学习（二）</title>
+    <url>/2021/10/09/Obsidian%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="安装">安装</h1>
+<p>通过<a href="%5BObsidian%5D(https://obsidian.md/)">官网</a>下载并安装程序。 安装完后，可以在<code>Settings</code> -&gt; <code>About</code> -&gt; <code>Language</code>中选择界面语言，我还是使用英文界面，方便对接英文论坛内容。</p>
+<a id="more"></a>
+<h1 id="第一条笔记">第一条笔记</h1>
+<h2 id="创建新笔记库">创建新笔记库</h2>
+<p>打开<code>obsidian</code>, 可以选择从已有目录创建笔记库，也可以直接创建新笔记库，这里的库是基于目录来进行识别的。</p>
+<p><img src="https://s2.loli.net/2022/04/14/XuLUyqm5jNVHEJ2.png" /></p>
+<h2 id="创建知识管理库结构">创建知识管理库结构</h2>
+<p>根据自己的实践需要来建立知识管理库结构，示例：[[我的笔记系统结构]]</p>
+<p><img src="https://s2.loli.net/2022/11/16/Ctgh49XyrTA5evU.png" /></p>
+<p>这时，在整个库里只有这些目录，在其下是空空如也的。</p>
+<h2 id="写第一条笔记">写第一条笔记</h2>
+<p>比如撰写<code>中国图书馆分类法</code>条目来作为自己的第一条笔记。</p>
+<p><img src="https://s2.loli.net/2022/11/16/PazNvy5nji1GCWZ.png" /></p>
+<p>有两种方式来新建一条笔记：</p>
+<ol type="1">
+<li>点击界面上的<code>Create new file</code>或者使用快捷键<code>Ctrl + N</code>;</li>
+<li>点击左侧导航栏处的<code>New note</code>图标。</li>
+</ol>
+<p>我们在目录<code>01. 闪念笔记</code>下来新建一个名为<code>中国图书馆分类法.md</code>的文件。使用<code>markdown</code>的语法写作内容。</p>
+<p><img src="https://s2.loli.net/2022/11/16/4SfdovVqRcatAI2.png" /></p>
+<p>屏幕右上角红框处，按住<code>Ctrl</code>键并点击，可以生成一个新的分栏来进行预览。如果只是点击，则是在编辑和预览状态间切换。</p>
+<p><img src="https://s2.loli.net/2022/04/14/LNdmnoOMlEhK1vJ.png" /></p>
+<p>从<code>ZettleKasten</code>笔记记录的角度来说，需要为每一篇笔记编一个能唯一识别的号码，我们可以在<code>Metadata(元数据)</code>中来增加<code>uid</code>项来实现，同时为了方便归类，也增加<code>cid（classification number）</code>,这可以根据汉语主题词表来进行定义。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 中国图书馆分类法</span><br><span class="line">date: 2021-10-09 22:38:24</span><br><span class="line">uid: 20211009223824</span><br><span class="line">cid: G254.122.001</span><br><span class="line">categories: [知识管理]</span><br><span class="line">tags: [图书馆分类法&#x2F;中图法]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>可以以此为依据，在<code>obsidian</code>中建立模板，方便撰写新笔记时直接插入。 1. 在<code>Core plugins</code>里启用<code>Templates</code>插件 2. 需要在 <code>Settings</code> -&gt; <code>Templates</code> -&gt; <code>Template folder location</code> 中指定模板文件夹的路径。 3. 在左边导航栏中点击<code>Insert template</code>或者为这功能设置一个快捷键，这里我设为<code>Ctrl + Q</code>。在写新笔记时就可以插入相应的模板内容。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123;title&#125;&#125;</span><br><span class="line">date: &#123;&#123;date:YYYY-MM-DD HH:mm:ss&#125;&#125;</span><br><span class="line">uid: &#123;&#123;date:YYYYMMDDHHmmss&#125;&#125;</span><br><span class="line">cid: xxxx.xxxx.xxx</span><br><span class="line">categories: [xxxx]</span><br><span class="line">tags: [xxxx&#x2F;xxx]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>至此，第一个笔记已经顺利完成，可以移入分类目录中使用。</p>
+<h1 id="学习小结">学习小结</h1>
+<ol type="1">
+<li>熟悉<code>obsidian</code>的基本界面操作。</li>
+<li>模板的配置及使用。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>专栏</category>
+      </categories>
+      <tags>
+        <tag>Obsidian/学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Obsidian学习（一）</title>
+    <url>/2021/09/27/Obsidian%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="背景">背景</h1>
+<p>最近对[[【知识管理】Zettelkasten笔记法|Zettelkasten笔记法]]进行学习，也在学习过程中了解到了<code>Obsidian</code>, 它可以帮助人们高效地建立适合自己的知识管理体系。所以在梳理整合自己知识体系的同时，也同步进行了<code>Obsidian</code>的学习。</p>
+<a id="more"></a>
+<h1 id="obsidian是什么">Obsidian是什么？</h1>
+<p><code>Obsidian</code>是什么？正如其<a href="https://obsidian.md/">Obsidian官网</a>宣称的</p>
+<blockquote>
+<p>Obsidian is a powerful knowledge base that works on top of<br />
+a local folder of plain text Markdown files.</p>
+</blockquote>
+<p>从字里行间我们可以了解到，它是基于<strong>Markdown文件</strong>的<strong>本地</strong>知识管理软件，它的特点可以归纳为: - 本地化 - 基于<code>markdown</code> - 知识管理 第三个特点就决定了它与<code>Typora</code>等markdown编辑器有了本质的区别，它是如何体现出它强大的知识管理能力来呢？</p>
+<h1 id="为什么要选择obsidian">为什么要选择Obsidian?</h1>
+<h2 id="个人用户免费">个人用户免费</h2>
+<p>目前类似的<code>Roam Research</code>等软件收费颇高，像<code>Obsidian</code>如此良心的软件并不多见。<br />
+<img src="https://s2.loli.net/2022/04/14/1xH7cp8lkfL2eq4.png" /></p>
+<h2 id="数据本地化">数据本地化</h2>
+<p><code>Obsidian</code>很好地保护了自己笔记内容的隐私，而其它笔记软件多由于采用数据库方式来管理笔记，一般使用上传内容至服务提供商的方式来实现，而<code>Obsidian</code>使用所谓的<code>库</code>,实际上就是基于文件夹的方式，建立不同的库，可以使用各自的主题，插件，非常方便。使用本地化结构的知识管理系统，最大的优点在于不依赖于工具软件本身，就算有朝一日，决定不用<code>Obsidian</code>,也可以很容易地将自己的知识管理体系进行迁移。</p>
+<h2 id="与其它软件的联动较强">与其它软件的联动较强</h2>
+<p>可以与<code>Zotero</code>联动实现文献管理互动，可以与<code>logseq</code>联动实现日程管理等等，总而言之，通过有效地使用工具，高效地提升自己的知识管理能力及执行能力。</p>
+<h2 id="良好生态的社区环境与丰富的插件">良好生态的社区环境与丰富的插件</h2>
+<p><code>Obsidian</code>的社区生态良好，开发了许多实用的第三方插件。</p>
+<p><a href="https://forum.obsidian.md/">Obsidian英文社区</a> <a href="https://forum-zh.obsidian.md/">Obsidian中文社区</a> 在软件设置里的<code>社区插件</code>中关闭<code>安全模式</code>后，可以安装自己需要的插件。</p>
+<h2 id="优秀的移动端体验">优秀的移动端体验</h2>
+<p>在<code>android</code>和<code>ios</code>下都有APP可以安装使用。</p>
+<h1 id="obsidian能做什么">Obsidian能做什么？</h1>
+<h2 id="撰写技术文章">撰写技术文章</h2>
+<p>对于一直习惯用markdown方式来写技术文章的人，<code>Obsidian</code>也提供了不亚于<code>Typora</code>的写作体验。</p>
+<h2 id="计划">计划</h2>
+<p>例如日清单，工作计划等都可以使用或通过<code>Obsidian</code>及其插件进行。</p>
+<h2 id="读书笔记">读书笔记</h2>
+<p>以前一直是用<code>Notion</code>来作读书笔记，但相对于把思绪集中在写作内容上，<code>Notion</code>会花费相对多的时间来进行版面的设计。而使用markdown方式的便利性在使用<code>Obsidian</code>的过程中就得到了体现。</p>
+<h2 id="双向链接与知识图谱">双向链接与知识图谱</h2>
+<p>这也是目前流行的笔记推崇的概念，目的是把头脑里杂乱无章的知识网状化，系统化。</p>
+<h1 id="写在最后">写在最后</h1>
+<p>无论工具多么先进，最终还是要看执行的人是否真正把关注点放在工具要解决的事务上，而非纠缠、沉溺于工具本身。 希望通过<code>Obsidian</code>学习的同时，也为自己初步建立一个适合自己的知识管理体系。</p>
+]]></content>
+      <categories>
+        <category>专栏</category>
+      </categories>
+      <tags>
+        <tag>Obsidian/学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Polars】基于Rust内核的Jupyter Notebook中的Polars数据表格呈现</title>
+    <url>/2024/05/20/%E3%80%90Polars%E3%80%91%E5%9F%BA%E4%BA%8ERust%E5%86%85%E6%A0%B8%E7%9A%84Jupyter%20Notebook%E4%B8%AD%E7%9A%84Polars%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC%E5%91%88%E7%8E%B0/</url>
+    <content><![CDATA[<p>为了在<code>Jupyter Notebook</code>中使用<code>Rust</code>和<code>Polars</code>库以类似于<code>Pandas</code>的方式输出<code>HTML</code>表格，我们可以使用 <code>evcxr_jupyter</code> 内核和<code>HTML</code>格式化。虽然<code>Rust</code>没有直接提供像<code>Pandas</code>那样的内置<code>HTML</code>表格输出，但我们可以通过手动构建<code>HTML</code>表格并在<code>Jupyter Notebook</code>中显示来实现这一点。</p>
+<p>以下是一个详细的指南和示例代码：</p>
+<h3 id="安装和设置">安装和设置</h3>
+<ol type="1">
+<li><p><strong>安装 Rust 和 <code>evcxr_jupyter</code> 内核</strong> 首先，确保你已经安装了<code>Rust</code>，然后安装 <code>evcxr_jupyter</code>。 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cargo install evcxr_jupyter</span><br><span class="line">evcxr_jupyter --install</span><br></pre></td></tr></table></figure></p></li>
+<li><p><strong>启动 Jupyter Notebook</strong> 启动<code>Jupyter Notebook</code>并新建一个<code>Rust</code>内核的笔记。</p></li>
+</ol>
+<h3 id="编写代码">编写代码</h3>
+<p>以下是一个使用<code>Polars</code>库创建<code>DataFrame</code>并生成<code>HTML</code>表格的示例代码： <figure class="highlight rust"><table><tr><td class="code"><pre><span class="line">:dep polars = &#123;version = <span class="string">&quot;0.39.1&quot;</span>&#125;</span><br><span class="line">:dep serde_json = <span class="string">&quot;1.0&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> polars::prelude::*;</span><br><span class="line"><span class="keyword">use</span> polars::df;</span><br><span class="line"><span class="keyword">use</span> polars::frame::DataFrame;</span><br><span class="line"><span class="keyword">use</span> serde_json::json;</span><br><span class="line"><span class="keyword">use</span> std::fmt::Write;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">create_dataframe</span></span>() -&gt; DataFrame &#123;</span><br><span class="line">    <span class="keyword">let</span> s0 = Series::new(<span class="string">&quot;days&quot;</span>, &amp;[<span class="string">&quot;mon&quot;</span>, <span class="string">&quot;tue&quot;</span>, <span class="string">&quot;wed&quot;</span>, <span class="string">&quot;thu&quot;</span>, <span class="string">&quot;fri&quot;</span>]);</span><br><span class="line">    <span class="keyword">let</span> s1 = Series::new(<span class="string">&quot;temp&quot;</span>, &amp;[<span class="number">23</span>, <span class="number">34</span>, <span class="number">15</span>, <span class="number">30</span>, <span class="number">10</span>]);</span><br><span class="line">    DataFrame::new(<span class="built_in">vec!</span>[s0, s1]).expect(<span class="string">&quot;DataFrame creation failed&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">dataframe_to_html</span></span>(df: &amp;DataFrame) &#123;</span><br><span class="line">    <span class="keyword">let</span> columns = df.get_columns();</span><br><span class="line">    <span class="keyword">let</span> headers: <span class="built_in">Vec</span>&lt;&amp;<span class="built_in">str</span>&gt; = columns.iter().map(|s| s.name()).collect();</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> html = <span class="built_in">String</span>::new();</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">write!</span>(</span><br><span class="line">        html,</span><br><span class="line">        <span class="string">&quot;&lt;table border=\&quot;1\&quot;&gt;&lt;tr&gt;&#123;&#125;&lt;/tr&gt;&quot;</span>,</span><br><span class="line">        headers</span><br><span class="line">            .iter()</span><br><span class="line">            .map(|h| <span class="built_in">format!</span>(<span class="string">&quot;&lt;th&gt;&#123;&#125;&lt;/th&gt;&quot;</span>, h))</span><br><span class="line">            .collect::&lt;<span class="built_in">Vec</span>&lt;<span class="built_in">String</span>&gt;&gt;()</span><br><span class="line">            .join(<span class="string">&quot;&quot;</span>)</span><br><span class="line">    )</span><br><span class="line">    .unwrap();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..df.height() &#123;</span><br><span class="line">        <span class="built_in">write!</span>(html, <span class="string">&quot;&lt;tr&gt;&quot;</span>).unwrap();</span><br><span class="line">        <span class="keyword">for</span> col <span class="keyword">in</span> columns.iter() &#123;</span><br><span class="line">            <span class="built_in">write!</span>(html, <span class="string">&quot;&lt;td&gt;&#123;&#125;&lt;/td&gt;&quot;</span>, col.get(i).unwrap()).unwrap();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">write!</span>(html, <span class="string">&quot;&lt;/tr&gt;&quot;</span>).unwrap();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">write!</span>(html, <span class="string">&quot;&lt;/table&gt;&quot;</span>).unwrap();</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;EVCXR_BEGIN_CONTENT text/html\n&#123;&#125;\nEVCXR_END_CONTENT&quot;</span>, html);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> df = create_dataframe();</span><br><span class="line"><span class="keyword">let</span> html_table = dataframe_to_html(&amp;df);</span><br><span class="line">html_table</span><br></pre></td></tr></table></figure></p>
+<h3 id="解释代码">解释代码</h3>
+<ol type="1">
+<li><p><strong>加载依赖项</strong> 在 <code>Jupyter Notebook</code>中，我们使用 <code>:dep</code> 命令来添加所需的依赖项：<code>polars</code> 和 <code>serde_json</code>。</p></li>
+<li><p><strong>创建 DataFrame</strong> 函数 <code>create_dataframe</code> 创建了一个简单的<code>DataFrame</code>，包含两个列：<code>days</code> 和 <code>temp</code>。</p></li>
+<li><p><strong>生成 HTML 表格</strong> 函数 <code>dataframe_to_html</code> 将<code>DataFrame</code>转换为<code>HTML</code>表格格式：</p>
+<ul>
+<li>获取<code>DataFrame</code>的列并生成表头。</li>
+<li>遍历每一行，生成表格的每一行数据。</li>
+<li>使用 <code>write!</code> 宏构建<code>HTML</code>字符串。</li>
+</ul></li>
+<li><p><strong>输出 HTML 表格</strong> 最后，在<code>println!</code>函数中需要标明每个块以包含<code>EVCXR BEGIN CONTENT</code>的一行开始，然后是<code>mime</code>类型，然后是换行符，然后内容以包含<code>EVCXR END CONTENT</code>的一行结束。生成的<code>HTML</code>表格字符串被输出。<code>Jupyter Notebook</code>会自动渲染<code>HTML</code>字符串，从而显示漂亮的表格。</p></li>
+</ol>
+<h3 id="结果呈现">结果呈现</h3>
+<p><img src="https://s2.loli.net/2024/05/20/ZmYgJAPvLT4Hhp2.png" /></p>
+]]></content>
+      <categories>
+        <category>程序语言</category>
+      </categories>
+      <tags>
+        <tag>计算机技术/程序语言</tag>
+        <tag>Rust，Polars</tag>
+        <tag>Jupyter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Python】Pandas与numpy的方差计算</title>
+    <url>/2021/07/16/%E3%80%90Python%E3%80%91Pandas%E4%B8%8Enumpy%E7%9A%84%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97/</url>
+    <content><![CDATA[<h1 id="目的">目的</h1>
+<p>方差在统计描述和概率分布中各有不同的定义，并有不同的公式。<br />
+在统计描述中，方差用来计算每一个变量（观察值）与总体均数之间的差异。为避免出现离均差总和为零，离均差平方和受样本含量的影响，统计学采用平均离均差平方和来描述变量的变异程度。<br />
+<code>总体方差计算公式</code>： <span class="math inline">\({\sigma}^2=\frac{\sum_{i=1}^{N}(X_i-\bar{\mu})}{N}\)</span><br />
+其中<span class="math inline">\({\sigma}^2\)</span>为总体方差，<span class="math inline">\(X_i\)</span>为变量，<span class="math inline">\(\bar{\mu}\)</span>为总体均值，<span class="math inline">\(N\)</span>为总体例数。</p>
+<p>实际工作中，总体均数难以得到时，应用样本统计量代替总体参数，经校正后，<br />
+<code>样本方差计算公式</code>： <span class="math inline">\({S}^2=\frac{\sum_{i=1}^{N}(X_i-\bar{X})}{n-1}\)</span><br />
+其中<span class="math inline">\({S}^2\)</span>为样本方差，<span class="math inline">\(X_i\)</span>为变量，<span class="math inline">\(\bar{X}\)</span>为样本均值，<span class="math inline">\(n\)</span>为样本例数。</p>
+<a id="more"></a>
+<h1 id="方差的计算">方差的计算</h1>
+<h2 id="数据准备">数据准备</h2>
+<p>取一定周期的沪深300指数(000300.SH)的每日行情数据，如：2019年全年。为了计算每日涨跌幅，故多取了2018年最后一个交易日的数据。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> QUANTAXIS <span class="keyword">as</span> QA</span><br><span class="line"><span class="keyword">from</span> IPython.core.interactiveshell <span class="keyword">import</span> InteractiveShell</span><br><span class="line">InteractiveShell.ast_node_interactivity = <span class="string">&quot;all&quot;</span> </span><br><span class="line"></span><br><span class="line">index = QA.QA_fetch_index_day_adv(<span class="string">&#x27;000300&#x27;</span>,<span class="string">&#x27;2018-12-28&#x27;</span>,<span class="string">&#x27;2019-12-31&#x27;</span>)</span><br><span class="line">display(index.data)</span><br><span class="line"><span class="comment"># 计算每日涨跌幅</span></span><br><span class="line">returns_index = index.data.close.pct_change()</span><br><span class="line">display(returns_index)</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+open
+</th>
+<th>
+close
+</th>
+<th>
+high
+</th>
+<th>
+low
+</th>
+<th>
+vol
+</th>
+<th>
+amount
+</th>
+<th>
+up_count
+</th>
+<th>
+down_count
+</th>
+<th>
+date_stamp
+</th>
+<th>
+volume
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+2018-12-28
+</th>
+<th>
+000300
+</th>
+<td>
+2994.80
+</td>
+<td>
+3010.65
+</td>
+<td>
+3024.35
+</td>
+<td>
+2984.82
+</td>
+<td>
+710537.0
+</td>
+<td>
+7.814531e+10
+</td>
+<td>
+200
+</td>
+<td>
+81
+</td>
+<td>
+1.545926e+09
+</td>
+<td>
+710537.0
+</td>
+</tr>
+<tr>
+<th>
+2019-01-02
+</th>
+<th>
+000300
+</th>
+<td>
+3017.07
+</td>
+<td>
+2969.54
+</td>
+<td>
+3018.78
+</td>
+<td>
+2958.49
+</td>
+<td>
+686630.0
+</td>
+<td>
+7.610557e+10
+</td>
+<td>
+70
+</td>
+<td>
+216
+</td>
+<td>
+1.546358e+09
+</td>
+<td>
+686630.0
+</td>
+</tr>
+<tr>
+<th>
+2019-01-03
+</th>
+<th>
+000300
+</th>
+<td>
+2963.02
+</td>
+<td>
+2964.84
+</td>
+<td>
+3000.44
+</td>
+<td>
+2953.26
+</td>
+<td>
+708671.0
+</td>
+<td>
+7.666480e+10
+</td>
+<td>
+145
+</td>
+<td>
+142
+</td>
+<td>
+1.546445e+09
+</td>
+<td>
+708671.0
+</td>
+</tr>
+<tr>
+<th>
+2019-01-04
+</th>
+<th>
+000300
+</th>
+<td>
+2940.19
+</td>
+<td>
+3035.87
+</td>
+<td>
+3036.81
+</td>
+<td>
+2935.83
+</td>
+<td>
+1033189.0
+</td>
+<td>
+1.071410e+11
+</td>
+<td>
+286
+</td>
+<td>
+12
+</td>
+<td>
+1.546531e+09
+</td>
+<td>
+1033189.0
+</td>
+</tr>
+<tr>
+<th>
+2019-01-07
+</th>
+<th>
+000300
+</th>
+<td>
+3055.15
+</td>
+<td>
+3054.30
+</td>
+<td>
+3061.75
+</td>
+<td>
+3035.91
+</td>
+<td>
+1011643.0
+</td>
+<td>
+1.057039e+11
+</td>
+<td>
+217
+</td>
+<td>
+73
+</td>
+<td>
+1.546790e+09
+</td>
+<td>
+1011643.0
+</td>
+</tr>
+<tr>
+<th>
+...
+</th>
+<th>
+...
+</th>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+</tr>
+<tr>
+<th>
+2019-12-25
+</th>
+<th>
+000300
+</th>
+<td>
+3988.66
+</td>
+<td>
+3990.87
+</td>
+<td>
+4000.56
+</td>
+<td>
+3976.36
+</td>
+<td>
+949388.0
+</td>
+<td>
+1.318965e+11
+</td>
+<td>
+117
+</td>
+<td>
+168
+</td>
+<td>
+1.577203e+09
+</td>
+<td>
+949388.0
+</td>
+</tr>
+<tr>
+<th>
+2019-12-26
+</th>
+<th>
+000300
+</th>
+<td>
+3993.67
+</td>
+<td>
+4025.99
+</td>
+<td>
+4025.99
+</td>
+<td>
+3993.54
+</td>
+<td>
+1088606.0
+</td>
+<td>
+1.408150e+11
+</td>
+<td>
+236
+</td>
+<td>
+53
+</td>
+<td>
+1.577290e+09
+</td>
+<td>
+1088606.0
+</td>
+</tr>
+<tr>
+<th>
+2019-12-27
+</th>
+<th>
+000300
+</th>
+<td>
+4029.25
+</td>
+<td>
+4022.03
+</td>
+<td>
+4066.80
+</td>
+<td>
+4019.72
+</td>
+<td>
+1509264.0
+</td>
+<td>
+1.950904e+11
+</td>
+<td>
+116
+</td>
+<td>
+173
+</td>
+<td>
+1.577376e+09
+</td>
+<td>
+1509264.0
+</td>
+</tr>
+<tr>
+<th>
+2019-12-30
+</th>
+<th>
+000300
+</th>
+<td>
+4015.52
+</td>
+<td>
+4081.63
+</td>
+<td>
+4083.69
+</td>
+<td>
+4001.50
+</td>
+<td>
+1559714.0
+</td>
+<td>
+2.168147e+11
+</td>
+<td>
+241
+</td>
+<td>
+53
+</td>
+<td>
+1.577635e+09
+</td>
+<td>
+1559714.0
+</td>
+</tr>
+<tr>
+<th>
+2019-12-31
+</th>
+<th>
+000300
+</th>
+<td>
+4077.75
+</td>
+<td>
+4096.58
+</td>
+<td>
+4098.14
+</td>
+<td>
+4069.01
+</td>
+<td>
+1232642.0
+</td>
+<td>
+1.731193e+11
+</td>
+<td>
+189
+</td>
+<td>
+95
+</td>
+<td>
+1.577722e+09
+</td>
+<td>
+1232642.0
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+245 rows × 10 columns
+</p>
+</div>
+<pre><code>date        code  
+2018-12-28  000300         NaN
+2019-01-02  000300   -0.013655
+2019-01-03  000300   -0.001583
+2019-01-04  000300    0.023957
+2019-01-07  000300    0.006071
+                        ...   
+2019-12-25  000300   -0.000523
+2019-12-26  000300    0.008800
+2019-12-27  000300   -0.000984
+2019-12-30  000300    0.014818
+2019-12-31  000300    0.003663
+Name: close, Length: 245, dtype: float64</code></pre>
+<h2 id="使用numpy计算">使用numpy计算</h2>
+<p>numpy 中计算的方差就是总体方差。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">np.var(returns_index)</span><br></pre></td></tr></table></figure>
+<pre><code>0.00015577588074696037</code></pre>
+<h2 id="使用pandas计算">使用pandas计算</h2>
+<p>pandas 中计算的方差为样本方差。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">returns_index.var()</span><br></pre></td></tr></table></figure>
+<pre><code>0.0001564169337541495</code></pre>
+<h1 id="小结">小结</h1>
+<p>在计算方差时，使用numpy和pandas会得到不一样的计算结果，需要根据实际需要样本方差还是总体方差来决定使用何种方式。</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>量化投资</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>线性代数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Polars】基于Rust内核的Jupyter Notebook中的表格呈现</title>
+    <url>/2024/05/20/%E3%80%90Polars%E3%80%91%E5%9F%BA%E4%BA%8ERust%E5%86%85%E6%A0%B8%E7%9A%84Jupyter%20Notebook%E4%B8%AD%E7%9A%84%E8%A1%A8%E6%A0%BC%E5%91%88%E7%8E%B0/</url>
+    <content><![CDATA[<p>为了在<code>Jupyter Notebook</code>中使用<code>Rust</code>和<code>Polars</code>库以类似于<code>Pandas</code>的方式输出<code>HTML</code>表格，我们可以使用 <code>evcxr_jupyter</code> 内核和<code>HTML</code>格式化。虽然<code>Rust</code>没有直接提供像<code>Pandas</code>那样的内置<code>HTML</code>表格输出，但我们可以通过手动构建<code>HTML</code>表格并在<code>Jupyter Notebook</code>中显示来实现这一点。</p>
+<p>以下是一个详细的指南和示例代码：</p>
+<h3 id="安装和设置">安装和设置</h3>
+<ol type="1">
+<li><p><strong>安装 Rust 和 <code>evcxr_jupyter</code> 内核</strong> 首先，确保你已经安装了<code>Rust</code>，然后安装 <code>evcxr_jupyter</code>。 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cargo install evcxr_jupyter</span><br><span class="line">evcxr_jupyter --install</span><br></pre></td></tr></table></figure></p></li>
+<li><p><strong>启动 Jupyter Notebook</strong> 启动<code>Jupyter Notebook</code>并新建一个<code>Rust</code>内核的笔记。</p></li>
+</ol>
+<h3 id="编写代码">编写代码</h3>
+<p>以下是一个使用<code>Polars</code>库创建<code>DataFrame</code>并生成<code>HTML</code>表格的示例代码： <figure class="highlight rust"><table><tr><td class="code"><pre><span class="line">:dep polars = &#123;version = <span class="string">&quot;0.39.1&quot;</span>&#125;</span><br><span class="line">:dep serde_json = <span class="string">&quot;1.0&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> polars::prelude::*;</span><br><span class="line"><span class="keyword">use</span> polars::df;</span><br><span class="line"><span class="keyword">use</span> polars::frame::DataFrame;</span><br><span class="line"><span class="keyword">use</span> serde_json::json;</span><br><span class="line"><span class="keyword">use</span> std::fmt::Write;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">create_dataframe</span></span>() -&gt; DataFrame &#123;</span><br><span class="line">    <span class="keyword">let</span> s0 = Series::new(<span class="string">&quot;days&quot;</span>, &amp;[<span class="string">&quot;mon&quot;</span>, <span class="string">&quot;tue&quot;</span>, <span class="string">&quot;wed&quot;</span>, <span class="string">&quot;thu&quot;</span>, <span class="string">&quot;fri&quot;</span>]);</span><br><span class="line">    <span class="keyword">let</span> s1 = Series::new(<span class="string">&quot;temp&quot;</span>, &amp;[<span class="number">23</span>, <span class="number">34</span>, <span class="number">15</span>, <span class="number">30</span>, <span class="number">10</span>]);</span><br><span class="line">    DataFrame::new(<span class="built_in">vec!</span>[s0, s1]).expect(<span class="string">&quot;DataFrame creation failed&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">dataframe_to_html</span></span>(df: &amp;DataFrame) &#123;</span><br><span class="line">    <span class="keyword">let</span> columns = df.get_columns();</span><br><span class="line">    <span class="keyword">let</span> headers: <span class="built_in">Vec</span>&lt;&amp;<span class="built_in">str</span>&gt; = columns.iter().map(|s| s.name()).collect();</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> html = <span class="built_in">String</span>::new();</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">write!</span>(</span><br><span class="line">        html,</span><br><span class="line">        <span class="string">&quot;&lt;table border=\&quot;1\&quot;&gt;&lt;tr&gt;&#123;&#125;&lt;/tr&gt;&quot;</span>,</span><br><span class="line">        headers</span><br><span class="line">            .iter()</span><br><span class="line">            .map(|h| <span class="built_in">format!</span>(<span class="string">&quot;&lt;th&gt;&#123;&#125;&lt;/th&gt;&quot;</span>, h))</span><br><span class="line">            .collect::&lt;<span class="built_in">Vec</span>&lt;<span class="built_in">String</span>&gt;&gt;()</span><br><span class="line">            .join(<span class="string">&quot;&quot;</span>)</span><br><span class="line">    )</span><br><span class="line">    .unwrap();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..df.height() &#123;</span><br><span class="line">        <span class="built_in">write!</span>(html, <span class="string">&quot;&lt;tr&gt;&quot;</span>).unwrap();</span><br><span class="line">        <span class="keyword">for</span> col <span class="keyword">in</span> columns.iter() &#123;</span><br><span class="line">            <span class="built_in">write!</span>(html, <span class="string">&quot;&lt;td&gt;&#123;&#125;&lt;/td&gt;&quot;</span>, col.get(i).unwrap()).unwrap();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">write!</span>(html, <span class="string">&quot;&lt;/tr&gt;&quot;</span>).unwrap();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">write!</span>(html, <span class="string">&quot;&lt;/table&gt;&quot;</span>).unwrap();</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;EVCXR_BEGIN_CONTENT text/html\n&#123;&#125;\nEVCXR_END_CONTENT&quot;</span>, html);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> df = create_dataframe();</span><br><span class="line"><span class="keyword">let</span> html_table = dataframe_to_html(&amp;df);</span><br><span class="line">html_table</span><br></pre></td></tr></table></figure></p>
+<h3 id="解释代码">解释代码</h3>
+<ol type="1">
+<li><p><strong>加载依赖项</strong> 在 <code>Jupyter Notebook</code>中，我们使用 <code>:dep</code> 命令来添加所需的依赖项：<code>polars</code> 和 <code>serde_json</code>。</p></li>
+<li><p><strong>创建 DataFrame</strong> 函数 <code>create_dataframe</code> 创建了一个简单的<code>DataFrame</code>，包含两个列：<code>days</code> 和 <code>temp</code>。</p></li>
+<li><p><strong>生成 HTML 表格</strong> 函数 <code>dataframe_to_html</code> 将<code>DataFrame</code>转换为<code>HTML</code>表格格式：</p>
+<ul>
+<li>获取<code>DataFrame</code>的列并生成表头。</li>
+<li>遍历每一行，生成表格的每一行数据。</li>
+<li>使用 <code>write!</code> 宏构建<code>HTML</code>字符串。</li>
+</ul></li>
+<li><p><strong>输出 HTML 表格</strong> 最后，在<code>println!</code>函数中需要标明每个块以包含<code>EVCXR BEGIN CONTENT</code>的一行开始，然后是<code>mime</code>类型，然后是换行符，然后内容以包含<code>EVCXR END CONTENT</code>的一行结束。生成的<code>HTML</code>表格字符串被输出。<code>Jupyter Notebook</code>会自动渲染<code>HTML</code>字符串，从而显示漂亮的表格。</p></li>
+</ol>
+<h3 id="结果呈现">结果呈现</h3>
+<p><img src="https://s2.loli.net/2024/05/20/ZmYgJAPvLT4Hhp2.png" /></p>
+]]></content>
+      <categories>
+        <category>程序语言</category>
+      </categories>
+      <tags>
+        <tag>计算机技术/程序语言</tag>
+        <tag>Rust，Polars</tag>
+        <tag>Jupyter Notebook</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Python】pandas dataframe输出格式对齐美化的思路</title>
+    <url>/2021/05/14/%E3%80%90Python%E3%80%91pandas%20dataframe%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F%E5%AF%B9%E9%BD%90%E7%BE%8E%E5%8C%96%E7%9A%84%E6%80%9D%E8%B7%AF/</url>
+    <content><![CDATA[<h1 id="需求">需求</h1>
+<p>在jupyter中可以直接使用用dataframe的名字输出美观的表格形式，例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> QUANTAXIS <span class="keyword">as</span> QA</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">通过本地数据库获取股票日线数据：</span></span><br><span class="line"><span class="string">QA.QA_fetch_stock_day_adv(</span></span><br><span class="line"><span class="string">    code,</span></span><br><span class="line"><span class="string">    start=&#x27;all&#x27;,</span></span><br><span class="line"><span class="string">    end=None,</span></span><br><span class="line"><span class="string">    if_drop_index=True,</span></span><br><span class="line"><span class="string">    collections=Collection(Database(MongoClient(host=[&#x27;localhost:27017&#x27;], document_class=dict, tz_aware=False, connect=True), &#x27;quantaxis&#x27;), &#x27;stock_day&#x27;),</span></span><br><span class="line"><span class="string">)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">data=QA.QA_fetch_stock_day_adv([<span class="string">&quot;002003&quot;</span>,<span class="string">&#x27;300999&#x27;</span>,<span class="string">&#x27;603899&#x27;</span>],<span class="string">&#x27;2021-05-12&#x27;</span>,<span class="string">&#x27;2021-05-13&#x27;</span>)</span><br><span class="line">df = data.data</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+open
+</th>
+<th>
+high
+</th>
+<th>
+low
+</th>
+<th>
+close
+</th>
+<th>
+volume
+</th>
+<th>
+amount
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="3" valign="top">
+2021-05-12
+</th>
+<th>
+002003
+</th>
+<td>
+7.32
+</td>
+<td>
+7.51
+</td>
+<td>
+7.28
+</td>
+<td>
+7.48
+</td>
+<td>
+80536.0
+</td>
+<td>
+5.980900e+07
+</td>
+</tr>
+<tr>
+<th>
+300999
+</th>
+<td>
+76.12
+</td>
+<td>
+76.75
+</td>
+<td>
+75.11
+</td>
+<td>
+76.20
+</td>
+<td>
+146625.0
+</td>
+<td>
+1.114936e+09
+</td>
+</tr>
+<tr>
+<th>
+603899
+</th>
+<td>
+86.80
+</td>
+<td>
+87.85
+</td>
+<td>
+85.71
+</td>
+<td>
+86.60
+</td>
+<td>
+19172.0
+</td>
+<td>
+1.656046e+08
+</td>
+</tr>
+<tr>
+<th rowspan="3" valign="top">
+2021-05-13
+</th>
+<th>
+002003
+</th>
+<td>
+7.44
+</td>
+<td>
+7.63
+</td>
+<td>
+7.34
+</td>
+<td>
+7.55
+</td>
+<td>
+98429.0
+</td>
+<td>
+7.403393e+07
+</td>
+</tr>
+<tr>
+<th>
+300999
+</th>
+<td>
+75.00
+</td>
+<td>
+75.60
+</td>
+<td>
+74.04
+</td>
+<td>
+74.20
+</td>
+<td>
+144742.0
+</td>
+<td>
+1.080974e+09
+</td>
+</tr>
+<tr>
+<th>
+603899
+</th>
+<td>
+85.71
+</td>
+<td>
+88.12
+</td>
+<td>
+85.10
+</td>
+<td>
+87.59
+</td>
+<td>
+14734.0
+</td>
+<td>
+1.280291e+08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>在使用<code>print</code>输出时的结果是这样的。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(df)</span><br></pre></td></tr></table></figure>
+<pre><code>                    open   high    low  close    volume        amount
+date       code                                                      
+2021-05-12 002003   7.32   7.51   7.28   7.48   80536.0  5.980900e+07
+           300999  76.12  76.75  75.11  76.20  146625.0  1.114936e+09
+           603899  86.80  87.85  85.71  86.60   19172.0  1.656046e+08
+2021-05-13 002003   7.44   7.63   7.34   7.55   98429.0  7.403393e+07
+           300999  75.00  75.60  74.04  74.20  144742.0  1.080974e+09
+           603899  85.71  88.12  85.10  87.59   14734.0  1.280291e+08</code></pre>
+<p>而当DataFrame中存在中英文混合的时候，会出现print()打印无法对齐的情况，导致输出的结果都没有对齐，十分不美观。如:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df1 = df</span><br><span class="line">df1.columns = [<span class="string">&quot;开盘价&quot;</span>, <span class="string">&quot;最高价&quot;</span>, <span class="string">&quot;最低价&quot;</span>, <span class="string">&quot;收盘价&quot;</span>, <span class="string">&quot;成交量&quot;</span>, <span class="string">&quot;成交金额&quot;</span>]</span><br><span class="line">print(df1)</span><br></pre></td></tr></table></figure>
+<pre><code>                     开盘价    最高价    最低价    收盘价       成交量          成交金额
+date       code                                                      
+2021-05-12 002003   7.32   7.51   7.28   7.48   80536.0  5.980900e+07
+           300999  76.12  76.75  75.11  76.20  146625.0  1.114936e+09
+           603899  86.80  87.85  85.71  86.60   19172.0  1.656046e+08
+2021-05-13 002003   7.44   7.63   7.34   7.55   98429.0  7.403393e+07
+           300999  75.00  75.60  74.04  74.20  144742.0  1.080974e+09
+           603899  85.71  88.12  85.10  87.59   14734.0  1.280291e+08</code></pre>
+<p>那么问题来了。 1. 有没有办法使用<code>print</code>输出中英文混合的dataframe可以对齐美观？ 2. 在执行完整的python代码时(非jupyter)，有办法象jupyter中一样输出美观的dataframe表格么？</p>
+<h1 id="解决办法">解决办法</h1>
+<h2 id="问题1-有没有办法使用print输出中英文混合的dataframe可以对齐美观">问题1 有没有办法使用print输出中英文混合的dataframe可以对齐美观？</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">pd.set_option(<span class="string">&#x27;display.unicode.ambiguous_as_wide&#x27;</span>, <span class="literal">True</span>)</span><br><span class="line">pd.set_option(<span class="string">&#x27;display.unicode.east_asian_width&#x27;</span>, <span class="literal">True</span>)</span><br><span class="line">pd.set_option(<span class="string">&#x27;display.width&#x27;</span>, <span class="number">180</span>)                       <span class="comment"># 设置打印宽度(**重要**)</span></span><br><span class="line">print(df1)</span><br></pre></td></tr></table></figure>
+<pre><code>                   开盘价  最高价  最低价  收盘价    成交量      成交金额
+date       code                                                          
+2021-05-12 002003    7.32    7.51    7.28    7.48   80536.0  5.980900e+07
+           300999   76.12   76.75   75.11   76.20  146625.0  1.114936e+09
+           603899   86.80   87.85   85.71   86.60   19172.0  1.656046e+08
+2021-05-13 002003    7.44    7.63    7.34    7.55   98429.0  7.403393e+07
+           300999   75.00   75.60   74.04   74.20  144742.0  1.080974e+09
+           603899   85.71   88.12   85.10   87.59   14734.0  1.280291e+08</code></pre>
+<h2 id="问题2-在执行完整的python代码时非jupyter有办法象jupyter中一样输出美观的dataframe表格么">问题2 在执行完整的python代码时(非jupyter)，有办法象jupyter中一样输出美观的dataframe表格么？</h2>
+<p>使用<code>IPython.display</code>来替换<code>print</code>的输出效果。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> display</span><br><span class="line"></span><br><span class="line">display(df)</span><br><span class="line">display(df1)</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+开盘价
+</th>
+<th>
+最高价
+</th>
+<th>
+最低价
+</th>
+<th>
+收盘价
+</th>
+<th>
+成交量
+</th>
+<th>
+成交金额
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="3" valign="top">
+2021-05-12
+</th>
+<th>
+002003
+</th>
+<td>
+7.32
+</td>
+<td>
+7.51
+</td>
+<td>
+7.28
+</td>
+<td>
+7.48
+</td>
+<td>
+80536.0
+</td>
+<td>
+5.980900e+07
+</td>
+</tr>
+<tr>
+<th>
+300999
+</th>
+<td>
+76.12
+</td>
+<td>
+76.75
+</td>
+<td>
+75.11
+</td>
+<td>
+76.20
+</td>
+<td>
+146625.0
+</td>
+<td>
+1.114936e+09
+</td>
+</tr>
+<tr>
+<th>
+603899
+</th>
+<td>
+86.80
+</td>
+<td>
+87.85
+</td>
+<td>
+85.71
+</td>
+<td>
+86.60
+</td>
+<td>
+19172.0
+</td>
+<td>
+1.656046e+08
+</td>
+</tr>
+<tr>
+<th rowspan="3" valign="top">
+2021-05-13
+</th>
+<th>
+002003
+</th>
+<td>
+7.44
+</td>
+<td>
+7.63
+</td>
+<td>
+7.34
+</td>
+<td>
+7.55
+</td>
+<td>
+98429.0
+</td>
+<td>
+7.403393e+07
+</td>
+</tr>
+<tr>
+<th>
+300999
+</th>
+<td>
+75.00
+</td>
+<td>
+75.60
+</td>
+<td>
+74.04
+</td>
+<td>
+74.20
+</td>
+<td>
+144742.0
+</td>
+<td>
+1.080974e+09
+</td>
+</tr>
+<tr>
+<th>
+603899
+</th>
+<td>
+85.71
+</td>
+<td>
+88.12
+</td>
+<td>
+85.10
+</td>
+<td>
+87.59
+</td>
+<td>
+14734.0
+</td>
+<td>
+1.280291e+08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+</th>
+<th>
+开盘价
+</th>
+<th>
+最高价
+</th>
+<th>
+最低价
+</th>
+<th>
+收盘价
+</th>
+<th>
+成交量
+</th>
+<th>
+成交金额
+</th>
+</tr>
+<tr>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="3" valign="top">
+2021-05-12
+</th>
+<th>
+002003
+</th>
+<td>
+7.32
+</td>
+<td>
+7.51
+</td>
+<td>
+7.28
+</td>
+<td>
+7.48
+</td>
+<td>
+80536.0
+</td>
+<td>
+5.980900e+07
+</td>
+</tr>
+<tr>
+<th>
+300999
+</th>
+<td>
+76.12
+</td>
+<td>
+76.75
+</td>
+<td>
+75.11
+</td>
+<td>
+76.20
+</td>
+<td>
+146625.0
+</td>
+<td>
+1.114936e+09
+</td>
+</tr>
+<tr>
+<th>
+603899
+</th>
+<td>
+86.80
+</td>
+<td>
+87.85
+</td>
+<td>
+85.71
+</td>
+<td>
+86.60
+</td>
+<td>
+19172.0
+</td>
+<td>
+1.656046e+08
+</td>
+</tr>
+<tr>
+<th rowspan="3" valign="top">
+2021-05-13
+</th>
+<th>
+002003
+</th>
+<td>
+7.44
+</td>
+<td>
+7.63
+</td>
+<td>
+7.34
+</td>
+<td>
+7.55
+</td>
+<td>
+98429.0
+</td>
+<td>
+7.403393e+07
+</td>
+</tr>
+<tr>
+<th>
+300999
+</th>
+<td>
+75.00
+</td>
+<td>
+75.60
+</td>
+<td>
+74.04
+</td>
+<td>
+74.20
+</td>
+<td>
+144742.0
+</td>
+<td>
+1.080974e+09
+</td>
+</tr>
+<tr>
+<th>
+603899
+</th>
+<td>
+85.71
+</td>
+<td>
+88.12
+</td>
+<td>
+85.10
+</td>
+<td>
+87.59
+</td>
+<td>
+14734.0
+</td>
+<td>
+1.280291e+08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="问题3-输出dataframe数据时可以不输出索引号么">问题3 输出dataframe数据时，可以不输出索引号么？</h3>
+<p><code>python 2.7</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span> df.to_string(index=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<p><code>python 3</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(df.to_string(index=<span class="literal">False</span>))</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>dataframe</tag>
       </tags>
   </entry>
   <entry>
@@ -1754,1276 +3099,148 @@ code
       </tags>
   </entry>
   <entry>
-    <title>【Python】pandas dataframe输出格式对齐美化的思路</title>
-    <url>/2021/05/14/%E3%80%90Python%E3%80%91pandas%20dataframe%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F%E5%AF%B9%E9%BD%90%E7%BE%8E%E5%8C%96%E7%9A%84%E6%80%9D%E8%B7%AF/</url>
-    <content><![CDATA[<h1 id="需求">需求</h1>
-<p>在jupyter中可以直接使用用dataframe的名字输出美观的表格形式，例如：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> QUANTAXIS <span class="keyword">as</span> QA</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">通过本地数据库获取股票日线数据：</span></span><br><span class="line"><span class="string">QA.QA_fetch_stock_day_adv(</span></span><br><span class="line"><span class="string">    code,</span></span><br><span class="line"><span class="string">    start=&#x27;all&#x27;,</span></span><br><span class="line"><span class="string">    end=None,</span></span><br><span class="line"><span class="string">    if_drop_index=True,</span></span><br><span class="line"><span class="string">    collections=Collection(Database(MongoClient(host=[&#x27;localhost:27017&#x27;], document_class=dict, tz_aware=False, connect=True), &#x27;quantaxis&#x27;), &#x27;stock_day&#x27;),</span></span><br><span class="line"><span class="string">)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">data=QA.QA_fetch_stock_day_adv([<span class="string">&quot;002003&quot;</span>,<span class="string">&#x27;300999&#x27;</span>,<span class="string">&#x27;603899&#x27;</span>],<span class="string">&#x27;2021-05-12&#x27;</span>,<span class="string">&#x27;2021-05-13&#x27;</span>)</span><br><span class="line">df = data.data</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+    <title>【Python】使用PYQT5来构建持仓盈亏监控(续)</title>
+    <url>/2021/07/02/%E3%80%90Python%E3%80%91%E4%BD%BF%E7%94%A8PYQT5%E6%9D%A5%E6%9E%84%E5%BB%BA%E6%8C%81%E4%BB%93%E7%9B%88%E4%BA%8F%E7%9B%91%E6%8E%A7%20(%E7%BB%AD)/</url>
+    <content><![CDATA[<h1 id="目的">目的</h1>
+<p>实时通过图形的方式呈现盈亏情况</p>
 <a id="more"></a>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th>
-</th>
-<th>
-</th>
-<th>
-open
-</th>
-<th>
-high
-</th>
-<th>
-low
-</th>
-<th>
-close
-</th>
-<th>
-volume
-</th>
-<th>
-amount
-</th>
-</tr>
-<tr>
-<th>
-date
-</th>
-<th>
-code
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th rowspan="3" valign="top">
-2021-05-12
-</th>
-<th>
-002003
-</th>
-<td>
-7.32
-</td>
-<td>
-7.51
-</td>
-<td>
-7.28
-</td>
-<td>
-7.48
-</td>
-<td>
-80536.0
-</td>
-<td>
-5.980900e+07
-</td>
-</tr>
-<tr>
-<th>
-300999
-</th>
-<td>
-76.12
-</td>
-<td>
-76.75
-</td>
-<td>
-75.11
-</td>
-<td>
-76.20
-</td>
-<td>
-146625.0
-</td>
-<td>
-1.114936e+09
-</td>
-</tr>
-<tr>
-<th>
-603899
-</th>
-<td>
-86.80
-</td>
-<td>
-87.85
-</td>
-<td>
-85.71
-</td>
-<td>
-86.60
-</td>
-<td>
-19172.0
-</td>
-<td>
-1.656046e+08
-</td>
-</tr>
-<tr>
-<th rowspan="3" valign="top">
-2021-05-13
-</th>
-<th>
-002003
-</th>
-<td>
-7.44
-</td>
-<td>
-7.63
-</td>
-<td>
-7.34
-</td>
-<td>
-7.55
-</td>
-<td>
-98429.0
-</td>
-<td>
-7.403393e+07
-</td>
-</tr>
-<tr>
-<th>
-300999
-</th>
-<td>
-75.00
-</td>
-<td>
-75.60
-</td>
-<td>
-74.04
-</td>
-<td>
-74.20
-</td>
-<td>
-144742.0
-</td>
-<td>
-1.080974e+09
-</td>
-</tr>
-<tr>
-<th>
-603899
-</th>
-<td>
-85.71
-</td>
-<td>
-88.12
-</td>
-<td>
-85.10
-</td>
-<td>
-87.59
-</td>
-<td>
-14734.0
-</td>
-<td>
-1.280291e+08
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>在使用<code>print</code>输出时的结果是这样的。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(df)</span><br></pre></td></tr></table></figure>
-<pre><code>                    open   high    low  close    volume        amount
-date       code                                                      
-2021-05-12 002003   7.32   7.51   7.28   7.48   80536.0  5.980900e+07
-           300999  76.12  76.75  75.11  76.20  146625.0  1.114936e+09
-           603899  86.80  87.85  85.71  86.60   19172.0  1.656046e+08
-2021-05-13 002003   7.44   7.63   7.34   7.55   98429.0  7.403393e+07
-           300999  75.00  75.60  74.04  74.20  144742.0  1.080974e+09
-           603899  85.71  88.12  85.10  87.59   14734.0  1.280291e+08</code></pre>
-<p>而当DataFrame中存在中英文混合的时候，会出现print()打印无法对齐的情况，导致输出的结果都没有对齐，十分不美观。如:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df1 = df</span><br><span class="line">df1.columns = [<span class="string">&quot;开盘价&quot;</span>, <span class="string">&quot;最高价&quot;</span>, <span class="string">&quot;最低价&quot;</span>, <span class="string">&quot;收盘价&quot;</span>, <span class="string">&quot;成交量&quot;</span>, <span class="string">&quot;成交金额&quot;</span>]</span><br><span class="line">print(df1)</span><br></pre></td></tr></table></figure>
-<pre><code>                     开盘价    最高价    最低价    收盘价       成交量          成交金额
-date       code                                                      
-2021-05-12 002003   7.32   7.51   7.28   7.48   80536.0  5.980900e+07
-           300999  76.12  76.75  75.11  76.20  146625.0  1.114936e+09
-           603899  86.80  87.85  85.71  86.60   19172.0  1.656046e+08
-2021-05-13 002003   7.44   7.63   7.34   7.55   98429.0  7.403393e+07
-           300999  75.00  75.60  74.04  74.20  144742.0  1.080974e+09
-           603899  85.71  88.12  85.10  87.59   14734.0  1.280291e+08</code></pre>
-<p>那么问题来了。 1. 有没有办法使用<code>print</code>输出中英文混合的dataframe可以对齐美观？ 2. 在执行完整的python代码时(非jupyter)，有办法象jupyter中一样输出美观的dataframe表格么？</p>
-<h1 id="解决办法">解决办法</h1>
-<h2 id="问题1-有没有办法使用print输出中英文混合的dataframe可以对齐美观">问题1 有没有办法使用print输出中英文混合的dataframe可以对齐美观？</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">pd.set_option(<span class="string">&#x27;display.unicode.ambiguous_as_wide&#x27;</span>, <span class="literal">True</span>)</span><br><span class="line">pd.set_option(<span class="string">&#x27;display.unicode.east_asian_width&#x27;</span>, <span class="literal">True</span>)</span><br><span class="line">pd.set_option(<span class="string">&#x27;display.width&#x27;</span>, <span class="number">180</span>)                       <span class="comment"># 设置打印宽度(**重要**)</span></span><br><span class="line">print(df1)</span><br></pre></td></tr></table></figure>
-<pre><code>                   开盘价  最高价  最低价  收盘价    成交量      成交金额
-date       code                                                          
-2021-05-12 002003    7.32    7.51    7.28    7.48   80536.0  5.980900e+07
-           300999   76.12   76.75   75.11   76.20  146625.0  1.114936e+09
-           603899   86.80   87.85   85.71   86.60   19172.0  1.656046e+08
-2021-05-13 002003    7.44    7.63    7.34    7.55   98429.0  7.403393e+07
-           300999   75.00   75.60   74.04   74.20  144742.0  1.080974e+09
-           603899   85.71   88.12   85.10   87.59   14734.0  1.280291e+08</code></pre>
-<h2 id="问题2-在执行完整的python代码时非jupyter有办法象jupyter中一样输出美观的dataframe表格么">问题2 在执行完整的python代码时(非jupyter)，有办法象jupyter中一样输出美观的dataframe表格么？</h2>
-<p>使用<code>IPython.display</code>来替换<code>print</code>的输出效果。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> display</span><br><span class="line"></span><br><span class="line">display(df)</span><br><span class="line">display(df1)</span><br></pre></td></tr></table></figure>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th>
-</th>
-<th>
-</th>
-<th>
-开盘价
-</th>
-<th>
-最高价
-</th>
-<th>
-最低价
-</th>
-<th>
-收盘价
-</th>
-<th>
-成交量
-</th>
-<th>
-成交金额
-</th>
-</tr>
-<tr>
-<th>
-date
-</th>
-<th>
-code
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th rowspan="3" valign="top">
-2021-05-12
-</th>
-<th>
-002003
-</th>
-<td>
-7.32
-</td>
-<td>
-7.51
-</td>
-<td>
-7.28
-</td>
-<td>
-7.48
-</td>
-<td>
-80536.0
-</td>
-<td>
-5.980900e+07
-</td>
-</tr>
-<tr>
-<th>
-300999
-</th>
-<td>
-76.12
-</td>
-<td>
-76.75
-</td>
-<td>
-75.11
-</td>
-<td>
-76.20
-</td>
-<td>
-146625.0
-</td>
-<td>
-1.114936e+09
-</td>
-</tr>
-<tr>
-<th>
-603899
-</th>
-<td>
-86.80
-</td>
-<td>
-87.85
-</td>
-<td>
-85.71
-</td>
-<td>
-86.60
-</td>
-<td>
-19172.0
-</td>
-<td>
-1.656046e+08
-</td>
-</tr>
-<tr>
-<th rowspan="3" valign="top">
-2021-05-13
-</th>
-<th>
-002003
-</th>
-<td>
-7.44
-</td>
-<td>
-7.63
-</td>
-<td>
-7.34
-</td>
-<td>
-7.55
-</td>
-<td>
-98429.0
-</td>
-<td>
-7.403393e+07
-</td>
-</tr>
-<tr>
-<th>
-300999
-</th>
-<td>
-75.00
-</td>
-<td>
-75.60
-</td>
-<td>
-74.04
-</td>
-<td>
-74.20
-</td>
-<td>
-144742.0
-</td>
-<td>
-1.080974e+09
-</td>
-</tr>
-<tr>
-<th>
-603899
-</th>
-<td>
-85.71
-</td>
-<td>
-88.12
-</td>
-<td>
-85.10
-</td>
-<td>
-87.59
-</td>
-<td>
-14734.0
-</td>
-<td>
-1.280291e+08
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th>
-</th>
-<th>
-</th>
-<th>
-开盘价
-</th>
-<th>
-最高价
-</th>
-<th>
-最低价
-</th>
-<th>
-收盘价
-</th>
-<th>
-成交量
-</th>
-<th>
-成交金额
-</th>
-</tr>
-<tr>
-<th>
-date
-</th>
-<th>
-code
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th rowspan="3" valign="top">
-2021-05-12
-</th>
-<th>
-002003
-</th>
-<td>
-7.32
-</td>
-<td>
-7.51
-</td>
-<td>
-7.28
-</td>
-<td>
-7.48
-</td>
-<td>
-80536.0
-</td>
-<td>
-5.980900e+07
-</td>
-</tr>
-<tr>
-<th>
-300999
-</th>
-<td>
-76.12
-</td>
-<td>
-76.75
-</td>
-<td>
-75.11
-</td>
-<td>
-76.20
-</td>
-<td>
-146625.0
-</td>
-<td>
-1.114936e+09
-</td>
-</tr>
-<tr>
-<th>
-603899
-</th>
-<td>
-86.80
-</td>
-<td>
-87.85
-</td>
-<td>
-85.71
-</td>
-<td>
-86.60
-</td>
-<td>
-19172.0
-</td>
-<td>
-1.656046e+08
-</td>
-</tr>
-<tr>
-<th rowspan="3" valign="top">
-2021-05-13
-</th>
-<th>
-002003
-</th>
-<td>
-7.44
-</td>
-<td>
-7.63
-</td>
-<td>
-7.34
-</td>
-<td>
-7.55
-</td>
-<td>
-98429.0
-</td>
-<td>
-7.403393e+07
-</td>
-</tr>
-<tr>
-<th>
-300999
-</th>
-<td>
-75.00
-</td>
-<td>
-75.60
-</td>
-<td>
-74.04
-</td>
-<td>
-74.20
-</td>
-<td>
-144742.0
-</td>
-<td>
-1.080974e+09
-</td>
-</tr>
-<tr>
-<th>
-603899
-</th>
-<td>
-85.71
-</td>
-<td>
-88.12
-</td>
-<td>
-85.10
-</td>
-<td>
-87.59
-</td>
-<td>
-14734.0
-</td>
-<td>
-1.280291e+08
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="问题3-输出dataframe数据时可以不输出索引号么">问题3 输出dataframe数据时，可以不输出索引号么？</h3>
-<p><code>python 2.7</code></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span> df.to_string(index=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
-<p><code>python 3</code></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(df.to_string(index=<span class="literal">False</span>))</span><br></pre></td></tr></table></figure>
+<h1 id="安装pyqtgraph">安装PyQtgraph</h1>
+<h2 id="安装">安装</h2>
+<p>通过pip进行安装</p>
+<blockquote>
+<p>pip install pyqtgraph</p>
+</blockquote>
+<h2 id="界面设计">界面设计</h2>
+<h3 id="使用qtdesigner来设计界面">使用QtDesigner来设计界面</h3>
+<ol type="1">
+<li>初始界面 初始界面设计如下： <img src="https://s2.loli.net/2022/04/14/zcTQvBmEta5WwuP.png" /></li>
+</ol>
+<p>在此基础上，增加一个<code>label</code>及<code>widget</code>。</p>
+<p><img src="https://s2.loli.net/2022/04/14/sNtdLJD436alhbv.png" /> 将widget重命名为<code>“graphWidget"</code>。</p>
+<p><img src="https://s2.loli.net/2022/04/14/JtQwUzni7kbOdMP.png" /> 点击右键，选择<code>“提升为...”</code>， 提升的类名称为<code>“PlotWidget”</code>, 头文件为<code>“pyqtgraph”</code>。</p>
+<p><img src="https://s2.loli.net/2022/04/14/zwo5gmBSaQJ3Axy.png" /></p>
+<p>之所以使用这种方法，是因为按一般做法，利用Qt Designer新建一个布局，在代码中动态添加一个PlotWidget到这个布局来实现，代码如下:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pyqtgraph <span class="keyword">as</span> pg</span><br><span class="line">plot_plt = pg.PlotWidget(background=(<span class="number">69</span>,<span class="number">69</span>,<span class="number">69</span>), axisItems=&#123;<span class="string">&#x27;bottom&#x27;</span>: TimeAxisItem(orientation=<span class="string">&#x27;bottom&#x27;</span>)&#125;)</span><br><span class="line">verticalLayout.addWidget(plot_plt) </span><br></pre></td></tr></table></figure>
+<p>这里指定了背景色及坐标轴使用的模板。</p>
+<p>这样的做法，我一直没有找到控制PlotWidget大小的方法，导致出来的图形结果与我的期望不太一致。因此才尝试在UI设计时就固定住该部件的大小。</p>
+<h3 id="获取数据并展示">获取数据并展示</h3>
+<ol type="1">
+<li><p>将实时取得的持仓盈亏数据存入列表</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">self.data_list = []</span><br><span class="line">self.data_list.append(<span class="built_in">float</span>(self.data_summary[<span class="string">&#x27;day_float_amount&#x27;</span>]))</span><br></pre></td></tr></table></figure></li>
+<li><p>将时间进行时间戳转化存入列表</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">timestamp</span>():</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(time.mktime(datetime.datetime.now().timetuple()))</span><br><span class="line"></span><br><span class="line">self.time_list = []</span><br><span class="line">self.time_list.append(timestamp())</span><br></pre></td></tr></table></figure></li>
+<li><p>坐标轴显示为时间</p>
+<p>默认pyqtgraph会使用0开始的整数来作为坐标轴的值。 这里希望使用实时取到的时间来做为显示的值，因此需要重写pyqtgraph的AxisItem类。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TimeAxisItem</span>(<span class="params">pg.AxisItem</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, *args, **kwargs</span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__(*args, **kwargs)</span><br><span class="line">        <span class="comment">#self.setLabel(text=&#x27;Time&#x27;, units=None)</span></span><br><span class="line">        self.enableAutoSIPrefix(<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">tickStrings</span>(<span class="params">self, values, scale, spacing</span>):</span></span><br><span class="line">        <span class="keyword">return</span> [datetime.datetime.fromtimestamp(value).strftime(<span class="string">&quot;%H:%M:%S&quot;</span>) <span class="keyword">for</span> value <span class="keyword">in</span> values]</span><br></pre></td></tr></table></figure></li>
+<li><p>展示</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">graphWidget.plot().setData(self.model.time_list, self.model.data_list,pen=<span class="string">&#x27;g&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="效果">效果</h1>
+<p>完成后的应用界面效果如下： <img src="https://s2.loli.net/2022/04/14/pqdJtr7F5bMEcRV.png" /> # 参考 4. <a href="%5BPyQt5的PyQtGraph实践系列3：实时数据更新绘制图形%20-%20州的先生%20(zmister.com)%5D(https://zmister.com/archives/826.html)">PyQt5的PyQtGraph实践系列3：实时数据更新绘制图形</a> 2. <a href="%5BEmbedding%20PyQtGraph%20(or%20any%20other%20custom%20PyQt5%20widgets)%20from%20Qt%20Designer%20(mfitzp.com)%5D(https://www.mfitzp.com/tutorials/embed-pyqtgraph-custom-widgets-qt-app/)">Embedding custom widgets from Qt Designer</a></p>
 ]]></content>
       <categories>
         <category>技术笔记</category>
         <category>python</category>
-      </categories>
-      <tags>
-        <tag>dataframe</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Python】Pandas与numpy的方差计算</title>
-    <url>/2021/07/16/%E3%80%90Python%E3%80%91Pandas%E4%B8%8Enumpy%E7%9A%84%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97/</url>
-    <content><![CDATA[<h1 id="目的">目的</h1>
-<p>方差在统计描述和概率分布中各有不同的定义，并有不同的公式。<br />
-在统计描述中，方差用来计算每一个变量（观察值）与总体均数之间的差异。为避免出现离均差总和为零，离均差平方和受样本含量的影响，统计学采用平均离均差平方和来描述变量的变异程度。<br />
-<code>总体方差计算公式</code>： <span class="math inline">\({\sigma}^2=\frac{\sum_{i=1}^{N}(X_i-\bar{\mu})}{N}\)</span><br />
-其中<span class="math inline">\({\sigma}^2\)</span>为总体方差，<span class="math inline">\(X_i\)</span>为变量，<span class="math inline">\(\bar{\mu}\)</span>为总体均值，<span class="math inline">\(N\)</span>为总体例数。</p>
-<p>实际工作中，总体均数难以得到时，应用样本统计量代替总体参数，经校正后，<br />
-<code>样本方差计算公式</code>： <span class="math inline">\({S}^2=\frac{\sum_{i=1}^{N}(X_i-\bar{X})}{n-1}\)</span><br />
-其中<span class="math inline">\({S}^2\)</span>为样本方差，<span class="math inline">\(X_i\)</span>为变量，<span class="math inline">\(\bar{X}\)</span>为样本均值，<span class="math inline">\(n\)</span>为样本例数。</p>
-<a id="more"></a>
-<h1 id="方差的计算">方差的计算</h1>
-<h2 id="数据准备">数据准备</h2>
-<p>取一定周期的沪深300指数(000300.SH)的每日行情数据，如：2019年全年。为了计算每日涨跌幅，故多取了2018年最后一个交易日的数据。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> QUANTAXIS <span class="keyword">as</span> QA</span><br><span class="line"><span class="keyword">from</span> IPython.core.interactiveshell <span class="keyword">import</span> InteractiveShell</span><br><span class="line">InteractiveShell.ast_node_interactivity = <span class="string">&quot;all&quot;</span> </span><br><span class="line"></span><br><span class="line">index = QA.QA_fetch_index_day_adv(<span class="string">&#x27;000300&#x27;</span>,<span class="string">&#x27;2018-12-28&#x27;</span>,<span class="string">&#x27;2019-12-31&#x27;</span>)</span><br><span class="line">display(index.data)</span><br><span class="line"><span class="comment"># 计算每日涨跌幅</span></span><br><span class="line">returns_index = index.data.close.pct_change()</span><br><span class="line">display(returns_index)</span><br></pre></td></tr></table></figure>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th>
-</th>
-<th>
-</th>
-<th>
-open
-</th>
-<th>
-close
-</th>
-<th>
-high
-</th>
-<th>
-low
-</th>
-<th>
-vol
-</th>
-<th>
-amount
-</th>
-<th>
-up_count
-</th>
-<th>
-down_count
-</th>
-<th>
-date_stamp
-</th>
-<th>
-volume
-</th>
-</tr>
-<tr>
-<th>
-date
-</th>
-<th>
-code
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-<th>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>
-2018-12-28
-</th>
-<th>
-000300
-</th>
-<td>
-2994.80
-</td>
-<td>
-3010.65
-</td>
-<td>
-3024.35
-</td>
-<td>
-2984.82
-</td>
-<td>
-710537.0
-</td>
-<td>
-7.814531e+10
-</td>
-<td>
-200
-</td>
-<td>
-81
-</td>
-<td>
-1.545926e+09
-</td>
-<td>
-710537.0
-</td>
-</tr>
-<tr>
-<th>
-2019-01-02
-</th>
-<th>
-000300
-</th>
-<td>
-3017.07
-</td>
-<td>
-2969.54
-</td>
-<td>
-3018.78
-</td>
-<td>
-2958.49
-</td>
-<td>
-686630.0
-</td>
-<td>
-7.610557e+10
-</td>
-<td>
-70
-</td>
-<td>
-216
-</td>
-<td>
-1.546358e+09
-</td>
-<td>
-686630.0
-</td>
-</tr>
-<tr>
-<th>
-2019-01-03
-</th>
-<th>
-000300
-</th>
-<td>
-2963.02
-</td>
-<td>
-2964.84
-</td>
-<td>
-3000.44
-</td>
-<td>
-2953.26
-</td>
-<td>
-708671.0
-</td>
-<td>
-7.666480e+10
-</td>
-<td>
-145
-</td>
-<td>
-142
-</td>
-<td>
-1.546445e+09
-</td>
-<td>
-708671.0
-</td>
-</tr>
-<tr>
-<th>
-2019-01-04
-</th>
-<th>
-000300
-</th>
-<td>
-2940.19
-</td>
-<td>
-3035.87
-</td>
-<td>
-3036.81
-</td>
-<td>
-2935.83
-</td>
-<td>
-1033189.0
-</td>
-<td>
-1.071410e+11
-</td>
-<td>
-286
-</td>
-<td>
-12
-</td>
-<td>
-1.546531e+09
-</td>
-<td>
-1033189.0
-</td>
-</tr>
-<tr>
-<th>
-2019-01-07
-</th>
-<th>
-000300
-</th>
-<td>
-3055.15
-</td>
-<td>
-3054.30
-</td>
-<td>
-3061.75
-</td>
-<td>
-3035.91
-</td>
-<td>
-1011643.0
-</td>
-<td>
-1.057039e+11
-</td>
-<td>
-217
-</td>
-<td>
-73
-</td>
-<td>
-1.546790e+09
-</td>
-<td>
-1011643.0
-</td>
-</tr>
-<tr>
-<th>
-...
-</th>
-<th>
-...
-</th>
-<td>
-...
-</td>
-<td>
-...
-</td>
-<td>
-...
-</td>
-<td>
-...
-</td>
-<td>
-...
-</td>
-<td>
-...
-</td>
-<td>
-...
-</td>
-<td>
-...
-</td>
-<td>
-...
-</td>
-<td>
-...
-</td>
-</tr>
-<tr>
-<th>
-2019-12-25
-</th>
-<th>
-000300
-</th>
-<td>
-3988.66
-</td>
-<td>
-3990.87
-</td>
-<td>
-4000.56
-</td>
-<td>
-3976.36
-</td>
-<td>
-949388.0
-</td>
-<td>
-1.318965e+11
-</td>
-<td>
-117
-</td>
-<td>
-168
-</td>
-<td>
-1.577203e+09
-</td>
-<td>
-949388.0
-</td>
-</tr>
-<tr>
-<th>
-2019-12-26
-</th>
-<th>
-000300
-</th>
-<td>
-3993.67
-</td>
-<td>
-4025.99
-</td>
-<td>
-4025.99
-</td>
-<td>
-3993.54
-</td>
-<td>
-1088606.0
-</td>
-<td>
-1.408150e+11
-</td>
-<td>
-236
-</td>
-<td>
-53
-</td>
-<td>
-1.577290e+09
-</td>
-<td>
-1088606.0
-</td>
-</tr>
-<tr>
-<th>
-2019-12-27
-</th>
-<th>
-000300
-</th>
-<td>
-4029.25
-</td>
-<td>
-4022.03
-</td>
-<td>
-4066.80
-</td>
-<td>
-4019.72
-</td>
-<td>
-1509264.0
-</td>
-<td>
-1.950904e+11
-</td>
-<td>
-116
-</td>
-<td>
-173
-</td>
-<td>
-1.577376e+09
-</td>
-<td>
-1509264.0
-</td>
-</tr>
-<tr>
-<th>
-2019-12-30
-</th>
-<th>
-000300
-</th>
-<td>
-4015.52
-</td>
-<td>
-4081.63
-</td>
-<td>
-4083.69
-</td>
-<td>
-4001.50
-</td>
-<td>
-1559714.0
-</td>
-<td>
-2.168147e+11
-</td>
-<td>
-241
-</td>
-<td>
-53
-</td>
-<td>
-1.577635e+09
-</td>
-<td>
-1559714.0
-</td>
-</tr>
-<tr>
-<th>
-2019-12-31
-</th>
-<th>
-000300
-</th>
-<td>
-4077.75
-</td>
-<td>
-4096.58
-</td>
-<td>
-4098.14
-</td>
-<td>
-4069.01
-</td>
-<td>
-1232642.0
-</td>
-<td>
-1.731193e+11
-</td>
-<td>
-189
-</td>
-<td>
-95
-</td>
-<td>
-1.577722e+09
-</td>
-<td>
-1232642.0
-</td>
-</tr>
-</tbody>
-</table>
-<p>
-245 rows × 10 columns
-</p>
-</div>
-<pre><code>date        code  
-2018-12-28  000300         NaN
-2019-01-02  000300   -0.013655
-2019-01-03  000300   -0.001583
-2019-01-04  000300    0.023957
-2019-01-07  000300    0.006071
-                        ...   
-2019-12-25  000300   -0.000523
-2019-12-26  000300    0.008800
-2019-12-27  000300   -0.000984
-2019-12-30  000300    0.014818
-2019-12-31  000300    0.003663
-Name: close, Length: 245, dtype: float64</code></pre>
-<h2 id="使用numpy计算">使用numpy计算</h2>
-<p>numpy 中计算的方差就是总体方差。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">np.var(returns_index)</span><br></pre></td></tr></table></figure>
-<pre><code>0.00015577588074696037</code></pre>
-<h2 id="使用pandas计算">使用pandas计算</h2>
-<p>pandas 中计算的方差为样本方差。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">returns_index.var()</span><br></pre></td></tr></table></figure>
-<pre><code>0.0001564169337541495</code></pre>
-<h1 id="小结">小结</h1>
-<p>在计算方差时，使用numpy和pandas会得到不一样的计算结果，需要根据实际需要样本方差还是总体方差来决定使用何种方式。</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
         <category>量化投资</category>
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>线性代数</tag>
+        <tag>pyqt5</tag>
       </tags>
   </entry>
   <entry>
-    <title>【Markdown】Typora画流程图实践</title>
-    <url>/2021/01/08/%E3%80%90Markdown%E3%80%91Typora%E7%94%BB%E6%B5%81%E7%A8%8B%E5%9B%BE%E5%AE%9E%E8%B7%B5/</url>
-    <content><![CDATA[<p><code>Typrora</code>中使用了<code>Mermaid</code>来提供强劲的绘制流程图、时序图的功能。</p>
-<h2 id="关于mermaid">关于Mermaid</h2>
-<p>是一种简单的类似 Markdown 的脚本语言，通过 JavaScript 编程语言，将文本转换为图片。因此，真正实现画图功能的并不是 Typora 本身，它只是内置了对 Mermaid 的支持。</p>
-<p><img src="https://s2.loli.net/2022/04/14/FiZR16eYrtTWm3g.png" /></p>
-<h2 id="图形介绍">图形介绍</h2>
-<h3 id="流程图flowchart">流程图(flowchart)</h3>
-<p>主要语法说明：</p>
-<p>graph - 表明是流程图</p>
-<p>方向：</p>
-<ul>
-<li>TB - top to bottom</li>
-<li>TD - top-down/ same as top to bottom</li>
-<li>BT - bottom to top</li>
-<li>RL - right to left</li>
-<li>LR - left to right</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">graph TD;</span><br><span class="line">    A--&gt;B;</span><br><span class="line">    A--&gt;C;</span><br><span class="line">    B--&gt;D;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">graph TD;</span><br><span class="line">    A--&gt;B;</span><br><span class="line">    A--&gt;C;</span><br><span class="line">    B--&gt;D;</span><br></pre></td></tr></table></figure>
-<h3 id="时序图"><strong>时序图</strong></h3>
-<p>语法解释：<code>-&gt;&gt;</code> 代表实线箭头，<code>--&gt;&gt;</code> 则代表虚线。</p>
-<h1 id="参考">参考</h1>
-<p>[1] <a href="https://mermaid-js.github.io/mermaid/#/">Mermaid:https://mermaid-js.github.io/mermaid/#/</a></p>
+    <title>【Rust】Rust在win10下开发环境的搭建</title>
+    <url>/2021/01/04/%E3%80%90Rust%E3%80%91Rust%E5%9C%A8win10%E4%B8%8B%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<p>记录下如何在Windows 10环境下部署VScode的Rust开发环境。</p>
+<h1 id="配置步骤">配置步骤</h1>
+<h2 id="环境变量设置">环境变量设置</h2>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">RUST&#x3D;d:\Program Files\RUST\.rustup\toolchains\stable-x86_64-pc-windows-msvc  </span><br><span class="line">CARGO HOME &#x3D; D:\Program Files\RUST\.cargo  </span><br><span class="line">RUSTUP_DIST_SERVER &#x3D; https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;rust-static  </span><br><span class="line">RUSTUP_HOME &#x3D; D:\Program Files\RUST\.rustup  </span><br><span class="line">RUSTUP_UPDATE_ROOT &#x3D; https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;rust-static&#x2F;rustup  </span><br><span class="line">RUST_SRC_PATH &#x3D; d:\Program Files\RUST\.rustup\toolchains\stable-x86_64-pc-windows-msvc\lib\rustlib\src\rust\src</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="配置windows的rust和crates.io国内镜像">配置Windows的Rust和Crates.io国内镜像</h2>
+<h3 id="修改crates.io国内镜像">修改Crates.io国内镜像</h3>
+<p>修改<code>~/.cargo/config</code> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[source.crates-io]  </span><br><span class="line">registry &#x3D; &quot;https:&#x2F;&#x2F;github.com&#x2F;rust-lang&#x2F;crates.io-index&quot;  </span><br><span class="line"></span><br><span class="line">#Replace with any mirror source  </span><br><span class="line">replace-with &#x3D; &#39;ustc&#39;  </span><br><span class="line">#replace-with &#x3D; &#39;tuna&#39;  </span><br><span class="line">#replace-with &#x3D; &#39;sjtu&#39;  </span><br><span class="line">#replace-with &#x3D; &#39;rustcc&#39;  </span><br><span class="line"></span><br><span class="line">#University of science and technology of China  </span><br><span class="line">[source.ustc]  </span><br><span class="line">registry &#x3D; &quot;git:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;crates.io-index&quot;  </span><br><span class="line"></span><br><span class="line">#Tsinghua University  </span><br><span class="line">[source.tuna]  </span><br><span class="line">registry &#x3D; &quot;https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;git&#x2F;crates.io-index.git&quot;  </span><br><span class="line"></span><br><span class="line">#Shanghai Jiaotong University  </span><br><span class="line">[source.sjtu]  </span><br><span class="line">registry &#x3D; &quot;https:&#x2F;&#x2F;mirrors.sjtug.sjtu.edu.cn&#x2F;git&#x2F;crates.io-index&quot;  </span><br><span class="line"></span><br><span class="line">#Rustcc community  </span><br><span class="line">[source.rustcc]  </span><br><span class="line">registry &#x3D; &quot;git:&#x2F;&#x2F;crates.rustcc.cn&#x2F;crates.io-index&quot;  </span><br></pre></td></tr></table></figure> ### 修改rustup国内镜像</p>
+<p>在系统环境变量中设置 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CARGO HOME &#x3D; D:\Program Files\RUST\.cargo  </span><br><span class="line">RUSTUP_DIST_SERVER &#x3D; https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;rust-static  </span><br><span class="line">RUSTUP_HOME &#x3D; D:\Program Files\RUST\.rustup  </span><br><span class="line">RUSTUP_UPDATE_ROOT &#x3D; https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;rust-static&#x2F;rustup  </span><br></pre></td></tr></table></figure></p>
+<h2 id="vs-code插件安装">VS Code插件安装</h2>
+<ol type="1">
+<li><p>rust-analyzer</p>
+<p>该插件有说明与会与官方的Rust有冲突，二者只能先激活一个。</p>
+<p><img src="https://s2.loli.net/2022/04/14/vGay32FOwzkAWtL.png" /></p></li>
+<li><p>CodeLLDB</p>
+<p>基于LLDB的原生debugger.详见<a href="https://github.com/vadimcn/vscode-lldb">官网</a></p></li>
+<li><p>TabNine</p>
+<p>基于深度学习的智能提示插件, 详见<a href="https://www.tabnine.com/">官网</a></p></li>
+</ol>
+<h2 id="开启vs-code进行测试">开启VS Code进行测试</h2>
+<p>安装插件，重启VS Code后。</p>
+<p>现在运行官网示例。</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> ferris_says::say; <span class="comment">// from the previous step</span></span><br><span class="line"><span class="keyword">use</span> std::io::&#123;stdout, BufWriter&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> stdout = stdout();</span><br><span class="line">    <span class="keyword">let</span> message = <span class="built_in">String</span>::from(<span class="string">&quot;Hello fellow Rustaceans!&quot;</span>);</span><br><span class="line">    <span class="keyword">let</span> width = message.chars().count();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> writer = BufWriter::new(stdout.lock());</span><br><span class="line">    say(message.as_bytes(), width, &amp;<span class="keyword">mut</span> writer).unwrap();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/04/14/6qljpGuyzBgOmE4.png" /></p>
+<p>测试， RA、CodeLLDB及TabNine工作正常。</p>
 ]]></content>
       <categories>
         <category>技术笔记</category>
-        <category>markdown</category>
+        <category>rust</category>
       </categories>
       <tags>
-        <tag>typora</tag>
-        <tag>mermaid</tag>
+        <tag>rust</tag>
+        <tag>VScode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Rust】Rust配置日志记录</title>
+    <url>/2022/04/13/%E3%80%90Rust%E3%80%91Rust%E9%85%8D%E7%BD%AE%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>利用 <code>log</code> 及 <code>env_logger</code>来配置日志。</p>
+<h1 id="简介">简介</h1>
+<h2 id="crate-log"><em>Crate</em> log</h2>
+<h3 id="功能说明">功能说明</h3>
+<p><code>log</code> 提供了一个单独的日志记录 <em>API</em>，给出了日志库的一般抽象，后面具体的日志库需要基于这个抽象实现具体的实例。</p>
+<p>日志请求由目标，级别和内容组成。目标是一个字符串，其默认为日志请求的位置的模块路径，尽管可能会覆盖默认值。记录器实现通常使用目标基于某些用户配置来过滤日志请求。</p>
+<h3 id="记录器实现">记录器实现</h3>
+<p>为了生成日志输出，必须使用与 <code>log</code> 兼容的日志记录器实现。有许多可用的实现可供选择，这里有一些常用的： - 精简版记录器: - <a href="https://docs.rs/env_logger/*/env_logger/">env_logger</a> - <a href="https://github.com/borntyping/rust-simple_logger">simple_logger</a> - <a href="https://github.com/drakulix/simplelog.rs">simplelog</a> - <a href="https://docs.rs/pretty_env_logger/*/pretty_env_logger/">pretty_env_logger</a> - <a href="https://docs.rs/stderrlog/*/stderrlog/">stderrlog</a> - <a href="https://docs.rs/flexi_logger/*/flexi_logger/">flexi_logger</a> - 复杂且可配置的框架: - <a href="https://docs.rs/log4rs/*/log4rs/">log4rs</a> - <a href="https://docs.rs/fern/*/fern/">fern</a> - 专用适配: - <a href="https://docs.rs/syslog/*/syslog/">syslog</a> - <a href="https://docs.rs/slog-stdlog/*/slog_stdlog/">slog-stdlog</a> - <a href="https://docs.rs/log/latest/log/(https://docs.rs/systemd-journal-logger/*/systemd_journal_logger/)">systemd-journal-logger</a> - <a href="https://docs.rs/log/latest/log/(https://docs.rs/android_log/*/android_log/)">android_log</a> - <a href="https://docs.rs/log/latest/log/(https://docs.rs/win_dbg_logger/*/win_dbg_logger/)">win_dbg_logger</a> - WebAssembly可用: - <a href="https://docs.rs/log/latest/log/(https://docs.rs/console_log/*/console_log/)">console_log</a> - 动态库: - 构建在<code>log</code>之上的 FFI-safe wrapper 来初始化库。</p>
+<a id="more"></a>
+<h3 id="日志分级">日志分级</h3>
+<p><code>log</code>的最基本的用法是通过5个宏来实现的。 <strong>定义</strong>如下： <figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="meta">#[repr(usize)]</span></span><br><span class="line"><span class="keyword">pub</span> <span class="class"><span class="keyword">enum</span> <span class="title">Level</span></span> &#123;</span><br><span class="line">    Error,</span><br><span class="line">    Warn,</span><br><span class="line">    Info,</span><br><span class="line">    <span class="built_in">Debug</span>,</span><br><span class="line">    Trace,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> <strong>优先级</strong>：<code>error!</code> &gt; <code>warn!</code> &gt; <code>info!</code> &gt; <code>debug!</code> &gt; <code>trace!</code>。<code>error!</code>的优先级最高，<code>trace!</code>优先级最低。</p>
+<h2 id="crate-env_logger"><em>Crate</em> env_logger</h2>
+<p><code>env_logger</code> 通过配置环境变量来实现日志记录器的功能。</p>
+<h3 id="应用示例">应用示例</h3>
+<ol type="1">
+<li>打印不同级别日志 <figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="meta">#[cfg(test)]</span></span><br><span class="line"><span class="keyword">mod</span> logtests &#123;</span><br><span class="line">    <span class="meta">#[test]</span></span><br><span class="line">    <span class="function"><span class="keyword">fn</span> <span class="title">test_log_default</span></span>()&#123;</span><br><span class="line">		<span class="keyword">use</span> log::&#123;debug, error, warn, info&#125;;</span><br><span class="line"></span><br><span class="line">		env_logger::init();</span><br><span class="line"></span><br><span class="line">		debug!(<span class="string">&quot;debug message&quot;</span>);</span><br><span class="line">		info!(<span class="string">&quot;informational message&quot;</span>);</span><br><span class="line">		warn!(<span class="string">&quot;warning message&quot;</span>);</span><br><span class="line">		error!(<span class="string">&quot;error message&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 运行<code>cargo test -- test_log_default</code>进行测试，结果如下： <img src="https://s2.loli.net/2022/04/13/5BoA2P6TvVd3GCD.png" /> 为什么无法看到 <em>error</em> 以下级别的日志呢？ 从 <code>env_logger</code> 的源代码中有以下说明： &gt;Log levels are controlled on a per-module basis, and <strong>by default all logging is disabled except for the <code>error</code> level</strong>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+</ol>
+<p>基于<code>env_logger</code>的工作模式，需要对 环境变量 <em>RUST_LOG</em> 进行预定义，对以上代码使用以下方式测试。 先设置环境变量 <em>RUST_LOG</em> ，然后运行测试， <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">set</span> RUST_LOG=trace</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cargo <span class="built_in">test</span> -- test_log_default</span></span><br></pre></td></tr></table></figure> 结果如下： <img src="https://s2.loli.net/2022/04/13/MZbY89mlxsUIXBo.png" /></p>
+<ol start="2" type="1">
+<li><p>采用本地时间作为时间戳 这时需要创建日志生成器 <em>builder</em> 中的 <em>format</em> 方法来完成输出格式的配置。 <figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure> 运行<code>set RUST_LOG=trace &amp;&amp; cargo test -- test_log_localtime</code><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> 结果如下： <img src="https://s2.loli.net/2022/04/13/qr49HXw6BNJmakA.png" /> 可以看出， 时间戳已经更改为本地时间，但是整个日志格式比较简陋。</p></li>
+<li><p>输出格式美化 依照默认输出时的格式，在时间戳、级别、目标前后加入方括号。方括号表现为较高亮度，级别用不同颜色区别。</p></li>
+</ol>
+<ul>
+<li>对级别及方括号分别创建样式 <em>Style</em> ，</li>
+<li><em>Style</em> 中的 <em>set_intense</em> 方法用来设置高亮度</li>
+<li><em>Style</em> 中的 <em>set_color</em> 方法用来设置颜色，参数为 <em>enum</em> 类型 <figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="meta">#[non_exhaustive]</span></span><br><span class="line"><span class="keyword">pub</span> <span class="class"><span class="keyword">enum</span> <span class="title">Color</span></span> &#123;</span><br><span class="line">    Black,</span><br><span class="line">    Blue,</span><br><span class="line">    Green,</span><br><span class="line">    Red,</span><br><span class="line">    Cyan,</span><br><span class="line">    Magenta,</span><br><span class="line">    Yellow,</span><br><span class="line">    White,</span><br><span class="line">    Ansi256(<span class="built_in">u8</span>),</span><br><span class="line">    Rgb(<span class="built_in">u8</span>, <span class="built_in">u8</span>, <span class="built_in">u8</span>),</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><em>Style</em> 中的 <em>set_bold</em> 方法用来设置字体粗细</li>
+<li><em>Style</em> 中的 <em>value</em> 方法用来封装需要格式化的内容</li>
+</ul>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="meta">#[test]</span></span><br><span class="line">    <span class="function"><span class="keyword">fn</span> <span class="title">test_log_beautify</span></span>()&#123;</span><br><span class="line">        <span class="keyword">use</span> log::&#123;debug, error, warn, info, trace&#125;;</span><br><span class="line">        <span class="keyword">use</span> env_logger::Builder;</span><br><span class="line">        <span class="keyword">use</span> env_logger::fmt::Color;</span><br><span class="line">        <span class="keyword">use</span> chrono::Local;</span><br><span class="line">        <span class="keyword">use</span> std::io::Write;</span><br><span class="line">        <span class="keyword">use</span> log::Level;      </span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建env_logger生成器， 也可直接写成env_logger::builder()</span></span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">mut</span> builder = Builder::from_default_env();</span><br><span class="line">        </span><br><span class="line">        builder</span><br><span class="line">        .format(|buf, record| &#123;</span><br><span class="line">            <span class="keyword">let</span> <span class="keyword">mut</span> level_style = buf.style();</span><br><span class="line">            <span class="keyword">let</span> <span class="keyword">mut</span> brace_style = buf.style();</span><br><span class="line">            level_style.set_intense(<span class="literal">true</span>);</span><br><span class="line">            <span class="keyword">match</span> record.level() &#123;</span><br><span class="line">                Level::Trace =&gt; level_style.set_color(Color::Cyan).set_bold(<span class="literal">true</span>),</span><br><span class="line">                Level::<span class="built_in">Debug</span> =&gt; level_style.set_color(Color::Blue).set_bold(<span class="literal">true</span>),</span><br><span class="line">                Level::Info =&gt; level_style.set_color(Color::Green).set_bold(<span class="literal">true</span>),</span><br><span class="line">                Level::Warn =&gt; level_style.set_color(Color::Yellow).set_bold(<span class="literal">true</span>),</span><br><span class="line">                Level::Error =&gt; level_style.set_color(Color::Red).set_bold(<span class="literal">true</span>),</span><br><span class="line">            &#125;;</span><br><span class="line">            brace_style.set_color(Color::Black).set_intense(<span class="literal">true</span>);</span><br><span class="line">            <span class="built_in">writeln!</span>(buf, <span class="string">&quot;&#123;&#125;&#123;&#125; &#123;&#125; &#123;&#125;&#123;&#125; &#123;&#125;&quot;</span>, </span><br><span class="line">                    brace_style.value(<span class="string">&quot;[&quot;</span>),</span><br><span class="line">                    Local::now().format(<span class="string">&quot;%Y-%m-%d %H:%M:%S%.3f&quot;</span>), </span><br><span class="line">                    level_style.value(record.level()), </span><br><span class="line">                    record.target(), </span><br><span class="line">                    brace_style.value(<span class="string">&quot;]&quot;</span>), </span><br><span class="line">                    record.args())</span><br><span class="line">           &#125;)</span><br><span class="line">        .init();</span><br><span class="line"></span><br><span class="line">        trace!(<span class="string">&quot;trace message&quot;</span>);</span><br><span class="line">        debug!(<span class="string">&quot;debug message&quot;</span>);</span><br><span class="line">        info!(<span class="string">&quot;informational message&quot;</span>);</span><br><span class="line">        warn!(<span class="string">&quot;warning message&quot;</span>);</span><br><span class="line">        error!(<span class="string">&quot;error message&quot;</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>运行<code>set RUST_LOG=trace &amp;&amp; cargo test -- test_log_beautify</code> 结果如下： <img src="https://s2.loli.net/2022/04/13/lvO2d5gfNskSyMJ.png" /></p>
+<h1 id="参考">参考</h1>
+<ol type="1">
+<li><a href="https://docs.rs/crate/log/latest">log 文档</a></li>
+<li><a href="https://docs.rs/crate/env_logger/0.9.0">env_logger 文档</a></li>
+</ol>
+<h1 id="注释">注释</h1>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p><a href="https://docs.rs/env_logger/latest/src/env_logger/lib.rs.html#11-1315">lib.rs - source (docs.rs)</a>, 第92行。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>该命令可以在 <em>cmd</em> 下同时执行多条命令, 命令格式：<strong>command1 &amp;&amp; command2</strong> ，command1执行成后后才能执行command2。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+]]></content>
+      <categories>
+        <category>程序语言</category>
+      </categories>
+      <tags>
+        <tag>计算机技术/程序语言</tag>
+        <tag>Rust</tag>
+        <tag>日志</tag>
       </tags>
   </entry>
   <entry>
@@ -3121,33 +3338,27 @@ Name: close, Length: 245, dtype: float64</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>【Rust】Rust在win10下开发环境的搭建</title>
-    <url>/2021/01/04/%E3%80%90Rust%E3%80%91Rust%E5%9C%A8win10%E4%B8%8B%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<p>记录下如何在Windows 10环境下部署VScode的Rust开发环境。</p>
-<h1 id="配置步骤">配置步骤</h1>
-<h2 id="环境变量设置">环境变量设置</h2>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">RUST&#x3D;d:\Program Files\RUST\.rustup\toolchains\stable-x86_64-pc-windows-msvc  </span><br><span class="line">CARGO HOME &#x3D; D:\Program Files\RUST\.cargo  </span><br><span class="line">RUSTUP_DIST_SERVER &#x3D; https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;rust-static  </span><br><span class="line">RUSTUP_HOME &#x3D; D:\Program Files\RUST\.rustup  </span><br><span class="line">RUSTUP_UPDATE_ROOT &#x3D; https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;rust-static&#x2F;rustup  </span><br><span class="line">RUST_SRC_PATH &#x3D; d:\Program Files\RUST\.rustup\toolchains\stable-x86_64-pc-windows-msvc\lib\rustlib\src\rust\src</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="配置windows的rust和crates.io国内镜像">配置Windows的Rust和Crates.io国内镜像</h2>
-<h3 id="修改crates.io国内镜像">修改Crates.io国内镜像</h3>
-<p>修改<code>~/.cargo/config</code> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[source.crates-io]  </span><br><span class="line">registry &#x3D; &quot;https:&#x2F;&#x2F;github.com&#x2F;rust-lang&#x2F;crates.io-index&quot;  </span><br><span class="line"></span><br><span class="line">#Replace with any mirror source  </span><br><span class="line">replace-with &#x3D; &#39;ustc&#39;  </span><br><span class="line">#replace-with &#x3D; &#39;tuna&#39;  </span><br><span class="line">#replace-with &#x3D; &#39;sjtu&#39;  </span><br><span class="line">#replace-with &#x3D; &#39;rustcc&#39;  </span><br><span class="line"></span><br><span class="line">#University of science and technology of China  </span><br><span class="line">[source.ustc]  </span><br><span class="line">registry &#x3D; &quot;git:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;crates.io-index&quot;  </span><br><span class="line"></span><br><span class="line">#Tsinghua University  </span><br><span class="line">[source.tuna]  </span><br><span class="line">registry &#x3D; &quot;https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;git&#x2F;crates.io-index.git&quot;  </span><br><span class="line"></span><br><span class="line">#Shanghai Jiaotong University  </span><br><span class="line">[source.sjtu]  </span><br><span class="line">registry &#x3D; &quot;https:&#x2F;&#x2F;mirrors.sjtug.sjtu.edu.cn&#x2F;git&#x2F;crates.io-index&quot;  </span><br><span class="line"></span><br><span class="line">#Rustcc community  </span><br><span class="line">[source.rustcc]  </span><br><span class="line">registry &#x3D; &quot;git:&#x2F;&#x2F;crates.rustcc.cn&#x2F;crates.io-index&quot;  </span><br></pre></td></tr></table></figure> ### 修改rustup国内镜像</p>
-<p>在系统环境变量中设置 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CARGO HOME &#x3D; D:\Program Files\RUST\.cargo  </span><br><span class="line">RUSTUP_DIST_SERVER &#x3D; https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;rust-static  </span><br><span class="line">RUSTUP_HOME &#x3D; D:\Program Files\RUST\.rustup  </span><br><span class="line">RUSTUP_UPDATE_ROOT &#x3D; https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;rust-static&#x2F;rustup  </span><br></pre></td></tr></table></figure></p>
-<h2 id="vs-code插件安装">VS Code插件安装</h2>
+    <title>【Rust】在jupyter notebook中使用Rust</title>
+    <url>/2021/01/07/%E3%80%90Rust%E3%80%91%E5%9C%A8jupyter-notebook%E4%B8%AD%E4%BD%BF%E7%94%A8Rust/</url>
+    <content><![CDATA[<p>在jupyter notebook中是否也可以像python那样使用呢？ 答案是可以的。现在来记录一下配置步骤。</p>
+<h1 id="使用evcxr作为jupyter-notebook内核">使用EvCxR作为jupyter notebook内核</h1>
+<h2 id="安装">安装</h2>
 <ol type="1">
-<li><p>rust-analyzer</p>
-<p>该插件有说明与会与官方的Rust有冲突，二者只能先激活一个。</p>
-<p><img src="https://s2.loli.net/2022/04/14/vGay32FOwzkAWtL.png" /></p></li>
-<li><p>CodeLLDB</p>
-<p>基于LLDB的原生debugger.详见<a href="https://github.com/vadimcn/vscode-lldb">官网</a></p></li>
-<li><p>TabNine</p>
-<p>基于深度学习的智能提示插件, 详见<a href="https://www.tabnine.com/">官网</a></p></li>
+<li><p>安装jupyter notebook或者jupyter lab</p></li>
+<li><p>安装<a href="https://cmake.org/download/">CMake</a>，在安装EvCxR编译时会使用到。</p></li>
+<li><p>安装EvCxR</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">cargo install evcxr_jupyter</span><br><span class="line">evcxr_jupyter -<span class="literal">-install</span></span><br></pre></td></tr></table></figure></li>
 </ol>
-<h2 id="开启vs-code进行测试">开启VS Code进行测试</h2>
-<p>安装插件，重启VS Code后。</p>
-<p>现在运行官网示例。</p>
-<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> ferris_says::say; <span class="comment">// from the previous step</span></span><br><span class="line"><span class="keyword">use</span> std::io::&#123;stdout, BufWriter&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> stdout = stdout();</span><br><span class="line">    <span class="keyword">let</span> message = <span class="built_in">String</span>::from(<span class="string">&quot;Hello fellow Rustaceans!&quot;</span>);</span><br><span class="line">    <span class="keyword">let</span> width = message.chars().count();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> writer = BufWriter::new(stdout.lock());</span><br><span class="line">    say(message.as_bytes(), width, &amp;<span class="keyword">mut</span> writer).unwrap();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2022/04/14/6qljpGuyzBgOmE4.png" /></p>
-<p>测试， RA、CodeLLDB及TabNine工作正常。</p>
+<a id="more"></a>
+<h2 id="问题">问题</h2>
+<p>安装过程中，原来rust选择的是gnu的工具链编译，但在编译libzmq时会报错，</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">D:\PROGRA~<span class="number">1</span>\MINGW-~<span class="number">1</span>\X86_64~<span class="number">1.0</span><span class="literal">-P</span>\mingw64\bin\G__~<span class="number">1</span>.EXE   <span class="literal">-std</span>=gnu++<span class="number">11</span> <span class="literal">-Wno</span><span class="literal">-tautological</span><span class="literal">-constant</span><span class="literal">-compare</span>  <span class="literal">-o</span> CMakeFiles\cmTC_57766.dir\CheckSymbolExists.cxx.obj <span class="literal">-c</span> E:\Tmp\libzmq<span class="literal">-4</span>.<span class="number">3.3</span>\build\CMakeFiles\CMakeTmp\CheckSymbolExists.cxx</span><br><span class="line"></span><br><span class="line">E:\Tmp\libzmq<span class="literal">-4</span>.<span class="number">3.3</span>\build\CMakeFiles\CMakeTmp\CheckSymbolExists.cxx: <span class="keyword">In</span> <span class="function"><span class="keyword">function</span> &#x27;<span class="title">int</span> <span class="title">main</span><span class="params">(int, char**)</span>&#x27;:</span></span><br><span class="line">E:\Tmp\libzmq<span class="literal">-4</span>.<span class="number">3.3</span>\build\CMakeFiles\CMakeTmp\CheckSymbolExists.cxx:<span class="number">8</span>:<span class="number">19</span>: error: <span class="string">&#x27;strlcpy&#x27;</span> was not declared <span class="keyword">in</span> this scope</span><br><span class="line">   <span class="keyword">return</span> ((int*)(&amp;strlcpy))[<span class="type">argc</span>];</span><br><span class="line">                   ^~~~~~~</span><br><span class="line">E:\Tmp\libzmq<span class="literal">-4</span>.<span class="number">3.3</span>\build\CMakeFiles\CMakeTmp\CheckSymbolExists.cxx:<span class="number">8</span>:<span class="number">19</span>: note: suggested alternative: <span class="string">&#x27;strncpy&#x27;</span></span><br><span class="line">   <span class="keyword">return</span> ((int*)(&amp;strlcpy))[<span class="type">argc</span>];</span><br><span class="line">                   ^~~~~~~</span><br><span class="line">                   strncpy</span><br><span class="line">At global scope:</span><br><span class="line">cc1plus.exe: warning: unrecognized command line option <span class="string">&#x27;-Wno-tautological-constant-compare&#x27;</span></span><br><span class="line">mingw32<span class="literal">-make</span>.exe[<span class="number">1</span>]: *** [<span class="type">CMakeFiles</span>\<span class="type">cmTC_57766.dir</span>\<span class="type">build.make</span>:<span class="number">84</span>: <span class="type">CMakeFiles</span>/<span class="type">cmTC_57766.dir</span>/<span class="type">CheckSymbolExists.cxx.obj</span>] Error <span class="number">1</span></span><br><span class="line"></span><br><span class="line">mingw32<span class="literal">-make</span>.exe[<span class="number">1</span>]: Leaving directory <span class="string">&#x27;E:/Tmp/libzmq-4.3.3/build/CMakeFiles/CMakeTmp&#x27;</span></span><br><span class="line"></span><br><span class="line">mingw32<span class="literal">-make</span>.exe: *** [<span class="type">Makefile</span>:<span class="number">139</span>: <span class="type">cmTC_57766</span>/<span class="type">fast</span>] Error <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">File E:/Tmp/libzmq<span class="literal">-4</span>.<span class="number">3.3</span>/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:</span><br><span class="line">/* */</span><br><span class="line"><span class="comment">#include &lt;string.h&gt;</span></span><br><span class="line"></span><br><span class="line">int main(int argc, char** argv)</span><br><span class="line">&#123;</span><br><span class="line">  (void)argv;</span><br><span class="line"><span class="comment">#ifndef strlcpy</span></span><br><span class="line">  <span class="keyword">return</span> ((int*)(&amp;strlcpy))[<span class="type">argc</span>];</span><br><span class="line"><span class="comment">#else</span></span><br><span class="line">  (void)argc;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"><span class="comment">#endif</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>尝试手动编译libzmq, 但无论4.3.3或4.3.2版本都无法成功。 具体原因从issue里也没有太多参考意义。后来从<a href="https://github.com/google/evcxr/issues/53">EvCxR issue 53</a>中得到些启发，将rust的工具链换回msvc工具链。重新安装EvCxR，成功。</p>
+<p><img src="https://s2.loli.net/2022/04/14/qIxXnlzYaC7kETM.png" /> 测试</p>
+<p><img src="https://s2.loli.net/2022/04/14/IxYUjVNrOBfE1el.png" /> # 参考</p>
+<ol type="1">
+<li><a href="https://github.com/google/evcxr/blob/master/evcxr_jupyter/README.md">EvCxR Jupyter Kernel</a></li>
+</ol>
 ]]></content>
       <categories>
         <category>技术笔记</category>
@@ -3155,7 +3366,49 @@ Name: close, Length: 245, dtype: float64</code></pre>
       </categories>
       <tags>
         <tag>rust</tag>
-        <tag>VScode</tag>
+        <tag>jupyternotebook</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【cmder】在VsCode使用Cmder作为默认终端</title>
+    <url>/2021/09/11/%E3%80%90cmder%E3%80%91%E5%9C%A8VsCode%E4%BD%BF%E7%94%A8Cmder%E4%BD%9C%E4%B8%BA%E9%BB%98%E8%AE%A4%E7%BB%88%E7%AB%AF/</url>
+    <content><![CDATA[<h1 id="前言">前言</h1>
+<p>实在忍受不了<code>VsCode</code>里的默认终端为<code>powershell</code>或<code>cmd</code>, 希望能使用<code>cmder</code>来作为默认终端。</p>
+<h1 id="配置步骤">配置步骤</h1>
+<p>旧版的<code>VsCode</code>使用以下方法修改。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;terminal.integrated.shellArgs.windows&quot;:[&quot;/k %CMDER_ROOT%\\vendor\\init.bat&quot;]</span><br></pre></td></tr></table></figure>
+<p>当VSCode升级至1.57.1(2021.6.17)时，会出现警告提示：</p>
+<p><img src="https://s2.loli.net/2022/04/14/hT1As3nwuqpFCyQ.png" /></p>
+<p>意思是此项已弃用，<code>Microsoft</code>官方配置默认 shell 的新推荐方法是在 #terminal.integrated.profiles.windows# 中创建一个终端配置文件，并将其配置文件名称设置为 #terminal.integrated.defaultProfile.windows# 中的默认值。此操作当前将优先于新的配置文件设置，但将来会发生更改。</p>
+<ol type="1">
+<li>打开<code>User Settings</code>(<code>File</code>-&gt; <code>Preferences</code>-&gt; <code>Settings</code>)。</li>
+<li>输入栏：<code>terminal.integrated.Profiles.windows</code>, 并点击<code>Edit in settings.son</code>。</li>
+</ol>
+<p><img src="https://s2.loli.net/2022/04/14/ltZiaKGOpsSDTkE.png" /></p>
+<ol start="3" type="1">
+<li><p>添加新的配置， 并设置<code>cmder</code>为默认配置。</p></li>
+<li><p>打开一个新终端(<code>Terminal</code> -&gt; <code>New Terminal</code>)</p>
+<table>
+<thead>
+<tr class="header">
+<th><img src="https://s2.loli.net/2022/04/14/WbDMzE32fayt8Hg.png" /></th>
+<th><img src="https://s2.loli.net/2022/04/14/sGTVRWPSaAH2E9f.png" /></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></li>
+</ol>
+<h1 id="参考">参考</h1>
+<p>1/ <a href="https://code.visualstudio.com/docs/editor/integrated-terminal#_terminal-profiles">Integrated Terminal in Visual Studio Code</a></p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>软件</category>
+      </categories>
+      <tags>
+        <tag>VsCode</tag>
+        <tag>cmder</tag>
       </tags>
   </entry>
   <entry>
@@ -3224,276 +3477,6 @@ Name: close, Length: 245, dtype: float64</code></pre>
       </categories>
       <tags>
         <tag>rust</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Python】使用PYQT5来构建持仓盈亏监控(续)</title>
-    <url>/2021/07/02/%E3%80%90Python%E3%80%91%E4%BD%BF%E7%94%A8PYQT5%E6%9D%A5%E6%9E%84%E5%BB%BA%E6%8C%81%E4%BB%93%E7%9B%88%E4%BA%8F%E7%9B%91%E6%8E%A7%20(%E7%BB%AD)/</url>
-    <content><![CDATA[<h1 id="目的">目的</h1>
-<p>实时通过图形的方式呈现盈亏情况</p>
-<a id="more"></a>
-<h1 id="安装pyqtgraph">安装PyQtgraph</h1>
-<h2 id="安装">安装</h2>
-<p>通过pip进行安装</p>
-<blockquote>
-<p>pip install pyqtgraph</p>
-</blockquote>
-<h2 id="界面设计">界面设计</h2>
-<h3 id="使用qtdesigner来设计界面">使用QtDesigner来设计界面</h3>
-<ol type="1">
-<li>初始界面 初始界面设计如下： <img src="https://s2.loli.net/2022/04/14/zcTQvBmEta5WwuP.png" /></li>
-</ol>
-<p>在此基础上，增加一个<code>label</code>及<code>widget</code>。</p>
-<p><img src="https://s2.loli.net/2022/04/14/sNtdLJD436alhbv.png" /> 将widget重命名为<code>“graphWidget"</code>。</p>
-<p><img src="https://s2.loli.net/2022/04/14/JtQwUzni7kbOdMP.png" /> 点击右键，选择<code>“提升为...”</code>， 提升的类名称为<code>“PlotWidget”</code>, 头文件为<code>“pyqtgraph”</code>。</p>
-<p><img src="https://s2.loli.net/2022/04/14/zwo5gmBSaQJ3Axy.png" /></p>
-<p>之所以使用这种方法，是因为按一般做法，利用Qt Designer新建一个布局，在代码中动态添加一个PlotWidget到这个布局来实现，代码如下:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pyqtgraph <span class="keyword">as</span> pg</span><br><span class="line">plot_plt = pg.PlotWidget(background=(<span class="number">69</span>,<span class="number">69</span>,<span class="number">69</span>), axisItems=&#123;<span class="string">&#x27;bottom&#x27;</span>: TimeAxisItem(orientation=<span class="string">&#x27;bottom&#x27;</span>)&#125;)</span><br><span class="line">verticalLayout.addWidget(plot_plt) </span><br></pre></td></tr></table></figure>
-<p>这里指定了背景色及坐标轴使用的模板。</p>
-<p>这样的做法，我一直没有找到控制PlotWidget大小的方法，导致出来的图形结果与我的期望不太一致。因此才尝试在UI设计时就固定住该部件的大小。</p>
-<h3 id="获取数据并展示">获取数据并展示</h3>
-<ol type="1">
-<li><p>将实时取得的持仓盈亏数据存入列表</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">self.data_list = []</span><br><span class="line">self.data_list.append(<span class="built_in">float</span>(self.data_summary[<span class="string">&#x27;day_float_amount&#x27;</span>]))</span><br></pre></td></tr></table></figure></li>
-<li><p>将时间进行时间戳转化存入列表</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">timestamp</span>():</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(time.mktime(datetime.datetime.now().timetuple()))</span><br><span class="line"></span><br><span class="line">self.time_list = []</span><br><span class="line">self.time_list.append(timestamp())</span><br></pre></td></tr></table></figure></li>
-<li><p>坐标轴显示为时间</p>
-<p>默认pyqtgraph会使用0开始的整数来作为坐标轴的值。 这里希望使用实时取到的时间来做为显示的值，因此需要重写pyqtgraph的AxisItem类。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TimeAxisItem</span>(<span class="params">pg.AxisItem</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, *args, **kwargs</span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__(*args, **kwargs)</span><br><span class="line">        <span class="comment">#self.setLabel(text=&#x27;Time&#x27;, units=None)</span></span><br><span class="line">        self.enableAutoSIPrefix(<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">tickStrings</span>(<span class="params">self, values, scale, spacing</span>):</span></span><br><span class="line">        <span class="keyword">return</span> [datetime.datetime.fromtimestamp(value).strftime(<span class="string">&quot;%H:%M:%S&quot;</span>) <span class="keyword">for</span> value <span class="keyword">in</span> values]</span><br></pre></td></tr></table></figure></li>
-<li><p>展示</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">graphWidget.plot().setData(self.model.time_list, self.model.data_list,pen=<span class="string">&#x27;g&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="效果">效果</h1>
-<p>完成后的应用界面效果如下： <img src="https://s2.loli.net/2022/04/14/pqdJtr7F5bMEcRV.png" /> # 参考 4. <a href="%5BPyQt5的PyQtGraph实践系列3：实时数据更新绘制图形%20-%20州的先生%20(zmister.com)%5D(https://zmister.com/archives/826.html)">PyQt5的PyQtGraph实践系列3：实时数据更新绘制图形</a> 2. <a href="%5BEmbedding%20PyQtGraph%20(or%20any%20other%20custom%20PyQt5%20widgets)%20from%20Qt%20Designer%20(mfitzp.com)%5D(https://www.mfitzp.com/tutorials/embed-pyqtgraph-custom-widgets-qt-app/)">Embedding custom widgets from Qt Designer</a></p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>python</category>
-        <category>量化投资</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>pyqt5</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Rust】在jupyter notebook中使用Rust</title>
-    <url>/2021/01/07/%E3%80%90Rust%E3%80%91%E5%9C%A8jupyter-notebook%E4%B8%AD%E4%BD%BF%E7%94%A8Rust/</url>
-    <content><![CDATA[<p>在jupyter notebook中是否也可以像python那样使用呢？ 答案是可以的。现在来记录一下配置步骤。</p>
-<h1 id="使用evcxr作为jupyter-notebook内核">使用EvCxR作为jupyter notebook内核</h1>
-<h2 id="安装">安装</h2>
-<ol type="1">
-<li><p>安装jupyter notebook或者jupyter lab</p></li>
-<li><p>安装<a href="https://cmake.org/download/">CMake</a>，在安装EvCxR编译时会使用到。</p></li>
-<li><p>安装EvCxR</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">cargo install evcxr_jupyter</span><br><span class="line">evcxr_jupyter -<span class="literal">-install</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<a id="more"></a>
-<h2 id="问题">问题</h2>
-<p>安装过程中，原来rust选择的是gnu的工具链编译，但在编译libzmq时会报错，</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">D:\PROGRA~<span class="number">1</span>\MINGW-~<span class="number">1</span>\X86_64~<span class="number">1.0</span><span class="literal">-P</span>\mingw64\bin\G__~<span class="number">1</span>.EXE   <span class="literal">-std</span>=gnu++<span class="number">11</span> <span class="literal">-Wno</span><span class="literal">-tautological</span><span class="literal">-constant</span><span class="literal">-compare</span>  <span class="literal">-o</span> CMakeFiles\cmTC_57766.dir\CheckSymbolExists.cxx.obj <span class="literal">-c</span> E:\Tmp\libzmq<span class="literal">-4</span>.<span class="number">3.3</span>\build\CMakeFiles\CMakeTmp\CheckSymbolExists.cxx</span><br><span class="line"></span><br><span class="line">E:\Tmp\libzmq<span class="literal">-4</span>.<span class="number">3.3</span>\build\CMakeFiles\CMakeTmp\CheckSymbolExists.cxx: <span class="keyword">In</span> <span class="function"><span class="keyword">function</span> &#x27;<span class="title">int</span> <span class="title">main</span><span class="params">(int, char**)</span>&#x27;:</span></span><br><span class="line">E:\Tmp\libzmq<span class="literal">-4</span>.<span class="number">3.3</span>\build\CMakeFiles\CMakeTmp\CheckSymbolExists.cxx:<span class="number">8</span>:<span class="number">19</span>: error: <span class="string">&#x27;strlcpy&#x27;</span> was not declared <span class="keyword">in</span> this scope</span><br><span class="line">   <span class="keyword">return</span> ((int*)(&amp;strlcpy))[<span class="type">argc</span>];</span><br><span class="line">                   ^~~~~~~</span><br><span class="line">E:\Tmp\libzmq<span class="literal">-4</span>.<span class="number">3.3</span>\build\CMakeFiles\CMakeTmp\CheckSymbolExists.cxx:<span class="number">8</span>:<span class="number">19</span>: note: suggested alternative: <span class="string">&#x27;strncpy&#x27;</span></span><br><span class="line">   <span class="keyword">return</span> ((int*)(&amp;strlcpy))[<span class="type">argc</span>];</span><br><span class="line">                   ^~~~~~~</span><br><span class="line">                   strncpy</span><br><span class="line">At global scope:</span><br><span class="line">cc1plus.exe: warning: unrecognized command line option <span class="string">&#x27;-Wno-tautological-constant-compare&#x27;</span></span><br><span class="line">mingw32<span class="literal">-make</span>.exe[<span class="number">1</span>]: *** [<span class="type">CMakeFiles</span>\<span class="type">cmTC_57766.dir</span>\<span class="type">build.make</span>:<span class="number">84</span>: <span class="type">CMakeFiles</span>/<span class="type">cmTC_57766.dir</span>/<span class="type">CheckSymbolExists.cxx.obj</span>] Error <span class="number">1</span></span><br><span class="line"></span><br><span class="line">mingw32<span class="literal">-make</span>.exe[<span class="number">1</span>]: Leaving directory <span class="string">&#x27;E:/Tmp/libzmq-4.3.3/build/CMakeFiles/CMakeTmp&#x27;</span></span><br><span class="line"></span><br><span class="line">mingw32<span class="literal">-make</span>.exe: *** [<span class="type">Makefile</span>:<span class="number">139</span>: <span class="type">cmTC_57766</span>/<span class="type">fast</span>] Error <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">File E:/Tmp/libzmq<span class="literal">-4</span>.<span class="number">3.3</span>/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:</span><br><span class="line">/* */</span><br><span class="line"><span class="comment">#include &lt;string.h&gt;</span></span><br><span class="line"></span><br><span class="line">int main(int argc, char** argv)</span><br><span class="line">&#123;</span><br><span class="line">  (void)argv;</span><br><span class="line"><span class="comment">#ifndef strlcpy</span></span><br><span class="line">  <span class="keyword">return</span> ((int*)(&amp;strlcpy))[<span class="type">argc</span>];</span><br><span class="line"><span class="comment">#else</span></span><br><span class="line">  (void)argc;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"><span class="comment">#endif</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>尝试手动编译libzmq, 但无论4.3.3或4.3.2版本都无法成功。 具体原因从issue里也没有太多参考意义。后来从<a href="https://github.com/google/evcxr/issues/53">EvCxR issue 53</a>中得到些启发，将rust的工具链换回msvc工具链。重新安装EvCxR，成功。</p>
-<p><img src="https://s2.loli.net/2022/04/14/qIxXnlzYaC7kETM.png" /> 测试</p>
-<p><img src="https://s2.loli.net/2022/04/14/IxYUjVNrOBfE1el.png" /> # 参考</p>
-<ol type="1">
-<li><a href="https://github.com/google/evcxr/blob/master/evcxr_jupyter/README.md">EvCxR Jupyter Kernel</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>rust</category>
-      </categories>
-      <tags>
-        <tag>rust</tag>
-        <tag>jupyternotebook</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Rust】Rust配置日志记录</title>
-    <url>/2022/04/13/%E3%80%90Rust%E3%80%91Rust%E9%85%8D%E7%BD%AE%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<p>利用 <code>log</code> 及 <code>env_logger</code>来配置日志。</p>
-<h1 id="简介">简介</h1>
-<h2 id="crate-log"><em>Crate</em> log</h2>
-<h3 id="功能说明">功能说明</h3>
-<p><code>log</code> 提供了一个单独的日志记录 <em>API</em>，给出了日志库的一般抽象，后面具体的日志库需要基于这个抽象实现具体的实例。</p>
-<p>日志请求由目标，级别和内容组成。目标是一个字符串，其默认为日志请求的位置的模块路径，尽管可能会覆盖默认值。记录器实现通常使用目标基于某些用户配置来过滤日志请求。</p>
-<h3 id="记录器实现">记录器实现</h3>
-<p>为了生成日志输出，必须使用与 <code>log</code> 兼容的日志记录器实现。有许多可用的实现可供选择，这里有一些常用的： - 精简版记录器: - <a href="https://docs.rs/env_logger/*/env_logger/">env_logger</a> - <a href="https://github.com/borntyping/rust-simple_logger">simple_logger</a> - <a href="https://github.com/drakulix/simplelog.rs">simplelog</a> - <a href="https://docs.rs/pretty_env_logger/*/pretty_env_logger/">pretty_env_logger</a> - <a href="https://docs.rs/stderrlog/*/stderrlog/">stderrlog</a> - <a href="https://docs.rs/flexi_logger/*/flexi_logger/">flexi_logger</a> - 复杂且可配置的框架: - <a href="https://docs.rs/log4rs/*/log4rs/">log4rs</a> - <a href="https://docs.rs/fern/*/fern/">fern</a> - 专用适配: - <a href="https://docs.rs/syslog/*/syslog/">syslog</a> - <a href="https://docs.rs/slog-stdlog/*/slog_stdlog/">slog-stdlog</a> - <a href="https://docs.rs/log/latest/log/(https://docs.rs/systemd-journal-logger/*/systemd_journal_logger/)">systemd-journal-logger</a> - <a href="https://docs.rs/log/latest/log/(https://docs.rs/android_log/*/android_log/)">android_log</a> - <a href="https://docs.rs/log/latest/log/(https://docs.rs/win_dbg_logger/*/win_dbg_logger/)">win_dbg_logger</a> - WebAssembly可用: - <a href="https://docs.rs/log/latest/log/(https://docs.rs/console_log/*/console_log/)">console_log</a> - 动态库: - 构建在<code>log</code>之上的 FFI-safe wrapper 来初始化库。</p>
-<a id="more"></a>
-<h3 id="日志分级">日志分级</h3>
-<p><code>log</code>的最基本的用法是通过5个宏来实现的。 <strong>定义</strong>如下： <figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="meta">#[repr(usize)]</span></span><br><span class="line"><span class="keyword">pub</span> <span class="class"><span class="keyword">enum</span> <span class="title">Level</span></span> &#123;</span><br><span class="line">    Error,</span><br><span class="line">    Warn,</span><br><span class="line">    Info,</span><br><span class="line">    <span class="built_in">Debug</span>,</span><br><span class="line">    Trace,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> <strong>优先级</strong>：<code>error!</code> &gt; <code>warn!</code> &gt; <code>info!</code> &gt; <code>debug!</code> &gt; <code>trace!</code>。<code>error!</code>的优先级最高，<code>trace!</code>优先级最低。</p>
-<h2 id="crate-env_logger"><em>Crate</em> env_logger</h2>
-<p><code>env_logger</code> 通过配置环境变量来实现日志记录器的功能。</p>
-<h3 id="应用示例">应用示例</h3>
-<ol type="1">
-<li>打印不同级别日志 <figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="meta">#[cfg(test)]</span></span><br><span class="line"><span class="keyword">mod</span> logtests &#123;</span><br><span class="line">    <span class="meta">#[test]</span></span><br><span class="line">    <span class="function"><span class="keyword">fn</span> <span class="title">test_log_default</span></span>()&#123;</span><br><span class="line">		<span class="keyword">use</span> log::&#123;debug, error, warn, info&#125;;</span><br><span class="line"></span><br><span class="line">		env_logger::init();</span><br><span class="line"></span><br><span class="line">		debug!(<span class="string">&quot;debug message&quot;</span>);</span><br><span class="line">		info!(<span class="string">&quot;informational message&quot;</span>);</span><br><span class="line">		warn!(<span class="string">&quot;warning message&quot;</span>);</span><br><span class="line">		error!(<span class="string">&quot;error message&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 运行<code>cargo test -- test_log_default</code>进行测试，结果如下： <img src="https://s2.loli.net/2022/04/13/5BoA2P6TvVd3GCD.png" /> 为什么无法看到 <em>error</em> 以下级别的日志呢？ 从 <code>env_logger</code> 的源代码中有以下说明： &gt;Log levels are controlled on a per-module basis, and <strong>by default all logging is disabled except for the <code>error</code> level</strong>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
-</ol>
-<p>基于<code>env_logger</code>的工作模式，需要对 环境变量 <em>RUST_LOG</em> 进行预定义，对以上代码使用以下方式测试。 先设置环境变量 <em>RUST_LOG</em> ，然后运行测试， <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">set</span> RUST_LOG=trace</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cargo <span class="built_in">test</span> -- test_log_default</span></span><br></pre></td></tr></table></figure> 结果如下： <img src="https://s2.loli.net/2022/04/13/MZbY89mlxsUIXBo.png" /></p>
-<ol start="2" type="1">
-<li><p>采用本地时间作为时间戳 这时需要创建日志生成器 <em>builder</em> 中的 <em>format</em> 方法来完成输出格式的配置。 <figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure> 运行<code>set RUST_LOG=trace &amp;&amp; cargo test -- test_log_localtime</code><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> 结果如下： <img src="https://s2.loli.net/2022/04/13/qr49HXw6BNJmakA.png" /> 可以看出， 时间戳已经更改为本地时间，但是整个日志格式比较简陋。</p></li>
-<li><p>输出格式美化 依照默认输出时的格式，在时间戳、级别、目标前后加入方括号。方括号表现为较高亮度，级别用不同颜色区别。</p></li>
-</ol>
-<ul>
-<li>对级别及方括号分别创建样式 <em>Style</em> ，</li>
-<li><em>Style</em> 中的 <em>set_intense</em> 方法用来设置高亮度</li>
-<li><em>Style</em> 中的 <em>set_color</em> 方法用来设置颜色，参数为 <em>enum</em> 类型 <figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="meta">#[non_exhaustive]</span></span><br><span class="line"><span class="keyword">pub</span> <span class="class"><span class="keyword">enum</span> <span class="title">Color</span></span> &#123;</span><br><span class="line">    Black,</span><br><span class="line">    Blue,</span><br><span class="line">    Green,</span><br><span class="line">    Red,</span><br><span class="line">    Cyan,</span><br><span class="line">    Magenta,</span><br><span class="line">    Yellow,</span><br><span class="line">    White,</span><br><span class="line">    Ansi256(<span class="built_in">u8</span>),</span><br><span class="line">    Rgb(<span class="built_in">u8</span>, <span class="built_in">u8</span>, <span class="built_in">u8</span>),</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><em>Style</em> 中的 <em>set_bold</em> 方法用来设置字体粗细</li>
-<li><em>Style</em> 中的 <em>value</em> 方法用来封装需要格式化的内容</li>
-</ul>
-<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="meta">#[test]</span></span><br><span class="line">    <span class="function"><span class="keyword">fn</span> <span class="title">test_log_beautify</span></span>()&#123;</span><br><span class="line">        <span class="keyword">use</span> log::&#123;debug, error, warn, info, trace&#125;;</span><br><span class="line">        <span class="keyword">use</span> env_logger::Builder;</span><br><span class="line">        <span class="keyword">use</span> env_logger::fmt::Color;</span><br><span class="line">        <span class="keyword">use</span> chrono::Local;</span><br><span class="line">        <span class="keyword">use</span> std::io::Write;</span><br><span class="line">        <span class="keyword">use</span> log::Level;      </span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建env_logger生成器， 也可直接写成env_logger::builder()</span></span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">mut</span> builder = Builder::from_default_env();</span><br><span class="line">        </span><br><span class="line">        builder</span><br><span class="line">        .format(|buf, record| &#123;</span><br><span class="line">            <span class="keyword">let</span> <span class="keyword">mut</span> level_style = buf.style();</span><br><span class="line">            <span class="keyword">let</span> <span class="keyword">mut</span> brace_style = buf.style();</span><br><span class="line">            level_style.set_intense(<span class="literal">true</span>);</span><br><span class="line">            <span class="keyword">match</span> record.level() &#123;</span><br><span class="line">                Level::Trace =&gt; level_style.set_color(Color::Cyan).set_bold(<span class="literal">true</span>),</span><br><span class="line">                Level::<span class="built_in">Debug</span> =&gt; level_style.set_color(Color::Blue).set_bold(<span class="literal">true</span>),</span><br><span class="line">                Level::Info =&gt; level_style.set_color(Color::Green).set_bold(<span class="literal">true</span>),</span><br><span class="line">                Level::Warn =&gt; level_style.set_color(Color::Yellow).set_bold(<span class="literal">true</span>),</span><br><span class="line">                Level::Error =&gt; level_style.set_color(Color::Red).set_bold(<span class="literal">true</span>),</span><br><span class="line">            &#125;;</span><br><span class="line">            brace_style.set_color(Color::Black).set_intense(<span class="literal">true</span>);</span><br><span class="line">            <span class="built_in">writeln!</span>(buf, <span class="string">&quot;&#123;&#125;&#123;&#125; &#123;&#125; &#123;&#125;&#123;&#125; &#123;&#125;&quot;</span>, </span><br><span class="line">                    brace_style.value(<span class="string">&quot;[&quot;</span>),</span><br><span class="line">                    Local::now().format(<span class="string">&quot;%Y-%m-%d %H:%M:%S%.3f&quot;</span>), </span><br><span class="line">                    level_style.value(record.level()), </span><br><span class="line">                    record.target(), </span><br><span class="line">                    brace_style.value(<span class="string">&quot;]&quot;</span>), </span><br><span class="line">                    record.args())</span><br><span class="line">           &#125;)</span><br><span class="line">        .init();</span><br><span class="line"></span><br><span class="line">        trace!(<span class="string">&quot;trace message&quot;</span>);</span><br><span class="line">        debug!(<span class="string">&quot;debug message&quot;</span>);</span><br><span class="line">        info!(<span class="string">&quot;informational message&quot;</span>);</span><br><span class="line">        warn!(<span class="string">&quot;warning message&quot;</span>);</span><br><span class="line">        error!(<span class="string">&quot;error message&quot;</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>运行<code>set RUST_LOG=trace &amp;&amp; cargo test -- test_log_beautify</code> 结果如下： <img src="https://s2.loli.net/2022/04/13/lvO2d5gfNskSyMJ.png" /></p>
-<h1 id="参考">参考</h1>
-<ol type="1">
-<li><a href="https://docs.rs/crate/log/latest">log 文档</a></li>
-<li><a href="https://docs.rs/crate/env_logger/0.9.0">env_logger 文档</a></li>
-</ol>
-<h1 id="注释">注释</h1>
-<section class="footnotes" role="doc-endnotes">
-<hr />
-<ol>
-<li id="fn1" role="doc-endnote"><p><a href="https://docs.rs/env_logger/latest/src/env_logger/lib.rs.html#11-1315">lib.rs - source (docs.rs)</a>, 第92行。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>该命令可以在 <em>cmd</em> 下同时执行多条命令, 命令格式：<strong>command1 &amp;&amp; command2</strong> ，command1执行成后后才能执行command2。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
-]]></content>
-      <categories>
-        <category>程序语言</category>
-      </categories>
-      <tags>
-        <tag>计算机技术/程序语言</tag>
-        <tag>Rust</tag>
-        <tag>日志</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【python】multiprocessing进程间的通信（二）管道</title>
-    <url>/2021/01/08/%E3%80%90python%E3%80%91multiprocessing%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%EF%BC%88%E4%BA%8C%EF%BC%89%E7%AE%A1%E9%81%93/</url>
-    <content><![CDATA[<p><code>multiprocessing.Pipe()</code>用来创建管道，返回两个连接对象，代表管道的两端，一般用于进程或者线程之间的通信，不同于<code>os.pipe()</code>,<code>os.pipe()</code>主要用来创建两个文件描述符，一个读，一个写，是单向的。而<code>multiprocessing.Pipe()</code>则可以双向通信。</p>
-<a id="more"></a>
-<h1 id="管道multiprocessing.pipe">管道（multiprocessing.Pipe）</h1>
-<blockquote>
-<p><code>multiprocessing.``Pipe</code>([<em>duplex</em>])</p>
-<p>返回一对 <a href="https://docs.python.org/zh-cn/3/library/multiprocessing.html#multiprocessing.connection.Connection"><code>Connection</code></a> 对象 <code>(conn1, conn2)</code> ， 分别表示管道的两端。</p>
-<p>如果 <em>duplex</em> 被置为 <code>True</code> (默认值)，那么该管道是双向的。如果 <em>duplex</em> 被置为 <code>False</code> ，那么该管道是单向的，即 <code>conn1</code> 只能用于接收消息，而 <code>conn2</code> 仅能用于发送消息。</p>
-</blockquote>
-<p><strong>示例：</strong>将子进程产生的信息统一写入父进程，这里是使用pool来创建进程池。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool, RLock, freeze_support,Queue,Pipe</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">from</span> TS_logs <span class="keyword">import</span> TS_log_info</span><br><span class="line"><span class="keyword">from</span>  TS_util <span class="keyword">import</span> (</span><br><span class="line">    TS_util_get_tradelist,</span><br><span class="line">    TS_util_get_real_date,</span><br><span class="line">    TS_util_get_next_datetime,</span><br><span class="line">    TS_util_get_now_time,</span><br><span class="line">    TS_util_date_convert,</span><br><span class="line">    trade_date_sse</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log_c</span>(<span class="params">child_conn,codelist,n</span>):</span> </span><br><span class="line">    <span class="keyword">for</span> trade_date <span class="keyword">in</span> codelist[n::<span class="number">8</span>][<span class="number">0</span>:<span class="number">17</span>]:</span><br><span class="line">        msg = <span class="string">&#x27;&#123;&#125; #Job&#123;&#125;  trade date &#123;&#125;.&#x27;</span> \</span><br><span class="line">                .<span class="built_in">format</span>(datetime.datetime.now().strftime(<span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>),n,trade_date)</span><br><span class="line">        child_conn.send(msg)</span><br><span class="line">    print(<span class="string">&#x27;workers exit&#x27;</span>)</span><br><span class="line"></span><br><span class="line">L = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">8</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:    </span><br><span class="line">    freeze_support()  <span class="comment"># for Windows support</span></span><br><span class="line">    parent_conn,child_conn = Pipe()</span><br><span class="line">    tqdm.set_lock(RLock())</span><br><span class="line">    codelist = trade_date_sse</span><br><span class="line">    func = functools.partial(log_c,child_conn,codelist)</span><br><span class="line">    p = Pool(initializer=tqdm.set_lock, initargs=(tqdm.get_lock(),))</span><br><span class="line">    p.<span class="built_in">map</span>(func, L)</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">while</span> parent_conn.poll(<span class="number">0.001</span>):</span><br><span class="line">        print(parent_conn.recv())</span><br><span class="line">    p.close()</span><br><span class="line">    p.join()</span><br><span class="line">    parent_conn.close()</span><br><span class="line">    child_conn.close()</span><br></pre></td></tr></table></figure>
-<p>当子进程发送一定量的数据之后会卡住，没有任何报错和提示，卡住不动！！测试大概是7000字节左右。原因尚未找到。按文档看，应该与OS有关，最大应该可达32M。</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>multiprocessing</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【cmder】在VsCode使用Cmder作为默认终端</title>
-    <url>/2021/09/11/%E3%80%90cmder%E3%80%91%E5%9C%A8VsCode%E4%BD%BF%E7%94%A8Cmder%E4%BD%9C%E4%B8%BA%E9%BB%98%E8%AE%A4%E7%BB%88%E7%AB%AF/</url>
-    <content><![CDATA[<h1 id="前言">前言</h1>
-<p>实在忍受不了<code>VsCode</code>里的默认终端为<code>powershell</code>或<code>cmd</code>, 希望能使用<code>cmder</code>来作为默认终端。</p>
-<h1 id="配置步骤">配置步骤</h1>
-<p>旧版的<code>VsCode</code>使用以下方法修改。</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;terminal.integrated.shellArgs.windows&quot;:[&quot;/k %CMDER_ROOT%\\vendor\\init.bat&quot;]</span><br></pre></td></tr></table></figure>
-<p>当VSCode升级至1.57.1(2021.6.17)时，会出现警告提示：</p>
-<p><img src="https://s2.loli.net/2022/04/14/hT1As3nwuqpFCyQ.png" /></p>
-<p>意思是此项已弃用，<code>Microsoft</code>官方配置默认 shell 的新推荐方法是在 #terminal.integrated.profiles.windows# 中创建一个终端配置文件，并将其配置文件名称设置为 #terminal.integrated.defaultProfile.windows# 中的默认值。此操作当前将优先于新的配置文件设置，但将来会发生更改。</p>
-<ol type="1">
-<li>打开<code>User Settings</code>(<code>File</code>-&gt; <code>Preferences</code>-&gt; <code>Settings</code>)。</li>
-<li>输入栏：<code>terminal.integrated.Profiles.windows</code>, 并点击<code>Edit in settings.son</code>。</li>
-</ol>
-<p><img src="https://s2.loli.net/2022/04/14/ltZiaKGOpsSDTkE.png" /></p>
-<ol start="3" type="1">
-<li><p>添加新的配置， 并设置<code>cmder</code>为默认配置。</p></li>
-<li><p>打开一个新终端(<code>Terminal</code> -&gt; <code>New Terminal</code>)</p>
-<table>
-<thead>
-<tr class="header">
-<th><img src="https://s2.loli.net/2022/04/14/WbDMzE32fayt8Hg.png" /></th>
-<th><img src="https://s2.loli.net/2022/04/14/sGTVRWPSaAH2E9f.png" /></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table></li>
-</ol>
-<h1 id="参考">参考</h1>
-<p>1/ <a href="https://code.visualstudio.com/docs/editor/integrated-terminal#_terminal-profiles">Integrated Terminal in Visual Studio Code</a></p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>软件</category>
-      </categories>
-      <tags>
-        <tag>VsCode</tag>
-        <tag>cmder</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【应用软件】ShareX截图工具的使用</title>
-    <url>/2021/09/24/%E3%80%90%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6%E3%80%91ShareX%E6%88%AA%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p>截图，使用过的工具有<code>sngait</code>， <code>greenshot</code>, 前者功能强大，但需要付费。后者轻巧，但软件功能较少且更新较慢，最后的稳定版还是2017年发布的。至于QQ等截图工具，需要打开QQ软件本身，不太省心。</p>
-<p>在写博客的时候，大多数工具均采用矩形截图的方式， 如果需要对所截取的图片进行圆角，阴影等效果的添加，就必须使用其它软件来进行后处理。</p>
-<p><code>shareX</code>恰好满足这些需求。且体量也不算大。</p>
-<a id="more"></a>
-<h1 id="sharex简介">shareX简介</h1>
-<p>ShareX 是一款功能非常强大且免费开源的截图与屏幕记录工具 。除了正常的截图功能外，还提供多区域截图、滚动截图、屏幕取色，屏幕录制，添加水印等实用的功能。而且还可以上传到多种文件存储服务器上。可以让截图更加高效、美观。</p>
-<p>更多信息及下载详见<a href="https://getsharex.com/">shareX官网</a></p>
-<h1 id="sharex截图美化的实现">shareX截图美化的实现</h1>
-<ol type="1">
-<li><p>打开<code>shareX</code>--&gt; <code>动作设置</code>。<br />
-<img src="https://s2.loli.net/2022/04/14/uNx2cCDt3eIpYgE.png" /></p></li>
-<li><p>在<code>图像</code>--&gt;<code>效果</code>中点击<code>图像效果配置</code>。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_yGfFOIJKcC.png" /> <img src="https://s2.loli.net/2022/04/14/oW1LIdqnyaslbfx.png" /></p></li>
-<li><p>圆角美化 新建效果，取合适的名称，然后从<code>操作</code>中选择<code>Rounded corners</code>, 参数选择圆角弧度大小。 <img src="https://s2.loli.net/2022/04/14/yUxfQT8RnWSFp2J.png" /></p></li>
-<li><p>阴影美化 从<code>过滤器</code>中选择<code>Shadow</code>, 设置合适的参数。 <img src="https://s2.loli.net/2022/04/14/tkcMVJoGjpheWLP.png" /></p></li>
-<li><p>添加水印 从<code>绘图</code>中选择<code>Text watermark</code>, 并对其位置，大小，字体等参数进行设置。 <img src="https://s2.loli.net/2022/04/14/UQzq48bHKdZufSO.png" /></p></li>
-</ol>
-<p>这里只尝试了几种截图美化，效果，shareX内置了许多图片效果，还有已做好的模板可供选择，可见<a href="https://getsharex.com/image-effects/">Image effects - ShareX (getsharex.com)</a></p>
-<h1 id="sharex截图上传">shareX截图上传</h1>
-<p>内置的图床或文件上传器多为国外服务器，考虑到今后图片使用的便捷性和易维护性，尝试自定义github或gitee图床的上传。 <img src="https://s2.loli.net/2022/04/14/W7QSUtIq6pcDlN1.png" /></p>
-<p><img src="https://s2.loli.net/2022/04/14/Gg9blyzh4WuFCTE.png" /> 参考<a href="https://getsharex.com/docs/custom-uploader">Custom uploader guide - ShareX (getsharex.com)</a>进行上传器的自定义，这时发现无论github还是gitee, 利用<code>API</code>上传时，</p>
-<p><img src="https://s2.loli.net/2022/04/14/Chidkgf5KowXHAu.png" /></p>
-<p>上传的图片内容需要用base64编码后放入<code>content</code>参数中，也就是说上传前需要对图片内容做一次base64的编码，这个目前在shareX中并没有提供，就此做罢。</p>
-<p>最后采取的上传解决方案是，截图后通过<code>picgo</code>预设的图床进行上传。</p>
-<p>其间遇到的问题是，shareX截图加阴影后，会将阴影部分的背景透明化，拷贝到剪粘板再通过picgo上传后，会丢失该部分透明化的背景，而变之为白色背景，这个应该是picgo无法正确从剪粘板上读取shareX处理图片的透明化信息所致。但从生成的文件上传确是正常的。这个与shareX使用.net方法不能正常通过alpha通道来处理剪粘板拷贝内容的透明度有关。 <img src="https://s2.loli.net/2022/04/14/FyLdfDVCRnQljS2.png" /></p>
-<p>解决方法： shareX截图后的处理动作里，可以不选择<code>图像复制到剪粘板</code>，而是选择上<code>保存图像文件</code>及<code>将文件复制到剪粘板</code>,通过重新读取文件内容来规避。 <img src="https://s2.loli.net/2022/04/14/h5GwJnbNFegjqXv.png" /></p>
-<p>至此, shareX可以满足我对博客图片美化的要求。</p>
-<h1 id="参考">参考</h1>
-<p>1/ <a href="https://zhuanlan.zhihu.com/p/338226481"># 一般人都不会用的强大的屏幕截图工具，添加水印、截图特效等，让你的截图更完美！</a><br />
-2/ <a href="https://getsharex.com/">shareX官网</a><br />
-3/ <a href="https://docs.github.com/cn/rest">GitHub REST API - GitHub Docs</a><br />
-4/ <a href="https://gitee.com/api/v5/swagger#/getV5ReposOwnerRepoStargazers?ex=no">Gitee open API</a></p>
-]]></content>
-      <categories>
-        <category>应用软件</category>
-      </categories>
-      <tags>
-        <tag>shareX</tag>
-        <tag>效率工具</tag>
-        <tag>截图</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【python】multiprocessing进程间的通信（一）队列</title>
-    <url>/2021/01/01/%E3%80%90python%E3%80%91multiprocessing%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/</url>
-    <content><![CDATA[<p>multiprocessing模块支持进程间通信的三种主要形式:<code>队列</code>、<code>管道</code>及<code>共享内存</code>。下面我们来学习一下队列的使用情况。</p>
-<a id="more"></a>
-<h1 id="队列multiprocessing.queue">队列（multiprocessing.queue)</h1>
-<p>队列是线程和进程安全的，也就是一次只能有一个进程或线程进行操作。</p>
-<p><strong>示例：</strong>将子进程产生的信息统一写入父进程，这里是使用pool来创建进程池。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool, RLock, freeze_support,Queue,Pipe</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">from</span> TS_logs <span class="keyword">import</span> TS_log_info</span><br><span class="line"><span class="keyword">from</span>  TS_util <span class="keyword">import</span> (</span><br><span class="line">    TS_util_get_tradelist,</span><br><span class="line">    TS_util_get_real_date,</span><br><span class="line">    TS_util_get_next_datetime,</span><br><span class="line">    TS_util_get_now_time,</span><br><span class="line">    TS_util_date_convert,</span><br><span class="line">    trade_date_sse</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log_c</span>(<span class="params">q,codelist,n</span>):</span>    </span><br><span class="line">    <span class="keyword">for</span> trade_date <span class="keyword">in</span> codelist[n::<span class="number">8</span>]:</span><br><span class="line">        msg = <span class="string">&#x27;&#123;&#125; #Job&#123;&#125; Trying updating data of trade date &#123;&#125; .&#x27;</span> \</span><br><span class="line">                .<span class="built_in">format</span>(datetime.datetime.now().strftime(<span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>),n,trade_date)</span><br><span class="line">        sleep(<span class="number">0.05</span>)</span><br><span class="line">        q.put(msg)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">L = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">8</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:    </span><br><span class="line">    freeze_support()  <span class="comment"># for Windows support</span></span><br><span class="line">    manager = multiprocessing.Manager()</span><br><span class="line">    <span class="comment"># 父进程创建Queue，并传给各个子进程：</span></span><br><span class="line">    q = manager.Queue()</span><br><span class="line">    tqdm.set_lock(RLock())</span><br><span class="line">    codelist = trade_date_sse</span><br><span class="line">    func = functools.partial(log_c,q,codelist)</span><br><span class="line">    p = Pool(initializer=tqdm.set_lock, initargs=(tqdm.get_lock(),))</span><br><span class="line">    p.<span class="built_in">map</span>(func, L)</span><br><span class="line">    p.close()</span><br><span class="line">    p.join()</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> q.empty():</span><br><span class="line">        TS_log_info(q.get())</span><br></pre></td></tr></table></figure>
-<p>如果要使用Pool创建进程，就需要使用multiprocessing.Manager()中的Queue()，而不是multiprocessing.Queue()，否则会得到一条如下的错误信息：<br />
-<code>RuntimeError: Queue objects should only be shared between processes through inheritance.</code></p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>multiprocessing</tag>
       </tags>
   </entry>
   <entry>
@@ -3638,6 +3621,51 @@ Name: close, Length: 245, dtype: float64</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>【python】multiprocessing进程间的通信（二）管道</title>
+    <url>/2021/01/08/%E3%80%90python%E3%80%91multiprocessing%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%EF%BC%88%E4%BA%8C%EF%BC%89%E7%AE%A1%E9%81%93/</url>
+    <content><![CDATA[<p><code>multiprocessing.Pipe()</code>用来创建管道，返回两个连接对象，代表管道的两端，一般用于进程或者线程之间的通信，不同于<code>os.pipe()</code>,<code>os.pipe()</code>主要用来创建两个文件描述符，一个读，一个写，是单向的。而<code>multiprocessing.Pipe()</code>则可以双向通信。</p>
+<a id="more"></a>
+<h1 id="管道multiprocessing.pipe">管道（multiprocessing.Pipe）</h1>
+<blockquote>
+<p><code>multiprocessing.``Pipe</code>([<em>duplex</em>])</p>
+<p>返回一对 <a href="https://docs.python.org/zh-cn/3/library/multiprocessing.html#multiprocessing.connection.Connection"><code>Connection</code></a> 对象 <code>(conn1, conn2)</code> ， 分别表示管道的两端。</p>
+<p>如果 <em>duplex</em> 被置为 <code>True</code> (默认值)，那么该管道是双向的。如果 <em>duplex</em> 被置为 <code>False</code> ，那么该管道是单向的，即 <code>conn1</code> 只能用于接收消息，而 <code>conn2</code> 仅能用于发送消息。</p>
+</blockquote>
+<p><strong>示例：</strong>将子进程产生的信息统一写入父进程，这里是使用pool来创建进程池。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool, RLock, freeze_support,Queue,Pipe</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">from</span> TS_logs <span class="keyword">import</span> TS_log_info</span><br><span class="line"><span class="keyword">from</span>  TS_util <span class="keyword">import</span> (</span><br><span class="line">    TS_util_get_tradelist,</span><br><span class="line">    TS_util_get_real_date,</span><br><span class="line">    TS_util_get_next_datetime,</span><br><span class="line">    TS_util_get_now_time,</span><br><span class="line">    TS_util_date_convert,</span><br><span class="line">    trade_date_sse</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log_c</span>(<span class="params">child_conn,codelist,n</span>):</span> </span><br><span class="line">    <span class="keyword">for</span> trade_date <span class="keyword">in</span> codelist[n::<span class="number">8</span>][<span class="number">0</span>:<span class="number">17</span>]:</span><br><span class="line">        msg = <span class="string">&#x27;&#123;&#125; #Job&#123;&#125;  trade date &#123;&#125;.&#x27;</span> \</span><br><span class="line">                .<span class="built_in">format</span>(datetime.datetime.now().strftime(<span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>),n,trade_date)</span><br><span class="line">        child_conn.send(msg)</span><br><span class="line">    print(<span class="string">&#x27;workers exit&#x27;</span>)</span><br><span class="line"></span><br><span class="line">L = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">8</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:    </span><br><span class="line">    freeze_support()  <span class="comment"># for Windows support</span></span><br><span class="line">    parent_conn,child_conn = Pipe()</span><br><span class="line">    tqdm.set_lock(RLock())</span><br><span class="line">    codelist = trade_date_sse</span><br><span class="line">    func = functools.partial(log_c,child_conn,codelist)</span><br><span class="line">    p = Pool(initializer=tqdm.set_lock, initargs=(tqdm.get_lock(),))</span><br><span class="line">    p.<span class="built_in">map</span>(func, L)</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">while</span> parent_conn.poll(<span class="number">0.001</span>):</span><br><span class="line">        print(parent_conn.recv())</span><br><span class="line">    p.close()</span><br><span class="line">    p.join()</span><br><span class="line">    parent_conn.close()</span><br><span class="line">    child_conn.close()</span><br></pre></td></tr></table></figure>
+<p>当子进程发送一定量的数据之后会卡住，没有任何报错和提示，卡住不动！！测试大概是7000字节左右。原因尚未找到。按文档看，应该与OS有关，最大应该可达32M。</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>multiprocessing</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【python】multiprocessing进程间的通信（一）队列</title>
+    <url>/2021/01/01/%E3%80%90python%E3%80%91multiprocessing%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/</url>
+    <content><![CDATA[<p>multiprocessing模块支持进程间通信的三种主要形式:<code>队列</code>、<code>管道</code>及<code>共享内存</code>。下面我们来学习一下队列的使用情况。</p>
+<a id="more"></a>
+<h1 id="队列multiprocessing.queue">队列（multiprocessing.queue)</h1>
+<p>队列是线程和进程安全的，也就是一次只能有一个进程或线程进行操作。</p>
+<p><strong>示例：</strong>将子进程产生的信息统一写入父进程，这里是使用pool来创建进程池。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool, RLock, freeze_support,Queue,Pipe</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">from</span> TS_logs <span class="keyword">import</span> TS_log_info</span><br><span class="line"><span class="keyword">from</span>  TS_util <span class="keyword">import</span> (</span><br><span class="line">    TS_util_get_tradelist,</span><br><span class="line">    TS_util_get_real_date,</span><br><span class="line">    TS_util_get_next_datetime,</span><br><span class="line">    TS_util_get_now_time,</span><br><span class="line">    TS_util_date_convert,</span><br><span class="line">    trade_date_sse</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log_c</span>(<span class="params">q,codelist,n</span>):</span>    </span><br><span class="line">    <span class="keyword">for</span> trade_date <span class="keyword">in</span> codelist[n::<span class="number">8</span>]:</span><br><span class="line">        msg = <span class="string">&#x27;&#123;&#125; #Job&#123;&#125; Trying updating data of trade date &#123;&#125; .&#x27;</span> \</span><br><span class="line">                .<span class="built_in">format</span>(datetime.datetime.now().strftime(<span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>),n,trade_date)</span><br><span class="line">        sleep(<span class="number">0.05</span>)</span><br><span class="line">        q.put(msg)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">L = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">8</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:    </span><br><span class="line">    freeze_support()  <span class="comment"># for Windows support</span></span><br><span class="line">    manager = multiprocessing.Manager()</span><br><span class="line">    <span class="comment"># 父进程创建Queue，并传给各个子进程：</span></span><br><span class="line">    q = manager.Queue()</span><br><span class="line">    tqdm.set_lock(RLock())</span><br><span class="line">    codelist = trade_date_sse</span><br><span class="line">    func = functools.partial(log_c,q,codelist)</span><br><span class="line">    p = Pool(initializer=tqdm.set_lock, initargs=(tqdm.get_lock(),))</span><br><span class="line">    p.<span class="built_in">map</span>(func, L)</span><br><span class="line">    p.close()</span><br><span class="line">    p.join()</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> q.empty():</span><br><span class="line">        TS_log_info(q.get())</span><br></pre></td></tr></table></figure>
+<p>如果要使用Pool创建进程，就需要使用multiprocessing.Manager()中的Queue()，而不是multiprocessing.Queue()，否则会得到一条如下的错误信息：<br />
+<code>RuntimeError: Queue objects should only be shared between processes through inheritance.</code></p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>multiprocessing</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【python】在多进程下输出日志</title>
     <url>/2021/01/08/%E3%80%90python%E3%80%91%E5%9C%A8%E5%A4%9A%E8%BF%9B%E7%A8%8B%E4%B8%8B%E8%BE%93%E5%87%BA%E6%97%A5%E5%BF%97/</url>
     <content><![CDATA[<p>可以利用队列或管道来进行多进程下的日志输出，但<a href="https://docs.python.org/3/howto/logging-cookbook.html#logging-to-a-single-file-from-multiple-processes">官方文档</a>推荐了一种利用<code>logging.SocketHandler</code>的方案来实现多进程日志输出。</p>
@@ -3651,6 +3679,50 @@ Name: close, Length: 245, dtype: float64</code></pre>
         <tag>python</tag>
         <tag>multiprocessing</tag>
         <tag>logging</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【应用软件】ShareX截图工具的使用</title>
+    <url>/2021/09/24/%E3%80%90%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6%E3%80%91ShareX%E6%88%AA%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>截图，使用过的工具有<code>sngait</code>， <code>greenshot</code>, 前者功能强大，但需要付费。后者轻巧，但软件功能较少且更新较慢，最后的稳定版还是2017年发布的。至于QQ等截图工具，需要打开QQ软件本身，不太省心。</p>
+<p>在写博客的时候，大多数工具均采用矩形截图的方式， 如果需要对所截取的图片进行圆角，阴影等效果的添加，就必须使用其它软件来进行后处理。</p>
+<p><code>shareX</code>恰好满足这些需求。且体量也不算大。</p>
+<a id="more"></a>
+<h1 id="sharex简介">shareX简介</h1>
+<p>ShareX 是一款功能非常强大且免费开源的截图与屏幕记录工具 。除了正常的截图功能外，还提供多区域截图、滚动截图、屏幕取色，屏幕录制，添加水印等实用的功能。而且还可以上传到多种文件存储服务器上。可以让截图更加高效、美观。</p>
+<p>更多信息及下载详见<a href="https://getsharex.com/">shareX官网</a></p>
+<h1 id="sharex截图美化的实现">shareX截图美化的实现</h1>
+<ol type="1">
+<li><p>打开<code>shareX</code>--&gt; <code>动作设置</code>。<br />
+<img src="https://s2.loli.net/2022/04/14/uNx2cCDt3eIpYgE.png" /></p></li>
+<li><p>在<code>图像</code>--&gt;<code>效果</code>中点击<code>图像效果配置</code>。 <img src="https://gitee.com/nokiasonic/pic/raw/master/img/ShareX_yGfFOIJKcC.png" /> <img src="https://s2.loli.net/2022/04/14/oW1LIdqnyaslbfx.png" /></p></li>
+<li><p>圆角美化 新建效果，取合适的名称，然后从<code>操作</code>中选择<code>Rounded corners</code>, 参数选择圆角弧度大小。 <img src="https://s2.loli.net/2022/04/14/yUxfQT8RnWSFp2J.png" /></p></li>
+<li><p>阴影美化 从<code>过滤器</code>中选择<code>Shadow</code>, 设置合适的参数。 <img src="https://s2.loli.net/2022/04/14/tkcMVJoGjpheWLP.png" /></p></li>
+<li><p>添加水印 从<code>绘图</code>中选择<code>Text watermark</code>, 并对其位置，大小，字体等参数进行设置。 <img src="https://s2.loli.net/2022/04/14/UQzq48bHKdZufSO.png" /></p></li>
+</ol>
+<p>这里只尝试了几种截图美化，效果，shareX内置了许多图片效果，还有已做好的模板可供选择，可见<a href="https://getsharex.com/image-effects/">Image effects - ShareX (getsharex.com)</a></p>
+<h1 id="sharex截图上传">shareX截图上传</h1>
+<p>内置的图床或文件上传器多为国外服务器，考虑到今后图片使用的便捷性和易维护性，尝试自定义github或gitee图床的上传。 <img src="https://s2.loli.net/2022/04/14/W7QSUtIq6pcDlN1.png" /></p>
+<p><img src="https://s2.loli.net/2022/04/14/Gg9blyzh4WuFCTE.png" /> 参考<a href="https://getsharex.com/docs/custom-uploader">Custom uploader guide - ShareX (getsharex.com)</a>进行上传器的自定义，这时发现无论github还是gitee, 利用<code>API</code>上传时，</p>
+<p><img src="https://s2.loli.net/2022/04/14/Chidkgf5KowXHAu.png" /></p>
+<p>上传的图片内容需要用base64编码后放入<code>content</code>参数中，也就是说上传前需要对图片内容做一次base64的编码，这个目前在shareX中并没有提供，就此做罢。</p>
+<p>最后采取的上传解决方案是，截图后通过<code>picgo</code>预设的图床进行上传。</p>
+<p>其间遇到的问题是，shareX截图加阴影后，会将阴影部分的背景透明化，拷贝到剪粘板再通过picgo上传后，会丢失该部分透明化的背景，而变之为白色背景，这个应该是picgo无法正确从剪粘板上读取shareX处理图片的透明化信息所致。但从生成的文件上传确是正常的。这个与shareX使用.net方法不能正常通过alpha通道来处理剪粘板拷贝内容的透明度有关。 <img src="https://s2.loli.net/2022/04/14/FyLdfDVCRnQljS2.png" /></p>
+<p>解决方法： shareX截图后的处理动作里，可以不选择<code>图像复制到剪粘板</code>，而是选择上<code>保存图像文件</code>及<code>将文件复制到剪粘板</code>,通过重新读取文件内容来规避。 <img src="https://s2.loli.net/2022/04/14/h5GwJnbNFegjqXv.png" /></p>
+<p>至此, shareX可以满足我对博客图片美化的要求。</p>
+<h1 id="参考">参考</h1>
+<p>1/ <a href="https://zhuanlan.zhihu.com/p/338226481"># 一般人都不会用的强大的屏幕截图工具，添加水印、截图特效等，让你的截图更完美！</a><br />
+2/ <a href="https://getsharex.com/">shareX官网</a><br />
+3/ <a href="https://docs.github.com/cn/rest">GitHub REST API - GitHub Docs</a><br />
+4/ <a href="https://gitee.com/api/v5/swagger#/getV5ReposOwnerRepoStargazers?ex=no">Gitee open API</a></p>
+]]></content>
+      <categories>
+        <category>应用软件</category>
+      </categories>
+      <tags>
+        <tag>shareX</tag>
+        <tag>效率工具</tag>
+        <tag>截图</tag>
       </tags>
   </entry>
   <entry>
@@ -3707,46 +3779,6 @@ Name: close, Length: 245, dtype: float64</code></pre>
         <tag>python</tag>
         <tag>线性代数</tag>
         <tag>贝塔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用github/gitee来作为图床系统</title>
-    <url>/2020/12/10/%E4%BD%BF%E7%94%A8github%E5%8F%8Agitee%E6%9D%A5%E4%BD%9C%E4%B8%BA%E5%9B%BE%E5%BA%8A%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<p>日常进行博客及其它文章或笔记的写作时，经常需要在文章内容里插入图片。 当文档需要发布或存储到云服务器上时，就需要考虑将引用的图片放置到图床系统中。下面讲述下利用github或gitee来搭建图床系统的方法。</p>
-<a id="more"></a>
-<h2 id="一利用github来建立图床">一、利用github来建立图床</h2>
-<h3 id="建立github图床仓库">建立Github图床仓库</h3>
-<p><img src="https://s2.loli.net/2022/04/14/E62Lyc3w4xi9DFS.png" /> ### 设置Token</p>
-<p>进入全局设置，点击<code>Developer Settings</code> -&gt; <code>Personal access tokens</code>，选择<code>Generate new token</code></p>
-<p><img src="https://s2.loli.net/2022/04/14/cY3nCtzwTqhXiGE.png" /> ### 设置PicGO客户端</p>
-<h4 id="下载">下载</h4>
-<p><a href="https://github.com/Molunerfinn/PicGo/releases">PicGo的可执行文件下载地址</a></p>
-<h4 id="设置">设置</h4>
-<p><img src="https://s2.loli.net/2022/04/14/iElfYChU8GNwLXH.png" /> - 仓库名：按照“账户名/仓库名”的格式填写； - 分支名：统一填写为<code>main</code>； - Tocken：将之前的Github的Token黏贴在这里； - 存储路径：若设置为img/，则会在repository下创建一个“img”文件夹； - 自定义域名：在上传图片后成功后，PicGo会将“自定义域名+上传的图片名”生成的访问链接，放到剪切板。这里约定遵循如下的格式：<code>域名/用户名/仓库名/分支名。</code></p>
-<h4 id="上传图片">上传图片</h4>
-<p>在picgo上传区，可以直接上传剪贴板上的图片或保存成文件上传。这里不再说明。</p>
-<hr />
-<p>因为github显示图片相当不稳定。 所以可以使用gitee来替代它作为图床的托管仓库。</p>
-<h2 id="二利用gitee来建立图床">二、利用gitee来建立图床</h2>
-<h3 id="在gitee中创建仓库">在gitee中创建仓库</h3>
-<p>按照常规创建仓库的方式创建一个专门用于图床的仓库</p>
-<p><img src="https://s2.loli.net/2022/04/14/pvFt8EJju23MgfQ.png" /> ### 获取token</p>
-<p><img src="https://s2.loli.net/2022/04/14/qYVEzvkCI52tjWi.png" /> ### 在PicGO中安装gitee插件</p>
-<h4 id="安装">安装</h4>
-<p><img src="https://s2.loli.net/2022/04/14/lKsvgEtIMRVG2nS.png" /> #### 配置插件</p>
-<p><img src="https://s2.loli.net/2022/04/14/e4CiMmgEPFR2caf.png" /> 这里需要注意的是repo的名字中大小写字母需要完全一致且是repo仓库路径。否则会报404错误。</p>
-<h4 id="上传图片-1">上传图片</h4>
-<p>至此，图床系统搭建完成，可以愉快地写作了。</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>美好生活</category>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>github</tag>
-        <tag>gitee</tag>
-        <tag>picgo</tag>
       </tags>
   </entry>
   <entry>
@@ -3821,6 +3853,46 @@ Name: close, Length: 245, dtype: float64</code></pre>
         <tag>python</tag>
         <tag>通达信</tag>
         <tag>MongoDB</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用github/gitee来作为图床系统</title>
+    <url>/2020/12/10/%E4%BD%BF%E7%94%A8github%E5%8F%8Agitee%E6%9D%A5%E4%BD%9C%E4%B8%BA%E5%9B%BE%E5%BA%8A%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<p>日常进行博客及其它文章或笔记的写作时，经常需要在文章内容里插入图片。 当文档需要发布或存储到云服务器上时，就需要考虑将引用的图片放置到图床系统中。下面讲述下利用github或gitee来搭建图床系统的方法。</p>
+<a id="more"></a>
+<h2 id="一利用github来建立图床">一、利用github来建立图床</h2>
+<h3 id="建立github图床仓库">建立Github图床仓库</h3>
+<p><img src="https://s2.loli.net/2022/04/14/E62Lyc3w4xi9DFS.png" /> ### 设置Token</p>
+<p>进入全局设置，点击<code>Developer Settings</code> -&gt; <code>Personal access tokens</code>，选择<code>Generate new token</code></p>
+<p><img src="https://s2.loli.net/2022/04/14/cY3nCtzwTqhXiGE.png" /> ### 设置PicGO客户端</p>
+<h4 id="下载">下载</h4>
+<p><a href="https://github.com/Molunerfinn/PicGo/releases">PicGo的可执行文件下载地址</a></p>
+<h4 id="设置">设置</h4>
+<p><img src="https://s2.loli.net/2022/04/14/iElfYChU8GNwLXH.png" /> - 仓库名：按照“账户名/仓库名”的格式填写； - 分支名：统一填写为<code>main</code>； - Tocken：将之前的Github的Token黏贴在这里； - 存储路径：若设置为img/，则会在repository下创建一个“img”文件夹； - 自定义域名：在上传图片后成功后，PicGo会将“自定义域名+上传的图片名”生成的访问链接，放到剪切板。这里约定遵循如下的格式：<code>域名/用户名/仓库名/分支名。</code></p>
+<h4 id="上传图片">上传图片</h4>
+<p>在picgo上传区，可以直接上传剪贴板上的图片或保存成文件上传。这里不再说明。</p>
+<hr />
+<p>因为github显示图片相当不稳定。 所以可以使用gitee来替代它作为图床的托管仓库。</p>
+<h2 id="二利用gitee来建立图床">二、利用gitee来建立图床</h2>
+<h3 id="在gitee中创建仓库">在gitee中创建仓库</h3>
+<p>按照常规创建仓库的方式创建一个专门用于图床的仓库</p>
+<p><img src="https://s2.loli.net/2022/04/14/pvFt8EJju23MgfQ.png" /> ### 获取token</p>
+<p><img src="https://s2.loli.net/2022/04/14/qYVEzvkCI52tjWi.png" /> ### 在PicGO中安装gitee插件</p>
+<h4 id="安装">安装</h4>
+<p><img src="https://s2.loli.net/2022/04/14/lKsvgEtIMRVG2nS.png" /> #### 配置插件</p>
+<p><img src="https://s2.loli.net/2022/04/14/e4CiMmgEPFR2caf.png" /> 这里需要注意的是repo的名字中大小写字母需要完全一致且是repo仓库路径。否则会报404错误。</p>
+<h4 id="上传图片-1">上传图片</h4>
+<p>至此，图床系统搭建完成，可以愉快地写作了。</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>美好生活</category>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+        <tag>gitee</tag>
+        <tag>picgo</tag>
       </tags>
   </entry>
   <entry>
