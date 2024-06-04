@@ -184,6 +184,92 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2024/06/04/%E3%80%90Jupyter%E3%80%91JupyterLab%E4%B8%AD%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E7%BB%88%E7%AB%AF%E7%B1%BB%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Jun Lv">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橘子树下">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/06/04/%E3%80%90Jupyter%E3%80%91JupyterLab%E4%B8%AD%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E7%BB%88%E7%AB%AF%E7%B1%BB%E5%9E%8B/" class="post-title-link" itemprop="url">【Jupyter】JupyterLab中如何设置终端类型</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-06-04 09:47:17 / 修改时间：09:58:44" itemprop="dateCreated datePublished" datetime="2024-06-04T09:47:17+08:00">2024-06-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">软件工程</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/06/04/%E3%80%90Jupyter%E3%80%91JupyterLab%E4%B8%AD%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E7%BB%88%E7%AB%AF%E7%B1%BB%E5%9E%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/06/04/%E3%80%90Jupyter%E3%80%91JupyterLab%E4%B8%AD%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E7%BB%88%E7%AB%AF%E7%B1%BB%E5%9E%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>如何将<code>JupyterLab</code>中的终端设置为<code>Windows CMD</code>,并且具有和<code>Anaconda Prompt</code>相同的效果，启动后直接进入特定的<code>Conda</code>环境?</p>
+<p>1.生成配置文件 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter lab --generate-config</span><br></pre></td></tr></table></figure> 该命令会在用户目录中创建一个名字<code>jupyter_lab_config.py</code>的文件，以<code>Windows</code>系统为例，该文件位于<code>C:\User\&lt;user name&gt;\.jupyter\</code>下。</p>
+<p>2.修改配置 编辑<code>jupyter_lab_config.py</code>,查找<code>c.ServerApp.terminado_settings</code>。进行以下设置： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## Supply overrides for terminado. Currently only supports &quot;shell_command&quot;.</span></span><br><span class="line"><span class="comment">#  Default: &#123;&#125;</span></span><br><span class="line">c.ServerApp.terminado_settings = &#123;<span class="string">&#x27;shell_command&#x27;</span>:[<span class="string">&#x27;c:\\Windows\\System32\\cmd.exe&#x27;</span>, <span class="string">&#x27;/k&#x27;</span>,<span class="string">&#x27;D:\\anaconda3\\Scripts\\activate_terminal.bat&#x27;</span>,<span class="string">&#x27;&amp;title&#x27;</span>,<span class="string">&#x27;Conda&#x27;</span>]&#125;</span><br></pre></td></tr></table></figure> <code>shell_command</code>是以字典方式表式，值为列表方式。目录分隔符使用"\"。执行时等效于 <code>c:\Windows\System32\cmd.exe /k D:\anaconda3\Scripts\activate_terminal.bat &amp;title Conda</code>。</p>
+<p>其中<code>active_terminal.bat</code>内容如下： <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">call D:\anaconda3\Scripts\activate.bat D:\anaconda3</span><br><span class="line">call conda activate Python3.10.14</span><br></pre></td></tr></table></figure> <code>Python3.10.14</code>为创建好的<code>Conda</code>环境名。</p>
+<p>3.效果 <img src="https://s2.loli.net/2024/06/04/MfglEu96QPZjHGi.png" alt="|600" /></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2024/05/20/%E3%80%90Polars%E3%80%91%E5%9F%BA%E4%BA%8ERust%E5%86%85%E6%A0%B8%E7%9A%84Jupyter%20Notebook%E4%B8%AD%E7%9A%84Polars%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC%E5%91%88%E7%8E%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -207,10 +293,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2024-05-20 20:57:44 / 修改时间：21:19:48" itemprop="dateCreated datePublished" datetime="2024-05-20T20:57:44+08:00">2024-05-20</time>
+              <time title="创建时间：2024-05-20 20:57:44" itemprop="dateCreated datePublished" datetime="2024-05-20T20:57:44+08:00">2024-05-20</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-05-25 15:44:26" itemprop="dateModified" datetime="2024-05-25T15:44:26+08:00">2024-05-25</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -1096,130 +1188,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2021/07/17/%E3%80%90%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E3%80%91%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Jun Lv">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="橘子树下">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/07/17/%E3%80%90%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E3%80%91%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97/" class="post-title-link" itemprop="url">【量化投资】贝塔系数的计算</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-07-17 10:26:24" itemprop="dateCreated datePublished" datetime="2021-07-17T10:26:24+08:00">2021-07-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-13 09:10:35" itemprop="dateModified" datetime="2021-12-13T09:10:35+08:00">2021-12-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" itemprop="url" rel="index"><span itemprop="name">量化投资</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/07/17/%E3%80%90%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E3%80%91%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/17/%E3%80%90%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E3%80%91%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="目的">目的</h1>
-<p>在量化分析中，经常会需要获取<span class="math inline">\(\beta\)</span>(贝塔系数），那该如何查询或计算该系数呢？</p>
-<h2 id="贝塔系数的含义">贝塔系数的含义</h2>
-<p>贝塔系数衡量了个股或基金相对于整个股市的波动情况。</p>
-<table>
-<thead>
-<tr class="header">
-<th>β范围</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>β=1</td>
-<td>股票或基金的风险收益率与市场平均风险收益率相同</td>
-</tr>
-<tr class="even">
-<td>β&gt;1</td>
-<td>股票或基金的风险相较于市场平均更大</td>
-</tr>
-<tr class="odd">
-<td>β&lt;1</td>
-<td>股票或基金的风险相较于市场平均更小</td>
-</tr>
-</tbody>
-</table>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/07/17/%E3%80%90%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E3%80%91%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1291,7 +1259,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1414,59 +1382,6 @@
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 
