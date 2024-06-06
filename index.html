@@ -270,6 +270,962 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2024/05/29/%E3%80%90Python%E3%80%91PyMongoArrow%E5%AE%9E%E8%B7%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Jun Lv">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橘子树下">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/05/29/%E3%80%90Python%E3%80%91PyMongoArrow%E5%AE%9E%E8%B7%B5/" class="post-title-link" itemprop="url">【Python】PyMongoArrow实践</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-05-29 17:01:42" itemprop="dateCreated datePublished" datetime="2024-05-29T17:01:42+08:00">2024-05-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-06-06 19:06:14" itemprop="dateModified" datetime="2024-06-06T19:06:14+08:00">2024-06-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">软件工程</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/05/29/%E3%80%90Python%E3%80%91PyMongoArrow%E5%AE%9E%E8%B7%B5/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/05/29/%E3%80%90Python%E3%80%91PyMongoArrow%E5%AE%9E%E8%B7%B5/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="pymongoarrow简介"><code>PyMongoArrow</code>简介</h1>
+<p><code>PyMongoArrow</code> 是 <a target="_blank" rel="noopener" href="http://pymongo.readthedocs.io/">PyMongo</a> 包含用于加载 <a target="_blank" rel="noopener" href="http://www.mongodb.org/">MongoDB</a> 的工具的扩展,以 <a target="_blank" rel="noopener" href="http://arrow.apache.org/">Apache Arrow</a> 形式查询结果集、 表格、 <a target="_blank" rel="noopener" href="https://numpy.org/">NumPy</a> 数组和 <a target="_blank" rel="noopener" href="https://pandas.pydata.org/">Pandas</a> 或 <a target="_blank" rel="noopener" href="https://pola.rs/">Polars</a> DataFrames。 <code>PyMongoArrow</code> 是将 <code>MongoDB</code> 查询结果集物化为适合内存中分析处理应用程序的连续内存类型数组的推荐方法。[^1] 1. <code>PyMongoArrow</code>使用手册[^2]</p>
+<ol start="2" type="1">
+<li><code>PyMongoArrow</code>简明教程[^3]</li>
+</ol>
+<h1 id="安装">安装</h1>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pymongoarrow</span><br></pre></td></tr></table></figure>
+<p>或 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install --channel conda-forge pymongoarrow</span><br></pre></td></tr></table></figure></p>
+<h1 id="使用">使用</h1>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymongoarrow</span><br><span class="line"><span class="keyword">import</span> pymongo</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> polars <span class="keyword">as</span> pl</span><br><span class="line"><span class="keyword">from</span> pymongoarrow.monkey <span class="keyword">import</span> patch_all</span><br><span class="line"></span><br><span class="line"><span class="comment"># establish connection with our MongoDB database</span></span><br><span class="line">client = pymongo.MongoClient(<span class="string">&#x27;localhost&#x27;</span>, <span class="number">27017</span>)</span><br><span class="line">db = client[<span class="string">&#x27;quantaxis&#x27;</span>]</span><br><span class="line">collection = db[<span class="string">&#x27;stock_day&#x27;</span>]</span><br><span class="line">patch_all()</span><br></pre></td></tr></table></figure>
+<h2 id="查询结果转化为pandas数据帧">查询结果转化为<code>Pandas</code>数据帧</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df_pandas = collection.find_pandas_all(&#123;&#125;)</span><br><span class="line">df_pandas</span><br></pre></td></tr></table></figure>
+输出：
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+_id
+</th>
+<th>
+open
+</th>
+<th>
+close
+</th>
+<th>
+high
+</th>
+<th>
+low
+</th>
+<th>
+vol
+</th>
+<th>
+amount
+</th>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+date_stamp
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+0
+</td>
+<td>
+5f0fd6243530c3ea823c573e
+</td>
+<td>
+49.00
+</td>
+<td>
+49.00
+</td>
+<td>
+49.00
+</td>
+<td>
+49.00
+</td>
+<td>
+32768.5
+</td>
+<td>
+5.000000e+03
+</td>
+<td>
+1991-04-03
+</td>
+<td>
+000001
+</td>
+<td>
+6.706080e+08
+</td>
+</tr>
+<tr>
+<td>
+1
+</td>
+<td>
+5f0fd6243530c3ea823c573f
+</td>
+<td>
+48.76
+</td>
+<td>
+48.76
+</td>
+<td>
+48.76
+</td>
+<td>
+48.76
+</td>
+<td>
+4098.0
+</td>
+<td>
+1.500000e+04
+</td>
+<td>
+1991-04-04
+</td>
+<td>
+000001
+</td>
+<td>
+6.706944e+08
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+5f0fd6243530c3ea823c5740
+</td>
+<td>
+48.52
+</td>
+<td>
+48.52
+</td>
+<td>
+48.52
+</td>
+<td>
+48.52
+</td>
+<td>
+2.0
+</td>
+<td>
+1.000000e+04
+</td>
+<td>
+1991-04-05
+</td>
+<td>
+000001
+</td>
+<td>
+6.707808e+08
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+5f0fd6243530c3ea823c5741
+</td>
+<td>
+48.28
+</td>
+<td>
+48.28
+</td>
+<td>
+48.28
+</td>
+<td>
+48.28
+</td>
+<td>
+7.0
+</td>
+<td>
+3.400000e+04
+</td>
+<td>
+1991-04-06
+</td>
+<td>
+000001
+</td>
+<td>
+6.708672e+08
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+5f0fd6243530c3ea823c5742
+</td>
+<td>
+48.04
+</td>
+<td>
+48.04
+</td>
+<td>
+48.04
+</td>
+<td>
+48.04
+</td>
+<td>
+2.0
+</td>
+<td>
+1.000000e+04
+</td>
+<td>
+1991-04-08
+</td>
+<td>
+000001
+</td>
+<td>
+6.710400e+08
+</td>
+</tr>
+<tr>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+</tr>
+<tr>
+<td>
+14705153
+</td>
+<td>
+665deedfcd3d51f9534dd7ca
+</td>
+<td>
+45.10
+</td>
+<td>
+44.85
+</td>
+<td>
+45.49
+</td>
+<td>
+44.69
+</td>
+<td>
+314630.0
+</td>
+<td>
+1.414729e+09
+</td>
+<td>
+2024-05-31
+</td>
+<td>
+688981
+</td>
+<td>
+1.717085e+09
+</td>
+</tr>
+<tr>
+<td>
+14705154
+</td>
+<td>
+665deedfcd3d51f9534dd7cb
+</td>
+<td>
+44.96
+</td>
+<td>
+45.44
+</td>
+<td>
+46.36
+</td>
+<td>
+44.80
+</td>
+<td>
+393681.0
+</td>
+<td>
+1.796427e+09
+</td>
+<td>
+2024-06-03
+</td>
+<td>
+688981
+</td>
+<td>
+1.717344e+09
+</td>
+</tr>
+<tr>
+<td>
+14705155
+</td>
+<td>
+665deedfcd3d51f9534dd7cc
+</td>
+<td>
+37.45
+</td>
+<td>
+37.77
+</td>
+<td>
+37.90
+</td>
+<td>
+37.02
+</td>
+<td>
+48175.0
+</td>
+<td>
+1.810881e+08
+</td>
+<td>
+2024-05-30
+</td>
+<td>
+689009
+</td>
+<td>
+1.716998e+09
+</td>
+</tr>
+<tr>
+<td>
+14705156
+</td>
+<td>
+665deedfcd3d51f9534dd7cd
+</td>
+<td>
+37.69
+</td>
+<td>
+37.51
+</td>
+<td>
+38.35
+</td>
+<td>
+37.31
+</td>
+<td>
+45055.0
+</td>
+<td>
+1.706379e+08
+</td>
+<td>
+2024-05-31
+</td>
+<td>
+689009
+</td>
+<td>
+1.717085e+09
+</td>
+</tr>
+<tr>
+<td>
+14705157
+</td>
+<td>
+665deedfcd3d51f9534dd7ce
+</td>
+<td>
+37.73
+</td>
+<td>
+38.11
+</td>
+<td>
+39.26
+</td>
+<td>
+37.29
+</td>
+<td>
+95049.0
+</td>
+<td>
+3.641072e+08
+</td>
+<td>
+2024-06-03
+</td>
+<td>
+689009
+</td>
+<td>
+1.717344e+09
+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="查询结果转化为polars数据帧">查询结果转化为<code>Polars</code>数据帧</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df_polars = collection.find_polars_all(&#123;&#125;)</span><br><span class="line">df_polars</span><br></pre></td></tr></table></figure>
+输出：
+<table border="1" class="dataframe">
+<thead>
+<tr>
+<th>
+_id
+</th>
+<th>
+open
+</th>
+<th>
+close
+</th>
+<th>
+high
+</th>
+<th>
+low
+</th>
+<th>
+vol
+</th>
+<th>
+amount
+</th>
+<th>
+date
+</th>
+<th>
+code
+</th>
+<th>
+date_stamp
+</th>
+</tr>
+<tr>
+<td>
+binary
+</td>
+<td>
+f64
+</td>
+<td>
+f64
+</td>
+<td>
+f64
+</td>
+<td>
+f64
+</td>
+<td>
+f64
+</td>
+<td>
+f64
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+f64
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+b"_0f$50&lt;W&gt;"
+</td>
+<td>
+49.0
+</td>
+<td>
+49.0
+</td>
+<td>
+49.0
+</td>
+<td>
+49.0
+</td>
+<td>
+32768.5
+</td>
+<td>
+5000.0
+</td>
+<td>
+"1991-04-03"
+</td>
+<td>
+"000001"
+</td>
+<td>
+6.70608e8
+</td>
+</tr>
+<tr>
+<td>
+b"_0f$50&lt;W?"
+</td>
+<td>
+48.76
+</td>
+<td>
+48.76
+</td>
+<td>
+48.76
+</td>
+<td>
+48.76
+</td>
+<td>
+4098.0
+</td>
+<td>
+15000.0
+</td>
+<td>
+"1991-04-04"
+</td>
+<td>
+"000001"
+</td>
+<td>
+6.706944e8
+</td>
+</tr>
+<tr>
+<td>
+b"_0f$50&lt;W@"
+</td>
+<td>
+48.52
+</td>
+<td>
+48.52
+</td>
+<td>
+48.52
+</td>
+<td>
+48.52
+</td>
+<td>
+2.0
+</td>
+<td>
+10000.0
+</td>
+<td>
+"1991-04-05"
+</td>
+<td>
+"000001"
+</td>
+<td>
+6.707808e8
+</td>
+</tr>
+<tr>
+<td>
+b"_0f$50&lt;WA"
+</td>
+<td>
+48.28
+</td>
+<td>
+48.28
+</td>
+<td>
+48.28
+</td>
+<td>
+48.28
+</td>
+<td>
+7.0
+</td>
+<td>
+34000.0
+</td>
+<td>
+"1991-04-06"
+</td>
+<td>
+"000001"
+</td>
+<td>
+6.708672e8
+</td>
+</tr>
+<tr>
+<td>
+b"_0f$50&lt;WB"
+</td>
+<td>
+48.04
+</td>
+<td>
+48.04
+</td>
+<td>
+48.04
+</td>
+<td>
+48.04
+</td>
+<td>
+2.0
+</td>
+<td>
+10000.0
+</td>
+<td>
+"1991-04-08"
+</td>
+<td>
+"000001"
+</td>
+<td>
+6.7104e8
+</td>
+</tr>
+<tr>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+</tr>
+<tr>
+<td>
+b"f]=Q9SM"
+</td>
+<td>
+45.1
+</td>
+<td>
+44.85
+</td>
+<td>
+45.49
+</td>
+<td>
+44.69
+</td>
+<td>
+314630.0
+</td>
+<td>
+1.4147e9
+</td>
+<td>
+"2024-05-31"
+</td>
+<td>
+"688981"
+</td>
+<td>
+1.7171e9
+</td>
+</tr>
+<tr>
+<td>
+b"f]=Q9SM"
+</td>
+<td>
+44.96
+</td>
+<td>
+45.44
+</td>
+<td>
+46.36
+</td>
+<td>
+44.8
+</td>
+<td>
+393681.0
+</td>
+<td>
+1.7964e9
+</td>
+<td>
+"2024-06-03"
+</td>
+<td>
+"688981"
+</td>
+<td>
+1.7173e9
+</td>
+</tr>
+<tr>
+<td>
+b"f]=Q9SM"
+</td>
+<td>
+37.45
+</td>
+<td>
+37.77
+</td>
+<td>
+37.9
+</td>
+<td>
+37.02
+</td>
+<td>
+48175.0
+</td>
+<td>
+1.81088112e8
+</td>
+<td>
+"2024-05-30"
+</td>
+<td>
+"689009"
+</td>
+<td>
+1.7170e9
+</td>
+</tr>
+<tr>
+<td>
+b"f]=Q9SM"
+</td>
+<td>
+37.69
+</td>
+<td>
+37.51
+</td>
+<td>
+38.35
+</td>
+<td>
+37.31
+</td>
+<td>
+45055.0
+</td>
+<td>
+1.70637904e8
+</td>
+<td>
+"2024-05-31"
+</td>
+<td>
+"689009"
+</td>
+<td>
+1.7171e9
+</td>
+</tr>
+<tr>
+<td>
+b"f]=Q9SM"
+</td>
+<td>
+37.73
+</td>
+<td>
+38.11
+</td>
+<td>
+39.26
+</td>
+<td>
+37.29
+</td>
+<td>
+95049.0
+</td>
+<td>
+3.64107232e8
+</td>
+<td>
+"2024-06-03"
+</td>
+<td>
+"689009"
+</td>
+<td>
+1.7173e9
+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="查询结果转化为numpy数组">查询结果转化为<code>Numpy</code>数组</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ndarrays = collection.find_numpy_all(&#123;&#125;)</span><br><span class="line">ndarrays</span><br></pre></td></tr></table></figure>
+<p>输出： <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;_id&#x27;: array([b&#x27;_\x0f\xd6$50\xc3\xea\x82&lt;W&gt;&#x27;, b&#x27;_\x0f\xd6$50\xc3\xea\x82&lt;W?&#x27;,</span><br><span class="line">        b&#x27;_\x0f\xd6$50\xc3\xea\x82&lt;W@&#x27;, ...,</span><br><span class="line">        b&#x27;f]\xee\xdf\xcd=Q\xf9SM\xd7\xcc&#x27;,</span><br><span class="line">        b&#x27;f]\xee\xdf\xcd=Q\xf9SM\xd7\xcd&#x27;,</span><br><span class="line">        b&#x27;f]\xee\xdf\xcd=Q\xf9SM\xd7\xce&#x27;], dtype=object),</span><br><span class="line"> &#x27;open&#x27;: array([49.  , 48.76, 48.52, ..., 37.45, 37.69, 37.73]),</span><br><span class="line"> &#x27;close&#x27;: array([49.  , 48.76, 48.52, ..., 37.77, 37.51, 38.11]),</span><br><span class="line"> &#x27;high&#x27;: array([49.  , 48.76, 48.52, ..., 37.9 , 38.35, 39.26]),</span><br><span class="line"> &#x27;low&#x27;: array([49.  , 48.76, 48.52, ..., 37.02, 37.31, 37.29]),</span><br><span class="line"> &#x27;vol&#x27;: array([3.27685e+04, 4.09800e+03, 2.00000e+00, ..., 4.81750e+04,</span><br><span class="line">        4.50550e+04, 9.50490e+04]),</span><br><span class="line"> &#x27;amount&#x27;: array([5.00000000e+03, 1.50000000e+04, 1.00000000e+04, ...,</span><br><span class="line">        1.81088112e+08, 1.70637904e+08, 3.64107232e+08]),</span><br><span class="line"> &#x27;date&#x27;: array([&#x27;1991-04-03&#x27;, &#x27;1991-04-04&#x27;, &#x27;1991-04-05&#x27;, ..., &#x27;2024-05-30&#x27;,</span><br><span class="line">        &#x27;2024-05-31&#x27;, &#x27;2024-06-03&#x27;], dtype=&#x27;&lt;U10&#x27;),</span><br><span class="line"> &#x27;code&#x27;: array([&#x27;000001&#x27;, &#x27;000001&#x27;, &#x27;000001&#x27;, ..., &#x27;689009&#x27;, &#x27;689009&#x27;, &#x27;689009&#x27;],</span><br><span class="line">       dtype=&#x27;&lt;U6&#x27;),</span><br><span class="line"> &#x27;date_stamp&#x27;: array([6.7060800e+08, 6.7069440e+08, 6.7078080e+08, ..., 1.7169984e+09,</span><br><span class="line">        1.7170848e+09, 1.7173440e+09])&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="查询结果转化为arrow表">查询结果转化为<code>Arrow</code>表</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arrow_table = collection.find_arrow_all(&#123;&#125;)</span><br><span class="line">arrow_table</span><br></pre></td></tr></table></figure>
+<p>输出： <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">_id: extension&lt;pymongoarrow.objectid&lt;ObjectIdType&gt;&gt;</span><br><span class="line">open: double</span><br><span class="line">close: double</span><br><span class="line">high: double</span><br><span class="line">low: double</span><br><span class="line">vol: double</span><br><span class="line">amount: double</span><br><span class="line">date: string</span><br><span class="line">code: string</span><br><span class="line">date_stamp: double</span><br><span class="line">----</span><br><span class="line">_id: [[5F0FD6243530C3EA823C573E,5F0FD6243530C3EA823C573F,5F0FD6243530C3EA823C5740,5F0FD6243530C3EA823C5741,5F0FD6243530C3EA823C5742,...,665DEEDFCD3D51F9534DD7CA,665DEEDFCD3D51F9534DD7CB,665DEEDFCD3D51F9534DD7CC,665DEEDFCD3D51F9534DD7CD,665DEEDFCD3D51F9534DD7CE]]</span><br><span class="line">open: [[49,48.76,48.52,48.28,48.04,...,45.1,44.96,37.45,37.69,37.73]]</span><br><span class="line">close: [[49,48.76,48.52,48.28,48.04,...,44.85,45.44,37.77,37.51,38.11]]</span><br><span class="line">high: [[49,48.76,48.52,48.28,48.04,...,45.49,46.36,37.9,38.35,39.26]]</span><br><span class="line">low: [[49,48.76,48.52,48.28,48.04,...,44.69,44.8,37.02,37.31,37.29]]</span><br><span class="line">vol: [[32768.5,4098,2,7,2,...,314630,393681,48175,45055,95049]]</span><br><span class="line">amount: [[5000,15000,10000,34000,10000,...,1414729472,1796427392,181088112,170637904,364107232]]</span><br><span class="line">date: [[&quot;1991-04-03&quot;,&quot;1991-04-04&quot;,&quot;1991-04-05&quot;,&quot;1991-04-06&quot;,&quot;1991-04-08&quot;,...,&quot;2024-05-31&quot;,&quot;2024-06-03&quot;,&quot;2024-05-30&quot;,&quot;2024-05-31&quot;,&quot;2024-06-03&quot;]]</span><br><span class="line">code: [[&quot;000001&quot;,&quot;000001&quot;,&quot;000001&quot;,&quot;000001&quot;,&quot;000001&quot;,...,&quot;688981&quot;,&quot;688981&quot;,&quot;689009&quot;,&quot;689009&quot;,&quot;689009&quot;]]</span><br><span class="line">date_stamp: [[670608000,670694400,670780800,670867200,671040000,...,1717084800,1717344000,1716998400,1717084800,1717344000]]</span><br></pre></td></tr></table></figure> # 参考 [^1]: <a target="_blank" rel="noopener" href="https://www.mongodb.com/developer/languages/python/pymongoarrow-and-data-analysis/">PyMongoArrow: Bridging the Gap Between MongoDB and Your Data Analysis App | MongoDB</a> [^2]: <a target="_blank" rel="noopener" href="https://www.mongodb.com/zh-cn/docs/languages/python/pymongo-arrow-driver/current/">MongoDB PyMongoArrow - PyMongoArrow v 1.3</a> [^3]: <a target="_blank" rel="noopener" href="https://learn.mongodb.com/courses/pymongoarrow?_ga=2.97978335.1908670558.1716903068-485749430.1709679362">PyMongoArrow Extension Course | MongoDB University</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2024/05/20/%E3%80%90Polars%E3%80%91%E5%9F%BA%E4%BA%8ERust%E5%86%85%E6%A0%B8%E7%9A%84Jupyter%20Notebook%E4%B8%AD%E7%9A%84Polars%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC%E5%91%88%E7%8E%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1088,106 +2044,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2021/08/23/%E3%80%90Arduino%E3%80%91ESP8266%E5%BC%80%E5%8F%91%E5%AE%9E%E4%BE%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Jun Lv">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="橘子树下">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/08/23/%E3%80%90Arduino%E3%80%91ESP8266%E5%BC%80%E5%8F%91%E5%AE%9E%E4%BE%8B/" class="post-title-link" itemprop="url">【Arduino】ESP8266开发实例</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-08-23 09:15:24" itemprop="dateCreated datePublished" datetime="2021-08-23T09:15:24+08:00">2021-08-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-14 09:38:13" itemprop="dateModified" datetime="2022-04-14T09:38:13+08:00">2022-04-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/arduino/" itemprop="url" rel="index"><span itemprop="name">arduino</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/08/23/%E3%80%90Arduino%E3%80%91ESP8266%E5%BC%80%E5%8F%91%E5%AE%9E%E4%BE%8B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/08/23/%E3%80%90Arduino%E3%80%91ESP8266%E5%BC%80%E5%8F%91%E5%AE%9E%E4%BE%8B/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="esp8266的arduino开发环境搭建">ESP8266的Arduino开发环境搭建</h1>
-<p>有三种常用的环境搭建方法。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/08/23/%E3%80%90Arduino%E3%80%91ESP8266%E5%BC%80%E5%8F%91%E5%AE%9E%E4%BE%8B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1259,7 +2115,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1272,7 +2128,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
