@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"nokiasonic.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="以下设置为了在每次启动终端时都生效，需要修改 .bashrc ls彩色命令 1234export LS_OPTIONS&#x3D;&amp;#x27;--color&#x3D;auto&amp;#x27;alias ls&#x3D;&amp;#x27;ls $LS_OPTIONS&amp;#x27;alias ll&#x3D;&amp;#x27;ls $LS_OPTIONS -l&amp;#x27;alias l&#x3D;&amp;#x27;ls $LS_OPTIONS -lA&amp;#x27; 彩">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Linux】终端提示符自定义">
+<meta property="og:url" content="https://nokiasonic.github.io/2024/06/12/%E3%80%90Linux%E3%80%91%E7%BB%88%E7%AB%AF%E6%8F%90%E7%A4%BA%E7%AC%A6%E8%87%AA%E5%AE%9A%E4%B9%89/index.html">
+<meta property="og:site_name" content="橘子树下">
+<meta property="og:description" content="以下设置为了在每次启动终端时都生效，需要修改 .bashrc ls彩色命令 1234export LS_OPTIONS&#x3D;&amp;#x27;--color&#x3D;auto&amp;#x27;alias ls&#x3D;&amp;#x27;ls $LS_OPTIONS&amp;#x27;alias ll&#x3D;&amp;#x27;ls $LS_OPTIONS -l&amp;#x27;alias l&#x3D;&amp;#x27;ls $LS_OPTIONS -lA&amp;#x27; 彩">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2024/06/13/v1YERhseI9TfWXA.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/13/ge6iMSQvUhqpnHX.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/13/pE7U8KgWrmTXSOz.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/13/Vs7g8KQjGeAJzDp.png">
+<meta property="article:published_time" content="2024-06-12T13:26:39.000Z">
+<meta property="article:modified_time" content="2024-06-13T04:09:06.445Z">
+<meta property="article:author" content="Jun Lv">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="prompt">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2024/06/13/v1YERhseI9TfWXA.png">
+
+<link rel="canonical" href="https://nokiasonic.github.io/2024/06/12/%E3%80%90Linux%E3%80%91%E7%BB%88%E7%AB%AF%E6%8F%90%E7%A4%BA%E7%AC%A6%E8%87%AA%E5%AE%9A%E4%B9%89/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【Linux】终端提示符自定义 | 橘子树下</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">橘子树下</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">学习园地</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2024/06/12/%E3%80%90Linux%E3%80%91%E7%BB%88%E7%AB%AF%E6%8F%90%E7%A4%BA%E7%AC%A6%E8%87%AA%E5%AE%9A%E4%B9%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Jun Lv">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橘子树下">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【Linux】终端提示符自定义
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-06-12 21:26:39" itemprop="dateCreated datePublished" datetime="2024-06-12T21:26:39+08:00">2024-06-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-06-13 12:09:06" itemprop="dateModified" datetime="2024-06-13T12:09:06+08:00">2024-06-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">软件工程</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/06/12/%E3%80%90Linux%E3%80%91%E7%BB%88%E7%AB%AF%E6%8F%90%E7%A4%BA%E7%AC%A6%E8%87%AA%E5%AE%9A%E4%B9%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/06/12/%E3%80%90Linux%E3%80%91%E7%BB%88%E7%AB%AF%E6%8F%90%E7%A4%BA%E7%AC%A6%E8%87%AA%E5%AE%9A%E4%B9%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>以下设置为了在每次启动终端时都生效，需要修改 <strong><em>.bashrc</em></strong></p>
+<h1 id="ls彩色命令"><code>ls</code>彩色命令</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> LS_OPTIONS=<span class="string">&#x27;--color=auto&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> ls=<span class="string">&#x27;ls $LS_OPTIONS&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> ll=<span class="string">&#x27;ls $LS_OPTIONS -l&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> l=<span class="string">&#x27;ls $LS_OPTIONS -lA&#x27;</span></span><br></pre></td></tr></table></figure>
+<h1 id="彩色提示符">彩色提示符</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PS1=<span class="string">&quot;\[\e[0;38;5;154m\][\[\e[1;38;5;46m\]\A\[\e[0;38;5;154m\]] \[\e[1;38;5;196m\]\u\[\e[38;5;202m\]@\[\e[38;5;208m\]\h \[\e[38;5;220m\]\w \[\e[38;5;46m\]\$\[\e[0m\] &quot;</span></span><br></pre></td></tr></table></figure>
+<p><strong>说明：</strong> 1. 配置<code>PS</code>变量常用参数 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">参数描述</span><br><span class="line"></span><br><span class="line">\d 代表日期，格式为weekday month date，例如：”Mon Aug <span class="number">1</span>”</span><br><span class="line">\H 完整的主机名称。例如：我的机器名称为：fc4.linux，则这个名称就是fc4.linux</span><br><span class="line">\h 仅取主机的第一个名字，如上例，则为fc4，.linux则被省略</span><br><span class="line">\t 显示时间为<span class="number">24</span>小时格式，如：HH：MM：SS</span><br><span class="line">\T 显示时间为<span class="number">12</span>小时格式</span><br><span class="line">\A 显示时间为<span class="number">24</span>小时格式：HH：MM</span><br><span class="line">\u 当前用户的账号名称</span><br><span class="line">\v BASH的版本信息</span><br><span class="line">\w 完整的工作目录名称。家目录会以 ~代替</span><br><span class="line">\W 利用basename取得工作目录名称，所以只会列出最后一个目录</span><br><span class="line">\# 下达的第几个命令</span><br><span class="line">\$ 提示字符，如果是root时，提示符为：# ，普通用户则为：$</span><br><span class="line">\[ 字符”[“</span><br><span class="line">\] 字符”]”</span><br><span class="line">\! 命令行动态统计历史命令次数</span><br></pre></td></tr></table></figure></p>
+<ol start="2" type="1">
+<li>表示色彩的格式 使用 <strong><em>88/256</em></strong> 色设置方案进行设置。色谱表如下： <img src="https://s2.loli.net/2024/06/13/v1YERhseI9TfWXA.png" alt="|600" /></li>
+</ol>
+<p>使用<code>ESC</code>转义字符串来格式化后续文本的颜色。 在<code>bash</code>中，<code>ESC</code>转义可以用以下三种方式表示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- `\e`    </span><br><span class="line">- `\033`    </span><br><span class="line">- `\x1B`</span><br></pre></td></tr></table></figure>
+<p>举例说明：用<code>\[\e[0;38;5;105m\]</code>表示某种颜色，其中开始与结束时的<code>\[</code>,<code>\]</code>均为转义，<code>\e[0</code>表示不使用特殊格式。<code>38;5; ColorNumber</code>表示前景颜色（字体颜色），如果是背景颜色用<code>48;5; ColorNumber</code>来表示。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">特殊格式</span><br><span class="line"></span><br><span class="line"><span class="number">0</span> 关闭</span><br><span class="line"><span class="number">1</span> 粗体/高亮</span><br><span class="line"><span class="number">2</span> 灰暗</span><br><span class="line"><span class="number">4</span> 下划线</span><br><span class="line"><span class="number">5</span> 闪烁</span><br><span class="line"><span class="number">7</span> 反白 (交换前景与背景颜色）</span><br><span class="line"><span class="number">8</span> 隐藏 (用于密码显示)</span><br></pre></td></tr></table></figure>
+<ol start="3" type="1">
+<li><p>实例演示 <img src="https://s2.loli.net/2024/06/13/ge6iMSQvUhqpnHX.png" /> 效果如下： <img src="https://s2.loli.net/2024/06/13/pE7U8KgWrmTXSOz.png" /> <strong>说明：</strong><br />
+①显示左右括号<code>[]</code>，用颜色<code>\[\e[0;38;5;154m\]</code>表示，'0':不使用特殊格式。<br />
+②显示时间<code>\A</code>，格式为<code>HH:MM</code>,用颜色<code>\[\e[1;38;5;46m\]</code>表示，'1':粗体高亮。<br />
+③显示用户名<code>\u</code>, 用颜色<code>\[\e[1;38;5;196m\]</code>表示。<br />
+④显示<code>@</code>,用颜色<code>\[\e[38;5;202m\]</code>表示，因为从用户名之后，后续文本均使用粗体高亮，就不在其中使用特殊格式数字，除非有格式上的变化。<br />
+⑤显示主机名<code>\h</code>,用颜色<code>\[\e[38;5;208m\]</code>表示。<br />
+⑥显示完整工作路径<code>\w</code>,用颜色<code>\[\e[38;5;220m\]</code>表示，如果仅想显示当前目录，可以用<code>\W</code>。<br />
+⑦显示提示符<code>\$</code>,用颜色<code>\[\e[38;5;46m\]</code>表示。<br />
+⑧停止使用调色，用<code>\e[0m</code>表示，这里使用了<code>\33[0m</code>，作用完全相同，仅是为了测试。</p></li>
+<li><p><code>Conda</code>虚拟环境激活后的提示符前缀处理。<br />
+前缀为<code>(base)</code>或<code>(激活后的环境名)</code>，默认为系统前景色。如何对其也进行定制呢？</p></li>
+</ol>
+<p><strong>步骤(1) </strong></p>
+<p>在终端 shell 中输入以下命令，使<code>conda</code>不再显示提示符前缀。<br />
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda config --set changeps1 false</span><br></pre></td></tr></table></figure> 若想再开启，输入<br />
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda config --set changeps1 true</span><br></pre></td></tr></table></figure> <strong>步骤(2)</strong></p>
+<p>继续修改环境变量<code>PS1</code>。用<code>\[\e[0;38;5;105m\](\[\e[1;38;5;141m\]\$&#123;CONDA_DEFAULT_ENV&#125;\[\e[0;38;5;105m\])</code>用来自定义<code>Conda</code>环境提示符前缀。完整<code>PS1</code>的定义如下：<br />
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PS1=<span class="string">&quot;\[\e[0;38;5;105m\](\[\e[1;38;5;141m\]\$&#123;CONDA_DEFAULT_ENV&#125;\[\e[0;38;5;105m\]) \[\e[0;38;5;154m\][\[\e[1;38;5;46m\]\A\[\e[0;38;5;154m\]] \[\e[1;38;5;196m\]\u\[\e[38;5;202m\]@\[\e[38;5;208m\]\h \[\e[38;5;220m\]\w \[\e[38;5;46m\]\$\[\e[0m\] &quot;</span></span><br></pre></td></tr></table></figure> 效果为： <img src="https://s2.loli.net/2024/06/13/Vs7g8KQjGeAJzDp.png" /></p>
+<h1 id="参考">参考</h1>
+<ol type="1">
+<li><a target="_blank" rel="noopener" href="https://robotmoon.com/bash-prompt-generator/">Bash prompt generator with colors (robotmoon.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://unix.stackexchange.com/questions/124407/what-color-codes-can-i-use-in-my-bash-ps1-prompt">What color codes can I use in my Bash PS1 prompt?</a></li>
+<li><a target="_blank" rel="noopener" href="https://unix.stackexchange.com/questions/93268/bash-ps1-256-colors-with-bold">terminal - bash PS1 256 colors with bold</a></li>
+<li><a target="_blank" rel="noopener" href="https://misc.flogisoft.com/bash/tip_colors_and_formatting">bash:tip_colors_and_formatting</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"># linux</a>
+              <a href="/tags/prompt/" rel="tag"># prompt</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/06/11/%E3%80%90Obsidian%E3%80%91%E5%86%9C%E5%8E%86%E6%97%A5%E5%8E%86%E6%8F%92%E4%BB%B6Dust%20Calendar%E7%BE%8E%E5%8C%96/" rel="prev" title="【Obsidian】农历日历插件Dust Calendar美化">
+      <i class="fa fa-chevron-left"></i> 【Obsidian】农历日历插件Dust Calendar美化
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ls%E5%BD%A9%E8%89%B2%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">ls彩色命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BD%A9%E8%89%B2%E6%8F%90%E7%A4%BA%E7%AC%A6"><span class="nav-number">2.</span> <span class="nav-text">彩色提示符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jun Lv"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Jun Lv</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jun Lv</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'PDEwzfU70eGolvrzzXRlTCu8-MdYXbMMI',
+      appKey     : 'uIKkyAM94pDOFzWrobUXkxxS',
+      placeholder: "留心倾听您的心声",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : 'https://pdewzfu7.api.lncldglobal.com'
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

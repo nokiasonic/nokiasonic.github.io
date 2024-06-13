@@ -184,6 +184,115 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2021/09/06/%E3%80%90%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E3%80%91%E9%80%9A%E8%BE%BE%E4%BF%A1%E6%9D%BF%E5%9D%97%E6%95%B0%E6%8D%AE%E6%8F%90%E5%8F%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Jun Lv">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橘子树下">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/06/%E3%80%90%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E3%80%91%E9%80%9A%E8%BE%BE%E4%BF%A1%E6%9D%BF%E5%9D%97%E6%95%B0%E6%8D%AE%E6%8F%90%E5%8F%96/" class="post-title-link" itemprop="url">【量化投资】通达信板块数据提取</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-09-06 11:26:24" itemprop="dateCreated datePublished" datetime="2021-09-06T11:26:24+08:00">2021-09-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-12-13 09:10:35" itemprop="dateModified" datetime="2021-12-13T09:10:35+08:00">2021-12-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" itemprop="url" rel="index"><span itemprop="name">量化投资</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/09/06/%E3%80%90%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E3%80%91%E9%80%9A%E8%BE%BE%E4%BF%A1%E6%9D%BF%E5%9D%97%E6%95%B0%E6%8D%AE%E6%8F%90%E5%8F%96/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/09/06/%E3%80%90%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E3%80%91%E9%80%9A%E8%BE%BE%E4%BF%A1%E6%9D%BF%E5%9D%97%E6%95%B0%E6%8D%AE%E6%8F%90%E5%8F%96/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="数据提取">数据提取</h1>
+<p>从MongoDB中进取通达信板块数据，该数据均通过通达信api从服务器上提取并存入MongoDB。</p>
+<h2 id="实例">实例</h2>
+<h3 id="模糊查询">1. 模糊查询</h3>
+<p>MongoDB 使用 <strong><code>$regex</code></strong> 操作符来设置匹配字符串的正则表达式来进行模糊查询。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"></span><br><span class="line"><span class="comment">#存入数据</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_block_list</span>(<span class="params">database</span>):</span></span><br><span class="line">    stocklist = []</span><br><span class="line">    collection = db[<span class="string">&#x27;stock_block&#x27;</span>]</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> collection.find(&#123;<span class="string">&#x27;blockname&#x27;</span>:&#123;<span class="string">&#x27;$regex&#x27;</span>:<span class="string">&#x27;酒&#x27;</span>&#125;&#125;,&#123;<span class="string">&#x27;_id&#x27;</span>:<span class="number">0</span>,<span class="string">&#x27;code&#x27;</span>:<span class="number">1</span>&#125;):</span><br><span class="line">        stocklist.append(item[<span class="string">&#x27;code&#x27;</span>])</span><br><span class="line">    stocklist = <span class="built_in">list</span>(<span class="built_in">set</span>(stocklist))</span><br><span class="line">    <span class="keyword">return</span> stocklist</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    client = MongoClient(<span class="string">&#x27;localhost&#x27;</span>, <span class="number">27017</span>)</span><br><span class="line">    db = client[<span class="string">&#x27;quantaxis&#x27;</span>]</span><br><span class="line">    stocklist = get_block_list(database=db)</span><br><span class="line">    print(<span class="string">&quot;Total &#123;&#125; stocks are in this block.\n&#123;&#125;&quot;</span>.<span class="built_in">format</span>(<span class="built_in">len</span>(stocklist),stocklist))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Total 69 stocks are in this block.</span><br><span class="line">[&#39;600257&#39;, &#39;000752&#39;, &#39;600616&#39;, &#39;600766&#39;, &#39;600779&#39;, &#39;601579&#39;, &#39;603919&#39;, &#39;603198&#39;, &#39;600771&#39;, &#39;603101&#39;, &#39;600132&#39;, &#39;000524&#39;, &#39;600258&#39;, &#39;605108&#39;, &#39;000428&#39;, &#39;600750&#39;, &#39;000888&#39;, &#39;603025&#39;, &#39;002461&#39;, &#39;600238&#39;, &#39;600754&#39;, &#39;601007&#39;, &#39;000929&#39;, &#39;000596&#39;, &#39;600573&#39;, &#39;600600&#39;, &#39;603299&#39;, &#39;600059&#39;, &#39;600197&#39;, &#39;002772&#39;, &#39;600559&#39;, &#39;300237&#39;, &#39;600260&#39;, &#39;600543&#39;, &#39;000721&#39;, &#39;600084&#39;, &#39;600365&#39;, &#39;000930&#39;, &#39;000858&#39;, &#39;000860&#39;, &#39;603369&#39;, &#39;000568&#39;, &#39;600655&#39;, &#39;600809&#39;, &#39;600702&#39;, &#39;002304&#39;, &#39;002568&#39;, &#39;000869&#39;, &#39;600382&#39;, &#39;600781&#39;, &#39;002342&#39;, &#39;000829&#39;, &#39;600381&#39;, &#39;600199&#39;, &#39;002646&#39;, &#39;603589&#39;, &#39;603777&#39;, &#39;002183&#39;, &#39;000995&#39;, &#39;600252&#39;, &#39;000729&#39;, &#39;603779&#39;, &#39;002803&#39;, &#39;002186&#39;, &#39;600395&#39;, &#39;600696&#39;, &#39;600519&#39;, &#39;000007&#39;, &#39;000799&#39;]</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/09/06/%E3%80%90%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E3%80%91%E9%80%9A%E8%BE%BE%E4%BF%A1%E6%9D%BF%E5%9D%97%E6%95%B0%E6%8D%AE%E6%8F%90%E5%8F%96/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2021/08/30/%E3%80%90Hexo%E3%80%91github%E5%BC%80%E5%90%AF%E4%BB%A4%E7%89%8C%E9%AA%8C%E8%AF%81%E5%90%8E%E6%97%A0%E6%B3%95%E6%9B%B4%E6%96%B0Blog%E7%9A%84%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1115,105 +1224,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2021/03/18/%E3%80%90cmder%E3%80%91cmder+fluent%20terminal%E7%9A%84%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Jun Lv">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="橘子树下">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/18/%E3%80%90cmder%E3%80%91cmder+fluent%20terminal%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">【cmder】cmder+fluent terminal的使用及配置</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-18 08:42:01" itemprop="dateCreated datePublished" datetime="2021-03-18T08:42:01+08:00">2021-03-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-14 09:07:33" itemprop="dateModified" datetime="2022-04-14T09:07:33+08:00">2022-04-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E8%BD%AF%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">软件</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/03/18/%E3%80%90cmder%E3%80%91cmder+fluent%20terminal%E7%9A%84%E4%BD%BF%E7%94%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/18/%E3%80%90cmder%E3%80%91cmder+fluent%20terminal%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Windows的cmd实在过于丑陋，且使用起来有诸多的不方便， 平时也会使用git bash, 那么有没有办法将它们集成在一起，并且有个漂亮的外观呢？ 答案是肯定的。 那就是cmder + fluent terminal。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/03/18/%E3%80%90cmder%E3%80%91cmder+fluent%20terminal%E7%9A%84%E4%BD%BF%E7%94%A8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1285,20 +1295,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-count">49</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
