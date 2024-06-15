@@ -184,6 +184,126 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2021/09/11/%E3%80%90cmder%E3%80%91%E5%9C%A8VsCode%E4%BD%BF%E7%94%A8Cmder%E4%BD%9C%E4%B8%BA%E9%BB%98%E8%AE%A4%E7%BB%88%E7%AB%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Jun Lv">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橘子树下">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/11/%E3%80%90cmder%E3%80%91%E5%9C%A8VsCode%E4%BD%BF%E7%94%A8Cmder%E4%BD%9C%E4%B8%BA%E9%BB%98%E8%AE%A4%E7%BB%88%E7%AB%AF/" class="post-title-link" itemprop="url">【cmder】在VsCode使用Cmder作为默认终端</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-09-11 21:26:24" itemprop="dateCreated datePublished" datetime="2021-09-11T21:26:24+08:00">2021-09-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-14 10:19:26" itemprop="dateModified" datetime="2022-04-14T10:19:26+08:00">2022-04-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E8%BD%AF%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">软件</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/09/11/%E3%80%90cmder%E3%80%91%E5%9C%A8VsCode%E4%BD%BF%E7%94%A8Cmder%E4%BD%9C%E4%B8%BA%E9%BB%98%E8%AE%A4%E7%BB%88%E7%AB%AF/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/09/11/%E3%80%90cmder%E3%80%91%E5%9C%A8VsCode%E4%BD%BF%E7%94%A8Cmder%E4%BD%9C%E4%B8%BA%E9%BB%98%E8%AE%A4%E7%BB%88%E7%AB%AF/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前言">前言</h1>
+<p>实在忍受不了<code>VsCode</code>里的默认终端为<code>powershell</code>或<code>cmd</code>, 希望能使用<code>cmder</code>来作为默认终端。</p>
+<h1 id="配置步骤">配置步骤</h1>
+<p>旧版的<code>VsCode</code>使用以下方法修改。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;terminal.integrated.shellArgs.windows&quot;:[&quot;/k %CMDER_ROOT%\\vendor\\init.bat&quot;]</span><br></pre></td></tr></table></figure>
+<p>当VSCode升级至1.57.1(2021.6.17)时，会出现警告提示：</p>
+<p><img src="https://s2.loli.net/2022/04/14/hT1As3nwuqpFCyQ.png" /></p>
+<p>意思是此项已弃用，<code>Microsoft</code>官方配置默认 shell 的新推荐方法是在 #terminal.integrated.profiles.windows# 中创建一个终端配置文件，并将其配置文件名称设置为 #terminal.integrated.defaultProfile.windows# 中的默认值。此操作当前将优先于新的配置文件设置，但将来会发生更改。</p>
+<ol type="1">
+<li>打开<code>User Settings</code>(<code>File</code>-&gt; <code>Preferences</code>-&gt; <code>Settings</code>)。</li>
+<li>输入栏：<code>terminal.integrated.Profiles.windows</code>, 并点击<code>Edit in settings.son</code>。</li>
+</ol>
+<p><img src="https://s2.loli.net/2022/04/14/ltZiaKGOpsSDTkE.png" /></p>
+<ol start="3" type="1">
+<li><p>添加新的配置， 并设置<code>cmder</code>为默认配置。</p></li>
+<li><p>打开一个新终端(<code>Terminal</code> -&gt; <code>New Terminal</code>)</p>
+<table>
+<thead>
+<tr class="header">
+<th><img src="https://s2.loli.net/2022/04/14/WbDMzE32fayt8Hg.png" /></th>
+<th><img src="https://s2.loli.net/2022/04/14/sGTVRWPSaAH2E9f.png" /></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></li>
+</ol>
+<h1 id="参考">参考</h1>
+<p>1/ <a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/editor/integrated-terminal#_terminal-profiles">Integrated Terminal in Visual Studio Code</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2021/09/06/%E3%80%90%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E3%80%91%E9%80%9A%E8%BE%BE%E4%BF%A1%E6%9D%BF%E5%9D%97%E6%95%B0%E6%8D%AE%E6%8F%90%E5%8F%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1128,102 +1248,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2021/05/11/%E3%80%90Jupyter%E3%80%91%E5%90%AF%E5%8A%A8%E6%97%B6%E6%9C%89%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Jun Lv">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="橘子树下">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/11/%E3%80%90Jupyter%E3%80%91%E5%90%AF%E5%8A%A8%E6%97%B6%E6%9C%89%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/" class="post-title-link" itemprop="url">【Jupyter】启动时有报错信息</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-11 16:54:29" itemprop="dateCreated datePublished" datetime="2021-05-11T16:54:29+08:00">2021-05-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-05-25 15:43:53" itemprop="dateModified" datetime="2024-05-25T15:43:53+08:00">2024-05-25</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/05/11/%E3%80%90Jupyter%E3%80%91%E5%90%AF%E5%8A%A8%E6%97%B6%E6%9C%89%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/11/%E3%80%90Jupyter%E3%80%91%E5%90%AF%E5%8A%A8%E6%97%B6%E6%9C%89%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="说明">说明</h1>
-<p>在升级jupyter到版本6.x以上时，在启动的时候会报很多行以下错误 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Config option &#96;template_path&#96; not recognized by &#96;LenvsLatexExporter&#96;. Did you mean one of: &#96;template_file, template_name, template_paths&#96;?</span><br></pre></td></tr></table></figure></p>
-<h1 id="解决方案">解决方案</h1>
-<p>使用VS Code依次打开python安装目录下的/lib/site-packages/ ('jupyter_contrib_nbextensions', 'jupyter_latex_envs' 及'latex_envs')子目录。</p>
-<p>通过'Edit/Replace in Files'来查找'template_path'并替换为'template_paths'。</p>
-<p>注意有的内容已经是template_paths，不需要修改。</p>
-<h1 id="参考">参考</h1>
-<p>1/ [jupyter代码自动补全插件、安装后出现警告“Config option <code>template_path</code> not recognized by <code>LenvsLatexExporter</code>”的解决方案](<a target="_blank" rel="noopener" href="https://blog.csdn.net/DTFT_/article/details/111242118">jupyter代码自动补全插件、安装后出现警告"Config option not recognized by "的解决方案_Sun's Blog-CSDN博客</a>)</p>
-<p>2/ <a target="_blank" rel="noopener" href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions/issues/1529">Config option <code>template_path</code> not recognized by <code>LenvsLatexExporter</code>. Did you mean one of: <code>template_file, template_name, template_paths</code>? · Issue #1529 · ipython-contrib/jupyter_contrib_nbextensions (github.com)</a>)</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1295,20 +1319,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
