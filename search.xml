@@ -140,27 +140,6 @@ a local folder of plain text Markdown files.</p>
       </tags>
   </entry>
   <entry>
-    <title>tqdm进度条的使用</title>
-    <url>/2020/12/23/tqdm%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p>以前使用的是processbar来制作进度条， 听闻tqdm性能更好些，遂尝试使用一下。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> tqdm(total=<span class="built_in">len</span>(codelist),<span class="built_in">ascii</span>= <span class="literal">True</span>, ncols=<span class="number">90</span>,colour=<span class="string">&quot;green&quot;</span>) <span class="keyword">as</span> pbar:</span><br><span class="line">    <span class="keyword">for</span> ts_code <span class="keyword">in</span> codelist:</span><br><span class="line">        pbar.set_description(<span class="string">&quot;Processing %s&quot;</span> % ts_code)</span><br><span class="line">        ......</span><br><span class="line">        pbar.update(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2022/04/14/DJqSNL69eTsIZKP.png" /> 参数使用：</p>
-<p><code>ascii = True</code>, 缺省是<code>False</code>, 当使用它时，不是以正常块状来做进度条，而是以"123456789#"的方式。</p>
-<p><code>ncols = 90</code>, 这里可以根据屏幕大小来进行控制，保证进度条不产生换行的情况。</p>
-<p><code>colour = "green"</code>, 在版本4.5之后引入，可以设置进度条的颜色。</p>
-<p><code>desc</code>或利用<code>set_desciption</code>，用来设置进度条左侧的文字信息。</p>
-<p>从使用情况来看，还是比较令人满意的。</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>tqdm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【Arduino】ESP8266开发实例</title>
     <url>/2021/08/23/%E3%80%90Arduino%E3%80%91ESP8266%E5%BC%80%E5%8F%91%E5%AE%9E%E4%BE%8B/</url>
     <content><![CDATA[<h1 id="esp8266的arduino开发环境搭建">ESP8266的Arduino开发环境搭建</h1>
@@ -257,6 +236,47 @@ a local folder of plain text Markdown files.</p>
       </tags>
   </entry>
   <entry>
+    <title>tqdm进度条的使用</title>
+    <url>/2020/12/23/tqdm%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>以前使用的是processbar来制作进度条， 听闻tqdm性能更好些，遂尝试使用一下。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> tqdm(total=<span class="built_in">len</span>(codelist),<span class="built_in">ascii</span>= <span class="literal">True</span>, ncols=<span class="number">90</span>,colour=<span class="string">&quot;green&quot;</span>) <span class="keyword">as</span> pbar:</span><br><span class="line">    <span class="keyword">for</span> ts_code <span class="keyword">in</span> codelist:</span><br><span class="line">        pbar.set_description(<span class="string">&quot;Processing %s&quot;</span> % ts_code)</span><br><span class="line">        ......</span><br><span class="line">        pbar.update(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/04/14/DJqSNL69eTsIZKP.png" /> 参数使用：</p>
+<p><code>ascii = True</code>, 缺省是<code>False</code>, 当使用它时，不是以正常块状来做进度条，而是以"123456789#"的方式。</p>
+<p><code>ncols = 90</code>, 这里可以根据屏幕大小来进行控制，保证进度条不产生换行的情况。</p>
+<p><code>colour = "green"</code>, 在版本4.5之后引入，可以设置进度条的颜色。</p>
+<p><code>desc</code>或利用<code>set_desciption</code>，用来设置进度条左侧的文字信息。</p>
+<p>从使用情况来看，还是比较令人满意的。</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>tqdm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】github开启令牌验证后无法更新Blog的问题</title>
+    <url>/2021/08/30/%E3%80%90Hexo%E3%80%91github%E5%BC%80%E5%90%AF%E4%BB%A4%E7%89%8C%E9%AA%8C%E8%AF%81%E5%90%8E%E6%97%A0%E6%B3%95%E6%9B%B4%E6%96%B0Blog%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>从2021年8月13日起， github不再支持帐号密码验证Git操作，改用token(令牌)或SSH密钥。</p>
+<p><img src="https://s2.loli.net/2022/04/14/L6YvJDdyVg5uxot.png" /></p>
+<p><strong>解决方案</strong></p>
+<p>1/ 首先登入Github 账户，<code>Setting - Developer settings - Personal access tokens - Generate new token</code>, Note 填写 Hexo 或 Blog 之类，勾选第一项 repo，然后 Generate token；为Hexo项目生成一个令牌。</p>
+<p>2/ 修改<code>_config.yml</code>,</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://[复制生成的token]@github.com/nokiasonic/nokiasonic.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>即可正常hexo d更新blog。</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【Hexo】Next主题标题颜色设置</title>
     <url>/2020/12/10/%E3%80%90Hexo%E3%80%91Next%E4%B8%BB%E9%A2%98%E6%A0%87%E9%A2%98%E9%A2%9C%E8%89%B2%E8%AE%BE%E7%BD%AE/</url>
     <content><![CDATA[<p>主题采用的是Next的Mist。 不太喜欢全部都是黑灰白色的主基调，希望将标题来点明亮的颜色。以下来介绍具体的配置方法。</p>
@@ -311,26 +331,6 @@ a local folder of plain text Markdown files.</p>
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Hexo】github开启令牌验证后无法更新Blog的问题</title>
-    <url>/2021/08/30/%E3%80%90Hexo%E3%80%91github%E5%BC%80%E5%90%AF%E4%BB%A4%E7%89%8C%E9%AA%8C%E8%AF%81%E5%90%8E%E6%97%A0%E6%B3%95%E6%9B%B4%E6%96%B0Blog%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>从2021年8月13日起， github不再支持帐号密码验证Git操作，改用token(令牌)或SSH密钥。</p>
-<p><img src="https://s2.loli.net/2022/04/14/L6YvJDdyVg5uxot.png" /></p>
-<p><strong>解决方案</strong></p>
-<p>1/ 首先登入Github 账户，<code>Setting - Developer settings - Personal access tokens - Generate new token</code>, Note 填写 Hexo 或 Blog 之类，勾选第一项 repo，然后 Generate token；为Hexo项目生成一个令牌。</p>
-<p>2/ 修改<code>_config.yml</code>,</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://[复制生成的token]@github.com/nokiasonic/nokiasonic.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>即可正常hexo d更新blog。</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Github</tag>
       </tags>
   </entry>
   <entry>
@@ -516,6 +516,24 @@ a local folder of plain text Markdown files.</p>
       </tags>
   </entry>
   <entry>
+    <title>【Jupyter】JupyterLab中如何设置终端类型</title>
+    <url>/2024/06/04/%E3%80%90Jupyter%E3%80%91JupyterLab%E4%B8%AD%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E7%BB%88%E7%AB%AF%E7%B1%BB%E5%9E%8B/</url>
+    <content><![CDATA[<p>如何将<code>JupyterLab</code>中的终端设置为<code>Windows CMD</code>,并且具有和<code>Anaconda Prompt</code>相同的效果，启动后直接进入特定的<code>Conda</code>环境?</p>
+<p>1.生成配置文件 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">jupyter lab --generate-config</span><br></pre></td></tr></table></figure> 该命令会在用户目录中创建一个名字<code>jupyter_lab_config.py</code>的文件，以<code>Windows</code>系统为例，该文件位于<code>C:\User\&lt;user name&gt;\.jupyter\</code>下。</p>
+<p>2.修改配置 编辑<code>jupyter_lab_config.py</code>,查找<code>c.ServerApp.terminado_settings</code>。进行以下设置： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">## Supply overrides for terminado. Currently only supports &quot;shell_command&quot;.</span></span><br><span class="line"><span class="comment">#  Default: &#123;&#125;</span></span><br><span class="line">c.ServerApp.terminado_settings = &#123;<span class="string">&#x27;shell_command&#x27;</span>:[<span class="string">&#x27;c:\\Windows\\System32\\cmd.exe&#x27;</span>, <span class="string">&#x27;/k&#x27;</span>,<span class="string">&#x27;D:\\anaconda3\\Scripts\\activate_terminal.bat&#x27;</span>,<span class="string">&#x27;&amp;title&#x27;</span>,<span class="string">&#x27;Conda&#x27;</span>]&#125;</span><br></pre></td></tr></table></figure> <code>shell_command</code>是以字典方式表式，值为列表方式。目录分隔符使用"\"。执行时等效于 <code>c:\Windows\System32\cmd.exe /k D:\anaconda3\Scripts\activate_terminal.bat &amp;title Conda</code>。</p>
+<p>其中<code>active_terminal.bat</code>内容如下： <figure class="highlight text"><table><tr><td class="code"><pre><span class="line">@echo off</span><br><span class="line">call D:\anaconda3\Scripts\activate.bat D:\anaconda3</span><br><span class="line">call conda activate Python3.10.14</span><br></pre></td></tr></table></figure> <code>Python3.10.14</code>为创建好的<code>Conda</code>环境名。</p>
+<p>3.效果 <img src="https://s2.loli.net/2024/06/04/MfglEu96QPZjHGi.png" alt="|600" /></p>
+]]></content>
+      <categories>
+        <category>软件工程</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>anaconda</tag>
+        <tag>jupyter</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【Linux】终端提示符自定义</title>
     <url>/2024/06/12/%E3%80%90Linux%E3%80%91%E7%BB%88%E7%AB%AF%E6%8F%90%E7%A4%BA%E7%AC%A6%E8%87%AA%E5%AE%9A%E4%B9%89/</url>
     <content><![CDATA[<p>以下设置为了在每次启动终端时都生效，需要修改 <strong><em>.bashrc</em></strong></p>
@@ -524,10 +542,14 @@ a local folder of plain text Markdown files.</p>
 <a id="more"></a>
 <h1 id="彩色提示符">彩色提示符</h1>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> PS1=<span class="string">&quot;\[\e[0;38;5;154m\][\[\e[1;38;5;46m\]\A\[\e[0;38;5;154m\]] \[\e[1;38;5;196m\]\u\[\e[38;5;202m\]@\[\e[38;5;208m\]\h \[\e[38;5;220m\]\w \[\e[38;5;46m\]\$\[\e[0m\] &quot;</span></span><br></pre></td></tr></table></figure>
-<p><strong>说明：</strong> 1. 配置<code>PS</code>变量常用参数 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line">参数描述</span><br><span class="line"></span><br><span class="line">\d 代表日期，格式为weekday month date，例如：”Mon Aug <span class="number">1</span>”</span><br><span class="line">\H 完整的主机名称。例如：我的机器名称为：fc4.linux，则这个名称就是fc4.linux</span><br><span class="line">\h 仅取主机的第一个名字，如上例，则为fc4，.linux则被省略</span><br><span class="line">\t 显示时间为<span class="number">24</span>小时格式，如：HH：MM：SS</span><br><span class="line">\T 显示时间为<span class="number">12</span>小时格式</span><br><span class="line">\A 显示时间为<span class="number">24</span>小时格式：HH：MM</span><br><span class="line">\u 当前用户的账号名称</span><br><span class="line">\v BASH的版本信息</span><br><span class="line">\w 完整的工作目录名称。家目录会以 ~代替</span><br><span class="line">\W 利用basename取得工作目录名称，所以只会列出最后一个目录</span><br><span class="line">\# 下达的第几个命令</span><br><span class="line">\$ 提示字符，如果是root时，提示符为：# ，普通用户则为：$</span><br><span class="line">\[ 字符”[“</span><br><span class="line">\] 字符”]”</span><br><span class="line">\! 命令行动态统计历史命令次数</span><br></pre></td></tr></table></figure></p>
+<p><strong>说明：</strong><br />
+1. 配置<code>PS</code>变量常用参数 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line">参数描述</span><br><span class="line"></span><br><span class="line">\d 代表日期，格式为weekday month date，例如：”Mon Aug <span class="number">1</span>”</span><br><span class="line">\H 完整的主机名称。例如：我的机器名称为：fc4.linux，则这个名称就是fc4.linux</span><br><span class="line">\h 仅取主机的第一个名字，如上例，则为fc4，.linux则被省略</span><br><span class="line">\t 显示时间为<span class="number">24</span>小时格式，如：HH：MM：SS</span><br><span class="line">\T 显示时间为<span class="number">12</span>小时格式</span><br><span class="line">\A 显示时间为<span class="number">24</span>小时格式：HH：MM</span><br><span class="line">\u 当前用户的账号名称</span><br><span class="line">\v BASH的版本信息</span><br><span class="line">\w 完整的工作目录名称。家目录会以 ~代替</span><br><span class="line">\W 利用basename取得工作目录名称，所以只会列出最后一个目录</span><br><span class="line">\# 下达的第几个命令</span><br><span class="line">\$ 提示字符，如果是root时，提示符为：# ，普通用户则为：$</span><br><span class="line">\[ 字符”[“</span><br><span class="line">\] 字符”]”</span><br><span class="line">\! 命令行动态统计历史命令次数</span><br></pre></td></tr></table></figure></p>
 <ol start="2" type="1">
-<li>表示色彩的格式 使用 <strong><em>88/256</em></strong> 色设置方案进行设置。色谱表如下： <img src="https://s2.loli.net/2024/06/13/v1YERhseI9TfWXA.png" alt="|600" /></li>
+<li>表示色彩的格式 使用 <strong><em>88/256</em></strong> 色设置方案进行设置。色谱表如下：</li>
 </ol>
+<figure>
+<img src="https://s2.loli.net/2024/06/13/v1YERhseI9TfWXA.png" alt="|600" /><figcaption aria-hidden="true">|600</figcaption>
+</figure>
 <p>使用<code>ESC</code>转义字符串来格式化后续文本的颜色。 在<code>bash</code>中，<code>ESC</code>转义可以用以下三种方式表示：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">- `\e`    </span><br><span class="line">- `\033`    </span><br><span class="line">- `\x1B`</span><br></pre></td></tr></table></figure>
 <p>举例说明：用<code>\[\e[0;38;5;105m\]</code>表示某种颜色，其中开始与结束时的<code>\[</code>,<code>\]</code>均为转义，<code>\e[0</code>表示不使用特殊格式。<code>38;5; ColorNumber</code>表示前景颜色（字体颜色），如果是背景颜色用<code>48;5; ColorNumber</code>来表示。</p>
@@ -566,24 +588,6 @@ a local folder of plain text Markdown files.</p>
       <tags>
         <tag>linux</tag>
         <tag>prompt</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Jupyter】JupyterLab中如何设置终端类型</title>
-    <url>/2024/06/04/%E3%80%90Jupyter%E3%80%91JupyterLab%E4%B8%AD%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E7%BB%88%E7%AB%AF%E7%B1%BB%E5%9E%8B/</url>
-    <content><![CDATA[<p>如何将<code>JupyterLab</code>中的终端设置为<code>Windows CMD</code>,并且具有和<code>Anaconda Prompt</code>相同的效果，启动后直接进入特定的<code>Conda</code>环境?</p>
-<p>1.生成配置文件 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">jupyter lab --generate-config</span><br></pre></td></tr></table></figure> 该命令会在用户目录中创建一个名字<code>jupyter_lab_config.py</code>的文件，以<code>Windows</code>系统为例，该文件位于<code>C:\User\&lt;user name&gt;\.jupyter\</code>下。</p>
-<p>2.修改配置 编辑<code>jupyter_lab_config.py</code>,查找<code>c.ServerApp.terminado_settings</code>。进行以下设置： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">## Supply overrides for terminado. Currently only supports &quot;shell_command&quot;.</span></span><br><span class="line"><span class="comment">#  Default: &#123;&#125;</span></span><br><span class="line">c.ServerApp.terminado_settings = &#123;<span class="string">&#x27;shell_command&#x27;</span>:[<span class="string">&#x27;c:\\Windows\\System32\\cmd.exe&#x27;</span>, <span class="string">&#x27;/k&#x27;</span>,<span class="string">&#x27;D:\\anaconda3\\Scripts\\activate_terminal.bat&#x27;</span>,<span class="string">&#x27;&amp;title&#x27;</span>,<span class="string">&#x27;Conda&#x27;</span>]&#125;</span><br></pre></td></tr></table></figure> <code>shell_command</code>是以字典方式表式，值为列表方式。目录分隔符使用"\"。执行时等效于 <code>c:\Windows\System32\cmd.exe /k D:\anaconda3\Scripts\activate_terminal.bat &amp;title Conda</code>。</p>
-<p>其中<code>active_terminal.bat</code>内容如下： <figure class="highlight text"><table><tr><td class="code"><pre><span class="line">@echo off</span><br><span class="line">call D:\anaconda3\Scripts\activate.bat D:\anaconda3</span><br><span class="line">call conda activate Python3.10.14</span><br></pre></td></tr></table></figure> <code>Python3.10.14</code>为创建好的<code>Conda</code>环境名。</p>
-<p>3.效果 <img src="https://s2.loli.net/2024/06/04/MfglEu96QPZjHGi.png" alt="|600" /></p>
-]]></content>
-      <categories>
-        <category>软件工程</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>anaconda</tag>
-        <tag>jupyter</tag>
       </tags>
   </entry>
   <entry>
@@ -4076,6 +4080,100 @@ code
       </tags>
   </entry>
   <entry>
+    <title>【Python】使用PYQT5来构建持仓盈亏监控</title>
+    <url>/2021/05/14/%E3%80%90Python%E3%80%91%E4%BD%BF%E7%94%A8PYQT5%E6%9D%A5%E6%9E%84%E5%BB%BA%E6%8C%81%E4%BB%93%E7%9B%88%E4%BA%8F%E7%9B%91%E6%8E%A7/</url>
+    <content><![CDATA[<h1 id="目的">目的</h1>
+<p>通过win10的通知来监控持仓盈亏，会在托盘上累积太多的图标，而且经常受到专注助手影响，效果不是太理想。所以尝试利用PyQt5来构建一个监控系统，实现类似雪球网页上同样的功能。</p>
+<a id="more"></a>
+<h1 id="安装pyqt5">安装PyQt5</h1>
+<h2 id="安装pyqt5-1">安装PyQt5</h2>
+<ol type="1">
+<li><p>pip安装 &gt;pip install PyQt5</p></li>
+<li><p>官网下载文件安装<br />
+下载地址：<a href="https://pypi.org/project/PyQt5/#files">PyQt下载官网</a> <img src="https://s2.loli.net/2022/04/14/ATIvDBfZr6N1WL5.png" /> 安装方法：打开命令行，通过命令行进入到下载的whl文件所在的文件夹，输入如下命令，安装即可。 &gt;pip install PyQt5-5.15.4-cp36.cp37.cp38.cp39-none-win_amd64.whl</p></li>
+</ol>
+<h2 id="安装pyqt5-tools">安装PyQt5-tools</h2>
+<p>PyQt5-tools里含有图形界面开发工具QtDesigner及国际化翻译工具Liguist。 1. pip安装 &gt;pip install PyQt5-tools</p>
+<ol start="2" type="1">
+<li>官网下载文件安装<br />
+下载地址：<a href="https://pypi.org/project/pyqt5-tools/#files">PyQt下载官网</a> <img src="https://s2.loli.net/2022/04/14/KNDVktjGFofTnZ3.png" /> 安装方法：打开命令行，通过命令行进入到下载的whl文件所在的文件夹，输入如下命令，安装即可。 &gt;pip install pyqt5_tools-5.15.2.3.0.2-py3-none-any.whl</li>
+</ol>
+<p>在系统中加入以下环境变量 &gt;d:-packages_tools<br />
+</p>
+<h2 id="与vscode集成">与VScode集成</h2>
+<ol type="1">
+<li>安装pyqt integration插件 <img src="https://s2.loli.net/2022/04/14/vS2MUFCL8oNT1Kl.png" /> 对pyqt integration插件进行配置，主要是pyuic5及qt designer的路径 <img src="https://s2.loli.net/2022/04/14/W4FUgXOnvAVjqI5.png" /></li>
+</ol>
+<h2 id="界面设计">界面设计</h2>
+<p>用小窗口来实现监控。</p>
+<h3 id="术语">术语</h3>
+<ul>
+<li>布局<br />
+采用了布局之后能够让我们的程序在使用上更加美观，不会随着窗体的大小发生改变而改变，符合我们的使用习惯。在PyQt5中，有多种布局的方式供我们选择，比较常用的布局有以下几种：
+<ul>
+<li>表单布局：QFormLayout</li>
+<li>网格布局：QGridLayout</li>
+<li>水平排列布局：QHBoxLayout</li>
+<li>垂直排列布局：QVBoxLayout</li>
+</ul></li>
+</ul>
+<p>比较详细的说明可以参考<a href="https://zhuanlan.zhihu.com/p/28559136">PyQt5系列教程（6）：布局</a></p>
+<ul>
+<li>MVC模式 MVC 模式 指 Model-View-Controller（模型-视图-控制器） 模式。这种模式多应用于应用程序的分层开发。
+<ul>
+<li>Model是一个数据模型、一个虚拟的东西，显示不出来的，如果我们要把这些数据显示出来，就需要使用view。</li>
+<li>View：用来显示Model这种数据</li>
+<li>Controler：如果我们要编辑数据，就需要使用controler,不使用controler，我们只能对数据进行查看不能编辑</li>
+</ul></li>
+</ul>
+<h3 id="使用qtdesigner来设计界面">使用QtDesigner来设计界面</h3>
+<ol type="1">
+<li>初始界面 初始界面设计如下： <img src="https://s2.loli.net/2022/04/14/zcTQvBmEta5WwuP.png" /></li>
+</ol>
+<p>相应的组件及布局如下： <img src="https://s2.loli.net/2022/04/14/Pb6hNWke3I9Lngf.png" /></p>
+<p>计划使用QLabel来显示总的持仓盈亏情况，用Qtableview来显示具体的股票信息， Qlabel使用<code>gridLayout</code>, Qtableview使用<code>verticalLayout</code>。</p>
+<ol start="2" type="1">
+<li>界面美化 在自定义的View类中写入代码进行美化。</li>
+</ol>
+<ul>
+<li>去除丑陋的边框</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">self.setWindowFlag(QtCore.Qt.FramelessWindowHint) </span><br></pre></td></tr></table></figure>
+<ul>
+<li>增加关闭及最小化按钮（以MacOS的样式） 用pyqtSlot装饰器来实现点击按钮关闭和最小化的操作。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">self.CloseButton.setFixedSize(<span class="number">15</span>,<span class="number">15</span>) </span><br><span class="line">self.MinButton.setFixedSize(<span class="number">15</span>,<span class="number">15</span>) </span><br><span class="line">self.CloseButton.setStyleSheet(<span class="string">&quot;QPushButton&#123;background:#F76677;border-radius:7px;&#125;QPushButton:hover&#123;background:red;&#125;&quot;</span>)</span><br><span class="line">self.MinButton.setStyleSheet(<span class="string">&quot;QPushButton&#123;background:#6DDF6D;border-radius:7px;&#125;QPushButton:hover&#123;background:green;&#125;&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@pyqtSlot()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">on_CloseButton_clicked</span>(<span class="params">self</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    关闭窗口</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    self.close()</span><br><span class="line"></span><br><span class="line"><span class="meta">@pyqtSlot()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">on_MinButton_clicked</span>(<span class="params">self</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    最小化窗口</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    self.showMinimized()    </span><br></pre></td></tr></table></figure>
+<ul>
+<li>针对盈亏对显示结果使用不同颜色</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="built_in">float</span>(self.label_4.text().split(<span class="string">&#x27;(&#x27;</span>)[<span class="number">0</span>]) &lt; <span class="number">0</span>:</span><br><span class="line">    self.label_2.setStyleSheet(<span class="string">&quot;QLabel&#123;color:#01D68A;font-size:15px;font-weight:bold;font-family:Hack;&#125;&quot;</span>)</span><br><span class="line">    self.label_4.setStyleSheet(<span class="string">&quot;QLabel&#123;color:#01D68A;font-size:15px;font-weight:bold;font-family:Hack;&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    self.label_2.setStyleSheet(<span class="string">&quot;QLabel&#123;color:#FF0018;font-size:15px;font-weight:bold;font-family:Hack;&#125;&quot;</span>)</span><br><span class="line">    self.label_4.setStyleSheet(<span class="string">&quot;QLabel&#123;color:#FF0018;font-size:15px;font-weight:bold;font-family:Hack;&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="built_in">float</span>(self.label_6.text().split(<span class="string">&#x27;(&#x27;</span>)[<span class="number">0</span>]) &lt; <span class="number">0</span>:</span><br><span class="line">    self.label_6.setStyleSheet(<span class="string">&quot;QLabel&#123;color:#01D68A;font-size:15px;font-weight:bold;font-family:Hack;&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    self.label_6.setStyleSheet(<span class="string">&quot;QLabel&#123;color:#FF0018;font-size:15px;font-weight:bold;font-family:Hack;&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="built_in">float</span>(self.label_8.text().split(<span class="string">&#x27;(&#x27;</span>)[<span class="number">0</span>]) &lt; <span class="number">0</span>:</span><br><span class="line">    self.label_8.setStyleSheet(<span class="string">&quot;QLabel&#123;color:#01D68A;font-size:15px;font-weight:bold;font-family:Hack;&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    self.label_8.setStyleSheet(<span class="string">&quot;QLabel&#123;color:#FF0018;font-size:15px;font-weight:bold;font-family:Hack;&#125;&quot;</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Qtableview的表头使用与窗口同样的背景色以及文字左对齐</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">self.tableView.setStyleSheet(<span class="string">&quot;border-width: 0px; border-style: solid;&quot;</span>)</span><br><span class="line">self.tableView.horizontalHeader().setStyleSheet(<span class="string">&quot;QHeaderView::section&#123;Background-color:#454545;border-radius: 0px;&#125;&quot;</span>)</span><br><span class="line">self.tableView_2.setStyleSheet(<span class="string">&quot;border-width: 0px; border-style: solid;&quot;</span>)</span><br><span class="line">self.tableView_2.horizontalHeader().setStyleSheet(<span class="string">&quot;QHeaderView::section&#123;Background-color:#454545;border-radius: 0px;&#125;&quot;</span>)</span><br><span class="line">self.tableView.horizontalHeader().setDefaultAlignment(Qt.AlignLeft)</span><br><span class="line">self.tableView_2.horizontalHeader().setDefaultAlignment(Qt.AlignLeft)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Qtableview显示的数据也同样根据盈亏使用不同的颜色<br />
+这个在Model类中的data()函数中实现</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">data</span>(<span class="params">self, index, role=Qt.DisplayRole</span>):</span></span><br><span class="line">    <span class="keyword">if</span> index.isValid():</span><br><span class="line">        value = self._data.iloc[index.row(), index.column()]            </span><br><span class="line">        <span class="keyword">if</span> role == Qt.ForegroundRole <span class="keyword">and</span> <span class="built_in">isinstance</span>(value, <span class="built_in">float</span>) <span class="keyword">and</span> index.column() == <span class="number">3</span>:</span><br><span class="line">            next_value = self._data.iloc[index.row(), index.column() + <span class="number">1</span>]</span><br><span class="line">            <span class="keyword">if</span>  next_value &lt; <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">return</span> QtGui.QColor(<span class="string">&#x27;#01D68A&#x27;</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> QtGui.QColor(<span class="string">&#x27;#FF0018&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> role == Qt.ForegroundRole <span class="keyword">and</span> <span class="built_in">isinstance</span>(value, <span class="built_in">float</span>) <span class="keyword">and</span> index.column() != <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">if</span>  value &lt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> QtGui.QColor(<span class="string">&#x27;#01D68A&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> QtGui.QColor(<span class="string">&#x27;#FF0018&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> role == Qt.DisplayRole:</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">str</span>(self._data.iloc[index.row(), index.column()])</span><br><span class="line"><span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>重写鼠标事件，实现窗口拖放</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">initDrag</span>(<span class="params">self</span>):</span></span><br><span class="line"><span class="comment"># 设置鼠标跟踪判断扳机默认值</span></span><br><span class="line">    self._move_drag   = <span class="literal">False</span></span><br><span class="line">    self._corner_drag = <span class="literal">False</span></span><br><span class="line">    self._bottom_drag = <span class="literal">False</span></span><br><span class="line">    self._right_drag  = <span class="literal">False</span></span><br><span class="line">    self._padding     = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">resizeEvent</span>(<span class="params">self, QResizeEvent</span>):</span>        </span><br><span class="line">    <span class="comment"># 重新调整边界范围以备实现鼠标拖放缩放窗口大小，采用三个列表生成式生成三个列表</span></span><br><span class="line">    self._right_rect = [QPoint(x, y) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(self.width() - self._padding, self.width() + <span class="number">1</span>) <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, self.height() - self._padding)]</span><br><span class="line">    self._bottom_rect = [QPoint(x, y) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, self.width() - self._padding)</span><br><span class="line">     <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(self.height() - self._padding, self.height() + <span class="number">1</span>)]</span><br><span class="line">    self._corner_rect = [QPoint(x, y) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(self.width() - self._padding, self.width() + <span class="number">1</span>) <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(self.height() - self._padding, self.height() + <span class="number">1</span>)]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mousePressEvent</span>(<span class="params">self, event</span>):</span></span><br><span class="line">    <span class="comment"># 重写鼠标点击的事件</span></span><br><span class="line">    <span class="keyword">if</span> (event.button() == Qt.LeftButton) <span class="keyword">and</span> (event.pos() <span class="keyword">in</span> self._corner_rect):</span><br><span class="line">        <span class="comment"># 鼠标左键点击右下角边界区域</span></span><br><span class="line">        self._corner_drag = <span class="literal">True</span></span><br><span class="line">        event.accept()</span><br><span class="line">    <span class="keyword">elif</span> (event.button() == Qt.LeftButton) <span class="keyword">and</span> (event.pos() <span class="keyword">in</span> self._right_rect):</span><br><span class="line">        <span class="comment"># 鼠标左键点击右侧边界区域</span></span><br><span class="line">        self._right_drag = <span class="literal">True</span></span><br><span class="line">        event.accept()</span><br><span class="line">        self.setCursor(QCursor(Qt.SizeHorCursor))</span><br><span class="line">    <span class="keyword">elif</span> (event.button() == Qt.LeftButton) <span class="keyword">and</span> (event.pos() <span class="keyword">in</span> self._bottom_rect):</span><br><span class="line">        <span class="comment"># 鼠标左键点击下侧边界区域</span></span><br><span class="line">        self._bottom_drag = <span class="literal">True</span></span><br><span class="line">        event.accept()</span><br><span class="line">        self.setCursor(QCursor(Qt.SizeVerCursor))</span><br><span class="line">    <span class="keyword">elif</span> (event.button() == Qt.LeftButton) <span class="keyword">and</span> (event.y() &lt; self.label_10.y()+self.label_10.height() <span class="keyword">or</span> (event.y() &gt; self.label_9.y() <span class="keyword">and</span> event.y() &lt; self.tableView_2.y())):</span><br><span class="line">        <span class="comment"># 鼠标左键点击标题栏区域</span></span><br><span class="line">        self._move_drag = <span class="literal">True</span></span><br><span class="line">        self.move_DragPosition = event.globalPos() - self.pos()</span><br><span class="line">        event.accept()</span><br><span class="line">        self.setCursor(QCursor(Qt.OpenHandCursor))  <span class="comment">#更改鼠标图标</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mouseMoveEvent</span>(<span class="params">self, QMouseEvent</span>):</span></span><br><span class="line">    <span class="comment"># 判断鼠标位置切换鼠标手势</span></span><br><span class="line">    <span class="comment"># if QMouseEvent.pos() in self._corner_rect:</span></span><br><span class="line">    <span class="comment">#     self.setCursor(Qt.SizeFDiagCursor)</span></span><br><span class="line">    <span class="comment">#     print(&quot;corner:%s, in %s&quot; %(QMouseEvent.pos(),self._corner_rect))</span></span><br><span class="line">    <span class="comment">#print(QMouseEvent.globalPos(), QMouseEvent.pos(), self.graphWidget.x(), self.graphWidget.y(), self.graphWidget.pos(), self.graphWidget.width(), self.graphWidget.height())</span></span><br><span class="line">    <span class="keyword">if</span> QMouseEvent.pos() <span class="keyword">in</span> self._bottom_rect:</span><br><span class="line">        self.setCursor(QCursor(Qt.SizeVerCursor))</span><br><span class="line">    <span class="keyword">elif</span> QMouseEvent.pos() <span class="keyword">in</span> self._right_rect:</span><br><span class="line">        self.setCursor(QCursor(Qt.SizeHorCursor))</span><br><span class="line">    <span class="keyword">elif</span> QMouseEvent.pos() <span class="keyword">in</span> self._corner_rect:</span><br><span class="line">        self.setCursor(QCursor(Qt.SizeFDiagCursor))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        self.setCursor(QCursor(Qt.ArrowCursor))</span><br><span class="line">    <span class="comment"># 当鼠标左键点击不放及满足点击区域的要求后，分别实现不同的窗口调整</span></span><br><span class="line">    <span class="comment"># 没有定义左方和上方相关的5个方向，主要是因为实现起来不难，但是效果很差，拖放的时候窗口闪烁，再研究研究是否有更好的实现</span></span><br><span class="line">    <span class="keyword">if</span> Qt.LeftButton <span class="keyword">and</span> self._right_drag:</span><br><span class="line">        <span class="comment"># 右侧调整窗口宽度</span></span><br><span class="line">        self.resize(QMouseEvent.pos().x(), self.height())</span><br><span class="line">        QMouseEvent.accept()</span><br><span class="line">    <span class="keyword">elif</span> Qt.LeftButton <span class="keyword">and</span> self._bottom_drag:</span><br><span class="line">        <span class="comment"># 下侧调整窗口高度</span></span><br><span class="line">        self.resize(self.width(), QMouseEvent.pos().y())</span><br><span class="line">        QMouseEvent.accept()</span><br><span class="line">    <span class="keyword">elif</span> Qt.LeftButton <span class="keyword">and</span> self._corner_drag:</span><br><span class="line">        <span class="comment"># 右下角同时调整高度和宽度</span></span><br><span class="line">        self.resize(QMouseEvent.pos().x(), QMouseEvent.pos().y())</span><br><span class="line">        QMouseEvent.accept()</span><br><span class="line">    <span class="keyword">elif</span> Qt.LeftButton <span class="keyword">and</span> self._move_drag:</span><br><span class="line">        <span class="comment"># 标题栏拖放窗口位置</span></span><br><span class="line">        self.move(QMouseEvent.globalPos() - self.move_DragPosition)</span><br><span class="line">        QMouseEvent.accept()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mouseReleaseEvent</span>(<span class="params">self, QMouseEvent</span>):</span></span><br><span class="line">    <span class="comment"># 鼠标释放后，各扳机复位</span></span><br><span class="line">    self._move_drag = <span class="literal">False</span></span><br><span class="line">    self._corner_drag = <span class="literal">False</span></span><br><span class="line">    self._bottom_drag = <span class="literal">False</span></span><br><span class="line">    self._right_drag = <span class="literal">False</span></span><br><span class="line">    self.setCursor(QCursor(Qt.ArrowCursor))</span><br></pre></td></tr></table></figure>
+<h1 id="效果">效果</h1>
+<p>完成后的应用界面效果如下： <img src="https://s2.loli.net/2022/04/14/ykQ7onW4ducAseD.png" /> # 参考 1. <a href="https://blog.csdn.net/weixin_40014984/article/details/104531359">VSCode配置Python、PyQt5、QtDesigner环境并创建一个ui界面测试</a> 2. <a href="https://zhuanlan.zhihu.com/p/66758263">python界面编程：VScode+pyqt+pyqt integration配置备忘</a> 3. <a href="https://blog.csdn.net/AzureMouse/article/details/90338961">PyQt5（designer）入门教程</a> 4. <a href="%5BEmbedding%20PyQtGraph%20(or%20any%20other%20custom%20PyQt5%20widgets)%20from%20Qt%20Designer%20(mfitzp.com)%5D(https://www.mfitzp.com/tutorials/embed-pyqtgraph-custom-widgets-qt-app/)">Embedding custom widgets from Qt Designer</a></p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>python</category>
+        <category>量化投资</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pyqt5</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【Python】使用PYQT5来构建持仓盈亏监控(续)</title>
     <url>/2021/07/02/%E3%80%90Python%E3%80%91%E4%BD%BF%E7%94%A8PYQT5%E6%9D%A5%E6%9E%84%E5%BB%BA%E6%8C%81%E4%BB%93%E7%9B%88%E4%BA%8F%E7%9B%91%E6%8E%A7%20(%E7%BB%AD)/</url>
     <content><![CDATA[<h1 id="目的">目的</h1>
@@ -4187,6 +4285,16 @@ code
 <li>买卖信号记录<br />
 <img src="https://s2.loli.net/2024/06/15/pH9gx73RDtJCOnZ.png" alt="|600" /></li>
 </ul>
+<h1 id="备注">备注：</h1>
+<p>计算 <code>Performance.continue_profit_amount</code> 等指标时时，原代码中使用了 <code> for _, item in pnl.pnl_money.items():</code>, 在 <strong><em>Pandas ≥ 1.5</em></strong> 时，<code>Series.iteritems()</code>, <code>DataFrame.iteritems()</code> 及 <code>HDFStore.iteritems()</code> 均使用 <code>obj.items</code> 进行替代。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">### What’s new in 1.5.0 (September 19, 2022)</span><br><span class="line">- Deprecated &#96;DataFrame.iteritems()&#96;, &#96;Series.iteritems()&#96;, &#96;HDFStore.iteritems()&#96; in favor of [&#96;DataFrame.items()&#96;](https:&#x2F;&#x2F;pandas.pydata.org&#x2F;pandas-docs&#x2F;stable&#x2F;reference&#x2F;api&#x2F;pandas.DataFrame.items.html#pandas.DataFrame.items &quot;pandas.DataFrame.items&quot;), [&#96;Series.items()&#96;](https:&#x2F;&#x2F;pandas.pydata.org&#x2F;pandas-docs&#x2F;stable&#x2F;reference&#x2F;api&#x2F;pandas.Series.items.html#pandas.Series.items &quot;pandas.Series.items&quot;), &#96;HDFStore.items()&#96; ([GH 45321](https:&#x2F;&#x2F;github.com&#x2F;pandas-dev&#x2F;pandas&#x2F;issues&#x2F;45321))</span><br><span class="line"></span><br><span class="line">### What’s new in 2.0.0 (April 3, 2023)</span><br><span class="line">- Removed deprecated &#96;Series.iteritems()&#96;, &#96;DataFrame.iteritems()&#96;, use &#96;obj.items&#96; instead ([GH 45321](https:&#x2F;&#x2F;github.com&#x2F;pandas-dev&#x2F;pandas&#x2F;issues&#x2F;45321))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="参考">参考</h1>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p><a href="https://pandas.pydata.org/pandas-docs/stable/search.html?q=iteritems">Search - pandas 2.2.2 documentation (pydata.org)</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 ]]></content>
       <categories>
         <category>量化交易</category>
@@ -4194,44 +4302,6 @@ code
       <tags>
         <tag>python</tag>
         <tag>quantaxis</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Rust】Rust在win10下开发环境的搭建</title>
-    <url>/2021/01/04/%E3%80%90Rust%E3%80%91Rust%E5%9C%A8win10%E4%B8%8B%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<p>记录下如何在Windows 10环境下部署VScode的Rust开发环境。</p>
-<h1 id="配置步骤">配置步骤</h1>
-<h2 id="环境变量设置">环境变量设置</h2>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">RUST&#x3D;d:\Program Files\RUST\.rustup\toolchains\stable-x86_64-pc-windows-msvc  </span><br><span class="line">CARGO HOME &#x3D; D:\Program Files\RUST\.cargo  </span><br><span class="line">RUSTUP_DIST_SERVER &#x3D; https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;rust-static  </span><br><span class="line">RUSTUP_HOME &#x3D; D:\Program Files\RUST\.rustup  </span><br><span class="line">RUSTUP_UPDATE_ROOT &#x3D; https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;rust-static&#x2F;rustup  </span><br><span class="line">RUST_SRC_PATH &#x3D; d:\Program Files\RUST\.rustup\toolchains\stable-x86_64-pc-windows-msvc\lib\rustlib\src\rust\src</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="配置windows的rust和crates.io国内镜像">配置Windows的Rust和Crates.io国内镜像</h2>
-<h3 id="修改crates.io国内镜像">修改Crates.io国内镜像</h3>
-<p>修改<code>~/.cargo/config</code> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[source.crates-io]  </span><br><span class="line">registry &#x3D; &quot;https:&#x2F;&#x2F;github.com&#x2F;rust-lang&#x2F;crates.io-index&quot;  </span><br><span class="line"></span><br><span class="line">#Replace with any mirror source  </span><br><span class="line">replace-with &#x3D; &#39;ustc&#39;  </span><br><span class="line">#replace-with &#x3D; &#39;tuna&#39;  </span><br><span class="line">#replace-with &#x3D; &#39;sjtu&#39;  </span><br><span class="line">#replace-with &#x3D; &#39;rustcc&#39;  </span><br><span class="line"></span><br><span class="line">#University of science and technology of China  </span><br><span class="line">[source.ustc]  </span><br><span class="line">registry &#x3D; &quot;git:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;crates.io-index&quot;  </span><br><span class="line"></span><br><span class="line">#Tsinghua University  </span><br><span class="line">[source.tuna]  </span><br><span class="line">registry &#x3D; &quot;https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;git&#x2F;crates.io-index.git&quot;  </span><br><span class="line"></span><br><span class="line">#Shanghai Jiaotong University  </span><br><span class="line">[source.sjtu]  </span><br><span class="line">registry &#x3D; &quot;https:&#x2F;&#x2F;mirrors.sjtug.sjtu.edu.cn&#x2F;git&#x2F;crates.io-index&quot;  </span><br><span class="line"></span><br><span class="line">#Rustcc community  </span><br><span class="line">[source.rustcc]  </span><br><span class="line">registry &#x3D; &quot;git:&#x2F;&#x2F;crates.rustcc.cn&#x2F;crates.io-index&quot;  </span><br></pre></td></tr></table></figure> ### 修改rustup国内镜像</p>
-<p>在系统环境变量中设置 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CARGO HOME &#x3D; D:\Program Files\RUST\.cargo  </span><br><span class="line">RUSTUP_DIST_SERVER &#x3D; https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;rust-static  </span><br><span class="line">RUSTUP_HOME &#x3D; D:\Program Files\RUST\.rustup  </span><br><span class="line">RUSTUP_UPDATE_ROOT &#x3D; https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;rust-static&#x2F;rustup  </span><br></pre></td></tr></table></figure></p>
-<h2 id="vs-code插件安装">VS Code插件安装</h2>
-<ol type="1">
-<li><p>rust-analyzer</p>
-<p>该插件有说明与会与官方的Rust有冲突，二者只能先激活一个。</p>
-<p><img src="https://s2.loli.net/2022/04/14/vGay32FOwzkAWtL.png" /></p></li>
-<li><p>CodeLLDB</p>
-<p>基于LLDB的原生debugger.详见<a href="https://github.com/vadimcn/vscode-lldb">官网</a></p></li>
-<li><p>TabNine</p>
-<p>基于深度学习的智能提示插件, 详见<a href="https://www.tabnine.com/">官网</a></p></li>
-</ol>
-<h2 id="开启vs-code进行测试">开启VS Code进行测试</h2>
-<p>安装插件，重启VS Code后。</p>
-<p>现在运行官网示例。</p>
-<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> ferris_says::say; <span class="comment">// from the previous step</span></span><br><span class="line"><span class="keyword">use</span> std::io::&#123;stdout, BufWriter&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> stdout = stdout();</span><br><span class="line">    <span class="keyword">let</span> message = <span class="built_in">String</span>::from(<span class="string">&quot;Hello fellow Rustaceans!&quot;</span>);</span><br><span class="line">    <span class="keyword">let</span> width = message.chars().count();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> writer = BufWriter::new(stdout.lock());</span><br><span class="line">    say(message.as_bytes(), width, &amp;<span class="keyword">mut</span> writer).unwrap();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2022/04/14/6qljpGuyzBgOmE4.png" /></p>
-<p>测试， RA、CodeLLDB及TabNine工作正常。</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>rust</category>
-      </categories>
-      <tags>
-        <tag>rust</tag>
-        <tag>VScode</tag>
       </tags>
   </entry>
   <entry>
@@ -4289,100 +4359,6 @@ code
         <tag>计算机技术/程序语言</tag>
         <tag>Rust</tag>
         <tag>日志</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Python】使用PYQT5来构建持仓盈亏监控</title>
-    <url>/2021/05/14/%E3%80%90Python%E3%80%91%E4%BD%BF%E7%94%A8PYQT5%E6%9D%A5%E6%9E%84%E5%BB%BA%E6%8C%81%E4%BB%93%E7%9B%88%E4%BA%8F%E7%9B%91%E6%8E%A7/</url>
-    <content><![CDATA[<h1 id="目的">目的</h1>
-<p>通过win10的通知来监控持仓盈亏，会在托盘上累积太多的图标，而且经常受到专注助手影响，效果不是太理想。所以尝试利用PyQt5来构建一个监控系统，实现类似雪球网页上同样的功能。</p>
-<a id="more"></a>
-<h1 id="安装pyqt5">安装PyQt5</h1>
-<h2 id="安装pyqt5-1">安装PyQt5</h2>
-<ol type="1">
-<li><p>pip安装 &gt;pip install PyQt5</p></li>
-<li><p>官网下载文件安装<br />
-下载地址：<a href="https://pypi.org/project/PyQt5/#files">PyQt下载官网</a> <img src="https://s2.loli.net/2022/04/14/ATIvDBfZr6N1WL5.png" /> 安装方法：打开命令行，通过命令行进入到下载的whl文件所在的文件夹，输入如下命令，安装即可。 &gt;pip install PyQt5-5.15.4-cp36.cp37.cp38.cp39-none-win_amd64.whl</p></li>
-</ol>
-<h2 id="安装pyqt5-tools">安装PyQt5-tools</h2>
-<p>PyQt5-tools里含有图形界面开发工具QtDesigner及国际化翻译工具Liguist。 1. pip安装 &gt;pip install PyQt5-tools</p>
-<ol start="2" type="1">
-<li>官网下载文件安装<br />
-下载地址：<a href="https://pypi.org/project/pyqt5-tools/#files">PyQt下载官网</a> <img src="https://s2.loli.net/2022/04/14/KNDVktjGFofTnZ3.png" /> 安装方法：打开命令行，通过命令行进入到下载的whl文件所在的文件夹，输入如下命令，安装即可。 &gt;pip install pyqt5_tools-5.15.2.3.0.2-py3-none-any.whl</li>
-</ol>
-<p>在系统中加入以下环境变量 &gt;d:-packages_tools<br />
-</p>
-<h2 id="与vscode集成">与VScode集成</h2>
-<ol type="1">
-<li>安装pyqt integration插件 <img src="https://s2.loli.net/2022/04/14/vS2MUFCL8oNT1Kl.png" /> 对pyqt integration插件进行配置，主要是pyuic5及qt designer的路径 <img src="https://s2.loli.net/2022/04/14/W4FUgXOnvAVjqI5.png" /></li>
-</ol>
-<h2 id="界面设计">界面设计</h2>
-<p>用小窗口来实现监控。</p>
-<h3 id="术语">术语</h3>
-<ul>
-<li>布局<br />
-采用了布局之后能够让我们的程序在使用上更加美观，不会随着窗体的大小发生改变而改变，符合我们的使用习惯。在PyQt5中，有多种布局的方式供我们选择，比较常用的布局有以下几种：
-<ul>
-<li>表单布局：QFormLayout</li>
-<li>网格布局：QGridLayout</li>
-<li>水平排列布局：QHBoxLayout</li>
-<li>垂直排列布局：QVBoxLayout</li>
-</ul></li>
-</ul>
-<p>比较详细的说明可以参考<a href="https://zhuanlan.zhihu.com/p/28559136">PyQt5系列教程（6）：布局</a></p>
-<ul>
-<li>MVC模式 MVC 模式 指 Model-View-Controller（模型-视图-控制器） 模式。这种模式多应用于应用程序的分层开发。
-<ul>
-<li>Model是一个数据模型、一个虚拟的东西，显示不出来的，如果我们要把这些数据显示出来，就需要使用view。</li>
-<li>View：用来显示Model这种数据</li>
-<li>Controler：如果我们要编辑数据，就需要使用controler,不使用controler，我们只能对数据进行查看不能编辑</li>
-</ul></li>
-</ul>
-<h3 id="使用qtdesigner来设计界面">使用QtDesigner来设计界面</h3>
-<ol type="1">
-<li>初始界面 初始界面设计如下： <img src="https://s2.loli.net/2022/04/14/zcTQvBmEta5WwuP.png" /></li>
-</ol>
-<p>相应的组件及布局如下： <img src="https://s2.loli.net/2022/04/14/Pb6hNWke3I9Lngf.png" /></p>
-<p>计划使用QLabel来显示总的持仓盈亏情况，用Qtableview来显示具体的股票信息， Qlabel使用<code>gridLayout</code>, Qtableview使用<code>verticalLayout</code>。</p>
-<ol start="2" type="1">
-<li>界面美化 在自定义的View类中写入代码进行美化。</li>
-</ol>
-<ul>
-<li>去除丑陋的边框</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">self.setWindowFlag(QtCore.Qt.FramelessWindowHint) </span><br></pre></td></tr></table></figure>
-<ul>
-<li>增加关闭及最小化按钮（以MacOS的样式） 用pyqtSlot装饰器来实现点击按钮关闭和最小化的操作。</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">self.CloseButton.setFixedSize(<span class="number">15</span>,<span class="number">15</span>) </span><br><span class="line">self.MinButton.setFixedSize(<span class="number">15</span>,<span class="number">15</span>) </span><br><span class="line">self.CloseButton.setStyleSheet(<span class="string">&quot;QPushButton&#123;background:#F76677;border-radius:7px;&#125;QPushButton:hover&#123;background:red;&#125;&quot;</span>)</span><br><span class="line">self.MinButton.setStyleSheet(<span class="string">&quot;QPushButton&#123;background:#6DDF6D;border-radius:7px;&#125;QPushButton:hover&#123;background:green;&#125;&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@pyqtSlot()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">on_CloseButton_clicked</span>(<span class="params">self</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    关闭窗口</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    self.close()</span><br><span class="line"></span><br><span class="line"><span class="meta">@pyqtSlot()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">on_MinButton_clicked</span>(<span class="params">self</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    最小化窗口</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    self.showMinimized()    </span><br></pre></td></tr></table></figure>
-<ul>
-<li>针对盈亏对显示结果使用不同颜色</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="built_in">float</span>(self.label_4.text().split(<span class="string">&#x27;(&#x27;</span>)[<span class="number">0</span>]) &lt; <span class="number">0</span>:</span><br><span class="line">    self.label_2.setStyleSheet(<span class="string">&quot;QLabel&#123;color:#01D68A;font-size:15px;font-weight:bold;font-family:Hack;&#125;&quot;</span>)</span><br><span class="line">    self.label_4.setStyleSheet(<span class="string">&quot;QLabel&#123;color:#01D68A;font-size:15px;font-weight:bold;font-family:Hack;&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    self.label_2.setStyleSheet(<span class="string">&quot;QLabel&#123;color:#FF0018;font-size:15px;font-weight:bold;font-family:Hack;&#125;&quot;</span>)</span><br><span class="line">    self.label_4.setStyleSheet(<span class="string">&quot;QLabel&#123;color:#FF0018;font-size:15px;font-weight:bold;font-family:Hack;&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="built_in">float</span>(self.label_6.text().split(<span class="string">&#x27;(&#x27;</span>)[<span class="number">0</span>]) &lt; <span class="number">0</span>:</span><br><span class="line">    self.label_6.setStyleSheet(<span class="string">&quot;QLabel&#123;color:#01D68A;font-size:15px;font-weight:bold;font-family:Hack;&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    self.label_6.setStyleSheet(<span class="string">&quot;QLabel&#123;color:#FF0018;font-size:15px;font-weight:bold;font-family:Hack;&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="built_in">float</span>(self.label_8.text().split(<span class="string">&#x27;(&#x27;</span>)[<span class="number">0</span>]) &lt; <span class="number">0</span>:</span><br><span class="line">    self.label_8.setStyleSheet(<span class="string">&quot;QLabel&#123;color:#01D68A;font-size:15px;font-weight:bold;font-family:Hack;&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    self.label_8.setStyleSheet(<span class="string">&quot;QLabel&#123;color:#FF0018;font-size:15px;font-weight:bold;font-family:Hack;&#125;&quot;</span>)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Qtableview的表头使用与窗口同样的背景色以及文字左对齐</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">self.tableView.setStyleSheet(<span class="string">&quot;border-width: 0px; border-style: solid;&quot;</span>)</span><br><span class="line">self.tableView.horizontalHeader().setStyleSheet(<span class="string">&quot;QHeaderView::section&#123;Background-color:#454545;border-radius: 0px;&#125;&quot;</span>)</span><br><span class="line">self.tableView_2.setStyleSheet(<span class="string">&quot;border-width: 0px; border-style: solid;&quot;</span>)</span><br><span class="line">self.tableView_2.horizontalHeader().setStyleSheet(<span class="string">&quot;QHeaderView::section&#123;Background-color:#454545;border-radius: 0px;&#125;&quot;</span>)</span><br><span class="line">self.tableView.horizontalHeader().setDefaultAlignment(Qt.AlignLeft)</span><br><span class="line">self.tableView_2.horizontalHeader().setDefaultAlignment(Qt.AlignLeft)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Qtableview显示的数据也同样根据盈亏使用不同的颜色<br />
-这个在Model类中的data()函数中实现</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">data</span>(<span class="params">self, index, role=Qt.DisplayRole</span>):</span></span><br><span class="line">    <span class="keyword">if</span> index.isValid():</span><br><span class="line">        value = self._data.iloc[index.row(), index.column()]            </span><br><span class="line">        <span class="keyword">if</span> role == Qt.ForegroundRole <span class="keyword">and</span> <span class="built_in">isinstance</span>(value, <span class="built_in">float</span>) <span class="keyword">and</span> index.column() == <span class="number">3</span>:</span><br><span class="line">            next_value = self._data.iloc[index.row(), index.column() + <span class="number">1</span>]</span><br><span class="line">            <span class="keyword">if</span>  next_value &lt; <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">return</span> QtGui.QColor(<span class="string">&#x27;#01D68A&#x27;</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> QtGui.QColor(<span class="string">&#x27;#FF0018&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> role == Qt.ForegroundRole <span class="keyword">and</span> <span class="built_in">isinstance</span>(value, <span class="built_in">float</span>) <span class="keyword">and</span> index.column() != <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">if</span>  value &lt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> QtGui.QColor(<span class="string">&#x27;#01D68A&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> QtGui.QColor(<span class="string">&#x27;#FF0018&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> role == Qt.DisplayRole:</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">str</span>(self._data.iloc[index.row(), index.column()])</span><br><span class="line"><span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>重写鼠标事件，实现窗口拖放</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">initDrag</span>(<span class="params">self</span>):</span></span><br><span class="line"><span class="comment"># 设置鼠标跟踪判断扳机默认值</span></span><br><span class="line">    self._move_drag   = <span class="literal">False</span></span><br><span class="line">    self._corner_drag = <span class="literal">False</span></span><br><span class="line">    self._bottom_drag = <span class="literal">False</span></span><br><span class="line">    self._right_drag  = <span class="literal">False</span></span><br><span class="line">    self._padding     = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">resizeEvent</span>(<span class="params">self, QResizeEvent</span>):</span>        </span><br><span class="line">    <span class="comment"># 重新调整边界范围以备实现鼠标拖放缩放窗口大小，采用三个列表生成式生成三个列表</span></span><br><span class="line">    self._right_rect = [QPoint(x, y) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(self.width() - self._padding, self.width() + <span class="number">1</span>) <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, self.height() - self._padding)]</span><br><span class="line">    self._bottom_rect = [QPoint(x, y) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, self.width() - self._padding)</span><br><span class="line">     <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(self.height() - self._padding, self.height() + <span class="number">1</span>)]</span><br><span class="line">    self._corner_rect = [QPoint(x, y) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(self.width() - self._padding, self.width() + <span class="number">1</span>) <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(self.height() - self._padding, self.height() + <span class="number">1</span>)]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mousePressEvent</span>(<span class="params">self, event</span>):</span></span><br><span class="line">    <span class="comment"># 重写鼠标点击的事件</span></span><br><span class="line">    <span class="keyword">if</span> (event.button() == Qt.LeftButton) <span class="keyword">and</span> (event.pos() <span class="keyword">in</span> self._corner_rect):</span><br><span class="line">        <span class="comment"># 鼠标左键点击右下角边界区域</span></span><br><span class="line">        self._corner_drag = <span class="literal">True</span></span><br><span class="line">        event.accept()</span><br><span class="line">    <span class="keyword">elif</span> (event.button() == Qt.LeftButton) <span class="keyword">and</span> (event.pos() <span class="keyword">in</span> self._right_rect):</span><br><span class="line">        <span class="comment"># 鼠标左键点击右侧边界区域</span></span><br><span class="line">        self._right_drag = <span class="literal">True</span></span><br><span class="line">        event.accept()</span><br><span class="line">        self.setCursor(QCursor(Qt.SizeHorCursor))</span><br><span class="line">    <span class="keyword">elif</span> (event.button() == Qt.LeftButton) <span class="keyword">and</span> (event.pos() <span class="keyword">in</span> self._bottom_rect):</span><br><span class="line">        <span class="comment"># 鼠标左键点击下侧边界区域</span></span><br><span class="line">        self._bottom_drag = <span class="literal">True</span></span><br><span class="line">        event.accept()</span><br><span class="line">        self.setCursor(QCursor(Qt.SizeVerCursor))</span><br><span class="line">    <span class="keyword">elif</span> (event.button() == Qt.LeftButton) <span class="keyword">and</span> (event.y() &lt; self.label_10.y()+self.label_10.height() <span class="keyword">or</span> (event.y() &gt; self.label_9.y() <span class="keyword">and</span> event.y() &lt; self.tableView_2.y())):</span><br><span class="line">        <span class="comment"># 鼠标左键点击标题栏区域</span></span><br><span class="line">        self._move_drag = <span class="literal">True</span></span><br><span class="line">        self.move_DragPosition = event.globalPos() - self.pos()</span><br><span class="line">        event.accept()</span><br><span class="line">        self.setCursor(QCursor(Qt.OpenHandCursor))  <span class="comment">#更改鼠标图标</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mouseMoveEvent</span>(<span class="params">self, QMouseEvent</span>):</span></span><br><span class="line">    <span class="comment"># 判断鼠标位置切换鼠标手势</span></span><br><span class="line">    <span class="comment"># if QMouseEvent.pos() in self._corner_rect:</span></span><br><span class="line">    <span class="comment">#     self.setCursor(Qt.SizeFDiagCursor)</span></span><br><span class="line">    <span class="comment">#     print(&quot;corner:%s, in %s&quot; %(QMouseEvent.pos(),self._corner_rect))</span></span><br><span class="line">    <span class="comment">#print(QMouseEvent.globalPos(), QMouseEvent.pos(), self.graphWidget.x(), self.graphWidget.y(), self.graphWidget.pos(), self.graphWidget.width(), self.graphWidget.height())</span></span><br><span class="line">    <span class="keyword">if</span> QMouseEvent.pos() <span class="keyword">in</span> self._bottom_rect:</span><br><span class="line">        self.setCursor(QCursor(Qt.SizeVerCursor))</span><br><span class="line">    <span class="keyword">elif</span> QMouseEvent.pos() <span class="keyword">in</span> self._right_rect:</span><br><span class="line">        self.setCursor(QCursor(Qt.SizeHorCursor))</span><br><span class="line">    <span class="keyword">elif</span> QMouseEvent.pos() <span class="keyword">in</span> self._corner_rect:</span><br><span class="line">        self.setCursor(QCursor(Qt.SizeFDiagCursor))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        self.setCursor(QCursor(Qt.ArrowCursor))</span><br><span class="line">    <span class="comment"># 当鼠标左键点击不放及满足点击区域的要求后，分别实现不同的窗口调整</span></span><br><span class="line">    <span class="comment"># 没有定义左方和上方相关的5个方向，主要是因为实现起来不难，但是效果很差，拖放的时候窗口闪烁，再研究研究是否有更好的实现</span></span><br><span class="line">    <span class="keyword">if</span> Qt.LeftButton <span class="keyword">and</span> self._right_drag:</span><br><span class="line">        <span class="comment"># 右侧调整窗口宽度</span></span><br><span class="line">        self.resize(QMouseEvent.pos().x(), self.height())</span><br><span class="line">        QMouseEvent.accept()</span><br><span class="line">    <span class="keyword">elif</span> Qt.LeftButton <span class="keyword">and</span> self._bottom_drag:</span><br><span class="line">        <span class="comment"># 下侧调整窗口高度</span></span><br><span class="line">        self.resize(self.width(), QMouseEvent.pos().y())</span><br><span class="line">        QMouseEvent.accept()</span><br><span class="line">    <span class="keyword">elif</span> Qt.LeftButton <span class="keyword">and</span> self._corner_drag:</span><br><span class="line">        <span class="comment"># 右下角同时调整高度和宽度</span></span><br><span class="line">        self.resize(QMouseEvent.pos().x(), QMouseEvent.pos().y())</span><br><span class="line">        QMouseEvent.accept()</span><br><span class="line">    <span class="keyword">elif</span> Qt.LeftButton <span class="keyword">and</span> self._move_drag:</span><br><span class="line">        <span class="comment"># 标题栏拖放窗口位置</span></span><br><span class="line">        self.move(QMouseEvent.globalPos() - self.move_DragPosition)</span><br><span class="line">        QMouseEvent.accept()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mouseReleaseEvent</span>(<span class="params">self, QMouseEvent</span>):</span></span><br><span class="line">    <span class="comment"># 鼠标释放后，各扳机复位</span></span><br><span class="line">    self._move_drag = <span class="literal">False</span></span><br><span class="line">    self._corner_drag = <span class="literal">False</span></span><br><span class="line">    self._bottom_drag = <span class="literal">False</span></span><br><span class="line">    self._right_drag = <span class="literal">False</span></span><br><span class="line">    self.setCursor(QCursor(Qt.ArrowCursor))</span><br></pre></td></tr></table></figure>
-<h1 id="效果">效果</h1>
-<p>完成后的应用界面效果如下： <img src="https://s2.loli.net/2022/04/14/ykQ7onW4ducAseD.png" /> # 参考 1. <a href="https://blog.csdn.net/weixin_40014984/article/details/104531359">VSCode配置Python、PyQt5、QtDesigner环境并创建一个ui界面测试</a> 2. <a href="https://zhuanlan.zhihu.com/p/66758263">python界面编程：VScode+pyqt+pyqt integration配置备忘</a> 3. <a href="https://blog.csdn.net/AzureMouse/article/details/90338961">PyQt5（designer）入门教程</a> 4. <a href="%5BEmbedding%20PyQtGraph%20(or%20any%20other%20custom%20PyQt5%20widgets)%20from%20Qt%20Designer%20(mfitzp.com)%5D(https://www.mfitzp.com/tutorials/embed-pyqtgraph-custom-widgets-qt-app/)">Embedding custom widgets from Qt Designer</a></p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>python</category>
-        <category>量化投资</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>pyqt5</tag>
       </tags>
   </entry>
   <entry>
@@ -4451,6 +4427,44 @@ code
       </categories>
       <tags>
         <tag>rust</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Rust】Rust在win10下开发环境的搭建</title>
+    <url>/2021/01/04/%E3%80%90Rust%E3%80%91Rust%E5%9C%A8win10%E4%B8%8B%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<p>记录下如何在Windows 10环境下部署VScode的Rust开发环境。</p>
+<h1 id="配置步骤">配置步骤</h1>
+<h2 id="环境变量设置">环境变量设置</h2>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">RUST&#x3D;d:\Program Files\RUST\.rustup\toolchains\stable-x86_64-pc-windows-msvc  </span><br><span class="line">CARGO HOME &#x3D; D:\Program Files\RUST\.cargo  </span><br><span class="line">RUSTUP_DIST_SERVER &#x3D; https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;rust-static  </span><br><span class="line">RUSTUP_HOME &#x3D; D:\Program Files\RUST\.rustup  </span><br><span class="line">RUSTUP_UPDATE_ROOT &#x3D; https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;rust-static&#x2F;rustup  </span><br><span class="line">RUST_SRC_PATH &#x3D; d:\Program Files\RUST\.rustup\toolchains\stable-x86_64-pc-windows-msvc\lib\rustlib\src\rust\src</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="配置windows的rust和crates.io国内镜像">配置Windows的Rust和Crates.io国内镜像</h2>
+<h3 id="修改crates.io国内镜像">修改Crates.io国内镜像</h3>
+<p>修改<code>~/.cargo/config</code> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[source.crates-io]  </span><br><span class="line">registry &#x3D; &quot;https:&#x2F;&#x2F;github.com&#x2F;rust-lang&#x2F;crates.io-index&quot;  </span><br><span class="line"></span><br><span class="line">#Replace with any mirror source  </span><br><span class="line">replace-with &#x3D; &#39;ustc&#39;  </span><br><span class="line">#replace-with &#x3D; &#39;tuna&#39;  </span><br><span class="line">#replace-with &#x3D; &#39;sjtu&#39;  </span><br><span class="line">#replace-with &#x3D; &#39;rustcc&#39;  </span><br><span class="line"></span><br><span class="line">#University of science and technology of China  </span><br><span class="line">[source.ustc]  </span><br><span class="line">registry &#x3D; &quot;git:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;crates.io-index&quot;  </span><br><span class="line"></span><br><span class="line">#Tsinghua University  </span><br><span class="line">[source.tuna]  </span><br><span class="line">registry &#x3D; &quot;https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;git&#x2F;crates.io-index.git&quot;  </span><br><span class="line"></span><br><span class="line">#Shanghai Jiaotong University  </span><br><span class="line">[source.sjtu]  </span><br><span class="line">registry &#x3D; &quot;https:&#x2F;&#x2F;mirrors.sjtug.sjtu.edu.cn&#x2F;git&#x2F;crates.io-index&quot;  </span><br><span class="line"></span><br><span class="line">#Rustcc community  </span><br><span class="line">[source.rustcc]  </span><br><span class="line">registry &#x3D; &quot;git:&#x2F;&#x2F;crates.rustcc.cn&#x2F;crates.io-index&quot;  </span><br></pre></td></tr></table></figure> ### 修改rustup国内镜像</p>
+<p>在系统环境变量中设置 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CARGO HOME &#x3D; D:\Program Files\RUST\.cargo  </span><br><span class="line">RUSTUP_DIST_SERVER &#x3D; https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;rust-static  </span><br><span class="line">RUSTUP_HOME &#x3D; D:\Program Files\RUST\.rustup  </span><br><span class="line">RUSTUP_UPDATE_ROOT &#x3D; https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;rust-static&#x2F;rustup  </span><br></pre></td></tr></table></figure></p>
+<h2 id="vs-code插件安装">VS Code插件安装</h2>
+<ol type="1">
+<li><p>rust-analyzer</p>
+<p>该插件有说明与会与官方的Rust有冲突，二者只能先激活一个。</p>
+<p><img src="https://s2.loli.net/2022/04/14/vGay32FOwzkAWtL.png" /></p></li>
+<li><p>CodeLLDB</p>
+<p>基于LLDB的原生debugger.详见<a href="https://github.com/vadimcn/vscode-lldb">官网</a></p></li>
+<li><p>TabNine</p>
+<p>基于深度学习的智能提示插件, 详见<a href="https://www.tabnine.com/">官网</a></p></li>
+</ol>
+<h2 id="开启vs-code进行测试">开启VS Code进行测试</h2>
+<p>安装插件，重启VS Code后。</p>
+<p>现在运行官网示例。</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> ferris_says::say; <span class="comment">// from the previous step</span></span><br><span class="line"><span class="keyword">use</span> std::io::&#123;stdout, BufWriter&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> stdout = stdout();</span><br><span class="line">    <span class="keyword">let</span> message = <span class="built_in">String</span>::from(<span class="string">&quot;Hello fellow Rustaceans!&quot;</span>);</span><br><span class="line">    <span class="keyword">let</span> width = message.chars().count();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> writer = BufWriter::new(stdout.lock());</span><br><span class="line">    say(message.as_bytes(), width, &amp;<span class="keyword">mut</span> writer).unwrap();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/04/14/6qljpGuyzBgOmE4.png" /></p>
+<p>测试， RA、CodeLLDB及TabNine工作正常。</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>rust</category>
+      </categories>
+      <tags>
+        <tag>rust</tag>
+        <tag>VScode</tag>
       </tags>
   </entry>
   <entry>
@@ -4730,6 +4744,62 @@ code
       </tags>
   </entry>
   <entry>
+    <title>【量化投资】贝塔系数的计算</title>
+    <url>/2021/07/17/%E3%80%90%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E3%80%91%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97/</url>
+    <content><![CDATA[<h1 id="目的">目的</h1>
+<p>在量化分析中，经常会需要获取<span class="math inline">\(\beta\)</span>(贝塔系数），那该如何查询或计算该系数呢？</p>
+<h2 id="贝塔系数的含义">贝塔系数的含义</h2>
+<p>贝塔系数衡量了个股或基金相对于整个股市的波动情况。</p>
+<table>
+<thead>
+<tr class="header">
+<th>β范围</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>β=1</td>
+<td>股票或基金的风险收益率与市场平均风险收益率相同</td>
+</tr>
+<tr class="even">
+<td>β&gt;1</td>
+<td>股票或基金的风险相较于市场平均更大</td>
+</tr>
+<tr class="odd">
+<td>β&lt;1</td>
+<td>股票或基金的风险相较于市场平均更小</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h2 id="查询">查询</h2>
+<p>可以在<a href="http://www.iwencai.com/stockpick/search?typed=1&amp;preParams=&amp;ts=1&amp;f=1&amp;qs=stockpick_ambiguity_index&amp;selfsectsn=&amp;querytype=stock&amp;searchfilter=&amp;tid=stockpick&amp;multiIndex=%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0&amp;stockpick&amp;w=%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0">同花顺网站</a>中查到上市公司当日的贝塔系数。</p>
+<h2 id="计算">计算</h2>
+<p>相对于沪深300指数(000300.SH)的beta系数计算方式如下：<br />
+<span class="math inline">\(\beta_i = \frac{标的资产i的收益与市场收益的协方差}{市场收益的方差} = \frac{Cov(r_i,r_m)}{\sigma_m^2}\)</span></p>
+<p>例1、顺丰控股(002352.SZ)相对于沪深300指数(000300.SH)的beta系数计算，一定周期的沪深300指数(000300.SH)与顺丰控股(002352.SZ)的每日涨跌幅，如：2019年全年。</p>
+<p>关于协方差、方差的计算方法:<br />
+<a href="https://nokiasonic.github.io/2021/07/16/%E3%80%90Python%E3%80%91Pandas%E4%B9%8Bdataframe%E4%B8%8Eseries%E7%9A%84%E5%8D%8F%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97/">【Python】Pandas之dataframe与series的协方差计算</a><br />
+<a href="https://nokiasonic.github.io/2021/07/16/%E3%80%90Python%E3%80%91Pandas%E4%B9%8B%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97/">【Python】Pandas、Numpy之方差计算</a></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> QUANTAXIS <span class="keyword">as</span> QA</span><br><span class="line"><span class="keyword">from</span> IPython.core.interactiveshell <span class="keyword">import</span> InteractiveShell</span><br><span class="line">InteractiveShell.ast_node_interactivity = <span class="string">&quot;all&quot;</span> </span><br><span class="line"></span><br><span class="line">stock = QA.QA_fetch_stock_day_adv(<span class="string">&#x27;002352&#x27;</span>,<span class="string">&#x27;2018-12-28&#x27;</span>,<span class="string">&#x27;2019-12-31&#x27;</span>)</span><br><span class="line">index = QA.QA_fetch_index_day_adv(<span class="string">&#x27;000300&#x27;</span>,<span class="string">&#x27;2018-12-28&#x27;</span>,<span class="string">&#x27;2019-12-31&#x27;</span>)</span><br><span class="line"></span><br><span class="line">returns_stock = stock.data.close.pct_change()</span><br><span class="line">returns_index = index.data.close.pct_change()</span><br><span class="line"><span class="comment">#计算两组数据的协方差</span></span><br><span class="line">covr = np.cov(returns_stock[<span class="number">1</span>:],returns_index[<span class="number">1</span>:])[<span class="number">0</span>][<span class="number">1</span>]</span><br><span class="line"><span class="comment">#计算沪深300指数数据的方差</span></span><br><span class="line">var = np.var(returns_index)</span><br><span class="line"><span class="comment">#计算贝塔值</span></span><br><span class="line">beta = covr/var</span><br><span class="line">print(<span class="string">&quot;Covariance:&#123;&#125;,Variance:&#123;&#125;,Beta:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(covr,var,beta))</span><br></pre></td></tr></table></figure>
+<pre><code>Covariance:9.712842264272448e-05,Variance:0.00015577588074696037,Beta:0.6235138724748936</code></pre>
+<h1 id="参考">参考</h1>
+<p>1/ <a href="https://wiki.mbalib.com/wiki/%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0">贝塔系数</a><br />
+2/ <a href="https://zhuanlan.zhihu.com/p/136858300">股票β系数（贝塔、beta）计算的具体操作</a><br />
+3/ <a href="https://blog.csdn.net/thfyshz/article/details/83443783?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-2.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-2.control">Python计算贝塔系数和夏普比率</a></p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>量化投资</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>线性代数</tag>
+        <tag>贝塔</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【应用软件】ShareX截图工具的使用</title>
     <url>/2021/09/24/%E3%80%90%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6%E3%80%91ShareX%E6%88%AA%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<p>截图，使用过的工具有<code>sngait</code>， <code>greenshot</code>, 前者功能强大，但需要付费。后者轻巧，但软件功能较少且更新较慢，最后的稳定版还是2017年发布的。至于QQ等截图工具，需要打开QQ软件本身，不太省心。</p>
@@ -4888,62 +4958,6 @@ code
       </tags>
   </entry>
   <entry>
-    <title>【量化投资】贝塔系数的计算</title>
-    <url>/2021/07/17/%E3%80%90%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E3%80%91%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97/</url>
-    <content><![CDATA[<h1 id="目的">目的</h1>
-<p>在量化分析中，经常会需要获取<span class="math inline">\(\beta\)</span>(贝塔系数），那该如何查询或计算该系数呢？</p>
-<h2 id="贝塔系数的含义">贝塔系数的含义</h2>
-<p>贝塔系数衡量了个股或基金相对于整个股市的波动情况。</p>
-<table>
-<thead>
-<tr class="header">
-<th>β范围</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>β=1</td>
-<td>股票或基金的风险收益率与市场平均风险收益率相同</td>
-</tr>
-<tr class="even">
-<td>β&gt;1</td>
-<td>股票或基金的风险相较于市场平均更大</td>
-</tr>
-<tr class="odd">
-<td>β&lt;1</td>
-<td>股票或基金的风险相较于市场平均更小</td>
-</tr>
-</tbody>
-</table>
-<a id="more"></a>
-<h2 id="查询">查询</h2>
-<p>可以在<a href="http://www.iwencai.com/stockpick/search?typed=1&amp;preParams=&amp;ts=1&amp;f=1&amp;qs=stockpick_ambiguity_index&amp;selfsectsn=&amp;querytype=stock&amp;searchfilter=&amp;tid=stockpick&amp;multiIndex=%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0&amp;stockpick&amp;w=%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0">同花顺网站</a>中查到上市公司当日的贝塔系数。</p>
-<h2 id="计算">计算</h2>
-<p>相对于沪深300指数(000300.SH)的beta系数计算方式如下：<br />
-<span class="math inline">\(\beta_i = \frac{标的资产i的收益与市场收益的协方差}{市场收益的方差} = \frac{Cov(r_i,r_m)}{\sigma_m^2}\)</span></p>
-<p>例1、顺丰控股(002352.SZ)相对于沪深300指数(000300.SH)的beta系数计算，一定周期的沪深300指数(000300.SH)与顺丰控股(002352.SZ)的每日涨跌幅，如：2019年全年。</p>
-<p>关于协方差、方差的计算方法:<br />
-<a href="https://nokiasonic.github.io/2021/07/16/%E3%80%90Python%E3%80%91Pandas%E4%B9%8Bdataframe%E4%B8%8Eseries%E7%9A%84%E5%8D%8F%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97/">【Python】Pandas之dataframe与series的协方差计算</a><br />
-<a href="https://nokiasonic.github.io/2021/07/16/%E3%80%90Python%E3%80%91Pandas%E4%B9%8B%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97/">【Python】Pandas、Numpy之方差计算</a></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> QUANTAXIS <span class="keyword">as</span> QA</span><br><span class="line"><span class="keyword">from</span> IPython.core.interactiveshell <span class="keyword">import</span> InteractiveShell</span><br><span class="line">InteractiveShell.ast_node_interactivity = <span class="string">&quot;all&quot;</span> </span><br><span class="line"></span><br><span class="line">stock = QA.QA_fetch_stock_day_adv(<span class="string">&#x27;002352&#x27;</span>,<span class="string">&#x27;2018-12-28&#x27;</span>,<span class="string">&#x27;2019-12-31&#x27;</span>)</span><br><span class="line">index = QA.QA_fetch_index_day_adv(<span class="string">&#x27;000300&#x27;</span>,<span class="string">&#x27;2018-12-28&#x27;</span>,<span class="string">&#x27;2019-12-31&#x27;</span>)</span><br><span class="line"></span><br><span class="line">returns_stock = stock.data.close.pct_change()</span><br><span class="line">returns_index = index.data.close.pct_change()</span><br><span class="line"><span class="comment">#计算两组数据的协方差</span></span><br><span class="line">covr = np.cov(returns_stock[<span class="number">1</span>:],returns_index[<span class="number">1</span>:])[<span class="number">0</span>][<span class="number">1</span>]</span><br><span class="line"><span class="comment">#计算沪深300指数数据的方差</span></span><br><span class="line">var = np.var(returns_index)</span><br><span class="line"><span class="comment">#计算贝塔值</span></span><br><span class="line">beta = covr/var</span><br><span class="line">print(<span class="string">&quot;Covariance:&#123;&#125;,Variance:&#123;&#125;,Beta:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(covr,var,beta))</span><br></pre></td></tr></table></figure>
-<pre><code>Covariance:9.712842264272448e-05,Variance:0.00015577588074696037,Beta:0.6235138724748936</code></pre>
-<h1 id="参考">参考</h1>
-<p>1/ <a href="https://wiki.mbalib.com/wiki/%E8%B4%9D%E5%A1%94%E7%B3%BB%E6%95%B0">贝塔系数</a><br />
-2/ <a href="https://zhuanlan.zhihu.com/p/136858300">股票β系数（贝塔、beta）计算的具体操作</a><br />
-3/ <a href="https://blog.csdn.net/thfyshz/article/details/83443783?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-2.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-2.control">Python计算贝塔系数和夏普比率</a></p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>量化投资</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>线性代数</tag>
-        <tag>贝塔</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>为博客文章增加Valine评论系统</title>
     <url>/2020/12/10/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E5%A2%9E%E5%8A%A0Valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</url>
     <content><![CDATA[<p>目前常用的评论系统有以下这些：</p>
@@ -5059,6 +5073,167 @@ code
       </categories>
       <tags>
         <tag>Valine</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>线性代数在量化投资分析中的应用</title>
+    <url>/2020/12/17/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9C%A8%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%88%86%E6%9E%90%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="基本概念">基本概念</h1>
+<h2 id="标量向量矩阵和张量">标量、向量、矩阵和张量</h2>
+<p><img src="https://s2.loli.net/2022/04/14/KAo4Ji1u7qktjnm.png" style="zoom:25%;float:left" /></p>
+<p><br/> <br/></p>
+<p>• <code>标量（scalar）</code>：一个标量就是一个单独的数，它不同于线性代数中研究的其他大部分对象（通常是多个数的数组）。<br />
+• <code>向量（vector）</code>：一个向量是一列数。这些数是有序排列的。<br />
+• <code>矩阵（matrix）</code>：矩阵是一个二维数组，其中的每一个元素被两个索引（而非一个）所确定。<br />
+• <code>张量（tensor）</code>：在某些情况下，我们会讨论坐标超过两维的数组。一般地，一个数组中的元素分布在若干维坐标的规则网格中，我们称之为张量。</p>
+<a id="more"></a>
+<h2 id="转置">转置</h2>
+<p><code>转置（transpose）</code>是矩阵的重要操作之一。矩阵的转置是以对角线为轴的镜像，这条从左上角到右下角的对角线被称为 主对角线（main diagonal）。</p>
+<p>向量可以看作只有一列的矩阵。对应地，向量的转置可以看作是只有一行的矩阵。<br />
+<img src="https://s2.loli.net/2022/04/14/iUMGpmav9JezSfc.png" align=left style="zoom:35%" ><br />
+<br/> <br/> 方阵的转置<br />
+<img src="https://s2.loli.net/2022/04/14/vSE8k3dbUfD1QRV.png" style="zoom:25%;float:left"/> <br/> <br/> 非方阵的转置<br />
+<img src="https://s2.loli.net/2022/04/14/3stURNkzihx56dn.png" style="zoom:25%;float:left"/><br />
+<br/> <br/> <br/> 上标 <span class="math inline">\(^\text{T}\)</span>用来表述转置矩阵</p>
+<p><span class="math inline">\({A}= \begin{bmatrix} A_{1,1} &amp; A_{1,2} \\ A_{2,1} &amp; A_{2,2} \\ A_{3,1} &amp; A_{3,2} \end{bmatrix}\)</span> 的转置矩阵为：</p>
+<p><span class="math inline">\({A}^{\text{T}}= \begin{bmatrix} A_{1,1} &amp; A_{2,1} &amp; A_{3,1} \\ A_{1,2} &amp; A_{2,2} &amp; A_{3,2} \end{bmatrix}\)</span><br />
+<br/> <img src="https://s2.loli.net/2022/04/14/bHZtks2YRfeNn9X.png" style="zoom:25%;float:left"/> <br/> 矩阵的形状 (<span class="math inline">\(m \times n\)</span>) 在转置后变为 (<span class="math inline">\(n \times m\)</span>).</p>
+<p><br/></p>
+<h2 id="线性方程组">线性方程组</h2>
+<p>对于一个线性方程组</p>
+<p><span class="math inline">\(\large \begin{equation} \left\{ \begin{aligned} x_1+x_2=2\\ x_1-x_2=4\\ \end{aligned} \right. \end{equation}\)</span></p>
+<p>这里有两个方程和两个变量，一般可以得到唯一解或无穷多解。利用线性代数可以对其进行简洁地表示和运算。线性代数的运算离不开矩阵，矩阵是按照长方阵列排列的实数或复数集合。例如存在矩阵</p>
+<p><span class="math inline">\(\large  A=\left[  \begin{matrix}  1 &amp; 1 \\  1 &amp; -1 \\  \end{matrix}  \right], X=\left[  \begin{matrix}  x_1 \\  x_2 \\  \end{matrix}  \right], b=\left[  \begin{matrix}  2 \\  4 \\  \end{matrix}  \right]\)</span></p>
+<p>这样，上述线性方程组可记为<span class="math inline">\(AX=b\)</span>.</p>
+<p>即： <span class="math inline">\(\large \left[  \begin{matrix}  1 &amp; 1 \\  1 &amp; -1 \\  \end{matrix}  \right]\left[  \begin{matrix}  x_1 \\  x_2 \\  \end{matrix}  \right]=\left[  \begin{matrix}  2 \\  4 \\  \end{matrix}  \right]\)</span></p>
+<p>假想<br />
+<span class="math inline">\(\large \frac{1}{\left[  \begin{matrix}  1 &amp; 1 \\  1 &amp; -1 \\  \end{matrix}  \right]}\left[  \begin{matrix}  1 &amp; 1 \\  1 &amp; -1 \\  \end{matrix}  \right]\left[  \begin{matrix}  x_1 \\  x_2 \\  \end{matrix}  \right]=\frac{1}{\left[  \begin{matrix}  1 &amp; 1 \\  1 &amp; -1 \\  \end{matrix}  \right]}\left[  \begin{matrix}  2 \\  4 \\  \end{matrix}  \right]\)</span></p>
+<p>得： <span class="math inline">\(\large \left[  \begin{matrix}  x_1 \\  x_2 \\  \end{matrix}  \right]=\frac{1}{\left[  \begin{matrix}  1 &amp; 1 \\  1 &amp; -1 \\  \end{matrix}  \right]}\left[  \begin{matrix}  2 \\  4 \\  \end{matrix}  \right]\)</span></p>
+<h2 id="示例">示例</h2>
+<p>在Python中，使用numpy库可以方便的进行矩阵操作。</p>
+<h3 id="使用numpy来创建向量vector">使用numpy来创建向量(vector)</h3>
+<p><span class="math inline">\({x} =\begin{bmatrix} x_1 \\ x_2 \\ \cdots \\ x_n \end{bmatrix}\)</span></p>
+<h4 id="创建指定长度及数值的向量">创建指定长度及数值的向量</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">x = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line">x</span><br></pre></td></tr></table></figure>
+<pre><code>array([1, 2, 3, 4])</code></pre>
+<h4 id="创建指定长度及随机数值的向量">创建指定长度及随机数值的向量</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = np.random.randint(<span class="number">1</span>,<span class="number">10</span>,size=<span class="number">10</span>)</span><br><span class="line">x</span><br></pre></td></tr></table></figure>
+<pre><code>array([8, 2, 2, 6, 5, 7, 5, 4, 4, 4])</code></pre>
+<h3 id="使用numpy来创建矩阵matrix">使用numpy来创建矩阵(matrix)</h3>
+<p><span class="math inline">\({A}= \begin{bmatrix} A_{1,1} &amp; A_{1,2} &amp; \cdots &amp; A_{1,n} \\ A_{2,1} &amp; A_{2,2} &amp; \cdots &amp; A_{2,n} \\ \cdots &amp; \cdots &amp; \cdots &amp; \cdots \\ A_{m,1} &amp; A_{m,2} &amp; \cdots &amp; A_{m,n} \end{bmatrix}\)</span></p>
+<h4 id="创建指定长度及数值的矩阵">创建指定长度及数值的矩阵</h4>
+<p>例如：<span class="math inline">\(3 \times 2\)</span> 的矩阵</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A = np.array([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>], [<span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line">A</span><br></pre></td></tr></table></figure>
+<pre><code>array([[1, 2],
+       [3, 4],
+       [5, 6]])</code></pre>
+<h4 id="创建指定长度及随机数值的矩阵">创建指定长度及随机数值的矩阵</h4>
+<p>例如：<span class="math inline">\(3 \times 2\)</span> 的矩阵</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A = np.random.randint(<span class="number">1</span>,<span class="number">10</span>,size=(<span class="number">3</span>,<span class="number">2</span>))</span><br><span class="line">A</span><br></pre></td></tr></table></figure>
+<pre><code>array([[6, 5],
+       [7, 5],
+       [7, 6]])</code></pre>
+<h3 id="利用numpy来进行矩阵转置">利用numpy来进行矩阵转置</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A = np.array([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>], [<span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line">A</span><br></pre></td></tr></table></figure>
+<pre><code>array([[1, 2],
+       [3, 4],
+       [5, 6]])</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A_t = A.T</span><br><span class="line">A_t</span><br></pre></td></tr></table></figure>
+<pre><code>array([[1, 3, 5],
+       [2, 4, 6]])</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(A.shape)</span><br><span class="line">print(A_t.shape)</span><br></pre></td></tr></table></figure>
+<pre><code>(3, 2)
+(2, 3)</code></pre>
+<h3 id="求解线性方程组">求解线性方程组</h3>
+<p>求二元一次线性方程组</p>
+<p><span class="math inline">\(\large \begin{equation} \left\{ \begin{aligned} x_1+x_2=2\\ x_1-x_2=4\\ \end{aligned} \right. \end{equation}\)</span></p>
+<p>的解。</p>
+<p><strong>分析</strong>：如章节1.3中所述。<br />
+<span class="math inline">\(\large  A=\left[  \begin{matrix}  1 &amp; 1 \\  1 &amp; -1 \\  \end{matrix}  \right], X=\left[  \begin{matrix}  x_1 \\  x_2 \\  \end{matrix}  \right], b=\left[  \begin{matrix}  2 \\  4 \\  \end{matrix}  \right].\)</span></p>
+<p>这样，上述线性方程组可记为<span class="math inline">\(AX=b\)</span>.<br />
+则：<span class="math inline">\(X=\large\frac{1}{A}b\)</span></p>
+<p>即：<span class="math inline">\(\large \left[  \begin{matrix}  x_1 \\  x_2 \\  \end{matrix}  \right]=\frac{1}{\left[  \begin{matrix}  1 &amp; 1 \\  1 &amp; -1 \\  \end{matrix}  \right]}\left[  \begin{matrix}  2 \\  4 \\  \end{matrix}  \right]\)</span></p>
+<p>说明：<br />
+<span class="math inline">\({A}\)</span>的逆矩阵表述为<span class="math inline">\({A}^{-1}\)</span>. 逆矩阵满足如一条件。</p>
+<p><span class="math inline">\({A}^{-1}{A}={I}_n\)</span></p>
+<p>NumPy 提供了线性代数函数库 <strong>linalg</strong>，该库包含了线性代数所需的所有功能，可以看看下面的说明：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">函数</th>
+<th style="text-align: left;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>dot</code></td>
+<td style="text-align: left;">两个数组的点积，即元素对应相乘。</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>vdot</code></td>
+<td style="text-align: left;">两个向量的点积</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>inner</code></td>
+<td style="text-align: left;">两个数组的内积</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>matmul</code></td>
+<td style="text-align: left;">两个数组的矩阵积</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>determinant</code></td>
+<td style="text-align: left;">数组的行列式</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>solve</code></td>
+<td style="text-align: left;">求解线性矩阵方程</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>inv</code></td>
+<td style="text-align: left;">计算矩阵的乘法逆矩阵</td>
+</tr>
+</tbody>
+</table>
+<p>计算过程如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建矩阵A, 这里用了两种方法，实际中A1 =A2</span></span><br><span class="line">A1 = np.mat(<span class="string">&#x27;1 1;1 -1&#x27;</span>)</span><br><span class="line">A2 = np.array([[<span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>,-<span class="number">1</span>]])</span><br><span class="line">b = np.array([<span class="number">2</span>,<span class="number">4</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#用solve函数求解线性方程</span></span><br><span class="line">X1 = np.linalg.solve(A1,b)</span><br><span class="line">X2 = np.linalg.solve(A2,b)</span><br><span class="line">print(X1)</span><br><span class="line">print(X2)</span><br></pre></td></tr></table></figure>
+<pre><code>[ 3. -1.]
+[ 3. -1.]</code></pre>
+<p>此外，也可利用先求A的逆矩阵，然后和b进行点积求解。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A = np.array([[<span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>,-<span class="number">1</span>]])</span><br><span class="line">b = np.array([<span class="number">2</span>,<span class="number">4</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#使用点积的两种方式</span></span><br><span class="line">X1 = (np.linalg.inv(A)).dot(b)</span><br><span class="line">X2 = np.dot(np.linalg.inv(A),b)</span><br><span class="line">print(X1)</span><br><span class="line">print(X2)</span><br></pre></td></tr></table></figure>
+<pre><code>[ 3. -1.]
+[ 3. -1.]</code></pre>
+<h1 id="线性回归模型简介">线性回归模型简介</h1>
+<p>假设被解释变量<span class="math inline">\(y\)</span>与多个解释变量<span class="math inline">\(X_1,X_2,...,X_p\)</span>之间具有线性关系，则记为</p>
+<p><span class="math inline">\(\large y=\beta_0+\beta_1X_1+\beta_2X_2+...+\beta_pX_p+\mu\)</span></p>
+<p>称之为多元线性回归模型，其中<span class="math inline">\(\beta_0,\beta_1,...,\beta_p\)</span>为<span class="math inline">\(p+1\)</span>个未知参数，<span class="math inline">\(\mu\)</span>为随机扰动项，表示除<span class="math inline">\(X_1,X_2,...,X_p\)</span>以外影响<span class="math inline">\(y\)</span>的所有非观测因素，并假设<span class="math inline">\(\mu\sim N(0,\sigma^2)\)</span>。</p>
+<p>假设有<span class="math inline">\(n\)</span>组观测数据<span class="math inline">\(y_i,X_{1i},X_{2i},...,X_{pi},i=1,2,...,n\)</span>，则存在线性方程组</p>
+<p><span class="math inline">\(\large \begin{equation} \left\{ \begin{aligned} y_1=\beta_0+\beta_1X_{11}+\beta_2X_{21}+...+\beta_pX_{p1}+\mu_1\\ y_2=\beta_0+\beta_1X_{12}+\beta_2X_{22}+...+\beta_pX_{p2}+\mu_2\\ \vdots\\ y_n=\beta_0+\beta_1X_{1n}+\beta_2X_{2n}+...+\beta_pX_{pn}+\mu_n\\ \end{aligned} \right. \end{equation}\)</span></p>
+<p>若记</p>
+<p><span class="math inline">\(Y=(y_1,y_2,...,y_n)^\tau， X=\left[  \begin{matrix}  1&amp;X_{11} &amp; X_{21}&amp;...&amp;X_{p1} \\  1&amp;X_{12} &amp; X_{22}&amp;...&amp;X_{p2} \\  \vdots &amp; \vdots&amp;\ddots\\  1&amp;X_{1n} &amp; X_{2n}&amp;...&amp;X_{pn} \\  \end{matrix}  \right]，\beta=(\beta_1,\beta_2,...,\beta_n)^\tau，\mu=(\mu_1,\mu_2,...,\mu_n)^\tau\)</span> 则线性方程组可表示为</p>
+<p><span class="math inline">\(\large Y=X\beta+\mu\)</span></p>
+<p>通过参数估计方法，可以得到未知参数<span class="math inline">\(\beta\)</span>的估计值。参见<a href="https://zhuanlan.zhihu.com/p/91095053">计量经济学：多元线性回归的最小二乘估计</a></p>
+<p><span class="math inline">\(\large \hat{\beta}=(X^\tau X)^{-1}X^\tau Y\)</span></p>
+<h1 id="线性回归模型求解模拟">线性回归模型求解模拟</h1>
+<p><code>statsmodels</code>是Python中一个强大的统计分析包，包含了回归分析、时间序列分析、假设检验等等的功能，当需要在Python中进行回归分析时，就可以导入statsmodels。</p>
+<p><code>statsmodels.regression.linear_model</code>里有回归函数<code>statsmodels.OLS</code>，它的输入参数有<code>(endog, exog, missing, hasconst)</code>。一般只考虑前两个输入，其中，<code>endog</code>是回归中的因变量<span class="math inline">\(Y\)</span>，是一个<span class="math inline">\(n\)</span>维的向量；<code>exog</code>是回归中的自变量<span class="math inline">\(X_1,X_2,...,X_P\)</span>，由于statsmodels.OLS不会假设回归模型有常数项，所以我们应该假设模型是</p>
+<p><span class="math inline">\(\large y_t=\beta_0X_{0t}+\beta_1X_{1t}+\beta_2X_{2t}+...+\beta_pX_{pt}+\mu,t=1,2,...,n\)</span></p>
+<p>其中，对所有<span class="math inline">\(t=1,2,...,n\)</span>，令<span class="math inline">\(X_{0t}=1\)</span>。因此，exog的输入是一个<span class="math inline">\(n\times (p+1)\)</span>的向量。</p>
+<p>statsmodels.OLS的输出结果是statsmodels.regression.linear_model.OLS类，并没有进行任何运算。在OLS的模型之上调用拟合函数 fit()，才进行回归运算，并且得到statsmodels.regression.linear_model.RegressionResultsWrapper，它包含了这组数据进行回归拟合的结果摘要。调用params可以查看计算出的回归系数<span class="math inline">\(\beta_0,\beta_1,...,\beta_p\)</span>。 下面将分连续变量和离散变量两种情况来模拟求解线性回归模型。</p>
+<h1 id="参考">参考</h1>
+<ol type="1">
+<li><a href="https://hadrienj.github.io/posts/Deep-Learning-Book-Series-Introduction/">Deep Learning Book Series · Introduction</a><br />
+</li>
+<li><a href="https://zhuanlan.zhihu.com/p/65259880">Numpy中矩阵计算模块linalg的常用函数</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>量化投资</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>线性代数</tag>
       </tags>
   </entry>
   <entry>
@@ -7081,167 +7256,6 @@ code
       <tags>
         <tag>python</tag>
         <tag>pandas</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>线性代数在量化投资分析中的应用</title>
-    <url>/2020/12/17/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9C%A8%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%88%86%E6%9E%90%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="基本概念">基本概念</h1>
-<h2 id="标量向量矩阵和张量">标量、向量、矩阵和张量</h2>
-<p><img src="https://s2.loli.net/2022/04/14/KAo4Ji1u7qktjnm.png" style="zoom:25%;float:left" /></p>
-<p><br/> <br/></p>
-<p>• <code>标量（scalar）</code>：一个标量就是一个单独的数，它不同于线性代数中研究的其他大部分对象（通常是多个数的数组）。<br />
-• <code>向量（vector）</code>：一个向量是一列数。这些数是有序排列的。<br />
-• <code>矩阵（matrix）</code>：矩阵是一个二维数组，其中的每一个元素被两个索引（而非一个）所确定。<br />
-• <code>张量（tensor）</code>：在某些情况下，我们会讨论坐标超过两维的数组。一般地，一个数组中的元素分布在若干维坐标的规则网格中，我们称之为张量。</p>
-<a id="more"></a>
-<h2 id="转置">转置</h2>
-<p><code>转置（transpose）</code>是矩阵的重要操作之一。矩阵的转置是以对角线为轴的镜像，这条从左上角到右下角的对角线被称为 主对角线（main diagonal）。</p>
-<p>向量可以看作只有一列的矩阵。对应地，向量的转置可以看作是只有一行的矩阵。<br />
-<img src="https://s2.loli.net/2022/04/14/iUMGpmav9JezSfc.png" align=left style="zoom:35%" ><br />
-<br/> <br/> 方阵的转置<br />
-<img src="https://s2.loli.net/2022/04/14/vSE8k3dbUfD1QRV.png" style="zoom:25%;float:left"/> <br/> <br/> 非方阵的转置<br />
-<img src="https://s2.loli.net/2022/04/14/3stURNkzihx56dn.png" style="zoom:25%;float:left"/><br />
-<br/> <br/> <br/> 上标 <span class="math inline">\(^\text{T}\)</span>用来表述转置矩阵</p>
-<p><span class="math inline">\({A}= \begin{bmatrix} A_{1,1} &amp; A_{1,2} \\ A_{2,1} &amp; A_{2,2} \\ A_{3,1} &amp; A_{3,2} \end{bmatrix}\)</span> 的转置矩阵为：</p>
-<p><span class="math inline">\({A}^{\text{T}}= \begin{bmatrix} A_{1,1} &amp; A_{2,1} &amp; A_{3,1} \\ A_{1,2} &amp; A_{2,2} &amp; A_{3,2} \end{bmatrix}\)</span><br />
-<br/> <img src="https://s2.loli.net/2022/04/14/bHZtks2YRfeNn9X.png" style="zoom:25%;float:left"/> <br/> 矩阵的形状 (<span class="math inline">\(m \times n\)</span>) 在转置后变为 (<span class="math inline">\(n \times m\)</span>).</p>
-<p><br/></p>
-<h2 id="线性方程组">线性方程组</h2>
-<p>对于一个线性方程组</p>
-<p><span class="math inline">\(\large \begin{equation} \left\{ \begin{aligned} x_1+x_2=2\\ x_1-x_2=4\\ \end{aligned} \right. \end{equation}\)</span></p>
-<p>这里有两个方程和两个变量，一般可以得到唯一解或无穷多解。利用线性代数可以对其进行简洁地表示和运算。线性代数的运算离不开矩阵，矩阵是按照长方阵列排列的实数或复数集合。例如存在矩阵</p>
-<p><span class="math inline">\(\large  A=\left[  \begin{matrix}  1 &amp; 1 \\  1 &amp; -1 \\  \end{matrix}  \right], X=\left[  \begin{matrix}  x_1 \\  x_2 \\  \end{matrix}  \right], b=\left[  \begin{matrix}  2 \\  4 \\  \end{matrix}  \right]\)</span></p>
-<p>这样，上述线性方程组可记为<span class="math inline">\(AX=b\)</span>.</p>
-<p>即： <span class="math inline">\(\large \left[  \begin{matrix}  1 &amp; 1 \\  1 &amp; -1 \\  \end{matrix}  \right]\left[  \begin{matrix}  x_1 \\  x_2 \\  \end{matrix}  \right]=\left[  \begin{matrix}  2 \\  4 \\  \end{matrix}  \right]\)</span></p>
-<p>假想<br />
-<span class="math inline">\(\large \frac{1}{\left[  \begin{matrix}  1 &amp; 1 \\  1 &amp; -1 \\  \end{matrix}  \right]}\left[  \begin{matrix}  1 &amp; 1 \\  1 &amp; -1 \\  \end{matrix}  \right]\left[  \begin{matrix}  x_1 \\  x_2 \\  \end{matrix}  \right]=\frac{1}{\left[  \begin{matrix}  1 &amp; 1 \\  1 &amp; -1 \\  \end{matrix}  \right]}\left[  \begin{matrix}  2 \\  4 \\  \end{matrix}  \right]\)</span></p>
-<p>得： <span class="math inline">\(\large \left[  \begin{matrix}  x_1 \\  x_2 \\  \end{matrix}  \right]=\frac{1}{\left[  \begin{matrix}  1 &amp; 1 \\  1 &amp; -1 \\  \end{matrix}  \right]}\left[  \begin{matrix}  2 \\  4 \\  \end{matrix}  \right]\)</span></p>
-<h2 id="示例">示例</h2>
-<p>在Python中，使用numpy库可以方便的进行矩阵操作。</p>
-<h3 id="使用numpy来创建向量vector">使用numpy来创建向量(vector)</h3>
-<p><span class="math inline">\({x} =\begin{bmatrix} x_1 \\ x_2 \\ \cdots \\ x_n \end{bmatrix}\)</span></p>
-<h4 id="创建指定长度及数值的向量">创建指定长度及数值的向量</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">x = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line">x</span><br></pre></td></tr></table></figure>
-<pre><code>array([1, 2, 3, 4])</code></pre>
-<h4 id="创建指定长度及随机数值的向量">创建指定长度及随机数值的向量</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = np.random.randint(<span class="number">1</span>,<span class="number">10</span>,size=<span class="number">10</span>)</span><br><span class="line">x</span><br></pre></td></tr></table></figure>
-<pre><code>array([8, 2, 2, 6, 5, 7, 5, 4, 4, 4])</code></pre>
-<h3 id="使用numpy来创建矩阵matrix">使用numpy来创建矩阵(matrix)</h3>
-<p><span class="math inline">\({A}= \begin{bmatrix} A_{1,1} &amp; A_{1,2} &amp; \cdots &amp; A_{1,n} \\ A_{2,1} &amp; A_{2,2} &amp; \cdots &amp; A_{2,n} \\ \cdots &amp; \cdots &amp; \cdots &amp; \cdots \\ A_{m,1} &amp; A_{m,2} &amp; \cdots &amp; A_{m,n} \end{bmatrix}\)</span></p>
-<h4 id="创建指定长度及数值的矩阵">创建指定长度及数值的矩阵</h4>
-<p>例如：<span class="math inline">\(3 \times 2\)</span> 的矩阵</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A = np.array([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>], [<span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line">A</span><br></pre></td></tr></table></figure>
-<pre><code>array([[1, 2],
-       [3, 4],
-       [5, 6]])</code></pre>
-<h4 id="创建指定长度及随机数值的矩阵">创建指定长度及随机数值的矩阵</h4>
-<p>例如：<span class="math inline">\(3 \times 2\)</span> 的矩阵</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A = np.random.randint(<span class="number">1</span>,<span class="number">10</span>,size=(<span class="number">3</span>,<span class="number">2</span>))</span><br><span class="line">A</span><br></pre></td></tr></table></figure>
-<pre><code>array([[6, 5],
-       [7, 5],
-       [7, 6]])</code></pre>
-<h3 id="利用numpy来进行矩阵转置">利用numpy来进行矩阵转置</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A = np.array([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>], [<span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line">A</span><br></pre></td></tr></table></figure>
-<pre><code>array([[1, 2],
-       [3, 4],
-       [5, 6]])</code></pre>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A_t = A.T</span><br><span class="line">A_t</span><br></pre></td></tr></table></figure>
-<pre><code>array([[1, 3, 5],
-       [2, 4, 6]])</code></pre>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(A.shape)</span><br><span class="line">print(A_t.shape)</span><br></pre></td></tr></table></figure>
-<pre><code>(3, 2)
-(2, 3)</code></pre>
-<h3 id="求解线性方程组">求解线性方程组</h3>
-<p>求二元一次线性方程组</p>
-<p><span class="math inline">\(\large \begin{equation} \left\{ \begin{aligned} x_1+x_2=2\\ x_1-x_2=4\\ \end{aligned} \right. \end{equation}\)</span></p>
-<p>的解。</p>
-<p><strong>分析</strong>：如章节1.3中所述。<br />
-<span class="math inline">\(\large  A=\left[  \begin{matrix}  1 &amp; 1 \\  1 &amp; -1 \\  \end{matrix}  \right], X=\left[  \begin{matrix}  x_1 \\  x_2 \\  \end{matrix}  \right], b=\left[  \begin{matrix}  2 \\  4 \\  \end{matrix}  \right].\)</span></p>
-<p>这样，上述线性方程组可记为<span class="math inline">\(AX=b\)</span>.<br />
-则：<span class="math inline">\(X=\large\frac{1}{A}b\)</span></p>
-<p>即：<span class="math inline">\(\large \left[  \begin{matrix}  x_1 \\  x_2 \\  \end{matrix}  \right]=\frac{1}{\left[  \begin{matrix}  1 &amp; 1 \\  1 &amp; -1 \\  \end{matrix}  \right]}\left[  \begin{matrix}  2 \\  4 \\  \end{matrix}  \right]\)</span></p>
-<p>说明：<br />
-<span class="math inline">\({A}\)</span>的逆矩阵表述为<span class="math inline">\({A}^{-1}\)</span>. 逆矩阵满足如一条件。</p>
-<p><span class="math inline">\({A}^{-1}{A}={I}_n\)</span></p>
-<p>NumPy 提供了线性代数函数库 <strong>linalg</strong>，该库包含了线性代数所需的所有功能，可以看看下面的说明：</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">函数</th>
-<th style="text-align: left;">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><code>dot</code></td>
-<td style="text-align: left;">两个数组的点积，即元素对应相乘。</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>vdot</code></td>
-<td style="text-align: left;">两个向量的点积</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><code>inner</code></td>
-<td style="text-align: left;">两个数组的内积</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>matmul</code></td>
-<td style="text-align: left;">两个数组的矩阵积</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><code>determinant</code></td>
-<td style="text-align: left;">数组的行列式</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>solve</code></td>
-<td style="text-align: left;">求解线性矩阵方程</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><code>inv</code></td>
-<td style="text-align: left;">计算矩阵的乘法逆矩阵</td>
-</tr>
-</tbody>
-</table>
-<p>计算过程如下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建矩阵A, 这里用了两种方法，实际中A1 =A2</span></span><br><span class="line">A1 = np.mat(<span class="string">&#x27;1 1;1 -1&#x27;</span>)</span><br><span class="line">A2 = np.array([[<span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>,-<span class="number">1</span>]])</span><br><span class="line">b = np.array([<span class="number">2</span>,<span class="number">4</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#用solve函数求解线性方程</span></span><br><span class="line">X1 = np.linalg.solve(A1,b)</span><br><span class="line">X2 = np.linalg.solve(A2,b)</span><br><span class="line">print(X1)</span><br><span class="line">print(X2)</span><br></pre></td></tr></table></figure>
-<pre><code>[ 3. -1.]
-[ 3. -1.]</code></pre>
-<p>此外，也可利用先求A的逆矩阵，然后和b进行点积求解。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A = np.array([[<span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>,-<span class="number">1</span>]])</span><br><span class="line">b = np.array([<span class="number">2</span>,<span class="number">4</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#使用点积的两种方式</span></span><br><span class="line">X1 = (np.linalg.inv(A)).dot(b)</span><br><span class="line">X2 = np.dot(np.linalg.inv(A),b)</span><br><span class="line">print(X1)</span><br><span class="line">print(X2)</span><br></pre></td></tr></table></figure>
-<pre><code>[ 3. -1.]
-[ 3. -1.]</code></pre>
-<h1 id="线性回归模型简介">线性回归模型简介</h1>
-<p>假设被解释变量<span class="math inline">\(y\)</span>与多个解释变量<span class="math inline">\(X_1,X_2,...,X_p\)</span>之间具有线性关系，则记为</p>
-<p><span class="math inline">\(\large y=\beta_0+\beta_1X_1+\beta_2X_2+...+\beta_pX_p+\mu\)</span></p>
-<p>称之为多元线性回归模型，其中<span class="math inline">\(\beta_0,\beta_1,...,\beta_p\)</span>为<span class="math inline">\(p+1\)</span>个未知参数，<span class="math inline">\(\mu\)</span>为随机扰动项，表示除<span class="math inline">\(X_1,X_2,...,X_p\)</span>以外影响<span class="math inline">\(y\)</span>的所有非观测因素，并假设<span class="math inline">\(\mu\sim N(0,\sigma^2)\)</span>。</p>
-<p>假设有<span class="math inline">\(n\)</span>组观测数据<span class="math inline">\(y_i,X_{1i},X_{2i},...,X_{pi},i=1,2,...,n\)</span>，则存在线性方程组</p>
-<p><span class="math inline">\(\large \begin{equation} \left\{ \begin{aligned} y_1=\beta_0+\beta_1X_{11}+\beta_2X_{21}+...+\beta_pX_{p1}+\mu_1\\ y_2=\beta_0+\beta_1X_{12}+\beta_2X_{22}+...+\beta_pX_{p2}+\mu_2\\ \vdots\\ y_n=\beta_0+\beta_1X_{1n}+\beta_2X_{2n}+...+\beta_pX_{pn}+\mu_n\\ \end{aligned} \right. \end{equation}\)</span></p>
-<p>若记</p>
-<p><span class="math inline">\(Y=(y_1,y_2,...,y_n)^\tau， X=\left[  \begin{matrix}  1&amp;X_{11} &amp; X_{21}&amp;...&amp;X_{p1} \\  1&amp;X_{12} &amp; X_{22}&amp;...&amp;X_{p2} \\  \vdots &amp; \vdots&amp;\ddots\\  1&amp;X_{1n} &amp; X_{2n}&amp;...&amp;X_{pn} \\  \end{matrix}  \right]，\beta=(\beta_1,\beta_2,...,\beta_n)^\tau，\mu=(\mu_1,\mu_2,...,\mu_n)^\tau\)</span> 则线性方程组可表示为</p>
-<p><span class="math inline">\(\large Y=X\beta+\mu\)</span></p>
-<p>通过参数估计方法，可以得到未知参数<span class="math inline">\(\beta\)</span>的估计值。参见<a href="https://zhuanlan.zhihu.com/p/91095053">计量经济学：多元线性回归的最小二乘估计</a></p>
-<p><span class="math inline">\(\large \hat{\beta}=(X^\tau X)^{-1}X^\tau Y\)</span></p>
-<h1 id="线性回归模型求解模拟">线性回归模型求解模拟</h1>
-<p><code>statsmodels</code>是Python中一个强大的统计分析包，包含了回归分析、时间序列分析、假设检验等等的功能，当需要在Python中进行回归分析时，就可以导入statsmodels。</p>
-<p><code>statsmodels.regression.linear_model</code>里有回归函数<code>statsmodels.OLS</code>，它的输入参数有<code>(endog, exog, missing, hasconst)</code>。一般只考虑前两个输入，其中，<code>endog</code>是回归中的因变量<span class="math inline">\(Y\)</span>，是一个<span class="math inline">\(n\)</span>维的向量；<code>exog</code>是回归中的自变量<span class="math inline">\(X_1,X_2,...,X_P\)</span>，由于statsmodels.OLS不会假设回归模型有常数项，所以我们应该假设模型是</p>
-<p><span class="math inline">\(\large y_t=\beta_0X_{0t}+\beta_1X_{1t}+\beta_2X_{2t}+...+\beta_pX_{pt}+\mu,t=1,2,...,n\)</span></p>
-<p>其中，对所有<span class="math inline">\(t=1,2,...,n\)</span>，令<span class="math inline">\(X_{0t}=1\)</span>。因此，exog的输入是一个<span class="math inline">\(n\times (p+1)\)</span>的向量。</p>
-<p>statsmodels.OLS的输出结果是statsmodels.regression.linear_model.OLS类，并没有进行任何运算。在OLS的模型之上调用拟合函数 fit()，才进行回归运算，并且得到statsmodels.regression.linear_model.RegressionResultsWrapper，它包含了这组数据进行回归拟合的结果摘要。调用params可以查看计算出的回归系数<span class="math inline">\(\beta_0,\beta_1,...,\beta_p\)</span>。 下面将分连续变量和离散变量两种情况来模拟求解线性回归模型。</p>
-<h1 id="参考">参考</h1>
-<ol type="1">
-<li><a href="https://hadrienj.github.io/posts/Deep-Learning-Book-Series-Introduction/">Deep Learning Book Series · Introduction</a><br />
-</li>
-<li><a href="https://zhuanlan.zhihu.com/p/65259880">Numpy中矩阵计算模块linalg的常用函数</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>量化投资</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>线性代数</tag>
       </tags>
   </entry>
 </search>
