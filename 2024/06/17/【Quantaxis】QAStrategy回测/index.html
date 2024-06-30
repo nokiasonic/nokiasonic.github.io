@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"nokiasonic.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="回测中使用的模块  QAStrategy  示例 Quantaxis 版本为 1.10.19。仍以 MACD_JCSC 策略进行回测。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Quantaxis】QAStrategy回测">
+<meta property="og:url" content="https://nokiasonic.github.io/2024/06/17/%E3%80%90Quantaxis%E3%80%91QAStrategy%E5%9B%9E%E6%B5%8B/index.html">
+<meta property="og:site_name" content="橘子树下">
+<meta property="og:description" content="回测中使用的模块  QAStrategy  示例 Quantaxis 版本为 1.10.19。仍以 MACD_JCSC 策略进行回测。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-06-17T04:38:12.000Z">
+<meta property="article:modified_time" content="2024-06-30T02:58:11.072Z">
+<meta property="article:author" content="Jun Lv">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://nokiasonic.github.io/2024/06/17/%E3%80%90Quantaxis%E3%80%91QAStrategy%E5%9B%9E%E6%B5%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【Quantaxis】QAStrategy回测 | 橘子树下</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">橘子树下</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">学习园地</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2024/06/17/%E3%80%90Quantaxis%E3%80%91QAStrategy%E5%9B%9E%E6%B5%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Jun Lv">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橘子树下">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【Quantaxis】QAStrategy回测
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-06-17 12:38:12" itemprop="dateCreated datePublished" datetime="2024-06-17T12:38:12+08:00">2024-06-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-06-30 10:58:11" itemprop="dateModified" datetime="2024-06-30T10:58:11+08:00">2024-06-30</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/06/17/%E3%80%90Quantaxis%E3%80%91QAStrategy%E5%9B%9E%E6%B5%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/06/17/%E3%80%90Quantaxis%E3%80%91QAStrategy%E5%9B%9E%E6%B5%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="回测中使用的模块">回测中使用的模块</h1>
+<ul>
+<li><code>QAStrategy</code></li>
+</ul>
+<h1 id="示例">示例</h1>
+<p><code>Quantaxis</code> 版本为 <strong><em>1.10.19</em></strong>。仍以 <code>MACD_JCSC</code> 策略进行回测。</p>
+<a id="more"></a>
+<h2 id="创建-strategy-类回测">创建 Strategy 类回测</h2>
+<p>在原 <code>QAStrategy</code> 回测文档中，多使用在 <code>on_bar</code> 函数中处理每一条 <code>bar</code> 数据，生成指标或回测信号。如下例代码所示的回测。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> QAStrategy.qastockbase <span class="keyword">import</span> QAStrategyStockBase</span><br><span class="line"><span class="keyword">import</span> QUANTAXIS <span class="keyword">as</span> QA</span><br><span class="line"><span class="keyword">from</span> Risk_util <span class="keyword">import</span> QA_Risk_Abstract</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> rich <span class="keyword">import</span> <span class="built_in">print</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MACD_JCSC</span>(<span class="params">QAStrategyStockBase</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">on_bar</span>(<span class="params">self, bar</span>):</span></span><br><span class="line">        res = self.macd_jcsc()</span><br><span class="line">        print(res)</span><br><span class="line">        print(res.iloc[-<span class="number">1</span>]) </span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> res.iloc[-<span class="number">1</span>].CROSS_JC == <span class="number">1</span>:</span><br><span class="line">            print(<span class="string">&quot;[%s] %s 出现买入信号！！！&quot;</span> % bar.name)</span><br><span class="line">            <span class="keyword">if</span> self.get_positions(bar.name[<span class="number">1</span>]).volume_long == <span class="number">0</span>:</span><br><span class="line">                self.send_order(<span class="string">&quot;BUY&quot;</span>, <span class="string">&quot;OPEN&quot;</span>, code=bar.name[<span class="number">1</span>], price=bar.close, volume=<span class="number">1000</span>)</span><br><span class="line">                print(<span class="string">&quot;交易：以%.2f价格买入！！！&quot;</span> % bar.close)</span><br><span class="line">        <span class="keyword">elif</span> res.iloc[-<span class="number">1</span>].CROSS_SC == <span class="number">1</span>:</span><br><span class="line">            print(<span class="string">&quot;[%s] %s 出现卖出信号！！！&quot;</span> % bar.name)</span><br><span class="line">            <span class="keyword">if</span> self.get_positions(bar.name[<span class="number">1</span>]).volume_long &gt; <span class="number">0</span>:</span><br><span class="line">                self.send_order(<span class="string">&quot;SELL&quot;</span>, <span class="string">&quot;CLOSE&quot;</span>,code=bar.name[<span class="number">1</span>], price=bar.close, volume=<span class="number">1000</span>)</span><br><span class="line">                print(<span class="string">&quot;交易：以%.2f价格卖出！！！&quot;</span> % bar.close)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">macd_jcsc</span>(<span class="params">self, SHORT=<span class="number">12</span>, LONG=<span class="number">26</span>, M=<span class="number">9</span></span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        1.DIF向上突破DEA，买入信号参考。</span></span><br><span class="line"><span class="string">        2.DIF向下跌破DEA，卖出信号参考。</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        CLOSE = self.market_data.close</span><br><span class="line">        DIFF = QA.EMA(CLOSE, SHORT) - QA.EMA(CLOSE, LONG)</span><br><span class="line">        DEA = QA.EMA(DIFF, M)</span><br><span class="line">        MACD = <span class="number">2</span>*(DIFF-DEA)</span><br><span class="line"></span><br><span class="line">        CROSS_JC = QA.CROSS(DIFF, DEA)</span><br><span class="line">        CROSS_SC = QA.CROSS(DEA, DIFF)</span><br><span class="line">        ZERO = <span class="number">0</span></span><br><span class="line">        <span class="keyword">return</span> pd.DataFrame(&#123;<span class="string">&#x27;DIFF&#x27;</span>: DIFF, <span class="string">&#x27;DEA&#x27;</span>: DEA, <span class="string">&#x27;MACD&#x27;</span>: MACD, <span class="string">&#x27;CROSS_JC&#x27;</span>: CROSS_JC, <span class="string">&#x27;CROSS_SC&#x27;</span>: CROSS_SC, <span class="string">&#x27;ZERO&#x27;</span>: ZERO&#125;)</span><br><span class="line">    </span><br><span class="line">st1=datetime.datetime.now()</span><br><span class="line">print(<span class="string">&#x27;开始回测 -- &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(datetime.datetime.now()))</span><br><span class="line">code_list = [<span class="string">&#x27;000001&#x27;</span>]</span><br><span class="line"><span class="comment">#code_list = QA.QA_fetch_stock_list_adv().code.tolist()</span></span><br><span class="line"></span><br><span class="line">s = MACD_JCSC(</span><br><span class="line">    code        = code_list,</span><br><span class="line">    frequence   = <span class="string">&#x27;day&#x27;</span>,</span><br><span class="line">    start       = <span class="string">&#x27;2019-01-01&#x27;</span>,</span><br><span class="line">    end         = <span class="string">&#x27;2024-06-27&#x27;</span>,</span><br><span class="line">    strategy_id = <span class="string">&#x27;s-without_unit_init&#x27;</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#s.debug()  //不保存进数据库</span></span><br><span class="line"><span class="comment">#s._debug_sim()   //模拟盘测试</span></span><br><span class="line">s.run_backtest()</span><br><span class="line">r = QA_Risk_Abstract(QA.QA_Risk(s.acc))</span><br><span class="line">print(<span class="string">&#x27;[bold magenta][风险指标][/bold magenta]&#x27;</span>)</span><br><span class="line">print(r.message)</span><br><span class="line">p = QA.QA_Performance(s.acc)</span><br><span class="line">print(<span class="string">&#x27;[bold magenta][绩效指标][/bold magenta]&#x27;</span>)</span><br><span class="line">print(p.base_message(p.pnl))</span><br><span class="line">print(<span class="string">&#x27;回测耗时 -- &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(datetime.datetime.now()-st1))</span><br></pre></td></tr></table></figure>
+<p>但对于像<code>MACD</code>这类指标，会使用前N天（比如26天）的数据进行计算，在生成<code>market_data</code>时，该数据在回测时即提取的历史数据源，在模拟/实盘时为行情数据。根据它的定义 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@property</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">market_data</span>(<span class="params">self</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> self.running_mode == <span class="string">&#x27;sim&#x27;</span>:</span><br><span class="line">        <span class="keyword">return</span> self._market_data</span><br><span class="line">    <span class="keyword">elif</span> self.running_mode == <span class="string">&#x27;backtest&#x27;</span>:</span><br><span class="line">        <span class="keyword">return</span> pd.concat(self._market_data[-<span class="number">100</span>:], axis=<span class="number">1</span>, sort=<span class="literal">False</span>).T</span><br></pre></td></tr></table></figure> 会使用最后100条记录生成 DataFrame。所以在计算<code>MACD</code>时，指标会随着数据的更新发生一些变化。</p>
+<ul>
+<li>但数据不足100条时的计算情况</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">                        DIFF       DEA      MACD  CROSS_JC  CROSS_SC  ZERO</span><br><span class="line">2019-01-02 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-03 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-04 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-07 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-08 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-09 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-10 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-11 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-14 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-15 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-16 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-17 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-18 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-21 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-22 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-23 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-24 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-25 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-28 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-29 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-30 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-31 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-02-01 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-02-11 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-02-12 000001  0.201445       NaN       NaN         0         0     0</span><br><span class="line">2019-02-13 000001  0.213348       NaN       NaN         0         0     0</span><br><span class="line">2019-02-14 000001  0.212171       NaN       NaN         0         0     0</span><br><span class="line">2019-02-15 000001  0.190256       NaN       NaN         0         0     0</span><br><span class="line">2019-02-18 000001  0.196467       NaN       NaN         0         0     0</span><br><span class="line">2019-02-19 000001  0.193391       NaN       NaN         0         0     0</span><br><span class="line">2019-02-20 000001  0.197590       NaN       NaN         0         0     0</span><br><span class="line">2019-02-21 000001  0.195407  0.197895 -0.004975         0         0     0</span><br><span class="line">2019-02-22 000001  0.202954  0.199063  0.007781         1         0     0</span><br></pre></td></tr></table></figure>
+<ul>
+<li>数据大于100条后的计算情况</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line">                       DIFF       DEA      MACD  CROSS_JC  CROSS_SC  ZERO</span><br><span class="line">2019-01-07 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-08 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-09 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-10 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-11 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-14 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-15 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-16 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-17 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-18 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-21 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-22 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-23 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-24 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-25 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-28 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-29 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-30 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-01-31 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-02-01 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-02-11 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-02-12 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-02-13 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-02-14 000001       NaN       NaN       NaN         0         0     0</span><br><span class="line">2019-02-15 000001  0.157022       NaN       NaN         0         0     0</span><br><span class="line">2019-02-18 000001  0.164416       NaN       NaN         0         0     0</span><br><span class="line">2019-02-19 000001  0.162747       NaN       NaN         0         0     0</span><br><span class="line">2019-02-20 000001  0.168194       NaN       NaN         0         0     0</span><br><span class="line">2019-02-21 000001  0.167374       NaN       NaN         0         0     0</span><br><span class="line">2019-02-22 000001  0.176082       NaN       NaN         0         0     0</span><br><span class="line">2019-02-25 000001  0.244633       NaN       NaN         0         0     0</span><br><span class="line">2019-02-26 000001  0.273117  0.207987  0.130260         0         0     0</span><br><span class="line">2019-02-27 000001  0.305015  0.230401  0.149227         0         0     0</span><br><span class="line">2019-02-28 000001  0.323862  0.251342  0.145041         0         0     0</span><br><span class="line">2019-03-01 000001  0.360723  0.275274  0.170898         0         0     0</span><br><span class="line">2019-03-04 000001  0.400339  0.302133  0.196413         0         0     0</span><br><span class="line">2019-03-05 000001  0.431294  0.329467  0.203652         0         0     0</span><br><span class="line">2019-03-06 000001  0.451868  0.355074  0.193588         0         0     0</span><br><span class="line">2019-03-07 000001  0.440428  0.372767  0.135322         0         0     0</span><br><span class="line">2019-03-08 000001  0.397392  0.377835  0.039115         0         0     0</span><br><span class="line">2019-03-11 000001  0.360469  0.374282 -0.027626         0         1     0</span><br><span class="line">2019-03-12 000001  0.330084  0.365280 -0.070391         0         0     0</span><br><span class="line">2019-03-13 000001  0.303178  0.352678 -0.098999         0         0     0</span><br><span class="line">2019-03-14 000001  0.282642  0.338507 -0.111731         0         0     0</span><br><span class="line">2019-03-15 000001  0.268008  0.324276 -0.112537         0         0     0</span><br><span class="line">2019-03-18 000001  0.280965  0.315550 -0.069168         0         0     0</span><br><span class="line">2019-03-19 000001  0.279837  0.308365 -0.057055         0         0     0</span><br><span class="line">2019-03-20 000001  0.273061  0.301270 -0.056420         0         0     0</span><br><span class="line">2019-03-21 000001  0.260586  0.293103 -0.065034         0         0     0</span><br><span class="line">2019-03-22 000001  0.241083  0.282667 -0.083168         0         0     0</span><br><span class="line">2019-03-25 000001  0.190592  0.264207 -0.147231         0         0     0</span><br><span class="line">2019-03-26 000001  0.148189  0.240959 -0.185540         0         0     0</span><br><span class="line">2019-03-27 000001  0.132268  0.219187 -0.173838         0         0     0</span><br><span class="line">2019-03-28 000001  0.107424  0.196807 -0.178765         0         0     0</span><br><span class="line">2019-03-29 000001  0.127513  0.182934 -0.110842         0         0     0</span><br><span class="line">2019-04-01 000001  0.166284  0.179601 -0.026636         0         0     0</span><br><span class="line">2019-04-02 000001  0.207012  0.185087  0.043850         1         0     0</span><br><span class="line">2019-04-03 000001  0.242006  0.196477  0.091059         0         0     0</span><br><span class="line">2019-04-04 000001  0.295303  0.216250  0.158106         0         0     0</span><br><span class="line">2019-04-08 000001  0.340510  0.241110  0.198800         0         0     0</span><br><span class="line">2019-04-09 000001  0.361793  0.265253  0.193080         0         0     0</span><br><span class="line">2019-04-10 000001  0.368870  0.285981  0.165778         0         0     0</span><br><span class="line">2019-04-11 000001  0.357212  0.300229  0.113965         0         0     0</span><br><span class="line">2019-04-12 000001  0.335793  0.307343  0.056900         0         0     0</span><br><span class="line">2019-04-15 000001  0.333666  0.312608  0.042116         0         0     0</span><br><span class="line">2019-04-16 000001  0.389150  0.327918  0.122465         0         0     0</span><br><span class="line">2019-04-17 000001  0.412419  0.344819  0.135200         0         0     0</span><br><span class="line">2019-04-18 000001  0.425260  0.360908  0.128703         0         0     0</span><br><span class="line">2019-04-19 000001  0.457213  0.380170  0.154085         0         0     0</span><br><span class="line">2019-04-22 000001  0.437246  0.391586  0.091321         0         0     0</span><br><span class="line">2019-04-23 000001  0.411128  0.395494  0.031268         0         0     0</span><br><span class="line">2019-04-24 000001  0.411374  0.398670  0.025408         0         0     0</span><br><span class="line">2019-04-25 000001  0.385593  0.396055 -0.020923         0         1     0</span><br><span class="line">2019-04-26 000001  0.337650  0.384374 -0.093448         0         0     0</span><br><span class="line">2019-04-29 000001  0.317533  0.371005 -0.106945         0         0     0</span><br><span class="line">2019-04-30 000001  0.280976  0.352999 -0.144047         0         0     0</span><br><span class="line">2019-05-06 000001  0.181789  0.318757 -0.273936         0         0     0</span><br><span class="line">2019-05-07 000001  0.107507  0.276507 -0.338000         0         0     0</span><br><span class="line">2019-05-08 000001  0.024025  0.226010 -0.403970         0         0     0</span><br><span class="line">2019-05-09 000001 -0.071904  0.166427 -0.476663         0         0     0</span><br><span class="line">2019-05-10 000001 -0.110485  0.111045 -0.443058         0         0     0</span><br><span class="line">2019-05-13 000001 -0.165585  0.055719 -0.442606         0         0     0</span><br><span class="line">2019-05-14 000001 -0.193798  0.005815 -0.399226         0         0     0</span><br><span class="line">2019-05-15 000001 -0.184113 -0.032170 -0.303885         0         0     0</span><br><span class="line">2019-05-16 000001 -0.179243 -0.061585 -0.235315         0         0     0</span><br><span class="line">2019-05-17 000001 -0.201593 -0.089587 -0.224013         0         0     0</span><br><span class="line">2019-05-20 000001 -0.220935 -0.115856 -0.210157         0         0     0</span><br><span class="line">2019-05-21 000001 -0.221183 -0.136922 -0.168523         0         0     0</span><br><span class="line">2019-05-22 000001 -0.229868 -0.155511 -0.148714         0         0     0</span><br><span class="line">2019-05-23 000001 -0.241623 -0.172733 -0.137780         0         0     0</span><br><span class="line">2019-05-24 000001 -0.243949 -0.186976 -0.113945         0         0     0</span><br><span class="line">2019-05-27 000001 -0.241615 -0.197904 -0.087421         0         0     0</span><br><span class="line">2019-05-28 000001 -0.228771 -0.204077 -0.049387         0         0     0</span><br><span class="line">2019-05-29 000001 -0.222297 -0.207721 -0.029151         0         0     0</span><br><span class="line">2019-05-30 000001 -0.227083 -0.211594 -0.030979         0         0     0</span><br><span class="line">2019-05-31 000001 -0.230999 -0.215475 -0.031049         0         0     0</span><br><span class="line">2019-06-03 000001 -0.250713 -0.222522 -0.056381         0         0     0</span><br><span class="line">2019-06-04 000001 -0.266744 -0.231367 -0.070754         0         0     0</span><br><span class="line">2019-06-05 000001 -0.268000 -0.238693 -0.058613         0         0     0</span><br><span class="line">2019-06-06 000001 -0.269373 -0.244829 -0.049088         0         0     0</span><br></pre></td></tr></table></figure>
+<p>而且每次调用<code>on_bar</code>，都需要对指标进行一次计算。 所以考虑在<code>QAStragety</code>类自带的<code>user_init</code>中先统一根据所有数据计算完并生成信号后,再在<code>on_bar</code>中判断信号出现与否,再完成下单动作。修改代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> QAStrategy.qastockbase <span class="keyword">import</span> QAStrategyStockBase</span><br><span class="line"><span class="keyword">import</span> QUANTAXIS <span class="keyword">as</span> QA</span><br><span class="line"><span class="keyword">from</span> Risk_util <span class="keyword">import</span> QA_Risk_Abstract</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> rich <span class="keyword">import</span> <span class="built_in">print</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MACD_JCSC</span>(<span class="params">QAStrategyStockBase</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">user_init</span>(<span class="params">self</span>):</span></span><br><span class="line">        data = QA.QA_fetch_stock_day_adv(</span><br><span class="line">            self.code, self.start, self.end).to_qfq()</span><br><span class="line">        self.signal = data.add_func(self.macd_jcsc)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">on_bar</span>(<span class="params">self, bar</span>):</span></span><br><span class="line">        cursor_date = bar.name[<span class="number">0</span>].date().strftime(<span class="string">&quot;%Y-%m-%d&quot;</span>)</span><br><span class="line">        cursor_code = bar.name[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> self.signal.loc[cursor_date].loc[cursor_code].CROSS_JC == <span class="number">1</span>:</span><br><span class="line">            print(<span class="string">&quot;[%s] %s 出现买入信号！！！&quot;</span> % bar.name)</span><br><span class="line">            <span class="keyword">if</span> self.get_positions(bar.name[<span class="number">1</span>]).volume_long == <span class="number">0</span>:</span><br><span class="line">                self.send_order(<span class="string">&quot;BUY&quot;</span>, <span class="string">&quot;OPEN&quot;</span>, code=bar.name[<span class="number">1</span>], price=bar.close, volume=<span class="number">1000</span>)</span><br><span class="line">                print(<span class="string">&quot;交易：以%.2f价格买入！！！&quot;</span> % bar.close)</span><br><span class="line">        <span class="keyword">elif</span> self.signal.loc[cursor_date].loc[cursor_code].CROSS_SC == <span class="number">1</span>:</span><br><span class="line">            print(<span class="string">&quot;[%s] %s 出现卖出信号！！！&quot;</span> % bar.name)</span><br><span class="line">            <span class="keyword">if</span> self.get_positions(bar.name[<span class="number">1</span>]).volume_long &gt; <span class="number">0</span>:</span><br><span class="line">                self.send_order(<span class="string">&quot;SELL&quot;</span>, <span class="string">&quot;CLOSE&quot;</span>,code=bar.name[<span class="number">1</span>], price=bar.close, volume=<span class="number">1000</span>)</span><br><span class="line">                print(<span class="string">&quot;交易：以%.2f价格卖出！！！&quot;</span> % bar.close)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">macd_jcsc</span>(<span class="params">self, dataframe, SHORT=<span class="number">12</span>, LONG=<span class="number">26</span>, M=<span class="number">9</span></span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        1.DIF向上突破DEA，买入信号参考。</span></span><br><span class="line"><span class="string">        2.DIF向下跌破DEA，卖出信号参考。</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        CLOSE = dataframe.close</span><br><span class="line">        DIFF = QA.EMA(CLOSE, SHORT) - QA.EMA(CLOSE, LONG)</span><br><span class="line">        DEA = QA.EMA(DIFF, M)</span><br><span class="line">        MACD = <span class="number">2</span>*(DIFF-DEA)</span><br><span class="line"></span><br><span class="line">        CROSS_JC = QA.CROSS(DIFF, DEA)</span><br><span class="line">        CROSS_SC = QA.CROSS(DEA, DIFF)</span><br><span class="line">        ZERO = <span class="number">0</span></span><br><span class="line">        <span class="keyword">return</span> pd.DataFrame(&#123;<span class="string">&#x27;DIFF&#x27;</span>: DIFF, <span class="string">&#x27;DEA&#x27;</span>: DEA, <span class="string">&#x27;MACD&#x27;</span>: MACD, <span class="string">&#x27;CROSS_JC&#x27;</span>: CROSS_JC, <span class="string">&#x27;CROSS_SC&#x27;</span>: CROSS_SC, <span class="string">&#x27;ZERO&#x27;</span>: ZERO&#125;)</span><br><span class="line"></span><br><span class="line">st1=datetime.datetime.now()</span><br><span class="line">print(<span class="string">&#x27;开始回测 -- &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(datetime.datetime.now()))</span><br><span class="line">code_list = [<span class="string">&#x27;000001&#x27;</span>]</span><br><span class="line"><span class="comment">#code_list = QA.QA_fetch_stock_list_adv().code.tolist()</span></span><br><span class="line"></span><br><span class="line">s = MACD_JCSC(</span><br><span class="line">    code        = code_list,</span><br><span class="line">    frequence   = <span class="string">&#x27;day&#x27;</span>,</span><br><span class="line">    start       = <span class="string">&#x27;2019-01-01&#x27;</span>,</span><br><span class="line">    end         = <span class="string">&#x27;2024-06-27&#x27;</span>,</span><br><span class="line">    strategy_id = <span class="string">&#x27;s-with_unit_init&#x27;</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#s.debug()  //不保存进数据库</span></span><br><span class="line"><span class="comment">#s._debug_sim()   //模拟盘测试</span></span><br><span class="line">s.run_backtest()</span><br><span class="line">r = QA_Risk_Abstract(QA.QA_Risk(s.acc))</span><br><span class="line">print(<span class="string">&#x27;[bold magenta][风险指标][/bold magenta]&#x27;</span>)</span><br><span class="line">print(r.message)</span><br><span class="line">p = QA.QA_Performance(s.acc)</span><br><span class="line">print(<span class="string">&#x27;[bold magenta][绩效指标][/bold magenta]&#x27;</span>)</span><br><span class="line">print(p.base_message(p.pnl))</span><br><span class="line">print(<span class="string">&#x27;回测耗时 -- &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(datetime.datetime.now()-st1))</span><br></pre></td></tr></table></figure>
+<p>修改前完成单只股票5年半的回测需要 <strong><em>33.95秒</em></strong>, 而修改后仅需 <strong><em>25.71秒</em></strong>。</p>
+<h2 id="回测结果">回测结果</h2>
+<p>回测的结果可以直接在终端上可见，也可以能过 <code>Web</code> 方式(http://127.0.0.1:81/) 查询。</p>
+<h3 id="风险分析">风险分析</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &#x27;account_cookie&#x27;: &#x27;s-with_unit_init&#x27;,</span><br><span class="line">    &#x27;annualize_return&#x27;: 0.0,</span><br><span class="line">    &#x27;profit&#x27;: 0.0,</span><br><span class="line">    &#x27;max_dropback&#x27;: 0.01,</span><br><span class="line">    &#x27;time_gap&#x27;: 1330,</span><br><span class="line">    &#x27;volatility&#x27;: 0.43,</span><br><span class="line">    &#x27;benchmark_code&#x27;: &#x27;000300&#x27;,</span><br><span class="line">    &#x27;bm_annualizereturn&#x27;: 0.03,</span><br><span class="line">    &#x27;bm_profit&#x27;: 0.16,</span><br><span class="line">    &#x27;beta&#x27;: 0.01,</span><br><span class="line">    &#x27;alpha&#x27;: -0.0,</span><br><span class="line">    &#x27;sharpe&#x27;: -0.12,</span><br><span class="line">    &#x27;sortino&#x27;: -395.75,</span><br><span class="line">    &#x27;last_assets&#x27;: &#x27;1002633.56&#x27;,</span><br><span class="line">    &#x27;total_tax&#x27;: -644.7,</span><br><span class="line">    &#x27;total_commission&#x27;: -481.4,</span><br><span class="line">    &#x27;profit_money&#x27;: 2633.56,</span><br><span class="line">    &#x27;ir&#x27;: 0.0,</span><br><span class="line">    &#x27;month_profit&#x27;: &#123;</span><br><span class="line">        &#x27;2019-01-31 00:00:00&#x27;: 0.0,</span><br><span class="line">        &#x27;2019-02-28 00:00:00&#x27;: 703.1234393180348,</span><br><span class="line">        &#x27;2019-03-31 00:00:00&#x27;: -50.181729689240456,</span><br><span class="line">        &#x27;2019-04-30 00:00:00&#x27;: 642.743004972348,</span><br><span class="line">        &#x27;2019-05-31 00:00:00&#x27;: 0.0,</span><br><span class="line">        &#x27;2019-06-30 00:00:00&#x27;: 1368.4163899420528,</span><br><span class="line">        &#x27;2019-07-31 00:00:00&#x27;: -353.5741839206312,</span><br><span class="line">        &#x27;2019-08-31 00:00:00&#x27;: -773.1137744144071,</span><br><span class="line">        &#x27;2019-09-30 00:00:00&#x27;: 68.32695359084755,</span><br><span class="line">        &#x27;2019-10-31 00:00:00&#x27;: 705.2476993447635,</span><br><span class="line">        &#x27;2019-11-30 00:00:00&#x27;: 0.0,</span><br><span class="line">        &#x27;2019-12-31 00:00:00&#x27;: 684.6625807939563,</span><br><span class="line">        &#x27;2020-01-31 00:00:00&#x27;: 250.99576606589835,</span><br><span class="line">        &#x27;2020-02-29 00:00:00&#x27;: -764.5018294820329,</span><br><span class="line">        &#x27;2020-03-31 00:00:00&#x27;: -639.1336695251521,</span><br><span class="line">        &#x27;2020-04-30 00:00:00&#x27;: 986.47938771802,</span><br><span class="line">        &#x27;2020-05-31 00:00:00&#x27;: -627.6430917717516,</span><br><span class="line">        &#x27;2020-06-30 00:00:00&#x27;: -518.7461710819043,</span><br><span class="line">        &#x27;2020-07-31 00:00:00&#x27;: 607.8399459136417,</span><br><span class="line">        &#x27;2020-08-31 00:00:00&#x27;: 220.76756709371693,</span><br><span class="line">        &#x27;2020-09-30 00:00:00&#x27;: 17.090446144808084,</span><br><span class="line">        &#x27;2020-10-31 00:00:00&#x27;: 1495.516639258014,</span><br><span class="line">        &#x27;2020-11-30 00:00:00&#x27;: 711.2246544788359,</span><br><span class="line">        &#x27;2020-12-31 00:00:00&#x27;: -293.4999780562939,</span><br><span class="line">        &#x27;2021-01-31 00:00:00&#x27;: 2069.263243380934,</span><br><span class="line">        &#x27;2021-02-28 00:00:00&#x27;: 621.7155406653183,</span><br><span class="line">        &#x27;2021-03-31 00:00:00&#x27;: 456.697427464067,</span><br><span class="line">        &#x27;2021-04-30 00:00:00&#x27;: 229.10599464632105,</span><br><span class="line">        &#x27;2021-05-31 00:00:00&#x27;: -48.13997128745541,</span><br><span class="line">        &#x27;2021-06-30 00:00:00&#x27;: -277.31763577868696,</span><br><span class="line">        &#x27;2021-07-31 00:00:00&#x27;: 0.0,</span><br><span class="line">        &#x27;2021-08-31 00:00:00&#x27;: -626.0138344422448,</span><br><span class="line">        &#x27;2021-09-30 00:00:00&#x27;: -1153.6153345350176,</span><br><span class="line">        &#x27;2021-10-31 00:00:00&#x27;: 84.48616837000009,</span><br><span class="line">        &#x27;2021-11-30 00:00:00&#x27;: -1622.0463032894768,</span><br><span class="line">        &#x27;2021-12-31 00:00:00&#x27;: -97.31165447854437,</span><br><span class="line">        &#x27;2022-01-31 00:00:00&#x27;: -2169.600942116813,</span><br><span class="line">        &#x27;2022-02-28 00:00:00&#x27;: -588.2864658574108,</span><br><span class="line">        &#x27;2022-03-31 00:00:00&#x27;: 701.9407301229658,</span><br><span class="line">        &#x27;2022-04-30 00:00:00&#x27;: -492.56538836390246,</span><br><span class="line">        &#x27;2022-05-31 00:00:00&#x27;: -407.6765322362771,</span><br><span class="line">        &#x27;2022-06-30 00:00:00&#x27;: 728.7865806339541,</span><br><span class="line">        &#x27;2022-07-31 00:00:00&#x27;: -519.0264483509818,</span><br><span class="line">        &#x27;2022-08-31 00:00:00&#x27;: 359.32954159996007,</span><br><span class="line">        &#x27;2022-09-30 00:00:00&#x27;: -307.7851737852907,</span><br><span class="line">        &#x27;2022-10-31 00:00:00&#x27;: 0.0,</span><br><span class="line">        &#x27;2022-11-30 00:00:00&#x27;: 2007.9207173399627,</span><br><span class="line">        &#x27;2022-12-31 00:00:00&#x27;: 46.82587729266379,</span><br><span class="line">        &#x27;2023-01-31 00:00:00&#x27;: 586.5987326084869,</span><br><span class="line">        &#x27;2023-02-28 00:00:00&#x27;: 0.0,</span><br><span class="line">        &#x27;2023-03-31 00:00:00&#x27;: -523.4222982611973,</span><br><span class="line">        &#x27;2023-04-30 00:00:00&#x27;: -376.4062199871987,</span><br><span class="line">        &#x27;2023-05-31 00:00:00&#x27;: -239.97391489637084,</span><br><span class="line">        &#x27;2023-06-30 00:00:00&#x27;: -623.9189663539873,</span><br><span class="line">        &#x27;2023-07-31 00:00:00&#x27;: 769.7435180819593,</span><br><span class="line">        &#x27;2023-08-31 00:00:00&#x27;: -622.6199320594314,</span><br><span class="line">        &#x27;2023-09-30 00:00:00&#x27;: -305.4354766883189,</span><br><span class="line">        &#x27;2023-10-31 00:00:00&#x27;: -183.30302026984282,</span><br><span class="line">        &#x27;2023-11-30 00:00:00&#x27;: -627.8779737370787,</span><br><span class="line">        &#x27;2023-12-31 00:00:00&#x27;: 200.35370358801447,</span><br><span class="line">        &#x27;2024-01-31 00:00:00&#x27;: 65.3398147780681,</span><br><span class="line">        &#x27;2024-02-29 00:00:00&#x27;: 1054.7712957019685,</span><br><span class="line">        &#x27;2024-03-31 00:00:00&#x27;: -257.3330304133706,</span><br><span class="line">        &#x27;2024-04-30 00:00:00&#x27;: -14.334259253926575,</span><br><span class="line">        &#x27;2024-05-31 00:00:00&#x27;: 292.6508590914309,</span><br><span class="line">        &#x27;2024-06-30 00:00:00&#x27;: 0.0</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="绩效分析">绩效分析</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &#x27;total_profit&#x27;: 17887.74,</span><br><span class="line">    &#x27;total_loss&#x27;: -14128.09,</span><br><span class="line">    &#x27;total_pnl&#x27;: 1.27,</span><br><span class="line">    &#x27;trading_amounts&#x27;: 48,</span><br><span class="line">    &#x27;profit_amounts&#x27;: 20,</span><br><span class="line">    &#x27;loss_amounts&#x27;: 28,</span><br><span class="line">    &#x27;even_amounts&#x27;: 0,</span><br><span class="line">    &#x27;profit_precentage&#x27;: 0.42,</span><br><span class="line">    &#x27;loss_precentage&#x27;: 0.58,</span><br><span class="line">    &#x27;even_precentage&#x27;: 0.0,</span><br><span class="line">    &#x27;average_profit&#x27;: 894.39,</span><br><span class="line">    &#x27;average_loss&#x27;: -504.57,</span><br><span class="line">    &#x27;average_pnl&#x27;: 1.77,</span><br><span class="line">    &#x27;max_profit&#x27;: 3782.37,</span><br><span class="line">    &#x27;max_loss&#x27;: -1342.29,</span><br><span class="line">    &#x27;max_pnl&#x27;: 2.82,</span><br><span class="line">    &#x27;netprofio_maxloss_ratio&#x27;: 2.8,</span><br><span class="line">    &#x27;continue_profit_amount&#x27;: 4,</span><br><span class="line">    &#x27;continue_loss_amount&#x27;: 9,</span><br><span class="line">    &#x27;average_holdgap&#x27;: &#x27;20 days 00:00:00&#x27;,</span><br><span class="line">    &#x27;average_profitholdgap&#x27;: &#x27;32 days 15:36:00&#x27;,</span><br><span class="line">    &#x27;average_losssholdgap&#x27;: &#x27;10 days 23:08:34.285714285&#x27;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="回测中遇到的问题">回测中遇到的问题</h2>
+<p>回测使用的 <code>pandas</code> 版本为 <strong><em>2.2</em></strong>以上，比 <code>Quantaxis</code> 发布时使用的版本要高得多，所以在回测时会遇到大量用法未来会舍弃的告警。如：</p>
+<blockquote>
+<p>①FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use <code>ser.iloc[pos]</code><br />
+②FutureWarning: 'M' is deprecated and will be removed in a future version, please use 'ME' instead.<br />
+③Removed deprecated Series.iteritems(), DataFrame.iteritems() and HDFStore.iteritems() use obj.items instead (GH 45321)<br />
+④FutureWarning: Series.fillna with 'method' is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.<br />
+⑤FutureWarning: The 'axis' keyword in DataFrame.groupby is deprecated and will be removed in a future version.</p>
+</blockquote>
+<p>可以有两种办法解决。</p>
+<ol type="1">
+<li><p>屏蔽告警 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line">warnings.filterwarnings(<span class="string">&#x27;ignore&#x27;</span>) </span><br></pre></td></tr></table></figure></p></li>
+<li><p>根据告警中的提示修改源代码以符合未来版本的要求。 我在所修改的部分，都加注了详细的文档注解，方便以后回溯。 具体改动不再详例。</p></li>
+</ol>
+<h1 id="参考">参考</h1>
+<ol type="1">
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/412911980">投资没有银弹 -- （五连阳回测代码勘误与更快的回测实现)</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_16381291/article/details/131061594">QUANTAXIS探索（七）量化策略实现类QAStrategy的回测模式</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/06/13/%E3%80%90Quantaxis%E3%80%91QAAccount%E7%AE%80%E5%8D%95%E5%9B%9E%E6%B5%8B/" rel="prev" title="【Quantaxis】QAAccount简单回测">
+      <i class="fa fa-chevron-left"></i> 【Quantaxis】QAAccount简单回测
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9E%E6%B5%8B%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%9A%84%E6%A8%A1%E5%9D%97"><span class="nav-number">1.</span> <span class="nav-text">回测中使用的模块</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">2.</span> <span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-strategy-%E7%B1%BB%E5%9B%9E%E6%B5%8B"><span class="nav-number">2.1.</span> <span class="nav-text">创建 Strategy 类回测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E6%B5%8B%E7%BB%93%E6%9E%9C"><span class="nav-number">2.2.</span> <span class="nav-text">回测结果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A3%8E%E9%99%A9%E5%88%86%E6%9E%90"><span class="nav-number">2.2.1.</span> <span class="nav-text">风险分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%A9%E6%95%88%E5%88%86%E6%9E%90"><span class="nav-number">2.2.2.</span> <span class="nav-text">绩效分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E6%B5%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">2.3.</span> <span class="nav-text">回测中遇到的问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jun Lv"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Jun Lv</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jun Lv</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'PDEwzfU70eGolvrzzXRlTCu8-MdYXbMMI',
+      appKey     : 'uIKkyAM94pDOFzWrobUXkxxS',
+      placeholder: "留心倾听您的心声",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : 'https://pdewzfu7.api.lncldglobal.com'
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
