@@ -184,6 +184,141 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2024/11/11/%E3%80%90Sunflower%E3%80%91Dash%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%AE%9E%E8%B7%B5%EF%BC%88%E4%BA%8C%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Jun Lv">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橘子树下">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/11/11/%E3%80%90Sunflower%E3%80%91Dash%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%AE%9E%E8%B7%B5%EF%BC%88%E4%BA%8C%EF%BC%89/" class="post-title-link" itemprop="url">【Sunflower】Dash应用程序实践（二）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-11-11 10:17:06 / 修改时间：10:30:08" itemprop="dateCreated datePublished" datetime="2024-11-11T10:17:06+08:00">2024-11-11</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/11/11/%E3%80%90Sunflower%E3%80%91Dash%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%AE%9E%E8%B7%B5%EF%BC%88%E4%BA%8C%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/11/11/%E3%80%90Sunflower%E3%80%91Dash%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%AE%9E%E8%B7%B5%EF%BC%88%E4%BA%8C%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>现在开始逐步构建页面布局中的元素。先从 Header 开始</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Generate Header</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">generate_header</span>():</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    :return: A Header</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    header = dbc.Row(</span><br><span class="line">                [</span><br><span class="line">                    dbc.Col(html.Img(<span class="built_in">id</span>=<span class="string">&quot;plotly-image&quot;</span>, src=app.get_asset_url(<span class="string">&quot;sunflower_logo.png&quot;</span>),style=&#123;<span class="string">&quot;height&quot;</span>: <span class="string">&quot;2rem&quot;</span>&#125;), width=<span class="string">&quot;auto&quot;</span>),</span><br><span class="line">                    dbc.Col(html.H5(<span class="string">&quot;回测分析(Back Test analysis)&quot;</span>, <span class="built_in">id</span>=<span class="string">&quot;header-title&quot;</span>)),</span><br><span class="line">                ],</span><br><span class="line">                <span class="built_in">id</span>=<span class="string">&quot;header&quot;</span>,</span><br><span class="line">            )</span><br><span class="line">    <span class="keyword">return</span> header</span><br></pre></td></tr></table></figure>
+<p><strong>代码详解：</strong></p>
+<p>该代码定义了一个 <code>generate_header</code> 函数，用于生成一个 <code>Dash Bootstrap</code> 网页的顶部标题栏 (<code>Header</code>)。此 <code>Header</code> 包含了一个图标和标题，并且它们按行布局排列。</p>
+<ul>
+<li><p><strong>函数定义</strong>: <code>generate_header()</code></p>
+<ul>
+<li>定义了一个返回 <code>Header</code> 的函数，不接受任何参数。</li>
+</ul></li>
+<li><p><strong>创建 <code>Header</code> 内容</strong>:</p>
+<ul>
+<li><p><code>header = dbc.Row([...])</code>:</p>
+<ul>
+<li>创建了一个 <code>Row</code> 容器，使用 <code>dash-bootstrap-components</code> (简称 <code>dbc</code>) 中的 <code>Row</code> 组件，用于行布局。</li>
+</ul></li>
+<li><p><strong>第一列 (<code>dbc.Col</code>)</strong>:</p>
+<ul>
+<li><code>dbc.Col(html.Img(...), width="auto")</code>:
+<ul>
+<li>这一列包含了一个图像元素 <code>Img</code>，图像的 <code>src</code> 路径由 <code>app.get_asset_url("sunflower_logo.png")</code> 指定，显示了名为 <code>sunflower_logo.png</code> 的图像文件。</li>
+<li><code>width="auto"</code>：让这一列宽度根据图像大小自适应。</li>
+<li><code>style=&#123;"height": "2rem"&#125;</code>：设置图像的高度为 2rem。</li>
+</ul></li>
+</ul></li>
+<li><p><strong>第二列 (<code>dbc.Col</code>)</strong>:</p>
+<ul>
+<li><code>dbc.Col(html.H5(...))</code>:
+<ul>
+<li>包含一个 <code>H5</code> 标题元素，显示文本为 “回测分析(Back Test analysis)”，ID 为 <code>"header-title"</code>。</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p><strong>Row 样式</strong>：</p>
+<ul>
+<li><code>id="header"</code>：给 <code>Row</code> 容器赋予 <code>id</code> 值 <code>header</code>，方便之后在样式或回调函数中引用。</li>
+</ul></li>
+</ul>
+<h3 id="备注">备注</h3>
+<ul>
+<li><strong>行列布局</strong>：图像和标题文本在同一行中依次排列。</li>
+</ul>
+<p>相关的 css 样式如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#header</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ffffff</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">flex-direction</span>: row;</span><br><span class="line">    <span class="attribute">align-items</span>: center;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">4rem</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#header-title</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: Acumin;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">1.5rem</span>;</span><br><span class="line">    <span class="attribute">font-weight</span>: bold;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#5cb3cc</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">1rem</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>代码解释：</strong></p>
+<p><strong><code>#header</code></strong>: 选择器为 <code>id</code> 为 <code>header</code> 的元素应用样式。</p>
+<ul>
+<li><strong><code>background-color: #ffffff;</code></strong>：设置背景颜色为白色。</li>
+<li><strong><code>display: flex;</code></strong>：将 <code>#header</code> 设为 <code>flex</code> 容器，以便其子元素按弹性布局排列。</li>
+<li><strong><code>flex-direction: row;</code></strong>：设置主轴为水平方向，使子元素按行排列。</li>
+<li><strong><code>align-items: center;</code></strong>：沿着交叉轴（垂直方向）居中对齐 <code>#header</code> 中的子元素。</li>
+<li><strong><code>height: 4rem;</code></strong>：设置 <code>#header</code> 的高度为 <code>4rem</code>，保证其在页面中占据适当的垂直空间。</li>
+</ul>
+<p><strong><code>#header-title</code></strong>：选择器为 <code>id</code> 为 <code>header-title</code> 的元素应用样式。</p>
+<ul>
+<li><strong><code>font-family: Acumin;</code></strong>：设置字体为 <code>Acumin</code>。</li>
+<li><strong><code>font-size: 1.5rem;</code></strong>：字体大小为 <code>1.5rem</code>，相对较大。</li>
+<li><strong><code>font-weight: bold;</code></strong>：设置字体粗细为 <code>bold</code>，使文字加粗。</li>
+<li><strong><code>color: #5cb3cc;</code></strong>：字体颜色为蓝绿色（<code>#5cb3cc</code>）。</li>
+<li><strong><code>margin-left: 1rem;</code></strong>：设置左外边距为 <code>1rem</code>，使其与前面的元素保持适当间距。</li>
+</ul>
+<p>Logo 的设计可以用 <a target="_blank" rel="noopener" href="https://www.logodesign.net/">logodesign</a> 完成。</p>
+<p>最终效果如图：</p>
+<p><img src="https://s2.loli.net/2024/11/11/2ghF8skwX7onDYy.png" /></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2024/11/10/%E3%80%90Sunflower%E3%80%91Dash%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%AE%9E%E8%B7%B5%EF%BC%88%E4%B8%80%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1054,102 +1189,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2021/10/09/Obsidian%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Jun Lv">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="橘子树下">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/09/Obsidian%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/" class="post-title-link" itemprop="url">Obsidian学习（二）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-10-09 18:00:00" itemprop="dateCreated datePublished" datetime="2021-10-09T18:00:00+08:00">2021-10-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-11-16 11:21:18" itemprop="dateModified" datetime="2022-11-16T11:21:18+08:00">2022-11-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%93%E6%A0%8F/" itemprop="url" rel="index"><span itemprop="name">专栏</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/10/09/Obsidian%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/10/09/Obsidian%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="安装">安装</h1>
-<p>通过<a href="%5BObsidian%5D(https://obsidian.md/)">官网</a>下载并安装程序。 安装完后，可以在<code>Settings</code> -&gt; <code>About</code> -&gt; <code>Language</code>中选择界面语言，我还是使用英文界面，方便对接英文论坛内容。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/10/09/Obsidian%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1221,7 +1260,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
