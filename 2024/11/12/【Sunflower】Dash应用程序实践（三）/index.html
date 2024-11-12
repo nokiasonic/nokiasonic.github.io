@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"nokiasonic.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="分栏左侧控制卡 下面是分栏左侧的控制卡部分，主要作用是选取回测组合测试，先选择回测账户，然后选择回测策略。用两个下拉菜单控件及一个按钮控件实现。 123456789101112131415161718192021222324252627282930313233343536373839def generate_control_card():&quot;&quot;&quot;:return: A">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Sunflower】Dash应用程序实践（三）">
+<meta property="og:url" content="https://nokiasonic.github.io/2024/11/12/%E3%80%90Sunflower%E3%80%91Dash%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%AE%9E%E8%B7%B5%EF%BC%88%E4%B8%89%EF%BC%89/index.html">
+<meta property="og:site_name" content="橘子树下">
+<meta property="og:description" content="分栏左侧控制卡 下面是分栏左侧的控制卡部分，主要作用是选取回测组合测试，先选择回测账户，然后选择回测策略。用两个下拉菜单控件及一个按钮控件实现。 123456789101112131415161718192021222324252627282930313233343536373839def generate_control_card():&quot;&quot;&quot;:return: A">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2024/11/12/N4vWZS96xwPXK8B.gif">
+<meta property="article:published_time" content="2024-11-12T01:40:08.000Z">
+<meta property="article:modified_time" content="2024-11-12T01:59:10.436Z">
+<meta property="article:author" content="Jun Lv">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2024/11/12/N4vWZS96xwPXK8B.gif">
+
+<link rel="canonical" href="https://nokiasonic.github.io/2024/11/12/%E3%80%90Sunflower%E3%80%91Dash%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%AE%9E%E8%B7%B5%EF%BC%88%E4%B8%89%EF%BC%89/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【Sunflower】Dash应用程序实践（三） | 橘子树下</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">橘子树下</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">学习园地</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2024/11/12/%E3%80%90Sunflower%E3%80%91Dash%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%AE%9E%E8%B7%B5%EF%BC%88%E4%B8%89%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Jun Lv">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橘子树下">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【Sunflower】Dash应用程序实践（三）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-11-12 09:40:08 / 修改时间：09:59:10" itemprop="dateCreated datePublished" datetime="2024-11-12T09:40:08+08:00">2024-11-12</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/11/12/%E3%80%90Sunflower%E3%80%91Dash%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%AE%9E%E8%B7%B5%EF%BC%88%E4%B8%89%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/11/12/%E3%80%90Sunflower%E3%80%91Dash%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%AE%9E%E8%B7%B5%EF%BC%88%E4%B8%89%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="分栏左侧控制卡">分栏左侧控制卡</h2>
+<p>下面是分栏左侧的控制卡部分，主要作用是选取回测组合测试，先选择回测账户，然后选择回测策略。用两个下拉菜单控件及一个按钮控件实现。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">generate_control_card</span>():</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">:return: A Card containing controls(dropdown, button) in left column</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">card = dbc.Card(</span><br><span class="line">    [</span><br><span class="line">        </span><br><span class="line">        html.Div(</span><br><span class="line">            [</span><br><span class="line">                dbc.Label(<span class="string">&quot;回测账户&quot;</span>),</span><br><span class="line">                dcc.Dropdown(</span><br><span class="line">                    <span class="built_in">id</span>=<span class="string">&quot;account-select&quot;</span>,</span><br><span class="line">                    options=fetch_account_list(),</span><br><span class="line">                    placeholder=<span class="string">&quot;Select Account&quot;</span>,</span><br><span class="line">                ),</span><br><span class="line">            ]</span><br><span class="line">        ),</span><br><span class="line">        html.Div(</span><br><span class="line">            [</span><br><span class="line">                dbc.Label(<span class="string">&quot;回测组合策略&quot;</span>),</span><br><span class="line">                dcc.Dropdown(</span><br><span class="line">                    <span class="built_in">id</span>=<span class="string">&quot;portfolio-select&quot;</span>,</span><br><span class="line">                    options=[],</span><br><span class="line">                    placeholder=<span class="string">&quot;Select Portfolio&quot;</span>,</span><br><span class="line">                ),</span><br><span class="line">            ]</span><br><span class="line">        ),</span><br><span class="line">        html.Br(),</span><br><span class="line">        html.Div(</span><br><span class="line">            <span class="built_in">id</span>=<span class="string">&quot;submit-btn-control-card&quot;</span>,</span><br><span class="line">            children=dbc.Button(<span class="string">&quot;确认&quot;</span>, <span class="built_in">id</span>=<span class="string">&quot;submit-btn&quot;</span>, n_clicks=<span class="number">0</span>, className=<span class="string">&quot;mb-3&quot;</span>, disabled=<span class="literal">True</span>),</span><br><span class="line">        ),</span><br><span class="line">    ],</span><br><span class="line">    <span class="built_in">id</span>=<span class="string">&quot;control-card&quot;</span>,</span><br><span class="line">    body=<span class="literal">True</span>,</span><br><span class="line">    style=&#123;<span class="string">&quot;margin-top&quot;</span>: <span class="string">&quot;45px&quot;</span>, <span class="string">&quot;margin-left&quot;</span>: <span class="string">&quot;20px&quot;</span>, <span class="string">&quot;margin-right&quot;</span>: <span class="string">&quot;10px&quot;</span>&#125; </span><br><span class="line">    </span><br><span class="line">)</span><br><span class="line"><span class="keyword">return</span> card</span><br></pre></td></tr></table></figure>
+<p>以上代码定义了一个函数 <code>generate_control_card()</code>，用于创建并返回一个包含控制元素的卡片组件。这个卡片会在左侧列显示，包含两个下拉框（用于选择回测账户和回测组合策略）和一个确认按钮。下面是代码的逐步解释：</p>
+<p><strong>代码详解：</strong></p>
+<h3 id="函数定义和描述">1. 函数定义和描述</h3>
+<ul>
+<li><code>generate_control_card()</code>: 函数名，创建一个包含控制选项的卡片。</li>
+<li><code>return</code>: 表示函数返回值，返回一个包含控件的卡片。</li>
+</ul>
+<h3 id="卡片结构">2. 卡片结构</h3>
+<ul>
+<li><code>dbc.Card()</code>: 创建一个卡片组件。
+<ul>
+<li><code>id="control-card"</code>：为卡片设置 ID <code>control-card</code>，便于其他代码引用。</li>
+<li><code>body=True</code>: 设置卡片的样式，使其外观与 <code>Dash Bootstrap</code> 的卡片格式一致。</li>
+<li><code>style</code>: 设置卡片的边距和顶部位置，使其在页面布局中稍微向右偏移。</li>
+</ul></li>
+</ul>
+<h3 id="卡片内容">3. 卡片内容</h3>
+<h4 id="下拉框---选择账户">3.1 下拉框 - 选择账户</h4>
+<ul>
+<li><code>html.Div()</code> 包裹第一个下拉框，用于选择回测账户。
+<ul>
+<li><code>dbc.Label("回测账户")</code>：一个标签 <code>回测账户</code>，放在下拉框上方，用于标识控件的功能。</li>
+<li><code>dcc.Dropdown()</code>：创建一个下拉选择框。
+<ul>
+<li><code>id="account-select"</code>：为下拉框指定 ID，便于后续回调函数和 JavaScript 操作。</li>
+<li><code>options=fetch_account_list()</code>：使用 <code>fetch_account_list()</code> 函数生成的账户列表作为下拉框的可选项。</li>
+<li><code>placeholder="Select Account"</code>：下拉框的提示文字。</li>
+</ul></li>
+</ul></li>
+</ul>
+<h4 id="下拉框---选择组合策略">3.2 下拉框 - 选择组合策略</h4>
+<ul>
+<li>类似于账户选择框，生成一个新的下拉框用于选择回测组合策略。
+<ul>
+<li><code>id="portfolio-select"</code>：ID 为 <code>portfolio-select</code>。</li>
+<li><code>options=[]</code>：初始时选项为空，可以在后续逻辑中更新。</li>
+<li><code>placeholder="Select Portfolio"</code>：显示 <code>Select Portfolio</code> 作为提示文字。</li>
+</ul></li>
+</ul>
+<h4 id="确认按钮">3.3 确认按钮</h4>
+<ul>
+<li><code>html.Div()</code> 包裹一个按钮。
+<ul>
+<li><code>dbc.Button("确认")</code>: 按钮显示文字为 <code>确认</code>。
+<ul>
+<li><code>id="submit-btn"</code>：按钮的 ID，便于控制和事件处理。</li>
+<li><code>n_clicks=0</code>：按钮被点击次数，初始化为 <code>0</code>。</li>
+<li><code>className="mb-3"</code>：按钮的底部留出 3 个单位的空白，避免与其他控件紧贴。</li>
+<li><code>disabled=True</code>：按钮在初始状态下禁用，后续可能通过回调函数启用。</li>
+</ul></li>
+</ul></li>
+</ul>
+<h4 id="样式">3.4 样式</h4>
+<ul>
+<li><code>style=&#123;"margin-top": "45px", "margin-left": "20px", "margin-right": "10px"&#125;</code>：卡片的外边距，顶部 45 像素，左侧 20 像素，右侧 10 像素，保证卡片在布局中具有适当的空白边距。</li>
+</ul>
+<p>相应的 css 样式如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.form-label</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>:<span class="number">#1a94bc</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">0.75rem</span>;</span><br><span class="line">    <span class="attribute">font-weight</span>: bold;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.Select-input</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">25px</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.Select-control</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">27px</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.Select-placeholder</span>&#123;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">25px</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.Select-value-label</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">27px</span> <span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex <span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">align-items</span>: center <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以下是对每个 CSS 类的解释，这些类用于控制表单标签和选择框的样式。</p>
+<h3 id="form-label">1. <code>.form-label</code></h3>
+<ul>
+<li><strong>目标</strong>: 控制表单标签的字体样式。
+<ul>
+<li><code>color: #1a94bc;</code>: 标签字体颜色为蓝色 ( #1a94bc )。</li>
+<li><code>font-size: 0.75rem;</code>: 设置标签的字体大小为 <code>0.75rem</code>。</li>
+<li><code>font-weight: bold;</code>: 标签字体加粗，增加视觉上的重要性。</li>
+</ul></li>
+</ul>
+<h3 id="select-input">2. <code>.Select-input</code></h3>
+<ul>
+<li><strong>目标</strong>: 控制选择框的输入框高度。
+<ul>
+<li><code>height: 25px !important;</code>: 设置输入框的高度为 <code>25px</code>，使用 <code>!important</code> 确保该高度不会被其他样式覆盖。</li>
+</ul></li>
+</ul>
+<h3 id="select-control">3. <code>.Select-control</code></h3>
+<ul>
+<li><strong>目标</strong>: 控制选择框整体的高度。
+<ul>
+<li><code>height: 27px !important;</code>: 将整个选择控件的高度设置为 <code>27px</code>，并使用 <code>!important</code> 以确保高度不受其他样式影响。</li>
+</ul></li>
+</ul>
+<h3 id="select-placeholder">4. <code>.Select-placeholder</code></h3>
+<ul>
+<li><strong>目标</strong>: 控制选择框中占位符文本的行高。
+<ul>
+<li><code>line-height: 25px !important;</code>: 设置占位符的行高为 <code>25px</code>，使占位文本在选择框中垂直居中。</li>
+</ul></li>
+</ul>
+<h3 id="select-value-label">5. <code>.Select-value-label</code></h3>
+<ul>
+<li><strong>目标</strong>: 控制选择框中已选择标签的样式。
+<ul>
+<li><code>height: 27px !important;</code>: 将选择值标签的高度设置为 <code>27px</code>。</li>
+<li><code>display: flex !important;</code>: 使用 Flexbox 布局，使内容可以在水平方向和垂直方向对齐。</li>
+<li><code>align-items: center !important;</code>: 将选择框内已选值的内容垂直居中。</li>
+</ul></li>
+</ul>
+<h3 id="总结">总结</h3>
+<p>该函数返回一个包含账户选择、策略选择和确认按钮的卡片，整体样式整洁，适用于 <code>Dash Bootstrap</code> 项目中的侧边控制栏。</p>
+<h2 id="效果展示">效果展示</h2>
+<figure>
+<img src="https://s2.loli.net/2024/11/12/N4vWZS96xwPXK8B.gif" alt="|300" /><figcaption aria-hidden="true">|300</figcaption>
+</figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/11/11/%E3%80%90Sunflower%E3%80%91Dash%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%AE%9E%E8%B7%B5%EF%BC%88%E4%BA%8C%EF%BC%89/" rel="prev" title="【Sunflower】Dash应用程序实践（二）">
+      <i class="fa fa-chevron-left"></i> 【Sunflower】Dash应用程序实践（二）
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%A0%8F%E5%B7%A6%E4%BE%A7%E6%8E%A7%E5%88%B6%E5%8D%A1"><span class="nav-number">1.</span> <span class="nav-text">分栏左侧控制卡</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89%E5%92%8C%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">1. 函数定义和描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%A1%E7%89%87%E7%BB%93%E6%9E%84"><span class="nav-number">1.2.</span> <span class="nav-text">2. 卡片结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%A1%E7%89%87%E5%86%85%E5%AE%B9"><span class="nav-number">1.3.</span> <span class="nav-text">3. 卡片内容</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8B%E6%8B%89%E6%A1%86---%E9%80%89%E6%8B%A9%E8%B4%A6%E6%88%B7"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 下拉框 - 选择账户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8B%E6%8B%89%E6%A1%86---%E9%80%89%E6%8B%A9%E7%BB%84%E5%90%88%E7%AD%96%E7%95%A5"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2 下拉框 - 选择组合策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A1%AE%E8%AE%A4%E6%8C%89%E9%92%AE"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.3 确认按钮</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%B7%E5%BC%8F"><span class="nav-number">1.3.4.</span> <span class="nav-text">3.4 样式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#form-label"><span class="nav-number">1.4.</span> <span class="nav-text">1. .form-label</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#select-input"><span class="nav-number">1.5.</span> <span class="nav-text">2. .Select-input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#select-control"><span class="nav-number">1.6.</span> <span class="nav-text">3. .Select-control</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#select-placeholder"><span class="nav-number">1.7.</span> <span class="nav-text">4. .Select-placeholder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#select-value-label"><span class="nav-number">1.8.</span> <span class="nav-text">5. .Select-value-label</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.9.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%88%E6%9E%9C%E5%B1%95%E7%A4%BA"><span class="nav-number">2.</span> <span class="nav-text">效果展示</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jun Lv"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Jun Lv</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jun Lv</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'PDEwzfU70eGolvrzzXRlTCu8-MdYXbMMI',
+      appKey     : 'uIKkyAM94pDOFzWrobUXkxxS',
+      placeholder: "留心倾听您的心声",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : 'https://pdewzfu7.api.lncldglobal.com'
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
