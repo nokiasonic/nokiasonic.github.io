@@ -4562,6 +4562,11 @@ code
       <categories>
         <category>量化交易</category>
       </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>dash</tag>
+        <tag>plotly</tag>
+      </tags>
   </entry>
   <entry>
     <title>【Rust】Rust配置日志记录</title>
@@ -7390,6 +7395,14 @@ code
 <p>最终效果如图：</p>
 <p><img src="https://s2.loli.net/2024/11/11/2ghF8skwX7onDYy.png" /></p>
 ]]></content>
+      <categories>
+        <category>量化交易</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>dash</tag>
+        <tag>plotly</tag>
+      </tags>
   </entry>
   <entry>
     <title>【Sunflower】Dash应用程序实践（三）</title>
@@ -7593,6 +7606,14 @@ code
 <img src="https://s2.loli.net/2024/11/12/N4vWZS96xwPXK8B.gif" alt="|300" /><figcaption aria-hidden="true">|300</figcaption>
 </figure>
 ]]></content>
+      <categories>
+        <category>量化交易</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>dash</tag>
+        <tag>plotly</tag>
+      </tags>
   </entry>
   <entry>
     <title>贝塔收益(β)</title>
@@ -7883,5 +7904,13 @@ code
 <h1 id="效果展示">效果展示</h1>
 <p><img src="https://s2.loli.net/2024/11/14/iXryhwnW1HGPzFc.gif" /></p>
 ]]></content>
+      <categories>
+        <category>量化交易</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>dash</tag>
+        <tag>plotly</tag>
+      </tags>
   </entry>
 </search>
