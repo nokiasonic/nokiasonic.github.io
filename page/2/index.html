@@ -184,6 +184,116 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2024/05/20/%E3%80%90Polars%E3%80%91%E5%9F%BA%E4%BA%8ERust%E5%86%85%E6%A0%B8%E7%9A%84Jupyter%20Notebook%E4%B8%AD%E7%9A%84Polars%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC%E5%91%88%E7%8E%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Jun Lv">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橘子树下">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/05/20/%E3%80%90Polars%E3%80%91%E5%9F%BA%E4%BA%8ERust%E5%86%85%E6%A0%B8%E7%9A%84Jupyter%20Notebook%E4%B8%AD%E7%9A%84Polars%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC%E5%91%88%E7%8E%B0/" class="post-title-link" itemprop="url">【Polars】基于Rust内核的Jupyter Notebook中的Polars数据表格呈现</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-05-20 20:57:44" itemprop="dateCreated datePublished" datetime="2024-05-20T20:57:44+08:00">2024-05-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-05-25 15:44:26" itemprop="dateModified" datetime="2024-05-25T15:44:26+08:00">2024-05-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序语言</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/05/20/%E3%80%90Polars%E3%80%91%E5%9F%BA%E4%BA%8ERust%E5%86%85%E6%A0%B8%E7%9A%84Jupyter%20Notebook%E4%B8%AD%E7%9A%84Polars%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC%E5%91%88%E7%8E%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/05/20/%E3%80%90Polars%E3%80%91%E5%9F%BA%E4%BA%8ERust%E5%86%85%E6%A0%B8%E7%9A%84Jupyter%20Notebook%E4%B8%AD%E7%9A%84Polars%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC%E5%91%88%E7%8E%B0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>为了在<code>Jupyter Notebook</code>中使用<code>Rust</code>和<code>Polars</code>库以类似于<code>Pandas</code>的方式输出<code>HTML</code>表格，我们可以使用 <code>evcxr_jupyter</code> 内核和<code>HTML</code>格式化。虽然<code>Rust</code>没有直接提供像<code>Pandas</code>那样的内置<code>HTML</code>表格输出，但我们可以通过手动构建<code>HTML</code>表格并在<code>Jupyter Notebook</code>中显示来实现这一点。</p>
+<p>以下是一个详细的指南和示例代码：</p>
+<h3 id="安装和设置">安装和设置</h3>
+<ol type="1">
+<li><p><strong>安装 Rust 和 <code>evcxr_jupyter</code> 内核</strong> 首先，确保你已经安装了<code>Rust</code>，然后安装 <code>evcxr_jupyter</code>。 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cargo install evcxr_jupyter</span><br><span class="line">evcxr_jupyter --install</span><br></pre></td></tr></table></figure></p></li>
+<li><p><strong>启动 Jupyter Notebook</strong> 启动<code>Jupyter Notebook</code>并新建一个<code>Rust</code>内核的笔记。</p></li>
+</ol>
+<h3 id="编写代码">编写代码</h3>
+<p>以下是一个使用<code>Polars</code>库创建<code>DataFrame</code>并生成<code>HTML</code>表格的示例代码： <figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">:dep polars = &#123;version = <span class="string">&quot;0.39.1&quot;</span>&#125;</span><br><span class="line">:dep serde_json = <span class="string">&quot;1.0&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> polars::prelude::*;</span><br><span class="line"><span class="keyword">use</span> polars::df;</span><br><span class="line"><span class="keyword">use</span> polars::frame::DataFrame;</span><br><span class="line"><span class="keyword">use</span> serde_json::json;</span><br><span class="line"><span class="keyword">use</span> std::fmt::Write;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">create_dataframe</span></span>() -&gt; DataFrame &#123;</span><br><span class="line">    <span class="keyword">let</span> s0 = Series::new(<span class="string">&quot;days&quot;</span>, &amp;[<span class="string">&quot;mon&quot;</span>, <span class="string">&quot;tue&quot;</span>, <span class="string">&quot;wed&quot;</span>, <span class="string">&quot;thu&quot;</span>, <span class="string">&quot;fri&quot;</span>]);</span><br><span class="line">    <span class="keyword">let</span> s1 = Series::new(<span class="string">&quot;temp&quot;</span>, &amp;[<span class="number">23</span>, <span class="number">34</span>, <span class="number">15</span>, <span class="number">30</span>, <span class="number">10</span>]);</span><br><span class="line">    DataFrame::new(<span class="built_in">vec!</span>[s0, s1]).expect(<span class="string">&quot;DataFrame creation failed&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">dataframe_to_html</span></span>(df: &amp;DataFrame) &#123;</span><br><span class="line">    <span class="keyword">let</span> columns = df.get_columns();</span><br><span class="line">    <span class="keyword">let</span> headers: <span class="built_in">Vec</span>&lt;&amp;<span class="built_in">str</span>&gt; = columns.iter().map(|s| s.name()).collect();</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> html = <span class="built_in">String</span>::new();</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">write!</span>(</span><br><span class="line">        html,</span><br><span class="line">        <span class="string">&quot;&lt;table border=\&quot;1\&quot;&gt;&lt;tr&gt;&#123;&#125;&lt;/tr&gt;&quot;</span>,</span><br><span class="line">        headers</span><br><span class="line">            .iter()</span><br><span class="line">            .map(|h| <span class="built_in">format!</span>(<span class="string">&quot;&lt;th&gt;&#123;&#125;&lt;/th&gt;&quot;</span>, h))</span><br><span class="line">            .collect::&lt;<span class="built_in">Vec</span>&lt;<span class="built_in">String</span>&gt;&gt;()</span><br><span class="line">            .join(<span class="string">&quot;&quot;</span>)</span><br><span class="line">    )</span><br><span class="line">    .unwrap();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..df.height() &#123;</span><br><span class="line">        <span class="built_in">write!</span>(html, <span class="string">&quot;&lt;tr&gt;&quot;</span>).unwrap();</span><br><span class="line">        <span class="keyword">for</span> col <span class="keyword">in</span> columns.iter() &#123;</span><br><span class="line">            <span class="built_in">write!</span>(html, <span class="string">&quot;&lt;td&gt;&#123;&#125;&lt;/td&gt;&quot;</span>, col.get(i).unwrap()).unwrap();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">write!</span>(html, <span class="string">&quot;&lt;/tr&gt;&quot;</span>).unwrap();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">write!</span>(html, <span class="string">&quot;&lt;/table&gt;&quot;</span>).unwrap();</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;EVCXR_BEGIN_CONTENT text/html\n&#123;&#125;\nEVCXR_END_CONTENT&quot;</span>, html);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> df = create_dataframe();</span><br><span class="line"><span class="keyword">let</span> html_table = dataframe_to_html(&amp;df);</span><br><span class="line">html_table</span><br></pre></td></tr></table></figure></p>
+<h3 id="解释代码">解释代码</h3>
+<ol type="1">
+<li><p><strong>加载依赖项</strong> 在 <code>Jupyter Notebook</code>中，我们使用 <code>:dep</code> 命令来添加所需的依赖项：<code>polars</code> 和 <code>serde_json</code>。</p></li>
+<li><p><strong>创建 DataFrame</strong> 函数 <code>create_dataframe</code> 创建了一个简单的<code>DataFrame</code>，包含两个列：<code>days</code> 和 <code>temp</code>。</p></li>
+<li><p><strong>生成 HTML 表格</strong> 函数 <code>dataframe_to_html</code> 将<code>DataFrame</code>转换为<code>HTML</code>表格格式：</p>
+<ul>
+<li>获取<code>DataFrame</code>的列并生成表头。</li>
+<li>遍历每一行，生成表格的每一行数据。</li>
+<li>使用 <code>write!</code> 宏构建<code>HTML</code>字符串。</li>
+</ul></li>
+<li><p><strong>输出 HTML 表格</strong> 最后，在<code>println!</code>函数中需要标明每个块以包含<code>EVCXR BEGIN CONTENT</code>的一行开始，然后是<code>mime</code>类型，然后是换行符，然后内容以包含<code>EVCXR END CONTENT</code>的一行结束。生成的<code>HTML</code>表格字符串被输出。<code>Jupyter Notebook</code>会自动渲染<code>HTML</code>字符串，从而显示漂亮的表格。</p></li>
+</ol>
+<h3 id="结果呈现">结果呈现</h3>
+<p><img src="https://s2.loli.net/2024/05/20/ZmYgJAPvLT4Hhp2.png" /></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2022/04/13/%E3%80%90Rust%E3%80%91Rust%E9%85%8D%E7%BD%AE%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1103,112 +1213,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2021/07/16/%E3%80%90Python%E3%80%91Pandas%E4%B8%8Enumpy%E7%9A%84%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Jun Lv">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="橘子树下">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/07/16/%E3%80%90Python%E3%80%91Pandas%E4%B8%8Enumpy%E7%9A%84%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97/" class="post-title-link" itemprop="url">【Python】Pandas与numpy的方差计算</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-07-16 22:51:24" itemprop="dateCreated datePublished" datetime="2021-07-16T22:51:24+08:00">2021-07-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-13 09:10:35" itemprop="dateModified" datetime="2021-12-13T09:10:35+08:00">2021-12-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" itemprop="url" rel="index"><span itemprop="name">量化投资</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/07/16/%E3%80%90Python%E3%80%91Pandas%E4%B8%8Enumpy%E7%9A%84%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/16/%E3%80%90Python%E3%80%91Pandas%E4%B8%8Enumpy%E7%9A%84%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="目的">目的</h1>
-<p>方差在统计描述和概率分布中各有不同的定义，并有不同的公式。<br />
-在统计描述中，方差用来计算每一个变量（观察值）与总体均数之间的差异。为避免出现离均差总和为零，离均差平方和受样本含量的影响，统计学采用平均离均差平方和来描述变量的变异程度。<br />
-<code>总体方差计算公式</code>： <span class="math inline">\({\sigma}^2=\frac{\sum_{i=1}^{N}(X_i-\bar{\mu})}{N}\)</span><br />
-其中<span class="math inline">\({\sigma}^2\)</span>为总体方差，<span class="math inline">\(X_i\)</span>为变量，<span class="math inline">\(\bar{\mu}\)</span>为总体均值，<span class="math inline">\(N\)</span>为总体例数。</p>
-<p>实际工作中，总体均数难以得到时，应用样本统计量代替总体参数，经校正后，<br />
-<code>样本方差计算公式</code>： <span class="math inline">\({S}^2=\frac{\sum_{i=1}^{N}(X_i-\bar{X})}{n-1}\)</span><br />
-其中<span class="math inline">\({S}^2\)</span>为样本方差，<span class="math inline">\(X_i\)</span>为变量，<span class="math inline">\(\bar{X}\)</span>为样本均值，<span class="math inline">\(n\)</span>为样本例数。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/07/16/%E3%80%90Python%E3%80%91Pandas%E4%B8%8Enumpy%E7%9A%84%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1280,7 +1284,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">45</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1403,59 +1407,6 @@
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 

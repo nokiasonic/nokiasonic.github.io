@@ -184,6 +184,89 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2024/11/14/%E3%80%90Sunflower%E3%80%91Dash%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%AE%9E%E8%B7%B5%EF%BC%88%E5%9B%9B%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Jun Lv">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橘子树下">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/11/14/%E3%80%90Sunflower%E3%80%91Dash%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%AE%9E%E8%B7%B5%EF%BC%88%E5%9B%9B%EF%BC%89/" class="post-title-link" itemprop="url">【Sunflower】Dash应用程序实践（四）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-11-14 09:14:53 / 修改时间：09:57:14" itemprop="dateCreated datePublished" datetime="2024-11-14T09:14:53+08:00">2024-11-14</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/11/14/%E3%80%90Sunflower%E3%80%91Dash%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%AE%9E%E8%B7%B5%EF%BC%88%E5%9B%9B%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/11/14/%E3%80%90Sunflower%E3%80%91Dash%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%AE%9E%E8%B7%B5%EF%BC%88%E5%9B%9B%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="分栏右侧显示卡">分栏右侧显示卡</h1>
+<p>下面是分栏右侧的显示卡部分，使用 tabs 来分别展示“绩效分析”及“交易明细”。</p>
+<h2 id="绩效分析">绩效分析</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">generate_display_tabs</span>():</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">:return: A Tab containing display graphs in right column</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">tabs = html.Div(</span><br><span class="line">    [</span><br><span class="line">        dbc.Tabs(</span><br><span class="line">            [</span><br><span class="line">                dbc.Tab(label=<span class="string">&quot;绩效分析&quot;</span>, tab_id=<span class="string">&quot;tab-summary&quot;</span>),</span><br><span class="line">                dbc.Tab(label=<span class="string">&quot;交易明细&quot;</span>, tab_id=<span class="string">&quot;tab-details&quot;</span>),</span><br><span class="line">            ],</span><br><span class="line">            <span class="built_in">id</span>=<span class="string">&quot;tabs&quot;</span>,</span><br><span class="line">            active_tab=<span class="string">&quot;tab-summary&quot;</span>,</span><br><span class="line">        ),</span><br><span class="line">        html.Div(<span class="built_in">id</span>=<span class="string">&quot;tabs-content&quot;</span>, children=generate_tab_summary_content()),</span><br><span class="line">    ],</span><br><span class="line">)</span><br><span class="line"><span class="keyword">return</span> tabs</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">generate_tab_summary_content</span>():</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    :return: A Tab containing display graphs in right column</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    df = pd.DataFrame(</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;指标&quot;</span>: [<span class="string">&quot;alpha&quot;</span>, <span class="string">&quot;beta&quot;</span>, <span class="string">&quot;夏普比率&quot;</span>, <span class="string">&quot;信息比率&quot;</span>, <span class="string">&quot;年化收益&quot;</span>, <span class="string">&quot;最大回撤&quot;</span>, <span class="string">&quot;胜率&quot;</span>, <span class="string">&quot;利润&quot;</span>, <span class="string">&quot;持续时间&quot;</span>],</span><br><span class="line">        <span class="string">&quot;值&quot;</span>: [<span class="string">&quot;0.0&quot;</span>, <span class="string">&quot;0.11&quot;</span>, <span class="string">&quot;-0.04&quot;</span>, <span class="string">&quot;0.0&quot;</span>, <span class="string">&quot;0.0263&quot;</span>, <span class="string">&quot;0.05&quot;</span>, <span class="string">&quot;0.56&quot;</span>, <span class="string">&quot;2637.7&quot;</span>, <span class="string">&quot;190&quot;</span>],</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">    tab_summary_content = html.Div(</span><br><span class="line">        <span class="built_in">id</span>=<span class="string">&quot;tab_summary_content&quot;</span>,</span><br><span class="line">        children=[</span><br><span class="line">            html.Br(),</span><br><span class="line">            html.Div(</span><br><span class="line">                <span class="built_in">id</span>=<span class="string">&quot;performance&quot;</span>,</span><br><span class="line">                children=[</span><br><span class="line">                    dbc.Label(<span class="string">&quot;组合表现&quot;</span>),</span><br><span class="line">                    dcc.Graph(<span class="built_in">id</span>=<span class="string">&quot;performance-chart&quot;</span>, figure=initialize_performance_chart(),</span><br><span class="line">                    )</span><br><span class="line">                ],</span><br><span class="line">            ),</span><br><span class="line">            html.Br(),</span><br><span class="line">            html.Div(</span><br><span class="line">                <span class="built_in">id</span>=<span class="string">&quot;indicator&quot;</span>,</span><br><span class="line">                children=[</span><br><span class="line">                    dbc.Label(<span class="string">&quot;风险分析&quot;</span>),</span><br><span class="line">                    dbc.Table.from_dataframe(df, striped=<span class="literal">True</span>, bordered=<span class="literal">True</span>, hover=<span class="literal">True</span>)</span><br><span class="line">                ],</span><br><span class="line">            ),</span><br><span class="line">        ],</span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">return</span> tab_summary_content</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/11/14/%E3%80%90Sunflower%E3%80%91Dash%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%AE%9E%E8%B7%B5%EF%BC%88%E5%9B%9B%EF%BC%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2024/11/12/%E3%80%90Sunflower%E3%80%91Dash%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%AE%9E%E8%B7%B5%EF%BC%88%E4%B8%89%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1066,116 +1149,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2024/05/20/%E3%80%90Polars%E3%80%91%E5%9F%BA%E4%BA%8ERust%E5%86%85%E6%A0%B8%E7%9A%84Jupyter%20Notebook%E4%B8%AD%E7%9A%84Polars%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC%E5%91%88%E7%8E%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Jun Lv">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="橘子树下">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/05/20/%E3%80%90Polars%E3%80%91%E5%9F%BA%E4%BA%8ERust%E5%86%85%E6%A0%B8%E7%9A%84Jupyter%20Notebook%E4%B8%AD%E7%9A%84Polars%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC%E5%91%88%E7%8E%B0/" class="post-title-link" itemprop="url">【Polars】基于Rust内核的Jupyter Notebook中的Polars数据表格呈现</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-05-20 20:57:44" itemprop="dateCreated datePublished" datetime="2024-05-20T20:57:44+08:00">2024-05-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-05-25 15:44:26" itemprop="dateModified" datetime="2024-05-25T15:44:26+08:00">2024-05-25</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">程序语言</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2024/05/20/%E3%80%90Polars%E3%80%91%E5%9F%BA%E4%BA%8ERust%E5%86%85%E6%A0%B8%E7%9A%84Jupyter%20Notebook%E4%B8%AD%E7%9A%84Polars%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC%E5%91%88%E7%8E%B0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/05/20/%E3%80%90Polars%E3%80%91%E5%9F%BA%E4%BA%8ERust%E5%86%85%E6%A0%B8%E7%9A%84Jupyter%20Notebook%E4%B8%AD%E7%9A%84Polars%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC%E5%91%88%E7%8E%B0/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>为了在<code>Jupyter Notebook</code>中使用<code>Rust</code>和<code>Polars</code>库以类似于<code>Pandas</code>的方式输出<code>HTML</code>表格，我们可以使用 <code>evcxr_jupyter</code> 内核和<code>HTML</code>格式化。虽然<code>Rust</code>没有直接提供像<code>Pandas</code>那样的内置<code>HTML</code>表格输出，但我们可以通过手动构建<code>HTML</code>表格并在<code>Jupyter Notebook</code>中显示来实现这一点。</p>
-<p>以下是一个详细的指南和示例代码：</p>
-<h3 id="安装和设置">安装和设置</h3>
-<ol type="1">
-<li><p><strong>安装 Rust 和 <code>evcxr_jupyter</code> 内核</strong> 首先，确保你已经安装了<code>Rust</code>，然后安装 <code>evcxr_jupyter</code>。 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cargo install evcxr_jupyter</span><br><span class="line">evcxr_jupyter --install</span><br></pre></td></tr></table></figure></p></li>
-<li><p><strong>启动 Jupyter Notebook</strong> 启动<code>Jupyter Notebook</code>并新建一个<code>Rust</code>内核的笔记。</p></li>
-</ol>
-<h3 id="编写代码">编写代码</h3>
-<p>以下是一个使用<code>Polars</code>库创建<code>DataFrame</code>并生成<code>HTML</code>表格的示例代码： <figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">:dep polars = &#123;version = <span class="string">&quot;0.39.1&quot;</span>&#125;</span><br><span class="line">:dep serde_json = <span class="string">&quot;1.0&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> polars::prelude::*;</span><br><span class="line"><span class="keyword">use</span> polars::df;</span><br><span class="line"><span class="keyword">use</span> polars::frame::DataFrame;</span><br><span class="line"><span class="keyword">use</span> serde_json::json;</span><br><span class="line"><span class="keyword">use</span> std::fmt::Write;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">create_dataframe</span></span>() -&gt; DataFrame &#123;</span><br><span class="line">    <span class="keyword">let</span> s0 = Series::new(<span class="string">&quot;days&quot;</span>, &amp;[<span class="string">&quot;mon&quot;</span>, <span class="string">&quot;tue&quot;</span>, <span class="string">&quot;wed&quot;</span>, <span class="string">&quot;thu&quot;</span>, <span class="string">&quot;fri&quot;</span>]);</span><br><span class="line">    <span class="keyword">let</span> s1 = Series::new(<span class="string">&quot;temp&quot;</span>, &amp;[<span class="number">23</span>, <span class="number">34</span>, <span class="number">15</span>, <span class="number">30</span>, <span class="number">10</span>]);</span><br><span class="line">    DataFrame::new(<span class="built_in">vec!</span>[s0, s1]).expect(<span class="string">&quot;DataFrame creation failed&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">dataframe_to_html</span></span>(df: &amp;DataFrame) &#123;</span><br><span class="line">    <span class="keyword">let</span> columns = df.get_columns();</span><br><span class="line">    <span class="keyword">let</span> headers: <span class="built_in">Vec</span>&lt;&amp;<span class="built_in">str</span>&gt; = columns.iter().map(|s| s.name()).collect();</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> html = <span class="built_in">String</span>::new();</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">write!</span>(</span><br><span class="line">        html,</span><br><span class="line">        <span class="string">&quot;&lt;table border=\&quot;1\&quot;&gt;&lt;tr&gt;&#123;&#125;&lt;/tr&gt;&quot;</span>,</span><br><span class="line">        headers</span><br><span class="line">            .iter()</span><br><span class="line">            .map(|h| <span class="built_in">format!</span>(<span class="string">&quot;&lt;th&gt;&#123;&#125;&lt;/th&gt;&quot;</span>, h))</span><br><span class="line">            .collect::&lt;<span class="built_in">Vec</span>&lt;<span class="built_in">String</span>&gt;&gt;()</span><br><span class="line">            .join(<span class="string">&quot;&quot;</span>)</span><br><span class="line">    )</span><br><span class="line">    .unwrap();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..df.height() &#123;</span><br><span class="line">        <span class="built_in">write!</span>(html, <span class="string">&quot;&lt;tr&gt;&quot;</span>).unwrap();</span><br><span class="line">        <span class="keyword">for</span> col <span class="keyword">in</span> columns.iter() &#123;</span><br><span class="line">            <span class="built_in">write!</span>(html, <span class="string">&quot;&lt;td&gt;&#123;&#125;&lt;/td&gt;&quot;</span>, col.get(i).unwrap()).unwrap();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">write!</span>(html, <span class="string">&quot;&lt;/tr&gt;&quot;</span>).unwrap();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">write!</span>(html, <span class="string">&quot;&lt;/table&gt;&quot;</span>).unwrap();</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;EVCXR_BEGIN_CONTENT text/html\n&#123;&#125;\nEVCXR_END_CONTENT&quot;</span>, html);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> df = create_dataframe();</span><br><span class="line"><span class="keyword">let</span> html_table = dataframe_to_html(&amp;df);</span><br><span class="line">html_table</span><br></pre></td></tr></table></figure></p>
-<h3 id="解释代码">解释代码</h3>
-<ol type="1">
-<li><p><strong>加载依赖项</strong> 在 <code>Jupyter Notebook</code>中，我们使用 <code>:dep</code> 命令来添加所需的依赖项：<code>polars</code> 和 <code>serde_json</code>。</p></li>
-<li><p><strong>创建 DataFrame</strong> 函数 <code>create_dataframe</code> 创建了一个简单的<code>DataFrame</code>，包含两个列：<code>days</code> 和 <code>temp</code>。</p></li>
-<li><p><strong>生成 HTML 表格</strong> 函数 <code>dataframe_to_html</code> 将<code>DataFrame</code>转换为<code>HTML</code>表格格式：</p>
-<ul>
-<li>获取<code>DataFrame</code>的列并生成表头。</li>
-<li>遍历每一行，生成表格的每一行数据。</li>
-<li>使用 <code>write!</code> 宏构建<code>HTML</code>字符串。</li>
-</ul></li>
-<li><p><strong>输出 HTML 表格</strong> 最后，在<code>println!</code>函数中需要标明每个块以包含<code>EVCXR BEGIN CONTENT</code>的一行开始，然后是<code>mime</code>类型，然后是换行符，然后内容以包含<code>EVCXR END CONTENT</code>的一行结束。生成的<code>HTML</code>表格字符串被输出。<code>Jupyter Notebook</code>会自动渲染<code>HTML</code>字符串，从而显示漂亮的表格。</p></li>
-</ol>
-<h3 id="结果呈现">结果呈现</h3>
-<p><img src="https://s2.loli.net/2024/05/20/ZmYgJAPvLT4Hhp2.png" /></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1247,7 +1220,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">45</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
