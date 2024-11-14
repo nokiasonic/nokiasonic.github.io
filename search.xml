@@ -4559,6 +4559,9 @@ code
 <p>【1】<a href="https://dash.plotly.com/">Dash Documentation &amp; User Guide | Plotly</a><br />
 【2】<a href="https://dash-bootstrap-components.opensource.faculty.ai/docs/">dbc docs</a></p>
 ]]></content>
+      <categories>
+        <category>量化交易</category>
+      </categories>
   </entry>
   <entry>
     <title>【Rust】Rust配置日志记录</title>
