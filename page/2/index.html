@@ -184,6 +184,110 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2024/05/29/%E3%80%90Python%E3%80%91PyMongoArrow%E5%AE%9E%E8%B7%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Jun Lv">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橘子树下">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/05/29/%E3%80%90Python%E3%80%91PyMongoArrow%E5%AE%9E%E8%B7%B5/" class="post-title-link" itemprop="url">【Python】PyMongoArrow实践</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-05-29 17:01:42" itemprop="dateCreated datePublished" datetime="2024-05-29T17:01:42+08:00">2024-05-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-06-06 19:11:49" itemprop="dateModified" datetime="2024-06-06T19:11:49+08:00">2024-06-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">软件工程</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/05/29/%E3%80%90Python%E3%80%91PyMongoArrow%E5%AE%9E%E8%B7%B5/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/05/29/%E3%80%90Python%E3%80%91PyMongoArrow%E5%AE%9E%E8%B7%B5/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="pymongoarrow简介"><code>PyMongoArrow</code>简介</h1>
+<p><code>PyMongoArrow</code> 是 <a target="_blank" rel="noopener" href="http://pymongo.readthedocs.io/">PyMongo</a> 包含用于加载 <a target="_blank" rel="noopener" href="http://www.mongodb.org/">MongoDB</a> 的工具的扩展,以 <a target="_blank" rel="noopener" href="http://arrow.apache.org/">Apache Arrow</a> 形式查询结果集、 表格、 <a target="_blank" rel="noopener" href="https://numpy.org/">NumPy</a> 数组和 <a target="_blank" rel="noopener" href="https://pandas.pydata.org/">Pandas</a> 或 <a target="_blank" rel="noopener" href="https://pola.rs/">Polars</a> DataFrames。 <code>PyMongoArrow</code> 是将 <code>MongoDB</code> 查询结果集物化为适合内存中分析处理应用程序的连续内存类型数组的推荐方法。[^1] 1. <code>PyMongoArrow</code>使用手册[^2]</p>
+<ol start="2" type="1">
+<li><code>PyMongoArrow</code>简明教程[^3]</li>
+</ol>
+<h1 id="安装">安装</h1>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pymongoarrow</span><br></pre></td></tr></table></figure>
+<p>或 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install --channel conda-forge pymongoarrow</span><br></pre></td></tr></table></figure></p>
+<h1 id="使用">使用</h1>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymongoarrow</span><br><span class="line"><span class="keyword">import</span> pymongo</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> polars <span class="keyword">as</span> pl</span><br><span class="line"><span class="keyword">from</span> pymongoarrow.monkey <span class="keyword">import</span> patch_all</span><br><span class="line"></span><br><span class="line"><span class="comment"># establish connection with our MongoDB database</span></span><br><span class="line">client = pymongo.MongoClient(<span class="string">&#x27;localhost&#x27;</span>, <span class="number">27017</span>)</span><br><span class="line">db = client[<span class="string">&#x27;quantaxis&#x27;</span>]</span><br><span class="line">collection = db[<span class="string">&#x27;stock_day&#x27;</span>]</span><br><span class="line">patch_all()</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/05/29/%E3%80%90Python%E3%80%91PyMongoArrow%E5%AE%9E%E8%B7%B5/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2024/05/20/%E3%80%90Polars%E3%80%91%E5%9F%BA%E4%BA%8ERust%E5%86%85%E6%A0%B8%E7%9A%84Jupyter%20Notebook%E4%B8%AD%E7%9A%84Polars%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC%E5%91%88%E7%8E%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1102,126 +1206,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://nokiasonic.github.io/2021/07/17/%E8%B4%9D%E5%A1%94%E6%94%B6%E7%9B%8A(%CE%B2)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Jun Lv">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="橘子树下">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/07/17/%E8%B4%9D%E5%A1%94%E6%94%B6%E7%9B%8A(%CE%B2)/" class="post-title-link" itemprop="url">贝塔收益(β)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-07-17 10:26:24" itemprop="dateCreated datePublished" datetime="2021-07-17T10:26:24+08:00">2021-07-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-14 10:15:43" itemprop="dateModified" datetime="2024-11-14T10:15:43+08:00">2024-11-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%87%8F%E5%8C%96%E4%BA%A4%E6%98%93/" itemprop="url" rel="index"><span itemprop="name">量化交易</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/07/17/%E8%B4%9D%E5%A1%94%E6%94%B6%E7%9B%8A(%CE%B2)/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/17/%E8%B4%9D%E5%A1%94%E6%94%B6%E7%9B%8A(%CE%B2)/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="目的">目的</h1>
-<p>在量化分析中，经常会需要获取 <span class="math inline">\(\beta\)</span> (贝塔收益或贝塔系数），那该如何查询或计算该系数呢？</p>
-<h2 id="贝塔β的含义">贝塔(β)的含义</h2>
-<p>贝塔系数衡量了个股或基金相对于整个股市的波动情况。</p>
-<table>
-<thead>
-<tr class="header">
-<th>β范围</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>β=1</td>
-<td>股票或基金的风险收益率与市场平均风险收益率相同</td>
-</tr>
-<tr class="even">
-<td>β&gt;1</td>
-<td>股票或基金的风险相较于市场平均更大</td>
-</tr>
-<tr class="odd">
-<td>β&lt;1</td>
-<td>股票或基金的风险相较于市场平均更小</td>
-</tr>
-</tbody>
-</table>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/07/17/%E8%B4%9D%E5%A1%94%E6%94%B6%E7%9B%8A(%CE%B2)/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1293,20 +1277,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

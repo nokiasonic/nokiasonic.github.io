@@ -7920,4 +7920,74 @@ code
         <tag>plotly</tag>
       </tags>
   </entry>
+  <entry>
+    <title>阿尔法收益(α)</title>
+    <url>/2024/11/12/%E9%98%BF%E5%B0%94%E6%B3%95%E6%94%B6%E7%9B%8A(%CE%B1)/</url>
+    <content><![CDATA[<p><strong>阿尔法 (Alpha)</strong><br />
+<code>Alpha</code> 或 <span class="math inline">\(\alpha\)</span>，指的是一种投资相对于基准指数或市场基准的超额收益。Alpha 是投资策略成功与否的指标之一，反映了投资经理或投资策略在控制风险的前提下，相比基准市场（如标普 500 指数、沪深 300 等）创造的额外价值。 在金融分析中，<strong>Alpha 收益</strong>（Alpha Return）指的是一种投资相对于基准指数或市场基准的超额收益。Alpha 是投资策略成功与否的指标之一，反映了投资经理或投资策略在控制风险的前提下，相比基准市场（如标普 500 指数、沪深 300 等）创造的额外价值。</p>
+<h3 id="alpha-的定义">Alpha 的定义</h3>
+<p>Alpha 的计算公式如下：</p>
+<blockquote>
+<p><span class="math inline">\(\large \begin{equation} \alpha = R_p - (R_f + \beta \times (R_m - R_f)) \end{equation}\)</span></p>
+</blockquote>
+<p>其中： - <span class="math inline">\(R_p\)</span> 是投资组合的总收益率； - <span class="math inline">\(R_f\)</span> 是无风险利率； - <span class="math inline">\(\beta\)</span> 是投资组合对市场波动的敏感度，表示该组合的系统性风险； - <span class="math inline">\(R_m\)</span> 是基准市场的收益率。</p>
+<p>Alpha 代表了在控制了市场波动（即 Beta）的基础上，投资组合还能产生多少超额收益。这个超额收益体现了投资策略的有效性，也可以被视为投资经理增加的附加价值。</p>
+<h3 id="alpha-的意义">Alpha 的意义</h3>
+<table>
+<thead>
+<tr class="header">
+<th>α范围</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>α=0</td>
+<td>表明该投资策略准确地反映其内在价值</td>
+</tr>
+<tr class="even">
+<td>α&gt;0</td>
+<td>表明投资策略在一定的风险水平下跑赢了基准，显示出超额收益。</td>
+</tr>
+<tr class="odd">
+<td>α&lt;0</td>
+<td>表明该投资策略未能跑赢基准指数，收益不理想。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Alpha 的大小</strong>：Alpha 越高，说明投资策略的效果越显著，其回报越高，通常是投资经理投资能力的体现。</p>
+<h3 id="alpha-收益在投资策略中的应用">Alpha 收益在投资策略中的应用</h3>
+<ul>
+<li><strong>业绩评估</strong>：用于衡量投资经理或基金的表现，看其是否能够在控制风险的前提下为投资者带来超额收益。</li>
+<li><strong>策略优化</strong>：通过分析 Alpha，可以改进投资策略，找出在特定市场条件下的最佳组合。</li>
+<li><strong>风险管理</strong>：与 Beta 收益不同，Alpha 收益反映的是对特定市场条件的相对表现，帮助管理特定市场风险。</li>
+</ul>
+<p>简而言之，Alpha 收益是投资策略的一个关键表现指标，用于衡量相对于市场的主动管理效果，是投资管理中分析和评估超额收益的重要工具。</p>
+<h3 id="计算实例">计算实例</h3>
+<p>使用 MACD 金叉死叉策略回测，时间段为 <code>2024-01-05</code> 至 <code>2024-10-23</code>。基准市场为沪深300。十年期国债收益率为 2.25%。</p>
+<h4 id="从数据库载入回测账户数据">从数据库载入回测账户数据</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sf_account.account <span class="keyword">import</span> Account</span><br><span class="line"></span><br><span class="line">account = <span class="string">&#x27;test&#x27;</span></span><br><span class="line">portfolio = <span class="string">&#x27;s-pandas-qfq&#x27;</span></span><br><span class="line">acc = Account(account_cookie=account, portfolio_cookie=portfolio)</span><br><span class="line">df_asset = acc.assets.get(<span class="string">&#x27;asset&#x27;</span>).reset_index()</span><br><span class="line">return_asset = df_asset[<span class="string">&#x27;balance&#x27;</span>] / (asset_init_cash * <span class="number">1.0</span>) - <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h4 id="载入基准沪深-300-同时间段行情数据">载入基准沪深 300 同时间段行情数据</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sf_query.query <span class="keyword">import</span> fetch_index_day</span><br><span class="line"></span><br><span class="line">df_hs300 = fetch_index_day(</span><br><span class="line">    [<span class="string">&#x27;000300&#x27;</span>], acc.start_date, acc.end_date, dataset_type=<span class="string">&#x27;pandas&#x27;</span>).reset_index()</span><br><span class="line">return_hs300 = df_hs300[<span class="string">&#x27;close&#x27;</span>] / df_hs300[<span class="string">&#x27;close&#x27;</span>].iloc[<span class="number">0</span>] - <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h4 id="计算β值">计算β值</h4>
+<p>Beta 系数计算方式如下：</p>
+<blockquote>
+<p><span class="math inline">\(\large \begin{equation} \beta_i = \frac{标的资产 i 的收益与市场收益的协方差}{市场收益的方差} = \frac{Cov (r_i, r_m)}{\sigma_m^2} \end{equation}\)</span></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 计算两者的协方差</span></span><br><span class="line">covr = return_asset.cov(return_hs300)</span><br><span class="line"><span class="comment"># 计算沪深300指数数据的方差, pandas计算的为样本方差</span></span><br><span class="line">var = return_hs300.var()</span><br><span class="line"><span class="comment"># 计算贝塔值</span></span><br><span class="line">beta = covr / var</span><br><span class="line">print(<span class="string">&quot;Covariance:&#123;&#125;,Variance:&#123;&#125;,Beta:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(covr, var, beta))</span><br></pre></td></tr></table></figure>
+<p>输出为：<strong><em>Covariance: 3.996268373876412e-05,Variance: 0.0031905766470259685,Beta: 0.012525222917310114</em></strong></p>
+<h4 id="计算α值">计算α值</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">rp = annual_return_portfolio</span><br><span class="line">rf = <span class="number">0.0225</span></span><br><span class="line">rm = annual_return_hs300</span><br><span class="line">alpha = rp - (rf + beta * (rm - rf))</span><br><span class="line">print(<span class="string">f&quot;Alpha:<span class="subst">&#123;alpha&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>输出为：<strong><em>Alpha:-0.01486024492682044</em></strong></p>
+<h1 id="参考">参考</h1>
+<p>【1】 <a href="https://nokiasonic.github.io/2021/07/16/%E3%80%90Python%E3%80%91Pandas%E4%B8%8Enumpy%E7%9A%84%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97/">【Python】Pandas与numpy的方差计算 | 橘子树下</a></p>
+<p>【2】 <a href="https://nokiasonic.github.io/2021/07/16/%E3%80%90Python%E3%80%91Pandas%E4%B9%8Bdataframe%E4%B8%8Eseries%E7%9A%84%E5%8D%8F%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97/">【Python】Pandas之dataframe与series的协方差计算 | 橘子树下</a></p>
+]]></content>
+      <categories>
+        <category>xxxx</category>
+      </categories>
+      <tags>
+        <tag>xxxx/xxx</tag>
+      </tags>
+  </entry>
 </search>
